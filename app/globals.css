@@ -248,33 +248,6 @@ table.t { width: 100%; border-collapse: collapse; font-size: 14px; }
 .night:first-child { margin-top: 0; }
 .night h2 { font-size: 26px; }
 
-/* player-perspective rows (profile) */
-.pgame {
-  display: grid;
-  grid-template-columns: 6px 92px auto minmax(110px, 0.9fr) minmax(120px, 1fr) auto;
-  align-items: center; gap: 16px;
-  padding: 10px 16px 10px 0; border-radius: var(--r-md); overflow: hidden;
-  background: var(--deck); border: 1px solid var(--line-soft);
-}
-.pgame.won { background: linear-gradient(90deg, var(--blue-wash), var(--deck) 45%); }
-.pgame.lost { background: linear-gradient(90deg, var(--red-wash), var(--deck) 45%); }
-.pgame .edge { align-self: stretch; }
-.pgame.won .edge { background: var(--blue); }
-.pgame.lost .edge { background: var(--red); }
-.pgame:hover { border-color: var(--line); }
-.pgame .res { font-weight: 800; font-size: 14px; }
-.pgame.won .res { color: var(--blue-ink); }
-.pgame.lost .res { color: var(--red-ink); }
-.pgame .meta { font-size: 12px; color: var(--mute); line-height: 1.4; }
-.pgame .big-kda { font-size: 17px; font-weight: 700; }
-.pgame .kda-sub { font-size: 12px; color: var(--mute); }
-.spells { display: grid; grid-template-columns: 1fr; gap: 2px; }
-.spells.two { grid-template-columns: 1fr 1fr; }
-@media (max-width: 760px) {
-  .pgame { grid-template-columns: 5px 70px auto 1fr; gap: 12px; }
-  .pgame > :nth-child(n + 5) { display: none; }
-}
-
 /* ---------- side panel lists (records, mates) ---------- */
 
 .list { display: flex; flex-direction: column; }
@@ -379,3 +352,138 @@ table.t { width: 100%; border-collapse: collapse; font-size: 14px; }
 .steps code, .notes code { background: var(--deck-2); padding: 1px 6px; border-radius: var(--r-sm); font-size: 13px; }
 .steps a.btn { display: inline-block; color: #08111f; }
 .notes { margin: 10px 0 0; padding-left: 18px; color: var(--mute); font-size: 14px; display: flex; flex-direction: column; gap: 8px; }
+
+/* ---------- header search ---------- */
+
+.top-search { margin-left: auto; width: 270px; flex: none; }
+.psearch { position: relative; display: flex; }
+.psearch input {
+  width: 100%; font: inherit; font-size: 14px; color: var(--ink);
+  background: var(--deck); border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 40px 8px 16px;
+}
+.psearch input::placeholder { color: var(--faint); }
+.psearch input:focus { outline: none; border-color: var(--blue); background: var(--deck-2); }
+.psearch input::-webkit-search-cancel-button { display: none; }
+.psearch button {
+  position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+  width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: var(--mute);
+  display: grid; place-items: center; cursor: pointer;
+}
+.psearch button:hover { color: var(--ink); }
+.psearch.big input { font-size: 17px; padding: 14px 52px 14px 20px; }
+.psearch.big button { width: 42px; height: 42px; right: 6px; background: var(--blue); color: #08111f; }
+@media (max-width: 1000px) { .top-search { width: 200px; } }
+@media (max-width: 760px) { .top-search { display: none; } }
+
+/* ---------- players table ---------- */
+
+.players-t th a { color: var(--faint); }
+.players-t th a:hover, .players-t th a.sorted { color: var(--ink); }
+.players-t th a.sorted::after { content: " ↓"; }
+.players-t td b { font-weight: 700; }
+
+/* ---------- profile tabs and filters ---------- */
+
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line-soft); margin: -8px 0 26px; }
+.tabs a { padding: 10px 14px; color: var(--mute); font-weight: 600; font-size: 14px; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabs a:hover { color: var(--ink); }
+.tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--gold); }
+.tabs a:last-child { margin-left: auto; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 6px; border-radius: 999px;
+  background: var(--deck); border: 1px solid var(--line-soft); font-size: 13px; color: var(--mute);
+}
+.chip:not(:has(img)) { padding-left: 12px; }
+.chip img { border-radius: 50%; }
+.chip:hover { color: var(--ink); border-color: var(--line); }
+.chip.on { background: var(--deck-2); border-color: var(--blue); color: var(--ink); }
+
+/* ---------- recent games summary ---------- */
+
+.recent { padding: 14px 18px 16px; }
+.recent-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.recent-body { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+.ring-wrap { position: relative; width: 84px; height: 84px; flex: none; }
+.ring-label { position: absolute; inset: 0; display: grid; place-items: center; font-size: 17px; }
+.recent-kda .avg { font-size: 17px; font-weight: 700; }
+.recent-kda .ratio { font-family: var(--display); font-weight: 800; font-size: 28px; line-height: 1.1; }
+.recent-champs { display: flex; flex-direction: column; gap: 8px; }
+.recent-roles { display: flex; gap: 10px; margin-left: auto; align-items: flex-end; }
+.rbar { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.rbar .track { width: 10px; height: 54px; border-radius: 5px; background: var(--deck-2); display: flex; align-items: flex-end; overflow: hidden; }
+.rbar .track i { display: block; width: 100%; background: var(--gold); border-radius: 5px; }
+@media (max-width: 640px) { .recent-roles { margin-left: 0; } }
+
+/* ---------- match history rows ---------- */
+
+.mgame { border-radius: var(--r-md); }
+.mgame > summary { list-style: none; cursor: pointer; }
+.mgame > summary::-webkit-details-marker { display: none; }
+.pgame {
+  display: grid;
+  grid-template-columns: 6px 86px max-content max-content minmax(100px, 0.8fr) minmax(170px, 1fr) 16px;
+  align-items: center; gap: 12px;
+  padding: 10px 12px 10px 0; border-radius: var(--r-md); overflow: hidden;
+  background: var(--deck); border: 1px solid var(--line-soft);
+}
+.pgame.won { background: linear-gradient(90deg, var(--blue-wash), var(--deck) 45%); }
+.pgame.lost { background: linear-gradient(90deg, var(--red-wash), var(--deck) 45%); }
+.pgame .edge { align-self: stretch; }
+.pgame.won .edge { background: var(--blue); }
+.pgame.lost .edge { background: var(--red); }
+.pgame:hover { border-color: var(--line); }
+.pgame .res { font-weight: 800; font-size: 14px; }
+.pgame.won .res { color: var(--blue-ink); }
+.pgame.lost .res { color: var(--red-ink); }
+.pgame .meta { font-size: 12px; color: var(--mute); line-height: 1.45; }
+.pgame .big-kda { font-size: 17px; font-weight: 700; }
+.pgame .kda-sub { font-size: 12px; color: var(--mute); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.badge.multi { background: var(--red); color: #fff; }
+.spells { display: grid; grid-template-columns: 1fr; gap: 2px; }
+.spells.two { grid-template-columns: 1fr 1fr; }
+.lineup { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; min-width: 0; }
+.lineup-col { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.lp { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--mute); min-width: 0; }
+.lp img { border-radius: 3px; }
+.lp.me { color: var(--ink); font-weight: 700; }
+.chev { color: var(--faint); display: grid; place-items: center; }
+.mgame[open] .chev { transform: rotate(180deg); color: var(--ink); }
+.mgame[open] > summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.mgame-detail { padding: 10px 0 4px; }
+.mgame-detail .board { margin-bottom: 10px; }
+.board.compact .board-head h2 { font-size: 20px; }
+.board .t tr.me td { background: rgba(227, 184, 102, 0.07); }
+.board .t tr.me .pname { color: var(--gold); }
+.kda-col { display: flex; flex-direction: column; gap: 3px; }
+.kda-col .items { margin-top: 4px; }
+.pgame > .row { flex: none; }
+.spells.two { grid-template-columns: repeat(2, max-content); }
+@media (max-width: 1100px) {
+  .pgame { grid-template-columns: 6px 86px max-content max-content minmax(100px, 1fr) 16px; }
+  .pgame .lineup { display: none; }
+}
+@media (max-width: 700px) {
+  .pgame { grid-template-columns: 5px 70px max-content 1fr 16px; gap: 10px; }
+  .pgame > .pstats { display: none; }
+  .kda-col .items { display: none; }
+}
+
+/* ---------- multikills ---------- */
+
+.multis { display: grid; grid-template-columns: repeat(4, 1fr); }
+.multi { padding: 14px 10px; text-align: center; border-right: 1px solid var(--line-soft); }
+.multi:last-child { border-right: 0; }
+.multi .v { font-family: var(--display); font-weight: 800; font-size: 30px; line-height: 1; }
+
+.btn.ghost { display: inline-block; background: var(--deck); color: var(--ink); border: 1px solid var(--line); }
+.btn.ghost:hover { background: var(--deck-2); }
+
+.psearch input::-webkit-calendar-picker-indicator { display: none !important; }
+.players-t th, .players-t td { padding-left: 10px; padding-right: 10px; }
+.players-t .wr { min-width: 112px; }
+.players-t .wr-bar { min-width: 50px; max-width: 64px; }
+.board.compact .dmg { min-width: 80px; }
+.board.compact .t td, .board.compact .t th { padding-left: 9px; padding-right: 9px; }

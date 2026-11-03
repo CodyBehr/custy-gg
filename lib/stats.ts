@@ -20,6 +20,12 @@ export interface ChampLine {
   cs: number;
   minutes: number;
   damage: number;
+  gold: number;
+  vision: number;
+  doubles: number;
+  triples: number;
+  quadras: number;
+  pentas: number;
 }
 
 export interface Mate {
@@ -48,6 +54,9 @@ export interface PlayerSummary {
   damageShareSum: number;
   pentas: number;
   quadras: number;
+  triples: number;
+  doubles: number;
+  largestSpree: number;
   mvps: number;
   rating: number;
   peakRating: number;
@@ -108,14 +117,14 @@ function blankPlayer(p: MatchPlayer): PlayerSummary {
   return {
     puuid: p.puuid, name: p.name, tag: p.tag, profileIcon: p.profileIcon,
     games: 0, wins: 0, kills: 0, deaths: 0, assists: 0, cs: 0, minutes: 0, damage: 0, gold: 0, vision: 0,
-    kpSum: 0, damageShareSum: 0, pentas: 0, quadras: 0, mvps: 0,
+    kpSum: 0, damageShareSum: 0, pentas: 0, quadras: 0, triples: 0, doubles: 0, largestSpree: 0, mvps: 0,
     rating: START_RATING, peakRating: START_RATING, ratingHistory: [],
     form: [], streak: 0, lastPlayed: 0, champs: [], roles: {}, mates: [],
   };
 }
 
 function blankChamp(championId: number): ChampLine {
-  return { championId, games: 0, wins: 0, kills: 0, deaths: 0, assists: 0, cs: 0, minutes: 0, damage: 0 };
+  return { championId, games: 0, wins: 0, kills: 0, deaths: 0, assists: 0, cs: 0, minutes: 0, damage: 0, gold: 0, vision: 0, doubles: 0, triples: 0, quadras: 0, pentas: 0 };
 }
 
 function addLine(line: ChampLine, p: MatchPlayer, minutes: number) {
@@ -127,6 +136,12 @@ function addLine(line: ChampLine, p: MatchPlayer, minutes: number) {
   line.cs += p.cs;
   line.minutes += minutes;
   line.damage += p.damageToChampions;
+  line.gold += p.gold;
+  line.vision += p.visionScore;
+  line.doubles += p.doubleKills;
+  line.triples += p.tripleKills;
+  line.quadras += p.quadraKills;
+  line.pentas += p.pentaKills;
 }
 
 export function buildDataset(all: Match[]): Dataset {
@@ -199,6 +214,9 @@ export function buildDataset(all: Match[]): Dataset {
       s.damageShareSum += p.damageToChampions / teamDmg;
       s.pentas += p.pentaKills;
       s.quadras += p.quadraKills;
+      s.triples += p.tripleKills;
+      s.doubles += p.doubleKills;
+      s.largestSpree = Math.max(s.largestSpree, p.largestKillingSpree);
       if (mvpOf.get(m.id) === p.puuid) s.mvps++;
       s.lastPlayed = m.playedAt;
       s.streak = p.win ? (s.streak > 0 ? s.streak + 1 : 1) : s.streak < 0 ? s.streak - 1 : -1;
@@ -310,4 +328,24 @@ export function clock(seconds: number) {
   const m = Math.floor(seconds / 60);
   const s = Math.floor(seconds % 60);
   return `${m}:${String(s).padStart(2, "0")}`;
+}
+
+/** Players whose Riot ID matches a search, best matches first. */
+export function searchPlayers(players: PlayerSummary[], query: string): PlayerSummary[] {
+  const norm = (t: string) => t.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "");
+  const q = norm(query.replace(/^#/, ""));
+  if (!q) return [];
+  const [qName, qTag] = q.includes("#") ? q.split("#", 2) : [q, ""];
+  const scored = players.map((p) => {
+    const name = norm(p.name);
+    const tag = norm(p.tag);
+    let score = 0;
+    if (qTag) score = name === qName && tag.startsWith(qTag) ? 100 : 0;
+    else if (name === q) score = 90;
+    else if (name.startsWith(q)) score = 70;
+    else if (name.includes(q)) score = 50;
+    else if (tag === q) score = 30;
+    return { p, score };
+  });
+  return scored.filter((x) => x.score > 0).sort((a, b) => b.score - a.score || b.p.games - a.p.games).map((x) => x.p);
 }

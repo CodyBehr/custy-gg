@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Big_Shoulders, Schibsted_Grotesk } from "next/font/google";
 import Link from "next/link";
 import { Nav } from "@/components/nav";
+import { PlayerSearch, type SearchOption } from "@/components/player-search";
+import { getDataset } from "@/lib/stats";
+import { AUTH_COOKIE, passwordToken, safeEqual } from "@/lib/auth";
+import { cookies } from "next/headers";
 import "./globals.css";
 
 const display = Big_Shoulders({ subsets: ["latin"], variable: "--font-display", axes: ["opsz"] });
@@ -21,7 +25,23 @@ function Brand() {
   return <>{GROUP}</>;
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+async function searchOptions(): Promise<SearchOption[]> {
+  // Behind a group password, don't hand player names to someone on the login page.
+  const expected = await passwordToken();
+  if (expected) {
+    const given = (await cookies()).get(AUTH_COOKIE)?.value ?? "";
+    if (!given || !safeEqual(given, expected)) return [];
+  }
+  try {
+    const d = await getDataset();
+    return d.players.map((p) => ({ puuid: p.puuid, label: `${p.name}#${p.tag}` }));
+  } catch {
+    return []; // database not connected yet; the pages themselves explain it
+  }
+}
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const options = await searchOptions();
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
@@ -29,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="wrap">
             <Link href="/" className="brand"><Brand /></Link>
             <Nav />
+            <div className="top-search"><PlayerSearch options={options} /></div>
           </div>
         </header>
         <main>
