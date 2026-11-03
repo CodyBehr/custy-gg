@@ -1,0 +1,6 @@
+{
+  "site_url": "https://your-site.vercel.app",
+  "ingest_key": "paste-the-INGEST_KEY-here",
+  "league_path": "",
+  "min_players": 2
+}

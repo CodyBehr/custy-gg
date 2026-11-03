@@ -1,0 +1,10 @@
+node_modules
+.next
+.env*.local
+.env
+data/
+collector/config.json
+collector/uploaded.json
+collector/collector.log
+next-env.d.ts
+*.tsbuildinfo
