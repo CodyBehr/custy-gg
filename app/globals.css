@@ -389,7 +389,17 @@ table.t { width: 100%; border-collapse: collapse; font-size: 14px; }
 .tabs a { padding: 10px 14px; color: var(--mute); font-weight: 600; font-size: 14px; border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .tabs a:hover { color: var(--ink); }
 .tabs a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--gold); }
-.tabs a:last-child { margin-left: auto; }
+.tabs-out { margin-left: auto; display: flex; gap: 6px; align-items: center; padding-bottom: 6px; }
+.tabs .out {
+  display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 12px; margin: 0; font-size: 13px; color: var(--mute);
+}
+.tabs .out:hover { color: var(--ink); border-color: var(--blue); }
+.tabs .out.opgg { color: var(--ink); background: var(--deck-2); }
+@media (max-width: 640px) {
+  .tabs { flex-wrap: wrap; }
+  .tabs-out { margin-left: 0; width: 100%; padding: 8px 0; }
+}
 
 .filters { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 .chip {

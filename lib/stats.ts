@@ -66,6 +66,7 @@ export interface PlayerSummary {
   form: boolean[];          // most recent first, up to 10
   streak: number;           // +3 = three wins in a row, -2 = two losses
   lastPlayed: number;
+  platform: string;         // server of their latest game, e.g. NA1
   champs: ChampLine[];      // most played first
   roles: Partial<Record<Role, { games: number; wins: number }>>;
   mates: Mate[];
@@ -146,7 +147,7 @@ function blankPlayer(p: MatchPlayer): PlayerSummary {
     games: 0, wins: 0, kills: 0, deaths: 0, assists: 0, cs: 0, minutes: 0, damage: 0, gold: 0, vision: 0,
     kpSum: 0, damageShareSum: 0, otherAccounts: [], pentas: 0, quadras: 0, triples: 0, doubles: 0, largestSpree: 0, mvps: 0,
     rating: START_RATING, peakRating: START_RATING, ratingHistory: [],
-    form: [], streak: 0, lastPlayed: 0, champs: [], roles: {}, mates: [],
+    form: [], streak: 0, lastPlayed: 0, platform: "NA1", champs: [], roles: {}, mates: [],
   };
 }
 
@@ -248,6 +249,7 @@ export function buildDataset(raw: Match[]): Dataset {
       s.largestSpree = Math.max(s.largestSpree, p.largestKillingSpree);
       if (mvpOf.get(m.id) === p.puuid) s.mvps++;
       s.lastPlayed = m.playedAt;
+      s.platform = m.platformId || s.platform;
       s.streak = p.win ? (s.streak > 0 ? s.streak + 1 : 1) : s.streak < 0 ? s.streak - 1 : -1;
       s.form.unshift(p.win);
       if (s.form.length > 10) s.form.pop();

@@ -7,6 +7,7 @@ import { clock, getDataset, kda, START_RATING, type ChampLine, type Dataset, typ
 import type { Match, MatchPlayer, Role } from "@/lib/types";
 import { Champ, Delta, Img, Items, Kda, Loadout, WinRate, ratio, roleLabel, when, ago } from "@/components/ui";
 import { Board } from "@/components/scoreboard";
+import { opggUrl, uggUrl } from "@/lib/external";
 
 export const dynamic = "force-dynamic";
 
@@ -56,9 +57,16 @@ export default async function PlayerPage({ params, searchParams }: Props) {
       </section>
 
       <nav className="tabs" aria-label="Profile sections">
-        <Link href={base} aria-current={tab !== "champions" ? "page" : undefined}>Overview</Link>
-        <Link href={`${base}?tab=champions`} aria-current={tab === "champions" ? "page" : undefined}>Champions</Link>
-        <Link href={`/players`}>All players</Link>
+        <Link href={base} aria-current={tab !== "champions" ? "page" : undefined}>Customs overview</Link>
+        <Link href={`${base}?tab=champions`} aria-current={tab === "champions" ? "page" : undefined}>Custom champions</Link>
+        <span className="tabs-out">
+          <a href={opggUrl(p.name, p.tag, p.platform)} target="_blank" rel="noopener noreferrer" className="out opgg">
+            Solo queue on op.gg <Arrow />
+          </a>
+          <a href={uggUrl(p.name, p.tag, p.platform)} target="_blank" rel="noopener noreferrer" className="out">
+            u.gg <Arrow />
+          </a>
+        </span>
       </nav>
 
       {tab === "champions" ? (
@@ -426,6 +434,14 @@ function ChampionsTab({ s, p, base }: { s: Static; p: PlayerSummary; base: strin
 }
 
 // ---------------------------------------------------------------------------
+
+function Arrow() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M7 17 17 7M9 7h8v8" />
+    </svg>
+  );
+}
 
 function Fact({ v, k }: { v: string; k: string }) {
   return (
