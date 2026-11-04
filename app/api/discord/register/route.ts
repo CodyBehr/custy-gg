@@ -15,8 +15,10 @@ export async function POST(req: Request) {
   else {
     try {
       const names = await registerCommands(DISCORD_APP_ID, secret);
+      console.log(`[discord] registered commands: ${names.join(", ")}`);
       back.searchParams.set("ok", names.map((n) => `/${n}`).join(", "));
     } catch (e) {
+      console.log(`[discord] command registration failed: ${(e as Error).message}`);
       back.searchParams.set("error", (e as Error).message);
     }
   }

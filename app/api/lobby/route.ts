@@ -47,5 +47,6 @@ export async function POST(req: Request) {
   if (Object.keys(ranks).length) await saveRanks(ranks);
   const u = body?.uploader;
   await saveLobby({ members, updatedAt: Date.now(), uploader: u?.gameName ? `${u.gameName}#${u.tagLine ?? ""}` : undefined });
+  console.log(`[lobby] ${members.length} players from ${u?.gameName ?? "unknown"}: ${members.map((m) => m.name).join(", ")}`);
   return NextResponse.json({ ok: true, members: members.length });
 }

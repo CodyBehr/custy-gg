@@ -36,6 +36,7 @@ export async function POST(req: Request) {
   try {
     if (i.type === InteractionType.COMMAND) {
       const opts: Opts = Object.fromEntries((i.data.options ?? []).map((o: any) => [o.name, String(o.value)]));
+      console.log(`[discord] /${i.data.name} ${JSON.stringify(opts)}`);
       switch (i.data.name) {
         case "custy_teams":
         case "teams":
