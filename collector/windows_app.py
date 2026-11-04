@@ -6,7 +6,8 @@ Double-clicking the downloaded .exe:
   - registers it to start when you log in to Windows (HKCU Run key)
   - starts it in the background and shows a short confirmation
 Running the download again offers to update or remove it.
-The installed copy itself just runs the collector, one copy at a time.
+The installed copy runs the collector with a tray icon (bottom-right of the
+taskbar) for opening the site, pausing, and quitting. One copy at a time.
 """
 
 import ctypes
@@ -186,9 +187,128 @@ def handle_launch(args):
     site = cfg.get("site_url", "your custy.gg site").rstrip("/")
     message(
         "custy.gg collector is installed and running.\n\n"
-        "It runs quietly in the background and starts with Windows, so there's nothing to keep open. "
+        "It runs in the background and starts with Windows, so there's nothing to keep open. "
+        "Look for its icon next to the clock (it may be under the ^ arrow): right-click it to open the site, "
+        "pause uploads or quit. "
         f"Your custom games show up on {site} about a minute after each one ends.\n\n"
         + status_line(cfg)
         + "\n\nYou can delete this download now. To remove the app later, run the download again and choose No."
     )
     return False
+
+
+# --------------------------------------------------------------------------
+# Tray icon: shows it's running, and lets you open the site, pause or quit.
+# --------------------------------------------------------------------------
+
+def _resource(name):
+    base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base, name)
+
+
+def _ago(ts):
+    if not ts:
+        return "none yet"
+    mins = int((time.time() - ts) // 60)
+    if mins < 1:
+        return "just now"
+    if mins < 60:
+        return f"{mins} min ago"
+    return time.strftime("%I:%M %p", time.localtime(ts)).lstrip("0")
+
+
+def autostart_enabled():
+    try:
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, RUN_KEY, 0, winreg.KEY_READ) as key:
+            winreg.QueryValueEx(key, APP)
+            return True
+    except OSError:
+        return False
+
+
+def run_with_tray(cfg, start_collector):
+    """Runs the collector in a background thread with a tray icon in front."""
+    import threading
+    import webbrowser
+
+    import pystray
+    from PIL import Image
+
+    stop = threading.Event()
+    worker = threading.Thread(target=start_collector, args=(stop,), name="collector", daemon=True)
+    status = core.STATUS
+    site = cfg["site_url"].rstrip("/")
+
+    try:
+        image = Image.open(_resource("icon.ico"))
+    except OSError:
+        image = Image.new("RGB", (64, 64), (227, 184, 102))
+
+    def status_text(_item=None):
+        return f"Status: {status['state']}"
+
+    def uploads_text(_item=None):
+        n = status["uploaded"]
+        return f"Uploaded this session: {n} game{'s' if n != 1 else ''} (last {_ago(status['last_upload'])})"
+
+    def open_site(icon, item):
+        webbrowser.open(site)
+
+    def open_log(icon, item):
+        try:
+            os.startfile(core.LOG_PATH)
+        except OSError:
+            os.startfile(core.HERE)
+
+    def toggle_pause(icon, item):
+        status["paused"] = not status["paused"]
+        status["state"] = "Paused" if status["paused"] else "Resuming"
+        icon.update_menu()
+
+    def toggle_autostart(icon, item):
+        set_autostart(not autostart_enabled())
+        icon.update_menu()
+
+    def quit_app(icon, item):
+        stop.set()
+        icon.visible = False
+        icon.stop()
+
+    menu = pystray.Menu(
+        pystray.MenuItem("Open custy.gg", open_site, default=True),
+        pystray.Menu.SEPARATOR,
+        pystray.MenuItem(status_text, None, enabled=False),
+        pystray.MenuItem(uploads_text, None, enabled=False),
+        pystray.Menu.SEPARATOR,
+        pystray.MenuItem("Pause uploads", toggle_pause, checked=lambda item: status["paused"]),
+        pystray.MenuItem("Start with Windows", toggle_autostart, checked=lambda item: autostart_enabled()),
+        pystray.MenuItem("Open log", open_log),
+        pystray.Menu.SEPARATOR,
+        pystray.MenuItem("Quit", quit_app),
+    )
+    icon = pystray.Icon(APP, image, "custy.gg collector", menu)
+
+    def on_upload(n):
+        icon.title = f"custy.gg collector: {n} new game{'s' if n != 1 else ''} uploaded {_ago(time.time())}"
+        try:
+            icon.notify(f"Uploaded {n} custom game{'s' if n != 1 else ''} to custy.gg", "custy.gg collector")
+        except Exception:
+            pass
+
+    status["on_upload"] = on_upload
+
+    def setup(icon):
+        icon.visible = True
+        worker.start()
+        # Refresh the hover text so it says what the app is doing.
+        while not stop.is_set():
+            icon.title = f"custy.gg collector: {status['state'].lower()}"
+            try:
+                icon.update_menu()
+            except Exception:
+                pass
+            stop.wait(10)
+
+    icon.run(setup=setup)
+    stop.set()
+    worker.join(timeout=5)

@@ -33,7 +33,7 @@ import time
 import urllib.error
 import urllib.request
 
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 FROZEN = bool(getattr(sys, "frozen", False))
 if FROZEN:
     # Packaged app: keep config, state and log in the user's app-data folder.
@@ -284,8 +284,9 @@ def recent_games(lcu):
 
 
 def sync(cfg, lcu, seen, me, force=False):
-    """Upload any custom games not uploaded before. Returns number uploaded."""
+    """Upload any custom games not uploaded before. Returns how many were new to the site."""
     uploaded = 0
+    created = 0
     for summary in recent_games(lcu):
         if not is_custom(summary):
             continue
@@ -314,6 +315,7 @@ def sync(cfg, lcu, seen, me, force=False):
             if body.get("status") == "exists":
                 log.info("Custom game %s is already on the site", key)
             else:
+                created += 1
                 log.info("Uploaded custom game %s", key)
         elif status == 401:
             raise SystemExit("The site rejected the ingest_key in config.json. Check it matches INGEST_KEY.")
@@ -321,7 +323,7 @@ def sync(cfg, lcu, seen, me, force=False):
             log.warning("Upload of %s failed (HTTP %s): %s", key, status, body.get("error", ""))
     if uploaded:
         save_state(seen)
-    return uploaded
+    return created
 
 
 def current_player(lcu):
@@ -390,23 +392,48 @@ def main():
     if "--test" in args:
         sys.exit(0 if run_test(cfg) else 1)
 
+    log.info("custy.gg collector %s started, uploading to %s", VERSION, cfg["site_url"])
+    if FROZEN and platform.system() == "Windows":
+        import windows_app
+        windows_app.run_with_tray(cfg, lambda stop: run_collector(cfg, args, stop))
+    else:
+        run_collector(cfg, args)
+
+
+# What the tray icon shows. Updated by the collector loop.
+STATUS = {"state": "Starting", "uploaded": 0, "last_upload": None, "paused": False, "on_upload": None}
+
+
+def run_collector(cfg, args, stop=None):
+    """Checks for new custom games until `stop` (a threading.Event) is set."""
+    def wait(seconds):
+        if stop is None:
+            time.sleep(seconds)
+            return False
+        return stop.wait(seconds)
+
     seen = set() if "--all" in args else load_state()
     force = "--all" in args
-    log.info("custy.gg collector %s started, uploading to %s", VERSION, cfg["site_url"])
-
     last_phase = None
     waiting_logged = False
-    while True:
+    while not (stop and stop.is_set()):
         try:
+            if STATUS["paused"]:
+                STATUS["state"] = "Paused"
+                if wait(5):
+                    return
+                continue
             creds = find_client(cfg)
             if not creds:
+                STATUS["state"] = "Waiting for League to open"
                 if "--once" in args:
                     log.info("League client is not running. Open League, then try again.")
                     return
                 if not waiting_logged:
                     log.info("Waiting for the League client to open...")
                     waiting_logged = True
-                time.sleep(POLL_SECONDS)
+                if wait(POLL_SECONDS):
+                    return
                 continue
             waiting_logged = False
             lcu = LeagueClient(*creds)
@@ -418,26 +445,45 @@ def main():
 
             if phase in ("InProgress", "Reconnect", "GameStart") and "--once" not in args:
                 # Mid-game: nothing new to upload until it ends.
+                STATUS["state"] = "In a game"
                 last_phase = phase
-                time.sleep(30)
+                if wait(30):
+                    return
                 continue
 
             if phase in ("PreEndOfGame", "EndOfGame", "WaitingForStats") and last_phase != phase:
-                time.sleep(AFTER_GAME_DELAY)  # give match history a moment to update
+                STATUS["state"] = "Game ended, checking for it"
+                if wait(AFTER_GAME_DELAY):  # give match history a moment to update
+                    return
             last_phase = phase
 
+            STATUS["state"] = "Watching for custom games"
             me = current_player(lcu)
-            sync(cfg, lcu, seen, me, force=force)
+            n = sync(cfg, lcu, seen, me, force=force)
+            if n:
+                STATUS["uploaded"] += n
+                STATUS["last_upload"] = time.time()
+                if STATUS["on_upload"]:
+                    try:
+                        STATUS["on_upload"](n)
+                    except Exception:
+                        pass
             force = False
             if "--once" in args:
                 return
-        except SystemExit:
-            raise
+        except SystemExit as e:
+            if stop is None:
+                raise
+            STATUS["state"] = "Stopped: %s" % e
+            log.error("%s", e)
+            return
         except Exception as e:  # keep running through client restarts and network blips
+            STATUS["state"] = "Couldn't reach League, retrying"
             log.warning("Check failed: %s", e)
             if "--once" in args:
                 return
-        time.sleep(POLL_SECONDS)
+        if wait(POLL_SECONDS):
+            return
 
 
 if __name__ == "__main__":
