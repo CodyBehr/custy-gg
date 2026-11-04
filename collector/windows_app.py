@@ -219,7 +219,7 @@ def handle_launch(args):
 SETTINGS = os.path.join(core.HERE, "settings.json")
 UPDATE_EXE = os.path.join(core.HERE, APP + "-update.exe")
 UPDATED_FLAG = os.path.join(core.HERE, "updated.json")
-UPDATE_EVERY = 6 * 3600
+UPDATE_EVERY = 15 * 60  # check every 15 minutes; one tiny request
 
 
 def _read_json(path, default):
@@ -408,7 +408,7 @@ def run_with_tray(cfg, start_collector):
     status["on_upload"] = on_upload
 
     def updater():
-        stop.wait(120)  # let the app settle first
+        stop.wait(60)  # let the app settle first
         while not stop.is_set():
             if auto_update_on() and status["state"] != "In a game":
                 if check_for_update(cfg):

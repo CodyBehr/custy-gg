@@ -63,7 +63,7 @@ Setup is on the site's `/discord` page.
 
 ## The Windows app updates itself
 
-Every 6 hours (when you're not in a game) the app asks the site for its latest version
+Every 15 minutes (never during a game) the app asks the site for its latest version
 (`/api/collector/version`, read from the built .exe) and installs it quietly if it's newer. Turn this off from
 the tray menu ("Update automatically").
 
