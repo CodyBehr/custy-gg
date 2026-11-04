@@ -55,24 +55,44 @@ export const COMMANDS = [
   },
 ] as const;
 
-export async function registerCommands(appId: string, clientSecret: string) {
-  // Client credentials grant: lets the app update its own commands without a bot token.
-  const tokenRes = await fetch("https://discord.com/api/v10/oauth2/token", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      Authorization: "Basic " + Buffer.from(`${appId}:${clientSecret}`).toString("base64"),
-    },
-    body: "grant_type=client_credentials&scope=applications.commands.update",
-  });
-  if (!tokenRes.ok) throw new Error(`Discord didn't accept the client secret (${tokenRes.status}).`);
-  const { access_token } = (await tokenRes.json()) as { access_token: string };
+/**
+ * Registers the slash commands. Accepts either the app's client secret (OAuth2 page)
+ * or its bot token (Bot page); bot tokens contain dots, client secrets don't.
+ */
+export async function registerCommands(appId: string, credential: string) {
+  let auth: string;
+  if (credential.split(".").length === 3) {
+    auth = `Bot ${credential}`;
+  } else {
+    const tokenRes = await fetch("https://discord.com/api/v10/oauth2/token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Basic " + Buffer.from(`${appId}:${credential}`).toString("base64"),
+      },
+      body: "grant_type=client_credentials&scope=applications.commands.update",
+    });
+    if (!tokenRes.ok) {
+      const detail = await tokenRes.text().catch(() => "");
+      console.log(`[discord] client credentials failed ${tokenRes.status}: ${detail}`);
+      throw new Error(
+        `Discord didn't accept the client secret (${tokenRes.status}${detail ? `: ${detail.slice(0, 200)}` : ""}). ` +
+          "Try the bot token instead: Developer Portal, Bot, Reset Token, then paste it here.",
+      );
+    }
+    const { access_token } = (await tokenRes.json()) as { access_token: string };
+    auth = `Bearer ${access_token}`;
+  }
   const res = await fetch(`https://discord.com/api/v10/applications/${appId}/commands`, {
     method: "PUT",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${access_token}` },
+    headers: { "Content-Type": "application/json", Authorization: auth },
     body: JSON.stringify(COMMANDS),
   });
-  if (!res.ok) throw new Error(`Discord rejected the commands (${res.status}): ${await res.text()}`);
+  if (!res.ok) {
+    const detail = await res.text().catch(() => "");
+    console.log(`[discord] command update failed ${res.status}: ${detail}`);
+    throw new Error(`Discord rejected the commands (${res.status}): ${detail.slice(0, 300)}`);
+  }
   return ((await res.json()) as { name: string }[]).map((c) => c.name);
 }
 

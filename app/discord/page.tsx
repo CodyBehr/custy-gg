@@ -45,10 +45,10 @@ export default async function DiscordSetup({ searchParams }: Props) {
               <i>Interactions Endpoint URL</i> to <code>{endpoint}</code> and save.
             </li>
             <li>
-              <b>Register the commands.</b> Paste the client secret from the app&apos;s OAuth2 page. It&apos;s used once and
-              not saved.
+              <b>Register the commands.</b> Paste the app&apos;s <b>bot token</b> (Developer Portal, <i>Bot</i>, <i>Reset Token</i>)
+              or its client secret (<i>OAuth2</i> page). It&apos;s used once and not saved.
               <form method="post" action="/api/discord/register" className="secret-form">
-                <input type="password" name="secret" placeholder="Client secret" aria-label="Discord client secret" autoComplete="off" required />
+                <input type="password" name="secret" placeholder="Bot token or client secret" aria-label="Discord bot token or client secret" autoComplete="off" required />
                 <button className="btn" type="submit" disabled={!ready}>Register commands</button>
               </form>
             </li>
