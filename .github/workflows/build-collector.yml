@@ -1,0 +1,62 @@
+# Builds collector/custy_collector.py into a one-click Windows app and commits
+# it to collector-dist/, where the website picks it up for downloads.
+name: Build Windows collector
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "collector/custy_collector.py"
+      - "collector/windows_app.py"
+      - ".github/workflows/build-collector.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-collector
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyInstaller
+        run: pip install pyinstaller==6.11.1
+
+      - name: Build custy-collector.exe
+        run: pyinstaller --onefile --noconsole --name custy-collector --paths collector --hidden-import windows_app collector/custy_collector.py
+
+      - name: Check the app starts and reads attached settings
+        shell: bash
+        run: |
+          cp dist/custy-collector.exe selftest.exe
+          printf '\n#CUSTY-CONFIG#{"site_url":"https://example.test","ingest_key":"abc"}#END-CUSTY-CONFIG#' >> selftest.exe
+          ./selftest.exe --selftest selftest.json
+          for i in $(seq 1 30); do [ -s selftest.json ] && break; sleep 1; done
+          cat selftest.json
+          grep -q '"frozen": true' selftest.json
+          grep -q '"site_url": "https://example.test"' selftest.json
+
+      - name: Commit the app
+        shell: bash
+        run: |
+          mkdir -p collector-dist
+          cp dist/custy-collector.exe collector-dist/custy-collector.exe
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add collector-dist/custy-collector.exe
+          if git diff --cached --quiet; then
+            echo "No change"
+          else
+            git commit -m "Build custy-collector.exe from ${GITHUB_SHA::7}"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi

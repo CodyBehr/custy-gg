@@ -13,6 +13,11 @@ Usage:
     python custy_collector.py --all      re-send every custom game in history
 
 Settings live in config.json next to this file.
+
+Packaged as custy-collector.exe (see collector/windows_app.py), the same code
+runs as a one-click Windows app: the site's address and upload key are
+attached to the end of the .exe when it is downloaded, double-clicking it
+installs it to %LOCALAPPDATA%\custy-collector and starts it with Windows.
 """
 
 import base64
@@ -28,8 +33,14 @@ import time
 import urllib.error
 import urllib.request
 
-VERSION = "1.0.0"
-HERE = os.path.dirname(os.path.abspath(__file__))
+VERSION = "1.1.0"
+FROZEN = bool(getattr(sys, "frozen", False))
+if FROZEN:
+    # Packaged app: keep config, state and log in the user's app-data folder.
+    HERE = os.path.join(os.environ.get("LOCALAPPDATA") or os.path.expanduser("~"), "custy-collector")
+    os.makedirs(HERE, exist_ok=True)
+else:
+    HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join(HERE, "config.json")
 STATE_PATH = os.path.join(HERE, "uploaded.json")
 LOG_PATH = os.path.join(HERE, "collector.log")
@@ -53,14 +64,43 @@ log = logging.getLogger("custy")
 # Config and local state
 # --------------------------------------------------------------------------
 
+TRAILER_START = b"\n#CUSTY-CONFIG#"
+TRAILER_END = b"#END-CUSTY-CONFIG#"
+
+
+def embedded_config(path=None):
+    """Settings the website attached to the end of this .exe, or None."""
+    path = path or (sys.executable if FROZEN else None)
+    if not path:
+        return None
+    try:
+        with open(path, "rb") as f:
+            f.seek(0, os.SEEK_END)
+            size = f.tell()
+            f.seek(max(0, size - 8192))
+            tail = f.read()
+    except OSError:
+        return None
+    start = tail.rfind(TRAILER_START)
+    end = tail.rfind(TRAILER_END)
+    if start < 0 or end < start:
+        return None
+    try:
+        return json.loads(tail[start + len(TRAILER_START):end].decode("utf-8"))
+    except ValueError:
+        return None
+
+
 def load_config():
-    if not os.path.exists(CONFIG_PATH):
-        raise SystemExit(
-            "config.json is missing. Copy config.example.json to config.json "
-            "and fill in site_url and ingest_key."
-        )
-    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-        cfg = json.load(f)
+    cfg = embedded_config()
+    if cfg is None:
+        if not os.path.exists(CONFIG_PATH):
+            raise SystemExit(
+                "config.json is missing. Copy config.example.json to config.json "
+                "and fill in site_url and ingest_key."
+            )
+        with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+            cfg = json.load(f)
     site = (cfg.get("site_url") or "").strip().rstrip("/")
     key = (cfg.get("ingest_key") or "").strip()
     if not site or "your-site" in site:
@@ -330,6 +370,16 @@ def run_test(cfg):
 
 def main():
     args = set(sys.argv[1:])
+    if "--selftest" in args:
+        # Used by the build: proves the packaged app starts and can read attached settings.
+        out = sys.argv[sys.argv.index("--selftest") + 1]
+        with open(out, "w", encoding="utf-8") as f:
+            json.dump({"version": VERSION, "frozen": FROZEN, "config": embedded_config()}, f)
+        return
+    if FROZEN and platform.system() == "Windows" and "--test" not in args:
+        import windows_app  # installs, updates or removes the app; returns True to keep running here
+        if not windows_app.handle_launch(args):
+            return
     handlers = [logging.FileHandler(LOG_PATH, encoding="utf-8")]
     if sys.stdout is not None:  # None when launched hidden with pythonw/pyw
         handlers.append(logging.StreamHandler(sys.stdout))
