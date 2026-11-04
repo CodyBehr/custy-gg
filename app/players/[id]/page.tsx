@@ -321,7 +321,7 @@ function HistoryRow({ d, s, m, me }: { d: Dataset; s: Static; m: Match; me: Matc
           <div className="big-kda"><Kda k={me.kills} d={me.deaths} a={me.assists} /></div>
           <div className="kda-sub">
             <KdaRatio k={me.kills} d={me.deaths} a={me.assists} /> {mvp && !m.remake ? <span className="badge mvp">MVP</span> : null}
-            {me.pentaKills ? <span className="badge multi">Penta</span> : me.quadraKills ? <span className="badge multi">Quadra</span> : me.tripleKills ? <span className="badge multi">Triple</span> : null}
+            {me.pentaKills ? <span className="badge mk">Penta</span> : me.quadraKills ? <span className="badge mk">Quadra</span> : me.tripleKills ? <span className="badge mk">Triple</span> : null}
           </div>
           <Items s={s} items={me.items} size={22} />
         </div>

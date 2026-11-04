@@ -451,7 +451,7 @@ table.t { width: 100%; border-collapse: collapse; font-size: 14px; }
 .pgame .meta { font-size: 12px; color: var(--mute); line-height: 1.45; }
 .pgame .big-kda { font-size: 17px; font-weight: 700; }
 .pgame .kda-sub { font-size: 12px; color: var(--mute); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-.badge.multi { background: var(--red); color: #fff; }
+.badge.mk { background: var(--red); color: #fff; }
 .spells { display: grid; grid-template-columns: 1fr; gap: 2px; }
 .spells.two { grid-template-columns: 1fr 1fr; }
 .lineup { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; min-width: 0; }
