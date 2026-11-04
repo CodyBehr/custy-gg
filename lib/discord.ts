@@ -29,7 +29,7 @@ export function verifyDiscordRequest(body: string, signature: string | null, tim
 // Option types: 3 = string, 5 = boolean
 export const COMMANDS = [
   {
-    name: "teams",
+    name: "custy_teams",
     description: "Make two teams from the current lobby or a list of players",
     options: [
       { type: 3, name: "players", description: "Names separated by commas. Leave empty to use the custom lobby.", required: false },

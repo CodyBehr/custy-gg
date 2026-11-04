@@ -49,7 +49,7 @@ address and upload key attached to the end, where the app reads them.
 
 The site answers Discord slash commands itself at `/api/discord` (no separate bot to host):
 
-- `/teams` splits the current custom lobby into two teams balanced by custy rating. Options: `players`
+- `/custy_teams` splits the current custom lobby into two teams balanced by custy rating. Options: `players`
   (use a list instead of the lobby), `mode` (balanced or random), `together`, `apart`, `add`, `remove`.
   A **Reroll** button gives another fair split with the same rules.
 - `/lobby` shows who's in the custom lobby. The collector sends the lobby roster while you're in one.

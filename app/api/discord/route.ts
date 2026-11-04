@@ -32,13 +32,13 @@ export async function POST(req: Request) {
   try {
     if (i.type === InteractionType.COMMAND) {
       const opts: Opts = Object.fromEntries((i.data.options ?? []).map((o: any) => [o.name, String(o.value)]));
-      if (i.data.name === "teams") return await teams(req, opts, false);
+      if (i.data.name === "custy_teams") return await teams(req, opts, false);
       if (i.data.name === "lobby") return await lobby();
       if (i.data.name === "custy") return await lookup(req, opts.player ?? "");
     }
     if (i.type === InteractionType.COMPONENT && String(i.data.custom_id).startsWith("reroll:")) {
       const saved = await store().getSetting(`teams:${String(i.data.custom_id).slice(7)}`);
-      if (!saved) return privateNote("That team request has expired. Run /teams again.");
+      if (!saved) return privateNote("That team request has expired. Run /custy_teams again.");
       return await teams(req, JSON.parse(saved), true);
     }
     return privateNote("I don't know that command yet.");
@@ -57,7 +57,7 @@ async function teams(req: Request, opts: Opts, reroll: boolean) {
     if (!lob || !lob.members.length || Date.now() - lob.updatedAt > LOBBY_FRESH_MS) {
       return privateNote(
         "I can't see a custom lobby right now. Either someone in the lobby needs the custy.gg app running, " +
-          "or list the players: `/teams players: Ringo, Sevi, Vender, ...`",
+          "or list the players: `/custy_teams players: Ringo, Sevi, Vender, ...`",
       );
     }
     entries = lob.members.map((m) => ({ name: m.name, puuid: m.puuid }));
@@ -124,7 +124,7 @@ async function lobby() {
       title: `Custom lobby (${players.length})`,
       color: BLUE,
       description: players.map((p) => `${p.name}  \`${p.known ? p.rating : "new"}\``).join("\n"),
-      footer: { text: `${stale ? "Old: " : ""}seen ${mins <= 0 ? "just now" : `${mins} min ago`}${lob.uploader ? ` by ${lob.uploader}'s app` : ""}. Run /teams to split them.` },
+      footer: { text: `${stale ? "Old: " : ""}seen ${mins <= 0 ? "just now" : `${mins} min ago`}${lob.uploader ? ` by ${lob.uploader}'s app` : ""}. Run /custy_teams to split them.` },
     }],
   });
 }
