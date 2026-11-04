@@ -45,6 +45,20 @@ or `collector/windows_app.py` changes. It packs the collector into one `.exe` wi
 and commits it to `collector-dist/`. The site's `/api/collector/windows` route serves that file with this site's
 address and upload key attached to the end, where the app reads them.
 
+## Discord bot
+
+The site answers Discord slash commands itself at `/api/discord` (no separate bot to host):
+
+- `/teams` splits the current custom lobby into two teams balanced by custy rating. Options: `players`
+  (use a list instead of the lobby), `mode` (balanced or random), `together`, `apart`, `add`, `remove`.
+  A **Reroll** button gives another fair split with the same rules.
+- `/lobby` shows who's in the custom lobby. The collector sends the lobby roster while you're in one.
+- `/custy player` shows someone's custom-game stats.
+
+Setup is on the site's `/discord` page: create an app in the Discord Developer Portal, set
+`DISCORD_APP_ID` and `DISCORD_PUBLIC_KEY` in Vercel, point the Interactions Endpoint URL at `/api/discord`,
+register the commands with the client secret (used once, not stored), and add the app to your server.
+
 ## How it's hosted
 
 - **Vercel** (free Hobby plan) runs the site and redeploys automatically whenever `main` changes on GitHub.

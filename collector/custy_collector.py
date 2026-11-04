@@ -33,7 +33,7 @@ import time
 import urllib.error
 import urllib.request
 
-VERSION = "1.2.0"
+VERSION = "1.3.0"
 FROZEN = bool(getattr(sys, "frozen", False))
 if FROZEN:
     # Packaged app: keep config, state and log in the user's app-data folder.
@@ -326,6 +326,67 @@ def sync(cfg, lcu, seen, me, force=False):
     return created
 
 
+# --------------------------------------------------------------------------
+# Who's in the custom lobby (for the Discord team maker)
+# --------------------------------------------------------------------------
+
+_last_lobby = {"key": None, "sent": 0.0}
+
+
+def _name_of(entry):
+    for k in ("gameName", "riotIdGameName", "summonerName", "displayName"):
+        if entry.get(k):
+            return str(entry[k]).split("#")[0]
+    return ""
+
+
+def lobby_members(lcu):
+    """Players in the current custom lobby, or None when not in one."""
+    try:
+        lobby = lcu.get("/lol-lobby/v2/lobby")
+    except (urllib.error.URLError, OSError, ValueError):
+        return None
+    cfg = (lobby or {}).get("gameConfig") or {}
+    if not lobby or not cfg.get("isCustom"):
+        return None
+    seen, out = set(), []
+    groups = [(100, cfg.get("customTeam100") or []), (200, cfg.get("customTeam200") or []),
+              (0, cfg.get("customSpectators") or []), (0, lobby.get("members") or [])]
+    for team, entries in groups:
+        for e in entries:
+            if not isinstance(e, dict) or e.get("isBot") or e.get("botId"):
+                continue
+            puuid = e.get("puuid") or ""
+            key = puuid or _name_of(e)
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            name, tag = _name_of(e), e.get("tagLine") or e.get("riotIdTagLine") or ""
+            if puuid and (not name or not tag):
+                try:
+                    who = lcu.get("/lol-summoner/v2/summoners/puuid/%s" % puuid) or {}
+                    name, tag = who.get("gameName") or name, who.get("tagLine") or tag
+                except (urllib.error.URLError, OSError, ValueError):
+                    pass
+            if name:
+                out.append({"puuid": puuid or None, "name": name, "tag": tag or None, "team": team})
+    return out
+
+
+def send_lobby(cfg, lcu, me):
+    """Posts the lobby when it changes (and every few minutes while it lasts)."""
+    members = lobby_members(lcu)
+    if not members:
+        return
+    key = ",".join(sorted("%s:%s" % (m["name"], m["team"]) for m in members))
+    if key == _last_lobby["key"] and time.time() - _last_lobby["sent"] < 300:
+        return
+    status, _ = post_json(cfg["site_url"] + "/api/lobby", cfg["ingest_key"], {"members": members, "uploader": me})
+    if status == 200:
+        _last_lobby.update(key=key, sent=time.time())
+        log.info("Sent lobby to the site: %s", ", ".join(m["name"] for m in members))
+
+
 def current_player(lcu):
     try:
         me = lcu.get("/lol-summoner/v1/current-summoner") or {}
@@ -459,6 +520,13 @@ def run_collector(cfg, args, stop=None):
 
             STATUS["state"] = "Watching for custom games"
             me = current_player(lcu)
+            in_lobby = phase in ("Lobby", "ChampSelect")
+            if in_lobby:
+                STATUS["state"] = "In a lobby"
+                try:
+                    send_lobby(cfg, lcu, me)
+                except Exception as e:
+                    log.warning("Couldn't send the lobby: %s", e)
             n = sync(cfg, lcu, seen, me, force=force)
             if n:
                 STATUS["uploaded"] += n
@@ -471,6 +539,10 @@ def run_collector(cfg, args, stop=None):
             force = False
             if "--once" in args:
                 return
+            if in_lobby:
+                if wait(15):  # check the lobby more often so the roster stays current
+                    return
+                continue
         except SystemExit as e:
             if stop is None:
                 raise

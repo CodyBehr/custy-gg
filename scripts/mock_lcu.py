@@ -51,7 +51,22 @@ def main():
             if path == "/lol-summoner/v1/current-summoner":
                 return self.send(200, {"puuid": me["puuid"], "gameName": me["gameName"], "tagLine": me["tagLine"]})
             if path == "/lol-gameflow/v1/gameflow-phase":
-                return self.send(200, "None")
+                return self.send(200, "Lobby" if os.environ.get("MOCK_LOBBY") else "None")
+            if path == "/lol-lobby/v2/lobby":
+                if not os.environ.get("MOCK_LOBBY"):
+                    return self.send(404, {"message": "not in a lobby"})
+                ids = games[0]["participantIdentities"]
+                entry = lambda x: {"puuid": x["player"]["puuid"], "summonerName": "", "isBot": False}
+                return self.send(200, {"gameConfig": {"isCustom": True,
+                    "customTeam100": [entry(x) for x in ids[:5]],
+                    "customTeam200": [entry(x) for x in ids[5:9]] + [{"botId": "Annie", "isBot": True}],
+                    "customSpectators": []}, "members": [entry(x) for x in ids[:9]]})
+            if path.startswith("/lol-summoner/v2/summoners/puuid/"):
+                puuid = path.rsplit("/", 1)[1]
+                for x in games[0]["participantIdentities"]:
+                    if x["player"]["puuid"] == puuid:
+                        return self.send(200, {"gameName": x["player"]["gameName"], "tagLine": x["player"]["tagLine"], "puuid": puuid})
+                return self.send(404, {})
             if path == "/lol-match-history/v1/products/lol/current-summoner/matches":
                 summaries = [{k: g[k] for k in ("gameId", "platformId", "gameCreation", "gameType", "queueId", "gameMode")} for g in games[:50]]
                 # Mix in a ranked game so the collector's custom-only filter is exercised.

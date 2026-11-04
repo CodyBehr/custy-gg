@@ -21,6 +21,7 @@ interface Store {
   getSetting(key: string): Promise<string | null>;
   /** Stores the value only if the key is unset, then returns whatever is stored. */
   initSetting(key: string, value: string): Promise<string>;
+  setSetting(key: string, value: string): Promise<void>;
 }
 
 /** The Postgres connection string, cleaned of options postgres.js doesn't understand. */
@@ -115,6 +116,10 @@ const pgStore: Store = {
     const [row] = await sql()`select value from settings where key = ${key}`;
     return row ? (row.value as string) : null;
   },
+  async setSetting(key, value) {
+    await ensureSchema();
+    await sql()`insert into settings (key, value) values (${key}, ${value}) on conflict (key) do update set value = excluded.value`;
+  },
   async initSetting(key, value) {
     await ensureSchema();
     await sql()`insert into settings (key, value) values (${key}, ${value}) on conflict (key) do nothing`;
@@ -191,6 +196,14 @@ const fileStore: Store = {
   },
   async getSetting(key) {
     return (await readSettings())[key] ?? null;
+  },
+  setSetting(key, value) {
+    return locked(async () => {
+      const all = await readSettings();
+      all[key] = value;
+      await fs.mkdir(path.dirname(SETTINGS_FILE), { recursive: true });
+      await fs.writeFile(SETTINGS_FILE, JSON.stringify(all));
+    });
   },
   initSetting(key, value) {
     return locked(async () => {

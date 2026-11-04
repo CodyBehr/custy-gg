@@ -1,0 +1,78 @@
+import type { Metadata } from "next";
+import { headers } from "next/headers";
+import { DISCORD_APP_ID, DISCORD_PUBLIC_KEY, inviteUrl } from "@/lib/discord";
+
+export const dynamic = "force-dynamic";
+export const metadata: Metadata = { title: "Discord bot" };
+
+type Props = { searchParams: Promise<{ ok?: string; error?: string }> };
+
+export default async function DiscordSetup({ searchParams }: Props) {
+  const { ok, error } = await searchParams;
+  const h = await headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "custy-gg.vercel.app";
+  const endpoint = `https://${host}/api/discord`;
+  const ready = Boolean(DISCORD_APP_ID && DISCORD_PUBLIC_KEY);
+
+  return (
+    <>
+      <div className="head">
+        <div>
+          <h1>Discord bot</h1>
+          <p>
+            Type <code>/teams</code> in your server to split the current custom lobby into two balanced teams, or{" "}
+            <code>/custy</code> to look someone up. The bot runs on this site, so there&apos;s nothing else to host.
+          </p>
+        </div>
+      </div>
+
+      {ok ? <p className="panel" style={{ padding: "14px 18px", marginBottom: 18 }}>Commands registered: <b>{ok}</b>. They can take a minute to show up in Discord.</p> : null}
+      {error ? <p className="panel err" style={{ padding: "14px 18px", marginBottom: 18 }}>{error}</p> : null}
+
+      <div className="cols">
+        <section className="panel" style={{ padding: "24px 26px" }}>
+          <ol className="steps">
+            <li>
+              <b>Connect the app.</b>{" "}
+              {ready ? (
+                <span className="win-t">Done: this site knows your Discord app ({DISCORD_APP_ID}).</span>
+              ) : (
+                <>Not yet. The site needs <code>DISCORD_APP_ID</code> and <code>DISCORD_PUBLIC_KEY</code> from the Discord Developer Portal.</>
+              )}
+            </li>
+            <li>
+              <b>Point Discord at this site.</b> In the Developer Portal, on the app&apos;s General Information page, set{" "}
+              <i>Interactions Endpoint URL</i> to <code>{endpoint}</code> and save.
+            </li>
+            <li>
+              <b>Register the commands.</b> Paste the client secret from the app&apos;s OAuth2 page. It&apos;s used once and
+              not saved.
+              <form method="post" action="/api/discord/register" className="secret-form">
+                <input type="password" name="secret" placeholder="Client secret" aria-label="Discord client secret" autoComplete="off" required />
+                <button className="btn" type="submit" disabled={!ready}>Register commands</button>
+              </form>
+            </li>
+            <li>
+              <b>Add it to your server.</b>{" "}
+              {ready ? <a className="btn ghost" href={inviteUrl(DISCORD_APP_ID)} target="_blank" rel="noopener noreferrer">Add to Discord</a> : "The button appears once step 1 is done."}
+            </li>
+          </ol>
+        </section>
+        <aside>
+          <section className="panel" style={{ padding: "18px 20px" }}>
+            <b>Commands</b>
+            <ul className="notes">
+              <li><code>/teams</code> uses whoever is in the custom lobby. Someone in the lobby needs the custy.gg app running.</li>
+              <li><code>/teams players: Ringo, Sevi, ...</code> uses your list instead.</li>
+              <li><code>mode: Random</code> ignores ratings.</li>
+              <li><code>together: Ringo, Sevi</code> keeps them on one team; <code>apart: Vender, Leaden</code> splits them. Separate groups with <code>;</code>.</li>
+              <li><code>add</code> and <code>remove</code> tweak the lobby list.</li>
+              <li>Hit <b>Reroll</b> under the result for a different split with the same rules.</li>
+              <li><code>/lobby</code> shows who&apos;s in the lobby; <code>/custy player</code> shows someone&apos;s stats.</li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </>
+  );
+}

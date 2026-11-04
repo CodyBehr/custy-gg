@@ -566,3 +566,11 @@ a.cl:hover { background: var(--deck-2); }
   width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
   background: var(--deck-2); color: var(--mute); font-weight: 800; font-size: 13px;
 }
+
+.secret-form { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.secret-form input {
+  flex: 1; min-width: 200px; font: inherit; color: var(--ink); background: var(--deck);
+  border: 1px solid var(--line); border-radius: var(--r-md); padding: 10px 12px;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.panel.err { color: var(--red-ink); }
