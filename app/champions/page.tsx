@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { champName, getStatic } from "@/lib/ddragon";
 import { getDataset } from "@/lib/stats";
-import { Champ, Empty, WinRate, ratio } from "@/components/ui";
+import { Champ, Empty, WinRate, ratio, KdaRatio } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Champions" };
@@ -49,7 +49,7 @@ export default async function Champions() {
                   <td className="num">{c.games}</td>
                   <td><WinRate wins={c.wins} games={c.games} /></td>
                   <td className="num">{c.bans || <span className="faint">0</span>}</td>
-                  <td className="num">{ratio(c.kills, c.deaths, c.assists)}</td>
+                  <td className="num"><KdaRatio k={c.kills} d={c.deaths} a={c.assists} suffix={false} /></td>
                   <td className="num">{Math.round(c.damage / Math.max(1, c.minutes))}</td>
                   <td>
                     {best && best.wins > 0 ? (

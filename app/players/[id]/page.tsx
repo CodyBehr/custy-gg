@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { champName, getStatic, img, type Static } from "@/lib/ddragon";
 import { clock, getDataset, kda, START_RATING, type ChampLine, type Dataset, type PlayerSummary } from "@/lib/stats";
 import type { Match, MatchPlayer, Role } from "@/lib/types";
-import { Champ, Delta, Img, Items, Kda, Loadout, WinRate, ratio, roleLabel, when, ago } from "@/components/ui";
+import { Champ, ChampLineRow, Delta, Img, Items, Kda, KdaRatio, Loadout, Pct, WinRate, kdaTone, ratio, roleLabel, when, ago } from "@/components/ui";
 import { Board } from "@/components/scoreboard";
 import { opggUrl, uggUrl } from "@/lib/external";
 
@@ -109,8 +109,8 @@ function Overview({ d, s, p, base, champ, role, showAll }: {
   return (
     <>
       <div className="facts">
-        <Fact v={`${p.wins}–${p.games - p.wins}`} k={`${Math.round((p.wins / p.games) * 100)}% win rate`} />
-        <Fact v={ratio(p.kills, p.deaths, p.assists)} k={`KDA, ${(p.kills / p.games).toFixed(1)} / ${(p.deaths / p.games).toFixed(1)} / ${(p.assists / p.games).toFixed(1)}`} />
+        <Fact v={`${p.wins}–${p.games - p.wins}`} k={<><Pct wins={p.wins} games={p.games} /> win rate</>} />
+        <Fact v={ratio(p.kills, p.deaths, p.assists)} tone={kdaTone(p.kills, p.deaths, p.assists)} k={`KDA, ${(p.kills / p.games).toFixed(1)} / ${(p.deaths / p.games).toFixed(1)} / ${(p.assists / p.games).toFixed(1)}`} />
         <Fact v={`${Math.round((p.kpSum / p.games) * 100)}%`} k="Kill participation" />
         <Fact v={`${Math.round((p.damageShareSum / p.games) * 100)}%`} k={`Team damage, ${Math.round(p.damage / minutes)} per min`} />
         <Fact v={(p.cs / minutes).toFixed(1)} k={`CS per minute, ${Math.round(p.gold / minutes)} gold/min`} />
@@ -170,8 +170,9 @@ function Overview({ d, s, p, base, champ, role, showAll }: {
               <h2 className="section-title">Champions</h2>
               <Link href={`${base}?tab=champions`} className="sub">All {p.champs.length}</Link>
             </div>
-            <div className="panel list">
-              {p.champs.slice(0, 7).map((c) => <ChampRow key={c.championId} s={s} c={c} href={filterHref({ champ: c.championId })} />)}
+            <div className="panel cl-list">
+              <ChampLineRow s={s} label="All" c={{ championId: 0, games: p.games, wins: p.wins, kills: p.kills, deaths: p.deaths, assists: p.assists, cs: p.cs, minutes: p.minutes }} href={base} />
+              {p.champs.slice(0, 7).map((c) => <ChampLineRow key={c.championId} s={s} c={c} href={filterHref({ champ: c.championId })} />)}
             </div>
           </section>
 
@@ -232,7 +233,6 @@ function RecentSummary({ s, games, label }: { s: Static; games: { m: Match; me: 
   const roleCount = new Map<Role, number>();
   for (const { me } of games) if (me.role) roleCount.set(me.role, (roleCount.get(me.role) ?? 0) + 1);
   const pct = Math.round((wins / n) * 100);
-  const ratioValue = kda(k, dd, a);
 
   return (
     <section className="panel recent">
@@ -243,11 +243,11 @@ function RecentSummary({ s, games, label }: { s: Static; games: { m: Match; me: 
       <div className="recent-body">
         <div className="ring-wrap">
           <Ring pct={pct} />
-          <div className="ring-label"><b className={pct >= 50 ? "win-t" : "loss-t"}>{pct}%</b></div>
+          <div className="ring-label"><Pct wins={wins} games={n} /></div>
         </div>
         <div className="recent-kda">
           <div className="avg">{(k / n).toFixed(1)} <span className="faint">/</span> <span className="loss-t">{(dd / n).toFixed(1)}</span> <span className="faint">/</span> {(a / n).toFixed(1)}</div>
-          <div className="ratio">{dd === 0 ? "Perfect" : `${ratioValue.toFixed(2)}:1`} KDA</div>
+          <div className="ratio"><KdaRatio k={k} d={dd} a={a} /></div>
           <div className="sub">{Math.round(kp * 100)}% kill participation</div>
         </div>
         <div className="recent-champs">
@@ -256,10 +256,10 @@ function RecentSummary({ s, games, label }: { s: Static; games: { m: Match; me: 
               <Champ s={s} id={id} size={28} />
               <div className="stack" style={{ gap: 0 }}>
                 <span style={{ fontSize: 13 }}>
-                  <b className={c.wins / c.games >= 0.5 ? "win-t" : "loss-t"}>{Math.round((c.wins / c.games) * 100)}%</b>{" "}
+                  <Pct wins={c.wins} games={c.games} />{" "}
                   <span className="sub">({c.wins}W {c.games - c.wins}L)</span>
                 </span>
-                <span className="sub">{ratio(c.k, c.d, c.a)} KDA</span>
+                <span className="sub"><KdaRatio k={c.k} d={c.d} a={c.a} /></span>
               </div>
             </div>
           ))}
@@ -320,7 +320,7 @@ function HistoryRow({ d, s, m, me }: { d: Dataset; s: Static; m: Match; me: Matc
         <div className="kda-col">
           <div className="big-kda"><Kda k={me.kills} d={me.deaths} a={me.assists} /></div>
           <div className="kda-sub">
-            {ratio(me.kills, me.deaths, me.assists)} KDA {mvp && !m.remake ? <span className="badge mvp">MVP</span> : null}
+            <KdaRatio k={me.kills} d={me.deaths} a={me.assists} /> {mvp && !m.remake ? <span className="badge mvp">MVP</span> : null}
             {me.pentaKills ? <span className="badge multi">Penta</span> : me.quadraKills ? <span className="badge multi">Quadra</span> : me.tripleKills ? <span className="badge multi">Triple</span> : null}
           </div>
           <Items s={s} items={me.items} size={22} />
@@ -356,22 +356,6 @@ function HistoryRow({ d, s, m, me }: { d: Dataset; s: Static; m: Match; me: Matc
         </p>
       </div>
     </details>
-  );
-}
-
-function ChampRow({ s, c, href }: { s: Static; c: ChampLine; href: string }) {
-  return (
-    <Link href={href} className="li">
-      <Champ s={s} id={c.championId} size={36} />
-      <div className="grow">
-        <div style={{ fontWeight: 600 }} className="ellip">{champName(s, c.championId)}</div>
-        <div className="sub">{ratio(c.kills, c.deaths, c.assists)} KDA, {(c.cs / Math.max(1, c.minutes)).toFixed(1)} CS/min</div>
-      </div>
-      <div style={{ textAlign: "right" }}>
-        <div className={c.wins / c.games >= 0.5 ? "win-t" : "loss-t"} style={{ fontWeight: 700 }}>{Math.round((c.wins / c.games) * 100)}%</div>
-        <div className="sub">{c.games} played</div>
-      </div>
-    </Link>
   );
 }
 
@@ -413,8 +397,8 @@ function ChampionsTab({ s, p, base }: { s: Static; p: PlayerSummary; base: strin
                   </Link>
                 </td>
                 <td className="num">{c.games}</td>
-                <td><WinRate wins={c.wins} games={c.games} /></td>
-                <td className="num"><b>{ratio(c.kills, c.deaths, c.assists)}</b></td>
+                <td><WinRate wins={c.wins} games={c.games} /><div className="sub">{c.wins}W {c.games - c.wins}L</div></td>
+                <td className="num"><KdaRatio k={c.kills} d={c.deaths} a={c.assists} suffix={false} /></td>
                 <td className="num">{(c.kills / c.games).toFixed(1)} / <span className="loss-t">{(c.deaths / c.games).toFixed(1)}</span> / {(c.assists / c.games).toFixed(1)}</td>
                 <td className="num">{(c.cs / min).toFixed(1)}</td>
                 <td className="num">{Math.round(c.damage / min)}</td>
@@ -443,10 +427,10 @@ function Arrow() {
   );
 }
 
-function Fact({ v, k }: { v: string; k: string }) {
+function Fact({ v, k, tone }: { v: string; k: React.ReactNode; tone?: string }) {
   return (
     <div className="fact">
-      <div className="v">{v}</div>
+      <div className={`v${tone ? " " + tone : ""}`}>{v}</div>
       <div className="k">{k}</div>
     </div>
   );
@@ -476,9 +460,8 @@ function MateList({ title, empty, rows, more }: {
           <Link key={r.puuid} href={`/players/${encodeURIComponent(r.puuid)}`} className="li">
             <div className="grow ellip" style={{ fontWeight: 600 }}>{r.name}</div>
             <div style={{ textAlign: "right" }}>
-              <div className={r.rec.wins / r.rec.games >= 0.5 ? "win-t" : "loss-t"} style={{ fontWeight: 700 }}>
-                {r.rec.wins}W {r.rec.games - r.rec.wins}L
-              </div>
+              <div><Pct wins={r.rec.wins} games={r.rec.games} /></div>
+              <div className="sub">{r.rec.wins}W {r.rec.games - r.rec.wins}L</div>
             </div>
           </Link>
         )) : <div className="li sub">{empty}</div>}

@@ -56,14 +56,66 @@ export function ratio(k: number, d: number, a: number) {
   return d === 0 ? "Perfect" : kda(k, d, a).toFixed(2);
 }
 
+/** op.gg's KDA tiers: gray under 3, teal 3+, blue 4+, orange 5+ (and Perfect). */
+export function kdaTone(k: number, d: number, a: number) {
+  if (d === 0 && k + a > 0) return "kda-5";
+  const v = kda(k, d, a);
+  return v >= 5 ? "kda-5" : v >= 4 ? "kda-4" : v >= 3 ? "kda-3" : "kda-0";
+}
+
+/** op.gg's win-rate tier: red from 60% up, plain otherwise. */
+export function wrTone(wins: number, games: number) {
+  return games && wins / games >= 0.6 ? "wr-hot" : "wr-plain";
+}
+
+/** "5.36:1 KDA" in its tier color. */
+export function KdaRatio({ k, d, a, suffix = true }: { k: number; d: number; a: number; suffix?: boolean }) {
+  const text = d === 0 ? "Perfect" : `${kda(k, d, a).toFixed(2)}:1`;
+  return <b className={`kdar ${kdaTone(k, d, a)}`}>{text}{suffix ? " KDA" : ""}</b>;
+}
+
+/** Win rate as a colored percentage. */
+export function Pct({ wins, games }: { wins: number; games: number }) {
+  const pct = games ? Math.round((wins / games) * 100) : 0;
+  return <b className={`pct ${wrTone(wins, games)}`}>{pct}%</b>;
+}
+
 export function WinRate({ wins, games }: { wins: number; games: number }) {
   const pct = games ? Math.round((wins / games) * 100) : 0;
   return (
     <div className="wr" title={`${wins} wins, ${games - wins} losses`}>
       <div className="wr-bar" aria-hidden><i style={{ width: `${pct}%` }} /></div>
-      <b className={pct >= 50 ? "win-t" : "loss-t"}>{pct}%</b>
+      <Pct wins={wins} games={games} />
     </div>
   );
+}
+
+/** One champion line in op.gg's layout: icon, name and CS; KDA; win rate and games. */
+export function ChampLineRow({ s, c, href, label }: {
+  s: Static;
+  c: { championId: number; games: number; wins: number; kills: number; deaths: number; assists: number; cs: number; minutes: number };
+  href?: string;
+  label?: string;  // overrides the champion name, e.g. "All"
+}) {
+  const g = Math.max(1, c.games);
+  const body = (
+    <>
+      {label ? <span className="all-ico" aria-hidden>{label.slice(0, 1)}</span> : <Champ s={s} id={c.championId} size={34} />}
+      <div className="cl-name">
+        <b className="ellip">{label ?? champName(s, c.championId)}</b>
+        <span className="sub">CS {Math.round(c.cs / g)} ({(c.cs / Math.max(1, c.minutes)).toFixed(1)})</span>
+      </div>
+      <div className="cl-kda">
+        <KdaRatio k={c.kills} d={c.deaths} a={c.assists} />
+        <span className="sub">{(c.kills / g).toFixed(1)} / {(c.deaths / g).toFixed(1)} / {(c.assists / g).toFixed(1)}</span>
+      </div>
+      <div className="cl-wr">
+        <Pct wins={c.wins} games={c.games} />
+        <span className="sub">{c.games} {c.games === 1 ? "Game" : "Games"}</span>
+      </div>
+    </>
+  );
+  return href ? <Link href={href} className="cl">{body}</Link> : <div className="cl">{body}</div>;
 }
 
 export function Form({ results }: { results: boolean[] }) {

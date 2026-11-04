@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { champName, type Static } from "@/lib/ddragon";
 import type { Match, MatchTeam } from "@/lib/types";
-import { Champ, Delta, Items, Kda, Loadout, ratio, roleLabel } from "@/components/ui";
+import { Champ, Delta, Items, Kda, Loadout, ratio, roleLabel, KdaRatio } from "@/components/ui";
 
 const ROLE_ORDER = { TOP: 0, JUNGLE: 1, MID: 2, BOT: 3, SUPPORT: 4, "": 5 } as const;
 
@@ -72,7 +72,7 @@ export function Board({ s, m, t, mvp, deltas, scores, highlight, compact }: {
                   </td>
                   <td>
                     <Kda k={p.kills} d={p.deaths} a={p.assists} />
-                    <div className="sub">{ratio(p.kills, p.deaths, p.assists)}{p.pentaKills ? ", pentakill" : p.quadraKills ? ", quadra" : ""}</div>
+                    <div className="sub"><KdaRatio k={p.kills} d={p.deaths} a={p.assists} suffix={false} />{p.pentaKills ? ", pentakill" : p.quadraKills ? ", quadra" : ""}</div>
                   </td>
                   <td>
                     <div className="dmg">

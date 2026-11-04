@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { champName, getStatic, img } from "@/lib/ddragon";
 import { getDataset } from "@/lib/stats";
-import { Champ, GameRow, Img, WinRate, ratio } from "@/components/ui";
+import { Champ, GameRow, Img, WinRate, ratio, Pct, kdaTone } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 
@@ -53,7 +53,7 @@ export default async function DuoPage({ params }: Props) {
 
       <div className="facts">
         <div className="fact"><div className="v">{d.wins}–{d.games - d.wins}</div><div className="k">{Math.round((d.wins / d.games) * 100)}% win rate together</div></div>
-        <div className="fact"><div className="v">{ratio(d.kills, d.deaths, d.assists)}</div><div className="k">Combined KDA</div></div>
+        <div className="fact"><div className={`v ${kdaTone(d.kills, d.deaths, d.assists)}`}>{ratio(d.kills, d.deaths, d.assists)}</div><div className="k">Combined KDA</div></div>
         <div className="fact"><div className="v">{(d.kills / d.games).toFixed(1)}</div><div className="k">Kills per game between them</div></div>
         <div className="fact"><div className="v">{Math.round(d.damage / minutes)}</div><div className="k">Damage per minute between them</div></div>
         <div className="fact"><div className="v">{d.ratingSum >= 0 ? "+" : "−"}{Math.abs(d.ratingSum)}</div><div className="k">Rating gained together</div></div>
@@ -76,7 +76,7 @@ export default async function DuoPage({ params }: Props) {
                   <Champ s={s} id={c.champs[0]} size={30} />
                   <Champ s={s} id={c.champs[1]} size={30} />
                   <div className="grow ellip sub">{champName(s, c.champs[0])} and {champName(s, c.champs[1])}</div>
-                  <span className={c.wins / c.games >= 0.5 ? "win-t" : "loss-t"} style={{ fontWeight: 700 }}>{c.wins}W {c.games - c.wins}L</span>
+                  <span style={{ textAlign: "right" }}><Pct wins={c.wins} games={c.games} /> <span className="sub">{c.wins}W {c.games - c.wins}L</span></span>
                 </div>
               ))}
             </div>

@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { champName, getStatic, img } from "@/lib/ddragon";
 import { getDataset, searchPlayers, type PlayerSummary } from "@/lib/stats";
 import type { Role } from "@/lib/types";
-import { Champ, Empty, Form, Img, WinRate, ago, ratio, roleLabel } from "@/components/ui";
+import { Champ, Empty, Form, Img, WinRate, ago, ratio, roleLabel, KdaRatio } from "@/components/ui";
 import { PlayerSearch } from "@/components/player-search";
 
 export const dynamic = "force-dynamic";
@@ -105,7 +105,7 @@ export default async function Players({ searchParams }: Props) {
                     <td className="num"><b>{p.rating}</b></td>
                     <td className="num">{p.games}</td>
                     <td><WinRate wins={p.wins} games={p.games} /></td>
-                    <td className="num">{ratio(p.kills, p.deaths, p.assists)}</td>
+                    <td className="num"><KdaRatio k={p.kills} d={p.deaths} a={p.assists} suffix={false} /></td>
                     <td className="num">{Math.round((p.kpSum / p.games) * 100)}%</td>
                     <td className="num">{Math.round(p.damage / minutes)}</td>
                     <td className="num">{(p.cs / minutes).toFixed(1)}</td>

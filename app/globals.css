@@ -528,3 +528,41 @@ table.t { width: 100%; border-collapse: collapse; font-size: 14px; }
 .duo-head { display: flex; align-items: center; gap: 22px; margin-bottom: 28px; }
 .duo-title { font-size: clamp(36px, 5.5vw, 60px); font-weight: 900; }
 .duo-title a:hover { color: var(--blue-ink); }
+
+/* ---------- op.gg-style stat colors ---------- */
+
+:root {
+  --kda-0: #9aa4bd;   /* under 3 */
+  --kda-3: #00bba3;   /* 3+ */
+  --kda-4: #2f9bff;   /* 4+ */
+  --kda-5: #ff8200;   /* 5+ and Perfect */
+  --wr-hot: #e84057;  /* 60%+ */
+}
+.kda-0 { color: var(--kda-0); }
+.kda-3 { color: var(--kda-3); }
+.kda-4 { color: var(--kda-4); }
+.kda-5 { color: var(--kda-5); }
+.wr-hot { color: var(--wr-hot); }
+.wr-plain { color: var(--ink); }
+b.kdar, b.pct { font-weight: 700; }
+
+/* champion rows like op.gg's sidebar */
+.cl-list { display: flex; flex-direction: column; }
+.cl {
+  display: grid; grid-template-columns: 34px minmax(0, 1fr) max-content 62px; gap: 12px; align-items: center;
+  padding: 9px 14px; border-bottom: 1px solid var(--line-soft);
+}
+.cl:last-child { border-bottom: 0; }
+a.cl:hover { background: var(--deck-2); }
+.cl .champ img { border-radius: 50%; }
+.cl-name, .cl-kda, .cl-wr { display: flex; flex-direction: column; min-width: 0; line-height: 1.35; }
+.cl-name b { font-weight: 700; }
+.cl-kda { align-items: center; text-align: center; }
+.cl-wr { align-items: flex-end; text-align: right; }
+.cl .sub { font-size: 12px; }
+.cl-kda .sub, .cl-wr .sub { white-space: nowrap; }
+.cl.all, .cl-all { background: rgba(255, 255, 255, 0.02); }
+.all-ico {
+  width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--deck-2); color: var(--mute); font-weight: 800; font-size: 13px;
+}

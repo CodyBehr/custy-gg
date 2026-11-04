@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { champName, getStatic, img, type Static } from "@/lib/ddragon";
 import { adjustedWinRate, getDataset, kda, type DuoSummary } from "@/lib/stats";
-import { Champ, Empty, Img, WinRate, ago, ratio } from "@/components/ui";
+import { Champ, Empty, Img, WinRate, ago, ratio, KdaRatio } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Duos" };
@@ -114,7 +114,7 @@ export default async function Duos({ searchParams }: Props) {
                     <WinRate wins={d.wins} games={d.games} />
                     <div className="sub">{d.wins}W {d.games - d.wins}L</div>
                   </td>
-                  <td className="num">{ratio(d.kills, d.deaths, d.assists)}</td>
+                  <td className="num"><KdaRatio k={d.kills} d={d.deaths} a={d.assists} suffix={false} /></td>
                   <td className="num">{(d.kills / d.games).toFixed(1)}</td>
                   <td className="num"><span className={d.ratingSum >= 0 ? "win-t" : "loss-t"}>{d.ratingSum >= 0 ? "+" : "−"}{Math.abs(d.ratingSum)}</span></td>
                   <td className="num">{d.mvps || <span className="faint">0</span>}</td>

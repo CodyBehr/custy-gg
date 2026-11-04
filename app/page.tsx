@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getStatic, img } from "@/lib/ddragon";
 import { adjustedWinRate, getDataset, kda, START_RATING } from "@/lib/stats";
-import { Champ, Empty, Form, GameRow, Img, WinRate, ago, ratio } from "@/components/ui";
+import { Champ, Empty, Form, GameRow, Img, WinRate, ago, ratio, kdaTone } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 
@@ -62,7 +62,7 @@ export default async function Standings() {
                 <div className="sub" style={{ marginTop: 4 }}>{p.wins}W {p.games - p.wins}L</div>
               </span>
               <span className="mini" role="cell">
-                <b>{ratio(p.kills, p.deaths, p.assists)}</b>
+                <b className={kdaTone(p.kills, p.deaths, p.assists)}>{ratio(p.kills, p.deaths, p.assists)}</b>
                 {(p.kills / p.games).toFixed(1)}/{(p.deaths / p.games).toFixed(1)}/{(p.assists / p.games).toFixed(1)}
               </span>
               <span role="cell"><Form results={[...p.form].reverse()} /></span>
