@@ -187,7 +187,7 @@ function Overview({ d, s, p, base, champ, role, showAll }: {
             <p className="sub" style={{ marginTop: 8 }}>Longest killing spree: {p.largestSpree}.</p>
           </section>
 
-          <MateList title="Best duos" empty="Play a few more games together to see duos." rows={duos.slice(0, 5).map((m) => ({ ...m, rec: m.with }))} />
+          <MateList title="Best duos" empty="Play a few more games together to see duos." rows={duos.slice(0, 5).map((m) => ({ ...m, rec: m.with }))} more={{ href: `/duos?player=${encodeURIComponent(p.puuid)}&min=1`, label: "All duos" }} />
           <MateList title="Toughest opponents" empty="Not enough games against anyone yet." rows={rivals.slice(0, 5).map((m) => ({ ...m, rec: m.against }))} />
         </aside>
       </div>
@@ -439,10 +439,16 @@ function Multi({ n, l, gold }: { n: number; l: string; gold?: boolean }) {
   );
 }
 
-function MateList({ title, empty, rows }: { title: string; empty: string; rows: { puuid: string; name: string; rec: { games: number; wins: number } }[] }) {
+function MateList({ title, empty, rows, more }: {
+  title: string; empty: string; rows: { puuid: string; name: string; rec: { games: number; wins: number } }[];
+  more?: { href: string; label: string };
+}) {
   return (
     <section>
-      <h2 className="section-title">{title}</h2>
+      <div className="row" style={{ justifyContent: "space-between", alignItems: "baseline" }}>
+        <h2 className="section-title">{title}</h2>
+        {more ? <Link href={more.href} className="sub">{more.label}</Link> : null}
+      </div>
       <div className="panel list">
         {rows.length ? rows.map((r) => (
           <Link key={r.puuid} href={`/players/${encodeURIComponent(r.puuid)}`} className="li">

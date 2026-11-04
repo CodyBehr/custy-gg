@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getStatic, img } from "@/lib/ddragon";
-import { getDataset, kda, START_RATING } from "@/lib/stats";
+import { adjustedWinRate, getDataset, kda, START_RATING } from "@/lib/stats";
 import { Champ, Empty, Form, GameRow, Img, WinRate, ago, ratio } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
@@ -89,7 +89,7 @@ export default async function Standings() {
           <h2 className="section-title">Who&apos;s carrying</h2>
           <div className="panel list">
             {highlights(d).map((h) => (
-              <Link key={h.label} href={`/players/${encodeURIComponent(h.puuid)}`} className="li">
+              <Link key={h.label} href={h.href ?? `/players/${encodeURIComponent(h.puuid)}`} className="li">
                 <div className="grow">
                   <div className="label">{h.label}</div>
                   <div className="ellip" style={{ fontWeight: 600 }}>{h.name}</div>
@@ -125,7 +125,7 @@ function highlights(d: Awaited<ReturnType<typeof getDataset>>) {
   const regulars = d.players.filter((p) => p.games >= Math.min(5, Math.max(1, Math.floor(d.counted / 4))));
   if (!regulars.length) return [];
   const best = <T,>(f: (p: (typeof regulars)[number]) => number) => regulars.reduce((a, b) => (f(b) > f(a) ? b : a));
-  const out = [];
+  const out: { label: string; name: string; puuid: string; value: string; href?: string }[] = [];
   const streak = best((p) => p.streak);
   if (streak.streak >= 2) out.push({ label: "Hottest streak", name: streak.name, puuid: streak.puuid, value: `${streak.streak}W` });
   const mvp = best((p) => p.mvps / p.games);
@@ -136,6 +136,9 @@ function highlights(d: Awaited<ReturnType<typeof getDataset>>) {
   out.push({ label: "Most damage per minute", name: dmg.name, puuid: dmg.puuid, value: `${Math.round(dmg.damage / dmg.minutes)}` });
   const vis = best((p) => p.vision / p.minutes);
   out.push({ label: "Best vision per minute", name: vis.name, puuid: vis.puuid, value: (vis.vision / vis.minutes).toFixed(2) });
+  const duoMin = Math.min(3, Math.max(1, ...d.duos.map((x) => x.games)));
+  const duo = d.duos.filter((x) => x.games >= duoMin).sort((x, y) => adjustedWinRate(y.wins, y.games) - adjustedWinRate(x.wins, x.games) || y.games - x.games)[0];
+  if (duo) out.push({ label: "Best duo", name: `${duo.a.name} & ${duo.b.name}`, puuid: "", href: `/duos/${encodeURIComponent(duo.key)}`, value: `${duo.wins}-${duo.games - duo.wins}` });
   const cold = d.players.reduce((a, b) => (b.streak < a.streak ? b : a));
   if (cold.streak <= -3) out.push({ label: "Needs a hug", name: cold.name, puuid: cold.puuid, value: `${-cold.streak}L` });
   return out;

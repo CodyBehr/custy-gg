@@ -487,3 +487,34 @@ table.t { width: 100%; border-collapse: collapse; font-size: 14px; }
 .players-t .wr-bar { min-width: 50px; max-width: 64px; }
 .board.compact .dmg { min-width: 80px; }
 .board.compact .t td, .board.compact .t th { padding-left: 9px; padding-right: 9px; }
+
+/* ---------- duos ---------- */
+
+.pair { position: relative; display: inline-flex; flex: none; }
+.pair img:last-child { margin-left: -38%; box-shadow: 0 0 0 3px var(--deck); }
+.pair.big img:last-child { box-shadow: 0 0 0 4px var(--night); }
+.amp { color: var(--gold); font-weight: 400; }
+
+.spotlight {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 24px; align-items: center;
+  padding: 22px 26px; margin-bottom: 22px;
+  background: linear-gradient(100deg, var(--gold-wash), var(--deck) 55%);
+  border-color: rgba(227, 184, 102, 0.35);
+}
+.spotlight:hover { border-color: var(--gold); }
+.spot-pair { display: flex; }
+.spot-pair img:last-child { margin-left: -24px; box-shadow: 0 0 0 4px var(--deck); }
+.spot-names { font-family: var(--display); font-weight: 900; font-size: clamp(30px, 4.4vw, 48px); line-height: 1; margin-top: 4px; }
+.spot-wr { text-align: right; }
+.spot-wr .n { font-family: var(--display); font-weight: 900; font-size: 56px; line-height: 0.9; }
+@media (max-width: 700px) {
+  .spotlight { grid-template-columns: 1fr; }
+  .spot-wr { text-align: left; }
+}
+
+.duos-t .wr { min-width: 120px; }
+.duos-t .wr-bar { max-width: 70px; }
+
+.duo-head { display: flex; align-items: center; gap: 22px; margin-bottom: 28px; }
+.duo-title { font-size: clamp(36px, 5.5vw, 60px); font-weight: 900; }
+.duo-title a:hover { color: var(--blue-ink); }

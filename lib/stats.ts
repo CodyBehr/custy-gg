@@ -95,7 +95,32 @@ export interface Dataset {
   mvpOf: Map<string, string>;         // matchId -> puuid of the MVP
   ratingDelta: Map<string, number>;   // `${matchId}:${puuid}` -> rating change
   scores: Map<string, number>;        // `${matchId}:${puuid}` -> performance score (0-10)
+  duos: DuoSummary[];                 // every pair of teammates, most games first
 }
+
+/** Two players on the same team, any roles. `a` and `b` are ordered by puuid. */
+export interface DuoSummary {
+  key: string;                        // `${a}+${b}`
+  a: { puuid: string; name: string; tag: string; profileIcon: number };
+  b: { puuid: string; name: string; tag: string; profileIcon: number };
+  games: number;
+  wins: number;
+  kills: number;                      // the two players combined
+  deaths: number;
+  assists: number;
+  damage: number;
+  minutes: number;
+  scoreSum: number;                   // sum of both players' performance scores
+  ratingSum: number;                  // rating gained or lost together (per player)
+  mvps: number;                       // games where one of them was MVP
+  streak: number;                     // +3 = won their last three together
+  lastPlayed: number;
+  combos: { champs: [number, number]; games: number; wins: number }[];  // a's champ, b's champ
+  matchIds: string[];                 // newest first
+}
+
+/** Win rate pulled toward 50% for small samples, so 1-0 doesn't top the chart. */
+export const adjustedWinRate = (wins: number, games: number) => (wins + 2) / (games + 4);
 
 export const kda = (k: number, d: number, a: number) => (d === 0 ? k + a : (k + a) / d);
 
@@ -156,6 +181,7 @@ export function buildDataset(all: Match[]): Dataset {
   const ratingDelta = new Map<string, number>();
   const scores = new Map<string, number>();
   const records: Record<string, RecordLine> = {};
+  const duoMap = new Map<string, DuoSummary>();
 
   const record = (key: string, label: string, value: number, display: string, p: MatchPlayer, m: Match, lowerIsBetter = false) => {
     const cur = records[key];
@@ -265,6 +291,50 @@ export function buildDataset(all: Match[]): Dataset {
       if (p.deaths === 0) record("deathless", "Most kills without dying", p.kills + p.assists, `${p.kills}/0/${p.assists}`, p, m);
     }
 
+    // Every pair of teammates
+    for (const team of [100, 200]) {
+      const side = humans.filter((x) => x.teamId === team).sort((x, y) => (x.puuid < y.puuid ? -1 : 1));
+      const won = side[0]?.win ?? false;
+      const delta = side[0] ? ratingDelta.get(`${m.id}:${side[0].puuid}`) ?? 0 : 0;
+      const mvp = mvpOf.get(m.id);
+      for (let i = 0; i < side.length; i++) {
+        for (let j = i + 1; j < side.length; j++) {
+          const x = side[i], y = side[j];
+          const key = `${x.puuid}+${y.puuid}`;
+          let duo = duoMap.get(key);
+          if (!duo) {
+            duo = {
+              key, games: 0, wins: 0, kills: 0, deaths: 0, assists: 0, damage: 0, minutes: 0,
+              scoreSum: 0, ratingSum: 0, mvps: 0, streak: 0, lastPlayed: 0, matchIds: [], combos: [],
+              a: { puuid: x.puuid, name: x.name, tag: x.tag, profileIcon: x.profileIcon },
+              b: { puuid: y.puuid, name: y.name, tag: y.tag, profileIcon: y.profileIcon },
+            };
+            duoMap.set(key, duo);
+          }
+          duo.a = { puuid: x.puuid, name: x.name, tag: x.tag, profileIcon: x.profileIcon || duo.a.profileIcon };
+          duo.b = { puuid: y.puuid, name: y.name, tag: y.tag, profileIcon: y.profileIcon || duo.b.profileIcon };
+          duo.games++;
+          if (won) duo.wins++;
+          duo.kills += x.kills + y.kills;
+          duo.deaths += x.deaths + y.deaths;
+          duo.assists += x.assists + y.assists;
+          duo.damage += x.damageToChampions + y.damageToChampions;
+          duo.minutes += minutes;
+          duo.scoreSum += (scores.get(`${m.id}:${x.puuid}`) ?? 0) + (scores.get(`${m.id}:${y.puuid}`) ?? 0);
+          duo.ratingSum += delta;
+          if (mvp === x.puuid || mvp === y.puuid) duo.mvps++;
+          duo.streak = won ? (duo.streak > 0 ? duo.streak + 1 : 1) : duo.streak < 0 ? duo.streak - 1 : -1;
+          duo.lastPlayed = m.playedAt;
+          duo.matchIds.unshift(m.id);
+          const combo = duo.combos.find((c) => c.champs[0] === x.championId && c.champs[1] === y.championId);
+          if (combo) {
+            combo.games++;
+            if (won) combo.wins++;
+          } else duo.combos.push({ champs: [x.championId, y.championId], games: 1, wins: won ? 1 : 0 });
+        }
+      }
+    }
+
     // Champion picks and bans across everyone (bots included in picks)
     for (const p of humans) {
       const c = champs.get(p.championId) ?? { ...blankChamp(p.championId), bans: 0, players: [] };
@@ -319,6 +389,9 @@ export function buildDataset(all: Match[]): Dataset {
     mvpOf,
     ratingDelta,
     scores,
+    duos: [...duoMap.values()]
+      .map((d) => ({ ...d, combos: d.combos.sort((x, y) => y.games - x.games || y.wins - x.wins) }))
+      .sort((x, y) => y.games - x.games || y.wins - x.wins),
   };
 }
 
