@@ -6,6 +6,7 @@ import "server-only";
 import { cache } from "react";
 import type { Match, MatchPlayer, Role } from "./types";
 import { store } from "./store";
+import { linkAccounts } from "./player-links";
 
 export const START_RATING = 1500;
 const K = 32;
@@ -52,6 +53,7 @@ export interface PlayerSummary {
   vision: number;
   kpSum: number;            // sum of kill participation, divide by games
   damageShareSum: number;
+  otherAccounts: string[];  // Riot IDs of linked accounts (lib/player-links.ts)
   pentas: number;
   quadras: number;
   triples: number;
@@ -142,7 +144,7 @@ function blankPlayer(p: MatchPlayer): PlayerSummary {
   return {
     puuid: p.puuid, name: p.name, tag: p.tag, profileIcon: p.profileIcon,
     games: 0, wins: 0, kills: 0, deaths: 0, assists: 0, cs: 0, minutes: 0, damage: 0, gold: 0, vision: 0,
-    kpSum: 0, damageShareSum: 0, pentas: 0, quadras: 0, triples: 0, doubles: 0, largestSpree: 0, mvps: 0,
+    kpSum: 0, damageShareSum: 0, otherAccounts: [], pentas: 0, quadras: 0, triples: 0, doubles: 0, largestSpree: 0, mvps: 0,
     rating: START_RATING, peakRating: START_RATING, ratingHistory: [],
     form: [], streak: 0, lastPlayed: 0, champs: [], roles: {}, mates: [],
   };
@@ -169,8 +171,9 @@ function addLine(line: ChampLine, p: MatchPlayer, minutes: number) {
   line.pentas += p.pentaKills;
 }
 
-export function buildDataset(all: Match[]): Dataset {
-  const matches = [...all].sort((a, b) => b.playedAt - a.playedAt);
+export function buildDataset(raw: Match[]): Dataset {
+  const linked = linkAccounts(raw);
+  const matches = [...linked.matches].sort((a, b) => b.playedAt - a.playedAt);
   const oldestFirst = [...matches].reverse().filter((m) => !m.remake);
 
   const byPuuid = new Map<string, PlayerSummary>();
@@ -370,6 +373,7 @@ export function buildDataset(all: Match[]): Dataset {
     byPuuid.get(puuid)?.mates.push(mate);
   }
   for (const p of byPuuid.values()) {
+    p.otherAccounts = [...(linked.otherNames.get(p.puuid) ?? [])].filter((n) => n !== `${p.name}#${p.tag}`);
     p.champs.sort((a, b) => b.games - a.games || b.wins - a.wins);
     p.mates.sort((a, b) => b.with.games + b.against.games - (a.with.games + a.against.games));
   }
@@ -409,15 +413,22 @@ export function searchPlayers(players: PlayerSummary[], query: string): PlayerSu
   const q = norm(query.replace(/^#/, ""));
   if (!q) return [];
   const [qName, qTag] = q.includes("#") ? q.split("#", 2) : [q, ""];
+  const scoreId = (rawName: string, rawTag: string) => {
+    const name = norm(rawName);
+    const tag = norm(rawTag);
+    if (qTag) return name === qName && tag.startsWith(qTag) ? 100 : 0;
+    if (name === q) return 90;
+    if (name.startsWith(q)) return 70;
+    if (name.includes(q)) return 50;
+    if (tag === q) return 30;
+    return 0;
+  };
   const scored = players.map((p) => {
-    const name = norm(p.name);
-    const tag = norm(p.tag);
-    let score = 0;
-    if (qTag) score = name === qName && tag.startsWith(qTag) ? 100 : 0;
-    else if (name === q) score = 90;
-    else if (name.startsWith(q)) score = 70;
-    else if (name.includes(q)) score = 50;
-    else if (tag === q) score = 30;
+    let score = scoreId(p.name, p.tag);
+    for (const other of p.otherAccounts) {
+      const [n, t = ""] = other.split("#");
+      score = Math.max(score, scoreId(n, t) - 5);
+    }
     return { p, score };
   });
   return scored.filter((x) => x.score > 0).sort((a, b) => b.score - a.score || b.p.games - a.p.games).map((x) => x.p);

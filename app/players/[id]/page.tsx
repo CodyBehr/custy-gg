@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { PLAYER_LINKS } from "@/lib/player-links";
 import type { Metadata } from "next";
 import { champName, getStatic, img, type Static } from "@/lib/ddragon";
 import { clock, getDataset, kda, START_RATING, type ChampLine, type Dataset, type PlayerSummary } from "@/lib/stats";
@@ -30,7 +31,11 @@ export default async function PlayerPage({ params, searchParams }: Props) {
   const puuid = decodeURIComponent(id);
   const [d, s] = await Promise.all([getDataset(), getStatic()]);
   const p = d.byPuuid.get(puuid);
-  if (!p) notFound();
+  if (!p) {
+    const main = PLAYER_LINKS[puuid];
+    if (main && d.byPuuid.has(main)) redirect(`/players/${encodeURIComponent(main)}`);
+    notFound();
+  }
 
   const base = `/players/${encodeURIComponent(puuid)}`;
   const rank = d.players.indexOf(p) + 1;
@@ -42,6 +47,7 @@ export default async function PlayerPage({ params, searchParams }: Props) {
         <div style={{ minWidth: 0 }}>
           <h1 className="ellip">{p.name}</h1>
           <div className="tag">#{p.tag}<span style={{ marginLeft: 12 }}>Last played {ago(p.lastPlayed)}</span></div>
+          {p.otherAccounts.length ? <div className="sub" style={{ marginTop: 4 }}>Also plays as {p.otherAccounts.join(", ")}</div> : null}
         </div>
         <div className="big-rating">
           <div className={`n${rank === 1 ? " gold-t" : ""}`}>{p.rating}</div>

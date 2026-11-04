@@ -55,7 +55,7 @@ export function PlayerSearch({ options, autoFocus, defaultValue = "", big }: {
         }}
       />
       <datalist id={listId}>
-        {options.map((o) => <option key={o.puuid} value={o.label} />)}
+        {options.map((o) => <option key={`${o.puuid}:${o.label}`} value={o.label} />)}
       </datalist>
       <button type="submit" aria-label="Search">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden>

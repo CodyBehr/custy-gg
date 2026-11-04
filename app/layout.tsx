@@ -34,7 +34,10 @@ async function searchOptions(): Promise<SearchOption[]> {
   }
   try {
     const d = await getDataset();
-    return d.players.map((p) => ({ puuid: p.puuid, label: `${p.name}#${p.tag}` }));
+    return d.players.flatMap((p) => [
+      { puuid: p.puuid, label: `${p.name}#${p.tag}` },
+      ...p.otherAccounts.map((label) => ({ puuid: p.puuid, label })),
+    ]);
   } catch {
     return []; // database not connected yet; the pages themselves explain it
   }
