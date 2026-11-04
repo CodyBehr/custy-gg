@@ -574,3 +574,5 @@ a.cl:hover { background: var(--deck-2); }
 }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .panel.err { color: var(--red-ink); }
+.solo-rank { font-size: 13px; color: var(--mute); margin-right: 4px; white-space: nowrap; }
+.solo-rank b { color: var(--ink); }

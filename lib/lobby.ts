@@ -6,6 +6,7 @@ import { store } from "./store";
 import { getDataset, searchPlayers, START_RATING } from "./stats";
 import { PLAYER_LINKS } from "./player-links";
 import type { TeamPlayer } from "./teams";
+import { getRanks } from "./rank-store";
 
 export interface LobbyMember {
   puuid?: string;
@@ -39,7 +40,7 @@ export async function saveLobby(lobby: Lobby) {
 /** Looks each name or lobby member up on the site to get their rating. */
 export async function ratePlayers(entries: { name: string; puuid?: string }[]): Promise<TeamPlayer[]> {
   const d = await getDataset();
-  return entries.map((e) => {
+  const rated = entries.map((e) => {
     const main = e.puuid ? PLAYER_LINKS[e.puuid] ?? e.puuid : undefined;
     let p = main ? d.byPuuid.get(main) : undefined;
     if (!p) {
@@ -48,7 +49,9 @@ export async function ratePlayers(entries: { name: string; puuid?: string }[]): 
       p = exact ?? (hits.length === 1 ? hits[0] : undefined);
     }
     return p
-      ? { name: p.name, rating: p.rating, known: true, puuid: p.puuid }
+      ? { name: p.name, rating: p.rating, custy: p.rating, known: true, puuid: p.puuid }
       : { name: e.name.split("#")[0], rating: START_RATING, known: false, puuid: e.puuid };
   });
+  const ranks = await getRanks(rated.map((p) => p.puuid));
+  return rated.map((p) => ({ ...p, rank: p.puuid ? ranks.get(p.puuid) ?? null : null }));
 }

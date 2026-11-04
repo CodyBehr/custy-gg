@@ -4,11 +4,16 @@
 //   random:   any split that meets the rules
 // Rules: groups that must be on the same team, and groups that must be split up.
 
+import type { Rank } from "./ranks";
+
 export interface TeamPlayer {
   name: string;           // as shown, e.g. "Buckley"
-  rating: number;         // custy rating; 1500 if they have no games yet
+  rating: number;         // the number teams are balanced on (custy rating or solo queue score)
   known: boolean;         // false when nobody by that name is on the site
   puuid?: string;
+  custy?: number;         // custy rating, for display
+  rank?: Rank | null;     // solo queue rank, for display
+  guessed?: boolean;      // true when the balancing number was filled in (no data)
 }
 
 export interface TeamOptions {

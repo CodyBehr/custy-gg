@@ -5,6 +5,7 @@
 import { NextResponse } from "next/server";
 import { checkIngestKey } from "@/lib/ingest-key";
 import { getLobby, saveLobby, type LobbyMember } from "@/lib/lobby";
+import { saveRanks } from "@/lib/rank-store";
 
 export const dynamic = "force-dynamic";
 
@@ -38,6 +39,12 @@ export async function POST(req: Request) {
       team: m?.team === 100 || m?.team === 200 ? m.team : 0,
     }))
     .filter((m: LobbyMember) => m.name);
+  // Ranks read alongside the lobby (from the League client) refresh the rank cache.
+  const ranks: Record<string, unknown> = {};
+  for (const m of Array.isArray(body?.members) ? body.members : []) {
+    if (typeof m?.puuid === "string" && m.rank) ranks[m.puuid] = m.rank;
+  }
+  if (Object.keys(ranks).length) await saveRanks(ranks);
   const u = body?.uploader;
   await saveLobby({ members, updatedAt: Date.now(), uploader: u?.gameName ? `${u.gameName}#${u.tagLine ?? ""}` : undefined });
   return NextResponse.json({ ok: true, members: members.length });

@@ -21,7 +21,7 @@ export default async function DiscordSetup({ searchParams }: Props) {
           <h1>Discord bot</h1>
           <p>
             Type <code>/custy_teams</code> in your server to split the current custom lobby into two balanced teams, or{" "}
-            <code>/custy</code> to look someone up. The bot runs on this site, so there&apos;s nothing else to host.
+            <code>/custy_player</code> to look someone up. The bot runs on this site, so there&apos;s nothing else to host.
           </p>
         </div>
       </div>
@@ -62,13 +62,14 @@ export default async function DiscordSetup({ searchParams }: Props) {
           <section className="panel" style={{ padding: "18px 20px" }}>
             <b>Commands</b>
             <ul className="notes">
-              <li><code>/custy_teams</code> uses whoever is in the custom lobby. Someone in the lobby needs the custy.gg app running.</li>
-              <li><code>/custy_teams players: Ringo, Sevi, ...</code> uses your list instead.</li>
-              <li><code>mode: Random</code> ignores ratings.</li>
+              <li><code>/custy_teams</code> splits whoever is in the custom lobby. Someone in the lobby needs the custy.gg app running.</li>
+              <li><code>balance</code>: custy rating (default), solo queue rank, or random.</li>
+              <li><code>players: Ringo, Sevi, ...</code> uses your list instead of the lobby.</li>
               <li><code>together: Ringo, Sevi</code> keeps them on one team; <code>apart: Vender, Leaden</code> splits them. Separate groups with <code>;</code>.</li>
               <li><code>add</code> and <code>remove</code> tweak the lobby list.</li>
-              <li>Hit <b>Reroll</b> under the result for a different split with the same rules.</li>
-              <li><code>/lobby</code> shows who&apos;s in the lobby; <code>/custy player</code> shows someone&apos;s stats.</li>
+              <li>Hit <b>Reroll</b> for a different split with the same rules.</li>
+              <li><code>/custy_lobby</code> shows who&apos;s in the lobby with ratings and ranks.</li>
+              <li><code>/custy_player</code> shows someone&apos;s stats.</li>
             </ul>
           </section>
         </aside>

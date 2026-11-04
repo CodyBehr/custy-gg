@@ -33,7 +33,7 @@ import time
 import urllib.error
 import urllib.request
 
-VERSION = "1.3.0"
+VERSION = "1.4.0"
 FROZEN = bool(getattr(sys, "frozen", False))
 if FROZEN:
     # Packaged app: keep config, state and log in the user's app-data folder.
@@ -287,6 +287,7 @@ def sync(cfg, lcu, seen, me, force=False):
     """Upload any custom games not uploaded before. Returns how many were new to the site."""
     uploaded = 0
     created = 0
+    new_players = set()
     for summary in recent_games(lcu):
         if not is_custom(summary):
             continue
@@ -317,12 +318,21 @@ def sync(cfg, lcu, seen, me, force=False):
             else:
                 created += 1
                 log.info("Uploaded custom game %s", key)
+                for ident in game.get("participantIdentities") or []:
+                    puuid = (ident.get("player") or {}).get("puuid") or ""
+                    if puuid and set(puuid.replace("-", "")) != {"0"}:
+                        new_players.add(puuid)
         elif status == 401:
             raise SystemExit("The site rejected the ingest_key in config.json. Check it matches INGEST_KEY.")
         else:
             log.warning("Upload of %s failed (HTTP %s): %s", key, status, body.get("error", ""))
     if uploaded:
         save_state(seen)
+    if new_players:
+        try:
+            send_ranks(cfg, lcu, new_players)
+        except Exception as e:
+            log.warning("Couldn't send ranks: %s", e)
     return created
 
 
@@ -373,6 +383,47 @@ def lobby_members(lcu):
     return out
 
 
+def read_rank(lcu, puuid):
+    """Solo queue rank for any player, read from the League client (no Riot API key needed)."""
+    if not puuid:
+        return None
+    try:
+        data = lcu.get("/lol-ranked/v1/ranked-stats/%s" % puuid) or {}
+    except (urllib.error.URLError, OSError, ValueError):
+        return None
+    queues = data.get("queueMap") or {q.get("queueType"): q for q in (data.get("queues") or []) if isinstance(q, dict)}
+
+    def pick(q):
+        tier = (q or {}).get("tier") or ""
+        if tier and tier.upper() not in ("NONE", "NA", "UNRANKED"):
+            return tier.upper(), (q.get("division") or "").upper(), int(q.get("leaguePoints") or 0), q
+        return None
+
+    for key, source in (("RANKED_SOLO_5x5", "solo"), ("RANKED_FLEX_SR", "flex")):
+        hit = pick(queues.get(key))
+        if hit:
+            tier, div, lp, q = hit
+            return {"tier": tier, "division": div if div not in ("NA", "") else "", "lp": lp,
+                    "wins": q.get("wins"), "losses": q.get("losses"), "source": source}
+    solo = queues.get("RANKED_SOLO_5x5") or {}
+    prev = (solo.get("previousSeasonEndTier") or data.get("highestPreviousSeasonEndTier") or "").upper()
+    if prev and prev not in ("NONE", "NA", "UNRANKED"):
+        div = (solo.get("previousSeasonEndDivision") or "").upper()
+        return {"tier": prev, "division": div if div != "NA" else "", "lp": 0, "source": "last season"}
+    return {"tier": "", "division": "", "lp": 0, "source": ""}
+
+
+def send_ranks(cfg, lcu, puuids):
+    """Reads and uploads ranks for a set of players (e.g. everyone in a game just uploaded)."""
+    ranks = {}
+    for p in list(puuids)[:30]:
+        r = read_rank(lcu, p)
+        if r is not None:
+            ranks[p] = r
+    if ranks:
+        post_json(cfg["site_url"] + "/api/ranks", cfg["ingest_key"], {"ranks": ranks})
+
+
 def send_lobby(cfg, lcu, me):
     """Posts the lobby when it changes (and every few minutes while it lasts)."""
     members = lobby_members(lcu)
@@ -381,6 +432,8 @@ def send_lobby(cfg, lcu, me):
     key = ",".join(sorted("%s:%s" % (m["name"], m["team"]) for m in members))
     if key == _last_lobby["key"] and time.time() - _last_lobby["sent"] < 300:
         return
+    for m in members:
+        m["rank"] = read_rank(lcu, m.get("puuid"))
     status, _ = post_json(cfg["site_url"] + "/api/lobby", cfg["ingest_key"], {"members": members, "uploader": me})
     if status == 200:
         _last_lobby.update(key=key, sent=time.time())

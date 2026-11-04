@@ -33,6 +33,14 @@ jobs:
       - name: Install PyInstaller and tray libraries
         run: pip install pyinstaller==6.11.1 pystray==0.19.5 pillow==11.0.0
 
+      - name: Stamp the version from custy_collector.py into the file details
+        shell: bash
+        run: |
+          V=$(sed -n 's/^VERSION = "\([0-9.]*\)".*/\1/p' collector/custy_collector.py)
+          IFS=. read -r A B C <<< "$V"
+          sed -i -E "s/filevers=\([0-9, ]+\)/filevers=($A, $B, ${C:-0}, 0)/; s/prodvers=\([0-9, ]+\)/prodvers=($A, $B, ${C:-0}, 0)/; s/'(FileVersion|ProductVersion)', '[0-9.]+'/'\1', '$V'/g" collector/version_info.txt
+          grep -E "ProductVersion|filevers" collector/version_info.txt
+
       - name: Build custy-collector.exe
         run: >
           pyinstaller --onefile --noconsole --name custy-collector
@@ -51,6 +59,8 @@ jobs:
           cat selftest.json
           grep -q '"frozen": true' selftest.json
           grep -q '"site_url": "https://example.test"' selftest.json
+          V=$(sed -n 's/^VERSION = "\([0-9.]*\)".*/\1/p' collector/custy_collector.py)
+          grep -q "\"version\": \"$V\"" selftest.json
 
       - name: Commit the app
         shell: bash

@@ -49,15 +49,23 @@ address and upload key attached to the end, where the app reads them.
 
 The site answers Discord slash commands itself at `/api/discord` (no separate bot to host):
 
-- `/custy_teams` splits the current custom lobby into two teams balanced by custy rating. Options: `players`
-  (use a list instead of the lobby), `mode` (balanced or random), `together`, `apart`, `add`, `remove`.
+- `/custy_teams` splits the current custom lobby into two teams. `balance`: custy rating (default), solo queue
+  rank, or random. Also `players` (use a list instead of the lobby), `together`, `apart`, `add`, `remove`.
   A **Reroll** button gives another fair split with the same rules.
-- `/lobby` shows who's in the custom lobby. The collector sends the lobby roster while you're in one.
-- `/custy player` shows someone's custom-game stats.
+- `/custy_lobby` shows who's in the custom lobby, with custy ratings and solo queue ranks.
+- `/custy_player` shows someone's custom-game stats and solo queue rank.
 
-Setup is on the site's `/discord` page: create an app in the Discord Developer Portal, set
-`DISCORD_APP_ID` and `DISCORD_PUBLIC_KEY` in Vercel, point the Interactions Endpoint URL at `/api/discord`,
-register the commands with the client secret (used once, not stored), and add the app to your server.
+Solo queue ranks come from the League client: the app reads them for everyone in your lobby and in each game it
+uploads, so no Riot API key is needed. Balancing is plain math, not AI: it tries every possible split, keeps
+the ones closest to even (and that follow the together/apart rules), and picks one of those at random.
+
+Setup is on the site's `/discord` page.
+
+## The Windows app updates itself
+
+Every 6 hours (when you're not in a game) the app asks the site for its latest version
+(`/api/collector/version`, read from the built .exe) and installs it quietly if it's newer. Turn this off from
+the tray menu ("Update automatically").
 
 ## How it's hosted
 

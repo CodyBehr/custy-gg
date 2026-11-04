@@ -8,6 +8,8 @@ import type { Match, MatchPlayer, Role } from "@/lib/types";
 import { Champ, ChampLineRow, Delta, Img, Items, Kda, KdaRatio, Loadout, Pct, WinRate, kdaTone, ratio, roleLabel, when, ago } from "@/components/ui";
 import { Board } from "@/components/scoreboard";
 import { opggUrl, uggUrl } from "@/lib/external";
+import { getRanks } from "@/lib/rank-store";
+import { rankLabel } from "@/lib/ranks";
 
 export const dynamic = "force-dynamic";
 
@@ -39,6 +41,7 @@ export default async function PlayerPage({ params, searchParams }: Props) {
   }
 
   const base = `/players/${encodeURIComponent(puuid)}`;
+  const solo = (await getRanks([p.puuid]).catch(() => new Map())).get(p.puuid);
   const rank = d.players.indexOf(p) + 1;
 
   return (
@@ -60,6 +63,11 @@ export default async function PlayerPage({ params, searchParams }: Props) {
         <Link href={base} aria-current={tab !== "champions" ? "page" : undefined}>Customs overview</Link>
         <Link href={`${base}?tab=champions`} aria-current={tab === "champions" ? "page" : undefined}>Custom champions</Link>
         <span className="tabs-out">
+          {solo?.tier ? (
+            <span className="solo-rank" title={`Read from the League client ${new Date(solo.updatedAt).toLocaleDateString("en-US")}`}>
+              Solo queue: <b>{rankLabel(solo)}</b>
+            </span>
+          ) : null}
           <a href={opggUrl(p.name, p.tag, p.platform)} target="_blank" rel="noopener noreferrer" className="out opgg">
             Solo queue on op.gg <Arrow />
           </a>

@@ -61,6 +61,13 @@ def main():
                     "customTeam100": [entry(x) for x in ids[:5]],
                     "customTeam200": [entry(x) for x in ids[5:9]] + [{"botId": "Annie", "isBot": True}],
                     "customSpectators": []}, "members": [entry(x) for x in ids[:9]]})
+            if path.startswith("/lol-ranked/v1/ranked-stats/"):
+                puuid = path.rsplit("/", 1)[1]
+                tiers = ["GOLD", "PLATINUM", "EMERALD", "DIAMOND", "SILVER", ""]
+                t = tiers[sum(map(ord, puuid)) % len(tiers)]
+                q = {"queueType": "RANKED_SOLO_5x5", "tier": t, "division": "II" if t else "NA", "leaguePoints": 45 if t else 0, "wins": 30, "losses": 25,
+                     "previousSeasonEndTier": "GOLD", "previousSeasonEndDivision": "I"}
+                return self.send(200, {"queueMap": {"RANKED_SOLO_5x5": q}, "queues": [q]})
             if path.startswith("/lol-summoner/v2/summoners/puuid/"):
                 puuid = path.rsplit("/", 1)[1]
                 for x in games[0]["participantIdentities"]:

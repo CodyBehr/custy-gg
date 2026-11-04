@@ -155,9 +155,20 @@ def handle_launch(args):
         return False
 
     if same_path(me, INSTALL_EXE):
-        return not already_running()
+        if already_running():
+            return False
+        _after_update()
+        return True
 
     cfg = core.embedded_config(me)
+    if "--update" in args and cfg:
+        # Launched by the running app after it downloaded a newer version: install quietly.
+        try:
+            install(me)
+            _write_json(UPDATED_FLAG, {"version": core.VERSION})
+        except Exception:
+            pass
+        return False
     if not cfg:
         message("This copy of the collector isn't linked to a site.\n\n"
                 "Download it again from your custy.gg site's \"Add your games\" page.", MB_OK | MB_ICONERROR)
@@ -200,6 +211,100 @@ def handle_launch(args):
 # --------------------------------------------------------------------------
 # Tray icon: shows it's running, and lets you open the site, pause or quit.
 # --------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------
+# Settings and automatic updates
+# --------------------------------------------------------------------------
+
+SETTINGS = os.path.join(core.HERE, "settings.json")
+UPDATE_EXE = os.path.join(core.HERE, APP + "-update.exe")
+UPDATED_FLAG = os.path.join(core.HERE, "updated.json")
+UPDATE_EVERY = 6 * 3600
+
+
+def _read_json(path, default):
+    try:
+        import json
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return default
+
+
+def _write_json(path, data):
+    import json
+    try:
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f)
+    except OSError:
+        pass
+
+
+def auto_update_on():
+    return _read_json(SETTINGS, {}).get("auto_update", True)
+
+
+def set_auto_update(on):
+    data = _read_json(SETTINGS, {})
+    data["auto_update"] = bool(on)
+    _write_json(SETTINGS, data)
+
+
+def _after_update():
+    """Runs when the installed app starts: tidies up after an update."""
+    try:
+        os.remove(UPDATE_EXE)
+    except OSError:
+        pass
+
+
+def _version_tuple(v):
+    try:
+        return tuple(int(x) for x in str(v).split("."))
+    except ValueError:
+        return (0,)
+
+
+def check_for_update(cfg):
+    """Downloads and starts a newer version if the site has one. Returns True if an update was started."""
+    import json
+    import urllib.request
+    site = cfg["site_url"].rstrip("/")
+    try:
+        with urllib.request.urlopen(urllib.request.Request(
+                site + "/api/collector/version", headers={"User-Agent": "custy-collector/" + core.VERSION}), timeout=20) as r:
+            latest = json.loads(r.read() or b"{}").get("version", "")
+    except Exception as e:
+        core.log.info("Update check failed: %s", e)
+        return False
+    if not latest or _version_tuple(latest) <= _version_tuple(core.VERSION):
+        return False
+    core.log.info("Downloading version %s (this is %s)", latest, core.VERSION)
+    tmp = UPDATE_EXE + ".part"
+    try:
+        with urllib.request.urlopen(urllib.request.Request(
+                site + "/api/collector/windows", headers={"User-Agent": "custy-collector/" + core.VERSION}), timeout=180) as r, \
+                open(tmp, "wb") as f:
+            shutil.copyfileobj(r, f)
+        with open(tmp, "rb") as f:
+            if f.read(2) != b"MZ":
+                raise ValueError("download isn't a Windows app")
+        if not core.embedded_config(tmp):
+            raise ValueError("download isn't linked to the site")
+        os.replace(tmp, UPDATE_EXE)
+    except Exception as e:
+        core.log.warning("Update download failed: %s", e)
+        try:
+            os.remove(tmp)
+        except OSError:
+            pass
+        return False
+    env = dict(os.environ)
+    env["PYINSTALLER_RESET_ENVIRONMENT"] = "1"
+    subprocess.Popen([UPDATE_EXE, "--update"], cwd=core.HERE, env=env, creationflags=DETACHED, close_fds=True)
+    core.log.info("Installing version %s", latest)
+    return True
+
 
 def _resource(name):
     base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
@@ -269,6 +374,10 @@ def run_with_tray(cfg, start_collector):
         set_autostart(not autostart_enabled())
         icon.update_menu()
 
+    def toggle_updates(icon, item):
+        set_auto_update(not auto_update_on())
+        icon.update_menu()
+
     def quit_app(icon, item):
         stop.set()
         icon.visible = False
@@ -282,6 +391,7 @@ def run_with_tray(cfg, start_collector):
         pystray.Menu.SEPARATOR,
         pystray.MenuItem("Pause uploads", toggle_pause, checked=lambda item: status["paused"]),
         pystray.MenuItem("Start with Windows", toggle_autostart, checked=lambda item: autostart_enabled()),
+        pystray.MenuItem("Update automatically", toggle_updates, checked=lambda item: auto_update_on()),
         pystray.MenuItem("Open log", open_log),
         pystray.Menu.SEPARATOR,
         pystray.MenuItem("Quit", quit_app),
@@ -297,9 +407,30 @@ def run_with_tray(cfg, start_collector):
 
     status["on_upload"] = on_upload
 
+    def updater():
+        stop.wait(120)  # let the app settle first
+        while not stop.is_set():
+            if auto_update_on() and status["state"] != "In a game":
+                if check_for_update(cfg):
+                    stop.set()  # the new version stops this one as it installs
+                    try:
+                        icon.stop()
+                    except Exception:
+                        pass
+                    return
+            stop.wait(UPDATE_EVERY)
+
     def setup(icon):
         icon.visible = True
         worker.start()
+        threading.Thread(target=updater, name="updater", daemon=True).start()
+        done = _read_json(UPDATED_FLAG, None)
+        if done:
+            try:
+                os.remove(UPDATED_FLAG)
+                icon.notify(f"Updated to version {done.get('version', core.VERSION)}", "custy.gg collector")
+            except Exception:
+                pass
         # Refresh the hover text so it says what the app is doing.
         while not stop.is_set():
             icon.title = f"custy.gg collector: {status['state'].lower()}"
