@@ -17,7 +17,7 @@ Settings live in config.json next to this file.
 Packaged as custy-collector.exe (see collector/windows_app.py), the same code
 runs as a one-click Windows app: the site's address and upload key are
 attached to the end of the .exe when it is downloaded, double-clicking it
-installs it to %LOCALAPPDATA%\custy-collector and starts it with Windows.
+installs it to %LOCALAPPDATA%/custy-collector and starts it with Windows.
 """
 
 import base64
