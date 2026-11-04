@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: build-collector
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -48,15 +48,13 @@ jobs:
       - name: Commit the app
         shell: bash
         run: |
-          mkdir -p collector-dist
-          cp dist/custy-collector.exe collector-dist/custy-collector.exe
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Put the new build on top of whatever main is now (an earlier build may have landed meanwhile).
+          git fetch origin main
+          git reset --hard origin/main
+          mkdir -p collector-dist
+          cp dist/custy-collector.exe collector-dist/custy-collector.exe
           git add collector-dist/custy-collector.exe
-          if git diff --cached --quiet; then
-            echo "No change"
-          else
-            git commit -m "Build custy-collector.exe from ${GITHUB_SHA::7}"
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
+          git commit -m "Build custy-collector.exe from ${GITHUB_SHA::7}" || exit 0
+          git push origin HEAD:main
