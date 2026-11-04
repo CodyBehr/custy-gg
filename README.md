@@ -28,21 +28,22 @@ Everything is free: Supabase and Vercel's free tiers are plenty for a friend gro
 
 Live site: **https://custy-gg.vercel.app**
 
-Each player who wants to log games:
+**Windows (one click):** open the site's **Add your games** page and download `custy-collector.exe`. Double-click it.
+If Windows shows "Windows protected your PC", click *More info* then *Run anyway* (it isn't code-signed). It installs
+itself to `%LOCALAPPDATA%\custy-collector`, starts with Windows and runs in the background. Run the download again
+to update (Yes) or remove (No) it. Its log is `%LOCALAPPDATA%\custy-collector\collector.log`.
 
-1. Install Python from [python.org/downloads](https://www.python.org/downloads/). On the first installer screen,
-   tick **Add python.exe to PATH**.
-2. Open the site's **Add your games** page and download the collector. It's already set up for this site:
-   the address and upload key are filled in.
-3. Unzip it somewhere permanent, like `Documents`. Open League, then double-click **`windows-test.bat`**.
-   You should see three `[ok]` lines.
-4. Double-click **`windows-autostart-on.bat`**. The collector now runs hidden every time you log in to Windows
-   and uploads custom games about 20 seconds after they end.
-
-To stop it, run `windows-autostart-off.bat`. Everything it does is written to `collector.log`.
-**Mac:** install Python 3, then run `bash mac-autostart-on.sh` in Terminal from the collector folder.
+**Mac, or with Python:** download `custy-collector.zip` from the same page, install Python 3, then run
+`bash mac-autostart-on.sh` (Mac) or `windows-autostart-on.bat` (Windows) from the unzipped folder.
 
 On its first run the collector uploads every custom game still in your client's recent history.
+
+### How the Windows app is built
+
+`.github/workflows/build-collector.yml` runs on GitHub's Windows machines whenever `collector/custy_collector.py`
+or `collector/windows_app.py` changes. It packs the collector into one `.exe` with PyInstaller, checks it starts,
+and commits it to `collector-dist/`. The site's `/api/collector/windows` route serves that file with this site's
+address and upload key attached to the end, where the app reads them.
 
 ## How it's hosted
 
