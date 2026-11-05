@@ -1,8 +1,8 @@
 // Discord interactions endpoint. Set this as the app's "Interactions Endpoint URL":
 //   https://<your site>/api/discord
 
-import { NextResponse } from "next/server";
-import { EPHEMERAL, InteractionType, ResponseType, verifyDiscordRequest } from "@/lib/discord";
+import { after, NextResponse } from "next/server";
+import { DISCORD_APP_ID, EPHEMERAL, InteractionType, ResponseType, verifyDiscordRequest } from "@/lib/discord";
 import { getLobby, LOBBY_FRESH_MS, ratePlayers } from "@/lib/lobby";
 import { makeTeams, parseGroups, parseNames, type TeamPlayer, type TeamResult } from "@/lib/teams";
 import { getDataset, kda, searchPlayers } from "@/lib/stats";
@@ -14,6 +14,7 @@ import { rankLabel, rankScore, rankShort, scoreLabel } from "@/lib/ranks";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
+export const maxDuration = 30;
 
 const BLUE = 0x4f9dff;
 const GOLD = 0xe3b866;
@@ -22,8 +23,13 @@ const UNRANKED_DEFAULT = 4 * 400; // Platinum 4, used only when nobody in the li
 type Opts = Record<string, string>;
 type Balance = "custy" | "solo" | "random";
 
-const message = (data: object) => NextResponse.json({ type: ResponseType.MESSAGE, data });
-const privateNote = (content: string) => message({ content, flags: EPHEMERAL });
+// A reply: the message to show, and whether only the person who ran the command should see it.
+type Reply = { data: object; private?: boolean };
+const message = (data: object): Reply => ({ data });
+const privateNote = (content: string): Reply => ({ data: { content }, private: true });
+
+const DEFERRED_MESSAGE = 5; // "custy.gg is thinking..."
+const DEFERRED_UPDATE = 6; // keep the message as is while we work
 
 export async function POST(req: Request) {
   const body = await req.text();
@@ -33,6 +39,19 @@ export async function POST(req: Request) {
   const i = JSON.parse(body);
   if (i.type === InteractionType.PING) return NextResponse.json({ type: ResponseType.PONG });
 
+  // Discord gives us 3 seconds to answer. Loading every game can take longer (especially when the
+  // site has been idle), so answer straight away and fill in the real reply once it's ready.
+  const isComponent = i.type === InteractionType.COMPONENT;
+  after(async () => {
+    const started = Date.now();
+    const reply = await handle(req, i);
+    await deliver(i, reply, isComponent);
+    console.log(`[discord] answered in ${Date.now() - started}ms`);
+  });
+  return NextResponse.json({ type: isComponent ? DEFERRED_UPDATE : DEFERRED_MESSAGE });
+}
+
+async function handle(req: Request, i: any): Promise<Reply> {
   try {
     if (i.type === InteractionType.COMMAND) {
       const opts: Opts = Object.fromEntries((i.data.options ?? []).map((o: any) => [o.name, String(o.value)]));
@@ -40,7 +59,7 @@ export async function POST(req: Request) {
       switch (i.data.name) {
         case "custy_teams":
         case "teams":
-          return await teams(req, opts, false);
+          return await teams(req, opts);
         case "custy_lobby":
         case "lobby":
           return await lobby();
@@ -52,11 +71,33 @@ export async function POST(req: Request) {
     if (i.type === InteractionType.COMPONENT && String(i.data.custom_id).startsWith("reroll:")) {
       const saved = await store().getSetting(`teams:${String(i.data.custom_id).slice(7)}`);
       if (!saved) return privateNote("That team request has expired. Run /custy_teams again.");
-      return await teams(req, JSON.parse(saved), true);
+      return await teams(req, JSON.parse(saved));
     }
     return privateNote("I don't know that command yet.");
   } catch (e) {
+    console.log(`[discord] error: ${(e as Error).stack ?? e}`);
     return privateNote(`Something went wrong: ${(e as Error).message}`);
+  }
+}
+
+/** Sends the finished reply in place of the "thinking" placeholder. */
+async function deliver(i: any, reply: Reply, isComponent: boolean) {
+  const appId = i.application_id ?? DISCORD_APP_ID;
+  const hook = `https://discord.com/api/v10/webhooks/${appId}/${i.token}`;
+  const send = async (method: string, url: string, data?: object) => {
+    const res = await fetch(url, {
+      method,
+      headers: { "Content-Type": "application/json" },
+      body: data ? JSON.stringify(data) : undefined,
+    });
+    if (!res.ok) console.log(`[discord] ${method} reply failed ${res.status}: ${await res.text().catch(() => "")}`);
+  };
+  if (reply.private) {
+    // Notes like "no lobby found" go only to the person who asked.
+    if (!isComponent) await send("DELETE", `${hook}/messages/@original`);
+    await send("POST", hook, { ...reply.data, flags: EPHEMERAL });
+  } else {
+    await send("PATCH", `${hook}/messages/@original`, reply.data);
   }
 }
 
@@ -68,7 +109,7 @@ function balanceOf(opts: Opts): Balance {
   return "custy";
 }
 
-async function teams(req: Request, opts: Opts, reroll: boolean) {
+async function teams(req: Request, opts: Opts): Promise<Reply> {
   let entries: { name: string; puuid?: string }[] = parseNames(opts.players).map((name) => ({ name }));
   let source = "your list";
   if (!entries.length) {
@@ -120,7 +161,7 @@ async function teams(req: Request, opts: Opts, reroll: boolean) {
       ],
     }],
   };
-  return NextResponse.json({ type: reroll ? ResponseType.UPDATE_MESSAGE : ResponseType.MESSAGE, data });
+  return { data };
 }
 
 function teamsEmbed(r: TeamResult, balance: Balance, source: string, site: string) {
@@ -164,7 +205,7 @@ function teamsEmbed(r: TeamResult, balance: Balance, source: string, site: strin
   };
 }
 
-async function lobby() {
+async function lobby(): Promise<Reply> {
   const lob = await getLobby();
   if (!lob || !lob.members.length) return privateNote("No lobby yet. It shows up once someone with the custy.gg app joins a custom lobby.");
   const mins = Math.round((Date.now() - lob.updatedAt) / 60000);
@@ -182,7 +223,7 @@ async function lobby() {
   });
 }
 
-async function lookup(req: Request, query: string) {
+async function lookup(req: Request, query: string): Promise<Reply> {
   const [d, st] = await Promise.all([getDataset(), getStatic()]);
   const p = searchPlayers(d.players, query)[0];
   if (!p) return privateNote(`Nobody called "${query}" has played a tracked custom game.`);
