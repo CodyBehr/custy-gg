@@ -9,17 +9,18 @@ const key = (puuid: string) => `rank:${PLAYER_LINKS[puuid] ?? puuid}`;
 
 export async function getRanks(puuids: (string | undefined)[]): Promise<Map<string, Rank>> {
   const out = new Map<string, Rank>();
-  await Promise.all(
-    [...new Set(puuids.filter(Boolean) as string[])].map(async (p) => {
-      const raw = await store().getSetting(key(p));
-      if (!raw) return;
-      try {
-        out.set(p, JSON.parse(raw));
-      } catch {
-        /* ignore a bad row */
-      }
-    }),
-  );
+  const ids = [...new Set(puuids.filter(Boolean) as string[])];
+  // One query for everyone: lots of small queries at once can stall the database pooler.
+  const rows = await store().getSettings([...new Set(ids.map(key))]);
+  for (const p of ids) {
+    const raw = rows[key(p)];
+    if (!raw) continue;
+    try {
+      out.set(p, JSON.parse(raw));
+    } catch {
+      /* ignore a bad row */
+    }
+  }
   return out;
 }
 

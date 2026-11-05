@@ -19,6 +19,8 @@ interface Store {
   forEachRaw(fn: (id: string, raw: any) => Promise<void> | void): Promise<void>;
   updateSummary(id: string, match: Match): Promise<void>;
   getSetting(key: string): Promise<string | null>;
+  /** Several settings in one go: { key: value } for the keys that exist. */
+  getSettings(keys: string[]): Promise<Record<string, string>>;
   /** Stores the value only if the key is unset, then returns whatever is stored. */
   initSetting(key: string, value: string): Promise<string>;
   setSetting(key: string, value: string): Promise<void>;
@@ -53,6 +55,7 @@ function sql() {
       prepare: false, // works with Supabase's pooler (port 6543) and serverless hosts
       max: 3,
       idle_timeout: 20,
+      connect_timeout: 10,
       onnotice: () => {},
     });
   }
@@ -115,6 +118,12 @@ const pgStore: Store = {
     await ensureSchema();
     const [row] = await sql()`select value from settings where key = ${key}`;
     return row ? (row.value as string) : null;
+  },
+  async getSettings(keys) {
+    if (!keys.length) return {};
+    await ensureSchema();
+    const rows = await sql()`select key, value from settings where key in ${sql()(keys)}`;
+    return Object.fromEntries(rows.map((r) => [r.key as string, r.value as string]));
   },
   async setSetting(key, value) {
     await ensureSchema();
@@ -196,6 +205,10 @@ const fileStore: Store = {
   },
   async getSetting(key) {
     return (await readSettings())[key] ?? null;
+  },
+  async getSettings(keys) {
+    const all = await readSettings();
+    return Object.fromEntries(keys.filter((k) => k in all).map((k) => [k, all[k]]));
   },
   setSetting(key, value) {
     return locked(async () => {
