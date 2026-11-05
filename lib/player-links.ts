@@ -9,7 +9,7 @@ import type { Match } from "./types";
 // end of the address, e.g. /players/407f5693-6ae2-546d-bbf6-cae18e99474c.
 
 export const PLAYER_LINKS: Record<string, string> = {
-  // big booler#NA1 -> yung stunny#NA1
+  // big booler#NA1 -> yung stunny#NA1 (shown as big booler#NA1, his main account)
   "9159cb71-175f-5a5a-b2aa-10717b7aaaa2": "407f5693-6ae2-546d-bbf6-cae18e99474c",
   // Django#Fox -> can u feel my#heart (now Buckley#NA0)
   "bc1fa0d6-5057-59c6-aaec-e592564340b6": "68906810-e02e-5129-9bb4-9a03e9ab9f7c",
@@ -20,6 +20,8 @@ export const PLAYER_LINKS: Record<string, string> = {
 // main account's PUUID. Remove an entry once games under the new name come in.
 export const PLAYER_NAMES: Record<string, { name: string; tag?: string }> = {
   "68906810-e02e-5129-9bb4-9a03e9ab9f7c": { name: "Buckley", tag: "NA0" },
+  // yung stunny#NA1 plays mostly on big booler#NA1, so show that name.
+  "407f5693-6ae2-546d-bbf6-cae18e99474c": { name: "big booler", tag: "NA1" },
 };
 
 /**
