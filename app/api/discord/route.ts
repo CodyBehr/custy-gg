@@ -250,22 +250,3 @@ async function lookup(req: Request, query: string): Promise<Reply> {
   });
 }
 
-// TEMPORARY diagnostics: times each step the lobby commands take. Returns timings only.
-export async function GET() {
-  const t: Record<string, number | string> = {};
-  const step = async <T,>(name: string, f: () => Promise<T>) => {
-    const s = Date.now();
-    const r = await Promise.race([f(), new Promise<never>((_, rej) => setTimeout(() => rej(new Error("timeout")), 8000))]).catch((e) => {
-      t[name] = `failed after ${Date.now() - s}ms: ${(e as Error).message}`;
-      return undefined;
-    });
-    if (!(name in t)) t[name] = Date.now() - s;
-    return r as T | undefined;
-  };
-  const lob = await step("getLobby", () => getLobby());
-  await step("getDataset", () => getDataset());
-  const puuids = (lob?.members ?? []).map((m) => m.puuid);
-  await step("getRanks", () => getRanks(puuids));
-  await step("ratePlayers", () => ratePlayers((lob?.members ?? []).map((m) => ({ name: m.name, puuid: m.puuid }))));
-  return NextResponse.json({ members: lob?.members.length ?? 0, ms: t });
-}
