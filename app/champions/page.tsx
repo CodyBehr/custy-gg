@@ -13,6 +13,9 @@ export default async function Champions() {
 
   const picked = d.champions.filter((c) => c.games > 0);
   const bannedOnly = d.champions.filter((c) => c.games === 0 && c.bans > 0);
+  // Ban rate is out of games that had bans at all (blind pick customs have none).
+  const draftGames = d.matches.filter((m) => !m.remake && m.teams.some((t) => t.bans.length > 0)).length;
+  const mostBanned = [...d.champions].filter((c) => c.bans > 0).sort((a, b) => b.bans - a.bans || b.games - a.games).slice(0, 10);
 
   return (
     <>
@@ -22,6 +25,33 @@ export default async function Champions() {
           <p>{picked.length} different champions picked across {d.counted} games. Best player is whoever has won the most on it.</p>
         </div>
       </div>
+      {mostBanned.length ? (
+        <section style={{ marginBottom: 36 }}>
+          <h2 className="section-title">Most banned</h2>
+          <p className="sub" style={{ margin: "-6px 0 14px" }}>
+            Banned in {draftGames} game{draftGames === 1 ? "" : "s"} with bans. Win rate is from the games it got through.
+          </p>
+          <ol className="bans">
+            {mostBanned.map((c, i) => (
+              <li key={c.championId} className="ban panel">
+                <span className="ban-rank">{i + 1}</span>
+                <Champ s={s} id={c.championId} size={44} />
+                <div className="stack" style={{ minWidth: 0 }}>
+                  <b className="ellip">{champName(s, c.championId)}</b>
+                  <span className="sub">
+                    {c.bans} ban{c.bans === 1 ? "" : "s"}
+                    {draftGames ? ` · ${Math.round((c.bans / draftGames) * 100)}%` : ""}
+                  </span>
+                  <span className="sub">
+                    {c.games ? <>{Math.round((c.wins / c.games) * 100)}% win in {c.games}</> : "Never picked"}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ) : null}
+      <h2 className="section-title">All picks</h2>
       <div className="table-wrap">
         <table className="t">
           <thead>
