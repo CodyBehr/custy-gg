@@ -65,6 +65,8 @@ the ones closest to even (and that follow the together/apart rules), and picks o
   The 🏆 Leaderboard button shows the standings. Fake points, bragging rights only.
 - **Game posts**: every newly uploaded game is posted to a channel (result, MVP, KDA, rating changes, pentas).
   Connect a channel on `/discord` by pasting the channel's webhook link.
+- **Weekly recap**: every Monday around 8 AM Eastern (Vercel cron in `vercel.json`, `/api/cron/weekly`) the channel
+  gets last week's games: climbers, awards, big moments, duo of the week, most picked/banned and the top 5.
 
 Setup is on the site's `/discord` page.
 
