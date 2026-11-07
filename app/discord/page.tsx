@@ -63,9 +63,10 @@ export default async function DiscordSetup({ searchParams }: Props) {
           <h2 id="post-games" style={{ fontSize: 22, margin: "34px 0 6px" }}>Post finished games to a channel</h2>
           {posting ? (
             <>
-              <p className="win-t" style={{ margin: "0 0 12px" }}>On: every new game is posted with the result, MVP and rating changes.</p>
+              <p className="win-t" style={{ margin: "0 0 12px" }}>On: every new game is posted with the result, MVP and rating changes, plus a weekly recap every Monday morning.</p>
               <form method="post" action="/api/discord/webhook" className="row" style={{ gap: 8 }}>
                 <button className="btn ghost" type="submit" name="test" value="1">Post the last game as a test</button>
+                <button className="btn ghost" type="submit" name="recap" value="1">Post this week&apos;s recap as a test</button>
                 <button className="btn ghost" type="submit" name="remove" value="1">Stop posting</button>
               </form>
               <p className="sub" style={{ marginTop: 12 }}>To switch channels, paste a new link below.</p>

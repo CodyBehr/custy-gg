@@ -3,6 +3,7 @@
 import { NextResponse } from "next/server";
 import { getWebhook, isWebhookUrl, postGame, setWebhook } from "@/lib/game-post";
 import { siteUrl } from "@/lib/ingest-key";
+import { postThisWeek } from "@/lib/weekly";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,12 @@ export async function POST(req: Request) {
   if (form.get("remove")) {
     await setWebhook(null);
     back.searchParams.set("ok_post", "Stopped posting games to Discord.");
+    return done();
+  }
+  if (form.get("recap")) {
+    const r = await postThisWeek(siteUrl(req));
+    if (r.ok) back.searchParams.set("ok_post", "Posted this week's recap (so far) to the channel as a test.");
+    else back.searchParams.set("error", r.status ? `Discord didn't accept the recap (${r.status}).` : r.reason);
     return done();
   }
   if (form.get("test")) {
