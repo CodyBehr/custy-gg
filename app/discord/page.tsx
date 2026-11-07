@@ -65,7 +65,7 @@ export default async function DiscordSetup({ searchParams }: Props) {
             <>
               <p className="win-t" style={{ margin: "0 0 12px" }}>On: every new game is posted with the result, MVP and rating changes.</p>
               <form method="post" action="/api/discord/webhook" className="row" style={{ gap: 8 }}>
-                <button className="btn ghost" type="submit" name="test" value="1">Send a test message</button>
+                <button className="btn ghost" type="submit" name="test" value="1">Post the last game as a test</button>
                 <button className="btn ghost" type="submit" name="remove" value="1">Stop posting</button>
               </form>
               <p className="sub" style={{ marginTop: 12 }}>To switch channels, paste a new link below.</p>

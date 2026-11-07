@@ -1,7 +1,8 @@
 // Saves (or removes) the Discord channel webhook that new games are posted to.
 
 import { NextResponse } from "next/server";
-import { getWebhook, isWebhookUrl, setWebhook } from "@/lib/game-post";
+import { getWebhook, isWebhookUrl, postGame, setWebhook } from "@/lib/game-post";
+import { siteUrl } from "@/lib/ingest-key";
 
 export const dynamic = "force-dynamic";
 
@@ -19,9 +20,9 @@ export async function POST(req: Request) {
     const hook = await getWebhook();
     if (!hook) back.searchParams.set("error", "Add a channel link first.");
     else {
-      const r = await fetch(hook, { method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: "custy.gg", content: "Test from custy.gg: finished games will show up here." }) });
-      if (r.ok) back.searchParams.set("ok_post", "Sent a test message to your channel.");
+      // Re-post the most recent game so you can see exactly what a game post looks like.
+      const r = await postGame("latest", siteUrl(req), null, { test: true });
+      if (r.ok) back.searchParams.set("ok_post", "Posted your most recent game to the channel as a test.");
       else back.searchParams.set("error", `Discord didn't accept the test message (${r.status}).`);
     }
     return done();
