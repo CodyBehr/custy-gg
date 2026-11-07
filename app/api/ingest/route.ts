@@ -5,6 +5,7 @@
 import { after, NextResponse } from "next/server";
 import { checkIngestKey, siteUrl } from "@/lib/ingest-key";
 import { postGame, shouldPost } from "@/lib/game-post";
+import { settleForMatch } from "@/lib/predictions";
 import { isCustomGame, normalize } from "@/lib/normalize";
 import { store } from "@/lib/store";
 
@@ -57,9 +58,12 @@ export async function POST(req: Request) {
   try {
     const status = await store().save(match, raw, uploadedBy);
     // Only the first upload of a game is "created", so each game is posted once.
-    if (status === "created" && shouldPost(match)) {
+    if (status === "created") {
       const site = siteUrl(req);
-      after(() => postGame(match.id, site));
+      after(async () => {
+        const pred = await settleForMatch(match).catch((e) => (console.log(`[pred] settle failed: ${e}`), null));
+        if (shouldPost(match)) await postGame(match.id, site, pred);
+      });
     }
     return NextResponse.json({ status, id: match.id }, { status: status === "created" ? 201 : 200 });
   } catch (e) {

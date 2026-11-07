@@ -93,6 +93,7 @@ export default async function DiscordSetup({ searchParams }: Props) {
               <li>Hit <b>Reroll</b> for a different split with the same rules.</li>
               <li><code>/custy_lobby</code> shows who&apos;s in the lobby with ratings and ranks.</li>
               <li><code>/custy_player</code> shows someone&apos;s stats.</li>
+              <li>Vote <b>Blue wins</b> or <b>Red wins</b> under a split (open 15 minutes). Right calls earn points when the game uploads; upsets pay more. <b>Leaderboard</b> shows who&apos;s best.</li>
               <li>Hit <b>Captain draft</b> under a team split to have two captains pick teams instead.</li>
             </ul>
           </section>

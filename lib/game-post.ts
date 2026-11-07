@@ -6,6 +6,7 @@ import { store } from "./store";
 import { buildDataset, clock, type Dataset } from "./stats";
 import { champName, getStatic, type Static } from "./ddragon";
 import type { Match, MatchPlayer } from "./types";
+import { settledLine, type Prediction } from "./predictions";
 
 const WEBHOOK_KEY = "discord:webhook";
 const BLUE = 0x4f9dff;
@@ -29,7 +30,7 @@ export function shouldPost(m: Match) {
 }
 
 /** Sends the result card for a game. Never throws: a Discord hiccup shouldn't fail an upload. */
-export async function postGame(matchId: string, site: string) {
+export async function postGame(matchId: string, site: string, pred?: Prediction | null) {
   try {
     const hook = await getWebhook();
     if (!hook) return;
@@ -39,7 +40,7 @@ export async function postGame(matchId: string, site: string) {
     const res = await fetch(`${hook}?wait=true`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username: "custy.gg", embeds: [gameEmbed(m, d, s, site)] }),
+      body: JSON.stringify({ username: "custy.gg", embeds: [gameEmbed(m, d, s, site, pred)] }),
     });
     console.log(`[post] ${matchId} -> Discord ${res.status}${res.ok ? "" : ` ${await res.text().catch(() => "")}`}`);
   } catch (e) {
@@ -47,7 +48,7 @@ export async function postGame(matchId: string, site: string) {
   }
 }
 
-export function gameEmbed(m: Match, d: Dataset, s: Static, site: string) {
+export function gameEmbed(m: Match, d: Dataset, s: Static, site: string, pred?: Prediction | null) {
   const blueWon = m.teams.find((t) => t.teamId === 100)?.win ?? m.players.find((p) => p.teamId === 100)?.win ?? false;
   const mvp = d.mvpOf.get(m.id);
   const delta = (p: MatchPlayer) => d.ratingDelta.get(`${m.id}:${p.puuid}`);
@@ -75,7 +76,7 @@ export function gameEmbed(m: Match, d: Dataset, s: Static, site: string) {
     url: `${site}/matches/${encodeURIComponent(m.id)}`,
     color: blueWon ? BLUE : RED,
     description: highlights(m, s, mvp).join("\n") || undefined,
-    fields: [side(100), side(200)],
+    fields: [side(100), side(200), ...(pred?.settled ? [{ name: "🔮 Predictions", value: settledLine(pred).slice(0, 1024), inline: false }] : [])],
     footer: { text: `Custom game · ${m.mode === "CLASSIC" ? "Summoner's Rift" : m.mode}` },
     timestamp: new Date(m.playedAt + m.duration * 1000).toISOString(),
   };

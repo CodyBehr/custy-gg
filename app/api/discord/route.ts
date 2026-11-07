@@ -12,6 +12,7 @@ import { champName, getStatic } from "@/lib/ddragon";
 import { getRanks } from "@/lib/rank-store";
 import { rankLabel, rankScore, rankShort, scoreLabel } from "@/lib/ranks";
 import { newCaptains, newDraft, pick, remaining, roster, turn, type Draft } from "@/lib/draft";
+import { castVote, createPrediction, leaderboard, renderPrediction } from "@/lib/predictions";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -77,6 +78,15 @@ async function handle(req: Request, i: any): Promise<Reply> {
       return await startDraft(req, JSON.parse(saved), user);
     }
     if (cid.startsWith("draft:")) return await draftClick(req, cid, user);
+    if (cid.startsWith("vote:")) {
+      const [, id, side] = cid.split(":");
+      if (!user) return privateNote("I couldn't tell who you are.");
+      const who = i.member?.nick ?? i.member?.user?.global_name ?? i.member?.user?.username ?? i.user?.global_name ?? i.user?.username ?? "someone";
+      const r = await castVote(id, user, String(who).slice(0, 32), side === "1" ? 1 : 0);
+      if (typeof r === "string") return privateNote(r);
+      return { data: renderPrediction(r) };
+    }
+    if (cid === "predboard") return await predictionBoard();
     if (i.type === InteractionType.COMPONENT && String(i.data.custom_id).startsWith("reroll:")) {
       const saved = await store().getSetting(`teams:${String(i.data.custom_id).slice(7)}`);
       if (!saved) return privateNote("That team request has expired. Run /custy_teams again.");
@@ -181,7 +191,8 @@ async function teams(req: Request, opts: Opts): Promise<Reply> {
       ],
     }],
   };
-  return { data };
+  const pred = await createPrediction(id, result.blue.map((p) => p.puuid), result.red.map((p) => p.puuid), data);
+  return { data: renderPrediction(pred) };
 }
 
 function teamsEmbed(r: TeamResult, balance: Balance, source: string, site: string) {
@@ -296,7 +307,12 @@ async function draftClick(req: Request, cid: string, user: string | null): Promi
     if (!r.ok) return privateNote(r.reason);
   }
   await store().setSetting(`draft:${id}`, JSON.stringify(d));
-  return { data: draftMessage(id, d, siteUrl(req)) };
+  const data = draftMessage(id, d, siteUrl(req));
+  if (d.done) {
+    const pred = await createPrediction(`d${id}`, roster(d, 0).map((p) => p.puuid), roster(d, 1).map((p) => p.puuid), data);
+    return { data: renderPrediction(pred) };
+  }
+  return { data };
 }
 
 function draftMessage(id: string, d: Draft, site: string) {
@@ -343,4 +359,24 @@ function draftMessage(id: string, d: Draft, site: string) {
     components.push({ type: 1, components: [{ type: 2, style: 5, label: "Standings", url: `${site}/` }] });
   }
   return { embeds: [embed], components };
+}
+
+async function predictionBoard(): Promise<Reply> {
+  const rows = await leaderboard();
+  if (!rows.length) return privateNote("No predictions settled yet. Vote under a team split, then play the game.");
+  const medal = ["🥇", "🥈", "🥉"];
+  return {
+    private: true,
+    data: {
+      embeds: [{
+        title: "🏆 Prediction leaderboard",
+        color: GOLD,
+        description: rows
+          .slice(0, 20)
+          .map((r, k) => `${medal[k] ?? `${k + 1}.`} **${r.name}** · ${r.points.toLocaleString("en-US")} pts  (${r.right}-${r.wrong})`)
+          .join("\n"),
+        footer: { text: "Right: 100 × (all votes ÷ votes for the winner). Wrong: 0." },
+      }],
+    },
+  };
 }

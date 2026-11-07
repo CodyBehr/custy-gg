@@ -60,6 +60,9 @@ uploads, so no Riot API key is needed. Balancing is plain math, not AI: it tries
 the ones closest to even (and that follow the together/apart rules), and picks one of those at random.
 
 - **Captain draft**: the button under a team split lets two random captains pick teams, snake order.
+- **Predictions**: Blue wins / Red wins buttons under every team split (open for 15 minutes). When the game
+  uploads, right calls earn 100 × (all votes ÷ votes for the winner), so calling the upset pays more.
+  The 🏆 Leaderboard button shows the standings. Fake points, bragging rights only.
 - **Game posts**: every newly uploaded game is posted to a channel (result, MVP, KDA, rating changes, pentas).
   Connect a channel on `/discord` by pasting the channel's webhook link.
 
