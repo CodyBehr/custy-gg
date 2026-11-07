@@ -11,6 +11,7 @@ import { store } from "@/lib/store";
 import { champName, getStatic } from "@/lib/ddragon";
 import { getRanks } from "@/lib/rank-store";
 import { rankLabel, rankScore, rankShort, scoreLabel } from "@/lib/ranks";
+import { newCaptains, newDraft, pick, remaining, roster, turn, type Draft } from "@/lib/draft";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -68,6 +69,14 @@ async function handle(req: Request, i: any): Promise<Reply> {
           return await lookup(req, opts.player ?? "");
       }
     }
+    const cid = i.type === InteractionType.COMPONENT ? String(i.data.custom_id) : "";
+    const user: string | null = i.member?.user?.id ?? i.user?.id ?? null;
+    if (cid.startsWith("draftstart:")) {
+      const saved = await store().getSetting(`teams:${cid.slice(11)}`);
+      if (!saved) return privateNote("That team request has expired. Run /custy_teams again.");
+      return await startDraft(req, JSON.parse(saved), user);
+    }
+    if (cid.startsWith("draft:")) return await draftClick(req, cid, user);
     if (i.type === InteractionType.COMPONENT && String(i.data.custom_id).startsWith("reroll:")) {
       const saved = await store().getSetting(`teams:${String(i.data.custom_id).slice(7)}`);
       if (!saved) return privateNote("That team request has expired. Run /custy_teams again.");
@@ -85,6 +94,7 @@ async function deliver(i: any, reply: Reply, isComponent: boolean) {
   const appId = i.application_id ?? DISCORD_APP_ID;
   const hook = `https://discord.com/api/v10/webhooks/${appId}/${i.token}`;
   const send = async (method: string, url: string, data?: object) => {
+    if (process.env.DISCORD_DRY_RUN) return void console.log(`[dry] ${method} ${JSON.stringify(data ?? null)}`);
     const res = await fetch(url, {
       method,
       headers: { "Content-Type": "application/json" },
@@ -109,7 +119,8 @@ function balanceOf(opts: Opts): Balance {
   return "custy";
 }
 
-async function teams(req: Request, opts: Opts): Promise<Reply> {
+/** The players a team request is about (lobby or list, with add/remove), rated for its balance mode. */
+async function gatherPlayers(opts: Opts): Promise<{ players: TeamPlayer[]; source: string } | Reply> {
   let entries: { name: string; puuid?: string }[] = parseNames(opts.players).map((name) => ({ name }));
   let source = "your list";
   if (!entries.length) {
@@ -139,6 +150,14 @@ async function teams(req: Request, opts: Opts): Promise<Reply> {
       return { ...p, rating: sc ?? fill, guessed: sc === null };
     });
   }
+  return { players, source };
+}
+
+async function teams(req: Request, opts: Opts): Promise<Reply> {
+  const got = await gatherPlayers(opts);
+  if ("data" in got) return got;
+  const { players, source } = got;
+  const balance = balanceOf(opts);
   const result = makeTeams(players, {
     mode: balance === "random" ? "random" : "balanced",
     together: parseGroups(opts.together),
@@ -157,6 +176,7 @@ async function teams(req: Request, opts: Opts): Promise<Reply> {
       type: 1,
       components: [
         { type: 2, style: 1, label: "Reroll", custom_id: `reroll:${id}`, emoji: { name: "🎲" } },
+        { type: 2, style: 2, label: "Captain draft", custom_id: `draftstart:${id}`, emoji: { name: "👑" } },
         { type: 2, style: 5, label: "Standings", url: `${site}/` },
       ],
     }],
@@ -250,3 +270,77 @@ async function lookup(req: Request, query: string): Promise<Reply> {
   });
 }
 
+// --- Captain draft ---------------------------------------------------------
+
+async function startDraft(req: Request, opts: Opts, user: string | null): Promise<Reply> {
+  const got = await gatherPlayers({ ...opts, balance: "custy" });
+  if ("data" in got) return got;
+  if (got.players.length < 4) return privateNote("A captain draft needs at least 4 players.");
+  if (got.players.length > 20) return privateNote("That's too many players for a draft (20 at most).");
+  const id = crypto.randomUUID().slice(0, 12);
+  const d = newDraft(got.players, user);
+  await store().setSetting(`draft:${id}`, JSON.stringify(d));
+  return { data: draftMessage(id, d, siteUrl(req)) };
+}
+
+async function draftClick(req: Request, cid: string, user: string | null): Promise<Reply> {
+  const [, id, what] = cid.split(":");
+  const raw = await store().getSetting(`draft:${id}`);
+  if (!raw) return privateNote("That draft has expired. Run /custy_teams again.");
+  let d = JSON.parse(raw) as Draft;
+  if (what === "captains") {
+    if (d.teams[0].length + d.teams[1].length > 0) return privateNote("Picks have started, so the captains are locked in.");
+    d = newCaptains(d);
+  } else {
+    const r = pick(d, Number(what), user);
+    if (!r.ok) return privateNote(r.reason);
+  }
+  await store().setSetting(`draft:${id}`, JSON.stringify(d));
+  return { data: draftMessage(id, d, siteUrl(req)) };
+}
+
+function draftMessage(id: string, d: Draft, site: string) {
+  const tag = (p: TeamPlayer) => {
+    const bits = [p.known ? String(p.custy ?? p.rating) : "new"];
+    if (p.rank?.tier) bits.push(rankShort(p.rank));
+    return bits.join(" · ");
+  };
+  const name = (p: TeamPlayer) => (p.known && p.puuid ? `[${p.name}](${site}/players/${encodeURIComponent(p.puuid)})` : p.name);
+  const side = (s: 0 | 1) => {
+    const ps = roster(d, s);
+    const avg = Math.round(ps.reduce((a, p) => a + p.rating, 0) / ps.length);
+    return {
+      name: `${s === 0 ? "🔵 Blue" : "🔴 Red"} (avg ${avg})`,
+      value: ps.map((p, k) => `${k === 0 ? "👑 " : ""}${name(p)}  \`${tag(p)}\``).join("\n"),
+      inline: true,
+    };
+  };
+  const t = turn(d);
+  const left = remaining(d);
+  const captain = d.players[d.captains[t]].name;
+  const embed = {
+    title: d.done ? "Draft done" : "Captain draft",
+    color: d.done ? GOLD : t === 0 ? BLUE : 0xe84057,
+    description: d.done
+      ? "Teams are set. Good luck!"
+      : `**${captain}'s pick** ${t === 0 ? "🔵" : "🔴"}  (${d.teams[0].length + d.teams[1].length + 1} of ${d.players.length - 2})\n` +
+        "The first person to pick for a captain becomes that captain's picker.",
+    fields: [side(0), side(1)],
+  };
+  const components: object[] = [];
+  if (!d.done) {
+    const buttons = left.map((i) => ({
+      type: 2,
+      style: 2,
+      label: `${d.players[i].name} · ${tag(d.players[i])}`.slice(0, 80),
+      custom_id: `draft:${id}:${i}`,
+    }));
+    for (let r = 0; r < buttons.length && components.length < 4; r += 5) components.push({ type: 1, components: buttons.slice(r, r + 5) });
+    if (d.teams[0].length + d.teams[1].length === 0) {
+      components.push({ type: 1, components: [{ type: 2, style: 1, label: "New captains", custom_id: `draft:${id}:captains`, emoji: { name: "🎲" } }] });
+    }
+  } else {
+    components.push({ type: 1, components: [{ type: 2, style: 5, label: "Standings", url: `${site}/` }] });
+  }
+  return { embeds: [embed], components };
+}

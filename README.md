@@ -59,6 +59,10 @@ Solo queue ranks come from the League client: the app reads them for everyone in
 uploads, so no Riot API key is needed. Balancing is plain math, not AI: it tries every possible split, keeps
 the ones closest to even (and that follow the together/apart rules), and picks one of those at random.
 
+- **Captain draft**: the button under a team split lets two random captains pick teams, snake order.
+- **Game posts**: every newly uploaded game is posted to a channel (result, MVP, KDA, rating changes, pentas).
+  Connect a channel on `/discord` by pasting the channel's webhook link.
+
 Setup is on the site's `/discord` page.
 
 ## The Windows app updates itself

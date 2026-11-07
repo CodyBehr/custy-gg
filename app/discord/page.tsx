@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { DISCORD_APP_ID, DISCORD_PUBLIC_KEY, inviteUrl } from "@/lib/discord";
+import { getWebhook } from "@/lib/game-post";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Discord bot" };
 
-type Props = { searchParams: Promise<{ ok?: string; error?: string }> };
+type Props = { searchParams: Promise<{ ok?: string; ok_post?: string; error?: string }> };
 
 export default async function DiscordSetup({ searchParams }: Props) {
-  const { ok, error } = await searchParams;
+  const { ok, ok_post, error } = await searchParams;
+  const posting = Boolean(await getWebhook().catch(() => null));
   const h = await headers();
   const host = h.get("x-forwarded-host") ?? h.get("host") ?? "custy-gg.vercel.app";
   const endpoint = `https://${host}/api/discord`;
@@ -27,6 +29,7 @@ export default async function DiscordSetup({ searchParams }: Props) {
       </div>
 
       {ok ? <p className="panel" style={{ padding: "14px 18px", marginBottom: 18 }}>Commands registered: <b>{ok}</b>. They can take a minute to show up in Discord.</p> : null}
+      {ok_post ? <p className="panel" style={{ padding: "14px 18px", marginBottom: 18 }}>{ok_post}</p> : null}
       {error ? <p className="panel err" style={{ padding: "14px 18px", marginBottom: 18 }}>{error}</p> : null}
 
       <div className="cols">
@@ -57,6 +60,26 @@ export default async function DiscordSetup({ searchParams }: Props) {
               {ready ? <a className="btn ghost" href={inviteUrl(DISCORD_APP_ID)} target="_blank" rel="noopener noreferrer">Add to Discord</a> : "The button appears once step 1 is done."}
             </li>
           </ol>
+          <h2 id="post-games" style={{ fontSize: 22, margin: "34px 0 6px" }}>Post finished games to a channel</h2>
+          {posting ? (
+            <>
+              <p className="win-t" style={{ margin: "0 0 12px" }}>On: every new game is posted with the result, MVP and rating changes.</p>
+              <form method="post" action="/api/discord/webhook" className="row" style={{ gap: 8 }}>
+                <button className="btn ghost" type="submit" name="test" value="1">Send a test message</button>
+                <button className="btn ghost" type="submit" name="remove" value="1">Stop posting</button>
+              </form>
+              <p className="sub" style={{ marginTop: 12 }}>To switch channels, paste a new link below.</p>
+            </>
+          ) : (
+            <p className="sub" style={{ margin: "0 0 12px" }}>
+              In Discord, open the channel&apos;s settings (the gear next to its name), then <i>Integrations</i>,{" "}
+              <i>Webhooks</i>, <i>New Webhook</i>, and <i>Copy Webhook URL</i>. Paste it here.
+            </p>
+          )}
+          <form method="post" action="/api/discord/webhook" className="secret-form">
+            <input type="password" name="webhook" placeholder="https://discord.com/api/webhooks/..." aria-label="Discord channel webhook link" autoComplete="off" required />
+            <button className="btn" type="submit">{posting ? "Switch channel" : "Start posting"}</button>
+          </form>
         </section>
         <aside>
           <section className="panel" style={{ padding: "18px 20px" }}>
@@ -70,6 +93,7 @@ export default async function DiscordSetup({ searchParams }: Props) {
               <li>Hit <b>Reroll</b> for a different split with the same rules.</li>
               <li><code>/custy_lobby</code> shows who&apos;s in the lobby with ratings and ranks.</li>
               <li><code>/custy_player</code> shows someone&apos;s stats.</li>
+              <li>Hit <b>Captain draft</b> under a team split to have two captains pick teams instead.</li>
             </ul>
           </section>
         </aside>

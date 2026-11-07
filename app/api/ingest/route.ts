@@ -2,8 +2,9 @@
 //   POST /api/ingest   body: { game, uploader }   -> { status: "created" | "exists", id }
 //   GET  /api/ingest   health check for `custy_collector.py --test`
 
-import { NextResponse } from "next/server";
-import { checkIngestKey } from "@/lib/ingest-key";
+import { after, NextResponse } from "next/server";
+import { checkIngestKey, siteUrl } from "@/lib/ingest-key";
+import { postGame, shouldPost } from "@/lib/game-post";
 import { isCustomGame, normalize } from "@/lib/normalize";
 import { store } from "@/lib/store";
 
@@ -55,6 +56,11 @@ export async function POST(req: Request) {
   const uploadedBy = u?.gameName ? `${u.gameName}#${u.tagLine ?? ""}` : null;
   try {
     const status = await store().save(match, raw, uploadedBy);
+    // Only the first upload of a game is "created", so each game is posted once.
+    if (status === "created" && shouldPost(match)) {
+      const site = siteUrl(req);
+      after(() => postGame(match.id, site));
+    }
     return NextResponse.json({ status, id: match.id }, { status: status === "created" ? 201 : 200 });
   } catch (e) {
     return NextResponse.json({ error: `Database error: ${(e as Error).message}` }, { status: 500 });
