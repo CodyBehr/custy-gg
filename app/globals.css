@@ -591,3 +591,30 @@ a.cl:hover { background: var(--deck-2); }
 .t th a.sort-h:hover, .t th a.sort-h.sorted { color: var(--ink); }
 .t th a.sort-h.sorted.desc::after { content: " ↓"; }
 .t th a.sort-h.sorted.asc::after { content: " ↑"; }
+
+/* Match timeline: gold lead graph, kill map, early game */
+.tl { margin-top: 28px; display: grid; gap: 16px; }
+.tl-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; }
+.tl-card { padding: 16px 18px; min-width: 0; }
+.tl-card .section-title { margin-top: 0; }
+.tl-note { margin: 8px 0 0; }
+.gold-graph { width: 100%; height: auto; display: block; }
+.gg-grid { stroke: var(--line-soft); stroke-width: 1; }
+.gg-zero { stroke: var(--line); stroke-width: 1.5; }
+.gg-label { fill: var(--faint); font-size: 11px; }
+.gg-blue { fill: var(--blue-wash); }
+.gg-red { fill: var(--red-wash); }
+.gg-line { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+.gg-obj.blue { fill: var(--blue); }
+.gg-obj.red { fill: var(--red); }
+.gg-obj-t { fill: #fff; font-size: 8px; font-weight: 700; pointer-events: none; }
+.kill-map { width: 100%; max-width: 320px; height: auto; display: block; margin: 0 auto; border-radius: 10px; background: #0b1324; }
+.km { stroke: rgba(0, 0, 0, 0.55); stroke-width: 1; }
+.km.blue { fill: var(--blue); }
+.km.red { fill: var(--red); }
+.dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin: 0 4px 0 8px; vertical-align: 0; }
+.dot.blue { background: var(--blue); }
+.dot.red { background: var(--red); }
+.t.early tr.side-blue td:first-child { box-shadow: inset 3px 0 0 var(--blue); }
+.t.early tr.side-red td:first-child { box-shadow: inset 3px 0 0 var(--red); }
+@media (max-width: 860px) { .tl-grid { grid-template-columns: minmax(0, 1fr); } }

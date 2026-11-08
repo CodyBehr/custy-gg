@@ -59,6 +59,7 @@ export const img = {
   spell: (s: Static, id: number) => (s.spells[id] ? `${CDN}/cdn/${s.version}/img/spell/${s.spells[id]}.png` : ""),
   rune: (s: Static, id: number) => (s.runes[id] ? `${CDN}/cdn/img/${s.runes[id]}` : ""),
   icon: (s: Static, id: number) => `${CDN}/cdn/${s.version}/img/profileicon/${id || 29}.png`,
+  map: (s: Static) => `${CDN}/cdn/${s.version}/img/map/map11.png`,
   splash: (s: Static, id: number) => (s.champs[id] ? `${CDN}/cdn/img/champion/centered/${s.champs[id].key}_0.jpg` : ""),
 };
 

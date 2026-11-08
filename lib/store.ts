@@ -8,6 +8,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import postgres from "postgres";
 import type { Match } from "./types";
+import type { TimelineSummary } from "./timeline";
 import { normalize, NORMALIZER_VERSION } from "./normalize";
 
 export type SaveResult = "created" | "exists";
@@ -24,6 +25,13 @@ interface Store {
   /** Stores the value only if the key is unset, then returns whatever is stored. */
   initSetting(key: string, value: string): Promise<string>;
   setSetting(key: string, value: string): Promise<void>;
+  /** The raw game as uploaded, or null. */
+  getRaw(id: string): Promise<any | null>;
+  saveTimeline(id: string, summary: TimelineSummary, raw: unknown): Promise<SaveResult>;
+  getTimeline(id: string): Promise<TimelineSummary | null>;
+  /** Every stored timeline summary, by match id. */
+  timelines(): Promise<Map<string, TimelineSummary>>;
+  hasTimeline(id: string): Promise<boolean>;
 }
 
 /** The Postgres connection string, cleaned of options postgres.js doesn't understand. */
@@ -77,6 +85,13 @@ async function ensureSchema() {
         )`;
       await db`create index if not exists matches_played_at_idx on matches (played_at desc)`;
       await db`create table if not exists settings (key text primary key, value text not null)`;
+      await db`
+        create table if not exists timelines (
+          match_id text primary key,
+          summary jsonb not null,
+          raw jsonb not null,
+          inserted_at timestamptz not null default now()
+        )`;
     })().catch((e) => {
       schemaReady = null;
       throw e;
@@ -129,6 +144,33 @@ const pgStore: Store = {
     await ensureSchema();
     await sql()`insert into settings (key, value) values (${key}, ${value}) on conflict (key) do update set value = excluded.value`;
   },
+  async getRaw(id) {
+    await ensureSchema();
+    const [row] = await sql()`select raw from matches where id = ${id}`;
+    return row ? row.raw : null;
+  },
+  async saveTimeline(id, summary, raw) {
+    await ensureSchema();
+    const rows = await sql()`
+      insert into timelines (match_id, summary, raw) values (${id}, ${sql().json(summary as any)}, ${sql().json(raw as any)})
+      on conflict (match_id) do nothing returning match_id`;
+    return rows.length ? "created" : "exists";
+  },
+  async getTimeline(id) {
+    await ensureSchema();
+    const [row] = await sql()`select summary from timelines where match_id = ${id}`;
+    return row ? (row.summary as TimelineSummary) : null;
+  },
+  async timelines() {
+    await ensureSchema();
+    const rows = await sql()`select match_id, summary from timelines`;
+    return new Map(rows.map((r) => [r.match_id as string, r.summary as TimelineSummary]));
+  },
+  async hasTimeline(id) {
+    await ensureSchema();
+    const [row] = await sql()`select 1 as ok from timelines where match_id = ${id}`;
+    return Boolean(row);
+  },
   async initSetting(key, value) {
     await ensureSchema();
     await sql()`insert into settings (key, value) values (${key}, ${value}) on conflict (key) do nothing`;
@@ -157,6 +199,15 @@ async function readSettings(): Promise<Record<string, string>> {
 async function readFile(): Promise<Record<string, FileRow>> {
   try {
     return JSON.parse(await fs.readFile(FILE, "utf8"));
+  } catch {
+    return {};
+  }
+}
+
+const TIMELINE_FILE = path.join(process.cwd(), "data", "timelines.json");
+async function readTimelines(): Promise<Record<string, { summary: TimelineSummary; raw: unknown }>> {
+  try {
+    return JSON.parse(await fs.readFile(TIMELINE_FILE, "utf8"));
   } catch {
     return {};
   }
@@ -217,6 +268,28 @@ const fileStore: Store = {
       await fs.mkdir(path.dirname(SETTINGS_FILE), { recursive: true });
       await fs.writeFile(SETTINGS_FILE, JSON.stringify(all));
     });
+  },
+  async getRaw(id) {
+    return (await readFile())[id]?.raw ?? null;
+  },
+  saveTimeline(id, summary, raw) {
+    return locked(async () => {
+      const all = await readTimelines();
+      if (all[id]) return "exists" as const;
+      all[id] = { summary, raw };
+      await fs.mkdir(path.dirname(TIMELINE_FILE), { recursive: true });
+      await fs.writeFile(TIMELINE_FILE, JSON.stringify(all));
+      return "created" as const;
+    });
+  },
+  async getTimeline(id) {
+    return (await readTimelines())[id]?.summary ?? null;
+  },
+  async timelines() {
+    return new Map(Object.entries(await readTimelines()).map(([k, v]) => [k, v.summary]));
+  },
+  async hasTimeline(id) {
+    return Boolean((await readTimelines())[id]);
   },
   initSetting(key, value) {
     return locked(async () => {

@@ -16,7 +16,8 @@ What the site shows:
 - **Standings**: everyone ranked by an Elo-style rating, with win rate, KDA, last 10 games and most played champions
 - **Player lookup**: search anyone by Riot ID from the header, or browse a sortable table of every player
 - **Player pages**: op.gg-style profile with a last-20-games summary, match history you can filter by champion or role and expand into the full scoreboard, a full champion table, multikills, rating graph, roles, best duos and toughest opponents
-- **Match pages**: full scoreboard with items, runes, damage, gold, CS, vision, bans and an MVP
+- **Match pages**: full scoreboard with items, runes, damage, gold, CS, vision, bans and an MVP, plus (from the
+  game's timeline, app 1.5+) a gold lead graph with objectives, a kill map, and CS/gold at 10 and 15 vs. lane opponent
 - **Champions**: what your group picks and bans, and who's best on each
 - **Records**: most kills, most damage, longest game, pentakills and more
 

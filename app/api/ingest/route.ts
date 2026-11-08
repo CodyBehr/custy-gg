@@ -65,7 +65,9 @@ export async function POST(req: Request) {
         if (shouldPost(match)) await postGame(match.id, site, pred);
       });
     }
-    return NextResponse.json({ status, id: match.id }, { status: status === "created" ? 201 : 200 });
+    // Tells the collector whether to send this game's timeline (gold graphs, kill maps).
+    const needTimeline = !(await store().hasTimeline(match.id).catch(() => true));
+    return NextResponse.json({ status, id: match.id, needTimeline }, { status: status === "created" ? 201 : 200 });
   } catch (e) {
     return NextResponse.json({ error: `Database error: ${(e as Error).message}` }, { status: 500 });
   }

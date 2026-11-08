@@ -5,6 +5,8 @@ import { clock, getDataset } from "@/lib/stats";
 import type { MatchTeam } from "@/lib/types";
 import { when } from "@/components/ui";
 import { Board } from "@/components/scoreboard";
+import { TimelineView } from "@/components/timeline-view";
+import { store } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
 
@@ -22,6 +24,7 @@ export default async function MatchPage({ params }: Props) {
   const [d, s] = await Promise.all([getDataset(), getStatic()]);
   const m = d.matches.find((x) => x.id === decodeURIComponent(id));
   if (!m) notFound();
+  const tl = await store().getTimeline(m.id).catch(() => null);
 
   const w = when(m.playedAt);
   const blue = m.teams.find((t) => t.teamId === 100)!;
@@ -45,6 +48,8 @@ export default async function MatchPage({ params }: Props) {
       {winnerFirst.map((t) => (
         <Board key={t.teamId} s={s} m={m} t={t} mvp={d.mvpOf.get(m.id)} deltas={d.ratingDelta} scores={d.scores} />
       ))}
+
+      {tl ? <TimelineView tl={tl} m={m} s={s} /> : null}
     </>
   );
 }

@@ -33,7 +33,7 @@ import time
 import urllib.error
 import urllib.request
 
-VERSION = "1.4.1"
+VERSION = "1.5.0"
 FROZEN = bool(getattr(sys, "frozen", False))
 if FROZEN:
     # Packaged app: keep config, state and log in the user's app-data folder.
@@ -127,6 +127,58 @@ def save_state(seen):
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(sorted(seen), f)
     os.replace(tmp, STATE_PATH)
+
+
+TIMELINE_STATE = STATE_PATH.replace(".json", "") + "-timelines.json"
+
+
+def load_timeline_state():
+    try:
+        with open(TIMELINE_STATE, "r", encoding="utf-8") as f:
+            return set(json.load(f))
+    except (OSError, ValueError):
+        return set()
+
+
+def save_timeline_state(done):
+    tmp = TIMELINE_STATE + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(sorted(done), f)
+    os.replace(tmp, TIMELINE_STATE)
+
+
+TIMELINE_EVENTS = {"CHAMPION_KILL", "ELITE_MONSTER_KILL", "BUILDING_KILL", "ITEM_PURCHASED", "ITEM_UNDO",
+                   "ITEM_SOLD", "SKILL_LEVEL_UP", "WARD_PLACED", "WARD_KILL", "CHAMPION_SPECIAL_KILL"}
+
+
+def slim_timeline(tl):
+    """Drops event types the site doesn't use, to keep the upload small."""
+    out = dict(tl)
+    out["frames"] = [dict(f, events=[e for e in (f.get("events") or []) if e.get("type") in TIMELINE_EVENTS])
+                     for f in tl.get("frames") or []]
+    return out
+
+
+def send_timeline(cfg, lcu, key, game_id):
+    """Uploads one game's timeline. Returns True when the site has it (or can't use it), so we stop trying."""
+    try:
+        tl = lcu.get("/lol-match-history/v1/game-timelines/%s" % game_id)
+    except (urllib.error.URLError, OSError, ValueError) as e:
+        log.info("No timeline for %s from the client: %s", key, e)
+        return True
+    if not tl or not tl.get("frames"):
+        log.info("No timeline for %s from the client", key)
+        return True
+    tl = slim_timeline(tl)
+    status, body = post_json(cfg["site_url"] + "/api/timeline", cfg["ingest_key"], {"id": key, "timeline": tl})
+    if status in (200, 201):
+        log.info("Uploaded timeline for %s", key)
+        return True
+    if status in (404, 413, 422):
+        log.warning("Site couldn't take the timeline for %s (HTTP %s): %s", key, status, body.get("error", ""))
+        return True
+    log.warning("Timeline upload for %s failed (HTTP %s), will retry", key, status)
+    return False
 
 
 # --------------------------------------------------------------------------
@@ -288,11 +340,16 @@ def sync(cfg, lcu, seen, me, force=False):
     uploaded = 0
     created = 0
     new_players = set()
+    timelines = load_timeline_state()
+    timelines_before = len(timelines)
     for summary in recent_games(lcu):
         if not is_custom(summary):
             continue
         key = game_key(summary)
         if key in seen and not force:
+            # Games uploaded before timelines existed: send their timeline once.
+            if key not in timelines and send_timeline(cfg, lcu, key, summary["gameId"]):
+                timelines.add(key)
             continue
         try:
             game = lcu.get("/lol-match-history/v1/games/%s" % summary["gameId"])
@@ -313,6 +370,11 @@ def sync(cfg, lcu, seen, me, force=False):
         if status in (200, 201):
             seen.add(key)
             uploaded += 1
+            if body.get("needTimeline") and key not in timelines:
+                if send_timeline(cfg, lcu, key, summary["gameId"]):
+                    timelines.add(key)
+            elif not body.get("needTimeline"):
+                timelines.add(key)
             if body.get("status") == "exists":
                 log.info("Custom game %s is already on the site", key)
             else:
@@ -328,6 +390,8 @@ def sync(cfg, lcu, seen, me, force=False):
             log.warning("Upload of %s failed (HTTP %s): %s", key, status, body.get("error", ""))
     if uploaded:
         save_state(seen)
+    if len(timelines) != timelines_before:
+        save_timeline_state(timelines)
     if new_players:
         try:
             send_ranks(cfg, lcu, new_players)
