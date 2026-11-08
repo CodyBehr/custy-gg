@@ -77,6 +77,13 @@ Every 15 minutes (never during a game) the app asks the site for its latest vers
 (`/api/collector/version`, read from the built .exe) and installs it quietly if it's newer. Turn this off from
 the tray menu ("Update automatically").
 
+## Agent API
+
+Read-only JSON for AI agents (like a Discord bot) at `/api/agent`; that address lists every endpoint. The main one is
+`/api/agent/player?name=<name>`: a full analysis of one player (stats vs. the group for their roles, strengths and
+weaknesses, form, champion pool, teammates, opponents, early game and where they die). Set `AGENT_API_KEY` in Vercel
+to require `Authorization: Bearer <key>`.
+
 ## How it's hosted
 
 - **Vercel** (free Hobby plan) runs the site and redeploys automatically whenever `main` changes on GitHub.
