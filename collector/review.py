@@ -188,9 +188,10 @@ def fill_from_riot(data):
     tl, game = data.get("timeline"), data.get("game") or {}
     if not tl or _has_purchases(tl) or not _cfg.get("site_url"):
         return False
-    if time.time() - float(data.get("fillTried") or 0) < 3600:
+    # "fillTried2": attempts made before the site had its Riot key don't count.
+    if time.time() - float(data.get("fillTried2") or 0) < 600:
         return False
-    data["fillTried"] = time.time()
+    data["fillTried2"] = time.time()
     url = "%s/api/review/timeline?platform=%s&gameId=%s" % (_cfg["site_url"].rstrip("/"), game.get("platformId") or "NA1", game.get("gameId"))
     req = urllib.request.Request(url, headers={"Authorization": "Bearer " + _cfg.get("ingest_key", ""),
                                                "User-Agent": "custy-collector/" + core.VERSION})
