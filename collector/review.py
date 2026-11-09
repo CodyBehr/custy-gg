@@ -175,6 +175,53 @@ def _summarize(game, me_puuid):
     }
 
 
+_cfg = {}
+
+
+def _has_purchases(tl):
+    return any(e.get("type") == "ITEM_PURCHASED" for f in (tl or {}).get("frames") or [] for e in f.get("events") or [])
+
+
+def fill_from_riot(data):
+    """The client's timeline for ranked/normal games has no item purchases or skill-ups.
+    Asks the site, which gets them from Riot's match API, and merges them in. Returns True if it changed anything."""
+    tl, game = data.get("timeline"), data.get("game") or {}
+    if not tl or _has_purchases(tl) or not _cfg.get("site_url"):
+        return False
+    if time.time() - float(data.get("fillTried") or 0) < 3600:
+        return False
+    data["fillTried"] = time.time()
+    url = "%s/api/review/timeline?platform=%s&gameId=%s" % (_cfg["site_url"].rstrip("/"), game.get("platformId") or "NA1", game.get("gameId"))
+    req = urllib.request.Request(url, headers={"Authorization": "Bearer " + _cfg.get("ingest_key", ""),
+                                               "User-Agent": "custy-collector/" + core.VERSION})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            extra = json.loads(r.read())
+    except Exception as e:
+        core.log.info("Review: couldn't get item data for %s from the site: %s", game.get("gameId"), e)
+        return True   # remember when we tried
+    # Riot's participant numbers -> the client's, matched by player
+    by_puuid = {(i.get("player") or {}).get("puuid"): i.get("participantId") for i in game.get("participantIdentities") or []}
+    pid_map = {p["participantId"]: by_puuid.get(p["puuid"], p["participantId"]) for p in extra.get("participants") or []}
+    frames = tl.get("frames") or []
+    added = 0
+    for f in extra.get("frames") or []:
+        for e in f.get("events") or []:
+            e = dict(e)
+            if "participantId" in e:
+                e["participantId"] = pid_map.get(e["participantId"], e["participantId"])
+            if not frames:
+                break
+            idx = min(len(frames) - 1, int((e.get("timestamp") or 0) // 60000) + 1)
+            frames[idx].setdefault("events", []).append(e)
+            added += 1
+    for f in frames:
+        f["events"] = sorted(f.get("events") or [], key=lambda e: e.get("timestamp") or 0)
+    data["filled"] = added
+    core.log.info("Review: added %d item and skill events to game %s from Riot", added, game.get("gameId"))
+    return True
+
+
 def _lcu(cfg):
     creds = core.find_client(cfg)
     return core.LeagueClient(*creds) if creds else None
@@ -196,6 +243,7 @@ def fetch_game(lcu, game_id, me_puuid):
         tl = None
     data = {"game": game, "timeline": tl if tl and tl["frames"] else None,
             "summary": _summarize(game, me_puuid), "me": me_puuid}
+    fill_from_riot(data)
     _write_cache(game_id, data)
     return data
 
@@ -553,6 +601,8 @@ def make_handler(cfg, token):
                 data = fetch_game(_lcu(cfg) if not _read_cache(m.group(1)) else None, m.group(1), me.get("puuid"))
                 if not data:
                     return self._send(404, {"error": "game not found"})
+                if fill_from_riot(data):
+                    _write_cache(m.group(1), data)
                 return self._send(200, dict(data, roles=roles(data["game"])))
             m = re.match(r"^/api/benchmark/([A-Za-z]+-(?:TOP|JUNGLE|MID|BOT|SUPPORT))$", url.path)
             if m:
@@ -589,6 +639,7 @@ def make_handler(cfg, token):
 
 def start(cfg, port=0):
     """Starts the page in a background thread. Returns its address (with the access key)."""
+    _cfg.update(cfg)
     token = secrets.token_urlsafe(18)
     # A fixed port when it's free, so the page keeps its saved choices (like the queue filter) between restarts.
     server = None
