@@ -11,3 +11,4 @@ next-env.d.ts
 collector/review.json
 collector/review-cache/
 collector/settings.json
+__pycache__/
