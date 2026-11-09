@@ -501,7 +501,14 @@ def make_handler(cfg, token):
 def start(cfg, port=0):
     """Starts the page in a background thread. Returns its address (with the access key)."""
     token = secrets.token_urlsafe(18)
-    server = ThreadingHTTPServer(("127.0.0.1", port), make_handler(cfg, token))
+    # A fixed port when it's free, so the page keeps its saved choices (like the queue filter) between restarts.
+    server = None
+    for p in ([port] if port else [47821, 0]):
+        try:
+            server = ThreadingHTTPServer(("127.0.0.1", p), make_handler(cfg, token))
+            break
+        except OSError:
+            continue
     url = "http://127.0.0.1:%d/?k=%s" % (server.server_address[1], token)
     threading.Thread(target=server.serve_forever, name="review", daemon=True).start()
     try:
