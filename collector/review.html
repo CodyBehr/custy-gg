@@ -244,7 +244,8 @@ function findMoments(A, B) {
     out.push({
       kind: "death", start: Math.max(0, d.t - 45), end: d.t + 10, cost: Math.max(300, swing),
       title: `You died at ${clock(d.t)}${killers.length ? " to " + killers.join(" + ") : ""}`,
-      compare: B ? `In your usual game you die <b>${B.deaths14 ?? 0}</b> time${B.deaths14 == 1 ? "" : "s"} before 14:00.` : "Deaths before 14:00 usually decide the lane.",
+      compare: d.t >= 840 ? `Your lane gold went from ${signed(curve[m0])} to ${signed(curve[m2])} over the next 2 minutes.`
+        : B ? `In your usual game you die <b>${Math.round(B.deaths14 ?? 0)}</b> time${Math.round(B.deaths14 ?? 0) === 1 ? "" : "s"} before 14:00.` : "Deaths before 14:00 usually decide the lane.",
     });
   }
 
@@ -299,8 +300,9 @@ function findMoments(A, B) {
     if (cur && w.start <= cur.end) { cur.end = Math.max(cur.end, w.end); cur.cost += w.cost; cur.parts.push(w); }
     else merged.push({ start: w.start, end: w.end, cost: w.cost, parts: [w] });
   }
-  for (const m of merged) { m.parts.sort((a, b) => b.cost - a.cost); m.context = context(A, m); }
-  return merged.sort((a, b) => b.cost - a.cost).slice(0, 5);
+  for (const m of merged) { m.parts.sort((a, b) => a.start - b.start); m.context = context(A, m); }
+  // Keep the ones that cost the most, then list them in the order they happened.
+  return merged.sort((a, b) => b.cost - a.cost).slice(0, 6).sort((a, b) => a.start - b.start);
 }
 
 function context(A, w) {
@@ -440,7 +442,7 @@ function render(A, B, moments, s, label) {
       <div class="legend"><span><i style="background:var(--gold)"></i>This game</span>${B ? `<span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of ${esc(label)}</span>` : ""}<span><i style="background:var(--red-wash)"></i>Moments to watch</span><span style="color:var(--red-ink)">✕ your deaths</span></div>
       ${B ? "" : `<div class="sub" style="margin-top:6px">Not enough of your ${esc(ROLE_NAME[A.role] || "")} games saved yet to draw "your usual" (needs 3). It fills in as you play with the app running.</div>`}
     </div>
-    <h2>Moments to watch</h2>
+    <h2>Moments to watch, in order</h2>
     <div class="card">${moments.length ? moments.map((w, i) => `
       <div class="moment">
         <div class="when">${clock(w.start)} – ${clock(w.end)}${w.parts.some(p => p.kind === "gold") ? `<small>${Math.round(Math.max(...w.parts.filter(p => p.kind === "gold").map(p => p.cost))).toLocaleString()} gold lost</small>` : ""}</div>
