@@ -7,7 +7,7 @@ import crypto from "node:crypto";
 export const DISCORD_APP_ID = process.env.DISCORD_APP_ID ?? "";
 export const DISCORD_PUBLIC_KEY = process.env.DISCORD_PUBLIC_KEY ?? "";
 
-export const InteractionType = { PING: 1, COMMAND: 2, COMPONENT: 3 } as const;
+export const InteractionType = { PING: 1, COMMAND: 2, COMPONENT: 3, AUTOCOMPLETE: 4 } as const;
 export const ResponseType = { PONG: 1, MESSAGE: 4, UPDATE_MESSAGE: 7 } as const;
 export const EPHEMERAL = 1 << 6;
 
@@ -26,7 +26,7 @@ export function verifyDiscordRequest(body: string, signature: string | null, tim
   }
 }
 
-// Option types: 3 = string, 5 = boolean
+// Option types: 3 = string, 5 = boolean, 6 = user
 export const COMMANDS = [
   {
     name: "custy_teams",
@@ -48,6 +48,15 @@ export const COMMANDS = [
     ],
   },
   { name: "custy_lobby", description: "Show who's in the custom lobby right now, with ratings and ranks" },
+  {
+    name: "custy_link_account",
+    description: "Link your Discord to your League account so the bot can tag you",
+    options: [
+      { type: 3, name: "player", description: "Your League name (start typing to search)", required: false, autocomplete: true },
+      { type: 6, name: "user", description: "Link someone else instead of yourself", required: false },
+      { type: 5, name: "unlink", description: "Remove the link", required: false },
+    ],
+  },
   {
     name: "custy_player",
     description: "Look up a player's custom game stats",

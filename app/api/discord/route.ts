@@ -41,6 +41,7 @@ export async function POST(req: Request) {
   }
   const i = JSON.parse(body);
   if (i.type === InteractionType.PING) return NextResponse.json({ type: ResponseType.PONG });
+  if (i.type === InteractionType.AUTOCOMPLETE) return NextResponse.json({ type: 8, data: { choices: await playerChoices(i) } });
 
   // Discord gives us 3 seconds to answer. Loading every game can take longer (especially when the
   // site has been idle), so answer straight away and fill in the real reply once it's ready.
@@ -66,6 +67,8 @@ async function handle(req: Request, i: any): Promise<Reply> {
         case "custy_lobby":
         case "lobby":
           return await lobby();
+        case "custy_link_account":
+          return await linkAccount(opts, i.member?.user?.id ?? i.user?.id ?? null);
         case "custy_player":
         case "custy":
           return await lookup(req, opts.player ?? "");
@@ -207,7 +210,6 @@ async function teams(req: Request, opts: Opts): Promise<Reply> {
       components: [
         { type: 2, style: 1, label: "Reroll", custom_id: `reroll:${id}`, emoji: { name: "🎲" } },
         { type: 2, style: 2, label: "Captain draft", custom_id: `draftstart:${id}`, emoji: { name: "👑" } },
-        { type: 2, style: 2, label: "Link my account", custom_id: `linkme:${id}`, emoji: { name: "🔗" } },
         { type: 2, style: 5, label: "Standings", url: `${site}/` },
       ],
     }],
@@ -280,7 +282,7 @@ async function lookup(req: Request, query: string): Promise<Reply> {
   const [d, st] = await Promise.all([getDataset(), getStatic()]);
   const mentioned = mentionedUser(query);
   const linked = mentioned ? await puuidForDiscord(mentioned) : null;
-  if (mentioned && !linked) return privateNote(`<@${mentioned}> hasn't linked a League account yet. They can tap **Link my account** under a team split.`);
+  if (mentioned && !linked) return privateNote(`<@${mentioned}> hasn't linked a League account yet. They can run \`/custy_link_account\`.`);
   const p = linked ? d.players.find((x) => x.puuid === linked) : searchPlayers(d.players, query)[0];
   if (!p) return privateNote(`Nobody called "${query}" has played a tracked custom game.`);
   const rank = d.players.indexOf(p) + 1;
@@ -433,6 +435,50 @@ async function linkMenu(teamsId: string, user: string | null): Promise<Reply> {
     data: {
       content: "Which League account is yours? The bot will tag you in team splits and show you as @you.",
       components: [{ type: 1, components: [{ type: 3, custom_id: "linkpick", placeholder: "Pick your League name", options }] }],
+    },
+  };
+}
+
+/** Search-as-you-type for /custy_link_account: League names matching what's typed so far. */
+async function playerChoices(i: any) {
+  try {
+    const typed = String((i.data.options ?? []).find((o: any) => o.focused)?.value ?? "");
+    const d = await getDataset();
+    const list = typed.trim() ? searchPlayers(d.players, typed) : [...d.players].sort((a, b) => b.lastPlayed - a.lastPlayed);
+    return list.slice(0, 25).map((p) => ({ name: `${p.name}#${p.tag} · ${p.games} game${p.games === 1 ? "" : "s"}`.slice(0, 100), value: p.puuid }));
+  } catch {
+    return [];
+  }
+}
+
+async function linkAccount(opts: Opts, invoker: string | null): Promise<Reply> {
+  const who = opts.user || invoker;
+  if (!who) return privateNote("I couldn't tell who you are.");
+  const self = who === invoker;
+  if (opts.unlink === "true") {
+    await linkDiscord(who, null);
+    return privateNote(`${self ? "You're" : `<@${who}> is`} unlinked. The bot will use the League name again.`);
+  }
+  const d = await getDataset();
+  if (!opts.player) {
+    const current = await puuidForDiscord(who);
+    const pl = current ? d.players.find((x) => x.puuid === current) : null;
+    return privateNote(
+      pl
+        ? `${self ? "You're" : `<@${who}> is`} linked to **${pl.name}#${pl.tag}**. Run \`/custy_link_account player:\` to change it.`
+        : `${self ? "You're" : `<@${who}> is`} not linked yet. Run \`/custy_link_account\` and start typing your League name in \`player\`.`,
+    );
+  }
+  // A picked suggestion sends the player's id; typed text gets searched.
+  const pl = d.players.find((x) => x.puuid === opts.player) ?? searchPlayers(d.players, opts.player)[0];
+  if (!pl) return privateNote(`Nobody called "${opts.player}" has played a tracked custom game yet.`);
+  const before = (await discordByPuuid()).get(pl.puuid);
+  await linkDiscord(who, pl.puuid);
+  const moved = before && before !== who ? ` (it was linked to <@${before}> before)` : "";
+  return {
+    data: {
+      content: `🔗 <@${who}> is now **${pl.name}#${pl.tag}** on custy.gg${moved}. Team splits will tag ${self ? "you" : "them"} from now on.`,
+      allowed_mentions: { parse: [] },
     },
   };
 }

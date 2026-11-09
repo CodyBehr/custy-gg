@@ -60,7 +60,8 @@ Solo queue ranks come from the League client: the app reads them for everyone in
 uploads, so no Riot API key is needed. Balancing is plain math, not AI: it tries every possible split, keeps
 the ones closest to even (and that follow the together/apart rules), and picks one of those at random.
 
-- **Link my account**: a button under each team split lets people pick which League player they are. Linked
+- `/custy_link_account` links your Discord to your League name (search as you type; `user` links someone else,
+  `unlink` removes it). Linked
   people get pinged in team splits and shown as @mentions (without pings) in game posts, drafts and recaps;
   `/custy_player @someone` works too.
 - **Captain draft**: the button under a team split lets two random captains pick teams, snake order.
