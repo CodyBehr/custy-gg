@@ -18,6 +18,7 @@ body { margin:0; background:var(--night); color:var(--ink); font:15px/1.5 "Segoe
 header { display:flex; align-items:baseline; gap:12px; padding:14px 22px; border-bottom:1px solid var(--line-soft); }
 header b { font-size:18px; letter-spacing:.3px; } header b span { color:var(--gold); }
 header .tag { font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--night); background:var(--gold); padding:1px 7px; border-radius:4px; }
+header button { margin-left:4px; }
 header .who { margin-left:auto; color:var(--mute); font-size:13px; }
 main { display:grid; grid-template-columns: 300px 1fr; min-height: calc(100vh - 54px); }
 aside { border-right:1px solid var(--line-soft); overflow-y:auto; max-height: calc(100vh - 54px); }
@@ -65,7 +66,7 @@ svg text { fill:var(--mute); font-size:11px; }
 </style>
 </head>
 <body>
-<header><b>custy<span>.gg</span> game review</b><span class="tag">test</span><span class="who" id="who"></span></header>
+<header><b>custy<span>.gg</span> game review</b><span class="tag">test</span><span class="who" id="who"></span><button id="refresh" title="Look for new games">↻ Refresh</button></header>
 <main>
   <aside id="list"><div class="note">Reading your games from League...</div></aside>
   <section id="view"><div class="empty">Pick a game on the left.</div></section>
@@ -380,7 +381,11 @@ const cacheGame = {};
 const getGame = async (id) => cacheGame[id] ??= api("/api/game/" + id);
 
 async function loadList() {
-  const r = await api("/api/games");
+  const btn = $("refresh"); btn.disabled = true; btn.textContent = "Refreshing...";
+  let r;
+  try { r = await api("/api/games"); } finally { btn.disabled = false; btn.textContent = "↻ Refresh"; }
+  const before = new Set(STATE.games.map(g => g.id));
+  const fresh = STATE.games.length ? r.games.filter(g => !before.has(g.id)) : [];
   STATE = { ...STATE, games: r.games, me: r.me, replayApi: r.replayApi };
   try { STATE.queue = localStorage.getItem("custy-review-queue") || "all"; } catch (e) {}
   $("who").textContent = r.me?.gameName ? `${r.me.gameName}#${r.me.tagLine}` : "";
@@ -390,8 +395,17 @@ async function loadList() {
     return;
   }
   STATE.note = note;
+  if (fresh.length) STATE.current = null;   // a new game came in: open it
   renderList(true);
+  if (!fresh.length && STATE.games.length && lastRefreshClicked) toast("No new games yet. League can take a minute or two after a game to add it to your history.");
+  lastRefreshClicked = false;
 }
+let lastRefreshClicked = false, lastLoad = Date.now();
+$("refresh").onclick = () => { lastRefreshClicked = true; lastLoad = Date.now(); loadList().catch(e => toast(e.message)); };
+// Also look for new games when you come back to this window, and every 2 minutes while it's open.
+const autoRefresh = () => { if (Date.now() - lastLoad > 30000) { lastLoad = Date.now(); loadList().catch(() => {}); } };
+window.addEventListener("focus", autoRefresh);
+setInterval(() => { if (!document.hidden) autoRefresh(); }, 120000);
 
 function renderList(openFirst) {
   const shown = STATE.games.filter(g => STATE.queue === "all" || queueGroup(g.queue) === STATE.queue);
