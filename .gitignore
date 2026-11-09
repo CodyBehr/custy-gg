@@ -8,3 +8,6 @@ collector/uploaded.json
 collector/collector.log
 next-env.d.ts
 *.tsbuildinfo
+collector/review.json
+collector/review-cache/
+collector/settings.json

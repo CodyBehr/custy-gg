@@ -8,6 +8,8 @@ on:
     paths:
       - "collector/custy_collector.py"
       - "collector/windows_app.py"
+      - "collector/review.py"
+      - "collector/review.html"
       - "collector/icon.ico"
       - "collector/version_info.txt"
       - ".github/workflows/build-collector.yml"
@@ -44,9 +46,9 @@ jobs:
       - name: Build custy-collector.exe
         run: >
           pyinstaller --onefile --noconsole --name custy-collector
-          --icon collector/icon.ico --add-data "collector/icon.ico;."
+          --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;."
           --version-file collector/version_info.txt
-          --paths collector --hidden-import windows_app --hidden-import pystray._win32
+          --paths collector --hidden-import windows_app --hidden-import review --hidden-import pystray._win32
           collector/custy_collector.py
 
       - name: Check the app starts and reads attached settings

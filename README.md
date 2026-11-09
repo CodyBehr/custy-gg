@@ -77,6 +77,25 @@ Every 15 minutes (never during a game) the app asks the site for its latest vers
 (`/api/collector/version`, read from the built .exe) and installs it quietly if it's newer. Turn this off from
 the tray menu ("Update automatically").
 
+## Game review (test)
+
+The Windows app also has a **Review my games (test)** window: right-click the tray icon, or open *custy.gg game
+review* from the Start menu. It reviews your recent ranked, normal and quickplay games on Summoner's Rift (not
+customs):
+
+- your lane gold difference by minute against your lane opponent, with the middle half of your own recent games
+  in the same role behind it (same champion once you have 3+ games on it)
+- up to 5 moments to watch: gold swings of 400+, deaths before 14:00, CS, first back, boots, first item, level 6
+  and plates, with what happened around each one
+- **Watch in my replay** downloads the replay through the League client, starts it and jumps to the moment.
+  Jumping needs League's Replay API on; the page offers to add `EnableReplayApi=1` to `Config/game.cfg` (it keeps
+  `game.cfg.custy-backup`). Replays only open for games on the current patch.
+
+Everything stays on your PC: games are read from the League client and kept in
+`%LOCALAPPDATA%\custy-collector\review-cache`, so the comparison improves as you play with the app running.
+Without the Windows app: `python collector/custy_collector.py --review`. To try it without League, run
+`MOCK_RANKED=1 MOCK_REPLAY_API=1 python scripts/mock_lcu.py some-folder` first.
+
 ## Agent API
 
 Read-only JSON for AI agents (like a Discord bot) at `/api/agent`; that address lists every endpoint. The main one is
@@ -102,8 +121,8 @@ Optional Vercel environment variables:
 
 ## Good to know
 
-- **Roles are guessed.** Custom games don't record positions, so the site works them out from Smite, lane and CS.
-  Usually right on Summoner's Rift, sometimes wrong.
+- **Roles come from the role quest slot.** Each player's role quest item names the role the game gave them. When
+  it's missing (older games, odd setups), the site falls back to Smite, lane and CS.
 - **Remakes** (games under 5 minutes) are listed but don't count toward any stats.
 - **Ratings** start at 1500. A win against a stronger team earns more than a win against a weaker one. Fine
   for fun among friends; it isn't connected to your real rank.

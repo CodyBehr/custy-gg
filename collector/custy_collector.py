@@ -11,6 +11,7 @@ Usage:
     python custy_collector.py --once     upload any new custom games, then exit
     python custy_collector.py --test     check config, League client and site
     python custy_collector.py --all      re-send every custom game in history
+    python custy_collector.py --review   open the game review page (test)
 
 Settings live in config.json next to this file.
 
@@ -33,7 +34,7 @@ import time
 import urllib.error
 import urllib.request
 
-VERSION = "1.5.0"
+VERSION = "1.6.0"
 FROZEN = bool(getattr(sys, "frozen", False))
 if FROZEN:
     # Packaged app: keep config, state and log in the user's app-data folder.
@@ -569,6 +570,10 @@ def main():
     cfg = load_config()
     if "--test" in args:
         sys.exit(0 if run_test(cfg) else 1)
+    if "--review" in args:
+        import review
+        review.serve_forever(cfg)
+        return
 
     log.info("custy.gg collector %s started, uploading to %s", VERSION, cfg["site_url"])
     if FROZEN and platform.system() == "Windows":

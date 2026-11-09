@@ -8,7 +8,7 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..")
 const dir = path.join(root, "collector");
 const files = {};
 for (const name of fs.readdirSync(dir).sort()) {
-  if (name === "config.json" || name === "uploaded.json" || name.endsWith(".log") || name.startsWith(".")) continue;
+  if (name === "config.json" || name === "uploaded.json" || name === "review.json" || name === "settings.json" || name.endsWith(".log") || name.startsWith(".")) continue;
   const full = path.join(dir, name);
   if (!fs.statSync(full).isFile()) continue;
   files[name] = fs.readFileSync(full, "utf8");

@@ -116,6 +116,10 @@ def uninstall():
     stop_running_copies()
     set_autostart(False)
     remove_old_python_autostart()
+    try:
+        os.remove(REVIEW_SHORTCUT)
+    except OSError:
+        pass
     shutil.rmtree(core.HERE, ignore_errors=True)
 
 
@@ -145,9 +149,45 @@ def status_line(cfg):
     return "\n\n".join(lines)
 
 
+def open_review():
+    """Opens the game review window, starting the installed app first if it isn't running."""
+    import review
+    url = review.running_url()
+    if not url and os.path.exists(INSTALL_EXE):
+        start_installed()
+        for _ in range(40):
+            time.sleep(0.5)
+            url = review.running_url()
+            if url:
+                break
+    if url:
+        review.open_window(url)
+    else:
+        message("Couldn't start custy.gg game review. Try again in a few seconds.", MB_OK | MB_ICONERROR)
+
+
+REVIEW_SHORTCUT = os.path.join(os.environ.get("APPDATA", ""), r"Microsoft\Windows\Start Menu\Programs",
+                               "custy.gg game review.lnk")
+
+
+def make_review_shortcut():
+    """Start menu entry that opens the game review window."""
+    if os.path.exists(REVIEW_SHORTCUT) or not os.path.exists(INSTALL_EXE):
+        return
+    lnk, exe = REVIEW_SHORTCUT.replace("'", "''"), INSTALL_EXE.replace("'", "''")
+    powershell(
+        "$s = (New-Object -ComObject WScript.Shell).CreateShortcut('%s'); "
+        "$s.TargetPath = '%s'; $s.Arguments = '--review'; $s.IconLocation = '%s,0'; "
+        "$s.Description = 'Review your recent League games'; $s.Save()" % (lnk, exe, exe))
+
+
 def handle_launch(args):
     """Returns True when this process should go on to run the collector."""
     me = sys.executable
+
+    if "--review" in args:
+        open_review()
+        return False
 
     if "--uninstall" in args:
         uninstall()
@@ -359,6 +399,19 @@ def run_with_tray(cfg, start_collector):
     def open_site(icon, item):
         webbrowser.open(site)
 
+    review_url = {"url": None}
+    try:
+        import review
+        review_url["url"] = review.start(cfg)
+        threading.Thread(target=review.keep_cache_fresh, args=(cfg, stop), name="review-cache", daemon=True).start()
+    except Exception as e:
+        core.log.warning("Game review page didn't start: %s", e)
+
+    def open_review_window(icon, item):
+        if review_url["url"]:
+            import review
+            review.open_window(review_url["url"])
+
     def open_log(icon, item):
         try:
             os.startfile(core.LOG_PATH)
@@ -385,6 +438,7 @@ def run_with_tray(cfg, start_collector):
 
     menu = pystray.Menu(
         pystray.MenuItem("Open custy.gg", open_site, default=True),
+        pystray.MenuItem("Review my games (test)", open_review_window),
         pystray.Menu.SEPARATOR,
         pystray.MenuItem(status_text, None, enabled=False),
         pystray.MenuItem(uploads_text, None, enabled=False),
@@ -422,6 +476,7 @@ def run_with_tray(cfg, start_collector):
 
     def setup(icon):
         icon.visible = True
+        threading.Thread(target=make_review_shortcut, name="shortcut", daemon=True).start()
         worker.start()
         threading.Thread(target=updater, name="updater", daemon=True).start()
         done = _read_json(UPDATED_FLAG, None)

@@ -55,6 +55,15 @@ def fake_timeline(g):
                 "killerId": p["participantId"], "victimId": rnd.choice(victims), "assistingParticipantIds": [],
                 "position": {"x": rnd.randint(500, 14300), "y": rnd.randint(500, 14300)}})
         frames[1]["events"].append({"type": "ITEM_PURCHASED", "timestamp": 15000, "participantId": p["participantId"], "itemId": 1055})
+        st = final[p["participantId"]]
+        build = [st.get("item%d" % i) for i in range(6) if st.get("item%d" % i)]
+        for n, it in enumerate(build[:4]):
+            m = min(minutes, rnd.randint(6, 9) + n * rnd.randint(5, 7))
+            frames[m]["events"].append({"type": "ITEM_PURCHASED", "timestamp": m * 60000 - rnd.randint(1000, 50000),
+                                        "participantId": p["participantId"], "itemId": it})
+        six = min(minutes, rnd.randint(6, 9))
+        frames[six]["events"].append({"type": "SKILL_LEVEL_UP", "timestamp": six * 60000 - rnd.randint(0, 59000),
+                                      "participantId": p["participantId"], "skillSlot": 4, "levelUpType": "NORMAL"})
     for m, kind in ((8, "DRAGON"), (14, "RIFTHERALD"), (20, "DRAGON"), (24, "BARON_NASHOR")):
         if m <= minutes:
             frames[m]["events"].append({"type": "ELITE_MONSTER_KILL", "timestamp": m * 60000, "monsterType": kind,
@@ -66,6 +75,16 @@ def fake_timeline(g):
     return {"frameInterval": 60000, "frames": frames}
 
 
+RANKED = os.environ.get("MOCK_RANKED")
+
+
+def as_ranked(g, me_puuid):
+    """With MOCK_RANKED=1, games you're in are served as ranked solo queue games."""
+    if RANKED and any(i["player"]["puuid"] == me_puuid for i in g["participantIdentities"]):
+        return dict(g, gameType="MATCHED_GAME", queueId=420)
+    return g
+
+
 def main():
     folder = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "mock-league"))
     os.makedirs(folder, exist_ok=True)
@@ -75,6 +94,8 @@ def main():
     auth = "Basic " + base64.b64encode(("riot:" + password).encode()).decode()
 
     me = games[0]["participantIdentities"][0]["player"]
+    games = [as_ranked(g, me["puuid"]) for g in games]
+    replay = {"watching": None}
 
     class Handler(http.server.BaseHTTPRequestHandler):
         def log_message(self, *a):
@@ -123,6 +144,8 @@ def main():
                 # Mix in a ranked game so the collector's custom-only filter is exercised.
                 summaries.insert(1, {"gameId": 1, "platformId": "NA1", "gameCreation": 0, "gameType": "MATCHED_GAME", "queueId": 420, "gameMode": "CLASSIC"})
                 return self.send(200, {"accountId": 0, "games": {"gameCount": len(summaries), "games": summaries}})
+            if path.startswith("/lol-replays/v1/metadata/"):
+                return self.send(200, {"gameId": int(path.rsplit("/", 1)[1]), "state": "watch", "downloadProgress": 0})
             if path.startswith("/lol-match-history/v1/game-timelines/"):
                 gid = int(path.rsplit("/", 1)[1])
                 for g in games:
@@ -137,6 +160,35 @@ def main():
                 return self.send(404, {"message": "not found"})
             return self.send(404, {"message": "unknown endpoint"})
 
+        def do_POST(self):
+            if self.headers.get("Authorization") != auth:
+                return self.send(401, {"message": "unauthorized"})
+            self.rfile.read(int(self.headers.get("Content-Length") or 0))
+            if self.path.startswith("/lol-replays/v1/rofls/") and self.path.endswith("/watch"):
+                replay["watching"] = self.path.split("/")[4]
+                return self.send(204, {})
+            if self.path.startswith("/lol-replays/v1/rofls/"):
+                return self.send(204, {})
+            return self.send(404, {"message": "unknown endpoint"})
+
+    class ReplayApi(http.server.BaseHTTPRequestHandler):
+        """Pretend in-game Replay API (port 2999) once a replay is 'watched'."""
+        state = {"time": 0.0}
+
+        def log_message(self, *a):
+            pass
+
+        def do_GET(self):
+            body = {"length": 1800.0 if replay["watching"] else 0, "time": self.state["time"], "paused": False}
+            Handler.send(self, 200, body)
+
+        def do_POST(self):
+            req = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
+            if "time" in req:
+                self.state["time"] = float(req["time"])
+                print("Replay API: seek to %.0fs" % self.state["time"], flush=True)
+            return self.do_GET()
+
     cert, key = os.path.join(folder, "mock.crt"), os.path.join(folder, "mock.key")
     if not os.path.exists(cert):
         subprocess.run(["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes", "-keyout", key, "-out", cert,
@@ -146,6 +198,13 @@ def main():
     ctx.load_cert_chain(cert, key)
     server.socket = ctx.wrap_socket(server.socket, server_side=True)
     port = server.server_address[1]
+    if os.environ.get("MOCK_REPLAY_API"):
+        import threading
+        rserver = http.server.ThreadingHTTPServer(("127.0.0.1", 2999), ReplayApi)
+        rctx = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        rctx.load_cert_chain(cert, key)
+        rserver.socket = rctx.wrap_socket(rserver.socket, server_side=True)
+        threading.Thread(target=rserver.serve_forever, daemon=True).start()
     with open(os.path.join(folder, "lockfile"), "w") as f:
         f.write("LeagueClient:%d:%d:%s:https" % (os.getpid(), port, password))
     print("Mock League client on https://127.0.0.1:%d, lockfile in %s" % (port, folder), flush=True)

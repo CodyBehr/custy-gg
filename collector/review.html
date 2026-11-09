@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>custy.gg game review</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --night:#0d1424; --deck:#141d31; --deck-2:#1a2540; --line:#253150; --line-soft:#1d2843;
+  --ink:#e6ebf5; --mute:#8f9ab4; --faint:#5d6987;
+  --blue:#4f9dff; --blue-ink:#9cc8ff; --blue-wash:rgba(79,157,255,.11);
+  --red:#f2596b; --red-ink:#ff9aa6; --red-wash:rgba(242,89,107,.1);
+  --gold:#e3b866; --gold-wash:rgba(227,184,102,.12);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--night); color:var(--ink); font:15px/1.5 "Segoe UI", system-ui, sans-serif; }
+header { display:flex; align-items:baseline; gap:12px; padding:14px 22px; border-bottom:1px solid var(--line-soft); }
+header b { font-size:18px; letter-spacing:.3px; } header b span { color:var(--gold); }
+header .tag { font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--night); background:var(--gold); padding:1px 7px; border-radius:4px; }
+header .who { margin-left:auto; color:var(--mute); font-size:13px; }
+main { display:grid; grid-template-columns: 300px 1fr; min-height: calc(100vh - 54px); }
+aside { border-right:1px solid var(--line-soft); overflow-y:auto; max-height: calc(100vh - 54px); }
+aside .note { padding:10px 14px; color:var(--mute); font-size:13px; border-bottom:1px solid var(--line-soft); }
+.game { display:flex; gap:10px; align-items:center; padding:9px 14px; border-left:3px solid transparent; cursor:pointer; border-bottom:1px solid var(--line-soft); }
+.game:hover { background:var(--deck); }
+.game.on { background:var(--deck-2); }
+.game.w { border-left-color:var(--blue); } .game.l { border-left-color:var(--red); }
+.game img { width:38px; height:38px; border-radius:6px; }
+.game .t { font-size:13px; line-height:1.35; } .game .t small { color:var(--mute); display:block; }
+.game .kda { margin-left:auto; text-align:right; font-size:13px; } .game .kda small { color:var(--faint); display:block; }
+section { padding:22px 28px; max-width:1100px; }
+h1 { font-size:22px; margin:0 0 2px; } h2 { font-size:15px; margin:26px 0 10px; color:var(--mute); text-transform:uppercase; letter-spacing:.8px; font-weight:600; }
+.sub { color:var(--mute); font-size:13px; }
+.vs { display:flex; align-items:center; gap:12px; }
+.vs img { width:52px; height:52px; border-radius:8px; }
+.win { color:var(--blue-ink); } .loss { color:var(--red-ink); }
+.card { background:var(--deck); border:1px solid var(--line-soft); border-radius:12px; padding:14px 16px; }
+.banner { background:var(--gold-wash); border:1px solid rgba(227,184,102,.35); border-radius:10px; padding:10px 14px; margin-top:14px; font-size:14px; display:flex; gap:12px; align-items:center; }
+.banner button { margin-left:auto; }
+button, .btn { font:inherit; font-size:13px; background:var(--deck-2); color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:6px 12px; cursor:pointer; text-decoration:none; white-space:nowrap; }
+button:hover, .btn:hover { border-color:var(--blue); }
+button.primary { background:var(--blue); border-color:var(--blue); color:#06101f; font-weight:600; }
+button:disabled { opacity:.5; cursor:default; }
+svg text { fill:var(--mute); font-size:11px; }
+.moment { display:grid; grid-template-columns: 120px 1fr auto; gap:16px; align-items:start; padding:14px 0; border-top:1px solid var(--line-soft); }
+.moment:first-child { border-top:0; }
+.moment .when { font-weight:600; font-size:16px; } .moment .when small { display:block; color:var(--red-ink); font-weight:400; font-size:12px; }
+.moment .part { margin-bottom:6px; } .moment .part > b { display:block; }
+.moment ul { margin:8px 0 0; padding-left:18px; color:var(--mute); font-size:13px; }
+.moment .cmp { font-size:13px; color:var(--mute); } .moment .cmp b { color:var(--ink); font-weight:600; }
+.moment .acts { display:flex; flex-direction:column; gap:6px; }
+.timings { display:grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap:10px; }
+.timings .card { padding:10px 12px; } .timings .k { color:var(--mute); font-size:12px; } .timings .v { font-size:18px; font-weight:600; }
+.timings .d { font-size:12px; color:var(--faint); }
+.bad { color:var(--red-ink) !important; } .good { color:var(--blue-ink) !important; }
+.toast { position:fixed; right:18px; bottom:18px; background:var(--deck-2); border:1px solid var(--line); border-radius:10px; padding:10px 14px; max-width:420px; font-size:14px; box-shadow:0 8px 30px rgba(0,0,0,.4); display:none; }
+.empty { color:var(--mute); padding:40px 0; }
+.legend { display:flex; gap:16px; font-size:12px; color:var(--mute); margin-top:6px; }
+.legend i { display:inline-block; width:12px; height:8px; border-radius:2px; margin-right:5px; vertical-align:middle; }
+</style>
+</head>
+<body>
+<header><b>custy<span>.gg</span> game review</b><span class="tag">test</span><span class="who" id="who"></span></header>
+<main>
+  <aside id="list"><div class="note">Reading your games from League...</div></aside>
+  <section id="view"><div class="empty">Pick a game on the left.</div></section>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const KEY = new URLSearchParams(location.search).get("k") || "";
+const api = (path, opt = {}) => fetch(path, { ...opt, headers: { "X-Custy-Key": KEY } }).then(async r => {
+  const body = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(body.error || ("HTTP " + r.status));
+  return body;
+});
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const clock = (t) => { t = Math.max(0, Math.round(t)); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
+const signed = (n) => (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(Math.round(n)).toLocaleString();
+const ROLE_NAME = { TOP: "Top", JUNGLE: "Jungle", MID: "Mid", BOT: "Bot", SUPPORT: "Support" };
+
+// ---------------------------------------------------------------- Data Dragon (names, icons, item costs)
+const DD = { v: null, champ: {}, items: {} };
+async function loadDD() {
+  try {
+    DD.v = (await (await fetch("https://ddragon.leagueoflegends.com/api/versions.json")).json())[0];
+    const ch = await (await fetch(`https://ddragon.leagueoflegends.com/cdn/${DD.v}/data/en_US/champion.json`)).json();
+    for (const c of Object.values(ch.data)) DD.champ[c.key] = { name: c.name, id: c.id };
+    const it = await (await fetch(`https://ddragon.leagueoflegends.com/cdn/${DD.v}/data/en_US/item.json`)).json();
+    DD.items = it.data;
+  } catch (e) { console.warn("Data Dragon unavailable", e); }
+}
+const champName = (id) => DD.champ[id]?.name || ("Champion " + id);
+const champIcon = (id) => DD.champ[id] ? `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/champion/${DD.champ[id].id}.png` : "";
+const itemName = (id) => DD.items[id]?.name || ("item " + id);
+const itemCost = (id) => DD.items[id]?.gold?.total || 0;
+const isBoots = (id) => { const it = DD.items[id]; return !!it && (it.tags || []).includes("Boots") && it.gold.total >= 700 && id != 1001; };
+const isCompleted = (id) => { const it = DD.items[id]; return !!it && it.gold.total >= 2200 && !(it.into || []).length && !(it.tags || []).includes("Consumable") && !isBoots(id); };
+
+// ---------------------------------------------------------------- Map areas
+function area(x, y) {
+  if (x == null) return "";
+  if (x < 3600 && y < 3600) return "blue base";
+  if (x > 11300 && y > 11300) return "red base";
+  if (x < 2300 || y > 12600) return "top lane";
+  if (y < 2300 || x > 12600) return "bot lane";
+  if (Math.abs(x - y) < 1300) return "mid lane";
+  if (Math.abs(x + y - 14800) < 1500) return y > x ? "top river" : "bot river";
+  return y > x ? "top-side jungle" : "bot-side jungle";
+}
+const dist = (a, b) => (a && b) ? Math.hypot(a.x - b.x, a.y - b.y) : Infinity;
+
+// ---------------------------------------------------------------- Turning one game into series and events
+function analyse(data) {
+  const g = data.game, frames = data.timeline?.frames || [];
+  const ids = {}; for (const i of g.participantIdentities || []) ids[i.participantId] = i.player || {};
+  const parts = g.participants || [];
+  const me = parts.find(p => ids[p.participantId]?.puuid === data.me);
+  if (!me || frames.length < 3) return null;
+  const role = data.roles[me.participantId] || "";
+  const opp = parts.find(p => p.teamId !== me.teamId && data.roles[p.participantId] === role) || null;
+  const enemyJg = parts.find(p => p.teamId !== me.teamId && data.roles[p.participantId] === "JUNGLE") || null;
+  const pf = (f, pid) => f.participantFrames?.[String(pid)] || {};
+  const series = (pid, fn) => frames.map(f => fn(pf(f, pid)));
+  const gold = (pid) => series(pid, x => x.totalGold || 0);
+  const cs = (pid) => series(pid, x => (x.minionsKilled || 0) + (x.jungleMinionsKilled || 0));
+  const myGold = gold(me.participantId), oppGold = opp ? gold(opp.participantId) : null;
+  const diff = oppGold ? myGold.map((v, i) => v - oppGold[i]) : null;
+  const events = frames.flatMap(f => f.events || []).sort((a, b) => a.timestamp - b.timestamp);
+  const champOf = (pid) => champName(parts.find(p => p.participantId === pid)?.championId);
+
+  // Purchases (undos removed), grouped into backs.
+  const buys = {};
+  for (const e of events) {
+    if (e.type === "ITEM_PURCHASED") (buys[e.participantId] ??= []).push({ t: e.timestamp / 1000, id: e.itemId });
+    if (e.type === "ITEM_UNDO") { const l = buys[e.participantId] || []; const u = e.beforeId || e.itemId;
+      for (let i = l.length - 1; i >= 0; i--) if (l[i].id === u) { l.splice(i, 1); break; } }
+  }
+  const backsOf = (pid) => {
+    const out = [];
+    for (const b of (buys[pid] || []).filter(b => b.t > 120)) {
+      const last = out[out.length - 1];
+      if (last && b.t - last.end < 40) { last.items.push(b.id); last.end = b.t; }
+      else out.push({ t: b.t, end: b.t, items: [b.id] });
+    }
+    for (const b of out) b.spent = b.items.reduce((a, id) => a + itemCost(id), 0);
+    return out;
+  };
+  const firstOf = (pid, test) => (buys[pid] || []).find(b => test(b.id))?.t ?? null;
+  const lvl6 = (pid) => {
+    const e = events.find(e => e.type === "SKILL_LEVEL_UP" && e.participantId === pid && e.skillSlot === 4);
+    if (e) return e.timestamp / 1000;
+    const m = frames.findIndex(f => (pf(f, pid).level || 0) >= 6);
+    return m >= 0 ? m * 60 : null;
+  };
+  const kills = events.filter(e => e.type === "CHAMPION_KILL");
+  const myCs = cs(me.participantId);
+  return {
+    g, me, opp, enemyJg, role, frames, events, kills, champOf, pf,
+    minutes: frames.length - 1,
+    myGold, oppGold, diff, myCs,
+    oppCs: opp ? cs(opp.participantId) : null,
+    backs: backsOf(me.participantId), oppBacks: opp ? backsOf(opp.participantId) : [],
+    firstItem: firstOf(me.participantId, isCompleted), boots: firstOf(me.participantId, isBoots),
+    lvl6: lvl6(me.participantId), oppLvl6: opp ? lvl6(opp.participantId) : null,
+    deaths: kills.filter(e => e.victimId === me.participantId).map(e => ({ t: e.timestamp / 1000, e })),
+    platesLost: events.filter(e => e.type === "TURRET_PLATE_DESTROYED" && e.teamId === me.teamId && e.timestamp < 14 * 60000 &&
+      laneMatches(e.laneType, role)).map(e => e.timestamp / 1000),
+  };
+}
+function laneMatches(lane, role) {
+  lane = String(lane || "");
+  return (role === "TOP" && lane.startsWith("TOP")) || (role === "MID" && lane.startsWith("MID")) ||
+         ((role === "BOT" || role === "SUPPORT") && lane.startsWith("BOT"));
+}
+
+// ---------------------------------------------------------------- "Your usual": your other games on this champion (or role)
+function pct(values, q) {
+  const v = values.filter(x => x != null && Number.isFinite(x)).sort((a, b) => a - b);
+  if (!v.length) return null;
+  const i = (v.length - 1) * q, lo = Math.floor(i), hi = Math.ceil(i);
+  return v[lo] + (v[hi] - v[lo]) * (i - lo);
+}
+function baseline(list) {
+  if (list.length < 3) return null;
+  const maxM = Math.max(...list.map(a => a.minutes));
+  const band = (pick) => Array.from({ length: maxM + 1 }, (_, m) => {
+    const vals = list.map(a => pick(a)?.[m]).filter(v => v != null);
+    return vals.length >= 3 ? { p25: pct(vals, .25), p50: pct(vals, .5), p75: pct(vals, .75) } : null;
+  });
+  const med = (fn) => pct(list.map(fn), .5);
+  return {
+    n: list.length,
+    diff: band(a => a.diff), gold: band(a => a.myGold), cs: band(a => a.myCs),
+    firstBack: med(a => a.backs[0]?.t), firstBackGold: med(a => a.backs[0]?.spent),
+    firstItem: med(a => a.firstItem), boots: med(a => a.boots),
+    lvl6Gap: med(a => a.lvl6 != null && a.oppLvl6 != null ? a.lvl6 - a.oppLvl6 : null),
+    deaths14: med(a => a.deaths.filter(d => d.t < 840).length),
+  };
+}
+
+// ---------------------------------------------------------------- Finding the moments
+function findMoments(A, B) {
+  const out = [];
+  const curve = A.diff || A.myGold, useDiff = !!A.diff;
+  const band = B ? (useDiff ? B.diff : B.gold) : null;
+  const last = Math.min(A.minutes, 25);
+
+  // 1. Lane gold: dropped 400+ within 3 minutes and ended below your usual middle half.
+  if (useDiff) {
+    let cur = null;
+    for (let m = 2; m <= last; m++) {
+      const lo = Math.max(0, m - 3);
+      let peak = lo; for (let k = lo; k < m; k++) if (curve[k] > curve[peak]) peak = k;
+      const drop = curve[peak] - curve[m];
+      const below = band?.[m] ? curve[m] < band[m].p25 : true;
+      if (drop >= 400 && below) {
+        if (cur && peak <= cur.endM) { cur.endM = m; }
+        else { cur = { kind: "gold", peakM: peak, endM: m }; out.push(cur); }
+      }
+    }
+    for (const w of out) {
+      // Keep the window going while the gap keeps opening.
+      while (w.endM < A.minutes && curve[w.endM + 1] < curve[w.endM]) w.endM++;
+      const low = Math.min(...curve.slice(w.peakM, w.endM + 1));
+      w.cost = curve[w.peakM] - low;
+      w.start = Math.max(0, w.peakM * 60 - 45); w.end = w.endM * 60;
+      w.title = `Lane gold went from ${signed(curve[w.peakM])} to ${signed(low)}`;
+      const b = band?.[w.endM];
+      w.compare = b ? `Your usual at ${w.endM}:00 is <b>${signed(b.p50)}</b> (middle half ${signed(b.p25)} to ${signed(b.p75)}).`
+                    : `Lost ${Math.round(w.cost).toLocaleString()} gold to your lane opponent in ${w.endM - w.peakM} min.`;
+    }
+  }
+
+  // 2. Deaths: any before 14:00, and any after which your lane gold fell 300+.
+  for (const d of A.deaths) {
+    const m0 = Math.floor(d.t / 60), m2 = Math.min(A.minutes, m0 + 2);
+    const swing = useDiff ? curve[m0] - curve[m2] : 0;
+    if (d.t >= 840 && swing < 300) continue;
+    const inside = out.find(w => w.kind === "gold" && d.t >= w.start && d.t <= w.end + 30);
+    if (inside) continue; // already covered by a gold moment (it'll be listed there)
+    const killers = [d.e.killerId, ...(d.e.assistingParticipantIds || [])].filter(p => p > 0).map(A.champOf);
+    out.push({
+      kind: "death", start: Math.max(0, d.t - 45), end: d.t + 10, cost: Math.max(300, swing),
+      title: `You died at ${clock(d.t)}${killers.length ? " to " + killers.join(" + ") : ""}`,
+      compare: B ? `In your usual game you die <b>${B.deaths14 ?? 0}</b> time${B.deaths14 == 1 ? "" : "s"} before 14:00.` : "Deaths before 14:00 usually decide the lane.",
+    });
+  }
+
+  // 3. CS at 10 and 14 minutes.
+  if (A.role !== "SUPPORT") {
+    const target = (m) => B?.cs?.[m]?.p50 ?? ({ JUNGLE: 5.5, TOP: 7, MID: 7, BOT: 7.5 }[A.role] || 7) * m;
+    for (const m of [10, 14]) {
+      if (A.minutes < m) continue;
+      const gap = target(m) - A.myCs[m];
+      if (gap < 10) continue;
+      if (out.some(w => w.kind === "cs")) { const w = out.find(w => w.kind === "cs"); w.cost = Math.max(w.cost, gap * 20); w.end = m * 60; w.title = `${A.myCs[m]} CS at ${m}:00, ${Math.round(gap)} under`; continue; }
+      out.push({ kind: "cs", start: (m - 4) * 60, end: m * 60, cost: gap * 20,
+        title: `${A.myCs[m]} CS at ${m}:00, ${Math.round(gap)} under`,
+        compare: B?.cs?.[m] ? `Your usual: <b>${Math.round(B.cs[m].p50)}</b> at ${m}:00.` : `Rough target for ${ROLE_NAME[A.role] || "your role"}: <b>${Math.round(target(m))}</b>.` });
+    }
+  }
+
+  // 4. First back.
+  const fb = A.backs[0];
+  if (B?.firstBack && fb && fb.t - B.firstBack >= 60) {
+    out.push({ kind: "back", start: Math.max(0, B.firstBack - 45), end: fb.t + 5, cost: (fb.t - B.firstBack) * 4,
+      title: `First back at ${clock(fb.t)} with ${fb.spent.toLocaleString()} gold spent`,
+      compare: `Your usual: back by <b>${clock(B.firstBack)}</b>, spending ~${Math.round(B.firstBackGold || 0).toLocaleString()}.` });
+  }
+
+  // 5. First completed item and boots.
+  for (const [k, label] of [["firstItem", "First item"], ["boots", "Boots"]]) {
+    if (B?.[k] && A[k] && A[k] - B[k] >= 90) {
+      out.push({ kind: k, start: Math.max(0, B[k] - 45), end: A[k] + 5, cost: (A[k] - B[k]) * 3,
+        title: `${label} finished at ${clock(A[k])}`, compare: `Your usual: <b>${clock(B[k])}</b>.` });
+    }
+  }
+
+  // 6. Level 6 behind your lane opponent.
+  if (A.lvl6 != null && A.oppLvl6 != null && A.lvl6 - A.oppLvl6 > 20 && A.role !== "JUNGLE") {
+    const gap = A.lvl6 - A.oppLvl6;
+    out.push({ kind: "lvl6", start: Math.max(0, A.oppLvl6 - 30), end: A.lvl6 + 15, cost: 150 + gap * 3,
+      title: `${A.opp ? champName(A.opp.championId) : "Your opponent"} hit 6 ${Math.round(gap)}s before you`,
+      compare: B?.lvl6Gap != null ? `Your usual: <b>${B.lvl6Gap <= 0 ? Math.round(-B.lvl6Gap) + "s ahead" : Math.round(B.lvl6Gap) + "s behind"}</b>.` : "Being second to 6 is a window to play safe." });
+  }
+
+  // 7. Plates lost before 14:00.
+  if (A.platesLost.length >= 2) {
+    out.push({ kind: "plates", start: Math.max(0, A.platesLost[0] - 45), end: A.platesLost[A.platesLost.length - 1] + 5,
+      cost: A.platesLost.length * 160, title: `${A.platesLost.length} plates lost before 14:00`, compare: "" });
+  }
+
+  // Overlapping findings become one moment to watch.
+  const merged = [];
+  for (const w of out.filter(w => w.cost > 0).sort((a, b) => a.start - b.start)) {
+    const cur = merged[merged.length - 1];
+    if (cur && w.start <= cur.end) { cur.end = Math.max(cur.end, w.end); cur.cost += w.cost; cur.parts.push(w); }
+    else merged.push({ start: w.start, end: w.end, cost: w.cost, parts: [w] });
+  }
+  for (const m of merged) { m.parts.sort((a, b) => b.cost - a.cost); m.context = context(A, m); }
+  return merged.sort((a, b) => b.cost - a.cost).slice(0, 5);
+}
+
+function context(A, w) {
+  const lines = [], inWin = (t) => t >= w.start - 5 && t <= w.end + 30;
+  const add = (t, html) => lines.push({ t, html });
+  for (const k of A.kills) {
+    const t = k.timestamp / 1000; if (!inWin(t)) continue;
+    const killer = k.killerId > 0 ? A.champOf(k.killerId) : "an execution";
+    const helpers = (k.assistingParticipantIds || []).map(A.champOf);
+    const where = area(k.position?.x, k.position?.y);
+    if (k.victimId === A.me.participantId) add(t, `${clock(t)} you died to ${killer}${helpers.length ? " + " + helpers.join(" + ") : ""}${where ? " (" + where + ")" : ""}`);
+    else if (k.killerId === A.me.participantId) add(t, `${clock(t)} you killed ${A.champOf(k.victimId)}${where ? " (" + where + ")" : ""}`);
+    else if (A.opp && k.victimId === A.opp.participantId) add(t, `${clock(t)} ${A.champOf(k.victimId)} died to ${killer}`);
+    else if (A.opp && k.killerId === A.opp.participantId) add(t, `${clock(t)} ${A.champOf(k.killerId)} killed ${A.champOf(k.victimId)}`);
+  }
+  if (A.enemyJg) {
+    for (let m = Math.ceil(w.start / 60); m <= Math.floor(w.end / 60) && m <= A.minutes; m++) {
+      const jp = A.pf(A.frames[m], A.enemyJg.participantId).position, mp = A.pf(A.frames[m], A.me.participantId).position;
+      if (!jp) continue;
+      if (dist(jp, mp) < 2600) add(m * 60, `${m}:00 enemy jungler (${champName(A.enemyJg.championId)}) <b>near you</b> in ${area(jp.x, jp.y)}`);
+    }
+  }
+  for (const b of A.backs) if (inWin(b.t)) add(b.t, `${clock(b.t)} you bought ${describeBuy(b)}`);
+  for (const b of A.oppBacks) if (inWin(b.t)) add(b.t, `${clock(b.t)} ${champName(A.opp.championId)} bought ${describeBuy(b)}`);
+  for (const e of A.events) {
+    const t = e.timestamp / 1000; if (!inWin(t)) continue;
+    if (e.type === "ELITE_MONSTER_KILL") add(t, `${clock(t)} ${String(e.monsterType || "").replace(/_/g, " ").toLowerCase()} taken by ${teamOf(A, e.killerId)}`);
+  }
+  return lines.sort((a, b) => a.t - b.t).map(l => l.html).slice(0, 10);
+}
+const teamOf = (A, pid) => (A.g.participants.find(p => p.participantId === pid)?.teamId === A.me.teamId ? "your team" : "the enemy");
+function describeBuy(b) {
+  const main = b.items.slice().sort((x, y) => itemCost(y) - itemCost(x)).slice(0, 2).map(itemName);
+  return `${main.join(", ")}${b.items.length > 2 ? " +" + (b.items.length - 2) : ""} (${b.spent.toLocaleString()}g)`;
+}
+
+// ---------------------------------------------------------------- Chart
+function chart(A, B, moments) {
+  const W = 1000, H = 260, L = 50, R = 12, T = 14, Bm = 26;
+  const curve = A.diff || A.myGold, band = B ? (A.diff ? B.diff : B.gold) : null;
+  const n = A.minutes;
+  let lo = Math.min(0, ...curve), hi = Math.max(0, ...curve);
+  if (band) for (const b of band.slice(0, n + 1)) if (b) { lo = Math.min(lo, b.p25); hi = Math.max(hi, b.p75); }
+  const pad = (hi - lo) * .08 || 500; lo -= pad; hi += pad;
+  const x = (m) => L + (m / n) * (W - L - R), y = (v) => T + (hi - v) / (hi - lo) * (H - T - Bm);
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Lane gold difference by minute">`;
+  for (const w of moments) s += `<rect x="${x(w.start / 60)}" y="${T}" width="${Math.max(3, x(w.end / 60) - x(w.start / 60))}" height="${H - T - Bm}" fill="var(--red-wash)"/>`;
+  const step = (hi - lo) > 6000 ? 2000 : (hi - lo) > 2500 ? 1000 : 500;
+  for (let v = Math.ceil(lo / step) * step; v <= hi; v += step)
+    s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 0 ? "var(--line)" : "var(--line-soft)"}"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${signed(v)}</text>`;
+  for (let m = 0; m <= n; m += 5) s += `<text x="${x(m)}" y="${H - 8}" text-anchor="middle">${m}:00</text>`;
+  if (band) {
+    const pts = band.slice(0, n + 1).map((b, m) => b && [m, b]).filter(Boolean);
+    if (pts.length > 1) {
+      s += `<path d="M${pts.map(([m, b]) => x(m) + "," + y(b.p75)).join("L")}L${pts.slice().reverse().map(([m, b]) => x(m) + "," + y(b.p25)).join("L")}Z" fill="var(--blue-wash)" stroke="none"/>`;
+      s += `<path d="M${pts.map(([m, b]) => x(m) + "," + y(b.p50)).join("L")}" fill="none" stroke="var(--blue)" stroke-opacity=".45" stroke-dasharray="4 4"/>`;
+    }
+  }
+  s += `<path d="M${curve.map((v, m) => x(m) + "," + y(v)).join("L")}" fill="none" stroke="var(--gold)" stroke-width="2.5"/>`;
+  curve.forEach((v, m) => s += `<circle cx="${x(m)}" cy="${y(v)}" r="6" fill="transparent"><title>${m}:00  ${signed(v)}</title></circle>`);
+  for (const d of A.deaths) { const m = d.t / 60, i = Math.min(n, Math.round(m));
+    s += `<text x="${x(m)}" y="${y(curve[i]) - 9}" text-anchor="middle" style="fill:var(--red-ink);font-size:13px">✕</text>`; }
+  return s + "</svg>";
+}
+
+// ---------------------------------------------------------------- Page
+let STATE = { games: [], me: null, replayApi: null, current: null };
+const cacheGame = {};
+const getGame = async (id) => cacheGame[id] ??= api("/api/game/" + id);
+
+async function loadList() {
+  const r = await api("/api/games");
+  STATE = { ...STATE, games: r.games, me: r.me, replayApi: r.replayApi };
+  $("who").textContent = r.me?.gameName ? `${r.me.gameName}#${r.me.tagLine}` : "";
+  const note = r.note ? `<div class="note">${esc(r.note)}</div>` : "";
+  if (!r.games.length) {
+    $("list").innerHTML = note + `<div class="note">No ranked or normal Summoner's Rift games found yet. Play one with the app running, then reopen this.</div>`;
+    return;
+  }
+  $("list").innerHTML = note + r.games.map(g => `
+    <div class="game ${g.win ? "w" : "l"}" data-id="${g.id}">
+      <img src="${champIcon(g.champion)}" alt="">
+      <div class="t">${esc(champName(g.champion))}${g.opponent ? ` <span class="sub">vs ${esc(champName(g.opponent))}</span>` : ""}
+        <small>${esc(g.queue)} · ${esc(ROLE_NAME[g.role] || "?")} · ${new Date(g.created).toLocaleDateString(undefined, { month: "short", day: "numeric" })}</small></div>
+      <div class="kda">${g.kills}/${g.deaths}/${g.assists}<small>${Math.round(g.duration / 60)}m</small></div>
+    </div>`).join("");
+  document.querySelectorAll(".game").forEach(el => el.onclick = () => openGame(el.dataset.id));
+  openGame(r.games[0].id);
+}
+
+async function openGame(id) {
+  document.querySelectorAll(".game").forEach(el => el.classList.toggle("on", el.dataset.id == id));
+  STATE.current = id;
+  $("view").innerHTML = `<div class="empty">Reading the game...</div>`;
+  const s = STATE.games.find(g => g.id == id);
+  let A;
+  try { A = analyse(await getGame(id)); } catch (e) { $("view").innerHTML = `<div class="empty">Couldn't read this game: ${esc(e.message)}</div>`; return; }
+  if (!A) { $("view").innerHTML = `<div class="empty">League didn't give a timeline for this game, so there's nothing to review.</div>`; return; }
+
+  // Your usual: other games on this champion and role; if fewer than 3, any champion in this role.
+  const others = STATE.games.filter(g => g.id != id && g.hasTimeline && g.role === s.role);
+  const sameChamp = others.filter(g => g.champion === s.champion).slice(0, 20);
+  const pool = sameChamp.length >= 3 ? sameChamp : others.slice(0, 20);
+  const label = sameChamp.length >= 3 ? `your last ${pool.length} ${champName(s.champion)} games` : `your last ${pool.length} ${ROLE_NAME[s.role] || ""} games (any champion)`;
+  const analysed = (await Promise.all(pool.map(g => getGame(g.id).then(analyse).catch(() => null)))).filter(Boolean);
+  const B = baseline(analysed);
+  if (STATE.current !== id) return;
+  const moments = findMoments(A, B);
+  render(A, B, moments, s, B ? label : null);
+}
+
+function timingCard(k, mine, usual, fmt, lowerIsBetter = true) {
+  const has = mine != null;
+  let cls = "", d = "";
+  if (has && usual != null) {
+    const delta = mine - usual;
+    cls = Math.abs(delta) < 1e-9 ? "" : (lowerIsBetter ? delta > 0 : delta < 0) ? "bad" : "good";
+    d = `usual ${fmt(usual)}`;
+  }
+  return `<div class="card"><div class="k">${k}</div><div class="v ${cls}">${has ? fmt(mine) : "—"}</div><div class="d">${d || "&nbsp;"}</div></div>`;
+}
+
+function render(A, B, moments, s, label) {
+  const opp = A.opp ? champName(A.opp.championId) : null;
+  const res = A.me.stats?.win ? `<span class="win">Win</span>` : `<span class="loss">Loss</span>`;
+  const banner = STATE.replayApi === false ? `<div class="banner">Replay jumping is off in League's settings, so the replay will open at the start.
+      <button class="primary" id="enableApi">Turn on replay jumping</button></div>`
+    : STATE.replayApi == null ? `<div class="banner">Couldn't find League's game.cfg, so replays may not jump to the moment. Set league_path if League is installed somewhere unusual.</div>` : "";
+  const cs10 = A.minutes >= 10 ? A.myCs[10] : null;
+  $("view").innerHTML = `
+    <div class="vs"><img src="${champIcon(A.me.championId)}" alt="">
+      <div><h1>${esc(champName(A.me.championId))}${opp ? ` <span class="sub" style="font-size:18px">vs ${esc(opp)}</span>` : ""}</h1>
+      <div class="sub">${res} · ${esc(s.queue)} · ${esc(ROLE_NAME[A.role] || "role unknown")} · ${A.me.stats.kills}/${A.me.stats.deaths}/${A.me.stats.assists} · ${clock(A.g.gameDuration)} · ${new Date(A.g.gameCreation).toLocaleString()}</div></div></div>
+    ${banner}
+    <h2>${A.diff ? "Lane gold difference" : "Your gold"} by minute</h2>
+    <div class="card">${chart(A, B, moments)}
+      <div class="legend"><span><i style="background:var(--gold)"></i>This game</span>${B ? `<span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of ${esc(label)}</span>` : ""}<span><i style="background:var(--red-wash)"></i>Moments to watch</span><span style="color:var(--red-ink)">✕ your deaths</span></div>
+      ${B ? "" : `<div class="sub" style="margin-top:6px">Not enough of your ${esc(ROLE_NAME[A.role] || "")} games saved yet to draw "your usual" (needs 3). It fills in as you play with the app running.</div>`}
+    </div>
+    <h2>Moments to watch</h2>
+    <div class="card">${moments.length ? moments.map((w, i) => `
+      <div class="moment">
+        <div class="when">${clock(w.start)} – ${clock(w.end)}${w.parts.some(p => p.kind === "gold") ? `<small>${Math.round(Math.max(...w.parts.filter(p => p.kind === "gold").map(p => p.cost))).toLocaleString()} gold lost</small>` : ""}</div>
+        <div class="what">${w.parts.map(p => `<div class="part"><b>${esc(p.title)}</b>${p.compare ? `<div class="cmp">${p.compare}</div>` : ""}</div>`).join("")}
+          ${w.context.length ? `<ul>${w.context.map(l => `<li>${l}</li>`).join("")}</ul>` : ""}</div>
+        <div class="acts"><button class="primary" data-watch="${w.start}">Watch in my replay</button>
+          <a class="btn" target="_blank" href="https://www.youtube.com/results?search_query=${encodeURIComponent("Domisumreplay " + champName(A.me.championId) + (opp ? " vs " + opp : ""))}">High-elo ${esc(champName(A.me.championId))} games</a></div>
+      </div>`).join("") : `<div class="empty" style="padding:10px 0">Nothing stood out: your lane gold never slipped 400+ below ${B ? "your usual" : "your opponent"}, no early deaths, and your timings were on pace.</div>`}
+    </div>
+    <h2>Timings</h2>
+    <div class="timings">
+      ${timingCard("First back", A.backs[0]?.t ?? null, B?.firstBack, clock)}
+      ${timingCard("Boots", A.boots, B?.boots, clock)}
+      ${timingCard("First item", A.firstItem, B?.firstItem, clock)}
+      ${timingCard("Level 6 vs " + (opp || "opponent"), A.lvl6 != null && A.oppLvl6 != null ? A.lvl6 - A.oppLvl6 : null, B?.lvl6Gap, v => (v <= 0 ? Math.round(-v) + "s ahead" : Math.round(v) + "s behind"))}
+      ${timingCard("CS at 10:00", cs10, B?.cs?.[10]?.p50, v => Math.round(v), false)}
+      ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
+    </div>
+    <p class="sub" style="margin-top:22px">Test version: compared with ${B ? esc(label) : "nothing yet"}, not high-elo players. It only says where to look; watching the replay is how you see why.</p>`;
+  document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
+  const en = $("enableApi"); if (en) en.onclick = enableApi;
+}
+
+let toastTimer;
+function toast(msg, sticky) {
+  const t = $("toast"); t.textContent = msg; t.style.display = "block";
+  clearTimeout(toastTimer); if (!sticky) toastTimer = setTimeout(() => t.style.display = "none", 7000);
+}
+async function watch(gameId, t, btn) {
+  document.querySelectorAll("[data-watch]").forEach(b => b.disabled = true);
+  try { await api(`/api/replay/${gameId}?t=${t}`, { method: "POST" }); }
+  catch (e) { toast(e.message); document.querySelectorAll("[data-watch]").forEach(b => b.disabled = false); return; }
+  toast("Opening the replay...", true);
+  const poll = async () => {
+    const r = await api("/api/replay").catch(() => ({ state: "error", message: "Lost touch with the app." }));
+    toast(r.message, r.state === "working");
+    if (r.state === "working") setTimeout(poll, 1200);
+    else document.querySelectorAll("[data-watch]").forEach(b => b.disabled = false);
+  };
+  poll();
+}
+async function enableApi() {
+  try {
+    const r = await api("/api/replay-setup", { method: "POST" });
+    STATE.replayApi = r.replayApi;
+    toast("Replay jumping is on. It applies to the next replay you open.");
+    if (STATE.current) openGame(STATE.current);
+  } catch (e) { toast("Couldn't change League's settings: " + e.message); }
+}
+
+loadDD().then(loadList).catch(e => { $("list").innerHTML = `<div class="note">Couldn't load: ${esc(e.message)}</div>`; });
+</script>
+</body>
+</html>
