@@ -486,6 +486,8 @@ function render(A, B, moments, s, label) {
         <div class="acts"><button class="primary" data-watch="${w.start}">Watch in my replay</button></div>
       </div>`).join("") : `<div class="empty" style="padding:10px 0">Nothing stood out: your lane gold never slipped 400+ below ${B ? "your usual" : "your opponent"}, no early deaths, and your timings were on pace.</div>`}
     </div>
+    <h2>All deaths (${A.deaths.length})</h2>
+    <div class="card">${A.deaths.length ? A.deaths.map(d => deathRow(A, d)).join("") : `<div class="empty" style="padding:10px 0">No deaths this game.</div>`}</div>
     <h2>Timings</h2>
     <div class="timings">
       ${timingCard("First back", A.backs[0]?.t ?? null, B?.firstBack, clock)}
@@ -498,6 +500,27 @@ function render(A, B, moments, s, label) {
     <p class="sub" style="margin-top:22px">Test version: compared with ${B ? esc(label) : "nothing yet"}, not high-elo players. It only says where to look; watching the replay is how you see why.</p>`;
   document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
   const en = $("enableApi"); if (en) en.onclick = enableApi;
+}
+
+function deathRow(A, d) {
+  const e = d.e, m = Math.min(A.minutes, Math.floor(d.t / 60));
+  const killers = [e.killerId, ...(e.assistingParticipantIds || [])].filter(p => p > 0).map(A.champOf);
+  const where = area(e.position?.x, e.position?.y);
+  const notes = [];
+  if (A.enemyJg && e.killerId !== A.enemyJg.participantId && !(e.assistingParticipantIds || []).includes(A.enemyJg.participantId)) {
+    const jp = A.pf(A.frames[m], A.enemyJg.participantId).position;
+    if (jp) notes.push(`enemy jungler was in ${area(jp.x, jp.y)} at ${m}:00`);
+  }
+  const unspent = A.pf(A.frames[m], A.me.participantId).currentGold;
+  if (unspent >= 900) notes.push(`about <b>${Math.round(unspent).toLocaleString()} gold</b> unspent at ${m}:00`);
+  if (A.diff) { const m2 = Math.min(A.minutes, m + 2); notes.push(`lane gold ${signed(A.diff[m])} → ${signed(A.diff[m2])} two minutes later`); }
+  const lead = A.deaths.filter(x => x.t < d.t).length;
+  return `<div class="moment">
+    <div class="when">${clock(d.t)}<small style="color:var(--mute)">death ${lead + 1}</small></div>
+    <div class="what"><div class="part"><b>${killers.length ? esc(killers.join(" + ")) : "Executed"}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
+      ${notes.length ? `<div class="cmp">${notes.join(" · ")}</div>` : ""}</div></div>
+    <div class="acts"><button class="primary" data-watch="${Math.max(0, d.t - 30)}">Watch in my replay</button></div>
+  </div>`;
 }
 
 let toastTimer;
