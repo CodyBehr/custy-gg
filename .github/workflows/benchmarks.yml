@@ -1,0 +1,68 @@
+# Builds the expert benchmarks the game review's "vs Experts" tab reads (public/benchmarks/*.json).
+# Pulls Master+ ranked games from NA, EUW and KR in parallel (one job per region, each region has its own Riot
+# rate limit), then merges them and commits one file per champion+role.
+# Needs the repository secret RIOT_API_KEY. Run it from the Actions tab ("Run workflow").
+name: Build expert benchmarks
+
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "Minutes each region spends pulling (max ~330)"
+        default: "320"
+
+permissions:
+  contents: write
+
+jobs:
+  pull:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { platform: na1, route: americas, region: NA }
+          - { platform: euw1, route: europe, region: EUW }
+          - { platform: kr, route: asia, region: KR }
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Item data
+        run: |
+          V=$(curl -s https://ddragon.leagueoflegends.com/api/versions.json | python3 -c "import json,sys;print(json.load(sys.stdin)[0])")
+          curl -s -o scripts/benchmark/item.json https://ddragon.leagueoflegends.com/cdn/$V/data/en_US/item.json
+      - name: Pull ${{ matrix.region }}
+        env:
+          RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+        run: python3 scripts/benchmark/master_pull.py --platform ${{ matrix.platform }} --route ${{ matrix.route }} --out rows-${{ matrix.region }} --minutes ${{ github.event.inputs.minutes || 320 }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rows-${{ matrix.region }}
+          path: rows-${{ matrix.region }}
+          retention-days: 30
+
+  build:
+    needs: pull
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: rows-*
+      - name: Item data
+        run: |
+          V=$(curl -s https://ddragon.leagueoflegends.com/api/versions.json | python3 -c "import json,sys;print(json.load(sys.stdin)[0])")
+          curl -s -o scripts/benchmark/item.json https://ddragon.leagueoflegends.com/cdn/$V/data/en_US/item.json
+      - name: Build benchmark files
+        run: python3 scripts/benchmark/master_build.py rows-* --out public/benchmarks --min 40
+      - name: Commit
+        run: |
+          git config user.name "custy.gg benchmarks"
+          git config user.email "actions@users.noreply.github.com"
+          git add public/benchmarks
+          git diff --cached --quiet && echo "Nothing new" && exit 0
+          git commit -m "Expert benchmarks: $(ls public/benchmarks | wc -l) files"
+          git pull --rebase origin main
+          git push origin HEAD:main

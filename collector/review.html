@@ -567,7 +567,7 @@ async function loadExperts(A) {
   if (!document.body.contains(el)) return;
   if (B.missing) {
     el.innerHTML = `<div class="card" style="margin-top:16px">No expert data for <b>${esc(champName(A.me.championId))} ${esc(ROLE_NAME[role] || role)}</b> yet.
-      <div class="sub" style="margin-top:4px">${B.offline ? "Couldn't reach custy.gg." : "This test has Lucian bot, Jhin bot and Sion top. Every champion comes once the weekly expert pull is running."}</div></div>`;
+      <div class="sub" style="margin-top:4px">${B.offline ? "Couldn't reach custy.gg." : "There aren't enough high-elo games on this champion in this role yet (needs 40)."}</div></div>`;
     return;
   }
   el.innerHTML = expertsView(A, B);
@@ -658,7 +658,7 @@ function expertsView(A, B) {
   };
   const T = B.timings;
   return `
-  <p class="sub" style="margin:14px 0 0">Compared with <b>${B.games}</b> ranked games from <b>${B.players}</b> top ${esc(champ)} players on onetricks.gg (${esc(B.regions.join(", "))}), built ${esc(B.built)}. Expert numbers are the middle game (median) and the middle half of their games.</p>
+  <p class="sub" style="margin:14px 0 0">Compared with <b>${B.games}</b> ranked games from <b>${B.players}</b> ${/onetricks/.test(B.source || "") ? `top ${esc(champ)} one-tricks on onetricks.gg` : `Master+ players on ${esc(champ)}`} (${esc(B.regions.join(", "))}), built ${esc(B.built)}. Expert numbers are the middle game (median) and the middle half of their games.</p>
 
   <h2>What stands out</h2>
   <div class="card">${F.length ? F.map(f => `<div class="finding"><b>${esc(f.title)}</b><span>${f.text}</span>
