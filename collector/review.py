@@ -53,6 +53,7 @@ KEEP_EVENTS = {"CHAMPION_KILL", "ELITE_MONSTER_KILL", "BUILDING_KILL", "ITEM_PUR
 FRAME_FIELDS = ("totalGold", "currentGold", "minionsKilled", "jungleMinionsKilled", "level", "xp", "position")
 
 _lock = threading.Lock()
+_bench = {}   # name -> (fetched_at, data or None)
 _replay = {"state": "idle", "message": "", "game": None, "at": 0}
 
 
@@ -482,6 +483,28 @@ def _page():
         return f.read()
 
 
+def benchmark(cfg, name):
+    """High-elo numbers for one champion and role, from the site (refreshed every few hours)."""
+    hit = _bench.get(name)
+    if hit and time.time() - hit[0] < 6 * 3600:
+        return hit[1]
+    data = {"missing": True}
+    try:
+        url = cfg["site_url"].rstrip("/") + "/benchmarks/%s.json" % name
+        req = urllib.request.Request(url, headers={"User-Agent": "custy-collector/" + core.VERSION})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = json.loads(r.read())
+    except urllib.error.HTTPError as e:
+        if e.code != 404 and hit:
+            return hit[1]
+    except Exception:
+        if hit:
+            return hit[1]
+        return {"missing": True, "offline": True}
+    _bench[name] = (time.time(), data)
+    return data
+
+
 def make_handler(cfg, token):
     me_cache = {"me": None}
 
@@ -531,6 +554,9 @@ def make_handler(cfg, token):
                 if not data:
                     return self._send(404, {"error": "game not found"})
                 return self._send(200, dict(data, roles=roles(data["game"])))
+            m = re.match(r"^/api/benchmark/([A-Za-z]+-(?:TOP|JUNGLE|MID|BOT|SUPPORT))$", url.path)
+            if m:
+                return self._send(200, benchmark(cfg, m.group(1)))
             if url.path == "/api/replay":
                 with _lock:
                     return self._send(200, dict(_replay))

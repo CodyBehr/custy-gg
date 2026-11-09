@@ -17,3 +17,9 @@ python3 scripts/benchmark/compare.py data/benchmark/jhin_bot data/benchmark/mine
 
 Riot blocks Python's default user agent, so the scripts send their own. A development key allows
 100 requests per 2 minutes per region; pull.py stays under that.
+
+The review page reads `public/benchmarks/<Champion>-<ROLE>.json` (served from the site) for its **vs Experts** tab:
+
+```bash
+python3 scripts/benchmark/build_benchmark.py data/benchmark/jhin_bot public/benchmarks
+```

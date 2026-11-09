@@ -61,6 +61,17 @@ svg text { fill:var(--mute); font-size:11px; }
 .bad { color:var(--red-ink) !important; } .good { color:var(--blue-ink) !important; }
 .toast { position:fixed; right:18px; bottom:18px; background:var(--deck-2); border:1px solid var(--line); border-radius:10px; padding:10px 14px; max-width:420px; font-size:14px; box-shadow:0 8px 30px rgba(0,0,0,.4); display:none; }
 .empty { color:var(--mute); padding:40px 0; }
+.tabs { display:flex; gap:6px; margin-top:18px; border-bottom:1px solid var(--line-soft); }
+.tabs button { border:0; border-bottom:2px solid transparent; border-radius:0; background:none; padding:8px 14px; font-size:14px; color:var(--mute); }
+.tabs button.on { color:var(--ink); border-bottom-color:var(--gold); }
+table.grid { width:100%; border-collapse:collapse; font-size:13px; }
+table.grid th { text-align:left; color:var(--mute); font-weight:600; padding:6px 8px; border-bottom:1px solid var(--line); }
+table.grid td { padding:8px; border-bottom:1px solid var(--line-soft); vertical-align:top; }
+table.grid td .y { font-size:15px; font-weight:600; } table.grid td .e { color:var(--faint); font-size:12px; display:block; }
+.finding { padding:10px 0; border-top:1px solid var(--line-soft); } .finding:first-child { border-top:0; }
+.finding b { display:block; } .finding span { color:var(--mute); font-size:13px; }
+.seg { display:inline-flex; gap:4px; margin-bottom:8px; } .seg button { padding:3px 10px; font-size:12px; border-radius:20px; }
+.seg button.on { background:var(--blue); border-color:var(--blue); color:#06101f; font-weight:600; }
 .legend { display:flex; gap:16px; font-size:12px; color:var(--mute); margin-top:6px; }
 .legend i { display:inline-block; width:12px; height:8px; border-radius:2px; margin-right:5px; vertical-align:middle; }
 </style>
@@ -161,11 +172,20 @@ function analyse(data) {
   };
   const kills = events.filter(e => e.type === "CHAMPION_KILL");
   const myCs = cs(me.participantId);
+  const xp = (pid) => series(pid, x => x.xp || 0), lvl = (pid) => series(pid, x => x.level || 0);
+  const myXp = xp(me.participantId), oppXp = opp ? xp(opp.participantId) : null;
+  const completed = (buys[me.participantId] || []).filter(b => isCompleted(b.id));
+  const STAT = (i, k) => DD.items[i]?.stats?.[k] || 0;
+  const defense = (k) => parts.filter(p => p.teamId !== me.teamId).filter(p =>
+    [0, 1, 2, 3, 4, 5].reduce((a, n) => a + STAT(p.stats?.["item" + n], k), 0) >= 80).length;
   return {
     g, me, opp, enemyJg, role, frames, events, kills, champOf, pf,
     minutes: frames.length - 1,
     myGold, oppGold, diff, myCs,
     oppCs: opp ? cs(opp.participantId) : null,
+    xp: myXp, level: lvl(me.participantId), xpdiff: oppXp ? myXp.map((v, i) => v - oppXp[i]) : null,
+    csdiff: opp ? myCs.map((v, i) => v - cs(opp.participantId)[i]) : null,
+    items: completed, armorN: defense("FlatArmorMod"), mrN: defense("FlatSpellBlockMod"),
     backs: backsOf(me.participantId), oppBacks: opp ? backsOf(opp.participantId) : [],
     firstItem: firstOf(me.participantId, isCompleted), boots: firstOf(me.participantId, isBoots),
     lvl6: lvl6(me.participantId), oppLvl6: opp ? lvl6(opp.participantId) : null,
@@ -472,6 +492,9 @@ function render(A, B, moments, s, label) {
       <div class="sub">${res} · ${esc(s.queue)} · ${esc(ROLE_NAME[A.role] || "role unknown")} · ${A.me.stats.kills}/${A.me.stats.deaths}/${A.me.stats.assists} · ${clock(A.g.gameDuration)} · ${new Date(A.g.gameCreation).toLocaleString()}</div></div></div>
     <a class="btn yt" target="_blank" href="https://www.youtube.com/results?search_query=${encodeURIComponent("Domisumreplay " + champName(A.me.championId) + (opp ? " vs " + opp : ""))}">▶ High-elo ${esc(champName(A.me.championId))}${opp ? " vs " + esc(opp) : ""} games on YouTube</a>
     ${banner}
+    <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">vs Experts</button></div>
+    <div id="v-experts" hidden><div class="empty">Loading expert data...</div></div>
+    <div id="v-moments">
     <h2>${A.diff ? "Lane gold difference" : "Your gold"} by minute</h2>
     <div class="card">${chart(A, B, moments)}
       <div class="legend"><span><i style="background:var(--gold)"></i>This game</span>${B ? `<span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of ${esc(label)}</span>` : ""}<span><i style="background:var(--red-wash)"></i>Moments to watch</span><span style="color:var(--red-ink)">✕ your deaths</span></div>
@@ -497,9 +520,19 @@ function render(A, B, moments, s, label) {
       ${timingCard("CS at 10:00", cs10, B?.cs?.[10]?.p50, v => Math.round(v), false)}
       ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
     </div>
-    <p class="sub" style="margin-top:22px">Test version: compared with ${B ? esc(label) : "nothing yet"}, not high-elo players. It only says where to look; watching the replay is how you see why.</p>`;
+    </div>
+    <p class="sub" style="margin-top:22px">Test version: Moments are compared with ${B ? esc(label) : "nothing yet"}, not high-elo players. It only says where to look; watching the replay is how you see why.</p>`;
   document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
   const en = $("enableApi"); if (en) en.onclick = enableApi;
+  const tabs = document.querySelectorAll(".tabs button");
+  const show = (t) => {
+    STATE.tab = t;
+    tabs.forEach(b => b.classList.toggle("on", b.dataset.tab === t));
+    $("v-moments").hidden = t !== "moments"; $("v-experts").hidden = t !== "experts";
+  };
+  tabs.forEach(b => b.onclick = () => show(b.dataset.tab));
+  show(STATE.tab || "moments");
+  loadExperts(A);
 }
 
 function deathRow(A, d) {
@@ -521,6 +554,172 @@ function deathRow(A, d) {
       ${notes.length ? `<div class="cmp">${notes.join(" · ")}</div>` : ""}</div></div>
     <div class="acts"><button class="primary" data-watch="${Math.max(0, d.t - 30)}">Watch in my replay</button></div>
   </div>`;
+}
+
+// ---------------------------------------------------------------- vs Experts
+const benchCache = {};
+async function loadExperts(A) {
+  const champ = DD.champ[A.me.championId]?.id, role = A.role;
+  const el = $("v-experts");
+  if (!champ || !role) { el.innerHTML = `<div class="empty">Couldn't tell this game's champion or role.</div>`; return; }
+  const name = champ + "-" + role;
+  let B;
+  try { B = benchCache[name] ??= await api("/api/benchmark/" + name); } catch (e) { B = { missing: true }; }
+  if (!document.body.contains(el)) return;
+  if (B.missing) {
+    el.innerHTML = `<div class="card" style="margin-top:16px">No expert data for <b>${esc(champName(A.me.championId))} ${esc(ROLE_NAME[role] || role)}</b> yet.
+      <div class="sub" style="margin-top:4px">${B.offline ? "Couldn't reach custy.gg." : "This test has Lucian bot, Jhin bot and Sion top. Every champion comes once the weekly expert pull is running."}</div></div>`;
+    return;
+  }
+  el.innerHTML = expertsView(A, B);
+  el.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
+  el.querySelectorAll(".seg button").forEach(b => b.onclick = () => {
+    el.querySelectorAll(".seg button").forEach(x => x.classList.toggle("on", x === b));
+    el.querySelector("#xchart").innerHTML = benchChart(A, B, b.dataset.k);
+  });
+}
+
+const BP = [5, 10, 15, 20];
+const METRICS = [
+  ["gold", "Gold", v => Math.round(v).toLocaleString()],
+  ["cs", "CS", v => Math.round(v)],
+  ["level", "Level", v => (Math.round(v * 10) / 10)],
+  ["xpdiff", "XP vs lane opponent", v => signed(v)],
+  ["gdiff", "Gold vs lane opponent", v => signed(v), "diff"],
+  ["csdiff", "CS vs lane opponent", v => signed(v)],
+];
+const mine = (A, k) => ({ gdiff: A.diff, gold: A.myGold, cs: A.myCs })[k] ?? A[k];
+
+function findings(A, B) {
+  const out = [];
+  // Break points that fall below the experts' middle half
+  for (const [k, label, fmt] of METRICS) {
+    const s = mine(A, k); if (!s) continue;
+    for (const m of [10, 15, 20]) {
+      const b = B.minutes[k]?.[m]; if (!b || s.length <= m) continue;
+      const [p25, p50, p75] = b, spread = Math.max(1, p75 - p25);
+      if (s[m] < p25) out.push({ sev: (p25 - s[m]) / spread, t: m * 60,
+        title: `${label} at ${m}:00: ${fmt(s[m])}`, text: `Experts: ${fmt(p50)} (middle half ${fmt(p25)} to ${fmt(p75)}).` });
+    }
+  }
+  // Keep the worst minute per metric
+  const seen = new Set(); const dedup = out.sort((a, b) => b.sev - a.sev).filter(f => { const k = f.title.split(" at ")[0]; if (seen.has(k)) return false; seen.add(k); return true; });
+  // Items
+  const items = B.items, byId = Object.fromEntries(items.map(i => [i.id, i]));
+  A.items.slice(0, 5).forEach((b, n) => {
+    const e = byId[b.id], slot = n + 1;
+    if (!e) { dedup.push({ sev: 0.8, t: b.t, title: `${itemName(b.id)} (item ${slot})`, text: `Experts on ${champName(A.me.championId)} almost never build it.` }); return; }
+    const key = isArmorPen(b.id) ? "armor" + Math.min(A.armorN, 2) : isMagicPen(b.id) ? "mr" + Math.min(A.mrN, 2) : null;
+    const r = key && e.by[key] ? e.by[key][0] / Math.max(1, e.by[key][1]) : e.rate;
+    if (e.rate < 0.2) dedup.push({ sev: 0.7, t: b.t, title: `${itemName(b.id)} as item ${slot}`, text: `Only ${Math.round(e.rate * 100)}% of expert games build it at all.` });
+    else if (slot >= e.slot + 2 && key && r < 0.4) dedup.push({ sev: 0.5, t: b.t, title: `${itemName(b.id)} came ${ord(slot)}, at ${clock(b.t)}`,
+      text: `Experts who build it usually get it ${ord(Math.round(e.slot))} (~${clock(e.time)}), but only ${Math.round(r * 100)}% of their games ${defenseText(key)} include it. Against this team it wasn't urgent.` });
+    else if (slot >= e.slot + 2) dedup.push({ sev: 1 + (slot - e.slot) * 0.3, t: b.t, title: `${itemName(b.id)} came ${ord(slot)}, at ${clock(b.t)}`,
+      text: `Experts buy it ${ord(Math.round(e.slot))}, around ${clock(e.time)}${key ? `, and ${Math.round(r * 100)}% of their games ${defenseText(key)} include it` : ""}.` });
+  });
+  // Items experts usually get in games like this that you didn't
+  const mineIds = new Set(A.items.slice(0, 4).map(b => b.id));
+  for (const e of items) {
+    if (mineIds.has(e.id)) continue;
+    const key = isArmorPen(e.id) ? "armor" + Math.min(A.armorN, 2) : isMagicPen(e.id) ? "mr" + Math.min(A.mrN, 2) : null;
+    if (!key || !e.by[key] || e.by[key][1] < 8) continue;
+    const r = e.by[key][0] / e.by[key][1];
+    if (r >= 0.6 && A.minutes >= 22) dedup.push({ sev: 1.2, t: e.time, title: `No ${e.name} in your first 4 items`, text: `Experts build it in ${Math.round(r * 100)}% of games ${defenseText(key)}, usually ${ord(Math.round(e.slot))}.` });
+  }
+  // Timings
+  const T = B.timings, cmp = (mineV, b, title, fmt, worse) => {
+    if (mineV == null || !b) return; const [p25, p50, p75] = b;
+    if (worse(mineV, p25, p75)) dedup.push({ sev: 0.9, t: null, title: `${title}: ${fmt(mineV)}`, text: `Experts: ${fmt(p50)} (middle half ${fmt(p25)} to ${fmt(p75)}).` });
+  };
+  cmp(A.backs[0]?.t, T.first_back, "First back", clock, (v, lo, hi) => v > hi + 30);
+  cmp(A.firstItem, T.legendary1, "First item", clock, (v, lo, hi) => v > hi);
+  cmp(A.deaths.filter(d => d.t < 840).length, T.deaths_14, "Deaths before 14:00", v => Math.round(v), (v, lo, hi) => v > hi);
+  cmp(A.deaths.length, T.deaths, "Deaths", v => Math.round(v), (v, lo, hi) => v > hi);
+  if (A.lvl6 != null && A.oppLvl6 != null) cmp(A.lvl6 - A.oppLvl6, T.lvl6_gap, "Level 6 vs your opponent", v => (v <= 0 ? Math.round(-v) + "s ahead" : Math.round(v) + "s behind"), (v, lo, hi) => v > hi + 15);
+  return dedup.sort((a, b) => b.sev - a.sev).slice(0, 6);
+}
+const ord = (n) => n + (["th", "st", "nd", "rd"][n % 100 > 10 && n % 100 < 14 ? 0 : n % 10] || "th");
+const isArmorPen = (id) => /armor penetration|lethality/i.test(DD.items[id]?.description || "") || (DD.items[id]?.stats?.FlatArmorPenetrationMod || 0) > 0 || /Dominik|Mortal Reminder|Serylda|Black Cleaver/i.test(itemName(id));
+const isMagicPen = (id) => /magic penetration/i.test(DD.items[id]?.description || "") || /Void Staff|Cryptbloom|Shadowflame/i.test(itemName(id));
+const defenseText = (key) => ({ armor0: "where no enemy built armor", armor1: "where one enemy built armor", armor2: "where two or more enemies built armor",
+  mr0: "where no enemy built magic resist", mr1: "where one enemy built magic resist", mr2: "where two or more enemies built magic resist" })[key];
+
+function expertsView(A, B) {
+  const champ = champName(A.me.championId), F = findings(A, B);
+  const cell = (k, m, fmt) => {
+    const s = mine(A, k), b = B.minutes[k]?.[m];
+    if (!s || s.length <= m) return `<td class="sub">—</td>`;
+    const cls = b ? (s[m] < b[0] ? "bad" : s[m] > b[2] ? "good" : "") : "";
+    return `<td><span class="y ${cls}">${fmt(s[m])}</span>${b ? `<span class="e">experts ${fmt(b[1])} (${fmt(b[0])} to ${fmt(b[2])})</span>` : ""}</td>`;
+  };
+  const byId = Object.fromEntries(B.items.map(i => [i.id, i]));
+  const tRow = (label, mineV, b, fmt, lowerBetter = true) => {
+    const cls = mineV == null || !b ? "" : lowerBetter ? (mineV > b[2] ? "bad" : mineV < b[0] ? "good" : "") : (mineV < b[0] ? "bad" : mineV > b[2] ? "good" : "");
+    return `<tr><td>${label}</td><td><span class="y ${cls}">${mineV == null ? "—" : fmt(mineV)}</span></td><td>${b ? fmt(b[1]) : "—"}</td><td class="sub">${b ? fmt(b[0]) + " to " + fmt(b[2]) : ""}</td></tr>`;
+  };
+  const T = B.timings;
+  return `
+  <p class="sub" style="margin:14px 0 0">Compared with <b>${B.games}</b> ranked games from <b>${B.players}</b> top ${esc(champ)} players on onetricks.gg (${esc(B.regions.join(", "))}), built ${esc(B.built)}. Expert numbers are the middle game (median) and the middle half of their games.</p>
+
+  <h2>What stands out</h2>
+  <div class="card">${F.length ? F.map(f => `<div class="finding"><b>${esc(f.title)}</b><span>${f.text}</span>
+      ${f.t != null ? ` <button style="margin-left:8px;padding:2px 8px" data-watch="${Math.max(0, f.t - 30)}">Watch ${clock(Math.max(0, f.t - 30))}</button>` : ""}</div>`).join("")
+    : `<div class="empty" style="padding:10px 0">You were within the experts' usual range on everything checked.</div>`}</div>
+
+  <h2>Break points</h2>
+  <div class="card"><table class="grid"><tr><th></th>${BP.map(m => `<th>${m}:00</th>`).join("")}</tr>
+    ${METRICS.map(([k, label, fmt]) => `<tr><td>${label}</td>${BP.map(m => cell(k, m, fmt)).join("")}</tr>`).join("")}</table></div>
+
+  <h2>Over the game</h2>
+  <div class="card"><div class="seg">${METRICS.filter(([k]) => mine(A, k)).map(([k, label], i) => `<button data-k="${k}" class="${i ? "" : "on"}">${label}</button>`).join("")}</div>
+    <div id="xchart">${benchChart(A, B, "gold")}</div>
+    <div class="legend"><span><i style="background:var(--gold)"></i>You</span><span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of expert games</span><span style="color:var(--red-ink)">✕ your deaths</span></div></div>
+
+  <h2>Build</h2>
+  <div class="card"><table class="grid"><tr><th>Your items</th><th>Bought</th><th>Experts</th><th>How often experts build it</th></tr>
+    ${A.items.slice(0, 6).map((b, n) => { const e = byId[b.id]; return `<tr><td>${n + 1}. ${esc(itemName(b.id))}</td><td>${clock(b.t)}</td>
+      <td>${e ? `usually ${ord(Math.round(e.slot))}, ~${clock(e.time)}` : "—"}</td><td>${e ? Math.round(e.rate * 100) + "%" : "rarely"}</td></tr>`; }).join("") || `<tr><td colspan="4" class="sub">No completed items.</td></tr>`}
+  </table>
+  <div class="sub" style="margin-top:10px">Enemies who built armor: <b>${A.armorN}</b> · magic resist: <b>${A.mrN}</b>. Most common expert starts:
+    ${B.orders.slice(0, 3).map(([ids, c]) => `<div>${ids.map(itemName).map(esc).join(" › ")} <span style="color:var(--faint)">(${c} games)</span></div>`).join("")}</div></div>
+
+  <h2>Timings</h2>
+  <div class="card"><table class="grid"><tr><th></th><th>You</th><th>Experts</th><th>Middle half</th></tr>
+    ${tRow("First back", A.backs[0]?.t ?? null, T.first_back, clock)}
+    ${tRow("Gold spent on first back", A.backs[0]?.spent ?? null, T.first_back_gold, v => Math.round(v).toLocaleString(), false)}
+    ${tRow("Backs before 14:00", A.backs.filter(b => b.t < 840).length, T.backs_before_14, v => Math.round(v), false)}
+    ${tRow("Boots", A.boots, T.boots, clock)}
+    ${tRow("First item", A.firstItem, T.legendary1, clock)}
+    ${tRow("Second item", A.items[1]?.t ?? null, T.legendary2, clock)}
+    ${tRow("Level 6 vs opponent (s)", A.lvl6 != null && A.oppLvl6 != null ? A.lvl6 - A.oppLvl6 : null, T.lvl6_gap, v => (v <= 0 ? Math.round(-v) + "s ahead" : Math.round(v) + "s behind"))}
+    ${tRow("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, T.deaths_14, v => Math.round(v))}
+    ${tRow("Deaths", A.deaths.length, T.deaths, v => Math.round(v))}
+  </table></div>`;
+}
+
+function benchChart(A, B, k) {
+  const curve = mine(A, k), band = B.minutes[k] || [];
+  if (!curve) return `<div class="sub">Not available for this game.</div>`;
+  const W = 1000, H = 240, L = 56, R = 12, T = 12, Bm = 26, n = A.minutes;
+  let lo = Math.min(...curve), hi = Math.max(...curve);
+  band.slice(0, n + 1).forEach(b => { if (b) { lo = Math.min(lo, b[0]); hi = Math.max(hi, b[2]); } });
+  if (k.endsWith("diff")) { lo = Math.min(lo, 0); hi = Math.max(hi, 0); }
+  const pad = (hi - lo) * .08 || 1; lo -= pad; hi += pad;
+  const x = m => L + (m / n) * (W - L - R), y = v => T + (hi - v) / (hi - lo) * (H - T - Bm);
+  const fmt = METRICS.find(mm => mm[0] === k)[2];
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%">`;
+  for (let i = 0; i <= 4; i++) { const v = lo + (hi - lo) * i / 4; s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line-soft)"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${fmt(v)}</text>`; }
+  if (k.endsWith("diff")) s += `<line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="var(--line)"/>`;
+  for (let m = 0; m <= n; m += 5) s += `<text x="${x(m)}" y="${H - 8}" text-anchor="middle">${m}:00</text>`;
+  const pts = band.slice(0, n + 1).map((b, m) => b && [m, b]).filter(Boolean);
+  if (pts.length > 1) {
+    s += `<path d="M${pts.map(([m, b]) => x(m) + "," + y(b[2])).join("L")}L${pts.slice().reverse().map(([m, b]) => x(m) + "," + y(b[0])).join("L")}Z" fill="var(--blue-wash)"/>`;
+    s += `<path d="M${pts.map(([m, b]) => x(m) + "," + y(b[1])).join("L")}" fill="none" stroke="var(--blue)" stroke-opacity=".5" stroke-dasharray="4 4"/>`;
+  }
+  s += `<path d="M${curve.map((v, m) => x(m) + "," + y(v)).join("L")}" fill="none" stroke="var(--gold)" stroke-width="2.5"/>`;
+  curve.forEach((v, m) => { const b = band[m]; s += `<circle cx="${x(m)}" cy="${y(v)}" r="6" fill="transparent"><title>${m}:00  you ${fmt(v)}${b ? "  ·  experts " + fmt(b[1]) : ""}</title></circle>`; });
+  for (const d of A.deaths) { const m = Math.min(n, Math.round(d.t / 60)); s += `<text x="${x(d.t / 60)}" y="${y(curve[m]) - 8}" text-anchor="middle" style="fill:var(--red-ink);font-size:13px">✕</text>`; }
+  return s + "</svg>";
 }
 
 let toastTimer;
