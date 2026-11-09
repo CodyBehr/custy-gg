@@ -66,7 +66,7 @@ export function recapEmbed(d: Dataset, s: Static, from: number, to: number, site
   const lines = [...by.values()];
   const player = (puuid: string) => d.players.find((p) => p.puuid === puuid);
   const link = (l: { name: string; puuid: string }) =>
-    tags.get(l.puuid) ? `<@${tags.get(l.puuid)}>` : `[${l.name}](${site}/players/${encodeURIComponent(l.puuid)})`;
+    `[${l.name}](${site}/players/${encodeURIComponent(l.puuid)})${tags.get(l.puuid) ? ` (<@${tags.get(l.puuid)}>)` : ""}`;
 
   // Rating movement over the week.
   const moves = lines
@@ -163,19 +163,23 @@ export function recapEmbed(d: Dataset, s: Static, from: number, to: number, site
 }
 
 /** Posts the recap for [from, to). `label` goes in the footer. */
-export async function postRecap(from: number, to: number, site: string, label: string) {
+export async function postRecap(from: number, to: number, site: string, label: string, ping = true) {
   const hook = await getWebhook();
   if (!hook) return { ok: false, status: 0, reason: "No Discord channel connected." };
   const [d, s, tags] = await Promise.all([store().all().then(buildDataset), getStatic(), discordByPuuid()]);
   const embed = { ...recapEmbed(d, s, from, to, site, tags), footer: { text: label } };
+  // Ping everyone linked who played that week (mentions inside the embed alone don't notify).
+  const played = new Set(d.matches.filter((m) => !m.remake && m.playedAt >= from && m.playedAt < to).flatMap((m) => m.players.map((p) => p.puuid)));
+  const users = ping ? ([...played].map((p) => tags.get(p)).filter(Boolean) as string[]) : [];
   const link = (lbl: string, url: string, emoji: string) => ({ type: 2, style: 5, label: lbl, url, emoji: { name: emoji } });
   const res = await fetch(`${hook}?wait=true&with_components=true`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       username: "custy.gg",
+      content: users.length ? `This week's players: ${users.map((u) => `<@${u}>`).join(" ")}` : undefined,
       embeds: [embed],
-      allowed_mentions: { parse: [] },
+      allowed_mentions: { parse: [], users },
       components: [{ type: 1, components: [link("Standings", `${site}/`, "🏆"), link("Records", `${site}/records`, "📈"), link("Duos", `${site}/duos`, "🤝")] }],
     }),
   });
@@ -196,4 +200,4 @@ export async function postLastWeek(site: string) {
 }
 
 /** This week so far (for testing). */
-export const postThisWeek = (site: string) => postRecap(weekStart(Date.now()), Date.now() + 1, site, "Test post · this week so far");
+export const postThisWeek = (site: string) => postRecap(weekStart(Date.now()), Date.now() + 1, site, "Test post · this week so far", false);

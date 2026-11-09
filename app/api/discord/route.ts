@@ -99,7 +99,7 @@ async function handle(req: Request, i: any): Promise<Reply> {
       if (v === "none") return { data: { content: "Unlinked. The bot will use your League name again.", components: [] } };
       const d = await getDataset();
       const pl = d.players.find((x) => x.puuid === v);
-      return { data: { content: `Linked: you're **${pl ? `${pl.name}#${pl.tag}` : "that player"}**. Team splits will tag you from now on.`, components: [] } };
+      return { data: { content: `Linked: you're **${pl ? `${pl.name}#${pl.tag}` : "that player"}**. The weekly recap will tag you.`, components: [] } };
     }
     if (i.type === InteractionType.COMPONENT && String(i.data.custom_id).startsWith("reroll:")) {
       const saved = await store().getSetting(`teams:${String(i.data.custom_id).slice(7)}`);
@@ -194,17 +194,8 @@ async function teams(req: Request, opts: Opts): Promise<Reply> {
   await store().setSetting(`teams:${id}`, JSON.stringify(opts));
 
   const site = siteUrl(req);
-  const tags = await discordByPuuid();
-  const tagged = (ps: TeamPlayer[]) => ps.map((p) => (p.puuid ? tags.get(p.puuid) : undefined)).filter(Boolean) as string[];
-  const blueTags = tagged(result.blue);
-  const redTags = tagged(result.red);
   const data = {
-    // The content line is what actually pings people (mentions inside embeds don't).
-    content: blueTags.length || redTags.length
-      ? `🔵 ${blueTags.map((u) => `<@${u}>`).join(" ") || "—"}\n🔴 ${redTags.map((u) => `<@${u}>`).join(" ") || "—"}`
-      : undefined,
-    allowed_mentions: { parse: [], users: [...blueTags, ...redTags] },
-    embeds: [teamsEmbed(result, balance, source, site, tags)],
+    embeds: [teamsEmbed(result, balance, source, site)],
     components: [{
       type: 1,
       components: [
@@ -218,14 +209,13 @@ async function teams(req: Request, opts: Opts): Promise<Reply> {
   return { data: renderPrediction(pred) };
 }
 
-function teamsEmbed(r: TeamResult, balance: Balance, source: string, site: string, tags: Map<string, string>) {
+function teamsEmbed(r: TeamResult, balance: Balance, source: string, site: string) {
   const tagFor = (p: TeamPlayer) => {
     if (balance === "solo") return p.rank?.tier ? rankShort(p.rank) : "unranked";
     return p.known ? String(p.custy ?? p.rating) : "new";
   };
   const line = (p: TeamPlayer) => {
-    const user = p.puuid ? tags.get(p.puuid) : undefined;
-    const name = user ? `<@${user}> · ${p.name}` : p.known && p.puuid ? `[${p.name}](${site}/players/${encodeURIComponent(p.puuid)})` : p.name;
+    const name = p.known && p.puuid ? `[${p.name}](${site}/players/${encodeURIComponent(p.puuid)})` : p.name;
     return `${name}  \`${tagFor(p)}\``;
   };
   const avgLabel = (avg: number) => (balance === "solo" ? scoreLabel(avg) : String(Math.round(avg)));
@@ -265,13 +255,13 @@ async function lobby(): Promise<Reply> {
   if (!lob || !lob.members.length) return privateNote("No lobby yet. It shows up once someone with the custy.gg app joins a custom lobby.");
   const mins = Math.round((Date.now() - lob.updatedAt) / 60000);
   const stale = Date.now() - lob.updatedAt > LOBBY_FRESH_MS;
-  const [players, tags] = await Promise.all([ratePlayers(lob.members.map((m) => ({ name: m.name, puuid: m.puuid }))), discordByPuuid()]);
+  const players = await ratePlayers(lob.members.map((m) => ({ name: m.name, puuid: m.puuid })));
   return message({
     embeds: [{
       title: `Custom lobby (${players.length})`,
       color: BLUE,
       description: players
-        .map((p) => `${p.puuid && tags.get(p.puuid) ? `<@${tags.get(p.puuid)}> · ` : ""}${p.name}  \`${p.known ? p.custy ?? p.rating : "new"}\`  ${p.rank?.tier ? rankLabel(p.rank) : "unranked"}`)
+        .map((p) => `${p.name}  \`${p.known ? p.custy ?? p.rating : "new"}\`  ${p.rank?.tier ? rankLabel(p.rank) : "unranked"}`)
         .join("\n"),
       footer: { text: `${stale ? "Old: " : ""}seen ${mins <= 0 ? "just now" : `${mins} min ago`}${lob.uploader ? ` by ${lob.uploader}'s app` : ""}. Run /custy_teams to split them.` },
     }],
@@ -318,7 +308,7 @@ async function startDraft(req: Request, opts: Opts, user: string | null): Promis
   const id = crypto.randomUUID().slice(0, 12);
   const d = newDraft(got.players, user);
   await store().setSetting(`draft:${id}`, JSON.stringify(d));
-  return { data: draftMessage(id, d, siteUrl(req), await discordByPuuid()) };
+  return { data: draftMessage(id, d, siteUrl(req)) };
 }
 
 async function draftClick(req: Request, cid: string, user: string | null): Promise<Reply> {
@@ -334,7 +324,7 @@ async function draftClick(req: Request, cid: string, user: string | null): Promi
     if (!r.ok) return privateNote(r.reason);
   }
   await store().setSetting(`draft:${id}`, JSON.stringify(d));
-  const data = draftMessage(id, d, siteUrl(req), await discordByPuuid());
+  const data = draftMessage(id, d, siteUrl(req));
   if (d.done) {
     const pred = await createPrediction(`d${id}`, roster(d, 0).map((p) => p.puuid), roster(d, 1).map((p) => p.puuid), data);
     return { data: renderPrediction(pred) };
@@ -342,14 +332,13 @@ async function draftClick(req: Request, cid: string, user: string | null): Promi
   return { data };
 }
 
-function draftMessage(id: string, d: Draft, site: string, tags: Map<string, string> = new Map()) {
+function draftMessage(id: string, d: Draft, site: string) {
   const tag = (p: TeamPlayer) => {
     const bits = [p.known ? String(p.custy ?? p.rating) : "new"];
     if (p.rank?.tier) bits.push(rankShort(p.rank));
     return bits.join(" · ");
   };
-  const name = (p: TeamPlayer) =>
-    p.puuid && tags.get(p.puuid) ? `<@${tags.get(p.puuid)}> · ${p.name}` : p.known && p.puuid ? `[${p.name}](${site}/players/${encodeURIComponent(p.puuid)})` : p.name;
+  const name = (p: TeamPlayer) => (p.known && p.puuid ? `[${p.name}](${site}/players/${encodeURIComponent(p.puuid)})` : p.name);
   const side = (s: 0 | 1) => {
     const ps = roster(d, s);
     const avg = Math.round(ps.reduce((a, p) => a + p.rating, 0) / ps.length);
@@ -477,7 +466,7 @@ async function linkAccount(opts: Opts, invoker: string | null): Promise<Reply> {
   const moved = before && before !== who ? ` (it was linked to <@${before}> before)` : "";
   return {
     data: {
-      content: `🔗 <@${who}> is now **${pl.name}#${pl.tag}** on custy.gg${moved}. Team splits will tag ${self ? "you" : "them"} from now on.`,
+      content: `🔗 <@${who}> is now **${pl.name}#${pl.tag}** on custy.gg${moved}. The weekly recap will tag ${self ? "you" : "them"}, and Sand God can look ${self ? "you" : "them"} up.`,
       allowed_mentions: { parse: [] },
     },
   };
