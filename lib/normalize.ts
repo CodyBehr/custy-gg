@@ -4,7 +4,7 @@
 
 import type { Match, MatchPlayer, MatchTeam, Role } from "./types";
 
-export const NORMALIZER_VERSION = 1;
+export const NORMALIZER_VERSION = 2; // 2: roles from the role quest slot
 const REMAKE_SECONDS = 300;
 const SMITE = 11;
 
@@ -89,6 +89,7 @@ function fromLcu(g: Json): Match {
       _lane: String(p.timeline?.lane ?? ""),
       _laneRole: String(p.timeline?.role ?? ""),
       _jungleCs: num(s.neutralMinionsKilled),
+      _roleItem: num(s.roleBoundItem),
     } as MatchPlayer & Json;
   });
 
@@ -240,13 +241,39 @@ function finish(match: Match, rolesKnown = false) {
     delete p._lane;
     delete p._laneRole;
     delete p._jungleCs;
+    delete p._roleItem;
   }
 }
 
-/** Custom games don't store positions, so infer them from smite, lane and CS. */
+// The role quest slot (stats.roleBoundItem) holds the quest item for the role the game
+// gave each player, so it names their role directly. Bot laners' quest reward moves their
+// boots into that slot, and supports' slot can hold a ward.
+const QUEST_ROLE: Record<number, Role> = {
+  1090: "TOP", 1200: "TOP", 1220: "TOP", 1221: "TOP", 1222: "TOP",
+  1094: "JUNGLE", 1204: "JUNGLE", 1205: "JUNGLE", 1209: "JUNGLE", 1210: "JUNGLE", 1211: "JUNGLE",
+  1091: "MID", 1201: "MID", 1206: "MID",
+  1092: "BOT", 1202: "BOT", 1207: "BOT",
+  1093: "SUPPORT", 1203: "SUPPORT", 1208: "SUPPORT", 2055: "SUPPORT", 2056: "SUPPORT",
+};
+const BOOTS = new Set([1001, 2422, 3005, 3006, 3008, 3009, 3010, 3013, 3020, 3047, 3111, 3117, 3158, 3168, 3170, 3171, 3172, 3173, 3174, 3175, 3176]);
+export const roleFromQuestItem = (id: number): Role | "" => QUEST_ROLE[id] ?? (BOOTS.has(id) ? "BOT" : "");
+
+/**
+ * Custom games don't store positions. The role quest slot says it directly when it's
+ * filled; anyone left over is inferred from smite, lane and CS.
+ */
 function guessRoles(team: (MatchPlayer & Json)[]) {
+  const fromQuest = team.map((p) => roleFromQuestItem(p._roleItem));
+  const counts = new Map<string, number>();
+  for (const r of fromQuest) if (r) counts.set(r, (counts.get(r) ?? 0) + 1);
+  team.forEach((p, i) => {
+    if (fromQuest[i] && counts.get(fromQuest[i]) === 1) p.role = fromQuest[i] as Role;
+  });
+  if (team.every((p) => p.role)) return;
+
+  const taken = new Set(team.map((p) => p.role).filter(Boolean));
   const smiters = team.filter((p) => p.spells.includes(SMITE)).sort((a, b) => b._jungleCs - a._jungleCs);
-  if (smiters[0]) smiters[0].role = "JUNGLE";
+  if (smiters[0] && !smiters[0].role && !taken.has("JUNGLE")) smiters[0].role = "JUNGLE";
 
   const open = () => team.filter((p) => !p.role);
   for (const p of open()) {
@@ -266,9 +293,10 @@ function guessRoles(team: (MatchPlayer & Json)[]) {
     bottomLeft[1].role = "SUPPORT";
   }
 
-  // Drop duplicate guesses, then if exactly one player and one role remain, pair them.
+  // Drop duplicate guesses (role quest answers win), then if exactly one player and one role remain, pair them.
   const seen = new Set<Role>();
-  for (const p of team) {
+  const questFirst = [...team].sort((a, b) => Number(Boolean(roleFromQuestItem(b._roleItem))) - Number(Boolean(roleFromQuestItem(a._roleItem))));
+  for (const p of questFirst) {
     if (p.role && seen.has(p.role)) p.role = "";
     else if (p.role) seen.add(p.role);
   }

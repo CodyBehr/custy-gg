@@ -5,7 +5,7 @@
 import "server-only";
 import { cache } from "react";
 import type { Match, MatchPlayer, Role } from "./types";
-import { store } from "./store";
+import { NORMALIZER_VERSION, renormalizeAll, store } from "./store";
 import { linkAccounts } from "./player-links";
 
 export const START_RATING = 1500;
@@ -401,7 +401,18 @@ export function buildDataset(raw: Match[]): Dataset {
   };
 }
 
-export const getDataset = cache(async () => buildDataset(await store().all()));
+let renormalized = false;
+export const getDataset = cache(async () => {
+  let matches = await store().all();
+  // After the site's game reader improves (e.g. better role detection), rebuild stored games once.
+  if (!renormalized && matches.some((m) => (m.v ?? 0) < NORMALIZER_VERSION)) {
+    renormalized = true; // once per server instance, even if a game can't be re-read
+    const r = await renormalizeAll();
+    console.log(`[renormalize] updated ${r.updated}, failed ${r.failed}`);
+    matches = await store().all();
+  }
+  return buildDataset(matches);
+});
 
 export function clock(seconds: number) {
   const m = Math.floor(seconds / 60);
