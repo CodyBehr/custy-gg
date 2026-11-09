@@ -7,6 +7,7 @@ import { buildDataset, clock, type Dataset } from "./stats";
 import { champName, getStatic, type Static } from "./ddragon";
 import type { Match, MatchPlayer } from "./types";
 import { settledLine, type Prediction } from "./predictions";
+import { discordByPuuid } from "./discord-links";
 
 const WEBHOOK_KEY = "discord:webhook";
 const BLUE = 0x4f9dff;
@@ -34,10 +35,10 @@ export async function postGame(matchId: string | "latest", site: string, pred?: 
   try {
     const hook = await getWebhook();
     if (!hook) return { ok: false, status: 0 };
-    const [d, s] = await Promise.all([store().all().then(buildDataset), getStatic()]);
+    const [d, s, tags] = await Promise.all([store().all().then(buildDataset), getStatic(), discordByPuuid()]);
     const m = matchId === "latest" ? d.matches.find((x) => !x.remake) : d.matches.find((x) => x.id === matchId);
     if (!m) return { ok: false, status: 0 };
-    const embed = gameEmbed(m, d, s, site, pred);
+    const embed = gameEmbed(m, d, s, site, pred, tags);
     if (opts.test) embed.footer = { text: `Test post · ${embed.footer.text}` };
     const link = (label: string, url: string, emoji: string) => ({ type: 2, style: 5, label, url, emoji: { name: emoji } });
     // Channel webhooks can carry link buttons (with_components=true).
@@ -47,6 +48,7 @@ export async function postGame(matchId: string | "latest", site: string, pred?: 
       body: JSON.stringify({
         username: "custy.gg",
         embeds: [embed],
+        allowed_mentions: { parse: [] }, // show @names without pinging after every game
         components: [{
           type: 1,
           components: [
@@ -99,13 +101,14 @@ export function movement(m: Match, d: Dataset) {
   };
 }
 
-export function gameEmbed(m: Match, d: Dataset, s: Static, site: string, pred?: Prediction | null) {
+export function gameEmbed(m: Match, d: Dataset, s: Static, site: string, pred?: Prediction | null, tags: Map<string, string> = new Map()) {
   const blueWon = m.teams.find((t) => t.teamId === 100)?.win ?? m.players.find((p) => p.teamId === 100)?.win ?? false;
   const mvp = d.mvpOf.get(m.id);
   const move = movement(m, d);
   const player = (p: MatchPlayer, links = true) => {
     const name = p.isBot ? `${champName(s, p.championId)} bot` : p.name;
-    const linked = p.isBot || !links ? name : `[${name}](${site}/players/${encodeURIComponent(p.puuid)})`;
+    const user = p.isBot ? undefined : tags.get(p.puuid);
+    const linked = user ? `<@${user}>` : p.isBot || !links ? name : `[${name}](${site}/players/${encodeURIComponent(p.puuid)})`;
     const head = `${mvp === p.puuid ? "⭐ " : ""}**${linked}** · ${champName(s, p.championId)} \`${p.kills}/${p.deaths}/${p.assists}\``;
     const mv = p.isBot ? null : move(p.puuid);
     if (!mv) return head;

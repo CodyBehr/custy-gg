@@ -6,6 +6,7 @@ import { store } from "./store";
 import { buildDataset, kda, START_RATING, type Dataset } from "./stats";
 import { champName, getStatic, type Static } from "./ddragon";
 import { getWebhook } from "./game-post";
+import { discordByPuuid } from "./discord-links";
 import type { Match, MatchPlayer } from "./types";
 
 const TZ = process.env.NEXT_PUBLIC_TIMEZONE || "America/New_York";
@@ -40,7 +41,7 @@ function ratingAt(hist: { rating: number; at: number }[], t: number) {
 
 interface Line { name: string; puuid: string; games: number; wins: number; k: number; d: number; a: number; mvps: number }
 
-export function recapEmbed(d: Dataset, s: Static, from: number, to: number, site: string) {
+export function recapEmbed(d: Dataset, s: Static, from: number, to: number, site: string, tags: Map<string, string> = new Map()) {
   const games = d.matches.filter((m) => !m.remake && m.playedAt >= from && m.playedAt < to).sort((a, b) => a.playedAt - b.playedAt);
   const range = `${day(from)} – ${day(to - 1)}`;
   if (!games.length) {
@@ -64,7 +65,8 @@ export function recapEmbed(d: Dataset, s: Static, from: number, to: number, site
   }
   const lines = [...by.values()];
   const player = (puuid: string) => d.players.find((p) => p.puuid === puuid);
-  const link = (l: { name: string; puuid: string }) => `[${l.name}](${site}/players/${encodeURIComponent(l.puuid)})`;
+  const link = (l: { name: string; puuid: string }) =>
+    tags.get(l.puuid) ? `<@${tags.get(l.puuid)}>` : `[${l.name}](${site}/players/${encodeURIComponent(l.puuid)})`;
 
   // Rating movement over the week.
   const moves = lines
@@ -164,8 +166,8 @@ export function recapEmbed(d: Dataset, s: Static, from: number, to: number, site
 export async function postRecap(from: number, to: number, site: string, label: string) {
   const hook = await getWebhook();
   if (!hook) return { ok: false, status: 0, reason: "No Discord channel connected." };
-  const [d, s] = await Promise.all([store().all().then(buildDataset), getStatic()]);
-  const embed = { ...recapEmbed(d, s, from, to, site), footer: { text: label } };
+  const [d, s, tags] = await Promise.all([store().all().then(buildDataset), getStatic(), discordByPuuid()]);
+  const embed = { ...recapEmbed(d, s, from, to, site, tags), footer: { text: label } };
   const link = (lbl: string, url: string, emoji: string) => ({ type: 2, style: 5, label: lbl, url, emoji: { name: emoji } });
   const res = await fetch(`${hook}?wait=true&with_components=true`, {
     method: "POST",
@@ -173,6 +175,7 @@ export async function postRecap(from: number, to: number, site: string, label: s
     body: JSON.stringify({
       username: "custy.gg",
       embeds: [embed],
+      allowed_mentions: { parse: [] },
       components: [{ type: 1, components: [link("Standings", `${site}/`, "🏆"), link("Records", `${site}/records`, "📈"), link("Duos", `${site}/duos`, "🤝")] }],
     }),
   });

@@ -11,6 +11,7 @@ import { rankLabel } from "@/lib/ranks";
 import { leaderboard } from "@/lib/predictions";
 import { analyzePlayer, matchDetail } from "@/lib/analysis";
 import { siteUrl } from "@/lib/ingest-key";
+import { puuidForDiscord } from "@/lib/discord-links";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
@@ -20,6 +21,7 @@ const pct = (n: number) => Math.round(n * 1000) / 10;
 
 const ENDPOINTS = {
   "/api/agent/standings": "Everyone ranked by custy rating (Elo, starts at 1500) with record, KDA, MVPs, streak and solo queue rank.",
+  "/api/agent/player?discord=<discord user id>": "Same as below, for whoever has linked that Discord account (people link with the Link my account button under a team split).",
   "/api/agent/player?name=<riot id or name>": "Deep analysis of one player: every stat compared to what the group does in the same roles, strengths and weaknesses, recent form vs before, splits by role/side/game length, champion pool, best and worst teammates, opponents, lane opponents, early game (CS at 10, gold diff at 15, deaths before 15, where and when they die), rating history and their last 15 games.",
   "/api/agent/compare?a=<name>&b=<name>": "Two players side by side, plus their record together and against each other.",
   "/api/agent/matches?limit=10&player=<optional name>": "Recent games (newest first), short form.",
@@ -95,7 +97,10 @@ async function route(ep: string, q: URLSearchParams, d: Dataset, st: Static, sit
     }
 
     case "player": {
-      const pl = findPlayer(d, q.get("name"));
+      const discordId = q.get("discord");
+      const linked = discordId ? await puuidForDiscord(discordId) : null;
+      if (discordId && !linked) return { error: `Discord user ${discordId} hasn't linked a League account. Ask them for their League name, or to tap Link my account under a team split.` };
+      const pl = linked ? d.players.find((x) => x.puuid === linked) ?? null : findPlayer(d, q.get("name"));
       if (!pl) return notFound(q.get("name") ?? "", d);
       const [timelines, ranks] = await Promise.all([store().timelines().catch(() => new Map()), getRanks([pl.puuid])]);
       const a = analyzePlayer(d, st, pl, timelines);

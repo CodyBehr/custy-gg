@@ -13,6 +13,7 @@ import { getRanks } from "@/lib/rank-store";
 import { rankLabel, rankScore, rankShort, scoreLabel } from "@/lib/ranks";
 import { newCaptains, newDraft, pick, remaining, roster, turn, type Draft } from "@/lib/draft";
 import { castVote, createPrediction, leaderboard, renderPrediction } from "@/lib/predictions";
+import { discordByPuuid, linkDiscord, mentionedUser, puuidForDiscord } from "@/lib/discord-links";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -87,6 +88,16 @@ async function handle(req: Request, i: any): Promise<Reply> {
       return { data: renderPrediction(r) };
     }
     if (cid === "predboard") return await predictionBoard();
+    if (cid.startsWith("linkme:")) return await linkMenu(cid.slice(7), user);
+    if (cid === "linkpick") {
+      if (!user) return privateNote("I couldn't tell who you are.");
+      const v = String(i.data.values?.[0] ?? "");
+      await linkDiscord(user, v === "none" ? null : v);
+      if (v === "none") return { data: { content: "Unlinked. The bot will use your League name again.", components: [] } };
+      const d = await getDataset();
+      const pl = d.players.find((x) => x.puuid === v);
+      return { data: { content: `Linked: you're **${pl ? `${pl.name}#${pl.tag}` : "that player"}**. Team splits will tag you from now on.`, components: [] } };
+    }
     if (i.type === InteractionType.COMPONENT && String(i.data.custom_id).startsWith("reroll:")) {
       const saved = await store().getSetting(`teams:${String(i.data.custom_id).slice(7)}`);
       if (!saved) return privateNote("That team request has expired. Run /custy_teams again.");
@@ -180,13 +191,23 @@ async function teams(req: Request, opts: Opts): Promise<Reply> {
   await store().setSetting(`teams:${id}`, JSON.stringify(opts));
 
   const site = siteUrl(req);
+  const tags = await discordByPuuid();
+  const tagged = (ps: TeamPlayer[]) => ps.map((p) => (p.puuid ? tags.get(p.puuid) : undefined)).filter(Boolean) as string[];
+  const blueTags = tagged(result.blue);
+  const redTags = tagged(result.red);
   const data = {
-    embeds: [teamsEmbed(result, balance, source, site)],
+    // The content line is what actually pings people (mentions inside embeds don't).
+    content: blueTags.length || redTags.length
+      ? `🔵 ${blueTags.map((u) => `<@${u}>`).join(" ") || "—"}\n🔴 ${redTags.map((u) => `<@${u}>`).join(" ") || "—"}`
+      : undefined,
+    allowed_mentions: { parse: [], users: [...blueTags, ...redTags] },
+    embeds: [teamsEmbed(result, balance, source, site, tags)],
     components: [{
       type: 1,
       components: [
         { type: 2, style: 1, label: "Reroll", custom_id: `reroll:${id}`, emoji: { name: "🎲" } },
         { type: 2, style: 2, label: "Captain draft", custom_id: `draftstart:${id}`, emoji: { name: "👑" } },
+        { type: 2, style: 2, label: "Link my account", custom_id: `linkme:${id}`, emoji: { name: "🔗" } },
         { type: 2, style: 5, label: "Standings", url: `${site}/` },
       ],
     }],
@@ -195,13 +216,14 @@ async function teams(req: Request, opts: Opts): Promise<Reply> {
   return { data: renderPrediction(pred) };
 }
 
-function teamsEmbed(r: TeamResult, balance: Balance, source: string, site: string) {
+function teamsEmbed(r: TeamResult, balance: Balance, source: string, site: string, tags: Map<string, string>) {
   const tagFor = (p: TeamPlayer) => {
     if (balance === "solo") return p.rank?.tier ? rankShort(p.rank) : "unranked";
     return p.known ? String(p.custy ?? p.rating) : "new";
   };
   const line = (p: TeamPlayer) => {
-    const name = p.known && p.puuid ? `[${p.name}](${site}/players/${encodeURIComponent(p.puuid)})` : p.name;
+    const user = p.puuid ? tags.get(p.puuid) : undefined;
+    const name = user ? `<@${user}> · ${p.name}` : p.known && p.puuid ? `[${p.name}](${site}/players/${encodeURIComponent(p.puuid)})` : p.name;
     return `${name}  \`${tagFor(p)}\``;
   };
   const avgLabel = (avg: number) => (balance === "solo" ? scoreLabel(avg) : String(Math.round(avg)));
@@ -241,13 +263,13 @@ async function lobby(): Promise<Reply> {
   if (!lob || !lob.members.length) return privateNote("No lobby yet. It shows up once someone with the custy.gg app joins a custom lobby.");
   const mins = Math.round((Date.now() - lob.updatedAt) / 60000);
   const stale = Date.now() - lob.updatedAt > LOBBY_FRESH_MS;
-  const players = await ratePlayers(lob.members.map((m) => ({ name: m.name, puuid: m.puuid })));
+  const [players, tags] = await Promise.all([ratePlayers(lob.members.map((m) => ({ name: m.name, puuid: m.puuid }))), discordByPuuid()]);
   return message({
     embeds: [{
       title: `Custom lobby (${players.length})`,
       color: BLUE,
       description: players
-        .map((p) => `${p.name}  \`${p.known ? p.custy ?? p.rating : "new"}\`  ${p.rank?.tier ? rankLabel(p.rank) : "unranked"}`)
+        .map((p) => `${p.puuid && tags.get(p.puuid) ? `<@${tags.get(p.puuid)}> · ` : ""}${p.name}  \`${p.known ? p.custy ?? p.rating : "new"}\`  ${p.rank?.tier ? rankLabel(p.rank) : "unranked"}`)
         .join("\n"),
       footer: { text: `${stale ? "Old: " : ""}seen ${mins <= 0 ? "just now" : `${mins} min ago`}${lob.uploader ? ` by ${lob.uploader}'s app` : ""}. Run /custy_teams to split them.` },
     }],
@@ -256,7 +278,10 @@ async function lobby(): Promise<Reply> {
 
 async function lookup(req: Request, query: string): Promise<Reply> {
   const [d, st] = await Promise.all([getDataset(), getStatic()]);
-  const p = searchPlayers(d.players, query)[0];
+  const mentioned = mentionedUser(query);
+  const linked = mentioned ? await puuidForDiscord(mentioned) : null;
+  if (mentioned && !linked) return privateNote(`<@${mentioned}> hasn't linked a League account yet. They can tap **Link my account** under a team split.`);
+  const p = linked ? d.players.find((x) => x.puuid === linked) : searchPlayers(d.players, query)[0];
   if (!p) return privateNote(`Nobody called "${query}" has played a tracked custom game.`);
   const rank = d.players.indexOf(p) + 1;
   const solo = (await getRanks([p.puuid])).get(p.puuid);
@@ -291,7 +316,7 @@ async function startDraft(req: Request, opts: Opts, user: string | null): Promis
   const id = crypto.randomUUID().slice(0, 12);
   const d = newDraft(got.players, user);
   await store().setSetting(`draft:${id}`, JSON.stringify(d));
-  return { data: draftMessage(id, d, siteUrl(req)) };
+  return { data: draftMessage(id, d, siteUrl(req), await discordByPuuid()) };
 }
 
 async function draftClick(req: Request, cid: string, user: string | null): Promise<Reply> {
@@ -307,7 +332,7 @@ async function draftClick(req: Request, cid: string, user: string | null): Promi
     if (!r.ok) return privateNote(r.reason);
   }
   await store().setSetting(`draft:${id}`, JSON.stringify(d));
-  const data = draftMessage(id, d, siteUrl(req));
+  const data = draftMessage(id, d, siteUrl(req), await discordByPuuid());
   if (d.done) {
     const pred = await createPrediction(`d${id}`, roster(d, 0).map((p) => p.puuid), roster(d, 1).map((p) => p.puuid), data);
     return { data: renderPrediction(pred) };
@@ -315,13 +340,14 @@ async function draftClick(req: Request, cid: string, user: string | null): Promi
   return { data };
 }
 
-function draftMessage(id: string, d: Draft, site: string) {
+function draftMessage(id: string, d: Draft, site: string, tags: Map<string, string> = new Map()) {
   const tag = (p: TeamPlayer) => {
     const bits = [p.known ? String(p.custy ?? p.rating) : "new"];
     if (p.rank?.tier) bits.push(rankShort(p.rank));
     return bits.join(" · ");
   };
-  const name = (p: TeamPlayer) => (p.known && p.puuid ? `[${p.name}](${site}/players/${encodeURIComponent(p.puuid)})` : p.name);
+  const name = (p: TeamPlayer) =>
+    p.puuid && tags.get(p.puuid) ? `<@${tags.get(p.puuid)}> · ${p.name}` : p.known && p.puuid ? `[${p.name}](${site}/players/${encodeURIComponent(p.puuid)})` : p.name;
   const side = (s: 0 | 1) => {
     const ps = roster(d, s);
     const avg = Math.round(ps.reduce((a, p) => a + p.rating, 0) / ps.length);
@@ -377,6 +403,36 @@ async function predictionBoard(): Promise<Reply> {
           .join("\n"),
         footer: { text: "Right: 100 × (all votes ÷ votes for the winner). Wrong: 0." },
       }],
+    },
+  };
+}
+
+// --- Linking Discord users to League players ---------------------------------
+
+/** A private dropdown of the players in that split, so you can say which one you are. */
+async function linkMenu(teamsId: string, user: string | null): Promise<Reply> {
+  if (!user) return privateNote("I couldn't tell who you are.");
+  const saved = await store().getSetting(`teams:${teamsId}`);
+  if (!saved) return privateNote("That team split has expired. Run /custy_teams again, then tap Link my account.");
+  const got = await gatherPlayers(JSON.parse(saved));
+  if ("data" in got) return got;
+  const [tags, mine] = await Promise.all([discordByPuuid(), puuidForDiscord(user)]);
+  const options = got.players
+    .filter((p) => p.known && p.puuid)
+    .slice(0, 24)
+    .map((p) => ({
+      label: p.name.slice(0, 100),
+      value: p.puuid!,
+      description: p.puuid === mine ? "Linked to you" : tags.has(p.puuid!) ? "Linked to someone else (picking it moves it to you)" : undefined,
+      default: p.puuid === mine,
+    }));
+  if (!options.length) return privateNote("Nobody in this split has played a tracked game yet, so there's nothing to link.");
+  if (mine) options.push({ label: "Unlink me", value: "none", description: "Go back to showing your League name", default: false });
+  return {
+    private: true,
+    data: {
+      content: "Which League account is yours? The bot will tag you in team splits and show you as @you.",
+      components: [{ type: 1, components: [{ type: 3, custom_id: "linkpick", placeholder: "Pick your League name", options }] }],
     },
   };
 }

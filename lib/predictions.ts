@@ -21,7 +21,7 @@ export interface Prediction {
   blue: string[];          // puuids (main accounts) on each side; players we can't identify are left out
   red: string[];
   votes: Record<string, Vote>; // Discord user id -> vote
-  message: { embeds: any[]; components: any[] }; // the teams message, without the predictions bits
+  message: { embeds: any[]; components: any[]; content?: string; allowed_mentions?: object }; // the teams message, without the predictions bits
   settled?: { matchId: string; winner: 0 | 1; results: { name: string; side: 0 | 1; points: number }[] };
 }
 
@@ -137,7 +137,7 @@ export function renderPrediction(p: Prediction) {
       ],
     },
   ];
-  return { embeds, components };
+  return { content: p.message.content, allowed_mentions: p.message.allowed_mentions, embeds, components };
 }
 
 /** One line for the game post: who called it. */
