@@ -165,7 +165,7 @@ def main():
                 return self.send(401, {"message": "unauthorized"})
             self.rfile.read(int(self.headers.get("Content-Length") or 0))
             if self.path.startswith("/lol-replays/v1/rofls/") and self.path.endswith("/watch"):
-                replay["watching"] = self.path.split("/")[4]
+                replay["watching"], replay["started"] = self.path.split("/")[4], None
                 return self.send(204, {})
             if self.path.startswith("/lol-replays/v1/rofls/"):
                 return self.send(204, {})
@@ -179,15 +179,35 @@ def main():
             pass
 
         def do_GET(self):
-            body = {"length": 1800.0 if replay["watching"] else 0, "time": self.state["time"], "paused": False}
-            Handler.send(self, 200, body)
+            # Real replays: a loading screen first (no game clock), and seeks take a few seconds.
+            import time as _t
+            st, now = self.state, _t.time()
+            if replay["watching"] and replay.get("started") is None:
+                replay["started"] = now
+            loaded = replay["watching"] and now - replay["started"] > 6
+            if self.path.startswith("/liveclientdata/gamestats"):
+                return Handler.send(self, 200, {"gameTime": st["time"]} if loaded else {}) if replay["watching"] else Handler.send(self, 404, {})
+            if self.path.startswith("/liveclientdata/playerlist"):
+                g = next((g for g in games if str(g["gameId"]) == str(replay["watching"])), None)
+                ids = [i["player"] for i in g["participantIdentities"]] if g else []
+                return Handler.send(self, 200, [{"riotId": "%s#%s" % (p.get("gameName"), p.get("tagLine"))} for p in ids])
+            seeking = st.get("seek_until", 0) > now
+            if loaded and not seeking:
+                if st.get("pending") is not None:
+                    st["time"], st["pending"] = st["pending"], None
+                st["time"] += 1.0 if not st.get("last") else now - st["last"]
+            st["last"] = now
+            g = next((g for g in games if str(g["gameId"]) == str(replay["watching"])), None)
+            Handler.send(self, 200, {"length": float(g["gameDuration"]) if g else 0, "time": st["time"], "paused": False, "seeking": seeking})
 
         def do_POST(self):
+            import time as _t
             req = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
-            if "time" in req:
-                self.state["time"] = float(req["time"])
-                print("Replay API: seek to %.0fs" % self.state["time"], flush=True)
-            return self.do_GET()
+            loaded = replay["watching"] and replay.get("started") and _t.time() - replay["started"] > 6
+            if "time" in req and loaded:   # ignored during the loading screen, like the real thing
+                self.state["pending"], self.state["seek_until"] = float(req["time"]), _t.time() + 3
+                print("Replay API: seek to %.0fs" % float(req["time"]), flush=True)
+            Handler.send(self, 200, {"length": 1800.0, "time": self.state["time"], "paused": False})
 
     cert, key = os.path.join(folder, "mock.crt"), os.path.join(folder, "mock.key")
     if not os.path.exists(cert):

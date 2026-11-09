@@ -337,19 +337,97 @@ def _clock(t):
     return "%d:%02d" % (t // 60, t % 60)
 
 
+def _live(path):
+    req = urllib.request.Request(REPLAY_API + path)
+    with urllib.request.urlopen(req, context=_local_ctx(), timeout=5) as r:
+        return json.loads(r.read() or b"null")
+
+
+def _replay_is_game(game_id):
+    """True/False if the open replay is (not) this game, None if we can't tell."""
+    data = _read_cache(game_id)
+    if not data:
+        return None
+    try:   # the replay's length is the game's length
+        length, dur = float(_playback().get("length") or 0), float((data.get("game") or {}).get("gameDuration") or 0)
+        if length and dur and abs(length - dur) > 20:
+            return False
+    except Exception:
+        pass
+    want = set()
+    for i in (data.get("game") or {}).get("participantIdentities") or []:
+        pl = i.get("player") or {}
+        if pl.get("gameName"):
+            want.add(("%s#%s" % (pl.get("gameName"), pl.get("tagLine") or "")).lower())
+    try:
+        players = _live("/liveclientdata/playerlist") or []
+    except Exception:
+        return None
+    seen = {str(p.get("riotId") or "").lower() for p in players if p.get("riotId")}
+    if not want or not seen:
+        return None
+    return len(want & seen) >= len(want) - 1   # same ten players (allowing one renamed)
+
+
+def _replay_playing():
+    """The replay has finished loading and its clock is running (seeking any earlier gets ignored)."""
+    try:
+        if not _playback().get("length"):
+            return False
+        if (_live("/liveclientdata/gamestats") or {}).get("gameTime") is None:
+            return False
+        a = float(_playback().get("time") or 0)
+        time.sleep(1.5)
+        pb = _playback()
+        return float(pb.get("time") or 0) > a or bool(pb.get("paused"))
+    except Exception:
+        return False
+
+
+def _seek(seconds):
+    """Jumps and waits for the jump to finish before checking it (re-sending mid-seek restarts it)."""
+    target = float(seconds)
+    for attempt in range(4):
+        _status("working", "Jumping to %s..." % _clock(target))
+        try:
+            _playback({"time": target, "paused": False})
+        except Exception as e:
+            core.log.info("Replay seek %d failed: %s", attempt + 1, e)
+        # Long jumps take a few seconds while the replay catches up; wait until it's done.
+        settled_at = time.time() + 20
+        now = None
+        while time.time() < settled_at:
+            time.sleep(1)
+            try:
+                pb = _playback()
+            except Exception:
+                continue
+            if pb.get("seeking"):
+                continue
+            now = float(pb.get("time") or 0)
+            if target - 3 <= now <= target + 20:
+                return _status("done", "Jumped to %s." % _clock(target))
+            if time.time() > settled_at - 14:   # gave it 6s without seeking: it didn't take
+                break
+        core.log.info("Replay seek %d landed at %s, wanted %s", attempt + 1, now, target)
+        time.sleep(1.5)
+    return _status("done", "Replay is open, but the jump didn't stick. Drag the timeline to %s." % _clock(target))
+
+
 def _open_replay(cfg, game_id, seconds):
     try:
         lcu = _lcu(cfg)
         if lcu is None:
             return _status("error", "Open League first: replays are played through the client.")
-        # Already watching this game? Just jump.
+        # A replay already open? Jump in it if it's this game; otherwise it has to be closed first.
         try:
-            pb = _playback()
-            if pb.get("length"):
-                _playback({"time": float(seconds), "paused": False})
-                return _status("done", "Jumped to %s." % _clock(seconds))
+            open_now = bool(_playback().get("length"))
         except Exception:
-            pass
+            open_now = False
+        if open_now:
+            if _replay_is_game(game_id) is False:
+                return _status("error", "A different replay is open. Close it, then click Watch again.")
+            return _seek(seconds)
 
         meta = lcu.get("/lol-replays/v1/metadata/%s" % game_id) or {}
         state = meta.get("state")
@@ -384,27 +462,12 @@ def _open_replay(cfg, game_id, seconds):
             return _status("done", "Replay is starting. Jumping isn't turned on, so drag the timeline to %s." % _clock(seconds))
 
         _status("working", "Waiting for the replay to load...")
-        deadline = time.time() + 180
+        deadline = time.time() + 240
         while time.time() < deadline:
             time.sleep(2)
-            try:
-                pb = _playback()
-            except Exception:
-                continue
-            if not pb.get("length"):
-                continue
-            time.sleep(2)
-            for _ in range(5):
-                _playback({"time": float(seconds), "paused": False})
-                time.sleep(1.5)
-                try:
-                    now = float(_playback().get("time") or 0)
-                except Exception:
-                    now = seconds
-                if abs(now - seconds) < 10:
-                    return _status("done", "Jumped to %s." % _clock(seconds))
-            return _status("done", "Replay is open, but the jump didn't stick. Drag the timeline to %s." % _clock(seconds))
-        return _status("error", "The replay didn't open within 3 minutes. If it opened, drag the timeline to %s." % _clock(seconds))
+            if _replay_playing():
+                return _seek(seconds)
+        return _status("error", "The replay didn't open within 4 minutes. If it opened, drag the timeline to %s." % _clock(seconds))
     except Exception as e:
         _status("error", "Couldn't open the replay: %s" % e)
 
