@@ -72,8 +72,8 @@ svg text { fill:var(--mute); font-size:11px; }
 .well-card .w { display:flex; gap:10px; padding:7px 0; } .well-card .w i { color:var(--green); font-style:normal; font-weight:700; }
 .well-card .w b { display:block; } .well-card .w span { color:var(--mute); font-size:13px; }
 .warn { color:var(--amber-ink) !important; }
-.timings .lv { display:grid; grid-template-columns: 44px 1fr auto; gap:8px; align-items:baseline; padding:2px 0; }
-.timings .lv span { color:var(--mute); font-size:12px; } .timings .lv b { font-size:15px; } .timings .lv small { color:var(--faint); font-size:12px; }
+.timings .lv { display:grid; grid-template-columns: 60px 130px 1fr; gap:10px; align-items:baseline; padding:3px 0; }
+.timings .lv span { color:var(--mute); font-size:12px; } .timings .lv b { font-size:15px; } .timings .lv small { color:var(--mute); font-size:12.5px; } .timings .lv small span { color:var(--faint); } .timings .lv small em { font-style:normal; color:var(--ink); }
 .kd { color:var(--green-ink); } .moment .cmp a { color:var(--blue-ink); }
 .progress { margin-top:14px; display:grid; grid-template-columns: 200px repeat(3, minmax(0, 1fr)); gap:10px 22px; align-items:center; border-color:rgba(79,209,161,.35); }
 .progress .pg b { display:block; font-size:19px; } .progress .pg b em { font-style:normal; color:var(--green-ink); }
@@ -81,7 +81,7 @@ svg text { fill:var(--mute); font-size:11px; }
 @media (max-width: 900px) { .progress { grid-template-columns: 1fr; } }
 .moment.swing { border:1px solid var(--red); background:var(--red-wash); border-radius:10px; padding:14px; margin:10px -6px; }
 .moment.swing + .moment { border-top:0; }
-.moment .badge { display:inline-block; margin-bottom:6px; padding:2px 8px; border-radius:99px; background:var(--red); color:#fff; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+.moment .badge { display:block; width:fit-content; white-space:nowrap; margin-bottom:6px; padding:2px 8px; border-radius:99px; background:var(--red); color:#fff; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
 .moment .when { font-weight:600; font-size:16px; } .moment .when small { display:block; color:var(--amber-ink); font-weight:400; font-size:12px; }
 .moment .part { margin-bottom:6px; } .moment .part > b { display:block; }
 .moment ul { margin:8px 0 0; padding-left:18px; color:var(--mute); font-size:13px; }
@@ -866,15 +866,28 @@ async function openGame(id) {
   render(A, B, moments, s, B ? label : null, wentWell(A, B, hist));
 }
 
-// Who reached levels 2, 3 and 6 first, with how often experts do.
+// Who reached levels 2, 3 and 6 first, and whether that's normal: how often experts on this champion get there first.
 function levelCard(A, B) {
+  const oppName = A.opp ? champName(A.opp.championId) : "opponent";
+  let any = false;
   const rows = [2, 3, 6].map(n => {
     const r = A.races[n]; if (!r) return "";
     const w = raceWord(r.gap), ex = A.opp && expertRace(B, n, DD.champ[A.opp.championId]?.id);
-    return `<div class="lv"><span>Lv ${n}</span><b class="${w === "first" ? "good" : w === "second" ? "warn" : ""}">${w}${w === "same time" ? "" : ` · ${Math.round(Math.abs(r.gap))}s`}</b>
-      <small>${ex ? `experts first ${Math.round(ex.first * 100)}%` : clock(r.me)}</small></div>`;
+    let note = "", cls = w === "first" ? "good" : "";
+    if (ex) {
+      any = true;
+      const f = Math.round(ex.first * 100), second = Math.round((1 - ex.first - ex.even) * 100);
+      const verdict = w === "second" ? (ex.first >= 0.55 ? "experts are usually first here, so this is worth a look" : ex.first <= 0.4 ? "being second is normal here" : "it goes either way for experts")
+        : w === "first" ? (ex.first >= 0.55 ? "as experts usually are" : ex.first <= 0.4 ? "experts usually aren't, so that's a strong start" : "it goes either way for experts")
+        : "level with your opponent";
+      if (w === "second") cls = ex.first >= 0.55 ? "warn" : "";
+      note = `Experts: first ${f}% · second ${second}% · same time ${Math.round(ex.even * 100)}% <span>(${ex.vs ? `vs ${esc(oppName)}, ` : "all matchups, "}${ex.n} games)</span>: <em>${verdict}</em>`;
+    } else if (w === "second") cls = "";
+    return `<div class="lv"><span>Level ${n}</span><b class="${cls}">${w}${w === "same time" ? "" : ` · ${Math.round(Math.abs(r.gap))}s`}</b><small>${note || `you ${clock(r.me)} · ${esc(oppName)} ${clock(r.opp)}`}</small></div>`;
   }).join("");
-  return `<div class="card" style="grid-column:span 2"><div class="k">Levels vs ${esc(A.opp ? champName(A.opp.championId) : "opponent")}: who got there first</div>${rows || `<div class="v">—</div>`}</div>`;
+  if (!rows) return "";
+  const missing = !any ? `<div class="d" style="margin-top:4px">${B?.expert ? "How often experts get there first isn't in yet for this champion; it's being collected and will show here." : "No expert data for this champion and role yet."}</div>` : "";
+  return `<div class="card" style="grid-column:1 / -1"><div class="k">Levels vs ${esc(oppName)}: who got there first, and is that normal?</div>${rows}${missing}</div>`;
 }
 function timingCard(k, mine, usual, fmt, lowerIsBetter = true) {
   const has = mine != null;
@@ -908,6 +921,14 @@ function render(A, B, moments, s, label, well = []) {
     <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">Breakdown</button></div>
     <div id="v-experts" hidden><div class="empty">Loading expert data...</div></div>
     <div id="v-moments">
+    <h2>Timings</h2>
+    <div class="timings">
+      ${timingCard("First back", A.backs[0]?.t ?? null, B?.firstBack, clock)}
+      ${timingCard("First item", A.firstItem, B?.firstItem, clock)}
+      ${timingCard("CS at 10:00", cs10, B?.cs?.[10]?.p50, v => Math.round(v), false)}
+      ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
+      ${levelCard(A, B)}
+    </div>
     <h2>What went well</h2>
     <div class="card well-card">${well.length ? well.map(w => `<div class="w"><i>✓</i><div><b>${esc(w.title)}</b><span>${esc(w.text)}</span></div></div>`).join("")
       : `<div class="sub">A tough one: nothing this game beat ${B?.expert ? "the experts or your own recent games" : "your recent games"}. The moments below are where the most is to be gained.</div>`}</div>
@@ -927,14 +948,6 @@ function render(A, B, moments, s, label, well = []) {
     </div>
     <h2>All your kills and deaths (${myKills.length} kills · ${A.deaths.length} deaths)</h2>
     <div class="card">${kd.length ? kd.map(x => x.kill ? killRow(A, x.kill, myKills.indexOf(x.kill)) : deathRow(A, x.death)).join("") : `<div class="empty" style="padding:10px 0">No kills or deaths this game.</div>`}</div>
-    <h2>Timings</h2>
-    <div class="timings">
-      ${timingCard("First back", A.backs[0]?.t ?? null, B?.firstBack, clock)}
-      ${timingCard("First item", A.firstItem, B?.firstItem, clock)}
-      ${levelCard(A, B)}
-      ${timingCard("CS at 10:00", cs10, B?.cs?.[10]?.p50, v => Math.round(v), false)}
-      ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
-    </div>
     </div>
     <p class="sub" style="margin-top:22px">Compared with ${B ? esc(label) : "nothing yet"}. It only says where to look; watching the replay is how you see why.</p>`;
   document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
