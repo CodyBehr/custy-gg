@@ -692,7 +692,7 @@ def make_handler(cfg, token):
                 try:
                     body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
                     moments = [{"start": float(x["start"]), "end": float(x["end"]), "title": str(x.get("title") or "")[:160],
-                                "text": str(x.get("text") or "")[:400], "turning": bool(x.get("turning"))}
+                                "text": str(x.get("text") or "")[:400], "turning": bool(x.get("turning")), "good": bool(x.get("good"))}
                                for x in (body.get("moments") or [])[:20]]
                     import overlay
                     overlay.show(m.group(1), body.get("duration"), moments, _playback, os.path.join(core.HERE, "overlay-pos.json"))

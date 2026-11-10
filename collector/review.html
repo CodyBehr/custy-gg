@@ -11,6 +11,7 @@
   --blue:#4f9dff; --blue-ink:#9cc8ff; --blue-wash:rgba(79,157,255,.11);
   --red:#f2596b; --red-ink:#ff9aa6; --red-wash:rgba(242,89,107,.1);
   --gold:#e3b866; --gold-wash:rgba(227,184,102,.12);
+  --green:#4fd1a1; --green-ink:#8be8c6; --green-wash:rgba(79,209,161,.1); --amber-ink:#f0c98a;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -64,10 +65,21 @@ svg text { fill:var(--mute); font-size:11px; }
 .paths .pi.late img { border-style:dashed; }
 .paths .pi em { font-style:normal; font-size:11px; color:var(--faint); }
 .paths .arr { color:var(--faint); font-style:normal; font-size:20px; }
+.moment.well { border:1px solid rgba(79,209,161,.45); background:var(--green-wash); border-radius:10px; padding:14px; margin:10px -6px; }
+.moment.well + .moment, .moment.swing + .moment.well, .moment.well + .moment.swing { border-top:0; }
+.moment .badge.ok { background:var(--green); color:#06231a; }
+.well-card { border-color:rgba(79,209,161,.4); background:radial-gradient(120% 160% at 0% 0%, rgba(79,209,161,.14), transparent 60%), var(--deck); }
+.well-card .w { display:flex; gap:10px; padding:7px 0; } .well-card .w i { color:var(--green); font-style:normal; font-weight:700; }
+.well-card .w b { display:block; } .well-card .w span { color:var(--mute); font-size:13px; }
+.warn { color:var(--amber-ink) !important; }
+.progress { margin-top:14px; display:grid; grid-template-columns: 200px repeat(3, minmax(0, 1fr)); gap:10px 22px; align-items:center; border-color:rgba(79,209,161,.35); }
+.progress .pg b { display:block; font-size:19px; } .progress .pg b em { font-style:normal; color:var(--green-ink); }
+.progress .pg span { color:var(--mute); font-size:13px; } .progress .pg small { display:block; color:var(--faint); font-size:12px; }
+@media (max-width: 900px) { .progress { grid-template-columns: 1fr; } }
 .moment.swing { border:1px solid var(--red); background:var(--red-wash); border-radius:10px; padding:14px; margin:10px -6px; }
 .moment.swing + .moment { border-top:0; }
 .moment .badge { display:inline-block; margin-bottom:6px; padding:2px 8px; border-radius:99px; background:var(--red); color:#fff; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
-.moment .when { font-weight:600; font-size:16px; } .moment .when small { display:block; color:var(--red-ink); font-weight:400; font-size:12px; }
+.moment .when { font-weight:600; font-size:16px; } .moment .when small { display:block; color:var(--amber-ink); font-weight:400; font-size:12px; }
 .moment .part { margin-bottom:6px; } .moment .part > b { display:block; }
 .moment ul { margin:8px 0 0; padding-left:18px; color:var(--mute); font-size:13px; }
 .moment .cmp { font-size:13px; color:var(--mute); } .moment .cmp b { color:var(--ink); font-weight:600; }
@@ -312,7 +324,7 @@ function fromExperts(b) {
   const med = k => b.timings?.[k]?.[1] ?? null;
   return { expert: true, n: b.games, diff: band(b.minutes.gdiff), gold: band(b.minutes.gold), cs: band(b.minutes.cs),
     firstBack: med("first_back"), firstBackGold: med("first_back_gold"), firstItem: med("legendary1"),
-    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14"), items: b.items || [] };
+    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14"), items: b.items || [], paths: b.paths || [], orders: b.orders || [] };
 }
 const WHO = (B) => B?.expert ? "Experts" : "Your usual";
 
@@ -465,16 +477,130 @@ function findMoments(A, B) {
   }
 
   // Overlapping findings become one moment to watch.
-  const merged = [];
-  for (const w of out.filter(w => w.cost > 0).sort((a, b) => a.start - b.start)) {
-    const cur = merged[merged.length - 1];
-    if (cur && w.start <= cur.end) { cur.end = Math.max(cur.end, w.end); cur.cost += w.cost; cur.parts.push(w); }
-    else merged.push({ start: w.start, end: w.end, cost: w.cost, parts: [w] });
-  }
-  for (const m of merged) { m.parts.sort((a, b) => a.start - b.start); m.context = context(A, m); }
-  // Keep the ones that cost the most, then list them in the order they happened.
-  return merged.sort((a, b) => b.cost - a.cost).slice(0, 6).sort((a, b) => a.start - b.start);
+  const mergeAll = (list) => {
+    const merged = [];
+    for (const w of list.sort((a, b) => a.start - b.start)) {
+      const cur = merged[merged.length - 1];
+      if (cur && w.start <= cur.end) { cur.end = Math.max(cur.end, w.end); cur.cost += w.cost; cur.parts.push(w); }
+      else merged.push({ start: w.start, end: w.end, cost: w.cost, parts: [w] });
+    }
+    for (const m of merged) m.parts.sort((a, b) => a.start - b.start);
+    return merged;
+  };
+  // Keep the ones that cost the most.
+  const bad = mergeAll(out.filter(w => w.cost > 0)).sort((a, b) => b.cost - a.cost).slice(0, 6);
+  // Things that went well are moments too (up to 3), unless a moment above already covers that stretch.
+  const good = mergeAll(goodMoments(A, B)).filter(g => !bad.some(b => g.start <= b.end && b.start <= g.end))
+    .sort((a, b) => b.cost - a.cost).slice(0, 3);
+  for (const g of good) g.good = true;
+  // Listed in the order they happened.
+  const all = [...bad, ...good].sort((a, b) => a.start - b.start);
+  for (const m of all) m.context = context(A, m);
+  return all;
 }
+
+// What our team took in the 40s after a time (the mirror of lostWhileDead).
+function tookAfter(A, t) {
+  const items = [], ours = (pid) => A.g.participants.find(p => p.participantId === pid)?.teamId === A.me.teamId;
+  for (const e of A.events) {
+    const s = e.timestamp / 1000; if (s < t || s > t + 40) continue;
+    if (e.type === "BUILDING_KILL" && e.teamId !== A.me.teamId) {
+      const lane = String(e.laneType || "").replace("_LANE", "").toLowerCase();
+      items.push(e.buildingType === "INHIBITOR_BUILDING" ? `${lane} inhibitor` : e.towerType === "NEXUS_TURRET" ? "a nexus turret" : `${lane} ${String(e.towerType || "").replace("_TURRET", "").toLowerCase()} tower`);
+    }
+    if (e.type === "ELITE_MONSTER_KILL" && e.killerId > 0 && ours(e.killerId) && e.monsterType !== "HORDE")
+      items.push(OBJ_NAME[e.monsterSubType === "ELDER_DRAGON" ? "ELDER_DRAGON" : e.monsterType] || "an objective");
+  }
+  return [...new Set(items)];
+}
+
+// Stretches that went well: fights your team won with you in them, solo kills, and your lane lead jumping.
+function goodMoments(A, B) {
+  const out = [], me = A.me.participantId;
+  const ours = (pid) => A.g.participants.find(p => p.participantId === pid)?.teamId === A.me.teamId;
+  // Kills within 15s of each other are one fight.
+  const fights = [];
+  for (const k of A.kills) {
+    const t = k.timestamp / 1000, f = fights[fights.length - 1];
+    if (f && t - f.end <= 15) { f.end = t; f.kills.push(k); } else fights.push({ start: t, end: t, kills: [k] });
+  }
+  for (const f of fights) {
+    const got = f.kills.filter(k => !ours(k.victimId)), lostK = f.kills.filter(k => ours(k.victimId));
+    const mine = got.filter(k => k.killerId === me), part = got.filter(k => k.killerId === me || (k.assistingParticipantIds || []).includes(me));
+    if (lostK.some(k => k.victimId === me) || !part.length) continue;
+    const bigPart = part.length >= Math.max(2, got.length / 2);   // properly in the fight, not one stray assist
+    const took = tookAfter(A, f.end), tookText = took.length ? ` Your team took <b>${took.join(", ")}</b> right after.` : "";
+    if (got.length >= 3 && got.length - lostK.length >= 2 && bigPart) {
+      out.push({ kind: "good", start: Math.max(0, f.start - 30), end: f.end + 10, cost: 600 + got.length * 150 + took.length * 300,
+        title: `Your team won a fight ${got.length} for ${lostK.length} at ${clock(f.start)}`,
+        compare: `You were in on <b>${part.length}</b> of the ${got.length} kills and came out alive.${tookText}` });
+    } else if (mine.length >= 2) {
+      out.push({ kind: "good", start: Math.max(0, f.start - 30), end: f.end + 10, cost: 500 + took.length * 300,
+        title: `${mine.length === 2 ? "Double" : "Multi"} kill at ${clock(f.start)}`, compare: `You killed ${mine.map(k => A.champOf(k.victimId)).join(" and ")} without dying.${tookText}` });
+    } else if (mine.length === 1 && !(mine[0].assistingParticipantIds || []).length && got.length === 1 && !lostK.length) {
+      const k = mine[0], lane = A.opp && k.victimId === A.opp.participantId;
+      out.push({ kind: "good", start: Math.max(0, f.start - 30), end: f.end + 10, cost: (lane ? 450 : 350) + took.length * 300,
+        title: `Solo kill on ${A.champOf(k.victimId)} at ${clock(f.start)}`, compare: `${lane ? "You beat your lane opponent one on one." : "No help needed."}${tookText}` });
+    }
+  }
+  // Lane gold: up 500+ on your opponent within 3 minutes.
+  if (A.diff) {
+    let best = null;
+    for (let m = 3; m <= Math.min(A.minutes, 25); m++) {
+      const gain = A.diff[m] - A.diff[m - 3];
+      if (gain >= 500 && (!best || gain > best.gain)) best = { m, gain };
+    }
+    if (best) out.push({ kind: "good", start: (best.m - 3) * 60, end: best.m * 60, cost: best.gain * 0.6,
+      title: `Lane gold went from ${signed(A.diff[best.m - 3])} to ${signed(A.diff[best.m])}`,
+      compare: `You gained <b>${Math.round(best.gain).toLocaleString()}</b> gold on ${A.opp ? champName(A.opp.championId) : "your opponent"} between ${best.m - 3}:00 and ${best.m}:00.` });
+  }
+  return out;
+}
+
+// Two or three things that went well this game: against the comparison first, then against your own other games.
+function wentWell(A, B, hist) {
+  const out = [], who = B?.expert ? "experts" : "your usual", champ = champName(A.me.championId);
+  const add = (score, title, text) => out.push({ score, title, text });
+  const early = A.deaths.filter(d => d.t < 840).length, st = A.me.stats || {};
+  if (A.minutes >= 14 && early === 0) add(3, "No deaths before 14:00", B?.deaths14 >= 0.5 ? `${B.expert ? "Experts die" : "You usually die"} ${B.deaths14 >= 1.5 ? Math.round(B.deaths14) + " times" : "about once"} in that stretch.` : "A clean laning phase.");
+  if (A.role !== "SUPPORT" && A.minutes >= 10 && B?.cs?.[10] && A.myCs[10] >= B.cs[10].p50)
+    add(2.5 + (A.myCs[10] >= B.cs[10].p75 ? 1 : 0), `${A.myCs[10]} CS at 10:00`, `${A.myCs[10] >= B.cs[10].p75 ? "Above" : "Level with"} ${who} (median ${Math.round(B.cs[10].p50)}).`);
+  if (A.diff && A.minutes >= 15 && A.diff[15] >= 300 && A.opp)
+    add(2 + Math.min(2, A.diff[15] / 1500), `${signed(A.diff[15])} gold on ${champName(A.opp.championId)} at 15:00`, B?.diff?.[15] && A.diff[15] >= B.diff[15].p50 ? `${B.expert ? "An expert-sized lead" : "More than your usual"} (median ${signed(B.diff[15].p50)}).` : "You won your lane.");
+  if (A.firstItem && B?.firstItem && A.firstItem <= B.firstItem)
+    add(2.2, `First item at ${clock(A.firstItem)}`, `${Math.round(B.firstItem - A.firstItem)}s faster than ${who} (${clock(B.firstItem)}).`);
+  if (A.lvl6 != null && A.oppLvl6 != null && A.oppLvl6 - A.lvl6 >= 10 && A.role !== "JUNGLE" && A.opp)
+    add(1.6, `Level 6 ${Math.round(A.oppLvl6 - A.lvl6)}s before ${champName(A.opp.championId)}`, "That's a window where you have your ultimate and they don't.");
+  const mine3 = A.items.slice(0, 3).map(b => b.id);
+  const paths = B?.paths?.length ? B.paths.map(p => p.items) : (B?.orders || []).slice(0, 3).map(o => o[0]);
+  const pn = mine3.length === 3 ? paths.findIndex(p => p.slice(0, 3).every((id, i) => id === mine3[i])) : -1;
+  if (pn >= 0) add(2.4, "Your build matched the experts", `Your first 3 items are their #${pn + 1} most common path on ${champ}.`);
+  if (A.g.gameDuration >= 1200 && A.deaths.length <= 2) add(2.6, A.deaths.length ? `Only ${A.deaths.length} death${A.deaths.length === 1 ? "" : "s"} all game` : "No deaths all game", `Over ${Math.round(A.g.gameDuration / 60)} minutes.`);
+  const teamKills = A.g.participants.filter(p => p.teamId === A.me.teamId).reduce((a, p) => a + (p.stats?.kills || 0), 0);
+  const kp = teamKills >= 10 ? ((st.kills || 0) + (st.assists || 0)) / teamKills : 0;
+  if (kp >= 0.6) add(1.5 + kp, `In on ${Math.round(kp * 100)}% of your team's kills`, `${st.kills} kills and ${st.assists} assists out of ${teamKills}.`);
+
+  // Not much above the comparison: look at your own recent games on this champion instead.
+  if (out.length < 2 && hist?.length >= 3) {
+    const last = `your last ${hist.length + 1} ${champ} games`;
+    const cs = hist.map(h => h.minutes >= 10 ? h.myCs[10] : null).filter(v => v != null);
+    const deaths = hist.map(h => h.deaths.length), gd = hist.map(h => h.diff && h.minutes >= 15 ? h.diff[15] : null).filter(v => v != null);
+    const med = (v) => pct(v, .5);
+    if (A.role !== "SUPPORT" && A.minutes >= 10 && cs.length >= 3) {
+      if (A.myCs[10] > Math.max(...cs)) add(2, `Your best CS at 10:00 in ${last}`, `${A.myCs[10]}, up from a previous best of ${Math.max(...cs)}.`);
+      else if (A.myCs[10] > med(cs)) add(1.2, `CS at 10:00 above your usual`, `${A.myCs[10]} against your usual ${Math.round(med(cs))} on ${champ}.`);
+    }
+    if (A.g.gameDuration >= 1200) {
+      if (A.deaths.length < Math.min(...deaths)) add(2, `Your fewest deaths in ${last}`, `${A.deaths.length}, down from a previous best of ${Math.min(...deaths)}.`);
+      else if (A.deaths.length < med(deaths)) add(1.2, "Fewer deaths than your usual", `${A.deaths.length} against your usual ${Math.round(med(deaths))} on ${champ}.`);
+    }
+    if (A.diff && A.minutes >= 15 && gd.length >= 3 && A.diff[15] > med(gd))
+      add(1.1, "A better lane than your usual", `${signed(A.diff[15])} gold at 15:00 against your usual ${signed(med(gd))}.`);
+  }
+  const seen = new Set();
+  return out.sort((a, b) => b.score - a.score).filter(w => !seen.has(w.title) && seen.add(w.title)).slice(0, 3);
+}
+
 
 // What the enemy team took in the 40s after you died, and which allies died within 15s of you.
 const OBJ_VALUE = { BARON_NASHOR: 1500, DRAGON: 500, ELDER_DRAGON: 1500, RIFTHERALD: 400, ATAKHAN: 600, HORDE: 150 };
@@ -580,7 +706,7 @@ function chart(A, B, moments) {
   const pad = (hi - lo) * .08 || 500; lo -= pad; hi += pad;
   const x = (m) => L + (m / n) * (W - L - R), y = (v) => T + (hi - v) / (hi - lo) * (H - T - Bm);
   let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Lane gold difference by minute">`;
-  for (const w of moments) s += `<rect x="${x(w.start / 60)}" y="${T}" width="${Math.max(3, x(w.end / 60) - x(w.start / 60))}" height="${H - T - Bm}" fill="var(--red-wash)"/>`;
+  for (const w of moments) s += `<rect x="${x(w.start / 60)}" y="${T}" width="${Math.max(3, x(w.end / 60) - x(w.start / 60))}" height="${H - T - Bm}" fill="var(--${w.good ? "green" : w.parts.some(p => p.turning) ? "red" : "gold"}-wash)"/>`;
   const step = (hi - lo) > 6000 ? 2000 : (hi - lo) > 2500 ? 1000 : 500;
   for (let v = Math.ceil(lo / step) * step; v <= hi; v += step)
     s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 0 ? "var(--line)" : "var(--line-soft)"}"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${signed(v)}</text>`;
@@ -688,7 +814,11 @@ async function openGame(id) {
   }
   if (STATE.current !== id) return;
   const moments = findMoments(A, B);
-  render(A, B, moments, s, B ? label : null);
+  // Your other recent games on this champion, for "best in your last N games".
+  const mates = STATE.games.filter(g => g.id != id && g.hasTimeline && g.champion === s.champion && g.role === s.role).slice(0, 9);
+  const hist = (await Promise.all(mates.map(g => getGame(g.id).then(analyse).catch(() => null)))).filter(Boolean);
+  if (STATE.current !== id) return;
+  render(A, B, moments, s, B ? label : null, wentWell(A, B, hist));
 }
 
 function timingCard(k, mine, usual, fmt, lowerIsBetter = true) {
@@ -696,13 +826,13 @@ function timingCard(k, mine, usual, fmt, lowerIsBetter = true) {
   let cls = "", d = "";
   if (has && usual != null) {
     const delta = mine - usual;
-    cls = Math.abs(delta) < 1e-9 ? "" : (lowerIsBetter ? delta > 0 : delta < 0) ? "bad" : "good";
+    cls = Math.abs(delta) < 1e-9 ? "" : (lowerIsBetter ? delta > 0 : delta < 0) ? "warn" : "good";
     d = `${STATE.cmpWord || "usual"} ${fmt(usual)}`;
   }
   return `<div class="card"><div class="k">${k}</div><div class="v ${cls}">${has ? fmt(mine) : "—"}</div><div class="d">${d || "&nbsp;"}</div></div>`;
 }
 
-function render(A, B, moments, s, label) {
+function render(A, B, moments, s, label, well = []) {
   const opp = A.opp ? champName(A.opp.championId) : null;
   const res = A.me.stats?.win ? `<span class="win">Win</span>` : `<span class="loss">Loss</span>`;
   const expired = replayExpired(A.g.gameId);
@@ -721,15 +851,18 @@ function render(A, B, moments, s, label) {
     <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">Breakdown</button></div>
     <div id="v-experts" hidden><div class="empty">Loading expert data...</div></div>
     <div id="v-moments">
+    <h2>What went well</h2>
+    <div class="card well-card">${well.length ? well.map(w => `<div class="w"><i>✓</i><div><b>${esc(w.title)}</b><span>${esc(w.text)}</span></div></div>`).join("")
+      : `<div class="sub">A tough one: nothing this game beat ${B?.expert ? "the experts or your own recent games" : "your recent games"}. The moments below are where the most is to be gained.</div>`}</div>
     <h2>${A.diff ? "Lane gold difference" : "Your gold"} by minute</h2>
     <div class="card">${chart(A, B, moments)}
-      <div class="legend"><span><i style="background:var(--gold)"></i>This game</span>${B ? `<span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of ${esc(label)}</span>` : ""}<span><i style="background:var(--red-wash)"></i>Moments to watch</span><span style="color:var(--red-ink)">✕ your deaths</span></div>
+      <div class="legend"><span><i style="background:var(--gold)"></i>This game</span>${B ? `<span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of ${esc(label)}</span>` : ""}<span><i style="background:var(--gold-wash)"></i>Moments to watch</span><span><i style="background:var(--red-wash)"></i>Turning points</span><span><i style="background:var(--green-wash)"></i>Went well</span><span style="color:var(--red-ink)">✕ your deaths</span></div>
       ${B?.expert ? "" : `<div class="sub" style="margin-top:6px">No high-elo data for ${esc(champName(A.me.championId))} ${esc(ROLE_NAME[A.role] || "")} yet, so ${B ? "this uses your own recent games instead" : "there's nothing to compare with"}.</div>`}
     </div>
     <h2>Moments to watch, in order</h2>
     <div class="card">${moments.length ? moments.map((w, i) => `
-      <div class="moment${w.parts.some(p => p.turning) ? " swing" : ""}">
-        <div class="when">${w.parts.some(p => p.turning) ? `<span class="badge">Turning point</span>` : ""}${clock(w.start)} – ${clock(w.end)}${w.parts.some(p => p.kind === "gold") ? `<small>${Math.round(Math.max(...w.parts.filter(p => p.kind === "gold").map(p => p.cost))).toLocaleString()} gold lost</small>` : ""}</div>
+      <div class="moment${w.good ? " well" : w.parts.some(p => p.turning) ? " swing" : ""}">
+        <div class="when">${w.good ? `<span class="badge ok">Went well</span>` : w.parts.some(p => p.turning) ? `<span class="badge">Turning point</span>` : ""}${clock(w.start)} – ${clock(w.end)}${w.parts.some(p => p.kind === "gold") ? `<small>${Math.round(Math.max(...w.parts.filter(p => p.kind === "gold").map(p => p.cost))).toLocaleString()} gold lost</small>` : ""}</div>
         <div class="what">${w.parts.map(p => `<div class="part"><b>${esc(p.title)}</b>${p.compare ? `<div class="cmp">${p.compare}</div>` : ""}</div>`).join("")}
           ${w.context.length ? `<ul>${w.context.map(l => `<li>${l}</li>`).join("")}</ul>` : ""}</div>
         <div class="acts"><button class="primary" data-watch="${w.start}">Watch in my replay</button></div>
@@ -752,7 +885,7 @@ function render(A, B, moments, s, label) {
   // What the caption bar over the replay shows for this game.
   const plain = (h) => { const d = document.createElement("div"); d.innerHTML = h || ""; return d.textContent.replace(/\s+/g, " ").trim(); };
   STATE.overlay = { game: A.g.gameId, duration: A.g.gameDuration, moments: moments.map(w => ({
-    start: w.start, end: w.end, turning: w.parts.some(p => p.turning),
+    start: w.start, end: w.end, good: !!w.good, turning: !w.good && w.parts.some(p => p.turning),
     title: w.parts.map(p => p.title).join(" · "), text: plain((w.parts.find(p => p.turning) || w.parts[0]).compare) })) };
   const en = $("enableApi"); if (en) en.onclick = enableApi;
   const tabs = document.querySelectorAll(".tabs button");
@@ -1024,6 +1157,7 @@ function dashStats(rows) {
     if (pts.length < 3) return null;
     const half = Math.floor(pts.length / 2);
     return { m, pts, n: pts.length, you: avg(pts.map(p => p.y)), exp: avg(pts.map(p => p.p50)), z: avg(pts.map(p => p.z)),
+      older: avg(pts.slice(0, half || 1).map(p => p.y)), newer: avg(pts.slice(half).map(p => p.y)),
       trend: pts.length >= 6 ? avg(pts.slice(half).map(p => p.z)) - avg(pts.slice(0, half).map(p => p.z)) : 0 };
   }).filter(Boolean);
 }
@@ -1241,6 +1375,13 @@ function renderHome(rows) {
         <span><b class="${newest[0].g.win ? "good" : "bad"}">${streak}${newest[0].g.win ? "W" : "L"}</b>streak</span>
         <span><b>${Math.round(per(r => r.A.g.gameDuration) / 60)}m</b>avg game</span></div></div>`;
 
+  // Progress against yourself: your newer half of these games against the older half.
+  const up = stats.filter(s => s.n >= 6 && s.trend > 0.2 && s.m.fmt(s.older) !== s.m.fmt(s.newer)).sort((a, b) => b.trend - a.trend).slice(0, 3);
+  const enough = stats.some(s => s.n >= 6);
+  const progress = !stats.length ? "" : `<div class="card progress"><div><div class="ctitle">Getting better</div><div class="sub">Your newer games against your older ones</div></div>
+    ${up.length ? up.map(s => `<div class="pg"><span>${s.m.label}</span><b>${s.m.fmt(s.older)} → <em>${s.m.fmt(s.newer)}</em></b><small>experts ${s.m.fmt(s.exp)} · ${s.n} games</small></div>`).join("")
+      : `<div class="pg" style="grid-column:2 / -1"><span>${enough ? "Holding steady: no stat moved much between your older and newer games." : "Trends show up here once you have 6 or more games with expert data."}</span></div>`}</div>`;
+
   const scoreRow = (s) => {
     const pos = Math.max(3, Math.min(97, 50 + s.z * 25)), cls = s.z < -0.5 ? "bad" : s.z > 0.5 ? "good" : "";
     return `<div class="score"><span>${s.m.label}</span><span class="y ${cls}">${s.m.fmt(s.you)}</span><span class="sub">${s.m.fmt(s.exp)}</span>
@@ -1277,6 +1418,7 @@ function renderHome(rows) {
     <div class="sub">${wins}–${rows.length - wins} · each game is compared with high-elo games on the same champion and role${withB < rows.length ? ` · expert data for ${withB} of ${rows.length} games` : ""}</div>
     <div class="formstrip" title="Newest on the left">${rows.slice().reverse().map(r => `<i class="${r.g.win ? "w" : ""}" title="${esc(gameLabel(r.g))}"></i>`).join("")}</div>
     <div class="hero">${hero}${strength}${form}</div>
+    ${progress}
     <div class="dgrid">
       <div class="card a-radar"><div class="ctitle">Your shape vs experts</div><div class="sub">Each spoke is a skill. The dashed ring is the expert median; further out is better.</div>${radarSvg(stats)}
         <div class="legend"><span><i style="background:var(--gold)"></i>You</span><span><i style="background:transparent;border:1px dashed var(--blue)"></i>Experts</span></div></div>

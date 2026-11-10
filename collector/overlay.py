@@ -8,7 +8,7 @@ import threading
 import time
 
 W = 640
-BG, EDGE, INK, MUTE, GOLD, RED = "#0d1424", "#2a3654", "#e9eefb", "#93a0bd", "#f0c35a", "#ff6473"
+BG, EDGE, INK, MUTE, GOLD, RED, GREEN = "#0d1424", "#2a3654", "#e9eefb", "#93a0bd", "#f0c35a", "#ff6473", "#4fd1a1"
 
 _lock = threading.Lock()
 _s = {"game": None, "duration": 0, "moments": [], "show": False, "auto": False, "thread": None,
@@ -75,12 +75,13 @@ def view(s, now=None):
     t = float(pb.get("time") or 0)
     cur = next((m for m in ms if m["start"] - 2 <= t <= m["end"] + 15), None)
     if cur:
-        return {"tag": "TURNING POINT" if cur.get("turning") else "WATCH", "main": cur["title"], "right": "now",
-                "detail": cur.get("text") or "", "turning": bool(cur.get("turning")), "target": cur["start"]}
+        return {"tag": "WENT WELL" if cur.get("good") else "TURNING POINT" if cur.get("turning") else "WATCH", "main": cur["title"],
+                "right": "now", "detail": cur.get("text") or "", "turning": bool(cur.get("turning")), "good": bool(cur.get("good")),
+                "target": cur["start"]}
     nxt = next((m for m in ms if m["start"] > t), None)
     if nxt:
         return {"tag": "NEXT " + clock(nxt["start"]), "main": nxt["title"], "right": "in " + clock(nxt["start"] - t),
-                "detail": "", "turning": bool(nxt.get("turning")), "target": nxt["start"]}
+                "detail": "", "turning": bool(nxt.get("turning")), "good": bool(nxt.get("good")), "target": nxt["start"]}
     return {"tag": "", "main": "No more moments in this game." if ms else "Nothing stood out in this game.",
             "right": "", "detail": "", "turning": False, "target": None}
 
@@ -203,7 +204,7 @@ def _run():
             v = view(s)
             state.clear()
             state.update(v)
-            color = RED if v["turning"] else GOLD
+            color = GREEN if v.get("good") else RED if v["turning"] else GOLD
             tag.configure(text=v["tag"], fg=color)
             main.configure(text=v["main"])
             right.configure(text=v["right"], fg=color)
