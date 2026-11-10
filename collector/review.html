@@ -51,6 +51,17 @@ button:disabled { opacity:.5; cursor:default; }
 svg text { fill:var(--mute); font-size:11px; }
 .moment { display:grid; grid-template-columns: 120px 1fr auto; gap:16px; align-items:start; padding:14px 0; border-top:1px solid var(--line-soft); }
 .moment:first-child { border-top:0; }
+.paths .path { display:grid; grid-template-columns: 170px 1fr; gap:14px; align-items:center; padding:10px 0; border-top:1px solid var(--line-soft); }
+.paths .path:first-child { border-top:0; }
+.paths .path.yours { border-top:1px dashed var(--line); margin-top:4px; }
+.paths .path.same .pl b { color:var(--gold); }
+.paths .pl b { display:block; font-size:14px; } .paths .pl small { color:var(--faint); font-size:12px; }
+.paths .pitems { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.paths .pi { display:flex; flex-direction:column; align-items:center; gap:4px; width:84px; text-align:center; }
+.paths .pi img { width:44px; height:44px; border-radius:8px; border:2px solid var(--line); opacity:.75; }
+.paths .pi.hit img { border-color:var(--gold); opacity:1; }
+.paths .pi span { font-size:11px; color:var(--mute); line-height:1.2; }
+.paths .arr { color:var(--faint); font-style:normal; font-size:20px; }
 .moment.swing { border:1px solid var(--red); background:var(--red-wash); border-radius:10px; padding:14px; margin:10px -6px; }
 .moment.swing + .moment { border-top:0; }
 .moment .badge { display:inline-block; margin-bottom:6px; padding:2px 8px; border-radius:99px; background:var(--red); color:#fff; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
@@ -158,6 +169,22 @@ async function loadDD() {
   } catch (e) { console.warn("Data Dragon unavailable", e); }
 }
 const champName = (id) => DD.champ[id]?.name || ("Champion " + id);
+// Experts' 3 most common first-3-item paths, with your path underneath.
+function buildPaths(A, B) {
+  const paths = (B.orders || []).slice(0, 3); if (!paths.length) return "";
+  const mineIds = A.items.slice(0, 3).map(b => b.id), mineSet = new Set(mineIds);
+  const icon = (id, hit) => `<div class="pi${hit ? " hit" : ""}" title="${esc(itemName(id))}"><img src="${itemIcon(id)}" alt=""><span>${esc(itemName(id))}</span></div>`;
+  const row = (ids, label, sub, cls = "", match = () => false) => `<div class="path ${cls}"><div class="pl"><b>${label}</b><small>${sub}</small></div>
+    <div class="pitems">${ids.map((id, i) => (i ? `<i class="arr">›</i>` : "") + icon(id, match(id, i))).join("")}</div></div>`;
+  const same = paths.findIndex(([ids]) => ids.every((id, i) => mineIds[i] === id));
+  return `<div class="card paths">
+    ${paths.map(([ids, c], n) => row(ids, `#${n + 1} expert path`, `${c} of ${B.games} games`, n === same ? "same" : "", id => mineSet.has(id))).join("")}
+    ${mineIds.length ? row(mineIds, "Your path", A.items.length >= 3 ? `3rd item at ${clock(A.items[2].t)}` : "not finished", "yours",
+        (id, i) => paths.some(([ids]) => ids[i] === id)) : ""}
+    <div class="sub" style="margin-top:8px">${same >= 0 ? `You went the experts' #${same + 1} path.` : "Highlighted items are ones you share with an expert path (above) or that experts buy in that slot (your row)."}</div>
+  </div>`;
+}
+const itemIcon = (id) => DD.v ? `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/item/${id}.png` : "";
 const champIcon = (id) => DD.champ[id] ? `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/champion/${DD.champ[id].id}.png` : "";
 const itemName = (id) => DD.items[id]?.name || ("item " + id);
 const itemCost = (id) => DD.items[id]?.gold?.total || 0;
@@ -876,12 +903,12 @@ function expertsView(A, B) {
     <div class="legend"><span><i style="background:var(--gold)"></i>You</span><span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of expert games</span><span style="color:var(--red-ink)">✕ your deaths</span></div></div>
 
   <h2>Build</h2>
+  ${buildPaths(A, B)}
   <div class="card"><table class="grid"><tr><th>Your items</th><th>Bought</th><th>Experts</th><th>How often experts build it</th></tr>
     ${A.items.slice(0, 6).map((b, n) => { const e = byId[b.id]; return `<tr><td>${n + 1}. ${esc(itemName(b.id))}</td><td>${clock(b.t)}</td>
       <td>${e ? `usually ${ord(Math.round(e.slot))}, ~${clock(e.time)}` : "—"}</td><td>${e ? Math.round(e.rate * 100) + "%" : "rarely"}</td></tr>`; }).join("") || `<tr><td colspan="4" class="sub">No completed items.</td></tr>`}
   </table>
-  <div class="sub" style="margin-top:10px">Enemies who built armor: <b>${A.armorN}</b> · magic resist: <b>${A.mrN}</b>. Most common expert starts:
-    ${B.orders.slice(0, 3).map(([ids, c]) => `<div>${ids.map(itemName).map(esc).join(" › ")} <span style="color:var(--faint)">(${c} games)</span></div>`).join("")}</div></div>
+  <div class="sub" style="margin-top:10px">Enemies who built armor: <b>${A.armorN}</b> · magic resist: <b>${A.mrN}</b>.</div></div>
 
   <h2>Timings</h2>
   <div class="card"><table class="grid"><tr><th></th><th>You</th><th>Experts</th><th>Middle half</th></tr>
