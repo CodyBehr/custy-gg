@@ -604,6 +604,10 @@ let STATE = { games: [], me: null, replayApi: null, current: "home", queue: "all
 const QUEUE_FILTERS = [["all", "All"], ["solo", "Solo/Duo"], ["flex", "Flex"], ["other", "Normals & other"]];
 const queueGroup = (q) => q === "Ranked Solo/Duo" ? "solo" : q === "Ranked Flex" ? "flex" : "other";
 const cacheGame = {};
+// League can only play replays from the patch it's on. If the client can't say, go by your newest game.
+const patchOf = (v) => String(v || "").split(".").slice(0, 2).join(".");
+const currentPatch = () => STATE.patch || patchOf(STATE.games[0]?.version);
+const replayExpired = (id) => { const g = STATE.games.find(g => g.id == id), now = currentPatch(); return !!(g?.version && now && patchOf(g.version) !== now); };
 const getGame = async (id) => cacheGame[id] ??= api("/api/game/" + id);
 
 async function loadList() {
@@ -612,7 +616,7 @@ async function loadList() {
   try { r = await api("/api/games"); } finally { btn.disabled = false; btn.textContent = "↻ Refresh"; }
   const before = new Set(STATE.games.map(g => g.id));
   const fresh = STATE.games.length ? r.games.filter(g => !before.has(g.id)) : [];
-  STATE = { ...STATE, games: r.games, me: r.me, replayApi: r.replayApi };
+  STATE = { ...STATE, games: r.games, me: r.me, replayApi: r.replayApi, patch: r.patch || STATE.patch };
   try { STATE.queue = localStorage.getItem("custy-review-queue") || "all"; } catch (e) {}
   $("who").textContent = r.me?.gameName ? `${r.me.gameName}#${r.me.tagLine}` : "";
   const note = r.note ? `<div class="note">${esc(r.note)}</div>` : "";
@@ -642,7 +646,7 @@ function renderList(openFirst) {
     <div class="game ${g.win ? "w" : "l"}${g.id == STATE.current ? " on" : ""}" data-id="${g.id}">
       <img src="${champIcon(g.champion)}" alt="">
       <div class="t">${esc(champName(g.champion))}${g.opponent ? ` <span class="sub">vs ${esc(champName(g.opponent))}</span>` : ""}
-        <small>${esc(g.queue)} · ${esc(ROLE_NAME[g.role] || "?")} · ${new Date(g.created).toLocaleDateString(undefined, { month: "short", day: "numeric" })}</small></div>
+        <small>${esc(g.queue)} · ${esc(ROLE_NAME[g.role] || "?")} · ${new Date(g.created).toLocaleDateString(undefined, { month: "short", day: "numeric" })}${replayExpired(g.id) ? ` · <span title="This game is from patch ${esc(patchOf(g.version))}. League can only play replays from the current patch.">replay expired</span>` : ""}</small></div>
       <div class="kda">${g.kills}/${g.deaths}/${g.assists}<small>${Math.round(g.duration / 60)}m</small></div>
     </div>`).join("") : `<div class="note">No games in this queue yet.</div>`);
   document.querySelectorAll(".game").forEach(el => el.onclick = () => openGame(el.dataset.id));
@@ -701,7 +705,9 @@ function timingCard(k, mine, usual, fmt, lowerIsBetter = true) {
 function render(A, B, moments, s, label) {
   const opp = A.opp ? champName(A.opp.championId) : null;
   const res = A.me.stats?.win ? `<span class="win">Win</span>` : `<span class="loss">Loss</span>`;
-  const banner = STATE.replayApi === false ? `<div class="banner">Replay jumping is off in League's settings, so the replay will open at the start.
+  const expired = replayExpired(A.g.gameId);
+  const banner = expired ? `<div class="banner">This game is from patch ${esc(patchOf(s.version))}, and League can only play replays from the current patch (${esc(currentPatch())}). The numbers and moments below are still here; the replay isn't.</div>`
+    : STATE.replayApi === false ? `<div class="banner">Replay jumping is off in League's settings, so the replay will open at the start.
       <button class="primary" id="enableApi">Turn on replay jumping</button></div>`
     : STATE.replayApi == null ? `<div class="banner">Couldn't find League's game.cfg, so replays may not jump to the moment. Set league_path if League is installed somewhere unusual.</div>` : "";
   const cs10 = A.minutes >= 10 ? A.myCs[10] : null;
@@ -742,6 +748,7 @@ function render(A, B, moments, s, label) {
     </div>
     <p class="sub" style="margin-top:22px">Compared with ${B ? esc(label) : "nothing yet"}. It only says where to look; watching the replay is how you see why.</p>`;
   document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
+  markExpired(document, A.g.gameId);
   // What the caption bar over the replay shows for this game.
   const plain = (h) => { const d = document.createElement("div"); d.innerHTML = h || ""; return d.textContent.replace(/\s+/g, " ").trim(); };
   STATE.overlay = { game: A.g.gameId, duration: A.g.gameDuration, moments: moments.map(w => ({
@@ -802,6 +809,7 @@ async function loadExperts(A) {
   }
   el.innerHTML = expertsView(A, B);
   el.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
+  markExpired(el, A.g.gameId);
   el.querySelectorAll(".seg button").forEach(b => b.onclick = () => {
     el.querySelectorAll(".seg button").forEach(x => x.classList.toggle("on", x === b));
     el.querySelector("#xchart").innerHTML = benchChart(A, B, b.dataset.k);
@@ -1308,20 +1316,26 @@ document.addEventListener("click", (e) => {
   e.preventDefault();
   api("/api/open?url=" + encodeURIComponent(a.href), { method: "POST" }).catch(() => window.open(a.href));
 });
+// Replay buttons for games from an older patch are switched off.
+function markExpired(root, gameId) {
+  if (!replayExpired(gameId)) return;
+  root.querySelectorAll("[data-watch]").forEach(b => { b.disabled = true; b.dataset.expired = "1"; b.textContent = "Replay expired"; });
+}
 async function watch(gameId, t, btn) {
+  if (replayExpired(gameId)) { toast("This game is from an older patch, so League can't play its replay anymore."); return; }
   document.querySelectorAll("[data-watch]").forEach(b => b.disabled = true);
   try {
     await api(`/api/replay/${gameId}?t=${t}`, { method: "POST" });
     // A slim caption bar comes up over the replay with this game's moments.
     if (STATE.overlay?.game == gameId) api(`/api/overlay/${gameId}`, { method: "POST", body: JSON.stringify(STATE.overlay) }).catch(() => {});
   }
-  catch (e) { toast(e.message); document.querySelectorAll("[data-watch]").forEach(b => b.disabled = false); return; }
+  catch (e) { toast(e.message); document.querySelectorAll("[data-watch]").forEach(b => b.disabled = !!b.dataset.expired); return; }
   toast("Opening the replay...", true);
   const poll = async () => {
     const r = await api("/api/replay").catch(() => ({ state: "error", message: "Lost touch with the app." }));
     toast(r.message, r.state === "working");
     if (r.state === "working") setTimeout(poll, 1200);
-    else document.querySelectorAll("[data-watch]").forEach(b => b.disabled = false);
+    else document.querySelectorAll("[data-watch]").forEach(b => b.disabled = !!b.dataset.expired);
   };
   poll();
 }

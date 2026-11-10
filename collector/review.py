@@ -275,6 +275,17 @@ def _lcu(cfg):
     return core.LeagueClient(*creds) if creds else None
 
 
+def _client_patch(cfg):
+    """The patch League is on now ("16.22"), to tell which replays can still be played. None if unknown."""
+    try:
+        lcu = _lcu(cfg)
+        v = str(lcu.get("/lol-patch/v1/game-version") or "") if lcu else ""
+        m = re.match(r"^(\d+\.\d+)\.", v)
+        return m.group(1) if m else None
+    except Exception:
+        return None
+
+
 def fetch_game(lcu, game_id, me_puuid):
     """Game + timeline from the cache, or from the client (then cached)."""
     data = _read_cache(game_id)
@@ -639,7 +650,7 @@ def make_handler(cfg, token):
                     me_cache["me"] = me
                 me = me_cache["me"]
                 games = list_games(me.get("puuid") if me else None)
-                return self._send(200, {"me": me, "note": err, "games": games,
+                return self._send(200, {"me": me, "note": err, "games": games, "patch": _client_patch(cfg),
                                         "replayApi": replay_api_enabled(cfg)})
             m = re.match(r"^/api/game/(\d+)$", url.path)
             if m:
