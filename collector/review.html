@@ -734,7 +734,8 @@ const cacheGame = {};
 const patchOf = (v) => String(v || "").split(".").slice(0, 2).join(".");
 const currentPatch = () => STATE.patch || patchOf(STATE.games[0]?.version);
 const replayExpired = (id) => { const g = STATE.games.find(g => g.id == id), now = currentPatch(); return !!(g?.version && now && patchOf(g.version) !== now); };
-const getGame = async (id) => cacheGame[id] ??= api("/api/game/" + id);
+// A failed read isn't remembered, so opening the game again retries it.
+const getGame = (id) => cacheGame[id] ??= api("/api/game/" + id).catch(e => { delete cacheGame[id]; throw e; });
 
 async function loadList() {
   const btn = $("refresh"); btn.disabled = true; btn.textContent = "Refreshing...";
