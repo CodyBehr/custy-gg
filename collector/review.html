@@ -72,6 +72,37 @@ table.grid td .y { font-size:15px; font-weight:600; } table.grid td .e { color:v
 .finding b { display:block; } .finding span { color:var(--mute); font-size:13px; }
 .seg { display:inline-flex; gap:4px; margin-bottom:8px; } .seg button { padding:3px 10px; font-size:12px; border-radius:20px; }
 .seg button.on { background:var(--blue); border-color:var(--blue); color:#06101f; font-weight:600; }
+.homerow { padding:12px 14px; cursor:pointer; border-bottom:1px solid var(--line-soft); border-left:3px solid transparent; }
+.homerow:hover { background:var(--deck); } .homerow.on { background:var(--deck-2); border-left-color:var(--gold); }
+.homerow b { display:block; color:var(--gold); letter-spacing:.3px; } .homerow small { color:var(--mute); font-size:12px; }
+.hero { display:grid; grid-template-columns: 1.7fr 1fr; gap:14px; margin-top:16px; align-items:start; }
+.hero .card { padding:22px 24px; position:relative; overflow:hidden; }
+.hero .gap { background:radial-gradient(120% 140% at 0% 0%, rgba(242,89,107,.22), transparent 60%), var(--deck); border-color:rgba(242,89,107,.45); }
+.hero .edge { background:radial-gradient(120% 140% at 0% 0%, rgba(79,157,255,.2), transparent 60%), var(--deck); border-color:rgba(79,157,255,.4); }
+.hero .eyebrow { font-size:11px; letter-spacing:1.4px; text-transform:uppercase; color:var(--mute); font-weight:700; }
+.hero .big { font-size:68px; line-height:1; font-weight:800; letter-spacing:-2px; margin:10px 0 8px; }
+.hero .edge .big { font-size:44px; letter-spacing:-1px; }
+.hero h3 { margin:0; font-size:21px; line-height:1.25; } .hero .edge h3 { font-size:16px; }
+.hero p { margin:8px 0 0; color:var(--mute); font-size:13px; }
+.trend-up { color:var(--blue-ink); } .trend-down { color:var(--red-ink); }
+.reel { margin-top:14px; border-top:1px solid var(--line-soft); padding-top:10px; display:none; } .reel.open { display:block; }
+.reel div { display:flex; gap:10px; align-items:center; padding:5px 0; font-size:13px; } .reel div span { flex:1; color:var(--mute); } .reel div span b { color:var(--ink); }
+.reel button { padding:2px 9px; }
+.score { display:grid; grid-template-columns: 210px 78px 78px 1fr 60px; gap:12px; align-items:center; padding:9px 0; border-top:1px solid var(--line-soft); font-size:13px; }
+.score:first-of-type { border-top:0; } .score.h { color:var(--mute); font-weight:600; padding-top:0; }
+.score .y { font-weight:700; font-size:15px; } .score .n { color:var(--faint); font-size:12px; text-align:right; }
+.track { position:relative; height:12px; border-radius:6px; background:linear-gradient(90deg, rgba(242,89,107,.16), rgba(255,255,255,.03) 38%, rgba(255,255,255,.03) 62%, rgba(79,157,255,.16)); }
+.track .zone { position:absolute; left:37.5%; width:25%; top:0; bottom:0; background:rgba(255,255,255,.09); border-left:1px solid var(--line); border-right:1px solid var(--line); }
+.track i { position:absolute; top:-4px; width:20px; height:20px; margin-left:-10px; border-radius:50%; background:var(--gold); border:3px solid var(--night); }
+.track i.bad { background:var(--red); } .track i.good { background:var(--blue); }
+.sparks { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; }
+.sparks .card b { font-size:13px; } .sparks .card .sub { display:block; }
+.duo { display:grid; grid-template-columns: 330px 1fr; gap:14px; }
+.pool { display:grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap:10px; align-content:start; }
+.pool .card { display:flex; gap:10px; align-items:center; padding:10px 12px; cursor:pointer; } .pool .card:hover { border-color:var(--blue); }
+.pool img { width:40px; height:40px; border-radius:8px; } .pool small { display:block; color:var(--mute); font-size:12px; }
+.formstrip { display:flex; gap:4px; align-items:center; margin-top:10px; } .formstrip i { width:16px; height:22px; border-radius:3px; background:var(--red); opacity:.85; } .formstrip i.w { background:var(--blue); }
+@media (max-width: 900px) { .hero, .duo { grid-template-columns: 1fr; } .score { grid-template-columns: 1fr 60px 60px; } .score .track, .score .n { display:none; } }
 .legend { display:flex; gap:16px; font-size:12px; color:var(--mute); margin-top:6px; }
 .legend i { display:inline-block; width:12px; height:8px; border-radius:2px; margin-right:5px; vertical-align:middle; }
 </style>
@@ -394,7 +425,7 @@ function chart(A, B, moments) {
 }
 
 // ---------------------------------------------------------------- Page
-let STATE = { games: [], me: null, replayApi: null, current: null, queue: "all" };
+let STATE = { games: [], me: null, replayApi: null, current: "home", queue: "all" };
 const QUEUE_FILTERS = [["all", "All"], ["solo", "Solo/Duo"], ["flex", "Flex"], ["other", "Normals & other"]];
 const queueGroup = (q) => q === "Ranked Solo/Duo" ? "solo" : q === "Ranked Flex" ? "flex" : "other";
 const cacheGame = {};
@@ -431,7 +462,8 @@ function renderList(openFirst) {
   const shown = STATE.games.filter(g => STATE.queue === "all" || queueGroup(g.queue) === STATE.queue);
   const filter = `<div class="filter">${QUEUE_FILTERS.map(([k, label]) =>
     `<button data-q="${k}" class="${STATE.queue === k ? "on" : ""}">${label}</button>`).join("")}</div>`;
-  $("list").innerHTML = filter + STATE.note + (shown.length ? shown.map(g => `
+  const home = `<div class="homerow${STATE.current === "home" ? " on" : ""}" id="homerow"><b>Overview</b><small>How you play across your recent games</small></div>`;
+  $("list").innerHTML = filter + STATE.note + home + (shown.length ? shown.map(g => `
     <div class="game ${g.win ? "w" : "l"}${g.id == STATE.current ? " on" : ""}" data-id="${g.id}">
       <img src="${champIcon(g.champion)}" alt="">
       <div class="t">${esc(champName(g.champion))}${g.opponent ? ` <span class="sub">vs ${esc(champName(g.opponent))}</span>` : ""}
@@ -444,11 +476,14 @@ function renderList(openFirst) {
     try { localStorage.setItem("custy-review-queue", STATE.queue); } catch (e) {}
     renderList(true);
   });
-  if (openFirst && shown.length && !shown.some(g => g.id == STATE.current)) openGame(shown[0].id);
+  $("homerow").onclick = () => openHome(true);
+  if (STATE.current === "home") openHome();
+  else if (openFirst && shown.length && !shown.some(g => g.id == STATE.current)) openGame(shown[0].id);
 }
 
 async function openGame(id) {
   document.querySelectorAll(".game").forEach(el => el.classList.toggle("on", el.dataset.id == id));
+  $("homerow")?.classList.remove("on");
   STATE.current = id;
   $("view").innerHTML = `<div class="empty">Reading the game...</div>`;
   const s = STATE.games.find(g => g.id == id);
@@ -557,13 +592,18 @@ function deathRow(A, d) {
 
 // ---------------------------------------------------------------- vs Experts
 const benchCache = {};
+// Expert numbers for "Jhin-BOT". A champion with none yet is asked about again next time.
+function getBench(name) {
+  return benchCache[name] ??= api("/api/benchmark/" + name).catch(() => ({ missing: true }))
+    .then(b => { if (b.missing) delete benchCache[name]; return b; });
+}
 async function loadExperts(A) {
   const champ = DD.champ[A.me.championId]?.id, role = A.role;
   const el = $("v-experts");
   if (!champ || !role) { el.innerHTML = `<div class="empty">Couldn't tell this game's champion or role.</div>`; return; }
   const name = champ + "-" + role;
   let B;
-  try { B = benchCache[name] ??= await api("/api/benchmark/" + name); } catch (e) { B = { missing: true }; }
+  B = await getBench(name);
   if (!document.body.contains(el)) return;
   if (B.missing) {
     el.innerHTML = `<div class="card" style="margin-top:16px">No expert data for <b>${esc(champName(A.me.championId))} ${esc(ROLE_NAME[role] || role)}</b> yet.
@@ -718,6 +758,195 @@ function benchChart(A, B, k) {
   curve.forEach((v, m) => { const b = band[m]; s += `<circle cx="${x(m)}" cy="${y(v)}" r="6" fill="transparent"><title>${m}:00  you ${fmt(v)}${b ? "  ·  experts " + fmt(b[1]) : ""}</title></circle>`; });
   for (const d of A.deaths) { const m = Math.min(n, Math.round(d.t / 60)); s += `<text x="${x(d.t / 60)}" y="${y(curve[m]) - 8}" text-anchor="middle" style="fill:var(--red-ink);font-size:13px">✕</text>`; }
   return s + "</svg>";
+}
+
+// ---------------------------------------------------------------- Overview: your recent games against experts
+const sec = (v) => { const a = Math.abs(Math.round(v)); return a >= 90 ? clock(a) : a + "s"; };
+const num0 = (v) => Math.round(v).toLocaleString();
+const DASH = [
+  { k: "deaths14", label: "Deaths before 14:00", lower: true, eps: 1, fmt: v => v.toFixed(1),
+    you: A => A.deaths.filter(d => d.t < 840).length, band: B => B.timings.deaths_14,
+    big: (y, e) => e > 0.2 ? (y / e).toFixed(1) + "×" : y.toFixed(1),
+    head: (y, e) => e > 0.2 ? `You die ${(y / e).toFixed(1)}× as often as experts before 14:00` : `You die ${y.toFixed(1)} times before 14:00`,
+    good: () => `You die less than experts before 14:00`, unit: "early deaths a game" },
+  { k: "deaths", label: "Deaths per game", lower: true, eps: 1, fmt: v => v.toFixed(1),
+    you: A => A.deaths.length, band: B => B.timings.deaths,
+    big: (y, e) => e > 0.2 ? (y / e).toFixed(1) + "×" : y.toFixed(1),
+    head: (y, e) => `You die ${e > 0.2 ? (y / e).toFixed(1) + "× as often as" : "more than"} experts`,
+    good: () => `You die less than experts`, unit: "deaths a game" },
+  { k: "cs10", label: "CS at 10:00", eps: 6, fmt: num0, skip: A => A.role === "SUPPORT",
+    you: A => A.minutes >= 10 ? A.myCs[10] : null, band: B => B.minutes.cs?.[10],
+    big: (y, e) => signed(y - e), head: (y, e) => `You're ${num0(e - y)} CS behind experts at 10:00`,
+    good: (y, e) => `You're ${num0(y - e)} CS ahead of experts at 10:00`, unit: "CS at 10:00" },
+  { k: "gold15", label: "Gold at 15:00", eps: 300, fmt: num0,
+    you: A => A.minutes >= 15 ? A.myGold[15] : null, band: B => B.minutes.gold?.[15],
+    big: (y, e) => signed(y - e), head: (y, e) => `You're ${num0(e - y)} gold behind experts at 15:00`,
+    good: (y, e) => `You're ${num0(y - e)} gold ahead of experts at 15:00`, unit: "gold at 15:00" },
+  { k: "xpd10", label: "XP vs lane opponent at 10:00", eps: 200, fmt: signed, skip: A => A.role === "JUNGLE",
+    you: A => A.xpdiff && A.minutes >= 10 ? A.xpdiff[10] : null, band: B => B.minutes.xpdiff?.[10],
+    big: (y) => signed(y), head: (y) => y < 0 ? `You're ${num0(-y)} XP behind your lane opponent at 10:00` : `Your XP lead at 10:00 is smaller than experts'`,
+    good: (y) => `You're ${num0(y)} XP ahead of your lane opponent at 10:00`, unit: "XP vs lane opponent at 10:00" },
+  { k: "gd15", label: "Gold vs lane opponent at 15:00", eps: 300, fmt: signed,
+    you: A => A.diff && A.minutes >= 15 ? A.diff[15] : null, band: B => B.minutes.gdiff?.[15],
+    big: (y) => signed(y), head: (y) => y < 0 ? `You're ${num0(-y)} gold behind your lane opponent at 15:00` : `Your gold lead at 15:00 is smaller than experts'`,
+    good: (y) => `You're ${num0(y)} gold ahead of your lane opponent at 15:00`, unit: "gold vs lane opponent at 15:00" },
+  { k: "item1", label: "First item", lower: true, eps: 45, fmt: clock,
+    you: A => A.firstItem, band: B => B.timings.legendary1,
+    big: (y, e) => (y > e ? "+" : "−") + sec(y - e), head: (y, e) => `Your first item comes ${sec(y - e)} later than experts'`,
+    good: (y, e) => `Your first item comes ${sec(e - y)} faster than experts'`, unit: "first item" },
+  { k: "back", label: "First back", lower: true, eps: 30, fmt: clock,
+    you: A => A.backs[0]?.t ?? null, band: B => B.timings.first_back,
+    big: (y, e) => (y > e ? "+" : "−") + sec(y - e), head: (y, e) => `Your first back comes ${sec(y - e)} later than experts'`,
+    good: (y, e) => `You back ${sec(e - y)} earlier than experts`, unit: "first back" },
+  { k: "lvl6", label: "Level 6 vs lane opponent", lower: true, eps: 15, fmt: v => (v <= 0 ? Math.round(-v) + "s ahead" : Math.round(v) + "s behind"), skip: A => A.role === "JUNGLE",
+    you: A => A.lvl6 != null && A.oppLvl6 != null ? A.lvl6 - A.oppLvl6 : null, band: B => B.timings.lvl6_gap,
+    big: (y) => Math.round(Math.abs(y)) + "s", head: (y) => `You hit level 6 ${Math.round(Math.abs(y))}s ${y > 0 ? "after" : "before"} your lane opponent; experts get there first`,
+    good: (y) => `You hit level 6 ${Math.round(Math.abs(y))}s before your lane opponent`, unit: "to level 6 vs lane opponent" },
+];
+const avg = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
+
+function dashStats(rows) {
+  // rows are oldest first. Each game is judged against experts on its own champion and role, then averaged.
+  return DASH.map(m => {
+    const pts = [];
+    for (const r of rows) {
+      if (!r.B || m.skip?.(r.A)) continue;
+      const y = m.you(r.A), b = m.band(r.B);
+      if (y == null || !b) continue;
+      const spread = Math.max(m.eps, b[2] - b[0]);
+      pts.push({ r, y, p25: b[0], p50: b[1], p75: b[2], z: (m.lower ? -1 : 1) * (y - b[1]) / spread });
+    }
+    if (pts.length < 3) return null;
+    const half = Math.floor(pts.length / 2);
+    return { m, pts, n: pts.length, you: avg(pts.map(p => p.y)), exp: avg(pts.map(p => p.p50)), z: avg(pts.map(p => p.z)),
+      trend: pts.length >= 6 ? avg(pts.slice(half).map(p => p.z)) - avg(pts.slice(0, half).map(p => p.z)) : 0 };
+  }).filter(Boolean);
+}
+const trendText = (t) => t > 0.25 ? `<span class="trend-up">▲ improving</span>` : t < -0.25 ? `<span class="trend-down">▼ getting worse</span>` : "steady";
+const gameLabel = (g) => `${champName(g.champion)}${g.opponent ? " vs " + champName(g.opponent) : ""} · ${new Date(g.created).toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
+
+let homeKey = "";
+async function openHome(force) {
+  const shown = STATE.games.filter(g => (STATE.queue === "all" || queueGroup(g.queue) === STATE.queue) && g.hasTimeline).slice(0, 20);
+  const key = STATE.queue + ":" + shown.map(g => g.id).join(",");
+  const was = STATE.current;
+  STATE.current = "home";
+  document.querySelectorAll(".game").forEach(el => el.classList.remove("on"));
+  $("homerow")?.classList.add("on");
+  if (!force && was === "home" && key === homeKey && $("dash")) return;   // nothing changed since it was drawn
+  homeKey = key;
+  if (!shown.length) { $("view").innerHTML = `<div class="empty" id="dash">No games to summarize yet. Play a ranked or normal game with the app running.</div>`; return; }
+  $("view").innerHTML = `<div class="empty" id="dash">Going through your last ${shown.length} games...</div>`;
+  const loaded = await Promise.all(shown.map(g => getGame(g.id).then(analyse).then(A => A && { g, A }).catch(() => null)));
+  const rows = loaded.filter(Boolean).reverse();
+  const names = [...new Set(rows.map(r => DD.champ[r.A.me.championId]?.id && r.A.role ? DD.champ[r.A.me.championId].id + "-" + r.A.role : null).filter(Boolean))];
+  const bench = Object.fromEntries(await Promise.all(names.map(async n => [n, await getBench(n)])));
+  for (const r of rows) {
+    const b = bench[(DD.champ[r.A.me.championId]?.id || "") + "-" + r.A.role];
+    r.B = b && !b.missing ? b : null;
+  }
+  if (STATE.current !== "home" || homeKey !== key) return;
+  renderHome(rows);
+}
+
+function renderHome(rows) {
+  const stats = dashStats(rows), withB = rows.filter(r => r.B).length;
+  const wins = rows.filter(r => r.g.win).length;
+  const worst = stats.slice().sort((a, b) => a.z - b.z)[0], best = stats.slice().sort((a, b) => b.z - a.z)[0];
+  const isBad = worst && worst.z < -0.4, isGood = best && best.z > 0.25 && best !== worst;
+
+  // What to watch for the headline: the deaths themselves, or the games where the gap was biggest.
+  let reel = "";
+  if (isBad) {
+    if (worst.m.k === "deaths14" || worst.m.k === "deaths") {
+      // Newest games first, the first four deaths of each.
+      const ds = rows.slice().reverse().flatMap(r => r.A.deaths.filter(d => worst.m.k === "deaths" || d.t < 840).slice(0, 4).map(d => ({ r, d }))).slice(0, 12);
+      reel = ds.map(({ r, d }) => {
+        const who = [d.e.killerId, ...(d.e.assistingParticipantIds || [])].filter(p => p > 0).map(r.A.champOf).join(" + ");
+        return `<div><span><b>${clock(d.t)}</b> · ${esc(gameLabel(r.g))}${who ? " · to " + esc(who) : ""}${d.e.position ? " · " + area(d.e.position.x, d.e.position.y) : ""}</span>
+          <button data-rw="${r.g.id}:${Math.max(0, d.t - 30)}">Watch</button></div>`;
+      }).join("");
+    } else {
+      reel = worst.pts.slice().sort((a, b) => a.z - b.z).slice(0, 4).map(p =>
+        `<div><span><b>${worst.m.fmt(p.y)}</b> (experts ${worst.m.fmt(p.p50)}) · ${esc(gameLabel(p.r.g))}</span><button data-og="${p.r.g.id}">Open game</button></div>`).join("");
+    }
+  }
+  const hero = isBad ? `
+    <div class="card gap"><div class="eyebrow">Biggest gap vs experts</div>
+      <div class="big bad">${worst.m.big(worst.you, worst.exp)}</div>
+      <h3>${esc(worst.m.head(worst.you, worst.exp))}.</h3>
+      <p>${worst.m.fmt(worst.you)} vs ${worst.m.fmt(worst.exp)} ${worst.m.unit} · last ${worst.n} games · ${trendText(worst.trend)}</p>
+      <p><button class="primary" id="reelBtn">${worst.m.k.startsWith("deaths") ? "Watch them" : "Show the worst games"}</button></p>
+      <div class="reel" id="reel">${reel}</div></div>`
+    : `<div class="card edge"><div class="eyebrow">vs experts</div><div class="big good">${stats.length ? "On pace" : "—"}</div>
+      <h3>${stats.length ? "You're inside the experts' usual range on everything measured." : "No expert data for these champions yet."}</h3>
+      <p>${stats.length ? `Across your last ${rows.length} games.` : "It appears here as soon as the site has high-elo games for the champions you played."}</p></div>`;
+  const strength = isGood ? `
+    <div class="card edge"><div class="eyebrow">Your edge</div>
+      <div class="big good">${best.m.big(best.you, best.exp)}</div>
+      <h3>${esc(best.m.good(best.you, best.exp))}.</h3>
+      <p>${best.m.fmt(best.you)} vs ${best.m.fmt(best.exp)} ${best.m.unit} · last ${best.n} games</p></div>`
+    : `<div class="card"><div class="eyebrow">Recent form</div><div class="big" style="font-size:44px">${wins}–${rows.length - wins}</div>
+      <h3>${Math.round(100 * wins / rows.length)}% win rate</h3><p>Last ${rows.length} games.</p></div>`;
+
+  const scoreRow = (s) => {
+    const pos = Math.max(3, Math.min(97, 50 + s.z * 25)), cls = s.z < -0.5 ? "bad" : s.z > 0.5 ? "good" : "";
+    return `<div class="score"><span>${s.m.label}</span><span class="y ${cls}">${s.m.fmt(s.you)}</span><span class="sub">${s.m.fmt(s.exp)}</span>
+      <div class="track" title="${s.pts.filter(p => p.z < -0.5).length} of ${s.n} games behind the experts' range, ${s.pts.filter(p => p.z > 0.5).length} ahead"><div class="zone"></div><i class="${cls}" style="left:${pos}%"></i></div>
+      <span class="n">${s.n} games</span></div>`;
+  };
+
+  // Trends for the four biggest gaps (either way), oldest game on the left.
+  const spark = (s) => {
+    const W = 240, H = 84, L = 6, R = 6, T = 8, Bm = 8, n = s.pts.length;
+    let lo = Math.min(...s.pts.map(p => Math.min(p.y, p.p25))), hi = Math.max(...s.pts.map(p => Math.max(p.y, p.p75)));
+    const pad = (hi - lo) * .12 || 1; lo -= pad; hi += pad;
+    const x = i => L + (n === 1 ? .5 : i / (n - 1)) * (W - L - R), y = v => T + (hi - v) / (hi - lo) * (H - T - Bm);
+    const top = s.pts.map((p, i) => x(i) + "," + y(p.p75)).join("L"), bot = s.pts.map((p, i) => x(i) + "," + y(p.p25)).reverse().join("L");
+    return `<div class="card"><b>${s.m.label}</b><span class="sub">${trendText(s.trend)}</span>
+      <svg viewBox="0 0 ${W} ${H}" width="100%"><path d="M${top}L${bot}Z" fill="var(--blue-wash)"/>
+      <path d="M${s.pts.map((p, i) => x(i) + "," + y(p.y)).join("L")}" fill="none" stroke="var(--gold)" stroke-width="2"/>
+      ${s.pts.map((p, i) => `<circle cx="${x(i)}" cy="${y(p.y)}" r="3.5" fill="${p.z < -0.5 ? "var(--red)" : p.z > 0.5 ? "var(--blue)" : "var(--gold)"}"><title>${esc(gameLabel(p.r.g))}: ${s.m.fmt(p.y)} (experts ${s.m.fmt(p.p50)})</title></circle>`).join("")}</svg></div>`;
+  };
+  const sparks = stats.slice().sort((a, b) => Math.abs(b.z) - Math.abs(a.z)).slice(0, 4).map(spark).join("");
+
+  // Where you die, on the map (y runs upward on Summoner's Rift).
+  const deaths = rows.flatMap(r => r.A.deaths.filter(d => d.e.position).map(d => ({ r, d })));
+  const S = 300, px = v => v / 14870 * S, py = v => S - v / 14980 * S;
+  const zones = {}; for (const { d } of deaths) { const a = area(d.e.position.x, d.e.position.y); zones[a] = (zones[a] || 0) + 1; }
+  const topZones = Object.entries(zones).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([z, c]) => `<b>${Math.round(100 * c / deaths.length)}%</b> ${z}`).join(" · ");
+  const map = `<div class="card"><svg viewBox="0 0 ${S} ${S}" width="100%" style="border-radius:8px;background:#0a1020">
+      <image href="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/map/map11.png" width="${S}" height="${S}" opacity=".5"/>
+      ${deaths.map(({ r, d }) => `<circle cx="${px(d.e.position.x)}" cy="${py(d.e.position.y)}" r="${d.t < 840 ? 5 : 4}" fill="${d.t < 840 ? "var(--red)" : "var(--gold)"}" fill-opacity="${d.t < 840 ? .85 : .45}" stroke="#0a1020"><title>${esc(gameLabel(r.g))} · ${clock(d.t)}</title></circle>`).join("")}</svg>
+      <div class="legend"><span><i style="background:var(--red);border-radius:50%;width:9px;height:9px"></i>before 14:00</span><span><i style="background:var(--gold);border-radius:50%;width:9px;height:9px;opacity:.6"></i>later</span></div>
+      <div class="sub" style="margin-top:6px">${deaths.length} deaths${topZones ? ": " + topZones : ""}</div></div>`;
+
+  // Champion pool
+  const groups = {};
+  for (const r of rows) (groups[r.g.champion + ":" + r.A.role] ??= []).push(r);
+  const pool = Object.values(groups).sort((a, b) => b.length - a.length).map(rs => {
+    const st = dashStats(rs).sort((a, b) => a.z - b.z)[0], w = rs.filter(r => r.g.win).length, g = rs[rs.length - 1].g;
+    const note = !rs.some(r => r.B) ? "no expert data yet" : st && st.z < -0.4 ? `gap: ${st.m.label.toLowerCase()}` : st ? "on pace with experts" : "needs 3+ games to compare";
+    return `<div class="card" data-og="${g.id}"><img src="${champIcon(g.champion)}" alt=""><div><b>${esc(champName(g.champion))}</b> <span class="sub">${ROLE_NAME[rs[0].A.role] || ""}</span>
+      <small>${rs.length} game${rs.length === 1 ? "" : "s"} · ${w}–${rs.length - w}</small><small class="${st && st.z < -0.4 ? "bad" : ""}">${note}</small></div></div>`;
+  }).join("");
+
+  $("view").innerHTML = `<div id="dash">
+    <h1>Your last ${rows.length} games</h1>
+    <div class="sub">${wins}–${rows.length - wins} · each game is compared with high-elo games on the same champion and role${withB < rows.length ? ` · expert data for ${withB} of ${rows.length} games` : ""}</div>
+    <div class="formstrip" title="Newest on the left">${rows.slice().reverse().map(r => `<i class="${r.g.win ? "w" : ""}" title="${esc(gameLabel(r.g))}"></i>`).join("")}</div>
+    <div class="hero">${hero}${strength}</div>
+    ${stats.length ? `<h2>You vs experts</h2>
+    <div class="card"><div class="score h"><span></span><span>You</span><span>Experts</span><span style="display:flex;justify-content:space-between"><span>behind</span><span>their usual range</span><span>ahead</span></span><span></span></div>
+      ${stats.map(scoreRow).join("")}</div>
+    <h2>Game by game</h2><div class="sparks">${sparks}</div>
+    <div class="legend"><span><i style="background:var(--gold)"></i>You, oldest game on the left</span><span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Experts' usual range for that game's champion</span></div>` : ""}
+    <h2>Where you die · Champions</h2>
+    <div class="duo">${map}<div class="pool">${pool}</div></div>
+    <p class="sub" style="margin-top:22px">Averages of your games against the expert median for each game's champion and role. Fixed rules on the numbers, no AI.</p></div>`;
+  const rb = $("reelBtn"); if (rb) rb.onclick = () => $("reel").classList.toggle("open");
+  document.querySelectorAll("[data-rw]").forEach(b => b.onclick = () => { const [id, t] = b.dataset.rw.split(":"); watch(id, +t, b); });
+  document.querySelectorAll("[data-og]").forEach(b => b.onclick = () => { STATE.tab = "experts"; openGame(b.dataset.og); });
 }
 
 let toastTimer;
