@@ -151,4 +151,26 @@ def aggregate(rows, source, built):
         if len(out["items"]) >= 30:
             break
     out["orders"] = [[list(k), c] for k, c in Counter(tuple(i for _, i in r["items"][:3]) for r in rows if len(r["items"]) >= 3).most_common(6)]
+    out["paths"] = full_paths(rows)
     return out
+
+
+def full_paths(rows, top=3):
+    """The most common first-3-item paths, carried on to a full build. Few games reach a 4th item, so items 4-6
+    come from the games that shared at least 2 of the path's first 3 items and got that far: the items they most
+    often bought 4th-6th (in 20%+ of them), in the order they usually came. "rates" is that share; "late" is how
+    many games it's based on."""
+    paths = []
+    for first3, c in Counter(tuple(i for _, i in r["items"][:3]) for r in rows if len(r["items"]) >= 3).most_common(top):
+        base = set(first3)
+        late = [r for r in rows if len(r["items"]) >= 4 and len(base & {i for _, i in r["items"][:3]}) >= 2]
+        count, slots = Counter(), defaultdict(list)
+        for r in late:
+            for n_, (_, i) in enumerate(r["items"][3:6]):
+                if i not in base:
+                    count[i] += 1; slots[i].append(n_ + 4)
+        nxt = [(i, k) for i, k in count.most_common(3) if k >= max(3, 0.2 * len(late))]
+        nxt.sort(key=lambda x: S.median(slots[x[0]]))
+        paths.append({"items": list(first3) + [i for i, _ in nxt], "games": c, "late": len(late),
+                      "rates": [round(k / len(late), 2) for _, k in nxt]})
+    return paths

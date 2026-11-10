@@ -61,6 +61,8 @@ svg text { fill:var(--mute); font-size:11px; }
 .paths .pi img { width:44px; height:44px; border-radius:8px; border:2px solid var(--line); opacity:.75; }
 .paths .pi.hit img { border-color:var(--gold); opacity:1; }
 .paths .pi span { font-size:11px; color:var(--mute); line-height:1.2; }
+.paths .pi.late img { border-style:dashed; }
+.paths .pi em { font-style:normal; font-size:11px; color:var(--faint); }
 .paths .arr { color:var(--faint); font-style:normal; font-size:20px; }
 .moment.swing { border:1px solid var(--red); background:var(--red-wash); border-radius:10px; padding:14px; margin:10px -6px; }
 .moment.swing + .moment { border-top:0; }
@@ -169,19 +171,21 @@ async function loadDD() {
   } catch (e) { console.warn("Data Dragon unavailable", e); }
 }
 const champName = (id) => DD.champ[id]?.name || ("Champion " + id);
-// Experts' 3 most common first-3-item paths, with your path underneath.
+// Experts' 3 most common build paths, with your build underneath.
 function buildPaths(A, B) {
-  const paths = (B.orders || []).slice(0, 3); if (!paths.length) return "";
-  const mineIds = A.items.slice(0, 3).map(b => b.id), mineSet = new Set(mineIds);
-  const icon = (id, hit) => `<div class="pi${hit ? " hit" : ""}" title="${esc(itemName(id))}"><img src="${itemIcon(id)}" alt=""><span>${esc(itemName(id))}</span></div>`;
-  const row = (ids, label, sub, cls = "", match = () => false) => `<div class="path ${cls}"><div class="pl"><b>${label}</b><small>${sub}</small></div>
-    <div class="pitems">${ids.map((id, i) => (i ? `<i class="arr">›</i>` : "") + icon(id, match(id, i))).join("")}</div></div>`;
-  const same = paths.findIndex(([ids]) => ids.every((id, i) => mineIds[i] === id));
+  const paths = B.paths?.length ? B.paths : (B.orders || []).slice(0, 3).map(([items, games]) => ({ items, games, rates: [] }));
+  if (!paths.length) return "";
+  const mineIds = A.items.slice(0, 6).map(b => b.id), first3 = new Set(mineIds.slice(0, 3)), mineAll = new Set(mineIds);
+  const icon = (id, hit, note) => `<div class="pi${hit ? " hit" : ""}${note ? " late" : ""}" title="${esc(itemName(id))}"><img src="${itemIcon(id)}" alt=""><span>${esc(itemName(id))}</span>${note ? `<em>${note}</em>` : ""}</div>`;
+  const row = (ids, label, sub, cls, match, note = () => "") => `<div class="path ${cls}"><div class="pl"><b>${label}</b><small>${sub}</small></div>
+    <div class="pitems">${ids.map((id, i) => (i ? `<i class="arr">${i === 3 ? "┊" : "›"}</i>` : "") + icon(id, match(id, i), note(i))).join("")}</div></div>`;
+  const same = paths.findIndex(p => p.items.slice(0, 3).every((id, i) => mineIds[i] === id));
   return `<div class="card paths">
-    ${paths.map(([ids, c], n) => row(ids, `#${n + 1} expert path`, `${c} of ${B.games} games`, n === same ? "same" : "", id => mineSet.has(id))).join("")}
-    ${mineIds.length ? row(mineIds, "Your path", A.items.length >= 3 ? `3rd item at ${clock(A.items[2].t)}` : "not finished", "yours",
-        (id, i) => paths.some(([ids]) => ids[i] === id)) : ""}
-    <div class="sub" style="margin-top:8px">${same >= 0 ? `You went the experts' #${same + 1} path.` : "Highlighted items are ones you share with an expert path (above) or that experts buy in that slot (your row)."}</div>
+    ${paths.map((p, n) => row(p.items, `#${n + 1} expert path`, `${p.games} of ${B.games} games${p.late ? ` · items 4+ from ${p.late} games that got that far` : ""}`,
+        n === same ? "same" : "", (id, i) => i < 3 ? first3.has(id) : mineAll.has(id), i => i >= 3 && p.rates?.[i - 3] ? `${Math.round(p.rates[i - 3] * 100)}%` : "")).join("")}
+    ${mineIds.length ? row(mineIds, "Your build", A.items.length >= 3 ? `3rd item at ${clock(A.items[2].t)}` : "not finished", "yours",
+        (id, i) => paths.some(p => i < 3 ? p.items[i] === id : p.items.slice(3).includes(id))) : ""}
+    <div class="sub" style="margin-top:8px">${same >= 0 ? `Your first 3 items match the experts' #${same + 1} path. ` : ""}Gold borders mark items you share with that path. Few games last long enough for item 4, so items after ┊ are what experts usually add later, with the share of those games that bought each.</div>
   </div>`;
 }
 const itemIcon = (id) => DD.v ? `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/item/${id}.png` : "";
