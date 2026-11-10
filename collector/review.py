@@ -520,6 +520,33 @@ def _seek(seconds):
     return _status("done", "Replay is open, but the jump didn't stick. Drag the timeline to %s." % _clock(target))
 
 
+def _replay_meta(lcu, game_id):
+    """What League knows about this game's replay. For a game the client hasn't shown in match history yet
+    it knows nothing (404) until it's asked to look, so ask, the way the match history page does."""
+    path = "/lol-replays/v1/metadata/%s" % game_id
+    try:
+        return lcu.get(path) or {}
+    except urllib.error.HTTPError as e:
+        if e.code != 404:
+            raise
+    game = (_read_cache(game_id) or {}).get("game") or {}
+    body = {"gameVersion": game.get("gameVersion") or "", "gameType": game.get("gameType") or "MATCHED_GAME",
+            "queueId": _num(game.get("queueId")),
+            "gameEnd": _num(game.get("gameCreation")) + _num(game.get("gameDuration")) * 1000}
+    try:
+        _lcu_post(lcu, path + "/create", body)
+    except Exception as e:
+        core.log.info("Replay metadata create for %s failed: %s", game_id, e)
+    for _ in range(5):
+        time.sleep(1)
+        try:
+            return lcu.get(path) or {}
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                raise
+    return {}
+
+
 def _open_replay(cfg, game_id, seconds):
     try:
         lcu = _lcu(cfg)
@@ -535,7 +562,7 @@ def _open_replay(cfg, game_id, seconds):
                 return _status("error", "A different replay is open. Close it, then click Watch again.")
             return _seek(seconds)
 
-        meta = lcu.get("/lol-replays/v1/metadata/%s" % game_id) or {}
+        meta = _replay_meta(lcu, game_id)
         state = meta.get("state")
         if state in ("incompatible", "unsupported"):
             return _status("error", "This replay is from an older patch, so League can't play it. "
@@ -550,7 +577,7 @@ def _open_replay(cfg, game_id, seconds):
                 core.log.info("Replay download request: HTTP %s", e.code)
             for _ in range(120):
                 time.sleep(1)
-                meta = lcu.get("/lol-replays/v1/metadata/%s" % game_id) or {}
+                meta = _replay_meta(lcu, game_id)
                 if meta.get("state") == "watch":
                     break
                 if meta.get("state") in ("incompatible", "unsupported", "lost", "missingOrExpired", "error"):
@@ -562,7 +589,12 @@ def _open_replay(cfg, game_id, seconds):
                 return _status("error", "The replay didn't finish downloading. Try again in a minute.")
 
         _status("working", "Starting the replay...")
-        _lcu_post(lcu, "/lol-replays/v1/rofls/%s/watch" % game_id, {"componentType": "replay-button_match-history"})
+        try:
+            _lcu_post(lcu, "/lol-replays/v1/rofls/%s/watch" % game_id, {"componentType": "replay-button_match-history"})
+        except urllib.error.HTTPError as e:
+            core.log.info("Replay watch request for %s: HTTP %s", game_id, e.code)
+            return _status("error", "League isn't ready to play this replay yet. Open the game once in League's match history "
+                                    "(Profile > Match History), then click Watch again.")
 
         if replay_api_enabled(cfg) is False:
             return _status("done", "Replay is starting. Jumping isn't turned on, so drag the timeline to %s." % _clock(seconds))
