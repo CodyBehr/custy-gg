@@ -91,6 +91,7 @@ def row(m, tl, me):
         "legendary1": comp[0][0] if comp else None, "legendary2": comp[1][0] if len(comp) > 1 else None,
         "items": comp[:6],
         "lvl6_gap": round(a - b) if a and b else None,
+        "death_t": [round(e["timestamp"] / 1000) for e in deaths],
         "deaths": len(deaths), "deaths_14": sum(1 for e in deaths if e["timestamp"] < 840000),
         "deaths_14_jg": sum(1 for e in deaths if e["timestamp"] < 840000 and jg_in(e)),
         "kills_14": sum(1 for e in ev if e["type"] == "CHAMPION_KILL" and e.get("killerId") == pid and e["timestamp"] < 840000),
@@ -123,6 +124,14 @@ def aggregate(rows, source, built):
         out["minutes"][k] = [_q([r[k][m] for r in rows if r.get(k) and len(r[k]) > m]) for m in range(31)]
     for k in TIMINGS:
         out["timings"][k] = _q([r.get(k) for r in rows])
+    # Deaths per game in each 5-minute block (the last is 30+), among games that lasted into that block.
+    timed = [r for r in rows if "death_t" in r]
+    if len(timed) >= 20:
+        out["deaths_by5"] = []
+        for i in range(7):
+            lo, hi = i * 300, (10 ** 9 if i == 6 else (i + 1) * 300)
+            games = [r for r in timed if r["dur"] > lo]
+            out["deaths_by5"].append(round(sum(sum(1 for t in r["death_t"] if lo <= t < hi) for r in games) / len(games), 3) if len(games) >= 10 else None)
     slot, when = defaultdict(list), defaultdict(list)
     for r in rows:
         for n_, (t, i) in enumerate(r["items"][:5]):

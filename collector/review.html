@@ -95,6 +95,10 @@ table.grid td .y { font-size:15px; font-weight:600; } table.grid td .e { color:v
 .track .zone { position:absolute; left:37.5%; width:25%; top:0; bottom:0; background:rgba(255,255,255,.09); border-left:1px solid var(--line); border-right:1px solid var(--line); }
 .track i { position:absolute; top:-4px; width:20px; height:20px; margin-left:-10px; border-radius:50%; background:var(--gold); border:3px solid var(--night); }
 .track i.bad { background:var(--red); } .track i.good { background:var(--blue); }
+.grid2 { display:grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap:14px; margin-top:14px; align-items:start; }
+.grid2 + .grid2 { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+.ctitle { font-size:15px; font-weight:600; margin-bottom:2px; }
+details.allnums { margin-top:22px; } details.allnums summary { cursor:pointer; color:var(--mute); font-size:13px; margin-bottom:10px; }
 .sparks { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; }
 .sparks .card b { font-size:13px; } .sparks .card .sub { display:block; }
 .duo { display:grid; grid-template-columns: 330px 1fr; gap:14px; }
@@ -102,7 +106,7 @@ table.grid td .y { font-size:15px; font-weight:600; } table.grid td .e { color:v
 .pool .card { display:flex; gap:10px; align-items:center; padding:10px 12px; cursor:pointer; } .pool .card:hover { border-color:var(--blue); }
 .pool img { width:40px; height:40px; border-radius:8px; } .pool small { display:block; color:var(--mute); font-size:12px; }
 .formstrip { display:flex; gap:4px; align-items:center; margin-top:10px; } .formstrip i { width:16px; height:22px; border-radius:3px; background:var(--red); opacity:.85; } .formstrip i.w { background:var(--blue); }
-@media (max-width: 900px) { .hero, .duo { grid-template-columns: 1fr; } .score { grid-template-columns: 1fr 60px 60px; } .score .track, .score .n { display:none; } }
+@media (max-width: 900px) { .grid2, .grid2 + .grid2, .hero, .duo { grid-template-columns: 1fr; } .score { grid-template-columns: 1fr 60px 60px; } .score .track, .score .n { display:none; } }
 .legend { display:flex; gap:16px; font-size:12px; color:var(--mute); margin-top:6px; }
 .legend i { display:inline-block; width:12px; height:8px; border-radius:2px; margin-right:5px; vertical-align:middle; }
 </style>
@@ -849,6 +853,116 @@ async function openHome(force) {
   renderHome(rows);
 }
 
+// Radar: one spoke per skill, from how far each stat sits from the expert median (in expert spreads).
+const AXES = [
+  ["Farming", ["cs10"]], ["Gold", ["gold15", "gd15"]], ["XP lead", ["xpd10"]],
+  ["Staying alive", ["deaths14", "deaths"]], ["Tempo", ["back", "lvl6"]], ["Build speed", ["item1"]],
+];
+function radarSvg(stats) {
+  const by = Object.fromEntries(stats.map(s => [s.m.k, s]));
+  const axes = AXES.map(([label, ks]) => {
+    const ss = ks.map(k => by[k]).filter(Boolean);
+    return ss.length ? { label, z: avg(ss.map(s => s.z)), parts: ss } : null;
+  }).filter(Boolean);
+  if (axes.length < 3) return `<div class="sub" style="padding:40px 0">Needs at least 3 games with expert data.</div>`;
+  const W = 400, H = 300, cx = 200, cy = 152, R = 112, N = axes.length;
+  const pt = (i, v) => { const a = -Math.PI / 2 + i * 2 * Math.PI / N, r = R * v / 100; return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; };
+  const val = z => Math.max(8, Math.min(100, 50 + z * 25));
+  const poly = (vs) => vs.map((v, i) => pt(i, v).map(n => n.toFixed(1)).join(",")).join(" ");
+  let o = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Your skills against experts">`;
+  for (const ring of [25, 50, 75, 100]) o += `<polygon points="${poly(axes.map(() => ring))}" fill="none" stroke="${ring === 50 ? "transparent" : "var(--line-soft)"}"/>`;
+  axes.forEach((_, i) => { const [x, y] = pt(i, 100); o += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--line-soft)"/>`; });
+  o += `<polygon points="${poly(axes.map(() => 50))}" fill="var(--blue-wash)" stroke="var(--blue)" stroke-dasharray="5 4" stroke-width="1.5"/>`;
+  o += `<polygon points="${poly(axes.map(a => val(a.z)))}" fill="rgba(227,184,102,.22)" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round"/>`;
+  axes.forEach((a, i) => {
+    const [x, y] = pt(i, val(a.z)), col = a.z < -0.5 ? "var(--red)" : a.z > 0.5 ? "var(--blue)" : "var(--gold)";
+    o += `<circle cx="${x}" cy="${y}" r="5" fill="${col}" stroke="var(--deck)" stroke-width="2"><title>${a.parts.map(p => `${p.m.label}: you ${p.m.fmt(p.you)}, experts ${p.m.fmt(p.exp)}`).join("\n")}</title></circle>`;
+    const [lx, ly] = pt(i, 116), anchor = Math.abs(lx - cx) < 8 ? "middle" : lx > cx ? "start" : "end";
+    o += `<text x="${lx}" y="${ly + 4}" text-anchor="${anchor}" style="font-size:12px;fill:${a.z < -0.5 ? "var(--red-ink)" : a.z > 0.5 ? "var(--blue-ink)" : "var(--mute)"}">${a.label}</text>`;
+  });
+  return o + "</svg>";
+}
+
+// Minute curve: your value minus the expert median on that game's champion, averaged over games.
+const CURVES = { gold: ["Gold", A => A.myGold], cs: ["CS", A => A.myCs], xp: ["XP", A => A.xp] };
+function curveSvg(rows, k) {
+  const pick = CURVES[k][1], pts = [];
+  for (let m = 1; m <= 25; m++) {
+    const ds = [], lo = [], hi = [];
+    for (const r of rows) {
+      const b = r.B?.minutes?.[k]?.[m], sr = pick(r.A);
+      if (!b || !sr || sr.length <= m) continue;
+      ds.push(sr[m] - b[1]); lo.push(b[0] - b[1]); hi.push(b[2] - b[1]);
+    }
+    if (ds.length < 3) break;
+    pts.push({ m, d: avg(ds), lo: avg(lo), hi: avg(hi), n: ds.length });
+  }
+  if (pts.length < 5) return `<div class="sub" style="padding:40px 0">Needs at least 3 games with expert data.</div>`;
+  const W = 620, H = 250, L = 54, R = 14, T = 30, Bm = 26, n = pts[pts.length - 1].m;
+  let lo = Math.min(0, ...pts.map(p => Math.min(p.d, p.lo))), hi = Math.max(0, ...pts.map(p => Math.max(p.d, p.hi)));
+  const pad = (hi - lo) * .1 || 1; lo -= pad; hi += pad;
+  const x = m => L + (m - 1) / (n - 1) * (W - L - R), y = v => T + (hi - v) / (hi - lo) * (H - T - Bm);
+  const label = CURVES[k][0], unit = k === "cs" ? " CS" : k === "xp" ? " XP" : "";
+  let o = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${label} against experts by minute">`;
+  const raw = (hi - lo) / 4, mag = Math.pow(10, Math.floor(Math.log10(raw))), step = [1, 2, 2.5, 5, 10].map(f => f * mag).find(v => v >= raw);
+  for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) o += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line-soft)"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${signed(v)}</text>`;
+  for (let m = 5; m <= n; m += 5) o += `<text x="${x(m)}" y="${H - 7}" text-anchor="middle">${m}:00</text>`;
+  o += `<path d="M${pts.map(p => x(p.m) + "," + y(p.hi)).join("L")}L${pts.slice().reverse().map(p => x(p.m) + "," + y(p.lo)).join("L")}Z" fill="var(--blue-wash)"/>`;
+  o += `<line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="var(--blue)" stroke-dasharray="5 4" stroke-opacity=".7"/>`;
+  o += `<path d="M${x(pts[0].m)},${y(0)}L${pts.map(p => x(p.m) + "," + y(p.d)).join("L")}L${x(n)},${y(0)}Z" fill="rgba(227,184,102,.12)"/>`;
+  o += `<path d="M${pts.map(p => x(p.m) + "," + y(p.d)).join("L")}" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linejoin="round"/>`;
+  const drop = pts.find(p => p.m >= 3 && p.d < p.lo), lead = pts.find(p => p.m >= 3 && p.d > p.hi);
+  const mark = drop || lead;
+  if (mark) o += `<line x1="${x(mark.m)}" x2="${x(mark.m)}" y1="${T - 6}" y2="${H - Bm}" stroke="${drop ? "var(--red)" : "var(--blue)"}" stroke-dasharray="3 3"/>
+    <text x="${x(mark.m) + (x(mark.m) > W - 220 ? -6 : 6)}" y="${T - 12}" text-anchor="${x(mark.m) > W - 220 ? "end" : "start"}" style="font-size:12px;fill:${drop ? "var(--red-ink)" : "var(--blue-ink)"}">${drop ? "Below" : "Above"} the experts' range from ${mark.m}:00</text>`;
+  pts.forEach(p => { o += `<circle cx="${x(p.m)}" cy="${y(p.d)}" r="${p.m % 5 ? 0 : 4}" fill="${p.d < p.lo ? "var(--red)" : p.d > p.hi ? "var(--blue)" : "var(--gold)"}"/>
+    <rect x="${x(p.m) - (W - L - R) / n / 2}" y="${T}" width="${(W - L - R) / n}" height="${H - T - Bm}" fill="transparent"><title>${p.m}:00  ${signed(p.d)}${unit} vs the expert median (usual range ${signed(p.lo)} to ${signed(p.hi)}), ${p.n} games</title></rect>`; });
+  return o + "</svg>";
+}
+
+// Deaths per game in each 5-minute block of the game, yours and (when the expert file has it) theirs.
+const BLOCKS = ["0–5", "5–10", "10–15", "15–20", "20–25", "25–30", "30+"];
+function deathBlocks(rows) {
+  const you = BLOCKS.map((_, i) => {
+    const start = i * 300, end = i === 6 ? 1e9 : start + 300, games = rows.filter(r => r.A.g.gameDuration > start);
+    return games.length >= 2 ? games.reduce((a, r) => a + r.A.deaths.filter(d => d.t >= start && d.t < end).length, 0) / games.length : null;
+  });
+  const er = rows.filter(r => r.B?.deaths_by5);
+  const exp = er.length >= 3 ? BLOCKS.map((_, i) => { const v = er.map(r => r.B.deaths_by5[i]).filter(x => x != null); return v.length ? avg(v) : null; }) : null;
+  let note = "Expert timings by minute arrive with the next expert data run.";
+  if (exp) {
+    const gaps = you.map((v, i) => v != null && exp[i] != null ? v - exp[i] : -1e9);
+    const i = gaps.indexOf(Math.max(...gaps));
+    note = gaps[i] > 0.15 ? `Your biggest excess is ${BLOCKS[i]} minutes: ${you[i].toFixed(1)} deaths a game vs ${exp[i].toFixed(1)} for experts.` : "You die about as often as experts at every stage.";
+  } else {
+    const i = you.indexOf(Math.max(...you.map(v => v ?? -1)));
+    if (you[i] != null) note = `You die most in the ${BLOCKS[i]} minute block (${you[i].toFixed(1)} a game). ` + note;
+  }
+  return { you, exp, note };
+}
+function deathBarsSvg(db) {
+  const W = 620, H = 230, L = 34, R = 10, T = 22, Bm = 26, nB = BLOCKS.length;
+  const top = Math.max(0.5, ...db.you.map(v => v || 0), ...(db.exp || []).map(v => v || 0)) * 1.15;
+  const gw = (W - L - R) / nB, bw = Math.min(26, gw / (db.exp ? 2.8 : 1.8));
+  const y = v => T + (top - v) / top * (H - T - Bm);
+  let o = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Deaths per game by game minute">
+    <defs><pattern id="stripes" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#253150"/><rect width="2.5" height="6" fill="#5d6987"/></pattern></defs>`;
+  for (let i = 0; i <= 3; i++) { const v = top * i / 3; o += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line-soft)"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${v.toFixed(1)}</text>`; }
+  BLOCKS.forEach((b, i) => {
+    const cx = L + gw * i + gw / 2;
+    o += `<text x="${cx}" y="${H - 7}" text-anchor="middle">${b}</text>`;
+    const bar = (v, xx, fill, who) => v == null ? "" : `<rect x="${xx}" y="${y(v)}" width="${bw}" height="${Math.max(0, y(0) - y(v))}" rx="3" fill="${fill}"><title>${who}: ${v.toFixed(2)} deaths a game, minutes ${b}</title></rect>`;
+    if (db.exp) {
+      o += bar(db.you[i], cx - bw - 1, "var(--red)", "You") + bar(db.exp[i], cx + 1, "url(#stripes)", "Experts");
+      if (db.you[i] != null) o += `<text x="${cx - bw / 2 - 1}" y="${y(db.you[i]) - 5}" text-anchor="middle" style="fill:var(--red-ink)">${db.you[i].toFixed(1)}</text>`;
+    } else {
+      o += bar(db.you[i], cx - bw / 2, "var(--red)", "You");
+      if (db.you[i] != null) o += `<text x="${cx}" y="${y(db.you[i]) - 5}" text-anchor="middle" style="fill:var(--red-ink)">${db.you[i].toFixed(1)}</text>`;
+    }
+  });
+  return o + "</svg>";
+}
+
 function renderHome(rows) {
   const stats = dashStats(rows), withB = rows.filter(r => r.B).length;
   const wins = rows.filter(r => r.g.win).length;
@@ -896,26 +1010,12 @@ function renderHome(rows) {
       <span class="n">${s.n} games</span></div>`;
   };
 
-  // Trends for the four biggest gaps (either way), oldest game on the left.
-  const spark = (s) => {
-    const W = 240, H = 84, L = 6, R = 6, T = 8, Bm = 8, n = s.pts.length;
-    let lo = Math.min(...s.pts.map(p => Math.min(p.y, p.p25))), hi = Math.max(...s.pts.map(p => Math.max(p.y, p.p75)));
-    const pad = (hi - lo) * .12 || 1; lo -= pad; hi += pad;
-    const x = i => L + (n === 1 ? .5 : i / (n - 1)) * (W - L - R), y = v => T + (hi - v) / (hi - lo) * (H - T - Bm);
-    const top = s.pts.map((p, i) => x(i) + "," + y(p.p75)).join("L"), bot = s.pts.map((p, i) => x(i) + "," + y(p.p25)).reverse().join("L");
-    return `<div class="card"><b>${s.m.label}</b><span class="sub">${trendText(s.trend)}</span>
-      <svg viewBox="0 0 ${W} ${H}" width="100%"><path d="M${top}L${bot}Z" fill="var(--blue-wash)"/>
-      <path d="M${s.pts.map((p, i) => x(i) + "," + y(p.y)).join("L")}" fill="none" stroke="var(--gold)" stroke-width="2"/>
-      ${s.pts.map((p, i) => `<circle cx="${x(i)}" cy="${y(p.y)}" r="3.5" fill="${p.z < -0.5 ? "var(--red)" : p.z > 0.5 ? "var(--blue)" : "var(--gold)"}"><title>${esc(gameLabel(p.r.g))}: ${s.m.fmt(p.y)} (experts ${s.m.fmt(p.p50)})</title></circle>`).join("")}</svg></div>`;
-  };
-  const sparks = stats.slice().sort((a, b) => Math.abs(b.z) - Math.abs(a.z)).slice(0, 4).map(spark).join("");
-
   // Where you die, on the map (y runs upward on Summoner's Rift).
   const deaths = rows.flatMap(r => r.A.deaths.filter(d => d.e.position).map(d => ({ r, d })));
   const S = 300, px = v => v / 14870 * S, py = v => S - v / 14980 * S;
   const zones = {}; for (const { d } of deaths) { const a = area(d.e.position.x, d.e.position.y); zones[a] = (zones[a] || 0) + 1; }
   const topZones = Object.entries(zones).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([z, c]) => `<b>${Math.round(100 * c / deaths.length)}%</b> ${z}`).join(" · ");
-  const map = `<div class="card"><svg viewBox="0 0 ${S} ${S}" width="100%" style="border-radius:8px;background:#0a1020">
+  const map = `<div class="card"><div class="ctitle">Where you die</div><svg viewBox="0 0 ${S} ${S}" width="100%" style="border-radius:8px;background:#0a1020;max-width:340px;display:block;margin:0 auto">
       <image href="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/map/map11.png" width="${S}" height="${S}" opacity=".5"/>
       ${deaths.map(({ r, d }) => `<circle cx="${px(d.e.position.x)}" cy="${py(d.e.position.y)}" r="${d.t < 840 ? 5 : 4}" fill="${d.t < 840 ? "var(--red)" : "var(--gold)"}" fill-opacity="${d.t < 840 ? .85 : .45}" stroke="#0a1020"><title>${esc(gameLabel(r.g))} · ${clock(d.t)}</title></circle>`).join("")}</svg>
       <div class="legend"><span><i style="background:var(--red);border-radius:50%;width:9px;height:9px"></i>before 14:00</span><span><i style="background:var(--gold);border-radius:50%;width:9px;height:9px;opacity:.6"></i>later</span></div>
@@ -931,19 +1031,36 @@ function renderHome(rows) {
       <small>${rs.length} game${rs.length === 1 ? "" : "s"} · ${w}–${rs.length - w}</small><small class="${st && st.z < -0.4 ? "bad" : ""}">${note}</small></div></div>`;
   }).join("");
 
+  const curveKey = STATE.curve || "gold";
+  const db = deathBlocks(rows);
   $("view").innerHTML = `<div id="dash">
     <h1>Your last ${rows.length} games</h1>
     <div class="sub">${wins}–${rows.length - wins} · each game is compared with high-elo games on the same champion and role${withB < rows.length ? ` · expert data for ${withB} of ${rows.length} games` : ""}</div>
     <div class="formstrip" title="Newest on the left">${rows.slice().reverse().map(r => `<i class="${r.g.win ? "w" : ""}" title="${esc(gameLabel(r.g))}"></i>`).join("")}</div>
     <div class="hero">${hero}${strength}</div>
-    ${stats.length ? `<h2>You vs experts</h2>
+    <div class="grid2">
+      <div class="card"><div class="ctitle">Your shape vs experts</div><div class="sub">Each spoke is a skill. The dashed ring is the expert median; further out is better.</div>${radarSvg(stats)}
+        <div class="legend"><span><i style="background:var(--gold)"></i>You</span><span><i style="background:transparent;border:1px dashed var(--blue)"></i>Experts</span></div></div>
+      <div class="card"><div class="ctitle">Your average game, minute by minute</div>
+        <div class="seg" id="curveSeg">${Object.entries(CURVES).map(([k, c]) => `<button data-ck="${k}" class="${k === curveKey ? "on" : ""}">${c[0]}</button>`).join("")}</div>
+        <div id="curve">${curveSvg(rows, curveKey)}</div>
+        <div class="legend"><span><i style="background:var(--gold)"></i>You, compared with experts on the same champion</span><span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Experts' usual range</span></div></div>
+    </div>
+    <div class="grid2">
+      <div class="card"><div class="ctitle">When you die</div><div class="sub">${esc(db.note)}</div>${deathBarsSvg(db)}
+        <div class="legend"><span><i style="background:var(--red)"></i>You</span>${db.exp ? `<span><i style="background:repeating-linear-gradient(135deg,#5d6987 0 2px,#253150 2px 4px)"></i>Experts</span>` : ""}<span>deaths per game, by game minute</span></div></div>
+      ${map}
+    </div>
+    <h2>Champions</h2><div class="pool">${pool}</div>
+    ${stats.length ? `<details class="allnums"><summary>Show all numbers</summary>
     <div class="card"><div class="score h"><span></span><span>You</span><span>Experts</span><span style="display:flex;justify-content:space-between"><span>behind</span><span>their usual range</span><span>ahead</span></span><span></span></div>
-      ${stats.map(scoreRow).join("")}</div>
-    <h2>Game by game</h2><div class="sparks">${sparks}</div>
-    <div class="legend"><span><i style="background:var(--gold)"></i>You, oldest game on the left</span><span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Experts' usual range for that game's champion</span></div>` : ""}
-    <h2>Where you die · Champions</h2>
-    <div class="duo">${map}<div class="pool">${pool}</div></div>
+      ${stats.map(scoreRow).join("")}</div></details>` : ""}
     <p class="sub" style="margin-top:22px">Averages of your games against the expert median for each game's champion and role. Fixed rules on the numbers, no AI.</p></div>`;
+  document.querySelectorAll("#curveSeg button").forEach(b => b.onclick = () => {
+    STATE.curve = b.dataset.ck;
+    document.querySelectorAll("#curveSeg button").forEach(x => x.classList.toggle("on", x === b));
+    $("curve").innerHTML = curveSvg(rows, b.dataset.ck);
+  });
   const rb = $("reelBtn"); if (rb) rb.onclick = () => $("reel").classList.toggle("open");
   document.querySelectorAll("[data-rw]").forEach(b => b.onclick = () => { const [id, t] = b.dataset.rw.split(":"); watch(id, +t, b); });
   document.querySelectorAll("[data-og]").forEach(b => b.onclick = () => { STATE.tab = "experts"; openGame(b.dataset.og); });
