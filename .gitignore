@@ -16,4 +16,4 @@ scripts/benchmark/item.json
 lib/collector-files.ts
 scripts/benchmark/champion.json
 collector/review-key.txt
-collector/overlay-browser/
+collector/overlay-pos.json
