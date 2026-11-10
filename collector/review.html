@@ -51,6 +51,9 @@ button:disabled { opacity:.5; cursor:default; }
 svg text { fill:var(--mute); font-size:11px; }
 .moment { display:grid; grid-template-columns: 120px 1fr auto; gap:16px; align-items:start; padding:14px 0; border-top:1px solid var(--line-soft); }
 .moment:first-child { border-top:0; }
+.moment.swing { border:1px solid var(--red); background:var(--red-wash); border-radius:10px; padding:14px; margin:10px -6px; }
+.moment.swing + .moment { border-top:0; }
+.moment .badge { display:inline-block; margin-bottom:6px; padding:2px 8px; border-radius:99px; background:var(--red); color:#fff; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
 .moment .when { font-weight:600; font-size:16px; } .moment .when small { display:block; color:var(--red-ink); font-weight:400; font-size:12px; }
 .moment .part { margin-bottom:6px; } .moment .part > b { display:block; }
 .moment ul { margin:8px 0 0; padding-left:18px; color:var(--mute); font-size:13px; }
@@ -241,6 +244,18 @@ function analyse(data) {
       laneMatches(e.laneType, role)).map(e => e.timestamp / 1000),
   };
 }
+// % armor pen an item gives (Black Cleaver: its full 5-stack shred).
+function penOf(id) {
+  const d = DD.items[id]?.description || "";
+  const m = d.match(/(\d+)%<\/attention> Armor Penetration/); if (m) return +m[1] / 100;
+  const c = d.match(/Armor by (\d+)%/); return c ? Math.min(0.3, +c[1] * 5 / 100) : 0;
+}
+// Extra physical damage that much pen gives against a given armor.
+const penGain = (armor, pen) => armor > 0 ? (100 + armor) / (100 + armor * (1 - pen)) - 1 : 0;
+function enemyArmorList(A, m) {
+  const f = A.frames[Math.min(m, A.minutes)]; if (!f) return [];
+  return A.g.participants.filter(p => p.teamId !== A.me.teamId).map(p => ({ p, armor: A.pf(f, p.participantId).armor })).filter(x => x.armor > 0);
+}
 // Average enemy armor at a minute (only there when the game's timeline came from Riot's API).
 function enemyArmorAt(A, m) {
   const f = A.frames[Math.min(m, A.minutes)]; if (!f) return null;
@@ -266,7 +281,7 @@ function fromExperts(b) {
   const med = k => b.timings?.[k]?.[1] ?? null;
   return { expert: true, n: b.games, diff: band(b.minutes.gdiff), gold: band(b.minutes.gold), cs: band(b.minutes.cs),
     firstBack: med("first_back"), firstBackGold: med("first_back_gold"), firstItem: med("legendary1"),
-    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14") };
+    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14"), items: b.items || [] };
 }
 const WHO = (B) => B?.expert ? "Experts" : "Your usual";
 
@@ -339,8 +354,9 @@ function findMoments(A, B) {
     if (d.t < 840) notes.push(B ? `${B.expert ? "Experts die" : "In your usual game you die"} <b>${Math.round(B.deaths14 ?? 0)}</b> time${Math.round(B.deaths14 ?? 0) === 1 ? "" : "s"} before 14:00.` : "Deaths before 14:00 usually decide the lane.");
     const ended = !A.me.stats?.win && A.g.gameDuration - d.t < 120;
     if (ended && d.t >= 840) notes.push(`The game ended ${Math.round(A.g.gameDuration - d.t)}s later.`);
+    const turning = fight?.short ? "Fought a player down at " + fight.label : ended && d.t >= 840 ? "The game ended right after" : lost?.big ? "The enemy took " + lost.items.join(", ") : null;
     out.push({
-      kind: "death", start: Math.max(0, d.t - (fight ? 60 : 45)), end: d.t + 10,
+      kind: "death", turning, start: Math.max(0, d.t - (fight ? 60 : 45)), end: d.t + 10,
       cost: Math.max(300, swing) + (lost?.value || 0) + (fight ? fight.value : 0) + (ended ? 3000 : 0),
       title: fight ? `You died at ${clock(d.t)} in a ${fight.label} fight${fight.short ? `, ${fight.us}v${fight.them}` : ""}`
         : `You died at ${clock(d.t)}${killers.length ? " to " + killers.join(" + ") : ""}`,
@@ -392,6 +408,31 @@ function findMoments(A, B) {
       cost: A.platesLost.length * 160, title: `${A.platesLost.length} plates lost before 14:00`, compare: "" });
   }
 
+  // 8. Armor pen: experts on this champion build it, the enemy had the armor for it, and your first 3 items had none.
+  const penItem = (B?.items || []).filter(e => penOf(e.id) > 0 && e.rate >= 0.2).sort((a, b) => b.rate - a.rate)[0];
+  if (penItem && A.items.length >= 2) {
+    const pen = penOf(penItem.id), firstPen = A.items.findIndex(b => penOf(b.id) > 0);
+    const check = (slot) => {          // armor when that item finished
+      const b = A.items[slot - 1]; if (!b) return null;
+      const list = enemyArmorList(A, Math.floor(b.t / 60)); if (list.length < 3) return null;
+      const avg = list.reduce((a, x) => a + x.armor, 0) / list.length;
+      const tanks = list.slice().sort((x, y) => y.armor - x.armor).slice(0, 2);
+      return { b, avg, tanks, front: (tanks[0].armor + tanks[1].armor) / 2 };
+    };
+    const c2 = check(2), c3 = check(3);
+    const late = firstPen < 0 || firstPen >= 3;
+    // Tanky team: frontline at 120+ armor by your 2nd item. Otherwise: team average 60+ by your 3rd.
+    const hit = late && c2 && c2.front >= 120 && (firstPen < 0 || firstPen >= 2) ? { c: c2, slot: 2, vs: c2.front, who: c2.tanks.map(x => `${champName(x.p.championId)} ${Math.round(x.armor)}`).join(", ") }
+              : late && c3 && c3.avg >= 60 ? { c: c3, slot: 3, vs: c3.avg, who: null } : null;
+    if (hit) {
+      const g = penGain(hit.vs, pen), at = hit.c.b.t;
+      out.push({ kind: "pen", start: Math.max(0, at - 30), end: at + 5, cost: Math.round(g * 4000), swing: false,
+        title: `No armor pen by your ${ord(hit.slot)} item (${itemName(hit.c.b.id)}, ${clock(at)})`,
+        compare: `${hit.who ? `Their frontline had <b>${hit.who}</b> armor` : `The enemy team averaged <b>${Math.round(hit.vs)}</b> armor`} then, so ${itemName(penItem.id)} would have added about <b>${Math.round(g * 100)}%</b> physical damage against ${hit.who ? "them" : "them on its own"}. ` +
+          `${firstPen < 0 ? "You didn't build armor pen" : `Yours came ${ord(firstPen + 1)}, at ${clock(A.items[firstPen].t)}`}. Experts on ${champName(A.me.championId)} build it ${ord(Math.round(penItem.slot))} in ${Math.round(penItem.rate * 100)}% of games.` });
+    }
+  }
+
   // Overlapping findings become one moment to watch.
   const merged = [];
   for (const w of out.filter(w => w.cost > 0).sort((a, b) => a.start - b.start)) {
@@ -408,6 +449,7 @@ function findMoments(A, B) {
 const OBJ_VALUE = { BARON_NASHOR: 1500, DRAGON: 500, ELDER_DRAGON: 1500, RIFTHERALD: 400, ATAKHAN: 600, HORDE: 150 };
 const OBJ_NAME = { BARON_NASHOR: "Baron", DRAGON: "a dragon", ELDER_DRAGON: "Elder", RIFTHERALD: "Herald", ATAKHAN: "Atakhan", HORDE: "a void grub" };
 function lostWhileDead(A, t) {
+  let big = 0, towers = 0;
   const items = [], ours = (pid) => A.g.participants.find(p => p.participantId === pid)?.teamId === A.me.teamId;
   let value = 0;
   for (const e of A.events) {
@@ -416,17 +458,17 @@ function lostWhileDead(A, t) {
       const inhib = e.buildingType === "INHIBITOR_BUILDING", nexus = e.towerType === "NEXUS_TURRET";
       const lane = String(e.laneType || "").replace("_LANE", "").toLowerCase();
       items.push(inhib ? `${lane} inhibitor` : nexus ? "a nexus turret" : `${lane} ${String(e.towerType || "").replace("_TURRET", "").toLowerCase()} tower`);
-      value += inhib || nexus ? 800 : 500;
+      value += inhib || nexus ? 800 : 500; if (inhib || nexus) big++; else towers++;
     }
     if (e.type === "ELITE_MONSTER_KILL" && e.killerId > 0 && !ours(e.killerId)) {
       const k = e.monsterSubType === "ELDER_DRAGON" ? "ELDER_DRAGON" : e.monsterType;
-      items.push(OBJ_NAME[k] || "an objective"); value += OBJ_VALUE[k] || 300;
+      items.push(OBJ_NAME[k] || "an objective"); value += OBJ_VALUE[k] || 300; if (OBJ_VALUE[k] >= 1500) big++;
     }
   }
   const allies = A.kills.filter(k => k.victimId !== A.me.participantId && ours(k.victimId) && Math.abs(k.timestamp / 1000 - t) <= 15).map(k => A.champOf(k.victimId));
   const counted = {}; for (const i of items) counted[i] = (counted[i] || 0) + 1;
   const names = Object.entries(counted).map(([i, n]) => n === 1 ? i : `${n} ${i.replace(/^an? /, "")}s`);
-  return { items: names, value: items.length ? value + allies.length * 150 : 0, allies };
+  return { items: names, value: items.length ? value + allies.length * 150 : 0, allies, big: big > 0 || towers >= 2 };
 }
 
 // Died around Baron/Dragon/Herald/Atakhan that the enemy took: who was there, who was far away without Teleport.
@@ -649,8 +691,8 @@ function render(A, B, moments, s, label) {
     </div>
     <h2>Moments to watch, in order</h2>
     <div class="card">${moments.length ? moments.map((w, i) => `
-      <div class="moment">
-        <div class="when">${clock(w.start)} – ${clock(w.end)}${w.parts.some(p => p.kind === "gold") ? `<small>${Math.round(Math.max(...w.parts.filter(p => p.kind === "gold").map(p => p.cost))).toLocaleString()} gold lost</small>` : ""}</div>
+      <div class="moment${w.parts.some(p => p.turning) ? " swing" : ""}">
+        <div class="when">${w.parts.some(p => p.turning) ? `<span class="badge">Turning point</span>` : ""}${clock(w.start)} – ${clock(w.end)}${w.parts.some(p => p.kind === "gold") ? `<small>${Math.round(Math.max(...w.parts.filter(p => p.kind === "gold").map(p => p.cost))).toLocaleString()} gold lost</small>` : ""}</div>
         <div class="what">${w.parts.map(p => `<div class="part"><b>${esc(p.title)}</b>${p.compare ? `<div class="cmp">${p.compare}</div>` : ""}</div>`).join("")}
           ${w.context.length ? `<ul>${w.context.map(l => `<li>${l}</li>`).join("")}</ul>` : ""}</div>
         <div class="acts"><button class="primary" data-watch="${w.start}">Watch in my replay</button></div>
