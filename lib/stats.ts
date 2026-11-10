@@ -340,7 +340,7 @@ export function buildDataset(raw: Match[]): Dataset {
       }
     }
 
-    // Champion picks and bans across everyone (bots included in picks)
+    // Champion picks (humans only) and bans
     for (const p of humans) {
       const c = champs.get(p.championId) ?? { ...blankChamp(p.championId), bans: 0, players: [] };
       addLine(c, p, minutes);

@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { champName, getStatic, img } from "@/lib/ddragon";
 import { getDataset, searchPlayers, type PlayerSummary } from "@/lib/stats";
 import type { Role } from "@/lib/types";
-import { Champ, Empty, Form, Img, WinRate, ago, ratio, roleLabel, KdaRatio } from "@/components/ui";
+import { Champ, Empty, Form, Img, WinRate, ago, roleLabel, KdaRatio } from "@/components/ui";
 import { PlayerSearch } from "@/components/player-search";
 
 export const dynamic = "force-dynamic";

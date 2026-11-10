@@ -6,9 +6,12 @@ Summoner's Rift games (ranked, normals, quickplay; not customs): your lane gold
 difference by minute, the moments it slipped, your back, item and level 6
 timings, and a button that opens your replay at that moment.
 
-Nothing here is uploaded anywhere. Games and timelines read from the League
-client are kept in review-cache/ next to the app's log, so the comparison with
-"your usual" grows as you play with the app running.
+Games and timelines read from the League client stay on this computer, in
+review-cache/ next to the app's log, so the comparison with "your usual" grows
+as you play with the app running. Two things come from the site: the item
+purchases and skill-ups the client leaves out of ranked games (the app sends
+the game's id; the site looks them up with its Riot key), and the expert
+numbers for the "vs Experts" tab.
 
     python custy_collector.py --review     open it without the Windows app
 """
@@ -139,16 +142,45 @@ def _write_cache(game_id, data):
     os.replace(tmp, _cache_path(game_id))
 
 
-def _prune_cache():
+_index = {}   # file name -> (mtime, the small facts list_games and refresh need)
+
+
+def _info(name):
+    """Summary facts about one cached game, without re-reading its (large) file unless it changed."""
+    path = os.path.join(CACHE_DIR, name)
     try:
-        files = sorted((os.path.getmtime(os.path.join(CACHE_DIR, n)), n) for n in os.listdir(CACHE_DIR) if n.endswith(".json"))
+        mtime = os.path.getmtime(path)
+    except OSError:
+        _index.pop(name, None)
+        return None
+    hit = _index.get(name)
+    if hit and hit[0] == mtime:
+        return hit[1]
+    data = _read_cache(name[:-5])
+    info = None
+    if data:
+        info = {"summary": data.get("summary"), "me": data.get("me"), "hasTimeline": data.get("timeline") is not None,
+                "reviewable": _is_reviewable(data.get("game") or {}), "tlTried": float(data.get("tlTried") or 0),
+                "created": (data.get("game") or {}).get("gameCreation") or 0}
+    _index[name] = (mtime, info)
+    return info
+
+
+def _prune_cache():
+    """Keeps the newest CACHE_LIMIT games (by when they were played)."""
+    try:
+        names = [n for n in os.listdir(CACHE_DIR) if n.endswith(".json")]
     except OSError:
         return
-    for _, name in files[:-CACHE_LIMIT] if len(files) > CACHE_LIMIT else []:
+    if len(names) <= CACHE_LIMIT:
+        return
+    names.sort(key=lambda n: (_info(n) or {}).get("created") or 0)
+    for name in names[:-CACHE_LIMIT]:
         try:
             os.remove(os.path.join(CACHE_DIR, name))
         except OSError:
             pass
+        _index.pop(name, None)
 
 
 def _summarize(game, me_puuid):
@@ -243,7 +275,7 @@ def fetch_game(lcu, game_id, me_puuid):
     except (urllib.error.URLError, OSError, ValueError):
         tl = None
     data = {"game": game, "timeline": tl if tl and tl["frames"] else None,
-            "summary": _summarize(game, me_puuid), "me": me_puuid}
+            "summary": _summarize(game, me_puuid), "me": me_puuid, "tlTried": time.time()}
     fill_from_riot(data)
     _write_cache(game_id, data)
     return data
@@ -267,8 +299,9 @@ def refresh(cfg):
     for s in games:
         if not _is_reviewable(s) or not s.get("gameId"):
             continue
-        cached = _read_cache(s["gameId"])
-        if cached and cached.get("timeline") is not None:
+        cached = _info("%s.json" % int(s["gameId"]))
+        # Already saved; a game the client had no timeline for is retried at most every 10 minutes.
+        if cached and (cached["hasTimeline"] or time.time() - cached["tlTried"] < 600):
             continue
         try:
             fetch_game(lcu, s["gameId"], me["puuid"])
@@ -287,15 +320,12 @@ def list_games(me_puuid=None):
     for n in names:
         if not n.endswith(".json"):
             continue
-        data = _read_cache(n[:-5])
-        s = (data or {}).get("summary")
-        if not s or (me_puuid and data.get("me") != me_puuid):
+        info = _info(n)
+        if not info or not info["summary"] or not info["reviewable"]:
             continue
-        g = data.get("game") or {}
-        if not _is_reviewable(g):
+        if me_puuid and info["me"] != me_puuid:
             continue
-        s = dict(s, hasTimeline=data.get("timeline") is not None)
-        out.append(s)
+        out.append(dict(info["summary"], hasTimeline=info["hasTimeline"]))
     out.sort(key=lambda s: s.get("created") or 0, reverse=True)
     return out
 
@@ -535,7 +565,7 @@ def _page():
 def benchmark(cfg, name):
     """High-elo numbers for one champion and role, from the site (refreshed every few hours)."""
     hit = _bench.get(name)
-    if hit and time.time() - hit[0] < 6 * 3600:
+    if hit and time.time() - hit[0] < (600 if hit[1].get("missing") else 6 * 3600):
         return hit[1]
     data = {"missing": True}
     try:
@@ -599,7 +629,7 @@ def make_handler(cfg, token):
             m = re.match(r"^/api/game/(\d+)$", url.path)
             if m:
                 me = me_cache["me"] or {}
-                data = fetch_game(_lcu(cfg) if not _read_cache(m.group(1)) else None, m.group(1), me.get("puuid"))
+                data = _read_cache(m.group(1)) or fetch_game(_lcu(cfg), m.group(1), me.get("puuid"))
                 if not data:
                     return self._send(404, {"error": "game not found"})
                 if fill_from_riot(data):
@@ -619,7 +649,10 @@ def make_handler(cfg, token):
                 return self._send(403, {"error": "forbidden"})
             m = re.match(r"^/api/replay/(\d+)$", url.path)
             if m:
-                t = float(parse_qs(url.query).get("t", ["0"])[0])
+                try:
+                    t = max(0.0, float(parse_qs(url.query).get("t", ["0"])[0]))
+                except ValueError:
+                    return self._send(400, {"error": "bad time"})
                 with _lock:
                     busy = _replay["state"] == "working" and time.time() - _replay["at"] < 200
                 if busy:

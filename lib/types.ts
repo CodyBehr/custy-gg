@@ -10,7 +10,7 @@ export interface MatchPlayer {
   win: boolean;
   championId: number;
   champLevel: number;
-  role: Role;             // best guess; custom games don't record roles reliably
+  role: Role;             // from the role quest slot, else inferred; "" when unknown
   spells: [number, number];
   items: number[];        // item0..item6 (6 = trinket); 0 = empty slot
   keystone: number;

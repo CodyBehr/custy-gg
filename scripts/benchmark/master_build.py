@@ -12,15 +12,34 @@ ap.add_argument("--out", default="public/benchmarks")
 ap.add_argument("--min", type=int, default=40)
 a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
-names = sorted({os.path.basename(p)[:-6] for d in a.folders for p in glob.glob(os.path.join(d, "*.jsonl"))})
+# Riot's match data spells a few champions differently from Data Dragon (FiddleSticks vs Fiddlesticks).
+# The review page asks by Data Dragon's spelling, so file names follow champion.json when it's there.
+canon = {}
+try:
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "champion.json"), encoding="utf-8") as f:
+        canon = {c.lower(): c for c in json.load(f)["data"]}
+except OSError:
+    print("champion.json not found: keeping Riot's champion spellings")
+
+
+def canonical(name):
+    champ, role = name.rsplit("-", 1)
+    return "%s-%s" % (canon.get(champ.lower(), champ), role)
+
+
+files = {}
+for d in a.folders:
+    for p in glob.glob(os.path.join(d, "*.jsonl")):
+        files.setdefault(canonical(os.path.basename(p)[:-6]), []).append(p)
 built, thin, kept = 0, [], 0
 index = []
-for name in names:
+for name in sorted(files):
     rows = []
-    for d in a.folders:
-        p = os.path.join(d, name + ".jsonl")
-        if os.path.exists(p):
-            rows += [json.loads(l) for l in open(p, encoding="utf-8") if l.strip()]
+    for p in files[name]:
+        with open(p, encoding="utf-8") as f:
+            rows += [json.loads(l) for l in f if l.strip()]
+    for r in rows:
+        r["champ"] = name.rsplit("-", 1)[0]
     if len(rows) < a.min:
         thin.append("%s (%d)" % (name, len(rows))); continue
     path = os.path.join(a.out, name + ".json")

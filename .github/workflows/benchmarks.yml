@@ -51,10 +51,11 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           pattern: rows-*
-      - name: Item data
+      - name: Item and champion data
         run: |
           V=$(curl -s https://ddragon.leagueoflegends.com/api/versions.json | python3 -c "import json,sys;print(json.load(sys.stdin)[0])")
           curl -s -o scripts/benchmark/item.json https://ddragon.leagueoflegends.com/cdn/$V/data/en_US/item.json
+          curl -s -o scripts/benchmark/champion.json https://ddragon.leagueoflegends.com/cdn/$V/data/en_US/champion.json
       - name: Build benchmark files
         run: python3 scripts/benchmark/master_build.py rows-* --out public/benchmarks --min 40
       - name: Commit

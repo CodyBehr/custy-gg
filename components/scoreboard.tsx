@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { champName, type Static } from "@/lib/ddragon";
 import type { Match, MatchTeam } from "@/lib/types";
-import { Champ, Delta, Items, Kda, Loadout, ratio, roleLabel, KdaRatio } from "@/components/ui";
+import { Champ, Delta, Items, Kda, Loadout, roleLabel, KdaRatio } from "@/components/ui";
 
 const ROLE_ORDER = { TOP: 0, JUNGLE: 1, MID: 2, BOT: 3, SUPPORT: 4, "": 5 } as const;
 

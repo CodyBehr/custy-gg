@@ -124,7 +124,7 @@ export default async function Standings() {
 function highlights(d: Awaited<ReturnType<typeof getDataset>>) {
   const regulars = d.players.filter((p) => p.games >= Math.min(5, Math.max(1, Math.floor(d.counted / 4))));
   if (!regulars.length) return [];
-  const best = <T,>(f: (p: (typeof regulars)[number]) => number) => regulars.reduce((a, b) => (f(b) > f(a) ? b : a));
+  const best = (f: (p: (typeof regulars)[number]) => number) => regulars.reduce((a, b) => (f(b) > f(a) ? b : a));
   const out: { label: string; name: string; puuid: string; value: string; href?: string }[] = [];
   const streak = best((p) => p.streak);
   if (streak.streak >= 2) out.push({ label: "Hottest streak", name: streak.name, puuid: streak.puuid, value: `${streak.streak}W` });

@@ -41,8 +41,8 @@ On its first run the collector uploads every custom game still in your client's 
 
 ### How the Windows app is built
 
-`.github/workflows/build-collector.yml` runs on GitHub's Windows machines whenever `collector/custy_collector.py`
-or `collector/windows_app.py` changes. It packs the collector into one `.exe` with PyInstaller, checks it starts,
+`.github/workflows/build-collector.yml` runs on GitHub's Windows machines whenever the app's code changes
+(`collector/custy_collector.py`, `windows_app.py`, `review.py` or `review.html`). It packs the collector into one `.exe` with PyInstaller, checks it starts,
 and commits it to `collector-dist/`. The site's `/api/collector/windows` route serves that file with this site's
 address and upload key attached to the end, where the app reads them.
 
@@ -84,18 +84,30 @@ the tray menu ("Update automatically").
 
 The Windows app also has a **Review my games (test)** window: right-click the tray icon, or open *custy.gg game
 review* from the Start menu. It reviews your recent ranked, normal and quickplay games on Summoner's Rift (not
-customs):
+customs). Each game has two tabs:
 
-- your lane gold difference by minute against your lane opponent, with the middle half of your own recent games
-  in the same role behind it (same champion once you have 3+ games on it)
-- up to 5 moments to watch: gold swings of 400+, deaths before 14:00, CS, first back, boots, first item, level 6
-  and plates, with what happened around each one
+- **Moments**: your lane gold difference by minute against your lane opponent, with the middle half of your own
+  recent games in the same role behind it (same champion once you have 3+ games on it); up to 6 moments to watch in
+  the order they happened (gold swings of 400+, deaths before 14:00, CS, first back, first item, level 6, plates);
+  and every death with who, where, the enemy jungler's position and unspent gold.
+- **vs Experts**: the same game against high-elo games on that champion and role: gold, CS, level and
+  XP/gold/CS vs lane opponent at 5/10/15/20 minutes, build order (adjusted for how much armor and magic resist the
+  enemy built), back and item timings, and the biggest differences in plain sentences. All of it is fixed rules on
+  the numbers, no AI.
 - **Watch in my replay** downloads the replay through the League client, starts it and jumps to the moment.
   Jumping needs League's Replay API on; the page offers to add `EnableReplayApi=1` to `Config/game.cfg` (it keeps
   `game.cfg.custy-backup`). Replays only open for games on the current patch.
 
-Everything stays on your PC: games are read from the League client and kept in
-`%LOCALAPPDATA%\custy-collector\review-cache`, so the comparison improves as you play with the app running.
+Games are read from the League client and kept on your PC in `%LOCALAPPDATA%\custy-collector\review-cache`. Two
+things come from the site: the item purchases and skill-ups the client leaves out of ranked games (the app sends
+the game's id to `/api/review/timeline`, which looks them up with `RIOT_API_KEY`), and the expert numbers
+(`public/benchmarks/<Champion>-<ROLE>.json`).
+
+**Expert numbers** are built by `.github/workflows/benchmarks.yml` (Actions tab, *Run workflow*; needs the
+`RIOT_API_KEY` repository secret): it pulls Master+ ranked games from NA, EUW and KR and writes one file per
+champion and role with 40+ games. Files built from onetricks.gg one-trick lists (`scripts/benchmark/pull.py` +
+`build_benchmark.py`) are kept as they are. See `scripts/benchmark/README.md`.
+
 Without the Windows app: `python collector/custy_collector.py --review`. To try it without League, run
 `MOCK_RANKED=1 MOCK_REPLAY_API=1 python scripts/mock_lcu.py some-folder` first.
 
@@ -121,6 +133,10 @@ Optional Vercel environment variables:
 | `SITE_PASSWORD` | asks visitors for a group password before showing anything |
 | `NEXT_PUBLIC_GROUP_NAME` | name in the header, e.g. `Rift Night.gg` |
 | `NEXT_PUBLIC_TIMEZONE` | defaults to `America/New_York` |
+| `RIOT_API_KEY` | lets the game review fill in item purchases and skill-ups for ranked games |
+| `AGENT_API_KEY` | makes `/api/agent` require `Authorization: Bearer <key>` |
+| `DISCORD_APP_ID`, `DISCORD_PUBLIC_KEY` | the Discord bot (see `/discord`) |
+| `CRON_SECRET` | only lets Vercel's own cron call `/api/cron/weekly` |
 
 ## Good to know
 
@@ -164,8 +180,15 @@ lib/
   stats.ts              ratings, MVPs, records, duos: every number on the site
   store.ts              Postgres (or a local JSON file)
   ddragon.ts            champion names and icons from Riot's Data Dragon
-collector/              the Python script your friends run
+  timeline.ts           gold graphs, kill maps and objectives from game timelines
+  analysis.ts           the per-player analysis behind /api/agent
+  teams.ts draft.ts predictions.ts   the Discord team maker, captain draft and predictions
+collector/              the app your friends run (custy_collector.py), its Windows wrapper (windows_app.py)
+                        and the game review (review.py, review.html)
+collector-dist/         the built Windows app (committed by GitHub Actions)
+public/benchmarks/      expert numbers for the game review's vs Experts tab
 scripts/                sample data and a pretend League client for testing
+scripts/benchmark/      pulls high-elo games from Riot's API and builds public/benchmarks
 ```
 
 If you change `lib/normalize.ts` later, rebuild every stored game with:

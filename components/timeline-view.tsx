@@ -17,7 +17,7 @@ const OBJ_GLYPH: Record<TimelineObjective["kind"], string> = {
   DRAGON: "D", BARON: "B", HERALD: "H", GRUBS: "G", ATAKHAN: "A", TOWER: "T", INHIBITOR: "I",
 };
 const dragonName = (sub?: string) =>
-  sub ? sub.replace(/_DRAGON$/, "").toLowerCase().replace(/^\w/, (c) => c.toUpperCase()).replace("Hextech", "Hextech").replace("Air", "Cloud").replace("Fire", "Infernal").replace("Water", "Ocean").replace("Earth", "Mountain") : "";
+  sub ? sub.replace(/_DRAGON$/, "").toLowerCase().replace(/^\w/, (c) => c.toUpperCase()).replace("Air", "Cloud").replace("Fire", "Infernal").replace("Water", "Ocean").replace("Earth", "Mountain") : "";
 
 export function TimelineView({ tl, m, s }: { tl: TimelineSummary; m: Match; s: Static }) {
   const blueWon = m.teams.find((t) => t.teamId === 100)?.win ?? false;
@@ -62,7 +62,7 @@ function GoldGraph({ tl }: { tl: TimelineSummary }) {
   const area = `${line}L${x(diff.length - 1)},${y(0)}L${x(0)},${y(0)}Z`;
   const ticks = [top, top / 2, 0, -top / 2, -top];
   const minuteTicks = diff.map((_, i) => i).filter((i) => i % 5 === 0);
-  const objs = tl.objectives.filter((o) => o.kind !== "TOWER" || true);
+  const objs = tl.objectives;
   return (
     <svg className="gold-graph" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Blue minus red team gold, by minute">
       <defs>

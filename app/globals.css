@@ -561,7 +561,7 @@ a.cl:hover { background: var(--deck-2); }
 .cl-wr { align-items: flex-end; text-align: right; }
 .cl .sub { font-size: 12px; }
 .cl-kda .sub, .cl-wr .sub { white-space: nowrap; }
-.cl.all, .cl-all { background: rgba(255, 255, 255, 0.02); }
+.cl.all { background: rgba(255, 255, 255, 0.02); }
 .all-ico {
   width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
   background: var(--deck-2); color: var(--mute); font-weight: 800; font-size: 13px;

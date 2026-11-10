@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { PLAYER_LINKS } from "@/lib/player-links";
 import type { Metadata } from "next";
 import { champName, getStatic, img, type Static } from "@/lib/ddragon";
-import { clock, getDataset, kda, START_RATING, type ChampLine, type Dataset, type PlayerSummary } from "@/lib/stats";
+import { clock, getDataset, START_RATING, type Dataset, type PlayerSummary } from "@/lib/stats";
 import type { Match, MatchPlayer, Role } from "@/lib/types";
 import { Champ, ChampLineRow, Delta, Img, Items, Kda, KdaRatio, Loadout, Pct, WinRate, kdaTone, ratio, roleLabel, when, ago } from "@/components/ui";
 import { Board } from "@/components/scoreboard";

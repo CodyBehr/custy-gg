@@ -314,10 +314,6 @@ export function store(): Store {
   return fileStore;
 }
 
-export function storageKind(): "postgres" | "file" {
-  return databaseUrl() ? "postgres" : "file";
-}
-
 /** Re-run the normalizer over every stored game (after updating the site). */
 export async function renormalizeAll(): Promise<{ updated: number; failed: number }> {
   const s = store();

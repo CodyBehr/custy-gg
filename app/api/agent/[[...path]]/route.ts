@@ -74,7 +74,7 @@ async function route(ep: string, q: URLSearchParams, d: Dataset, st: Static, sit
         players: d.players.length,
         notes: [
           "Custy rating is an Elo rating (start 1500, K=32), replayed from the oldest game, so it can shift a little when older games are uploaded late.",
-          "Roles are guessed (custom games don't record positions).",
+          "Roles come from each player's role quest item; when that's missing they're inferred from Smite, lane and CS.",
           "Remakes (under 5 minutes) are excluded from stats.",
           "Percent fields are 0-100.",
         ],

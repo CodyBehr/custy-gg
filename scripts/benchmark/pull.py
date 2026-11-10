@@ -1,4 +1,4 @@
-"""Pull high-elo games for one champion+position through the Riot API (dev key in /tmp/riotkey)."""
+"""Pull high-elo games for one champion+position through the Riot API (key in RIOT_API_KEY)."""
 import json, os, sys, time, threading, urllib.request, urllib.parse, urllib.error
 KEY = os.environ["RIOT_API_KEY"]
 ROUTE = {"NA": "americas", "EUW": "europe", "KR": "asia"}

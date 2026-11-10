@@ -187,7 +187,7 @@ function analyse(data) {
     csdiff: opp ? myCs.map((v, i) => v - cs(opp.participantId)[i]) : null,
     items: completed, armorN: defense("FlatArmorMod"), mrN: defense("FlatSpellBlockMod"),
     backs: backsOf(me.participantId), oppBacks: opp ? backsOf(opp.participantId) : [],
-    firstItem: firstOf(me.participantId, isCompleted), boots: firstOf(me.participantId, isBoots),
+    firstItem: firstOf(me.participantId, isCompleted),
     lvl6: lvl6(me.participantId), oppLvl6: opp ? lvl6(opp.participantId) : null,
     deaths: kills.filter(e => e.victimId === me.participantId).map(e => ({ t: e.timestamp / 1000, e })),
     platesLost: events.filter(e => e.type === "TURRET_PLATE_DESTROYED" && e.teamId === me.teamId && e.timestamp < 14 * 60000 &&
@@ -219,7 +219,7 @@ function baseline(list) {
     n: list.length,
     diff: band(a => a.diff), gold: band(a => a.myGold), cs: band(a => a.myCs),
     firstBack: med(a => a.backs[0]?.t), firstBackGold: med(a => a.backs[0]?.spent),
-    firstItem: med(a => a.firstItem), boots: med(a => a.boots),
+    firstItem: med(a => a.firstItem),
     lvl6Gap: med(a => a.lvl6 != null && a.oppLvl6 != null ? a.lvl6 - a.oppLvl6 : null),
     deaths14: med(a => a.deaths.filter(d => d.t < 840).length),
   };
@@ -296,7 +296,7 @@ function findMoments(A, B) {
       compare: `Your usual: back by <b>${clock(B.firstBack)}</b>, spending ~${Math.round(B.firstBackGold || 0).toLocaleString()}.` });
   }
 
-  // 5. First completed item and boots.
+  // 5. First completed item.
   for (const [k, label] of [["firstItem", "First item"]]) {
     if (B?.[k] && A[k] && A[k] - B[k] >= 90) {
       out.push({ kind: k, start: Math.max(0, B[k] - 45), end: A[k] + 5, cost: (A[k] - B[k]) * 3,

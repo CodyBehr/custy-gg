@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { champName, getStatic } from "@/lib/ddragon";
 import { getDataset, type Dataset } from "@/lib/stats";
-import { Champ, Empty, WinRate, ratio, KdaRatio } from "@/components/ui";
+import { Champ, Empty, WinRate, KdaRatio } from "@/components/ui";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Champions" };

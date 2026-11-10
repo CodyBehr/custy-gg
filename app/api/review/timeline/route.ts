@@ -13,7 +13,7 @@ const ROUTES: Record<string, string> = {
   NA1: "americas", BR1: "americas", LA1: "americas", LA2: "americas",
   EUW1: "europe", EUN1: "europe", TR1: "europe", RU: "europe", ME1: "europe",
   KR: "asia", JP1: "asia",
-  OC1: "sea", SG2: "sea", TW2: "sea", VN2: "sea",
+  OC1: "sea", SG2: "sea", TW2: "sea", VN2: "sea", PH2: "sea", TH2: "sea",
 };
 const KEEP = new Set(["ITEM_PURCHASED", "ITEM_UNDO", "ITEM_SOLD", "ITEM_DESTROYED", "SKILL_LEVEL_UP", "LEVEL_UP", "TURRET_PLATE_DESTROYED"]);
 

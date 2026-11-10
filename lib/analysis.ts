@@ -203,7 +203,7 @@ export function analyzePlayer(d: Dataset, st: Static, pl: PlayerSummary, timelin
     .sort((a, b) => b.adjusted - a.adjusted);
   const clean = <T extends { adjusted: number }>(xs: T[]) => xs.map(({ adjusted: _a, ...rest }) => rest);
 
-  // Lane opponents (same guessed role on the other team).
+  // Lane opponents (same role on the other team).
   const laneOpp = new Map<string, { name: string; games: number; wins: number }>();
   for (const l of mine) {
     if (!l.p.role) continue;
@@ -271,7 +271,7 @@ export function analyzePlayer(d: Dataset, st: Static, pl: PlayerSummary, timelin
       teamBehindAt15: { games: behind.length, comebackRate: behind.length ? pct(behind.filter((r) => r.l.p.win).length / behind.length) : null },
       whereTheyDie: Object.fromEntries([...zones].sort((a, b) => b[1] - a[1]).map(([z, n]) => [z, `${n} (${Math.round((n / totalDeaths) * 100)}%)`])),
       whenTheyDie: deathTimes,
-      note: "Map regions are approximate. Lane opponent = same guessed role on the other team.",
+      note: "Map regions are approximate. Lane opponent = same role on the other team.",
     };
   }
 

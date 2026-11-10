@@ -13,3 +13,5 @@ collector/review-cache/
 collector/settings.json
 __pycache__/
 scripts/benchmark/item.json
+lib/collector-files.ts
+scripts/benchmark/champion.json

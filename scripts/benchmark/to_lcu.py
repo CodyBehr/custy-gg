@@ -15,8 +15,6 @@ game = {"gameId": m["gameId"], "gameCreation": m["gameCreation"], "gameDuration"
         "gameMode": "CLASSIC", "gameType": "MATCHED_GAME", "gameVersion": m["gameVersion"], "participants": parts, "participantIdentities": ids}
 frames = [{"timestamp": f["timestamp"], "participantFrames": {k: {x: v.get(x) for x in ("totalGold", "currentGold", "minionsKilled", "jungleMinionsKilled", "level", "xp", "position")} for k, v in f["participantFrames"].items()},
            "events": f["events"]} for f in tl["frames"]]
-sys.path.insert(0, "collector")
-import importlib.util
 os.makedirs(out, exist_ok=True)
 json.dump({"game": game, "timeline": {"frames": frames}, "me": puuid, "summary": None}, open(os.path.join(out, "%s.json" % m["gameId"]), "w"))
 print("wrote", m["gameId"])

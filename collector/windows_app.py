@@ -249,10 +249,6 @@ def handle_launch(args):
 
 
 # --------------------------------------------------------------------------
-# Tray icon: shows it's running, and lets you open the site, pause or quit.
-# --------------------------------------------------------------------------
-
-# --------------------------------------------------------------------------
 # Settings and automatic updates
 # --------------------------------------------------------------------------
 
@@ -370,6 +366,10 @@ def autostart_enabled():
     except OSError:
         return False
 
+
+# --------------------------------------------------------------------------
+# Tray icon: shows it's running, and lets you open the site, pause or quit.
+# --------------------------------------------------------------------------
 
 def run_with_tray(cfg, start_collector):
     """Runs the collector in a background thread with a tray icon in front."""
