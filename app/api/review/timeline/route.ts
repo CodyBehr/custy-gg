@@ -43,6 +43,8 @@ export async function GET(req: Request) {
   const frames = (info.frames ?? []).map((f: any) => ({
     timestamp: f.timestamp,
     events: (f.events ?? []).filter((e: any) => KEEP.has(e.type)),
+    // Armor per participant: the client's timeline doesn't have champion stats.
+    armor: Object.fromEntries(Object.values(f.participantFrames ?? {}).map((pf: any) => [pf.participantId, pf.championStats?.armor ?? null])),
   }));
   return NextResponse.json({ participants, frames }, { headers: { "Cache-Control": "private, max-age=86400" } });
 }

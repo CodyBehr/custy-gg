@@ -215,11 +215,18 @@ def _has_purchases(tl):
     return any(e.get("type") == "ITEM_PURCHASED" for f in (tl or {}).get("frames") or [] for e in f.get("events") or [])
 
 
+def _has_armor(tl):
+    return any("armor" in pf for f in (tl or {}).get("frames") or [] for pf in (f.get("participantFrames") or {}).values())
+
+
 def fill_from_riot(data):
-    """The client's timeline for ranked/normal games has no item purchases or skill-ups.
+    """The client's timeline for ranked/normal games has no item purchases, skill-ups or champion stats.
     Asks the site, which gets them from Riot's match API, and merges them in. Returns True if it changed anything."""
     tl, game = data.get("timeline"), data.get("game") or {}
-    if not tl or _has_purchases(tl) or not _cfg.get("site_url"):
+    if not tl or not _cfg.get("site_url"):
+        return False
+    need_events, need_armor = not _has_purchases(tl), not _has_armor(tl)
+    if not need_events and not need_armor:
         return False
     # "fillTried2": attempts made before the site had its Riot key don't count.
     if time.time() - float(data.get("fillTried2") or 0) < 600:
@@ -239,7 +246,14 @@ def fill_from_riot(data):
     pid_map = {p["participantId"]: by_puuid.get(p["puuid"], p["participantId"]) for p in extra.get("participants") or []}
     frames = tl.get("frames") or []
     added = 0
-    for f in extra.get("frames") or []:
+    for i, f in enumerate(extra.get("frames") or []):
+        if i < len(frames):
+            for pid, armor in (f.get("armor") or {}).items():
+                pf = (frames[i].get("participantFrames") or {}).get(str(pid_map.get(int(pid), int(pid))))
+                if pf is not None and armor is not None:
+                    pf["armor"] = armor
+        if not need_events:
+            continue
         for e in f.get("events") or []:
             e = dict(e)
             if "participantId" in e:

@@ -241,6 +241,12 @@ function analyse(data) {
       laneMatches(e.laneType, role)).map(e => e.timestamp / 1000),
   };
 }
+// Average enemy armor at a minute (only there when the game's timeline came from Riot's API).
+function enemyArmorAt(A, m) {
+  const f = A.frames[Math.min(m, A.minutes)]; if (!f) return null;
+  const v = A.g.participants.filter(p => p.teamId !== A.me.teamId).map(p => A.pf(f, p.participantId).armor).filter(x => x > 0);
+  return v.length >= 3 ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null;
+}
 function laneMatches(lane, role) {
   lane = String(lane || "");
   return (role === "TOP" && lane.startsWith("TOP")) || (role === "MID" && lane.startsWith("MID")) ||
@@ -315,19 +321,30 @@ function findMoments(A, B) {
     }
   }
 
-  // 2. Deaths: any before 14:00, and any after which your lane gold fell 300+.
+  // 2. Deaths: any before 14:00; later ones if your lane gold fell 300+, the enemy took
+  //    something while you were dead, or you died around an objective they took.
   for (const d of A.deaths) {
     const m0 = Math.floor(d.t / 60), m2 = Math.min(A.minutes, m0 + 2);
     const swing = useDiff ? curve[m0] - curve[m2] : 0;
-    if (d.t >= 840 && swing < 300) continue;
+    const lost = d.t >= 840 ? lostWhileDead(A, d.t) : null;
+    const fight = d.t >= 840 ? objectiveFight(A, d) : null;
+    if (d.t >= 840 && swing < 300 && !fight && lost.value < 500) continue;
     const inside = out.find(w => w.kind === "gold" && d.t >= w.start && d.t <= w.end + 30);
-    if (inside) continue; // already covered by a gold moment (it'll be listed there)
+    if (inside && !fight && !(lost?.value >= 500)) continue; // already covered by a gold moment (it'll be listed there)
     const killers = [d.e.killerId, ...(d.e.assistingParticipantIds || [])].filter(p => p > 0).map(A.champOf);
+    const notes = [];
+    if (fight) notes.push(fight.text);
+    if (lost?.items.length) notes.push(`While you were down${lost.allies.length ? ` (with ${lost.allies.join(", ")})` : ""} the enemy took <b>${lost.items.join(", ")}</b>.`);
+    if (d.t >= 840 && swing >= 300) notes.push(`Your lane gold went from ${signed(curve[m0])} to ${signed(curve[m2])} over the next 2 minutes.`);
+    if (d.t < 840) notes.push(B ? `${B.expert ? "Experts die" : "In your usual game you die"} <b>${Math.round(B.deaths14 ?? 0)}</b> time${Math.round(B.deaths14 ?? 0) === 1 ? "" : "s"} before 14:00.` : "Deaths before 14:00 usually decide the lane.");
+    const ended = !A.me.stats?.win && A.g.gameDuration - d.t < 120;
+    if (ended && d.t >= 840) notes.push(`The game ended ${Math.round(A.g.gameDuration - d.t)}s later.`);
     out.push({
-      kind: "death", start: Math.max(0, d.t - 45), end: d.t + 10, cost: Math.max(300, swing),
-      title: `You died at ${clock(d.t)}${killers.length ? " to " + killers.join(" + ") : ""}`,
-      compare: d.t >= 840 ? `Your lane gold went from ${signed(curve[m0])} to ${signed(curve[m2])} over the next 2 minutes.`
-        : B ? `${B.expert ? "Experts die" : "In your usual game you die"} <b>${Math.round(B.deaths14 ?? 0)}</b> time${Math.round(B.deaths14 ?? 0) === 1 ? "" : "s"} before 14:00.` : "Deaths before 14:00 usually decide the lane.",
+      kind: "death", start: Math.max(0, d.t - (fight ? 60 : 45)), end: d.t + 10,
+      cost: Math.max(300, swing) + (lost?.value || 0) + (fight ? fight.value : 0) + (ended ? 3000 : 0),
+      title: fight ? `You died at ${clock(d.t)} in a ${fight.label} fight${fight.short ? `, ${fight.us}v${fight.them}` : ""}`
+        : `You died at ${clock(d.t)}${killers.length ? " to " + killers.join(" + ") : ""}`,
+      compare: notes.join(" "),
     });
   }
 
@@ -387,6 +404,64 @@ function findMoments(A, B) {
   return merged.sort((a, b) => b.cost - a.cost).slice(0, 6).sort((a, b) => a.start - b.start);
 }
 
+// What the enemy team took in the 40s after you died, and which allies died within 15s of you.
+const OBJ_VALUE = { BARON_NASHOR: 1500, DRAGON: 500, ELDER_DRAGON: 1500, RIFTHERALD: 400, ATAKHAN: 600, HORDE: 150 };
+const OBJ_NAME = { BARON_NASHOR: "Baron", DRAGON: "a dragon", ELDER_DRAGON: "Elder", RIFTHERALD: "Herald", ATAKHAN: "Atakhan", HORDE: "a void grub" };
+function lostWhileDead(A, t) {
+  const items = [], ours = (pid) => A.g.participants.find(p => p.participantId === pid)?.teamId === A.me.teamId;
+  let value = 0;
+  for (const e of A.events) {
+    const s = e.timestamp / 1000; if (s < t || s > t + 40) continue;
+    if (e.type === "BUILDING_KILL" && e.teamId === A.me.teamId) {
+      const inhib = e.buildingType === "INHIBITOR_BUILDING", nexus = e.towerType === "NEXUS_TURRET";
+      const lane = String(e.laneType || "").replace("_LANE", "").toLowerCase();
+      items.push(inhib ? `${lane} inhibitor` : nexus ? "a nexus turret" : `${lane} ${String(e.towerType || "").replace("_TURRET", "").toLowerCase()} tower`);
+      value += inhib || nexus ? 800 : 500;
+    }
+    if (e.type === "ELITE_MONSTER_KILL" && e.killerId > 0 && !ours(e.killerId)) {
+      const k = e.monsterSubType === "ELDER_DRAGON" ? "ELDER_DRAGON" : e.monsterType;
+      items.push(OBJ_NAME[k] || "an objective"); value += OBJ_VALUE[k] || 300;
+    }
+  }
+  const allies = A.kills.filter(k => k.victimId !== A.me.participantId && ours(k.victimId) && Math.abs(k.timestamp / 1000 - t) <= 15).map(k => A.champOf(k.victimId));
+  const counted = {}; for (const i of items) counted[i] = (counted[i] || 0) + 1;
+  const names = Object.entries(counted).map(([i, n]) => n === 1 ? i : `${n} ${i.replace(/^an? /, "")}s`);
+  return { items: names, value: items.length ? value + allies.length * 150 : 0, allies };
+}
+
+// Died around Baron/Dragon/Herald/Atakhan that the enemy took: who was there, who was far away without Teleport.
+const PITS = { BARON_NASHOR: { x: 5007, y: 10471 }, RIFTHERALD: { x: 5007, y: 10471 }, ATAKHAN: { x: 5007, y: 10471 },
+               DRAGON: { x: 9866, y: 4414 }, HORDE: { x: 5007, y: 10471 } };
+const TELEPORT = 12;
+function objectiveFight(A, d) {
+  const enemyTeam = (pid) => A.g.participants.find(p => p.participantId === pid)?.teamId !== A.me.teamId;
+  const obj = A.events.find(e => e.type === "ELITE_MONSTER_KILL" && e.killerId > 0 && enemyTeam(e.killerId) &&
+    PITS[e.monsterType] && e.monsterType !== "HORDE" && e.timestamp / 1000 - d.t >= -30 && e.timestamp / 1000 - d.t <= 45);
+  if (!obj) return null;
+  const pit = PITS[obj.monsterType], ot = obj.timestamp / 1000;
+  const fm = Math.min(A.minutes, Math.round(ot / 60)), frame = A.frames[fm];
+  const posAt = (pid) => {
+    // An exact spot if they died within 20s of the objective, else the nearest minute snapshot.
+    const k = A.kills.find(k => k.victimId === pid && Math.abs(k.timestamp / 1000 - ot) <= 20);
+    return k?.position || A.pf(frame, pid).position;
+  };
+  const myClose = Math.min(dist(d.e.position, pit), dist(A.pf(A.frames[Math.floor(d.t / 60)], A.me.participantId).position, pit));
+  if (myClose > 6000) return null;
+  const near = (team) => A.g.participants.filter(p => (p.teamId === A.me.teamId) === team && dist(posAt(p.participantId), pit) < 5500);
+  const us = near(true).length, them = near(false).length;
+  const far = A.g.participants.filter(p => p.teamId === A.me.teamId && p.participantId !== A.me.participantId && dist(posAt(p.participantId), pit) > 7000);
+  const label = OBJ_NAME[obj.monsterSubType === "ELDER_DRAGON" ? "ELDER_DRAGON" : obj.monsterType].replace(/^a /, "");
+  const farText = far.map(p => {
+    const tp = p.spell1Id === TELEPORT || p.spell2Id === TELEPORT;
+    return `${champName(p.championId)} was in ${area(posAt(p.participantId)?.x, posAt(p.participantId)?.y)}${tp ? "" : " with no Teleport"}`;
+  });
+  const short = us < them;
+  let text = `${A.champOf(obj.killerId)} took ${label} at ${clock(ot)}. Around ${fm}:00 your team had <b>${us}</b> near the pit to their <b>${them}</b>`;
+  text += farText.length ? `; ${farText.join(", ")}.` : ".";
+  if (short) text += ` A player down at an objective, the better call is usually to ping your team off and give it.`;
+  return { label, us, them, short, value: (OBJ_VALUE[obj.monsterType] || 500) + (short ? 1000 : 0), text };
+}
+
 function context(A, w) {
   const lines = [], inWin = (t) => t >= w.start - 5 && t <= w.end + 30;
   const add = (t, html) => lines.push({ t, html });
@@ -412,6 +487,7 @@ function context(A, w) {
   for (const e of A.events) {
     const t = e.timestamp / 1000; if (!inWin(t)) continue;
     if (e.type === "ELITE_MONSTER_KILL") add(t, `${clock(t)} ${String(e.monsterType || "").replace(/_/g, " ").toLowerCase()} taken by ${teamOf(A, e.killerId)}`);
+    if (e.type === "BUILDING_KILL") add(t, `${clock(t)} ${e.teamId === A.me.teamId ? "your" : "their"} ${String(e.laneType || "").replace("_LANE", "").toLowerCase()} ${e.buildingType === "INHIBITOR_BUILDING" ? "inhibitor" : String(e.towerType || "").replace("_TURRET", "").toLowerCase() + " tower"} fell`);
   }
   return lines.sort((a, b) => a.t - b.t).map(l => l.html).slice(0, 10);
 }
@@ -687,6 +763,12 @@ function findings(A, B) {
     const key = isArmorPen(b.id) ? "armor" + Math.min(A.armorN, 2) : isMagicPen(b.id) ? "mr" + Math.min(A.mrN, 2) : null;
     const r = key && e.by[key] ? e.by[key][0] / Math.max(1, e.by[key][1]) : e.rate;
     if (e.rate < 0.2) dedup.push({ sev: 0.7, t: b.t, title: `${itemName(b.id)} as item ${slot}`, text: `Only ${Math.round(e.rate * 100)}% of expert games build it at all.` });
+    // Armor pen: champions get ~50+ armor from levels alone by 20-25 min, so it's worth it 3rd even into a squishy team.
+    else if (isPctPen(b.id) && slot >= Math.max(4, Math.round(e.slot) + 1)) {
+      const arm = enemyArmorAt(A, Math.round(e.time / 60));
+      dedup.push({ sev: 1 + (slot - e.slot) * 0.3, t: b.t, title: `${itemName(b.id)} came ${ord(slot)}, at ${clock(b.t)}`,
+        text: `Experts who build it get it ${ord(Math.round(e.slot))} (~${clock(e.time)}).${arm ? ` At ${Math.round(e.time / 60)}:00 the enemy team already averaged <b>${arm}</b> armor` : " By 20–25 minutes most champions have 50+ armor from levels alone"}${A.armorN ? "" : ", even without armor items"}, so it pays off as a 3rd item. It matters most once real team fights start.` });
+    }
     else if (slot >= e.slot + 2 && key && r < 0.4) dedup.push({ sev: 0.5, t: b.t, title: `${itemName(b.id)} came ${ord(slot)}, at ${clock(b.t)}`,
       text: `Experts who build it usually get it ${ord(Math.round(e.slot))} (~${clock(e.time)}), but only ${Math.round(r * 100)}% of their games ${defenseText(key)} include it. Against this team it wasn't urgent.` });
     else if (slot >= e.slot + 2) dedup.push({ sev: 1 + (slot - e.slot) * 0.3, t: b.t, title: `${itemName(b.id)} came ${ord(slot)}, at ${clock(b.t)}`,
@@ -715,6 +797,7 @@ function findings(A, B) {
 }
 const ord = (n) => n + (["th", "st", "nd", "rd"][n % 100 > 10 && n % 100 < 14 ? 0 : n % 10] || "th");
 const isArmorPen = (id) => /armor penetration|lethality/i.test(DD.items[id]?.description || "") || (DD.items[id]?.stats?.FlatArmorPenetrationMod || 0) > 0 || /Dominik|Mortal Reminder|Serylda|Black Cleaver/i.test(itemName(id));
+const isPctPen = (id) => /Dominik|Mortal Reminder|Serylda|Black Cleaver|Terminus/i.test(itemName(id));
 const isMagicPen = (id) => /magic penetration/i.test(DD.items[id]?.description || "") || /Void Staff|Cryptbloom|Shadowflame/i.test(itemName(id));
 const defenseText = (key) => ({ armor0: "where no enemy built armor", armor1: "where one enemy built armor", armor2: "where two or more enemies built armor",
   mr0: "where no enemy built magic resist", mr1: "where one enemy built magic resist", mr2: "where two or more enemies built magic resist" })[key];
