@@ -83,6 +83,11 @@ def row(m, tl, me):
         arm += sum(stat(i, "FlatArmorMod") for i in its) >= 80
         mr += sum(stat(i, "FlatSpellBlockMod") for i in its) >= 80
     a, b = r6(pid), (r6(oid) if oid else None)
+    # When each side reached levels 2, 3 and 6 (seconds; negative gap = this player got there first).
+    up = lambda who, n: next((e["timestamp"] / 1000 for e in ev if e["type"] == "LEVEL_UP" and e.get("participantId") == who and e.get("level") == n), None)
+    for n_ in (2, 3, 6):
+        x, y = up(pid, n_), (up(oid, n_) if oid else None)
+        r["lvl%d_race" % n_] = round(x - y, 1) if x and y else None
     r.update({
         "first_back": round(backs[0]["t"]) if backs else None,
         "first_back_gold": sum(cost(i) for i in backs[0]["items"]) if backs else None,
@@ -152,6 +157,26 @@ def aggregate(rows, source, built):
             break
     out["orders"] = [[list(k), c] for k, c in Counter(tuple(i for _, i in r["items"][:3]) for r in rows if len(r["items"]) >= 3).most_common(6)]
     out["paths"] = full_paths(rows)
+    out["levels"] = level_races(rows)
+    return out
+
+
+def level_races(rows, even=3):
+    """How often these players reach levels 2, 3 and 6 before their lane opponent ("first"), or within 3s of
+    them ("even"). "by" has the same for the opponents with 8+ games: champion -> [first, even, games]."""
+    out = {}
+    for n_ in (2, 3, 6):
+        k = "lvl%d_race" % n_
+        have = [r for r in rows if r.get(k) is not None]
+        if len(have) < 20:
+            continue
+        rate = lambda rs: [round(sum(1 for r in rs if r[k] < -even) / len(rs), 3), round(sum(1 for r in rs if abs(r[k]) <= even) / len(rs), 3), len(rs)]
+        f, e, c = rate(have)
+        by = defaultdict(list)
+        for r in have:
+            if r.get("opp"):
+                by[r["opp"]].append(r)
+        out[str(n_)] = {"first": f, "even": e, "n": c, "by": {o: rate(rs) for o, rs in by.items() if len(rs) >= 8}}
     return out
 
 

@@ -12,7 +12,7 @@ BG, EDGE, INK, MUTE, GOLD, RED, GREEN = "#0d1424", "#2a3654", "#e9eefb", "#93a0b
 
 _lock = threading.Lock()
 _s = {"game": None, "duration": 0, "moments": [], "show": False, "auto": False, "thread": None,
-      "playback": None, "pos_path": None, "pb": None, "seen": False, "since": 0.0, "last_t": None, "paused_at": None}
+      "playback": None, "pos_path": None, "pb": None, "pb_at": 0.0, "seen": False, "since": 0.0, "last_t": None, "paused_at": None}
 
 
 def clock(t):
@@ -32,9 +32,10 @@ def show(game_id, duration, moments, playback, pos_path):
 
 
 def _poll():
-    """Asks the replay where it is once a second, off the window's thread."""
+    """Asks the replay where it is every few seconds, off the window's thread. Between answers the bar
+    works the clock out itself (see _now), so the game isn't interrupted more than it has to be."""
     while True:
-        time.sleep(1)
+        time.sleep(POLL)
         with _lock:
             on, playback = _s["show"], _s["playback"]
         if not on:
@@ -45,12 +46,24 @@ def _poll():
         except Exception:
             pb = None
         with _lock:
-            _s["pb"] = pb
+            _s["pb"], _s["pb_at"] = pb, time.time()
             if pb:
                 _s["seen"], _s["since"] = True, time.time()
             # The replay was closed (or never opened): put the bar away.
             elif time.time() - _s["since"] > (20 if _s["seen"] else 300):
                 _s["show"] = False
+
+
+POLL = 3
+
+
+def _now(s):
+    """The replay's state with its clock carried forward from the last answer."""
+    pb = s["pb"]
+    if not pb or pb.get("paused") or pb.get("seeking"):
+        return pb
+    ahead = min(POLL + 2, time.time() - (s.get("pb_at") or time.time()))
+    return dict(pb, time=float(pb.get("time") or 0) + ahead * float(pb.get("speed") or 1))
 
 
 def _send(body):
@@ -59,7 +72,10 @@ def _send(body):
 
     def go():
         try:
-            playback(body)
+            pb = playback(body)
+            if isinstance(pb, dict) and pb.get("length"):   # show the jump or pause straight away
+                with _lock:
+                    _s["pb"], _s["pb_at"] = pb, time.time()
         except Exception:
             pass
     threading.Thread(target=go, daemon=True).start()
@@ -67,7 +83,7 @@ def _send(body):
 
 def view(s, now=None):
     """What the bar says right now. Pure, so it can be tested without a window."""
-    ms, pb = s["moments"], s["pb"]
+    ms, pb = s["moments"], _now(s)
     if not pb:
         return {"tag": "", "main": "Waiting for the replay to open…", "right": "", "detail": "", "turning": False, "target": None}
     if s["duration"] and abs(float(pb.get("length") or 0) - s["duration"]) > 20:
@@ -80,15 +96,20 @@ def view(s, now=None):
                 "target": cur["start"]}
     nxt = next((m for m in ms if m["start"] > t), None)
     if nxt:
-        return {"tag": "NEXT " + clock(nxt["start"]), "main": nxt["title"], "right": "in " + clock(nxt["start"] - t),
+        return {"tag": "NEXT " + clock(nxt["start"]), "main": nxt["title"], "right": "in " + _until(nxt["start"] - t),
                 "detail": "", "turning": bool(nxt.get("turning")), "good": bool(nxt.get("good")), "target": nxt["start"]}
     return {"tag": "", "main": "No more moments in this game." if ms else "Nothing stood out in this game.",
             "right": "", "detail": "", "turning": False, "target": None}
 
 
+def _until(sec):
+    """Counts in seconds only when it's close; further out it changes every 10s, so the bar rarely redraws."""
+    return clock(sec) if sec < 30 else clock(int(sec) // 10 * 10 + 10)
+
+
 def _jump(direction):
     with _lock:
-        ms, pb = _s["moments"], _s["pb"]
+        ms, pb = _s["moments"], _now(_s)
     t = float((pb or {}).get("time") or 0)
     if direction > 0:
         m = next((m for m in ms if m["start"] > t + 3), None)
@@ -103,11 +124,8 @@ def _run():
     root = tk.Tk()
     root.withdraw()
     root.overrideredirect(True)
+    # Fully opaque on purpose: a see-through window on top of the game makes Windows blend it into every frame.
     root.attributes("-topmost", True)
-    try:
-        root.attributes("-alpha", 0.92)
-    except tk.TclError:
-        pass
     font = "Segoe UI" if sys.platform == "win32" else "DejaVu Sans"
     edge = tk.Frame(root, bg=EDGE)
     edge.pack()
@@ -187,13 +205,21 @@ def _run():
         except Exception:
             pass
 
-    state, shown = {}, {"on": False, "n": 0}
+    state, shown, drawn = {}, {"on": False, "n": 0}, {}
+
+    def put(widget, **kw):
+        """Changes a label only when something is different, so an idle bar repaints nothing."""
+        key = (id(widget), tuple(sorted(kw.items())))
+        if drawn.get(id(widget)) != key:
+            drawn[id(widget)] = key
+            widget.configure(**kw)
 
     def tick():
         with _lock:
             s = dict(_s)
         if s["show"] and not shown["on"]:
             place()
+            drawn.clear()
             root.deiconify()
             root.update_idletasks()
             no_focus()
@@ -205,30 +231,31 @@ def _run():
             state.clear()
             state.update(v)
             color = GREEN if v.get("good") else RED if v["turning"] else GOLD
-            tag.configure(text=v["tag"], fg=color)
-            main.configure(text=v["main"])
-            right.configure(text=v["right"], fg=color)
-            edge.configure(bg=color if v["right"] == "now" else EDGE)
-            auto.configure(fg=GOLD if s["auto"] else MUTE, text="auto-pause on" if s["auto"] else "auto-pause")
-            if v["detail"]:
-                detail.configure(text=v["detail"])
-                detail.pack(fill="x", padx=14, pady=(0, 6))
-            else:
-                detail.pack_forget()
+            put(tag, text=v["tag"], fg=color)
+            put(main, text=v["main"])
+            put(right, text=v["right"], fg=color)
+            put(edge, bg=color if v["right"] == "now" else EDGE)
+            put(auto, fg=GOLD if s["auto"] else MUTE, text="auto-pause on" if s["auto"] else "auto-pause")
+            if drawn.get("detail") != v["detail"]:
+                drawn["detail"] = v["detail"]
+                if v["detail"]:
+                    detail.configure(text=v["detail"])
+                    detail.pack(fill="x", padx=14, pady=(0, 6))
+                else:
+                    detail.pack_forget()
             # Pause when the replay plays into a moment (not when you jump to one).
-            pb = s["pb"]
+            pb = _now(s)
             if pb and s["auto"] and not pb.get("paused") and s["last_t"] is not None:
                 t = float(pb.get("time") or 0)
-                hit = next((m for m in s["moments"] if s["last_t"] < m["start"] <= t and t - s["last_t"] < 5), None)
+                hit = next((m for m in s["moments"] if not m.get("good") and s["last_t"] < m["start"] <= t and t - s["last_t"] < 5), None)
                 if hit and s["paused_at"] != hit["start"]:
                     _set(paused_at=hit["start"])
                     _send({"paused": True})
             _set(last_t=float(pb.get("time") or 0) if pb else None)
             shown["n"] += 1
-            if shown["n"] % 4 == 0:      # League can take the top spot back when it gets focus
+            if shown["n"] % 20 == 0:     # now and then, in case something else took the top spot
                 root.attributes("-topmost", True)
-                root.lift()
-        root.after(500, tick)
+        root.after(1000, tick)
 
     tick()
     root.mainloop()

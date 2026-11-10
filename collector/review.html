@@ -72,6 +72,9 @@ svg text { fill:var(--mute); font-size:11px; }
 .well-card .w { display:flex; gap:10px; padding:7px 0; } .well-card .w i { color:var(--green); font-style:normal; font-weight:700; }
 .well-card .w b { display:block; } .well-card .w span { color:var(--mute); font-size:13px; }
 .warn { color:var(--amber-ink) !important; }
+.timings .lv { display:grid; grid-template-columns: 44px 1fr auto; gap:8px; align-items:baseline; padding:2px 0; }
+.timings .lv span { color:var(--mute); font-size:12px; } .timings .lv b { font-size:15px; } .timings .lv small { color:var(--faint); font-size:12px; }
+.kd { color:var(--green-ink); } .moment .cmp a { color:var(--blue-ink); }
 .progress { margin-top:14px; display:grid; grid-template-columns: 200px repeat(3, minmax(0, 1fr)); gap:10px 22px; align-items:center; border-color:rgba(79,209,161,.35); }
 .progress .pg b { display:block; font-size:19px; } .progress .pg b em { font-style:normal; color:var(--green-ink); }
 .progress .pg span { color:var(--mute); font-size:13px; } .progress .pg small { display:block; color:var(--faint); font-size:12px; }
@@ -263,6 +266,19 @@ function analyse(data) {
     const m = frames.findIndex(f => (pf(f, pid).level || 0) >= 6);
     return m >= 0 ? m * 60 : null;
   };
+  // When someone reached a level: the level-up event, else their Nth skill point, else (level 6 only) the minute it shows.
+  const levelAt = (pid, n) => {
+    const e = events.find(e => e.type === "LEVEL_UP" && e.participantId === pid && e.level === n);
+    if (e) return e.timestamp / 1000;
+    const sk = events.filter(e => e.type === "SKILL_LEVEL_UP" && e.participantId === pid && e.levelUpType !== "EVOLVE");
+    if (sk.length >= n) return sk[n - 1].timestamp / 1000;
+    return n === 6 ? lvl6(pid) : null;
+  };
+  const races = {};
+  if (opp && role !== "JUNGLE") for (const n of [2, 3, 6]) {
+    const a = levelAt(me.participantId, n), b = levelAt(opp.participantId, n);
+    if (a != null && b != null) races[n] = { me: a, opp: b, gap: a - b };
+  }
   const kills = events.filter(e => e.type === "CHAMPION_KILL");
   const myCs = cs(me.participantId);
   const xp = (pid) => series(pid, x => x.xp || 0), lvl = (pid) => series(pid, x => x.level || 0);
@@ -272,7 +288,7 @@ function analyse(data) {
   const defense = (k) => parts.filter(p => p.teamId !== me.teamId).filter(p =>
     [0, 1, 2, 3, 4, 5].reduce((a, n) => a + STAT(p.stats?.["item" + n], k), 0) >= 80).length;
   return {
-    g, me, opp, enemyJg, role, frames, events, kills, champOf, pf,
+    g, me, opp, enemyJg, role, frames, events, kills, champOf, pf, races,
     minutes: frames.length - 1,
     myGold, oppGold, diff, myCs,
     oppCs: opp ? cs(opp.participantId) : null,
@@ -324,7 +340,7 @@ function fromExperts(b) {
   const med = k => b.timings?.[k]?.[1] ?? null;
   return { expert: true, n: b.games, diff: band(b.minutes.gdiff), gold: band(b.minutes.gold), cs: band(b.minutes.cs),
     firstBack: med("first_back"), firstBackGold: med("first_back_gold"), firstItem: med("legendary1"),
-    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14"), items: b.items || [], paths: b.paths || [], orders: b.orders || [] };
+    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14"), items: b.items || [], paths: b.paths || [], orders: b.orders || [], levels: b.levels || {} };
 }
 const WHO = (B) => B?.expert ? "Experts" : "Your usual";
 
@@ -437,12 +453,16 @@ function findMoments(A, B) {
     }
   }
 
-  // 6. Level 6 behind your lane opponent.
-  if (A.lvl6 != null && A.oppLvl6 != null && A.lvl6 - A.oppLvl6 > 20 && A.role !== "JUNGLE") {
-    const gap = A.lvl6 - A.oppLvl6;
-    out.push({ kind: "lvl6", start: Math.max(0, A.oppLvl6 - 30), end: A.lvl6 + 15, cost: 150 + gap * 3,
-      title: `${A.opp ? champName(A.opp.championId) : "Your opponent"} hit 6 ${Math.round(gap)}s before you`,
-      compare: B?.lvl6Gap != null ? `${WHO(B)}: <b>${B.lvl6Gap <= 0 ? Math.round(-B.lvl6Gap) + "s ahead" : Math.round(B.lvl6Gap) + "s behind"}</b>.` : "Being second to 6 is a window to play safe." });
+  // 6. Second to level 2 (or 3) in a lane where experts usually get there first: that's the first waves.
+  for (const n of [2, 3]) {
+    const r = A.races[n], ex = A.opp && expertRace(B, n, DD.champ[A.opp.championId]?.id);
+    if (!r || r.gap <= EVEN || !ex || ex.first < 0.55) continue;
+    const oppName = champName(A.opp.championId), mine = champName(A.me.championId), r3 = A.races[3];
+    out.push({ kind: "level", start: Math.max(0, r.opp - 50), end: (n === 2 && r3?.gap > EVEN ? r3.me : r.me) + 10, cost: 380,
+      title: `${oppName} hit level ${n} first${n === 2 && r3?.gap > EVEN ? ", and level 3" : ""}`,
+      compare: `You got there ${Math.round(r.gap)}s later. Experts on ${mine} reach level ${n} first in <b>${Math.round(ex.first * 100)}%</b> of ${ex.vs ? `their games against ${oppName}` : "games"} (${ex.n} games). ` +
+        `Who gets there first comes down to how the first three waves are played, so it's worth watching how a high-elo ${mine} plays them: <a target="_blank" href="${ytExperts(A)}">high-elo ${esc(mine)} games on YouTube</a>.` });
+    break;
   }
 
   // 7. Plates lost before 14:00.
@@ -490,8 +510,10 @@ function findMoments(A, B) {
   // Keep the ones that cost the most.
   const bad = mergeAll(out.filter(w => w.cost > 0)).sort((a, b) => b.cost - a.cost).slice(0, 6);
   // Things that went well are moments too (up to 3), unless a moment above already covers that stretch.
-  const good = mergeAll(goodMoments(A, B)).filter(g => !bad.some(b => g.start <= b.end && b.start <= g.end))
-    .sort((a, b) => b.cost - a.cost).slice(0, 3);
+  // Solo kills on your lane opponent are always listed.
+  const goods = mergeAll(goodMoments(A, B)), keep = (g) => g.parts.some(p => p.always);
+  const good = [...goods.filter(keep), ...goods.filter(g => !keep(g) && !bad.some(b => g.start <= b.end && b.start <= g.end))
+    .sort((a, b) => b.cost - a.cost).slice(0, 3)];
   for (const g of good) g.good = true;
   // Listed in the order they happened.
   const all = [...bad, ...good].sort((a, b) => a.start - b.start);
@@ -521,8 +543,9 @@ function goodMoments(A, B) {
   // Kills within 15s of each other are one fight.
   const fights = [];
   for (const k of A.kills) {
-    const t = k.timestamp / 1000, f = fights[fights.length - 1];
-    if (f && t - f.end <= 15) { f.end = t; f.kills.push(k); } else fights.push({ start: t, end: t, kills: [k] });
+    const t = k.timestamp / 1000;
+    const f2 = fights.slice().reverse().find(f => t - f.end <= 15 && f.kills.some(o => dist(o.position, k.position) < 4500));
+    if (f2) { f2.end = t; f2.kills.push(k); } else fights.push({ start: t, end: t, kills: [k] });
   }
   for (const f of fights) {
     const got = f.kills.filter(k => !ours(k.victimId)), lostK = f.kills.filter(k => ours(k.victimId));
@@ -539,7 +562,7 @@ function goodMoments(A, B) {
         title: `${mine.length === 2 ? "Double" : "Multi"} kill at ${clock(f.start)}`, compare: `You killed ${mine.map(k => A.champOf(k.victimId)).join(" and ")} without dying.${tookText}` });
     } else if (mine.length === 1 && !(mine[0].assistingParticipantIds || []).length && got.length === 1 && !lostK.length) {
       const k = mine[0], lane = A.opp && k.victimId === A.opp.participantId;
-      out.push({ kind: "good", start: Math.max(0, f.start - 30), end: f.end + 10, cost: (lane ? 450 : 350) + took.length * 300,
+      out.push({ kind: "good", always: !!lane, start: Math.max(0, f.start - 30), end: f.end + 10, cost: (lane ? 450 : 350) + took.length * 300,
         title: `Solo kill on ${A.champOf(k.victimId)} at ${clock(f.start)}`, compare: `${lane ? "You beat your lane opponent one on one." : "No help needed."}${tookText}` });
     }
   }
@@ -569,8 +592,10 @@ function wentWell(A, B, hist) {
     add(2 + Math.min(2, A.diff[15] / 1500), `${signed(A.diff[15])} gold on ${champName(A.opp.championId)} at 15:00`, B?.diff?.[15] && A.diff[15] >= B.diff[15].p50 ? `${B.expert ? "An expert-sized lead" : "More than your usual"} (median ${signed(B.diff[15].p50)}).` : "You won your lane.");
   if (A.firstItem && B?.firstItem && A.firstItem <= B.firstItem)
     add(2.2, `First item at ${clock(A.firstItem)}`, `${Math.round(B.firstItem - A.firstItem)}s faster than ${who} (${clock(B.firstItem)}).`);
-  if (A.lvl6 != null && A.oppLvl6 != null && A.oppLvl6 - A.lvl6 >= 10 && A.role !== "JUNGLE" && A.opp)
-    add(1.6, `Level 6 ${Math.round(A.oppLvl6 - A.lvl6)}s before ${champName(A.opp.championId)}`, "That's a window where you have your ultimate and they don't.");
+  if (A.races[2]?.gap < -EVEN && A.opp) {
+    const ex = expertRace(B, 2, DD.champ[A.opp.championId]?.id);
+    add(2.3, `Level 2 before ${champName(A.opp.championId)}`, ex ? `Experts get there first in ${Math.round(ex.first * 100)}% of ${ex.vs ? "games in this matchup" : "their games"}.` : "That usually means the first waves went your way.");
+  }
   const mine3 = A.items.slice(0, 3).map(b => b.id);
   const paths = B?.paths?.length ? B.paths.map(p => p.items) : (B?.orders || []).slice(0, 3).map(o => o[0]);
   const pn = mine3.length === 3 ? paths.findIndex(p => p.slice(0, 3).every((id, i) => id === mine3[i])) : -1;
@@ -604,7 +629,21 @@ function wentWell(A, B, hist) {
 
 // What the enemy team took in the 40s after you died, and which allies died within 15s of you.
 const OBJ_VALUE = { BARON_NASHOR: 1500, DRAGON: 500, ELDER_DRAGON: 1500, RIFTHERALD: 400, ATAKHAN: 600, HORDE: 150 };
-const OBJ_NAME = { BARON_NASHOR: "Baron", DRAGON: "a dragon", ELDER_DRAGON: "Elder", RIFTHERALD: "Herald", ATAKHAN: "Atakhan", HORDE: "a void grub" };
+const OBJ_NAME = { BARON_NASHOR: "Baron", DRAGON: "a dragon", ELDER_DRAGON: "Elder Dragon", RIFTHERALD: "Rift Herald", ATAKHAN: "Atakhan", HORDE: "void grubs" };
+const DRAGONS = { FIRE_DRAGON: "Infernal", EARTH_DRAGON: "Mountain", WATER_DRAGON: "Ocean", AIR_DRAGON: "Cloud", HEXTECH_DRAGON: "Hextech", CHEMTECH_DRAGON: "Chemtech" };
+// "Mountain dragon", "Rift Herald", "void grub"... from a monster kill event.
+const monsterName = (e) => e.monsterType === "DRAGON" ? (e.monsterSubType === "ELDER_DRAGON" ? "Elder Dragon" : DRAGONS[e.monsterSubType] ? DRAGONS[e.monsterSubType] + " dragon" : "dragon")
+  : e.monsterType === "HORDE" ? "void grub" : OBJ_NAME[e.monsterType] || String(e.monsterType || "monster").replace(/_/g, " ").toLowerCase();
+// Did you reach this level first, second, or together (within 3s)?
+const EVEN = 3;
+const raceWord = (gap) => gap < -EVEN ? "first" : gap > EVEN ? "second" : "same time";
+// How often experts get to a level first: against this opponent if there are enough games, else overall.
+function expertRace(B, n, oppName) {
+  const L = B?.levels?.[n]; if (!L) return null;
+  const by = oppName && L.by?.[oppName];
+  return by ? { first: by[0], even: by[1], n: by[2], vs: oppName } : { first: L.first, even: L.even, n: L.n, vs: null };
+}
+const ytExperts = (A) => `https://www.youtube.com/results?search_query=${encodeURIComponent("Domisumreplay " + champName(A.me.championId) + (A.opp ? " vs " + champName(A.opp.championId) : ""))}`;
 function lostWhileDead(A, t) {
   let big = 0, towers = 0;
   const items = [], ours = (pid) => A.g.participants.find(p => p.participantId === pid)?.teamId === A.me.teamId;
@@ -685,8 +724,13 @@ function context(A, w) {
   for (const b of A.oppBacks) if (inWin(b.t)) add(b.t, `${clock(b.t)} ${champName(A.opp.championId)} bought ${describeBuy(b)}`);
   for (const e of A.events) {
     const t = e.timestamp / 1000; if (!inWin(t)) continue;
-    if (e.type === "ELITE_MONSTER_KILL") add(t, `${clock(t)} ${String(e.monsterType || "").replace(/_/g, " ").toLowerCase()} taken by ${teamOf(A, e.killerId)}`);
+    if (e.type === "ELITE_MONSTER_KILL" && e.monsterType !== "HORDE") add(t, `${clock(t)} ${monsterName(e)} taken by ${teamOf(A, e.killerId)}`);
     if (e.type === "BUILDING_KILL") add(t, `${clock(t)} ${e.teamId === A.me.teamId ? "your" : "their"} ${String(e.laneType || "").replace("_LANE", "").toLowerCase()} ${e.buildingType === "INHIBITOR_BUILDING" ? "inhibitor" : String(e.towerType || "").replace("_TURRET", "").toLowerCase() + " tower"} fell`);
+  }
+  // Void grubs die a few seconds apart: one line per side.
+  for (const side of ["your team", "the enemy"]) {
+    const grubs = A.events.filter(e => e.type === "ELITE_MONSTER_KILL" && e.monsterType === "HORDE" && inWin(e.timestamp / 1000) && teamOf(A, e.killerId) === side);
+    if (grubs.length) add(grubs[0].timestamp / 1000, `${clock(grubs[0].timestamp / 1000)} ${grubs.length} void grub${grubs.length === 1 ? "" : "s"} taken by ${side}`);
   }
   return lines.sort((a, b) => a.t - b.t).map(l => l.html).slice(0, 10);
 }
@@ -822,6 +866,16 @@ async function openGame(id) {
   render(A, B, moments, s, B ? label : null, wentWell(A, B, hist));
 }
 
+// Who reached levels 2, 3 and 6 first, with how often experts do.
+function levelCard(A, B) {
+  const rows = [2, 3, 6].map(n => {
+    const r = A.races[n]; if (!r) return "";
+    const w = raceWord(r.gap), ex = A.opp && expertRace(B, n, DD.champ[A.opp.championId]?.id);
+    return `<div class="lv"><span>Lv ${n}</span><b class="${w === "first" ? "good" : w === "second" ? "warn" : ""}">${w}${w === "same time" ? "" : ` · ${Math.round(Math.abs(r.gap))}s`}</b>
+      <small>${ex ? `experts first ${Math.round(ex.first * 100)}%` : clock(r.me)}</small></div>`;
+  }).join("");
+  return `<div class="card" style="grid-column:span 2"><div class="k">Levels vs ${esc(A.opp ? champName(A.opp.championId) : "opponent")}: who got there first</div>${rows || `<div class="v">—</div>`}</div>`;
+}
 function timingCard(k, mine, usual, fmt, lowerIsBetter = true) {
   const has = mine != null;
   let cls = "", d = "";
@@ -842,6 +896,8 @@ function render(A, B, moments, s, label, well = []) {
       <button class="primary" id="enableApi">Turn on replay jumping</button></div>`
     : STATE.replayApi == null ? `<div class="banner">Couldn't find League's game.cfg, so replays may not jump to the moment. Set league_path if League is installed somewhere unusual.</div>` : "";
   const cs10 = A.minutes >= 10 ? A.myCs[10] : null;
+  const myKills = A.kills.filter(k => k.killerId === A.me.participantId);
+  const kd = [...myKills.map(k => ({ t: k.timestamp / 1000, kill: k })), ...A.deaths.map(d => ({ t: d.t, death: d }))].sort((a, b) => a.t - b.t);
   STATE.cmpWord = B?.expert ? "experts" : "usual";
   $("view").innerHTML = `
     <div class="vs"><img src="${champIcon(A.me.championId)}" alt="">
@@ -869,13 +925,13 @@ function render(A, B, moments, s, label, well = []) {
         <div class="acts"><button class="primary" data-watch="${w.start}">Watch in my replay</button></div>
       </div>`).join("") : `<div class="empty" style="padding:10px 0">Nothing stood out: your lane gold never slipped 400+ below ${B?.expert ? "the experts' range" : B ? "your usual" : "your opponent"}, no early deaths, and your timings were on pace.</div>`}
     </div>
-    <h2>All deaths (${A.deaths.length})</h2>
-    <div class="card">${A.deaths.length ? A.deaths.map(d => deathRow(A, d)).join("") : `<div class="empty" style="padding:10px 0">No deaths this game.</div>`}</div>
+    <h2>All your kills and deaths (${myKills.length} kills · ${A.deaths.length} deaths)</h2>
+    <div class="card">${kd.length ? kd.map(x => x.kill ? killRow(A, x.kill, myKills.indexOf(x.kill)) : deathRow(A, x.death)).join("") : `<div class="empty" style="padding:10px 0">No kills or deaths this game.</div>`}</div>
     <h2>Timings</h2>
     <div class="timings">
       ${timingCard("First back", A.backs[0]?.t ?? null, B?.firstBack, clock)}
       ${timingCard("First item", A.firstItem, B?.firstItem, clock)}
-      ${timingCard("Level 6 vs " + (opp || "opponent"), A.lvl6 != null && A.oppLvl6 != null ? A.lvl6 - A.oppLvl6 : null, B?.lvl6Gap, v => (v <= 0 ? Math.round(-v) + "s ahead" : Math.round(v) + "s behind"))}
+      ${levelCard(A, B)}
       ${timingCard("CS at 10:00", cs10, B?.cs?.[10]?.p50, v => Math.round(v), false)}
       ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
     </div>
@@ -900,6 +956,18 @@ function render(A, B, moments, s, label, well = []) {
   loadExperts(A);
 }
 
+function killRow(A, k, n) {
+  const t = k.timestamp / 1000, helpers = (k.assistingParticipantIds || []).map(A.champOf);
+  const where = area(k.position?.x, k.position?.y), lane = A.opp && k.victimId === A.opp.participantId;
+  const notes = [helpers.length ? `with ${esc(helpers.join(", "))}` : `<b>solo kill</b>${lane ? " on your lane opponent" : ""}`];
+  if (k.shutdownBounty > 0) notes.push(`${k.shutdownBounty} gold shutdown`);
+  return `<div class="moment">
+    <div class="when">${clock(t)}<small class="kd">kill ${n + 1}</small></div>
+    <div class="what"><div class="part"><b>You killed ${esc(A.champOf(k.victimId))}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
+      <div class="cmp">${notes.join(" · ")}</div></div></div>
+    <div class="acts"><button data-watch="${Math.max(0, t - 30)}">Watch in my replay</button></div>
+  </div>`;
+}
 function deathRow(A, d) {
   const e = d.e, m = Math.min(A.minutes, Math.floor(d.t / 60));
   const killers = [e.killerId, ...(e.assistingParticipantIds || [])].filter(p => p > 0).map(A.champOf);
@@ -914,7 +982,7 @@ function deathRow(A, d) {
   if (A.diff) { const m2 = Math.min(A.minutes, m + 2); notes.push(`lane gold ${signed(A.diff[m])} → ${signed(A.diff[m2])} two minutes later`); }
   const lead = A.deaths.filter(x => x.t < d.t).length;
   return `<div class="moment">
-    <div class="when">${clock(d.t)}<small style="color:var(--mute)">death ${lead + 1}</small></div>
+    <div class="when">${clock(d.t)}<small style="color:var(--red-ink)">death ${lead + 1}</small></div>
     <div class="what"><div class="part"><b>${killers.length ? esc(killers.join(" + ")) : "Executed"}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
       ${notes.length ? `<div class="cmp">${notes.join(" · ")}</div>` : ""}</div></div>
     <div class="acts"><button class="primary" data-watch="${Math.max(0, d.t - 30)}">Watch in my replay</button></div>
@@ -1012,7 +1080,6 @@ function findings(A, B) {
   cmp(A.firstItem, T.legendary1, "First item", clock, (v, lo, hi) => v > hi);
   cmp(A.deaths.filter(d => d.t < 840).length, T.deaths_14, "Deaths before 14:00", v => Math.round(v), (v, lo, hi) => v > hi);
   cmp(A.deaths.length, T.deaths, "Deaths", v => Math.round(v), (v, lo, hi) => v > hi);
-  if (A.lvl6 != null && A.oppLvl6 != null) cmp(A.lvl6 - A.oppLvl6, T.lvl6_gap, "Level 6 vs your opponent", v => (v <= 0 ? Math.round(-v) + "s ahead" : Math.round(v) + "s behind"), (v, lo, hi) => v > hi + 15);
   return dedup.sort((a, b) => b.sev - a.sev).slice(0, 6);
 }
 const ord = (n) => n + (["th", "st", "nd", "rd"][n % 100 > 10 && n % 100 < 14 ? 0 : n % 10] || "th");

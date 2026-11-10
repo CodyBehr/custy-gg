@@ -53,7 +53,7 @@ QUEST_ROLE = {
 BOOTS = {1001, 2422, 3005, 3006, 3008, 3009, 3010, 3013, 3020, 3047, 3111, 3117, 3158, 3168, 3170,
          3171, 3172, 3173, 3174, 3175, 3176}
 KEEP_EVENTS = {"CHAMPION_KILL", "ELITE_MONSTER_KILL", "BUILDING_KILL", "ITEM_PURCHASED", "ITEM_UNDO",
-               "ITEM_SOLD", "SKILL_LEVEL_UP", "TURRET_PLATE_DESTROYED"}
+               "ITEM_SOLD", "SKILL_LEVEL_UP", "LEVEL_UP", "TURRET_PLATE_DESTROYED"}
 FRAME_FIELDS = ("totalGold", "currentGold", "minionsKilled", "jungleMinionsKilled", "level", "xp", "position")
 
 _lock = threading.Lock()
@@ -226,7 +226,8 @@ def fill_from_riot(data):
     if not tl or not _cfg.get("site_url"):
         return False
     need_events, need_armor = not _has_purchases(tl), not _has_armor(tl)
-    if not need_events and not need_armor:
+    need_levels = not any(e.get("type") == "LEVEL_UP" for f in tl.get("frames") or [] for e in f.get("events") or [])
+    if not need_events and not need_armor and not need_levels:
         return False
     # "fillTried2": attempts made before the site had its Riot key don't count.
     if time.time() - float(data.get("fillTried2") or 0) < 600:
@@ -252,9 +253,9 @@ def fill_from_riot(data):
                 pf = (frames[i].get("participantFrames") or {}).get(str(pid_map.get(int(pid), int(pid))))
                 if pf is not None and armor is not None:
                     pf["armor"] = armor
-        if not need_events:
-            continue
         for e in f.get("events") or []:
+            if not (need_levels if e.get("type") == "LEVEL_UP" else need_events):
+                continue   # only the kinds this game is missing
             e = dict(e)
             if "participantId" in e:
                 e["participantId"] = pid_map.get(e["participantId"], e["participantId"])
