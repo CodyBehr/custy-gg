@@ -653,6 +653,13 @@ def make_handler(cfg, token):
             m = re.match(r"^/api/benchmark/([A-Za-z]+-(?:TOP|JUNGLE|MID|BOT|SUPPORT))$", url.path)
             if m:
                 return self._send(200, benchmark(cfg, m.group(1)))
+            if url.path == "/api/replay/now":
+                try:
+                    pb = _playback()
+                    return self._send(200, {"open": bool(pb.get("length")), "time": pb.get("time"), "paused": pb.get("paused"),
+                                            "length": pb.get("length"), "seeking": pb.get("seeking"), "speed": pb.get("speed")})
+                except Exception:
+                    return self._send(200, {"open": False})
             if url.path == "/api/replay":
                 with _lock:
                     return self._send(200, dict(_replay))
@@ -675,6 +682,18 @@ def make_handler(cfg, token):
                 _status("working", "Opening the replay...", game=m.group(1))
                 threading.Thread(target=_open_replay, args=(cfg, m.group(1), t), daemon=True).start()
                 return self._send(202, {"ok": True})
+            m = re.match(r"^/api/overlay/(\d+)$", url.path)
+            if m:
+                key = self.headers.get("X-Custy-Key", "")
+                host = "http://127.0.0.1:%d" % self.server.server_address[1]
+                open_overlay("%s/?k=%s&overlay=%s" % (host, key, m.group(1)))
+                return self._send(200, {"ok": True})
+            if url.path == "/api/replay-pause":
+                try:
+                    _playback({"paused": parse_qs(url.query).get("p", ["1"])[0] == "1"})
+                    return self._send(200, {"ok": True})
+                except Exception as e:
+                    return self._send(409, {"error": "No replay is open (%s)." % e})
             if url.path == "/api/replay-setup":
                 try:
                     enable_replay_api(cfg)
@@ -760,6 +779,72 @@ def open_window(url):
                 except OSError:
                     pass
     webbrowser.open(url)
+
+
+OVERLAY_TITLE = "custy.gg overlay"
+
+
+def open_overlay(url):
+    """A small always-on-top window for watching a replay with the moments beside it.
+    Its own browser profile keeps it a separate window we can pin on top of League."""
+    import subprocess
+    if sys.platform != "win32":
+        return open_window(url)
+    import ctypes
+    user32 = ctypes.windll.user32
+    sw, sh = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+    w, h = 400, min(760, sh - 160)
+    profile = os.path.join(core.HERE, "overlay-browser")
+    for env in ("PROGRAMFILES(X86)", "PROGRAMFILES", "LOCALAPPDATA"):
+        root = os.environ.get(env)
+        for exe in ([os.path.join(root, r"Microsoft\Edge\Application\msedge.exe"), os.path.join(root, r"Google\Chrome\Application\chrome.exe")] if root else []):
+            if os.path.exists(exe):
+                try:
+                    subprocess.Popen([exe, "--app=" + url, "--user-data-dir=" + profile, "--no-first-run",
+                                      "--window-size=%d,%d" % (w, h), "--window-position=%d,%d" % (sw - w - 16, 90)], close_fds=True)
+                    threading.Thread(target=_pin_overlay, daemon=True).start()
+                    return
+                except OSError:
+                    pass
+    open_window(url)
+
+
+def _find_overlay():
+    import ctypes
+    from ctypes import wintypes
+    user32, found = ctypes.windll.user32, []
+
+    @ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
+    def each(hwnd, _):
+        n = user32.GetWindowTextLengthW(hwnd)
+        if n and user32.IsWindowVisible(hwnd):
+            buf = ctypes.create_unicode_buffer(n + 1)
+            user32.GetWindowTextW(hwnd, buf, n + 1)
+            if buf.value.startswith(OVERLAY_TITLE):
+                found.append(hwnd)
+        return True
+    user32.EnumWindows(each, 0)
+    return found[0] if found else None
+
+
+def _pin_overlay():
+    """Keeps the overlay above League (borderless or windowed) until it's closed. League can take the
+    top spot back when it gets focus, so this re-pins every couple of seconds."""
+    import ctypes
+    user32 = ctypes.windll.user32
+    HWND_TOPMOST, FLAGS = -1, 0x0001 | 0x0002 | 0x0010   # no move, no size, don't take focus
+    seen = False
+    for _ in range(3 * 60 * 60 // 2):   # gives up after 3 hours
+        hwnd = _find_overlay()
+        if hwnd:
+            if not seen:   # slightly see-through
+                user32.SetWindowLongW(hwnd, -20, user32.GetWindowLongW(hwnd, -20) | 0x80000)
+                user32.SetLayeredWindowAttributes(hwnd, 0, 238, 2)
+            seen = True
+            user32.SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, FLAGS)
+        elif seen or _ > 15:   # closed, or never showed up
+            return
+        time.sleep(2)
 
 
 def keep_cache_fresh(cfg, stop):

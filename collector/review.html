@@ -51,6 +51,25 @@ button:disabled { opacity:.5; cursor:default; }
 svg text { fill:var(--mute); font-size:11px; }
 .moment { display:grid; grid-template-columns: 120px 1fr auto; gap:16px; align-items:start; padding:14px 0; border-top:1px solid var(--line-soft); }
 .moment:first-child { border-top:0; }
+body.ov { overflow:auto; padding:10px 12px 70px; font-size:13px; }
+#ovHead { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+#ovTitle { display:flex; align-items:center; gap:8px; } #ovTitle img { width:34px; height:34px; border-radius:8px; }
+#ovTitle small { display:block; color:var(--faint); font-size:11px; }
+#ovClock { font-variant-numeric:tabular-nums; font-size:18px; font-weight:700; color:var(--gold); }
+#ovBar { margin:8px 0 2px; } #ovStatus { min-height:16px; font-size:12px; }
+.om { border:1px solid var(--line-soft); border-radius:10px; padding:8px 10px; margin-top:8px; cursor:pointer; background:var(--deck); }
+.om:hover { border-color:var(--line); } .om.past { opacity:.45; }
+.om.now { border-color:var(--gold); box-shadow:0 0 0 1px var(--gold) inset; }
+.om.swing { border-color:var(--red); background:var(--red-wash); }
+.om.swing.now { box-shadow:0 0 0 2px var(--gold) inset; }
+.omh { display:flex; align-items:center; gap:6px; margin-bottom:2px; } .omt { font-weight:700; }
+.omh .badge { margin:0; display:inline-block; padding:1px 7px; border-radius:99px; background:var(--red); color:#fff; font-size:10px; font-weight:700; text-transform:uppercase; }
+.omtag { margin-left:auto; font-size:11px; font-weight:700; color:var(--night); background:var(--gold); border-radius:99px; padding:1px 8px; }
+.omtag.nx { background:var(--blue); }
+.omp b { display:block; font-weight:600; } .om .cmp { font-size:12px; color:var(--mute); margin-top:2px; } .om .cmp b { display:inline; color:var(--ink); }
+.om ul { margin:6px 0 0; padding-left:16px; color:var(--mute); font-size:12px; }
+#ovFoot { position:fixed; left:0; right:0; bottom:0; display:flex; gap:8px; align-items:center; padding:10px 12px; background:var(--night); border-top:1px solid var(--line); font-size:12px; }
+#ovFoot label { margin-left:auto; color:var(--mute); display:flex; align-items:center; gap:4px; }
 .paths .path { display:grid; grid-template-columns: 170px 1fr; gap:14px; align-items:center; padding:10px 0; border-top:1px solid var(--line-soft); }
 .paths .path:first-child { border-top:0; }
 .paths .path.yours { border-top:1px dashed var(--line); margin-top:4px; }
@@ -711,6 +730,7 @@ function render(A, B, moments, s, label) {
       <div><h1>${esc(champName(A.me.championId))}${opp ? ` <span class="sub" style="font-size:18px">vs ${esc(opp)}</span>` : ""}</h1>
       <div class="sub">${res} · ${esc(s.queue)} · ${esc(ROLE_NAME[A.role] || "role unknown")} · ${A.me.stats.kills}/${A.me.stats.deaths}/${A.me.stats.assists} · ${clock(A.g.gameDuration)} · ${new Date(A.g.gameCreation).toLocaleString()}</div></div></div>
     <a class="btn yt" target="_blank" href="https://www.youtube.com/results?search_query=${encodeURIComponent("Domisumreplay " + champName(A.me.championId) + (opp ? " vs " + opp : ""))}">▶ High-elo ${esc(champName(A.me.championId))}${opp ? " vs " + esc(opp) : ""} games on YouTube</a>
+    <button class="btn" id="overlayBtn" title="A small window that stays on top of the replay">🗔 Moments overlay</button>
     ${banner}
     <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">Breakdown</button></div>
     <div id="v-experts" hidden><div class="empty">Loading expert data...</div></div>
@@ -742,6 +762,9 @@ function render(A, B, moments, s, label) {
     </div>
     <p class="sub" style="margin-top:22px">Compared with ${B ? esc(label) : "nothing yet"}. It only says where to look; watching the replay is how you see why.</p>`;
   document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
+  $("overlayBtn").onclick = () => api(`/api/overlay/${A.g.gameId}`, { method: "POST" })
+    .then(() => toast("Overlay opened. Set League's Window Mode to Borderless so it can sit on top of the replay."))
+    .catch(e => toast("Couldn't open the overlay: " + e.message));
   const en = $("enableApi"); if (en) en.onclick = enableApi;
   const tabs = document.querySelectorAll(".tabs button");
   const show = (t) => {
@@ -1319,7 +1342,86 @@ async function enableApi() {
   } catch (e) { toast("Couldn't change League's settings: " + e.message); }
 }
 
-loadDD().then(loadList).catch(e => { $("list").innerHTML = `<div class="note">Couldn't load: ${esc(e.message)}</div>`; });
+// ---------------------------------------------------------------- Overlay: a small always-on-top window beside the replay
+const OVERLAY = new URLSearchParams(location.search).get("overlay");
+const OV = { moments: [], A: null, now: null, last: null, autoPause: false, pausedAt: -1, open: -1 };
+async function startOverlay(id) {
+  document.title = "custy.gg overlay";
+  document.body.className = "ov";
+  document.body.innerHTML = `<div id="ovHead"><div id="ovTitle">Loading...</div><div id="ovClock">—</div></div>
+    <div id="ovBar"></div><div id="ovStatus" class="sub"></div><div id="ovList"></div>
+    <div id="ovFoot"><button id="ovPrev">◀ Prev</button><button id="ovNext">Next ▶</button>
+      <label><input type="checkbox" id="ovPause"> Pause at each moment</label></div><div id="toast" class="toast" style="bottom:56px;right:10px"></div>`;
+  try {
+    await loadDD();
+    const r = await api("/api/games"); STATE = { ...STATE, games: r.games, me: r.me, replayApi: r.replayApi };
+    const A = analyse(await getGame(id)); if (!A) throw new Error("This game has no timeline.");
+    const champ = DD.champ[A.me.championId]?.id, ex = champ && A.role ? await getBench(champ + "-" + A.role) : { missing: true };
+    const s = STATE.games.find(g => g.id == id) || {};
+    let B = null;
+    if (!ex.missing) B = fromExperts(ex);
+    else {
+      const pool = STATE.games.filter(g => g.id != id && g.hasTimeline && g.role === s.role && g.champion === s.champion).slice(0, 20);
+      B = baseline((await Promise.all(pool.map(g => getGame(g.id).then(analyse).catch(() => null)))).filter(Boolean));
+    }
+    OV.A = A; OV.moments = findMoments(A, B);
+    $("ovTitle").innerHTML = `<img src="${champIcon(A.me.championId)}" alt=""><span><b>${esc(champName(A.me.championId))}</b>${A.opp ? ` vs ${esc(champName(A.opp.championId))}` : ""}<small>${OV.moments.length} moments · ${A.deaths.length} deaths</small></span>`;
+  } catch (e) { $("ovList").innerHTML = `<div class="empty">Couldn't load this game: ${esc(e.message)}</div>`; return; }
+  $("ovPrev").onclick = () => jumpRel(-1); $("ovNext").onclick = () => jumpRel(1);
+  $("ovPause").onchange = (e) => OV.autoPause = e.target.checked;
+  drawOverlay(); tick(); setInterval(tick, 1000);
+}
+const ovSeek = (t) => api(`/api/replay/${OV.A.g.gameId}?t=${Math.max(0, Math.round(t))}`, { method: "POST" }).catch(e => toast(e.message));
+function jumpRel(dir) {
+  const t = OV.now?.time ?? 0, ms = OV.moments;
+  const target = dir > 0 ? ms.find(m => m.start > t + 3) : [...ms].reverse().find(m => m.start < t - 5);
+  if (target) ovSeek(target.start); else toast(dir > 0 ? "No more moments after this." : "This is the first moment.");
+}
+async function tick() {
+  const r = await api("/api/replay/now").catch(() => ({ open: false }));
+  const dur = OV.A.g.gameDuration, wrong = r.open && Math.abs((r.length || 0) - dur) > 20;
+  OV.now = r.open && !wrong ? r : null;
+  $("ovClock").textContent = OV.now ? `${clock(r.time)} / ${clock(dur)}${r.paused ? " · paused" : ""}` : "—";
+  $("ovStatus").textContent = !r.open ? "No replay open yet. Click a moment to open it." : wrong ? "A different game's replay is open." : "";
+  // Pause when the replay plays into a moment (not when you jump there: that already starts at the moment).
+  if (OV.now && OV.autoPause && !r.paused && OV.last != null) {
+    const hit = OV.moments.find(m => OV.last < m.start && r.time >= m.start && r.time - OV.last < 5);
+    if (hit && OV.pausedAt !== hit.start) { OV.pausedAt = hit.start; api("/api/replay-pause?p=1", { method: "POST" }).catch(() => {}); }
+  }
+  OV.last = OV.now ? r.time : null;
+  drawOverlay();
+}
+function drawOverlay() {
+  const A = OV.A; if (!A) return;
+  const dur = A.g.gameDuration, t = OV.now?.time ?? -1;
+  const cur = OV.moments.findIndex(m => t >= m.start - 2 && t <= m.end + 20);
+  const next = OV.moments.findIndex(m => m.start > t);
+  const open = cur >= 0 ? cur : next;
+  // Timeline bar: moments, deaths, and where the replay is.
+  $("ovBar").innerHTML = `<svg viewBox="0 0 1000 40" width="100%" preserveAspectRatio="none">
+    <rect x="0" y="16" width="1000" height="8" rx="4" fill="var(--line)"/>
+    ${OV.moments.map((m, i) => `<rect data-seek="${m.start}" x="${m.start / dur * 1000}" y="10" width="${Math.max(8, (m.end - m.start) / dur * 1000)}" height="20" rx="4" fill="${m.parts.some(p => p.turning) ? "var(--red)" : "var(--gold)"}" opacity="${i === cur ? 1 : .55}" style="cursor:pointer"><title>${clock(m.start)} ${esc(m.parts[0].title)}</title></rect>`).join("")}
+    ${A.deaths.map(d => `<text x="${d.t / dur * 1000}" y="9" font-size="11" text-anchor="middle" fill="var(--red-ink)">✕</text>`).join("")}
+    ${t >= 0 ? `<rect x="${t / dur * 1000 - 2}" y="2" width="4" height="36" fill="#fff"/>` : ""}</svg>`;
+  const key = `${cur}|${next}|${Math.floor(t / 5)}`;
+  if (OV.key !== key) {
+    OV.key = key;
+    $("ovList").innerHTML = OV.moments.map((m, i) => {
+      const state = i === cur ? "now" : t >= 0 && m.end + 20 < t ? "past" : i === next ? "next" : "";
+      const turning = m.parts.some(p => p.turning);
+      return `<div class="om ${state}${turning ? " swing" : ""}" data-seek="${m.start}">
+        <div class="omh"><span class="omt">${clock(m.start)}</span>${turning ? `<span class="badge">Turning point</span>` : ""}
+          ${state === "now" ? `<span class="omtag">Now</span>` : state === "next" && t >= 0 ? `<span class="omtag nx">in ${clock(m.start - t)}</span>` : ""}</div>
+        ${m.parts.map(p => `<div class="omp"><b>${esc(p.title)}</b>${i === open && p.compare ? `<div class="cmp">${p.compare}</div>` : ""}</div>`).join("")}
+        ${i === open && m.context.length ? `<ul>${m.context.slice(0, 6).map(l => `<li>${l}</li>`).join("")}</ul>` : ""}</div>`;
+    }).join("") || `<div class="empty">Nothing stood out in this game.</div>`;
+    if (open >= 0 && OV.open !== open) { OV.open = open; document.querySelectorAll(".om")[open]?.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+  }
+  document.querySelectorAll("[data-seek]").forEach(el => el.onclick = () => ovSeek(+el.dataset.seek));
+}
+
+if (OVERLAY) startOverlay(OVERLAY);
+else loadDD().then(loadList).catch(e => { $("list").innerHTML = `<div class="note">Couldn't load: ${esc(e.message)}</div>`; });
 </script>
 </body>
 </html>
