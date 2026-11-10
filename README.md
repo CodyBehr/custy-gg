@@ -85,7 +85,8 @@ the tray menu ("Update automatically").
 The Windows app also has a **Review my games (test)** window: right-click the tray icon, or open *custy.gg game
 review* from the Start menu. It reviews your recent ranked, normal and quickplay games on Summoner's Rift (not
 customs). It opens on an **Overview** of your last 20 games against experts (biggest gap and biggest edge,
-a skill radar, your average game minute by minute, deaths by stage of the game, a death map and your champions). Each game has two tabs:
+a skill radar, your average game minute by minute, deaths by stage of the game, a death map, your lane result game by game
+and your champions). Each game has two tabs:
 
 - **Moments**: your lane gold difference by minute against your lane opponent, with the middle half of high-elo
   games on the same champion and role behind it (your own recent games only when there's no expert data yet); up to

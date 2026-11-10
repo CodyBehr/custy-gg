@@ -33,7 +33,8 @@ aside .note { padding:10px 14px; color:var(--mute); font-size:13px; border-botto
 .game img { width:38px; height:38px; border-radius:6px; }
 .game .t { font-size:13px; line-height:1.35; } .game .t small { color:var(--mute); display:block; }
 .game .kda { margin-left:auto; text-align:right; font-size:13px; } .game .kda small { color:var(--faint); display:block; }
-section { padding:22px 28px; max-width:1100px; }
+section { padding:22px 28px; max-width:1400px; }
+section.wide { max-width:none; }
 h1 { font-size:22px; margin:0 0 2px; } h2 { font-size:15px; margin:26px 0 10px; color:var(--mute); text-transform:uppercase; letter-spacing:.8px; font-weight:600; }
 .sub { color:var(--mute); font-size:13px; }
 .vs { display:flex; align-items:center; gap:12px; }
@@ -75,7 +76,7 @@ table.grid td .y { font-size:15px; font-weight:600; } table.grid td .e { color:v
 .homerow { padding:12px 14px; cursor:pointer; border-bottom:1px solid var(--line-soft); border-left:3px solid transparent; }
 .homerow:hover { background:var(--deck); } .homerow.on { background:var(--deck-2); border-left-color:var(--gold); }
 .homerow b { display:block; color:var(--gold); letter-spacing:.3px; } .homerow small { color:var(--mute); font-size:12px; }
-.hero { display:grid; grid-template-columns: 1.7fr 1fr; gap:14px; margin-top:16px; align-items:start; }
+.hero { display:grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr); gap:14px; margin-top:16px; align-items:stretch; }
 .hero .card { padding:22px 24px; position:relative; overflow:hidden; }
 .hero .gap { background:radial-gradient(120% 140% at 0% 0%, rgba(242,89,107,.22), transparent 60%), var(--deck); border-color:rgba(242,89,107,.45); }
 .hero .edge { background:radial-gradient(120% 140% at 0% 0%, rgba(79,157,255,.2), transparent 60%), var(--deck); border-color:rgba(79,157,255,.4); }
@@ -95,6 +96,16 @@ table.grid td .y { font-size:15px; font-weight:600; } table.grid td .e { color:v
 .track .zone { position:absolute; left:37.5%; width:25%; top:0; bottom:0; background:rgba(255,255,255,.09); border-left:1px solid var(--line); border-right:1px solid var(--line); }
 .track i { position:absolute; top:-4px; width:20px; height:20px; margin-left:-10px; border-radius:50%; background:var(--gold); border:3px solid var(--night); }
 .track i.bad { background:var(--red); } .track i.good { background:var(--blue); }
+.dgrid { display:grid; gap:14px; margin-top:14px; align-items:start; grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-areas: "radar radar curve curve curve" "deaths deaths deaths map map" "games games games games games" "pool pool pool pool pool"; }
+.a-radar { grid-area:radar; } .a-curve { grid-area:curve; } .a-deaths { grid-area:deaths; } .a-map { grid-area:map; } .a-games { grid-area:games; } .a-pool { grid-area:pool; }
+@media (min-width: 1650px) { .dgrid { grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-areas: "radar radar curve curve deaths deaths" "map map games games games games" "map map pool pool pool pool"; } }
+.a-pool h2 { margin-top:4px; }
+.dgrid > .card, .dgrid > .a-map > .card { height:100%; } .dgrid { align-items:stretch; }
+.a-map .card svg { max-width:460px !important; }
+.formstats { display:grid; grid-template-columns: repeat(3, auto); gap:6px 18px; margin-top:12px; font-size:13px; color:var(--mute); }
+.formstats b { display:block; color:var(--ink); font-size:17px; }
 .grid2 { display:grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap:14px; margin-top:14px; align-items:start; }
 .grid2 + .grid2 { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
 .ctitle { font-size:15px; font-weight:600; margin-bottom:2px; }
@@ -106,7 +117,7 @@ details.allnums { margin-top:22px; } details.allnums summary { cursor:pointer; c
 .pool .card { display:flex; gap:10px; align-items:center; padding:10px 12px; cursor:pointer; } .pool .card:hover { border-color:var(--blue); }
 .pool img { width:40px; height:40px; border-radius:8px; } .pool small { display:block; color:var(--mute); font-size:12px; }
 .formstrip { display:flex; gap:4px; align-items:center; margin-top:10px; } .formstrip i { width:16px; height:22px; border-radius:3px; background:var(--red); opacity:.85; } .formstrip i.w { background:var(--blue); }
-@media (max-width: 900px) { .grid2, .grid2 + .grid2, .hero, .duo { grid-template-columns: 1fr; } .score { grid-template-columns: 1fr 60px 60px; } .score .track, .score .n { display:none; } }
+@media (max-width: 900px) { .grid2, .grid2 + .grid2, .hero, .duo { grid-template-columns: 1fr; } .dgrid { grid-template-columns: 1fr; grid-template-areas: "radar" "curve" "deaths" "map" "games" "pool"; } .score { grid-template-columns: 1fr 60px 60px; } .score .track, .score .n { display:none; } }
 .legend { display:flex; gap:16px; font-size:12px; color:var(--mute); margin-top:6px; }
 .legend i { display:inline-block; width:12px; height:8px; border-radius:2px; margin-right:5px; vertical-align:middle; }
 </style>
@@ -498,6 +509,7 @@ function renderList(openFirst) {
 async function openGame(id) {
   document.querySelectorAll(".game").forEach(el => el.classList.toggle("on", el.dataset.id == id));
   $("homerow")?.classList.remove("on");
+  $("view").classList.remove("wide");
   STATE.current = id;
   $("view").innerHTML = `<div class="empty">Reading the game...</div>`;
   const s = STATE.games.find(g => g.id == id);
@@ -888,7 +900,7 @@ function radarSvg(stats) {
   const pt = (i, v) => { const a = -Math.PI / 2 + i * 2 * Math.PI / N, r = R * v / 100; return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; };
   const val = z => Math.max(8, Math.min(100, 50 + z * 25));
   const poly = (vs) => vs.map((v, i) => pt(i, v).map(n => n.toFixed(1)).join(",")).join(" ");
-  let o = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Your skills against experts">`;
+  let o = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Your skills against experts" style="max-width:440px;display:block;margin:6px auto 0">`;
   for (const ring of [25, 50, 75, 100]) o += `<polygon points="${poly(axes.map(() => ring))}" fill="none" stroke="${ring === 50 ? "transparent" : "var(--line-soft)"}"/>`;
   axes.forEach((_, i) => { const [x, y] = pt(i, 100); o += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--line-soft)"/>`; });
   o += `<polygon points="${poly(axes.map(() => 50))}" fill="var(--blue-wash)" stroke="var(--blue)" stroke-dasharray="5 4" stroke-width="1.5"/>`;
@@ -982,11 +994,39 @@ function deathBarsSvg(db) {
   return o + "</svg>";
 }
 
+// Gold vs lane opponent at 15:00 (or the last minute of a shorter game), one bar per game.
+const laneAt = (A) => A.diff ? A.diff[Math.min(15, A.minutes)] : null;
+function laneNote(rows) {
+  const v = rows.map(r => laneAt(r.A)).filter(x => x != null);
+  if (!v.length) return "No lane opponent found in these games.";
+  const ahead = v.filter(x => x > 0).length, wonAhead = rows.filter(r => (laneAt(r.A) ?? 0) > 0 && r.g.win).length;
+  return `Ahead of your lane opponent at 15:00 in ${ahead} of ${v.length} games, average ${signed(avg(v))} gold. You won ${wonAhead} of the ${ahead} games you were ahead in.`;
+}
+function gamesSvg(rows) {
+  const items = rows.map(r => ({ r, v: laneAt(r.A) })).filter(x => x.v != null);
+  if (!items.length) return "";
+  const W = 1000, H = 250, L = 56, R = 10, T = 16, Bm = 44, n = items.length;
+  const top = Math.max(500, ...items.map(x => Math.abs(x.v))) * 1.1;
+  const gw = (W - L - R) / n, bw = Math.min(30, gw * .62), y = v => T + (top - v) / (2 * top) * (H - T - Bm);
+  let o = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Gold against lane opponent at 15 minutes, by game">`;
+  const raw = top / 2, mag = Math.pow(10, Math.floor(Math.log10(raw))), step = [1, 2, 2.5, 5, 10].map(f => f * mag).find(v => v >= raw);
+  for (let v = -Math.floor(top / step) * step; v <= top; v += step) o += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 0 ? "var(--line)" : "var(--line-soft)"}"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${signed(v)}</text>`;
+  items.forEach(({ r, v }, i) => {
+    const cx = L + gw * i + gw / 2, y0 = y(0), y1 = y(v);
+    o += `<g data-og="${r.g.id}" style="cursor:pointer"><rect x="${cx - gw / 2}" y="${T}" width="${gw}" height="${H - T}" fill="transparent"/>
+      <rect x="${cx - bw / 2}" y="${Math.min(y0, y1)}" width="${bw}" height="${Math.max(2, Math.abs(y1 - y0))}" rx="3" fill="${v >= 0 ? "var(--blue)" : "var(--red)"}" fill-opacity=".85"/>
+      <image href="${champIcon(r.g.champion)}" x="${cx - 11}" y="${H - Bm + 6}" width="22" height="22" style="clip-path:inset(0 round 5px)"/>
+      <circle cx="${cx}" cy="${H - 8}" r="3.5" fill="${r.g.win ? "var(--blue)" : "var(--red)"}"/>
+      <title>${esc(gameLabel(r.g))}: ${signed(v)} gold vs ${r.A.opp ? esc(champName(r.A.opp.championId)) : "lane opponent"} at ${Math.min(15, r.A.minutes)}:00 · ${r.g.win ? "win" : "loss"}</title></g>`;
+  });
+  return o + "</svg>";
+}
+
 function renderHome(rows) {
   const stats = dashStats(rows), withB = rows.filter(r => r.B).length;
   const wins = rows.filter(r => r.g.win).length;
   const worst = stats.slice().sort((a, b) => a.z - b.z)[0], best = stats.slice().sort((a, b) => b.z - a.z)[0];
-  const isBad = worst && worst.z < -0.4, isGood = best && best.z > 0.25 && best !== worst;
+  const isBad = worst && worst.z < -0.25, isGood = best && best.z > 0.25 && best !== worst;
 
   // What to watch for the headline: the deaths themselves, or the games where the gap was biggest.
   let reel = "";
@@ -1019,8 +1059,17 @@ function renderHome(rows) {
       <div class="big good">${best.m.big(best.you, best.exp)}</div>
       <h3>${esc(best.m.good(best.you, best.exp))}.</h3>
       <p>${best.m.fmt(best.you)} vs ${best.m.fmt(best.exp)} ${best.m.unit} · last ${best.n} games</p></div>`
-    : `<div class="card"><div class="eyebrow">Recent form</div><div class="big" style="font-size:44px">${wins}–${rows.length - wins}</div>
-      <h3>${Math.round(100 * wins / rows.length)}% win rate</h3><p>Last ${rows.length} games.</p></div>`;
+    : `<div class="card"><div class="eyebrow">Your edge</div><div class="big" style="font-size:44px">—</div>
+      <h3>Nothing clearly ahead of experts yet.</h3><p>It shows up once a stat sits above their usual range.</p></div>`;
+  const newest = rows.slice().reverse();
+  let streak = 0; for (const r of newest) { if (r.g.win === newest[0].g.win) streak++; else break; }
+  const per = (f) => avg(rows.map(f));
+  const form = `<div class="card"><div class="eyebrow">Recent form</div>
+      <div class="big" style="font-size:44px">${wins}–${rows.length - wins}</div>
+      <h3>${Math.round(100 * wins / rows.length)}% win rate</h3>
+      <div class="formstats"><span><b>${per(r => r.A.me.stats.kills).toFixed(1)} / ${per(r => r.A.me.stats.deaths).toFixed(1)} / ${per(r => r.A.me.stats.assists).toFixed(1)}</b>avg KDA</span>
+        <span><b class="${newest[0].g.win ? "good" : "bad"}">${streak}${newest[0].g.win ? "W" : "L"}</b>streak</span>
+        <span><b>${Math.round(per(r => r.A.g.gameDuration) / 60)}m</b>avg game</span></div></div>`;
 
   const scoreRow = (s) => {
     const pos = Math.max(3, Math.min(97, 50 + s.z * 25)), cls = s.z < -0.5 ? "bad" : s.z > 0.5 ? "good" : "";
@@ -1034,7 +1083,7 @@ function renderHome(rows) {
   const S = 300, px = v => v / 14870 * S, py = v => S - v / 14980 * S;
   const zones = {}; for (const { d } of deaths) { const a = area(d.e.position.x, d.e.position.y); zones[a] = (zones[a] || 0) + 1; }
   const topZones = Object.entries(zones).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([z, c]) => `<b>${Math.round(100 * c / deaths.length)}%</b> ${z}`).join(" · ");
-  const map = `<div class="card"><div class="ctitle">Where you die</div><svg viewBox="0 0 ${S} ${S}" width="100%" style="border-radius:8px;background:#0a1020;max-width:340px;display:block;margin:0 auto">
+  const map = `<div class="card"><div class="ctitle">Where you die</div><svg viewBox="0 0 ${S} ${S}" width="100%" style="border-radius:8px;background:#0a1020;max-width:520px;display:block;margin:8px auto 0">
       <image href="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/map/map11.png" width="${S}" height="${S}" opacity=".5"/>
       ${deaths.map(({ r, d }) => `<circle cx="${px(d.e.position.x)}" cy="${py(d.e.position.y)}" r="${d.t < 840 ? 5 : 4}" fill="${d.t < 840 ? "var(--red)" : "var(--gold)"}" fill-opacity="${d.t < 840 ? .85 : .45}" stroke="#0a1020"><title>${esc(gameLabel(r.g))} · ${clock(d.t)}</title></circle>`).join("")}</svg>
       <div class="legend"><span><i style="background:var(--red);border-radius:50%;width:9px;height:9px"></i>before 14:00</span><span><i style="background:var(--gold);border-radius:50%;width:9px;height:9px;opacity:.6"></i>later</span></div>
@@ -1052,25 +1101,26 @@ function renderHome(rows) {
 
   const curveKey = STATE.curve || "gold";
   const db = deathBlocks(rows);
+  $("view").classList.add("wide");
   $("view").innerHTML = `<div id="dash">
     <h1>Your last ${rows.length} games</h1>
     <div class="sub">${wins}–${rows.length - wins} · each game is compared with high-elo games on the same champion and role${withB < rows.length ? ` · expert data for ${withB} of ${rows.length} games` : ""}</div>
     <div class="formstrip" title="Newest on the left">${rows.slice().reverse().map(r => `<i class="${r.g.win ? "w" : ""}" title="${esc(gameLabel(r.g))}"></i>`).join("")}</div>
-    <div class="hero">${hero}${strength}</div>
-    <div class="grid2">
-      <div class="card"><div class="ctitle">Your shape vs experts</div><div class="sub">Each spoke is a skill. The dashed ring is the expert median; further out is better.</div>${radarSvg(stats)}
+    <div class="hero">${hero}${strength}${form}</div>
+    <div class="dgrid">
+      <div class="card a-radar"><div class="ctitle">Your shape vs experts</div><div class="sub">Each spoke is a skill. The dashed ring is the expert median; further out is better.</div>${radarSvg(stats)}
         <div class="legend"><span><i style="background:var(--gold)"></i>You</span><span><i style="background:transparent;border:1px dashed var(--blue)"></i>Experts</span></div></div>
-      <div class="card"><div class="ctitle">Your average game, minute by minute</div>
+      <div class="card a-curve"><div class="ctitle">Your average game, minute by minute</div>
         <div class="seg" id="curveSeg">${Object.entries(CURVES).map(([k, c]) => `<button data-ck="${k}" class="${k === curveKey ? "on" : ""}">${c[0]}</button>`).join("")}</div>
         <div id="curve">${curveSvg(rows, curveKey)}</div>
         <div class="legend"><span><i style="background:var(--gold)"></i>You, compared with experts on the same champion</span><span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Experts' usual range</span></div></div>
-    </div>
-    <div class="grid2">
-      <div class="card"><div class="ctitle">When you die</div><div class="sub">${esc(db.note)}</div>${deathBarsSvg(db)}
+      <div class="card a-deaths"><div class="ctitle">When you die</div><div class="sub">${esc(db.note)}</div>${deathBarsSvg(db)}
         <div class="legend"><span><i style="background:var(--red)"></i>You</span>${db.exp ? `<span><i style="background:repeating-linear-gradient(135deg,#5d6987 0 2px,#253150 2px 4px)"></i>Experts</span>` : ""}<span>deaths per game, by game minute</span></div></div>
-      ${map}
+      <div class="a-map">${map}</div>
+      <div class="card a-games"><div class="ctitle">Your lane, game by game</div><div class="sub">${esc(laneNote(rows))}</div>${gamesSvg(rows)}
+        <div class="legend"><span><i style="background:var(--blue)"></i>ahead of your lane opponent</span><span><i style="background:var(--red)"></i>behind</span><span>gold at 15:00 · click a bar to open the game · oldest on the left</span></div></div>
+      <div class="a-pool"><h2>Champions</h2><div class="pool">${pool}</div></div>
     </div>
-    <h2>Champions</h2><div class="pool">${pool}</div>
     ${stats.length ? `<details class="allnums"><summary>Show all numbers</summary>
     <div class="card"><div class="score h"><span></span><span>You</span><span>Experts</span><span style="display:flex;justify-content:space-between"><span>behind</span><span>their usual range</span><span>ahead</span></span><span></span></div>
       ${stats.map(scoreRow).join("")}</div></details>` : ""}
