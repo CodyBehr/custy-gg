@@ -1320,9 +1320,18 @@ function toast(msg, sticky) {
   const t = $("toast"); t.textContent = msg; t.style.display = "block";
   clearTimeout(toastTimer); if (!sticky) toastTimer = setTimeout(() => t.style.display = "none", 7000);
 }
+// External links open in the default browser (this window is an Edge app window).
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a[target=_blank]"); if (!a) return;
+  e.preventDefault();
+  api("/api/open?url=" + encodeURIComponent(a.href), { method: "POST" }).catch(() => window.open(a.href));
+});
 async function watch(gameId, t, btn) {
   document.querySelectorAll("[data-watch]").forEach(b => b.disabled = true);
-  try { await api(`/api/replay/${gameId}?t=${t}`, { method: "POST" }); }
+  try {
+    await api(`/api/replay/${gameId}?t=${t}`, { method: "POST" });
+    api(`/api/overlay/${gameId}`, { method: "POST" }).catch(() => {});   // the moments overlay comes up with the replay
+  }
   catch (e) { toast(e.message); document.querySelectorAll("[data-watch]").forEach(b => b.disabled = false); return; }
   toast("Opening the replay...", true);
   const poll = async () => {
@@ -1379,6 +1388,7 @@ function jumpRel(dir) {
 }
 async function tick() {
   const r = await api("/api/replay/now").catch(() => ({ open: false }));
+  if (r.overlayGame && r.overlayGame != OVERLAY) { location.replace(location.href.replace(/overlay=\d+/, "overlay=" + r.overlayGame)); return; }
   const dur = OV.A.g.gameDuration, wrong = r.open && Math.abs((r.length || 0) - dur) > 20;
   OV.now = r.open && !wrong ? r : null;
   $("ovClock").textContent = OV.now ? `${clock(r.time)} / ${clock(dur)}${r.paused ? " · paused" : ""}` : "—";

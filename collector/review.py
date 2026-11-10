@@ -580,7 +580,7 @@ def _page():
 def benchmark(cfg, name):
     """High-elo numbers for one champion and role, from the site (refreshed every few hours)."""
     hit = _bench.get(name)
-    if hit and time.time() - hit[0] < (600 if hit[1].get("missing") else 6 * 3600):
+    if hit and time.time() - hit[0] < (600 if hit[1].get("missing") else 1800):
         return hit[1]
     data = {"missing": True}
     try:
@@ -657,9 +657,9 @@ def make_handler(cfg, token):
                 try:
                     pb = _playback()
                     return self._send(200, {"open": bool(pb.get("length")), "time": pb.get("time"), "paused": pb.get("paused"),
-                                            "length": pb.get("length"), "seeking": pb.get("seeking"), "speed": pb.get("speed")})
+                                            "length": pb.get("length"), "seeking": pb.get("seeking"), "speed": pb.get("speed"), "overlayGame": _overlay_game})
                 except Exception:
-                    return self._send(200, {"open": False})
+                    return self._send(200, {"open": False, "overlayGame": _overlay_game})
             if url.path == "/api/replay":
                 with _lock:
                     return self._send(200, dict(_replay))
@@ -686,7 +686,17 @@ def make_handler(cfg, token):
             if m:
                 key = self.headers.get("X-Custy-Key", "")
                 host = "http://127.0.0.1:%d" % self.server.server_address[1]
+                global _overlay_game
+                _overlay_game = m.group(1)   # an overlay that's already open switches to this game
                 open_overlay("%s/?k=%s&overlay=%s" % (host, key, m.group(1)))
+                return self._send(200, {"ok": True})
+            if url.path == "/api/open":
+                # Links (YouTube) open in the user's default browser, not in this Edge app window.
+                link = parse_qs(url.query).get("url", [""])[0]
+                if not re.match(r"^https://(www\.)?youtube\.com/", link):
+                    return self._send(400, {"error": "not allowed"})
+                import webbrowser
+                webbrowser.open(link)
                 return self._send(200, {"ok": True})
             if url.path == "/api/replay-pause":
                 try:
@@ -794,13 +804,15 @@ def open_overlay(url):
     user32 = ctypes.windll.user32
     sw, sh = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
     w, h = 400, min(760, sh - 160)
-    profile = os.path.join(core.HERE, "overlay-browser")
+    if _find_overlay():   # already open: just make sure it's on top
+        threading.Thread(target=_pin_overlay, daemon=True).start()
+        return
     for env in ("PROGRAMFILES(X86)", "PROGRAMFILES", "LOCALAPPDATA"):
         root = os.environ.get(env)
         for exe in ([os.path.join(root, r"Microsoft\Edge\Application\msedge.exe"), os.path.join(root, r"Google\Chrome\Application\chrome.exe")] if root else []):
             if os.path.exists(exe):
                 try:
-                    subprocess.Popen([exe, "--app=" + url, "--user-data-dir=" + profile, "--no-first-run",
+                    subprocess.Popen([exe, "--app=" + url, "--new-window",
                                       "--window-size=%d,%d" % (w, h), "--window-position=%d,%d" % (sw - w - 16, 90)], close_fds=True)
                     threading.Thread(target=_pin_overlay, daemon=True).start()
                     return
@@ -830,6 +842,21 @@ def _find_overlay():
 def _pin_overlay():
     """Keeps the overlay above League (borderless or windowed) until it's closed. League can take the
     top spot back when it gets focus, so this re-pins every couple of seconds."""
+    global _pinning
+    if _pinning:
+        return
+    _pinning = True
+    try:
+        _pin_loop()
+    finally:
+        _pinning = False
+
+
+_pinning = False
+_overlay_game = None
+
+
+def _pin_loop():
     import ctypes
     user32 = ctypes.windll.user32
     HWND_TOPMOST, FLAGS = -1, 0x0001 | 0x0002 | 0x0010   # no move, no size, don't take focus
