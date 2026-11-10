@@ -1,6 +1,6 @@
 # Expert benchmarks
 
-The game review's **vs Experts** tab reads `public/benchmarks/<Champion>-<ROLE>.json` from the site. There are two
+The game review (Overview, Moments and Breakdown) reads `public/benchmarks/<Champion>-<ROLE>.json` from the site. There are two
 ways to build those files. Both use `bench_core.py` for the per-game numbers and the summary.
 
 ```bash

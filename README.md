@@ -87,14 +87,14 @@ review* from the Start menu. It reviews your recent ranked, normal and quickplay
 customs). It opens on an **Overview** of your last 20 games against experts (biggest gap and biggest edge,
 a skill radar, your average game minute by minute, deaths by stage of the game, a death map and your champions). Each game has two tabs:
 
-- **Moments**: your lane gold difference by minute against your lane opponent, with the middle half of your own
-  recent games in the same role behind it (same champion once you have 3+ games on it); up to 6 moments to watch in
-  the order they happened (gold swings of 400+, deaths before 14:00, CS, first back, first item, level 6, plates);
-  and every death with who, where, the enemy jungler's position and unspent gold.
-- **vs Experts**: the same game against high-elo games on that champion and role: gold, CS, level and
-  XP/gold/CS vs lane opponent at 5/10/15/20 minutes, build order (adjusted for how much armor and magic resist the
-  enemy built), back and item timings, and the biggest differences in plain sentences. All of it is fixed rules on
-  the numbers, no AI.
+- **Moments**: your lane gold difference by minute against your lane opponent, with the middle half of high-elo
+  games on the same champion and role behind it (your own recent games only when there's no expert data yet); up to
+  6 moments to watch in the order they happened (gold swings of 400+, deaths before 14:00, CS, first back, first
+  item, level 6, plates), each with what experts do; and every death with who, where, the enemy jungler's position
+  and unspent gold.
+- **Breakdown**: gold, CS, level and XP/gold/CS vs lane opponent at 5/10/15/20 minutes against experts, build order
+  (adjusted for how much armor and magic resist the enemy built), back and item timings, and the build and number
+  differences in plain sentences. All of it is fixed rules on the numbers, no AI.
 - **Watch in my replay** downloads the replay through the League client, starts it and jumps to the moment.
   Jumping needs League's Replay API on; the page offers to add `EnableReplayApi=1` to `Config/game.cfg` (it keeps
   `game.cfg.custy-backup`). Replays only open for games on the current patch.
@@ -187,7 +187,7 @@ lib/
 collector/              the app your friends run (custy_collector.py), its Windows wrapper (windows_app.py)
                         and the game review (review.py, review.html)
 collector-dist/         the built Windows app (committed by GitHub Actions)
-public/benchmarks/      expert numbers for the game review's vs Experts tab
+public/benchmarks/      expert numbers the game review compares against
 scripts/                sample data and a pretend League client for testing
 scripts/benchmark/      pulls high-elo games from Riot's API and builds public/benchmarks
 ```

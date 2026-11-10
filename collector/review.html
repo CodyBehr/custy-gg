@@ -242,6 +242,16 @@ function pct(values, q) {
   const i = (v.length - 1) * q, lo = Math.floor(i), hi = Math.ceil(i);
   return v[lo] + (v[hi] - v[lo]) * (i - lo);
 }
+// Expert numbers (public/benchmarks) in the same shape as baseline() below.
+function fromExperts(b) {
+  const band = arr => (arr || []).map(x => x ? { p25: x[0], p50: x[1], p75: x[2] } : null);
+  const med = k => b.timings?.[k]?.[1] ?? null;
+  return { expert: true, n: b.games, diff: band(b.minutes.gdiff), gold: band(b.minutes.gold), cs: band(b.minutes.cs),
+    firstBack: med("first_back"), firstBackGold: med("first_back_gold"), firstItem: med("legendary1"),
+    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14") };
+}
+const WHO = (B) => B?.expert ? "Experts" : "Your usual";
+
 function baseline(list) {
   if (list.length < 3) return null;
   const maxM = Math.max(...list.map(a => a.minutes));
@@ -267,7 +277,7 @@ function findMoments(A, B) {
   const band = B ? (useDiff ? B.diff : B.gold) : null;
   const last = Math.min(A.minutes, 25);
 
-  // 1. Lane gold: dropped 400+ within 3 minutes and ended below your usual middle half.
+  // 1. Lane gold: dropped 400+ within 3 minutes and ended below the comparison's middle half.
   if (useDiff) {
     let cur = null;
     for (let m = 2; m <= last; m++) {
@@ -288,7 +298,7 @@ function findMoments(A, B) {
       w.start = Math.max(0, w.peakM * 60 - 45); w.end = w.endM * 60;
       w.title = `Lane gold went from ${signed(curve[w.peakM])} to ${signed(low)}`;
       const b = band?.[w.endM];
-      w.compare = b ? `Your usual at ${w.endM}:00 is <b>${signed(b.p50)}</b> (middle half ${signed(b.p25)} to ${signed(b.p75)}).`
+      w.compare = b ? `${WHO(B)} at ${w.endM}:00: <b>${signed(b.p50)}</b> (middle half ${signed(b.p25)} to ${signed(b.p75)}).`
                     : `Lost ${Math.round(w.cost).toLocaleString()} gold to your lane opponent in ${w.endM - w.peakM} min.`;
     }
   }
@@ -305,7 +315,7 @@ function findMoments(A, B) {
       kind: "death", start: Math.max(0, d.t - 45), end: d.t + 10, cost: Math.max(300, swing),
       title: `You died at ${clock(d.t)}${killers.length ? " to " + killers.join(" + ") : ""}`,
       compare: d.t >= 840 ? `Your lane gold went from ${signed(curve[m0])} to ${signed(curve[m2])} over the next 2 minutes.`
-        : B ? `In your usual game you die <b>${Math.round(B.deaths14 ?? 0)}</b> time${Math.round(B.deaths14 ?? 0) === 1 ? "" : "s"} before 14:00.` : "Deaths before 14:00 usually decide the lane.",
+        : B ? `${B.expert ? "Experts die" : "In your usual game you die"} <b>${Math.round(B.deaths14 ?? 0)}</b> time${Math.round(B.deaths14 ?? 0) === 1 ? "" : "s"} before 14:00.` : "Deaths before 14:00 usually decide the lane.",
     });
   }
 
@@ -319,7 +329,7 @@ function findMoments(A, B) {
       if (out.some(w => w.kind === "cs")) { const w = out.find(w => w.kind === "cs"); w.cost = Math.max(w.cost, gap * 20); w.end = m * 60; w.title = `${A.myCs[m]} CS at ${m}:00, ${Math.round(gap)} under`; continue; }
       out.push({ kind: "cs", start: (m - 4) * 60, end: m * 60, cost: gap * 20,
         title: `${A.myCs[m]} CS at ${m}:00, ${Math.round(gap)} under`,
-        compare: B?.cs?.[m] ? `Your usual: <b>${Math.round(B.cs[m].p50)}</b> at ${m}:00.` : `Rough target for ${ROLE_NAME[A.role] || "your role"}: <b>${Math.round(target(m))}</b>.` });
+        compare: B?.cs?.[m] ? `${WHO(B)}: <b>${Math.round(B.cs[m].p50)}</b> at ${m}:00.` : `Rough target for ${ROLE_NAME[A.role] || "your role"}: <b>${Math.round(target(m))}</b>.` });
     }
   }
 
@@ -328,14 +338,14 @@ function findMoments(A, B) {
   if (B?.firstBack && fb && fb.t - B.firstBack >= 60) {
     out.push({ kind: "back", start: Math.max(0, B.firstBack - 45), end: fb.t + 5, cost: (fb.t - B.firstBack) * 4,
       title: `First back at ${clock(fb.t)} with ${fb.spent.toLocaleString()} gold spent`,
-      compare: `Your usual: back by <b>${clock(B.firstBack)}</b>, spending ~${Math.round(B.firstBackGold || 0).toLocaleString()}.` });
+      compare: `${WHO(B)}: back by <b>${clock(B.firstBack)}</b>, spending ~${Math.round(B.firstBackGold || 0).toLocaleString()}.` });
   }
 
   // 5. First completed item.
   for (const [k, label] of [["firstItem", "First item"]]) {
     if (B?.[k] && A[k] && A[k] - B[k] >= 90) {
       out.push({ kind: k, start: Math.max(0, B[k] - 45), end: A[k] + 5, cost: (A[k] - B[k]) * 3,
-        title: `${label} finished at ${clock(A[k])}`, compare: `Your usual: <b>${clock(B[k])}</b>.` });
+        title: `${label} finished at ${clock(A[k])}`, compare: `${WHO(B)}: <b>${clock(B[k])}</b>.` });
     }
   }
 
@@ -344,7 +354,7 @@ function findMoments(A, B) {
     const gap = A.lvl6 - A.oppLvl6;
     out.push({ kind: "lvl6", start: Math.max(0, A.oppLvl6 - 30), end: A.lvl6 + 15, cost: 150 + gap * 3,
       title: `${A.opp ? champName(A.opp.championId) : "Your opponent"} hit 6 ${Math.round(gap)}s before you`,
-      compare: B?.lvl6Gap != null ? `Your usual: <b>${B.lvl6Gap <= 0 ? Math.round(-B.lvl6Gap) + "s ahead" : Math.round(B.lvl6Gap) + "s behind"}</b>.` : "Being second to 6 is a window to play safe." });
+      compare: B?.lvl6Gap != null ? `${WHO(B)}: <b>${B.lvl6Gap <= 0 ? Math.round(-B.lvl6Gap) + "s ahead" : Math.round(B.lvl6Gap) + "s behind"}</b>.` : "Being second to 6 is a window to play safe." });
   }
 
   // 7. Plates lost before 14:00.
@@ -495,13 +505,21 @@ async function openGame(id) {
   try { A = analyse(await getGame(id)); } catch (e) { $("view").innerHTML = `<div class="empty">Couldn't read this game: ${esc(e.message)}</div>`; return; }
   if (!A) { $("view").innerHTML = `<div class="empty">League didn't give a timeline for this game, so there's nothing to review.</div>`; return; }
 
-  // Your usual: other games on this champion and role; if fewer than 3, any champion in this role.
-  const others = STATE.games.filter(g => g.id != id && g.hasTimeline && g.role === s.role);
-  const sameChamp = others.filter(g => g.champion === s.champion).slice(0, 20);
-  const pool = sameChamp.length >= 3 ? sameChamp : others.slice(0, 20);
-  const label = sameChamp.length >= 3 ? `your last ${pool.length} ${champName(s.champion)} games` : `your last ${pool.length} ${ROLE_NAME[s.role] || ""} games (any champion)`;
-  const analysed = (await Promise.all(pool.map(g => getGame(g.id).then(analyse).catch(() => null)))).filter(Boolean);
-  const B = baseline(analysed);
+  // Compared with high-elo games on this champion and role. Only when there aren't any yet,
+  // fall back to your own other games on this champion (or role).
+  const champ = DD.champ[A.me.championId]?.id;
+  const ex = champ && A.role ? await getBench(champ + "-" + A.role) : { missing: true };
+  let B, label;
+  if (!ex.missing) {
+    B = fromExperts(ex);
+    label = `${ex.games} high-elo ${champName(A.me.championId)} ${ROLE_NAME[A.role] || ""} games`;
+  } else {
+    const others = STATE.games.filter(g => g.id != id && g.hasTimeline && g.role === s.role);
+    const sameChamp = others.filter(g => g.champion === s.champion).slice(0, 20);
+    const pool = sameChamp.length >= 3 ? sameChamp : others.slice(0, 20);
+    label = sameChamp.length >= 3 ? `your last ${pool.length} ${champName(s.champion)} games` : `your last ${pool.length} ${ROLE_NAME[s.role] || ""} games (any champion)`;
+    B = baseline((await Promise.all(pool.map(g => getGame(g.id).then(analyse).catch(() => null)))).filter(Boolean));
+  }
   if (STATE.current !== id) return;
   const moments = findMoments(A, B);
   render(A, B, moments, s, B ? label : null);
@@ -513,7 +531,7 @@ function timingCard(k, mine, usual, fmt, lowerIsBetter = true) {
   if (has && usual != null) {
     const delta = mine - usual;
     cls = Math.abs(delta) < 1e-9 ? "" : (lowerIsBetter ? delta > 0 : delta < 0) ? "bad" : "good";
-    d = `usual ${fmt(usual)}`;
+    d = `${STATE.cmpWord || "usual"} ${fmt(usual)}`;
   }
   return `<div class="card"><div class="k">${k}</div><div class="v ${cls}">${has ? fmt(mine) : "—"}</div><div class="d">${d || "&nbsp;"}</div></div>`;
 }
@@ -525,19 +543,20 @@ function render(A, B, moments, s, label) {
       <button class="primary" id="enableApi">Turn on replay jumping</button></div>`
     : STATE.replayApi == null ? `<div class="banner">Couldn't find League's game.cfg, so replays may not jump to the moment. Set league_path if League is installed somewhere unusual.</div>` : "";
   const cs10 = A.minutes >= 10 ? A.myCs[10] : null;
+  STATE.cmpWord = B?.expert ? "experts" : "usual";
   $("view").innerHTML = `
     <div class="vs"><img src="${champIcon(A.me.championId)}" alt="">
       <div><h1>${esc(champName(A.me.championId))}${opp ? ` <span class="sub" style="font-size:18px">vs ${esc(opp)}</span>` : ""}</h1>
       <div class="sub">${res} · ${esc(s.queue)} · ${esc(ROLE_NAME[A.role] || "role unknown")} · ${A.me.stats.kills}/${A.me.stats.deaths}/${A.me.stats.assists} · ${clock(A.g.gameDuration)} · ${new Date(A.g.gameCreation).toLocaleString()}</div></div></div>
     <a class="btn yt" target="_blank" href="https://www.youtube.com/results?search_query=${encodeURIComponent("Domisumreplay " + champName(A.me.championId) + (opp ? " vs " + opp : ""))}">▶ High-elo ${esc(champName(A.me.championId))}${opp ? " vs " + esc(opp) : ""} games on YouTube</a>
     ${banner}
-    <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">vs Experts</button></div>
+    <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">Breakdown</button></div>
     <div id="v-experts" hidden><div class="empty">Loading expert data...</div></div>
     <div id="v-moments">
     <h2>${A.diff ? "Lane gold difference" : "Your gold"} by minute</h2>
     <div class="card">${chart(A, B, moments)}
       <div class="legend"><span><i style="background:var(--gold)"></i>This game</span>${B ? `<span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of ${esc(label)}</span>` : ""}<span><i style="background:var(--red-wash)"></i>Moments to watch</span><span style="color:var(--red-ink)">✕ your deaths</span></div>
-      ${B ? "" : `<div class="sub" style="margin-top:6px">Not enough of your ${esc(ROLE_NAME[A.role] || "")} games saved yet to draw "your usual" (needs 3). It fills in as you play with the app running.</div>`}
+      ${B?.expert ? "" : `<div class="sub" style="margin-top:6px">No high-elo data for ${esc(champName(A.me.championId))} ${esc(ROLE_NAME[A.role] || "")} yet, so ${B ? "this uses your own recent games instead" : "there's nothing to compare with"}.</div>`}
     </div>
     <h2>Moments to watch, in order</h2>
     <div class="card">${moments.length ? moments.map((w, i) => `
@@ -546,7 +565,7 @@ function render(A, B, moments, s, label) {
         <div class="what">${w.parts.map(p => `<div class="part"><b>${esc(p.title)}</b>${p.compare ? `<div class="cmp">${p.compare}</div>` : ""}</div>`).join("")}
           ${w.context.length ? `<ul>${w.context.map(l => `<li>${l}</li>`).join("")}</ul>` : ""}</div>
         <div class="acts"><button class="primary" data-watch="${w.start}">Watch in my replay</button></div>
-      </div>`).join("") : `<div class="empty" style="padding:10px 0">Nothing stood out: your lane gold never slipped 400+ below ${B ? "your usual" : "your opponent"}, no early deaths, and your timings were on pace.</div>`}
+      </div>`).join("") : `<div class="empty" style="padding:10px 0">Nothing stood out: your lane gold never slipped 400+ below ${B?.expert ? "the experts' range" : B ? "your usual" : "your opponent"}, no early deaths, and your timings were on pace.</div>`}
     </div>
     <h2>All deaths (${A.deaths.length})</h2>
     <div class="card">${A.deaths.length ? A.deaths.map(d => deathRow(A, d)).join("") : `<div class="empty" style="padding:10px 0">No deaths this game.</div>`}</div>
@@ -559,7 +578,7 @@ function render(A, B, moments, s, label) {
       ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
     </div>
     </div>
-    <p class="sub" style="margin-top:22px">Test version: Moments are compared with ${B ? esc(label) : "nothing yet"}, not high-elo players. It only says where to look; watching the replay is how you see why.</p>`;
+    <p class="sub" style="margin-top:22px">Compared with ${B ? esc(label) : "nothing yet"}. It only says where to look; watching the replay is how you see why.</p>`;
   document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
   const en = $("enableApi"); if (en) en.onclick = enableApi;
   const tabs = document.querySelectorAll(".tabs button");
@@ -594,7 +613,7 @@ function deathRow(A, d) {
   </div>`;
 }
 
-// ---------------------------------------------------------------- vs Experts
+// ---------------------------------------------------------------- Breakdown tab (builds and break points vs experts)
 const benchCache = {};
 // Expert numbers for "Jhin-BOT". A champion with none yet is asked about again next time.
 function getBench(name) {
@@ -1063,7 +1082,7 @@ function renderHome(rows) {
   });
   const rb = $("reelBtn"); if (rb) rb.onclick = () => $("reel").classList.toggle("open");
   document.querySelectorAll("[data-rw]").forEach(b => b.onclick = () => { const [id, t] = b.dataset.rw.split(":"); watch(id, +t, b); });
-  document.querySelectorAll("[data-og]").forEach(b => b.onclick = () => { STATE.tab = "experts"; openGame(b.dataset.og); });
+  document.querySelectorAll("[data-og]").forEach(b => b.onclick = () => { STATE.tab = "moments"; openGame(b.dataset.og); });
 }
 
 let toastTimer;
