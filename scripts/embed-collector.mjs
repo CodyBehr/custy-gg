@@ -9,7 +9,7 @@ const dir = path.join(root, "collector");
 const files = {};
 for (const name of fs.readdirSync(dir).sort()) {
   // Local state, and files only the packaged Windows app uses (the icon is binary and would be mangled as text).
-  if (["config.json", "review.json", "settings.json", "icon.ico", "version_info.txt", "windows_app.py"].includes(name)) continue;
+  if (["config.json", "review.json", "review-key.txt", "settings.json", "icon.ico", "version_info.txt", "windows_app.py"].includes(name)) continue;
   if (name.startsWith("uploaded") || name.endsWith(".log") || name.startsWith(".")) continue;
   const full = path.join(dir, name);
   if (!fs.statSync(full).isFile()) continue;

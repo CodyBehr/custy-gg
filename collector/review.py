@@ -33,6 +33,7 @@ core = sys.modules.get("custy_collector") or sys.modules["__main__"]
 
 CACHE_DIR = os.path.join(core.HERE, "review-cache")
 INFO_PATH = os.path.join(core.HERE, "review.json")   # where the running app's page is
+KEY_PATH = os.path.join(core.HERE, "review-key.txt")  # the page's access key, kept across restarts
 CACHE_LIMIT = 400          # games kept on disk (oldest dropped first)
 HISTORY_DEPTH = 100        # how far back to look in the client's match history
 REPLAY_API = "https://127.0.0.1:2999"
@@ -671,10 +672,28 @@ def make_handler(cfg, token):
     return Handler
 
 
+def _page_key():
+    """Same key across restarts and updates, so a review window left open keeps working."""
+    try:
+        with open(KEY_PATH, "r", encoding="utf-8") as f:
+            key = f.read().strip()
+        if len(key) >= 20:
+            return key
+    except OSError:
+        pass
+    key = secrets.token_urlsafe(18)
+    try:
+        with open(KEY_PATH, "w", encoding="utf-8") as f:
+            f.write(key)
+    except OSError:
+        pass
+    return key
+
+
 def start(cfg, port=0):
     """Starts the page in a background thread. Returns its address (with the access key)."""
     _cfg.update(cfg)
-    token = secrets.token_urlsafe(18)
+    token = _page_key()
     # A fixed port when it's free, so the page keeps its saved choices (like the queue filter) between restarts.
     server = None
     for p in ([port] if port else [47821, 0]):
