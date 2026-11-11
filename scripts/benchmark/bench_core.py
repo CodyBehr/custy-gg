@@ -115,6 +115,8 @@ def row(m, tl, me):
     r["skills"] = [e["skillSlot"] for e in ev if e["type"] == "SKILL_LEVEL_UP" and e.get("participantId") == pid and e.get("levelUpType", "NORMAL") == "NORMAL"][:18]
     r["start"] = sorted(i for t, i in buys if t < 120)
     r["back_buys"] = [[round(x["t"]), x["items"]] for x in backs[:6]]
+    if pos == "JUNGLE":
+        r["jg"] = jungle(m, tl, me)
     return r
 
 
@@ -170,7 +172,95 @@ def aggregate(rows, source, built):
     out["paths"] = full_paths(rows)
     out["levels"] = level_races(rows)
     out["setup"] = setup(rows)
+    if rows and rows[0].get("role") == "JUNGLE":
+        out["jungle"] = jungle_summary(rows)
     return out
+
+
+def area(p):
+    """Rough map area of a position: top/mid/bot lane, own or enemy jungle is decided by the caller."""
+    x, y = p["x"], p["y"]
+    if x < 3600 and y < 3600 or x > 11200 and y > 11200:
+        return "base"
+    if x < 2400 or y > 12400:
+        return "top"
+    if y < 2400 or x > 12400:
+        return "bot"
+    if abs(x - y) < 1600:
+        return "mid"
+    if abs(x + y - 14800) < 1300:
+        return "river"
+    return "jungle"
+
+
+def jungle(m, tl, me):
+    """How a jungler played the first 14 minutes: clear speed, start side, where they spent time,
+    ganks (takedowns and deaths in each lane), invades, scuttles and objectives."""
+    pid, team = me["participantId"], me["teamId"]
+    fr, ev = tl["frames"], [e for f in tl["frames"] for e in f["events"]]
+    pf = lambda k, i: fr[min(k, len(fr) - 1)]["participantFrames"][str(i)]
+    pos = lambda k: pf(k, pid).get("position") or {"x": 7400, "y": 7400}
+    own = lambda p: (p["x"] + p["y"] < 14800) == (team == 100)   # own half of the map (split along the river)
+    j = {"jcs": [pf(k, pid)["jungleMinionsKilled"] for k in range(0, min(len(fr), 15))]}
+    p2 = pos(2)
+    j["start"] = "top" if p2["y"] - p2["x"] > 0 else "bot"   # which side of the map they were on at 2:00
+    j["where"] = {}
+    for k in range(2, min(len(fr), 15)):
+        a = area(pos(k))
+        if a == "jungle":
+            a = "own jungle" if own(pos(k)) else "enemy jungle"
+        j["where"][a] = j["where"].get(a, 0) + 1
+    j["first_lane"] = next(([k, area(pos(k))] for k in range(2, min(len(fr), 15)) if area(pos(k)) in ("top", "mid", "bot")), None)
+    gank = {}
+    for e in ev:
+        if e["type"] != "CHAMPION_KILL" or e["timestamp"] > 840000:
+            continue
+        a = area(e["position"])
+        if a not in ("top", "mid", "bot"):
+            continue
+        g = gank.setdefault(a, [0, 0])
+        if e.get("killerId") == pid or pid in (e.get("assistingParticipantIds") or []):
+            g[0] += 1
+        elif e.get("victimId") == pid:
+            g[1] += 1
+    j["ganks"] = gank   # lane -> [takedowns, deaths] before 14:00
+    j["first_takedown"] = next((round(e["timestamp"] / 1000) for e in ev if e["type"] == "CHAMPION_KILL" and
+                                (e.get("killerId") == pid or pid in (e.get("assistingParticipantIds") or []))), None)
+    ch = me.get("challenges") or {}
+    j["scuttles"] = ch.get("scuttleCrabKills")
+    j["enemy_camps"] = ch.get("enemyJungleMonsterKills")
+    j["jcs10"] = ch.get("jungleCsBefore10Minutes")
+    objs = {}
+    for e in ev:
+        if e["type"] == "ELITE_MONSTER_KILL" and e["timestamp"] <= 840000 and (e.get("killerTeamId") == team or
+                any(p["participantId"] == e.get("killerId") and p["teamId"] == team for p in m["participants"])):
+            objs[e["monsterType"]] = objs.get(e["monsterType"], 0) + 1
+    j["objs14"] = objs
+    return j
+
+
+def jungle_summary(rows):
+    """Expert jungle habits for one champion: clear speed, start side, time in each area, ganks per lane."""
+    js = [r["jg"] for r in rows if r.get("jg")]
+    if len(js) < 10:
+        return None
+    med = lambda v: round(S.median(v), 1) if v else None
+    n = len(js)
+    areas = ("own jungle", "enemy jungle", "river", "top", "mid", "bot", "base")
+    lanes = ("top", "mid", "bot")
+    return {
+        "n": n,
+        "jcs": [med([j["jcs"][k] for j in js if len(j["jcs"]) > k]) for k in range(15)],
+        "start_top": round(sum(1 for j in js if j["start"] == "top") / n, 2),
+        "where": {a: round(S.mean(j["where"].get(a, 0) for j in js), 2) for a in areas},
+        "first_lane": Counter(j["first_lane"][1] for j in js if j.get("first_lane")).most_common(),
+        "first_lane_min": med([j["first_lane"][0] for j in js if j.get("first_lane")]),
+        "first_takedown": med([j["first_takedown"] for j in js if j.get("first_takedown")]),
+        "ganks": {l: [round(S.mean(j["ganks"].get(l, [0, 0])[0] for j in js), 2), round(S.mean(j["ganks"].get(l, [0, 0])[1] for j in js), 2)] for l in lanes},
+        "scuttles": med([j["scuttles"] for j in js if j.get("scuttles") is not None]),
+        "enemy_camps": med([j["enemy_camps"] for j in js if j.get("enemy_camps") is not None]),
+        "objs14": {k: round(S.mean(j["objs14"].get(k, 0) for j in js), 2) for k in ("DRAGON", "HORDE", "RIFTHERALD")},
+    }
 
 
 def max_order(seq):
