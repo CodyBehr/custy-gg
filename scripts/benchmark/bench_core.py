@@ -104,6 +104,17 @@ def row(m, tl, me):
         "vision_pm": ch.get("visionScorePerMinute"), "control_wards": me.get("visionWardsBoughtInGame"),
         "armor_n": arm, "mr_n": mr,
     })
+    # Setup: rune page, summoner spells, skill order, starting items and what was bought at each back.
+    pk = me.get("perks") or {}
+    st_ = pk.get("styles") or []
+    if len(st_) >= 2:
+        sp = pk.get("statPerks") or {}
+        r["runes"] = [st_[0]["style"], st_[1]["style"], [x["perk"] for x in st_[0]["selections"]] + [x["perk"] for x in st_[1]["selections"]],
+                      [sp.get("offense"), sp.get("flex"), sp.get("defense")]]
+    r["spells"] = sorted([me.get("summoner1Id"), me.get("summoner2Id")])
+    r["skills"] = [e["skillSlot"] for e in ev if e["type"] == "SKILL_LEVEL_UP" and e.get("participantId") == pid and e.get("levelUpType", "NORMAL") == "NORMAL"][:18]
+    r["start"] = sorted(i for t, i in buys if t < 120)
+    r["back_buys"] = [[round(x["t"]), x["items"]] for x in backs[:6]]
     return r
 
 
@@ -158,6 +169,88 @@ def aggregate(rows, source, built):
     out["orders"] = [[list(k), c] for k, c in Counter(tuple(i for _, i in r["items"][:3]) for r in rows if len(r["items"]) >= 3).most_common(6)]
     out["paths"] = full_paths(rows)
     out["levels"] = level_races(rows)
+    out["setup"] = setup(rows)
+    return out
+
+
+def max_order(seq):
+    """'QEW': the order Q, W and E reach rank 5 (ranks past what the game allows count as maxed)."""
+    n, done = {1: 0, 2: 0, 3: 0}, []
+    for s_ in seq:
+        if s_ in n:
+            n[s_] += 1
+            if n[s_] == 5 and s_ not in done:
+                done.append(s_)
+    rest = sorted((k for k in n if k not in done), key=lambda k: -n[k])
+    return "".join("QWE"[k - 1] for k in done + rest)
+
+
+def setup(rows, top=3, min_vs=8):
+    """Most common rune pages, spells, skill orders, starting items and per-back buys, overall and vs each
+    opponent with enough games. Rates are shares of the games that had that data."""
+    def pages(rs):
+        c = Counter(json.dumps(r["runes"]) for r in rs if r.get("runes"))
+        n = sum(c.values())
+        return [{"page": json.loads(k), "rate": round(v / n, 3), "n": v} for k, v in c.most_common(top)] if n else []
+    def recommended(rs):
+        """A full page built slot by slot: most common styles and keystone, then the most common pick in each
+        slot among games with those (full pages vary too much in small runes to take the single most common)."""
+        rs = [r for r in rs if r.get("runes")]
+        if len(rs) < 5:
+            return None
+        ks = Counter(r["runes"][2][0] for r in rs).most_common(1)[0][0]
+        with_ks = [r for r in rs if r["runes"][2][0] == ks]
+        styles = Counter((r["runes"][0], r["runes"][1]) for r in with_ks).most_common(1)[0][0]
+        same = [r for r in with_ks if (r["runes"][0], r["runes"][1]) == styles]
+        mode = lambda vals: Counter(vals).most_common(1)[0][0]
+        prim = [mode(r["runes"][2][i] for r in same) for i in range(4)]
+        sec = list(mode(tuple(sorted(r["runes"][2][4:6])) for r in same))
+        shards = [mode(r["runes"][3][i] for r in same) for i in range(3)]
+        return {"page": [styles[0], styles[1], prim + sec, shards], "keystone_rate": round(len(with_ks) / len(rs), 3), "n": len(same)}
+    def keystones(rs):
+        c = Counter(r["runes"][2][0] for r in rs if r.get("runes"))
+        n = sum(c.values())
+        return [[k, round(v / n, 3)] for k, v in c.most_common(4)] if n else []
+    def spells(rs):
+        c = Counter(tuple(r["spells"]) for r in rs if r.get("spells") and None not in r["spells"])
+        n = sum(c.values())
+        return [[list(k), round(v / n, 3)] for k, v in c.most_common(top)] if n else []
+    def skills(rs):
+        seqs = [r["skills"] for r in rs if len(r.get("skills") or []) >= 9]
+        if not seqs:
+            return None
+        c = Counter(max_order(q) for q in seqs)
+        best, k = c.most_common(1)[0]
+        same = [q for q in seqs if max_order(q) == best]
+        typical = []
+        for lv in range(18):   # most common skill at each level among games with that max order
+            at = Counter(q[lv] for q in same if len(q) > lv)
+            if not at:
+                break
+            typical.append(at.most_common(1)[0][0])
+        return {"order": best, "rate": round(k / len(seqs), 3), "others": [[o, round(v / len(seqs), 3)] for o, v in c.most_common(3)[1:]], "typical": typical}
+    def starts(rs):
+        c = Counter(tuple(r["start"]) for r in rs if r.get("start"))
+        n = sum(c.values())
+        return [[list(k), round(v / n, 3)] for k, v in c.most_common(2)] if n else []
+    def backs(rs):
+        out = []
+        for b in range(5):
+            have = [r["back_buys"][b] for r in rs if len(r.get("back_buys") or []) > b]
+            if len(have) < 15:
+                break
+            c = Counter(i for t, items in have for i in set(items))
+            out.append({"t": round(S.median(t for t, _ in have)), "n": len(have),
+                        "items": [[i, round(v / len(have), 2)] for i, v in c.most_common(6) if v / len(have) >= 0.15]})
+        return out
+    out = {"rec": recommended(rows), "pages": pages(rows), "keystones": keystones(rows), "spells": spells(rows), "skills": skills(rows),
+           "start": starts(rows), "backs": backs(rows)}
+    by = defaultdict(list)
+    for r in rows:
+        if r.get("opp") and r.get("runes"):
+            by[r["opp"]].append(r)
+    out["vs"] = {o: {"n": len(rs), "rec": recommended(rs), "spells": spells(rs)[:1], "keystones": keystones(rs)[:2]}
+                 for o, rs in by.items() if len(rs) >= min_vs}
     return out
 
 
