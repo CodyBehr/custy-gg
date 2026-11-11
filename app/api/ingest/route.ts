@@ -6,7 +6,7 @@ import { after, NextResponse } from "next/server";
 import { checkIngestKey, siteUrl } from "@/lib/ingest-key";
 import { postGame, shouldPost } from "@/lib/game-post";
 import { settleForMatch } from "@/lib/predictions";
-import { isCustomGame, normalize } from "@/lib/normalize";
+import { isCustomGame, isFiveVsFive, normalize } from "@/lib/normalize";
 import { store } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
@@ -51,6 +51,9 @@ export async function POST(req: Request) {
     match = normalize(raw);
   } catch (e) {
     return NextResponse.json({ error: `Could not read game: ${(e as Error).message}` }, { status: 422 });
+  }
+  if (!isFiveVsFive(match)) {
+    return NextResponse.json({ error: "Only 5v5 games are stored" }, { status: 422 });
   }
 
   const u = body?.uploader;

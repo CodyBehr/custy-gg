@@ -144,6 +144,8 @@ Optional Vercel environment variables:
 
 - **Roles come from the role quest slot.** Each player's role quest item names the role the game gave them. When
   it's missing (older games, odd setups), the site falls back to Smite, lane and CS.
+- **Only 5v5s count.** The collector skips any custom game that isn't five players a side (bots count), and the
+  site turns them away too. Older ones (1v1s, 2v2s) are removed the next time the site starts up.
 - **Remakes** (games under 5 minutes) are listed but don't count toward any stats.
 - **Ratings** start at 1500. A win against a stronger team earns more than a win against a weaker one. Fine
   for fun among friends; it isn't connected to your real rank.

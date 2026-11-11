@@ -34,7 +34,7 @@ import time
 import urllib.error
 import urllib.request
 
-VERSION = "1.9.9"
+VERSION = "1.9.10"
 FROZEN = bool(getattr(sys, "frozen", False))
 if FROZEN:
     # Packaged app: keep config, state and log in the user's app-data folder.
@@ -315,6 +315,12 @@ def is_custom(game):
     return game.get("gameType") == "CUSTOM_GAME"
 
 
+def is_five_vs_five(game):
+    """Only 5v5 games are tracked: five players (bots included) on each team."""
+    teams = [p.get("teamId") for p in game.get("participants") or []]
+    return teams.count(200) == 5 and len(teams) - teams.count(200) == 5
+
+
 def human_count(game):
     count = 0
     for ident in game.get("participantIdentities") or []:
@@ -358,6 +364,10 @@ def sync(cfg, lcu, seen, me, force=False):
             log.warning("Could not read game %s from the client: %s", key, e)
             continue
         if not game or not game.get("participants"):
+            continue
+        if not is_five_vs_five(game):
+            log.info("Skipping %s: not a 5v5", key)
+            seen.add(key)
             continue
         if human_count(game) < int(cfg.get("min_players", 2)):
             log.info("Skipping %s: fewer than %s players", key, cfg.get("min_players", 2))

@@ -22,6 +22,16 @@ export function isCustomGame(raw: Json): boolean {
   return raw?.gameType === "CUSTOM_GAME" || (raw?.queueId === 0 && raw?.gameType !== "MATCHED_GAME");
 }
 
+/** Only 5v5 games are kept: five players (bots included) on each team. */
+export const TEAM_SIZE = 5;
+
+export function isFiveVsFive(m: Pick<Match, "players">): boolean {
+  let blue = 0;
+  let red = 0;
+  for (const p of m.players ?? []) p.teamId === 200 ? red++ : blue++;
+  return blue === TEAM_SIZE && red === TEAM_SIZE;
+}
+
 export function normalize(raw: Json): Match {
   if (!raw || typeof raw !== "object") throw new Error("Game data is empty");
   return raw.info ? fromMatchV5(raw) : fromLcu(raw);

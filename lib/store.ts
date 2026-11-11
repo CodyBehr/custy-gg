@@ -9,7 +9,7 @@ import path from "node:path";
 import postgres from "postgres";
 import type { Match } from "./types";
 import type { TimelineSummary } from "./timeline";
-import { normalize, NORMALIZER_VERSION } from "./normalize";
+import { isFiveVsFive, normalize, NORMALIZER_VERSION } from "./normalize";
 
 export type SaveResult = "created" | "exists";
 
@@ -92,6 +92,13 @@ async function ensureSchema() {
           raw jsonb not null,
           inserted_at timestamptz not null default now()
         )`;
+      // Only 5v5 games count: clear out anything else (1v1s, 2v2s...) uploaded before that rule.
+      const gone = await db`
+        delete from matches m where
+          (select count(*) from jsonb_array_elements(m.summary->'players') p where p->>'teamId' = '200') <> 5
+          or (select count(*) from jsonb_array_elements(m.summary->'players') p where p->>'teamId' <> '200') <> 5
+        returning id`;
+      if (gone.length) await db`delete from timelines where match_id in ${db(gone.map((r) => r.id as string))}`;
     })().catch((e) => {
       schemaReady = null;
       throw e;
@@ -114,7 +121,7 @@ const pgStore: Store = {
   async all() {
     await ensureSchema();
     const rows = await sql()`select summary from matches order by played_at desc`;
-    return rows.map((r) => r.summary as Match);
+    return rows.map((r) => r.summary as Match).filter(isFiveVsFive);
   },
   async count() {
     await ensureSchema();
@@ -239,7 +246,7 @@ const fileStore: Store = {
   },
   async all() {
     const rows = await readFile();
-    return Object.values(rows).map((r) => r.summary).sort((a, b) => b.playedAt - a.playedAt);
+    return Object.values(rows).map((r) => r.summary).filter(isFiveVsFive).sort((a, b) => b.playedAt - a.playedAt);
   },
   async count() {
     return Object.keys(await readFile()).length;
