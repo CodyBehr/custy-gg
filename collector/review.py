@@ -703,6 +703,9 @@ def make_handler(cfg, token):
             if url.path == "/api/replay":
                 with _lock:
                     return self._send(200, dict(_replay))
+            if url.path == "/api/benchmark-index":   # champion -> role -> expert games, for the matchup guide
+                import champselect
+                return self._send(200, champselect.role_index(cfg))
             if url.path == "/api/champselect":
                 import champselect
                 return self._send(200, champselect.state(cfg))

@@ -72,6 +72,17 @@ svg text { fill:var(--mute); font-size:11px; }
 .well-card .w { display:flex; gap:10px; padding:7px 0; } .well-card .w i { color:var(--green); font-style:normal; font-weight:700; }
 .well-card .w b { display:block; } .well-card .w span { color:var(--mute); font-size:13px; }
 .warn { color:var(--amber-ink) !important; }
+.mu .roles { display:flex; gap:6px; margin:14px 0 6px; } .mu .roles button { padding:6px 14px; border-radius:99px; }
+.mu .roles button.on, .mu .mt.on { background:var(--gold-wash); border-color:var(--gold); color:var(--ink); }
+.mu .pick { margin-top:14px; } .mu .ph { display:flex; gap:10px; align-items:center; margin-bottom:6px; }
+.mu .ph input { background:var(--deck); border:1px solid var(--line); color:var(--ink); border-radius:8px; padding:6px 10px; width:220px; }
+.mu .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(76px, 1fr)); gap:6px; max-height:236px; overflow:auto; padding:2px; }
+.mu .mt { display:flex; flex-direction:column; align-items:center; gap:3px; padding:6px 2px; border:1px solid transparent; border-radius:10px; background:var(--deck); cursor:pointer; color:var(--mute); }
+.mu .mt img { width:48px; height:48px; border-radius:10px; } .mu .mt span { font-size:11.5px; line-height:1.15; text-align:center; } .mu .mt small { font-size:10.5px; color:var(--gold); }
+.mu .muhead { display:flex; align-items:center; gap:10px; margin:22px 0 4px; font-size:18px; } .mu .muhead img { width:44px; height:44px; border-radius:10px; }
+.mu .muhead span { color:var(--mute); font-size:14px; } .mu .muhead i { font-style:normal; color:var(--faint); margin:0 4px; }
+.mu .mugrid { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:12px; align-items:start; }
+.mu .mugrid .card { margin-top:0; }
 .plan > div:not(.ctitle) { padding:4px 0; line-height:1.45; border-top:1px solid var(--line-soft); } .plan > div:nth-child(2) { border-top:0; }
 .jgl .jt { width:100%; border-collapse:collapse; font-size:13.5px; } .jgl .jt th { text-align:left; color:var(--faint); font-weight:500; font-size:12px; padding:4px 6px; }
 .jgl .jt td { padding:6px; border-top:1px solid var(--line-soft); } .jgl .jt td:first-child { color:var(--mute); }
@@ -1048,7 +1059,8 @@ function renderList(openFirst) {
   const shown = STATE.games.filter(g => STATE.queue === "all" || queueGroup(g.queue) === STATE.queue);
   const filter = `<div class="filter">${QUEUE_FILTERS.map(([k, label]) =>
     `<button data-q="${k}" class="${STATE.queue === k ? "on" : ""}">${label}</button>`).join("")}</div>`;
-  const home = `<div class="homerow${STATE.current === "home" ? " on" : ""}" id="homerow"><b>Overview</b><small>How you play across your recent games</small></div>`;
+  const home = `<div class="homerow${STATE.current === "home" ? " on" : ""}" id="homerow"><b>Overview</b><small>How you play across your recent games</small></div>
+    <div class="homerow${STATE.current === "matchups" ? " on" : ""}" id="murow"><b>Matchup guide</b><small>Pick a champion and an opponent</small></div>`;
   $("list").innerHTML = filter + STATE.note + home + (shown.length ? shown.map(g => `
     <div class="game ${g.win ? "w" : "l"}${g.id == STATE.current ? " on" : ""}" data-id="${g.id}">
       <img src="${champIcon(g.champion)}" alt="">
@@ -1063,6 +1075,7 @@ function renderList(openFirst) {
     renderList(true);
   });
   $("homerow").onclick = () => openHome(true);
+  $("murow").onclick = () => openMatchups();
   if (STATE.current === "home") openHome();
   else if (openFirst && shown.length && !shown.some(g => g.id == STATE.current)) openGame(shown[0].id);
 }
@@ -1985,34 +1998,84 @@ function gamePlan(B, champ, role, opp) {
   return L.length ? `<div class="card plan"><div class="ctitle">Game plan${opp ? ` vs ${esc(name)}` : ""}</div>${L.map(l => `<div>${l}</div>`).join("")}</div>` : "";
 }
 
-function drawChampSelect() {
-  const st = CS.st, B = CS.B && !CS.B.missing ? CS.B : null, S = B?.setup, vs = S?.vs?.[CS.opp];
+// ---------------------------------------------------------------- Matchup guide: any champion, any opponent
+const MU = { page: true, live: false, role: "TOP", champ: null, opp: null, B: null, index: null, q: "", oq: "" };
+async function openMatchups() {
+  STATE.current = "matchups";
+  document.querySelectorAll(".game, .homerow").forEach(el => el.classList.remove("on"));
+  $("murow")?.classList.add("on");
+  if (!DD.runes) await loadCsData();
+  if (!MU.index) MU.index = await api("/api/benchmark-index").catch(() => ({}));
+  if (!MU.champ) {   // start from the champion and role you've played most lately
+    const g = STATE.games[0]; if (g) { MU.champ = DD.champ[g.champion]?.id; MU.role = g.role || "TOP"; }
+  }
+  drawMatchups();
+}
+const MU_ROLES = ["TOP", "JUNGLE", "MID", "BOT", "SUPPORT"];
+async function drawMatchups(reload = true) {
+  if (STATE.current !== "matchups") return;
+  const idx = MU.index || {}, games = (c) => idx[c]?.[MU.role] || 0;
+  const all = Object.values(DD.champ).map(c => c.id).sort((a, b) => csName(a).localeCompare(csName(b)));
+  if (reload && MU.champ && games(MU.champ)) MU.B = await api(`/api/benchmark/${MU.champ}-${MU.role}`).catch(() => null); else if (reload) MU.B = null;
+  const B = MU.B && !MU.B.missing ? MU.B : null;
+  const mine = all.filter(c => games(c) && csName(c).toLowerCase().includes(MU.q.toLowerCase()));
+  // Opponents: the ones with enough expert games for matchup numbers first, then everyone else in this role.
+  const mu = B?.matchups || {}, setupVs = B?.setup?.vs || {};
+  const lane = MU.role === "SUPPORT" ? "SUPPORT" : MU.role;
+  const opps = all.filter(c => c !== MU.champ && (idx[c]?.[lane] || mu[c]) && csName(c).toLowerCase().includes(MU.oq.toLowerCase()))
+    .sort((a, b) => (mu[b]?.n || 0) - (mu[a]?.n || 0) || (idx[b]?.[lane] || 0) - (idx[a]?.[lane] || 0));
+  const tile = (c, on, attr, sub) => `<button class="mt${on ? " on" : ""}" ${attr}="${esc(c)}" title="${esc(csName(c))}">${champImg(c)}<span>${esc(csName(c))}</span>${sub ? `<small>${sub}</small>` : ""}</button>`;
+  $("view").innerHTML = `<section class="mu wide">
+    <h1>Matchup guide</h1>
+    <div class="sub">What experts do with a champion, and against a specific opponent when there are enough expert games.</div>
+    <div class="roles">${MU_ROLES.map(r => `<button data-role="${r}" class="${r === MU.role ? "on" : ""}">${ROLE_NAME[r]}</button>`).join("")}</div>
+    <div class="pick"><div class="ph"><b>You play</b><input id="muQ" placeholder="Search" value="${esc(MU.q)}"></div>
+      <div class="grid">${mine.map(c => tile(c, c === MU.champ, "data-mc", "")).join("") || `<div class="sub">No champions with expert data in this role.</div>`}</div></div>
+    ${MU.champ && games(MU.champ) ? `<div class="pick"><div class="ph"><b>Against</b><input id="muO" placeholder="Search" value="${esc(MU.oq)}">${MU.opp ? `<button id="muClear">Any opponent</button>` : ""}</div>
+      <div class="grid">${opps.map(c => tile(c, c === MU.opp, "data-mo", mu[c] ? `${mu[c].n} games` : "")).join("")}</div></div>` : ""}
+    ${MU.champ && B ? `<div class="muhead">${champImg(MU.champ)}<b>${esc(csName(MU.champ))}</b><span>${esc(ROLE_NAME[MU.role])}</span>${MU.opp ? `<i>vs</i>${champImg(MU.opp)}<b>${esc(csName(MU.opp))}</b>` : `<span class="sub">against everyone · ${B.games} expert games</span>`}</div>
+      <div id="muBody" class="mugrid"></div>` : MU.champ ? `<div class="empty">No expert data for ${esc(csName(MU.champ))} ${esc(ROLE_NAME[MU.role])} yet.</div>` : `<div class="empty">Pick a champion.</div>`}
+  </section>`;
+  if (MU.champ && B) {
+    MU.st = { champion: MU.champ, championId: +Object.values(DD.champ).find(c => c.id === MU.champ)?.key || 0, role: MU.role, enemies: [], assigned: true, locked: true, spells: [] };
+    drawChampSelect(MU, "muHeadUnused", "muBody");
+  }
+  document.querySelectorAll("[data-role]").forEach(b => b.onclick = () => { MU.role = b.dataset.role; MU.opp = null; drawMatchups(); });
+  document.querySelectorAll("[data-mc]").forEach(b => b.onclick = () => { MU.champ = b.dataset.mc; MU.opp = null; drawMatchups(); window.scrollTo(0, 0); });
+  document.querySelectorAll("[data-mo]").forEach(b => b.onclick = () => { MU.opp = b.dataset.mo; drawMatchups(false); });
+  if ($("muClear")) $("muClear").onclick = () => { MU.opp = null; drawMatchups(false); };
+  const search = (id, key) => { const el = $(id); if (!el) return; el.oninput = () => { MU[key] = el.value; clearTimeout(MU.t); MU.t = setTimeout(() => { drawMatchups(false); const e2 = $(id); e2.focus(); e2.setSelectionRange(e2.value.length, e2.value.length); }, 150); }; };
+  search("muQ", "q"); search("muO", "oq");
+}
+
+function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
+  const st = C.st, B = C.B && !C.B.missing ? C.B : null, S = B?.setup, vs = S?.vs?.[C.opp];
   if (!st.champion) {
-    $("csHead").innerHTML = "";
-    $("csBody").innerHTML = `<div class="empty">Hover or pick a champion and the experts' setup shows up here.${st.enemies.length ? `<br><br>Enemy picks so far: ${st.enemies.map(e => esc(csName(e.champion))).join(", ")}` : ""}</div>`;
+    $(head).innerHTML = "";
+    $(bodyId).innerHTML = `<div class="empty">Hover or pick a champion and the experts' setup shows up here.${st.enemies.length ? `<br><br>Enemy picks so far: ${st.enemies.map(e => esc(csName(e.champion))).join(", ")}` : ""}</div>`;
     return;
   }
-  const enemies = st.enemies.map(e => `<button class="ech${e.champion === CS.opp ? " on" : ""}" data-opp="${esc(e.champion)}" title="${esc(csName(e.champion))}${e.role ? " (probably " + esc(ROLE_NAME[e.role] || e.role) + ")" : ""}">${champImg(e.champion)}</button>`).join("");
-  $("csHead").innerHTML = `<div class="me">${champImg(st.champion)}<div><b>${esc(csName(st.champion))}</b><small>${esc(ROLE_NAME[st.role] || "role unknown")}${st.assigned ? "" : " (guessed)"}${st.locked ? "" : " · hovering"}</small></div></div>
-    <div class="vs"><small>Lane opponent${CS.picked ? "" : " (best guess, tap to change)"}:</small><div class="echs">${enemies || `<span class="sub">Enemy picks will show here.</span>`}</div></div>`;
+  const enemies = st.enemies.map(e => `<button class="ech${e.champion === C.opp ? " on" : ""}" data-opp="${esc(e.champion)}" title="${esc(csName(e.champion))}${e.role ? " (probably " + esc(ROLE_NAME[e.role] || e.role) + ")" : ""}">${champImg(e.champion)}</button>`).join("");
+  if (!C.page) $(head).innerHTML = `<div class="me">${champImg(st.champion)}<div><b>${esc(csName(st.champion))}</b><small>${esc(ROLE_NAME[st.role] || "role unknown")}${st.assigned ? "" : " (guessed)"}${st.locked ? "" : " · hovering"}</small></div></div>
+    <div class="vs"><small>Lane opponent${C.picked ? "" : " (best guess, tap to change)"}:</small><div class="echs">${enemies || `<span class="sub">Enemy picks will show here.</span>`}</div></div>`;
   const parts = [];
-  const live = CS.live !== false;
-  parts.push(gamePlan(B, st.champion, st.role, CS.opp));
-  if (!live) parts.unshift(`<div class="note">${CS.phase === "InProgress" ? "In game." : "Champ select is over."} Showing your last pick so you can check the build and skill order. This window switches to your next champ select by itself.</div>`);
+  const live = C.live !== false && !C.page;
+  parts.push(gamePlan(B, st.champion, st.role, C.opp));
+  if (!live && !C.page) parts.unshift(`<div class="note">${C.phase === "InProgress" ? "In game." : "Champ select is over."} Showing your last pick so you can check the build and skill order. This window switches to your next champ select by itself.</div>`);
   // Runes
   const rec = vs?.rec || S?.rec;
   if (rec) {
     const [prim, sub, perks, shards] = rec.page, ks = (vs?.keystones || S.keystones || [])[0];
-    parts.push(`<div class="card csr"><div class="ctitle">Runes ${vs?.rec ? `vs ${esc(csName(CS.opp))}` : ""}</div>
+    parts.push(`<div class="card csr"><div class="ctitle">Runes ${vs?.rec ? `vs ${esc(csName(C.opp))}` : ""}</div>
       <div class="rp"><div class="rcol">${styleIcon(prim)}${runeIcon(perks[0], true)}${perks.slice(1, 4).map(id => runeIcon(id)).join("")}</div>
         <div class="rcol">${styleIcon(sub)}${perks.slice(4, 6).map(id => runeIcon(id)).join("")}</div>
         <div class="rcol shards">${shards.map(id => `<span>${esc(SHARDS[id] || id)}</span>`).join("")}</div></div>
-      <div class="sub">${ks ? `${esc(DD.runes?.[ks[0]]?.name || "This keystone")} in ${Math.round(ks[1] * 100)}% of expert games${vs?.rec ? ` against ${esc(csName(CS.opp))} (${vs.n} games)` : ` on ${esc(csName(st.champion))}`}. ` : ""}Other runes are the most common pick in each slot.</div>
+      <div class="sub">${ks ? `${esc(DD.runes?.[ks[0]]?.name || "This keystone")} in ${Math.round(ks[1] * 100)}% of expert games${vs?.rec ? ` against ${esc(csName(C.opp))} (${vs.n} games)` : ` on ${esc(csName(st.champion))}`}. ` : ""}Other runes are the most common pick in each slot.</div>
       ${live ? `<button class="primary" id="csRunes">Use this rune page</button>` : ""}</div>`);
   }
   // Spells
   const sp = (vs?.spells?.[0]) || S?.spells?.[0];
-  if (sp) parts.push(`<div class="card css"><div class="ctitle">Summoner spells</div><div class="sp">${sp[0].map(spellIcon).join("")}<span>${Math.round(sp[1] * 100)}% of expert games${vs?.spells?.[0] ? ` vs ${esc(csName(CS.opp))}` : ""}</span></div>
+  if (sp) parts.push(`<div class="card css"><div class="ctitle">Summoner spells</div><div class="sp">${sp[0].map(spellIcon).join("")}<span>${Math.round(sp[1] * 100)}% of expert games${vs?.spells?.[0] ? ` vs ${esc(csName(C.opp))}` : ""}</span></div>
     ${live ? `<button id="csSpells">Set these spells</button>` : ""}</div>`);
   // Skills
   if (S?.skills) {
@@ -2034,9 +2097,9 @@ function drawChampSelect() {
       <div class="sub">The item set shows in the in-game shop under "custy.gg".</div>` : ""}</div>`);
   }
   if (!S) parts.unshift(`<div class="note">${B ? "Expert runes, spells and skill order for this champion are still being collected; check back after the next update." : `No expert data for ${esc(csName(st.champion))} ${esc(ROLE_NAME[st.role] || "")} yet.`}</div>`);
-  $("csBody").innerHTML = parts.join("");
+  $(bodyId).innerHTML = parts.join("");
 
-  document.querySelectorAll("[data-opp]").forEach(b => b.onclick = () => { CS.picked = b.dataset.opp; CS.key = ""; drawChampSelect(); });
+  document.querySelectorAll("[data-opp]").forEach(b => b.onclick = () => { C.picked = b.dataset.opp; C.key = ""; drawChampSelect(C, head, bodyId); });
   const post = (path, body, done) => api(path, { method: "POST", body: JSON.stringify(body) }).then(() => toast(done)).catch(e => toast(e.message));
   if ($("csRunes")) $("csRunes").onclick = () => { const [p, s, perks, shards] = rec.page;
     post("/api/champselect/runes", { name: `custy.gg ${csName(st.champion)}`, primary: p, sub: s, perks, shards }, "Rune page added and selected."); };
