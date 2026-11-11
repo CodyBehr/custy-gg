@@ -72,6 +72,7 @@ svg text { fill:var(--mute); font-size:11px; }
 .well-card .w { display:flex; gap:10px; padding:7px 0; } .well-card .w i { color:var(--green); font-style:normal; font-weight:700; }
 .well-card .w b { display:block; } .well-card .w span { color:var(--mute); font-size:13px; }
 .warn { color:var(--amber-ink) !important; }
+.plan > div:not(.ctitle) { padding:4px 0; line-height:1.45; border-top:1px solid var(--line-soft); } .plan > div:nth-child(2) { border-top:0; }
 .jgl .jt { width:100%; border-collapse:collapse; font-size:13.5px; } .jgl .jt th { text-align:left; color:var(--faint); font-weight:500; font-size:12px; padding:4px 6px; }
 .jgl .jt td { padding:6px; border-top:1px solid var(--line-soft); } .jgl .jt td:first-child { color:var(--mute); }
 .jgl .wbar { display:flex; height:26px; border-radius:7px; overflow:hidden; margin:6px 0; }
@@ -1924,6 +1925,66 @@ async function startChampSelect() {
   await tick(); setInterval(tick, 2000);
 }
 
+// A short game plan from the expert numbers: the lane against this opponent, or the jungle's first minutes.
+function gamePlan(B, champ, role, opp) {
+  if (!B) return "";
+  const S = B.setup || {}, M = opp ? B.matchups?.[opp] : null, L = [], name = csName(opp || ""), me = csName(champ);
+  const pct = (x) => Math.round(x * 100) + "%", g = (v) => (v > 0 ? "+" : "") + Math.round(v);
+  if (M) L.push(`<b>Experts on ${esc(me)} vs ${esc(name)}</b>: ${pct(M.win)} win rate over ${M.n} games.`);
+  if (role === "JUNGLE") {
+    const J = B.jungle;
+    if (J) {
+      L.push(J.start_top >= .6 ? `Most start <b>top side</b> (${pct(J.start_top)}).` : J.start_top <= .4 ? `Most start <b>bot side</b> (${pct(1 - J.start_top)}).` : `They start either side (${pct(J.start_top)} top).`);
+      if (J.jcs?.[3] != null) L.push(`Clear: about <b>${J.jcs[3]}</b> jungle CS by 3:00 and <b>${J.jcs[4]}</b> by 4:00.`);
+      if (J.first_lane?.length) L.push(`First lane visit is usually <b>${J.first_lane[0][0]}</b> (${pct(J.first_lane[0][1] / J.n)}) around ${clock((J.first_lane_min || 3) * 60)}; first kill or assist around <b>${clock(J.first_takedown || 0)}</b>.`);
+      const gl = Object.entries(J.ganks || {}).sort((a, b) => b[1][0] - a[1][0])[0];
+      if (gl) L.push(`Most early takedowns come in <b>${gl[0]}</b> lane (${gl[1][0]} a game before 14:00).`);
+      if (J.enemy_camps != null) L.push(J.enemy_camps >= 8 ? `They invade a lot: about <b>${J.enemy_camps}</b> enemy camps a game.` : `About ${J.enemy_camps} enemy camps a game.`);
+      if (J.objs14) L.push(`Before 14:00 their team averages ${J.objs14.HORDE ?? 0} void grubs and ${J.objs14.DRAGON ?? 0} dragons.`);
+    } else L.push("Expert jungle pathing for this champion is still being collected.");
+    if (M) L.push(`Against ${esc(name)}'s jungle: ${M.gd10 >= 250 ? `experts are usually <b>${g(M.gd10)} gold</b> ahead at 10:00` : M.gd10 <= -250 ? `experts are usually <b>${g(M.gd10)} gold</b> behind at 10:00, so play around your lanes` : "usually even at 10:00"}.`);
+  } else {
+    const lv = M?.lvl2_first ?? (B.levels?.["2"]?.by?.[opp]?.[0] ?? B.levels?.["2"]?.first);
+    if (lv != null) L.push(lv >= .55 ? `<b>First waves:</b> experts reach level 2 first in ${pct(lv)}${M ? " of these games" : ""}. Push the first two waves and look to trade when you hit 2.`
+      : lv <= .35 ? `<b>First waves:</b> experts usually let ${esc(name || "them")} hit level 2 first (only ${pct(lv)} get there first). Don't fight their level 2; last-hit safely and trade back at 3.`
+      : `<b>First waves:</b> level 2 is a race here (experts first in ${pct(lv)}).`);
+    if (S.skills?.typical?.length >= 3) L.push(`Skills: start <b>${S.skills.typical.slice(0, 3).map(x => "QWER"[x - 1]).join(" › ")}</b>, max ${S.skills.order.slice(0, 3).split("").join(" › ")}.`);
+    if (M) {
+      L.push(M.gd10 >= 250 ? `<b>A lane experts win:</b> ${g(M.gd10)} gold and ${g(M.csd10)} CS at 10:00 on average. Play forward.`
+        : M.gd10 <= -250 ? `<b>A lane experts lose a little:</b> ${g(M.gd10)} gold and ${g(M.csd10)} CS at 10:00. Give up some CS if you have to and play for later.`
+        : `<b>Usually even at 10:00</b> (${g(M.gd10)} gold, ${g(M.csd10)} CS).`);
+      L.push(M.kills14 >= 1.5 && M.deaths14 >= 1.5 ? `A bloody lane: experts average ${M.kills14} kills and ${M.deaths14} deaths before 14:00.`
+        : M.kills14 < .8 && M.deaths14 < .8 ? `A quiet lane: under one kill or death before 14:00 on average. Win it on CS.`
+        : `Before 14:00 experts average ${M.kills14} kills and ${M.deaths14} deaths here.`);
+    }
+    // When the lead moves most: the 3-minute stretch where experts' median gold lead grows (or shrinks) fastest,
+    // against this opponent when there are 20+ games, else against everyone. Lined up with their item spikes.
+    const curve = M?.n >= 20 && M.gd?.length >= 12 ? M.gd : (B.minutes?.gdiff || []).map(q => q?.[1]);
+    const general = !(M?.n >= 20);
+    if (curve.length >= 12) {
+      let up = null, down = null;
+      for (let m = 3; m + 3 < Math.min(curve.length, 16); m++) {
+        const d = curve[m + 3] - curve[m];
+        if (!up || d > up.d) up = { m, d };
+        if (!down || d < down.d) down = { m, d };
+      }
+      const path = (B.paths || [])[0]?.items || [];
+      const spikes = [[B.timings?.legendary1?.[1], path[0]], [B.timings?.legendary2?.[1], path[1]]].filter(([t, id]) => t && id);
+      const spikeNear = (m) => spikes.filter(([t]) => t <= (m + 1.5) * 60 && t >= (m - 3) * 60).pop();
+      const vsWho = general ? "" : ` on ${esc(name)}`;
+      if (up && up.d >= 150) {
+        const sp = spikeNear(up.m);
+        L.push(`<b>Power window:</b> experts${vsWho} pull ahead most from ${up.m}:00 to ${up.m + 3}:00 (${g(up.d)} gold)${sp ? `, right after finishing ${esc(itemName(sp[1]))} (~${clock(sp[0])})` : ""}. Look for trades then.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
+      }
+      if (down && down.d <= -150) L.push(`<b>Careful</b> from ${down.m}:00 to ${down.m + 3}:00: experts usually lose ${Math.round(-down.d)} gold of lead${vsWho} there. Play safe and farm.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
+    }
+    const fb = M?.first_back ?? B.timings?.first_back?.[1], back = S.backs?.[0];
+    if (fb) L.push(`First back around <b>${clock(fb)}</b>${back?.items?.length ? `, usually for ${back.items.slice(0, 2).map(([id]) => esc(itemName(id))).join(" and ")}` : ""}.`);
+    if (!M && opp) L.push(`<span class="sub">Not enough expert games against ${esc(name)} for matchup numbers; these are for ${esc(me)} in general.</span>`);
+  }
+  return L.length ? `<div class="card plan"><div class="ctitle">Game plan${opp ? ` vs ${esc(name)}` : ""}</div>${L.map(l => `<div>${l}</div>`).join("")}</div>` : "";
+}
+
 function drawChampSelect() {
   const st = CS.st, B = CS.B && !CS.B.missing ? CS.B : null, S = B?.setup, vs = S?.vs?.[CS.opp];
   if (!st.champion) {
@@ -1936,7 +1997,8 @@ function drawChampSelect() {
     <div class="vs"><small>Lane opponent${CS.picked ? "" : " (best guess, tap to change)"}:</small><div class="echs">${enemies || `<span class="sub">Enemy picks will show here.</span>`}</div></div>`;
   const parts = [];
   const live = CS.live !== false;
-  if (!live) parts.push(`<div class="note">${CS.phase === "InProgress" ? "In game." : "Champ select is over."} Showing your last pick so you can check the build and skill order. This window switches to your next champ select by itself.</div>`);
+  parts.push(gamePlan(B, st.champion, st.role, CS.opp));
+  if (!live) parts.unshift(`<div class="note">${CS.phase === "InProgress" ? "In game." : "Champ select is over."} Showing your last pick so you can check the build and skill order. This window switches to your next champ select by itself.</div>`);
   // Runes
   const rec = vs?.rec || S?.rec;
   if (rec) {

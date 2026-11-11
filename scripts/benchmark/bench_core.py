@@ -172,6 +172,7 @@ def aggregate(rows, source, built):
     out["paths"] = full_paths(rows)
     out["levels"] = level_races(rows)
     out["setup"] = setup(rows)
+    out["matchups"] = matchups(rows)
     if rows and rows[0].get("role") == "JUNGLE":
         out["jungle"] = jungle_summary(rows)
     return out
@@ -261,6 +262,30 @@ def jungle_summary(rows):
         "enemy_camps": med([j["enemy_camps"] for j in js if j.get("enemy_camps") is not None]),
         "objs14": {k: round(S.mean(j["objs14"].get(k, 0) for j in js), 2) for k in ("DRAGON", "HORDE", "RIFTHERALD")},
     }
+
+
+def matchups(rows, min_games=8):
+    """How the lane usually goes against each opponent: win rate, gold/CS/XP lead at 10 and 15,
+    kills and deaths before 14:00, first back, and who reaches level 2 and 3 first."""
+    by = defaultdict(list)
+    for r in rows:
+        if r.get("opp") and r.get("gdiff"):
+            by[r["opp"]].append(r)
+    med = lambda v: round(S.median(v)) if v else None
+    at = lambda rs, k, m: med([r[k][m] for r in rs if len(r.get(k) or []) > m])
+    out = {}
+    for o, rs in by.items():
+        if len(rs) < min_games:
+            continue
+        races = lambda n: [r["lvl%d_race" % n] for r in rs if r.get("lvl%d_race" % n) is not None]
+        out[o] = {"n": len(rs), "win": round(sum(1 for r in rs if r["win"]) / len(rs), 2),
+                  "gd": [at(rs, "gdiff", m) for m in range(16)],
+                  "gd10": at(rs, "gdiff", 10), "gd15": at(rs, "gdiff", 15), "csd10": at(rs, "csdiff", 10), "xpd10": at(rs, "xpdiff", 10),
+                  "deaths14": round(S.mean(r.get("deaths_14", 0) for r in rs), 2), "kills14": round(S.mean(r.get("kills_14", 0) for r in rs), 2),
+                  "first_back": med([r["first_back"] for r in rs if r.get("first_back")]),
+                  "lvl2_first": round(sum(1 for x in races(2) if x < -3) / len(races(2)), 2) if races(2) else None,
+                  "lvl3_first": round(sum(1 for x in races(3) if x < -3) / len(races(3)), 2) if races(3) else None}
+    return out
 
 
 def max_order(seq):
