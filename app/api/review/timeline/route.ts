@@ -1,5 +1,5 @@
 // The game review in the Windows app asks for the parts of a timeline the League client leaves out
-// (item purchases, skill and level ups) for ranked and normal games. The site fetches them from
+// (item purchases, skill and level ups, ping counts) for ranked and normal games. The site fetches them from
 // Riot's match API with RIOT_API_KEY, so the key never leaves the server.
 //   GET /api/review/timeline?platform=NA1&gameId=5676694528   (Authorization: Bearer <ingest key>)
 
@@ -46,5 +46,18 @@ export async function GET(req: Request) {
     // Armor per participant: the client's timeline doesn't have champion stats.
     armor: Object.fromEntries(Object.values(f.participantFrames ?? {}).map((pf: any) => [pf.participantId, pf.championStats?.armor ?? null])),
   }));
-  return NextResponse.json({ participants, frames }, { headers: { "Cache-Control": "private, max-age=86400" } });
+  // Ping counts per player come from the match itself (one more request; skipped if it fails).
+  let pings: Record<string, Record<string, number>> | null = null;
+  try {
+    const mr = await fetch(`https://${route}.api.riotgames.com/lol/match/v5/matches/${platform}_${gameId}`, {
+      headers: { "X-Riot-Token": key, "User-Agent": "custy.gg" },
+      cache: "no-store",
+    });
+    if (mr.ok) {
+      const m = await mr.json();
+      pings = Object.fromEntries((m?.info?.participants ?? []).map((p: any) => [p.puuid,
+        Object.fromEntries(Object.entries(p).filter(([k, v]) => k.endsWith("Pings") && typeof v === "number"))]));
+    }
+  } catch {}
+  return NextResponse.json({ participants, frames, pings }, { headers: { "Cache-Control": "private, max-age=86400" } });
 }

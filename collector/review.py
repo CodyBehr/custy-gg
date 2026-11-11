@@ -227,7 +227,8 @@ def fill_from_riot(data):
         return False
     need_events, need_armor = not _has_purchases(tl), not _has_armor(tl)
     need_levels = not any(e.get("type") == "LEVEL_UP" for f in tl.get("frames") or [] for e in f.get("events") or [])
-    if not need_events and not need_armor and not need_levels:
+    need_pings = "pings" not in data
+    if not need_events and not need_armor and not need_levels and not need_pings:
         return False
     # "fillTried2": attempts made before the site had its Riot key don't count.
     if time.time() - float(data.get("fillTried2") or 0) < 600:
@@ -247,6 +248,8 @@ def fill_from_riot(data):
     pid_map = {p["participantId"]: by_puuid.get(p["puuid"], p["participantId"]) for p in extra.get("participants") or []}
     frames = tl.get("frames") or []
     added = 0
+    if extra.get("pings"):   # ping counts per player, keyed by the client's participant numbers
+        data["pings"] = {str(pid): extra["pings"][pu] for pu, pid in by_puuid.items() if pu in extra["pings"]}
     for i, f in enumerate(extra.get("frames") or []):
         if i < len(frames):
             for pid, armor in (f.get("armor") or {}).items():

@@ -72,6 +72,18 @@ svg text { fill:var(--mute); font-size:11px; }
 .well-card .w { display:flex; gap:10px; padding:7px 0; } .well-card .w i { color:var(--green); font-style:normal; font-weight:700; }
 .well-card .w b { display:block; } .well-card .w span { color:var(--mute); font-size:13px; }
 .warn { color:var(--amber-ink) !important; }
+.moment.worth { background:linear-gradient(90deg, var(--green-wash), transparent 60%); }
+details.fight { margin-top:6px; font-size:12.5px; color:var(--mute); }
+details.fight summary { cursor:pointer; color:var(--ink); opacity:.85; }
+details.fight .fs { margin-top:6px; } details.fight .fs b { color:var(--ink); }
+details.fight .fp { display:flex; flex-wrap:wrap; gap:4px 12px; margin-top:2px; } details.fight .fp i { font-style:normal; color:var(--faint); }
+details.fight .fp em { font-style:normal; color:var(--amber-ink); } details.fight .sub { margin-top:6px; font-size:11.5px; }
+.pings .prow { display:flex; gap:10px; align-items:baseline; margin:4px 0 8px; } .pings .prow b { font-size:24px; } .pings .prow span { color:var(--mute); }
+.pings .ladder { display:grid; grid-template-columns:repeat(5, 1fr); gap:4px; margin-bottom:8px; }
+.pings .ladder span { text-align:center; font-size:12px; padding:5px 0; border-radius:6px; background:var(--line-soft); color:var(--faint); }
+.pings .ladder span.on { background:var(--green-wash); color:var(--green-ink); } .pings .ladder i { display:block; font-style:normal; font-weight:700; font-size:14px; }
+.pings .kinds { display:flex; flex-wrap:wrap; gap:6px 14px; font-size:12.5px; color:var(--mute); margin-bottom:6px; }
+.pings .kinds span.zero b { color:var(--amber-ink); } .pings .kinds b { color:var(--ink); }
 .timings .lv { display:grid; grid-template-columns: 60px 130px 1fr; gap:10px; align-items:baseline; padding:3px 0; }
 .timings .lv span { color:var(--mute); font-size:12px; } .timings .lv b { font-size:15px; } .timings .lv small { color:var(--mute); font-size:12.5px; } .timings .lv small span { color:var(--faint); } .timings .lv small em { font-style:normal; color:var(--ink); }
 .kd { color:var(--green-ink); } .moment .cmp a { color:var(--blue-ink); }
@@ -280,6 +292,51 @@ function analyse(data) {
     if (a != null && b != null) races[n] = { me: a, opp: b, gap: a - b };
   }
   const kills = events.filter(e => e.type === "CHAMPION_KILL");
+  // What each player is carrying over time: finished items and components (gold value), from item events.
+  const invLog = {};
+  { const inv = {};
+    for (const e of events) {
+      const p = e.participantId; if (!p || !/^ITEM_/.test(e.type)) continue;
+      const l = inv[p] ??= [];
+      if (e.type === "ITEM_PURCHASED") l.push(e.itemId);
+      else if (e.type === "ITEM_DESTROYED" || e.type === "ITEM_SOLD") { const i = l.indexOf(e.itemId); if (i >= 0) l.splice(i, 1); }
+      else if (e.type === "ITEM_UNDO") { const i = l.indexOf(e.beforeId); if (i >= 0) l.splice(i, 1); if (e.afterId) l.push(e.afterId); }
+      const consumable = (id) => (DD.items[id]?.tags || []).some(t => t === "Consumable" || t === "Trinket");
+      (invLog[p] ??= []).push({ t: e.timestamp / 1000, built: l.filter(isCompleted).reduce((a, id) => a + itemCost(id), 0),
+        parts: l.filter(id => !isCompleted(id) && !consumable(id)).reduce((a, id) => a + itemCost(id), 0) });
+    } }
+  const hasItems = Object.keys(invLog).length > 0;
+  // A player's state just before a time: level, gold in finished items and components, and roughly how much
+  // gold they were holding (the last minute snapshot, less what they've bought since).
+  const stateAt = (pid, t) => {
+    const lv = events.filter(e => e.type === "LEVEL_UP" && e.participantId === pid && e.timestamp / 1000 <= t).reduce((a, e) => Math.max(a, e.level), 0)
+      || pf(frames[Math.min(frames.length - 1, Math.floor(t / 60))], pid).level || 1;
+    const inv = (invLog[pid] || []).filter(x => x.t <= t).pop() || { built: 0, parts: 0 };
+    const m = Math.min(frames.length - 1, Math.floor(t / 60));
+    const since = (buys[pid] || []).filter(b => b.t > m * 60 && b.t <= t).reduce((a, b) => a + itemCost(b.id), 0);
+    return { pid, lv, built: inv.built, parts: inv.parts, unspent: Math.max(0, (pf(frames[m], pid).currentGold || 0) - since) };
+  };
+  // Fights: kills within 15s and 4,500 units of each other. Who was in: anyone who killed, assisted or died,
+  // plus anyone within 2,000 units at the minute snapshot.
+  const fights = [];
+  for (const k of kills) {
+    const t = k.timestamp / 1000;
+    const f = fights.slice().reverse().find(f => t - f.end <= 15 && f.kills.some(o => dist(o.position, k.position) < 4500));
+    if (f) { f.end = t; f.kills.push(k); } else fights.push({ start: t, end: t, kills: [k] });
+  }
+  for (const f of fights) {
+    const who = new Set();
+    for (const k of f.kills) [k.killerId, k.victimId, ...(k.assistingParticipantIds || [])].forEach(p => p > 0 && who.add(p));
+    const mk = Math.min(frames.length - 1, Math.floor(f.start / 60));
+    for (const p of parts) if (!who.has(p.participantId) && dist(pf(frames[mk], p.participantId).position, f.kills[0].position) < 2000) who.add(p.participantId);
+    const team = (pid) => parts.find(p => p.participantId === pid)?.teamId;
+    f.us = [...who].filter(p => team(p) === me.teamId).map(p => stateAt(p, f.start - 2));
+    f.them = [...who].filter(p => team(p) !== me.teamId).map(p => stateAt(p, f.start - 2));
+    f.ourDeaths = f.kills.filter(k => team(k.victimId) === me.teamId).length;
+    f.theirDeaths = f.kills.length - f.ourDeaths;
+  }
+  const fightOf = (k) => fights.find(f => f.kills.includes(k));
+  const pings = data.pings ? data.pings[String(me.participantId)] || null : null;
   const myCs = cs(me.participantId);
   const xp = (pid) => series(pid, x => x.xp || 0), lvl = (pid) => series(pid, x => x.level || 0);
   const myXp = xp(me.participantId), oppXp = opp ? xp(opp.participantId) : null;
@@ -288,7 +345,7 @@ function analyse(data) {
   const defense = (k) => parts.filter(p => p.teamId !== me.teamId).filter(p =>
     [0, 1, 2, 3, 4, 5].reduce((a, n) => a + STAT(p.stats?.["item" + n], k), 0) >= 80).length;
   return {
-    g, me, opp, enemyJg, role, frames, events, kills, champOf, pf, races,
+    g, me, opp, enemyJg, role, frames, events, kills, champOf, pf, races, fights, fightOf, hasItems, pings, roles: data.roles || {},
     minutes: frames.length - 1,
     myGold, oppGold, diff, myCs,
     oppCs: opp ? cs(opp.participantId) : null,
@@ -364,6 +421,7 @@ function baseline(list) {
 
 // ---------------------------------------------------------------- Finding the moments
 function findMoments(A, B) {
+  const worthy = [];   // deaths that were worth it
   const out = [];
   const curve = A.diff || A.myGold, useDiff = !!A.diff;
   const band = B ? (useDiff ? B.diff : B.gold) : null;
@@ -398,6 +456,12 @@ function findMoments(A, B) {
   // 2. Deaths: any before 14:00; later ones if your lane gold fell 300+, the enemy took
   //    something while you were dead, or you died around an objective they took.
   for (const d of A.deaths) {
+    const worth = worthIt(A, d);
+    if (worth) {   // listed as a good moment instead
+      worthy.push({ kind: "good", always: true, start: Math.max(0, d.t - 40), end: d.t + 10, cost: 400,
+        title: `Worth it: you died at ${clock(d.t)}, but ${worth.why}`, compare: "Not every death is a mistake. Watch what you traded it for." });
+      continue;
+    }
     const m0 = Math.floor(d.t / 60), m2 = Math.min(A.minutes, m0 + 2);
     const swing = useDiff ? curve[m0] - curve[m2] : 0;
     const lost = d.t >= 840 ? lostWhileDead(A, d.t) : null;
@@ -408,6 +472,13 @@ function findMoments(A, B) {
     const killers = [d.e.killerId, ...(d.e.assistingParticipantIds || [])].filter(p => p > 0).map(A.champOf);
     const notes = [];
     if (fight) notes.push(fight.text);
+    const fo = A.fightOf(d.e);
+    if (fo && A.hasItems && !fight) {
+      const S = (l) => [l.length, l.reduce((a, x) => a + x.lv, 0), l.reduce((a, x) => a + x.built + x.parts, 0)];
+      const [un, ul, ui] = S(fo.us), [tn, tl_, ti] = S(fo.them);
+      if (un < tn) notes.push(`You went in <b>${un}v${tn}</b>.`);
+      else if (un === tn && (tl_ - ul >= 2 || ti - ui >= 1500)) notes.push(`Even numbers, but their side was ${tl_ - ul >= 2 ? `<b>${tl_ - ul} levels</b> up` : ""}${tl_ - ul >= 2 && ti - ui >= 1500 ? " and had " : ti - ui >= 1500 ? "had " : ""}${ti - ui >= 1500 ? `<b>${((ti - ui) / 1000).toFixed(1)}k</b> more in items` : ""}.`);
+    }
     if (lost?.items.length) notes.push(`While you were down${lost.allies.length ? ` (with ${lost.allies.join(", ")})` : ""} the enemy took <b>${lost.items.join(", ")}</b>.`);
     if (d.t >= 840 && swing >= 300) notes.push(`Your lane gold went from ${signed(curve[m0])} to ${signed(curve[m2])} over the next 2 minutes.`);
     if (d.t < 840) notes.push(B ? `${B.expert ? "Experts die" : "In your usual game you die"} <b>${Math.round(B.deaths14 ?? 0)}</b> time${Math.round(B.deaths14 ?? 0) === 1 ? "" : "s"} before 14:00.` : "Deaths before 14:00 usually decide the lane.");
@@ -511,7 +582,7 @@ function findMoments(A, B) {
   const bad = mergeAll(out.filter(w => w.cost > 0)).sort((a, b) => b.cost - a.cost).slice(0, 6);
   // Things that went well are moments too (up to 3), unless a moment above already covers that stretch.
   // Solo kills on your lane opponent are always listed.
-  const goods = mergeAll(goodMoments(A, B)), keep = (g) => g.parts.some(p => p.always);
+  const goods = mergeAll([...goodMoments(A, B), ...worthy]), keep = (g) => g.parts.some(p => p.always);
   const good = [...goods.filter(keep), ...goods.filter(g => !keep(g) && !bad.some(b => g.start <= b.end && b.start <= g.end))
     .sort((a, b) => b.cost - a.cost).slice(0, 3)];
   for (const g of good) g.good = true;
@@ -595,6 +666,11 @@ function wentWell(A, B, hist) {
   if (A.races[2]?.gap < -EVEN && A.opp) {
     const ex = expertRace(B, 2, DD.champ[A.opp.championId]?.id);
     add(2.3, `Level 2 before ${champName(A.opp.championId)}`, ex ? `Experts get there first in ${Math.round(ex.first * 100)}% of ${ex.vs ? "games in this matchup" : "their games"}.` : "That usually means the first waves went your way.");
+  }
+  if (A.pings) {
+    const total = Object.values(A.pings).reduce((a, v) => a + (+v || 0), 0), pm = total / (A.g.gameDuration / 60);
+    const ladder = PING_PM[A.role] || PING_PM.MID;
+    if (pm >= ladder[3]) add(1.9, `${total} pings`, `${pm >= ladder[4] ? "Master+" : "Emerald"}-level communication for ${ROLE_NAME[A.role] || "your role"}.`);
   }
   const mine3 = A.items.slice(0, 3).map(b => b.id);
   const paths = B?.paths?.length ? B.paths.map(p => p.items) : (B?.orders || []).slice(0, 3).map(o => o[0]);
@@ -936,6 +1012,7 @@ function render(A, B, moments, s, label, well = []) {
       ${timingCard("CS at 10:00", cs10, B?.cs?.[10]?.p50, v => Math.round(v), false)}
       ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
       ${levelCard(A, B)}
+      ${pingCard(A)}
     </div>
     <h2>Moments to watch, in order</h2>
     <div class="card">${moments.length ? moments.map((w, i) => `
@@ -969,6 +1046,66 @@ function render(A, B, moments, s, label, well = []) {
   loadExperts(A);
 }
 
+// "Going in": players, levels and gold on each side of the fight a kill or death was part of.
+function fightPanel(A, f) {
+  if (!f || !A.hasItems) return "";
+  const side = (list, label) => {
+    const lv = list.reduce((a, x) => a + x.lv, 0), built = list.reduce((a, x) => a + x.built + x.parts, 0), un = list.reduce((a, x) => a + x.unspent, 0);
+    const k = (v) => (v / 1000).toFixed(1) + "k";
+    return `<div class="fs"><b>${label}: ${list.length}</b> · levels ${lv} · ${k(built)} in items${un >= 300 ? ` · ${k(un)} not spent` : ""}
+      <div class="fp">${list.map(x => `<span>${esc(A.champOf(x.pid))} <i>lv ${x.lv}</i> ${k(x.built + x.parts)}${x.parts >= 600 ? ` <em>(${k(x.parts)} parts)</em>` : ""}${x.unspent >= 600 ? ` <em>+${k(x.unspent)} unspent</em>` : ""}</span>`).join("")}</div></div>`;
+  };
+  const S = (l) => ({ n: l.length, lv: l.reduce((a, x) => a + x.lv, 0), items: l.reduce((a, x) => a + x.built + x.parts, 0), un: l.reduce((a, x) => a + x.unspent, 0) });
+  const u = S(f.us), t = S(f.them), why = [];
+  if (u.n !== t.n) why.push(u.n > t.n ? `you had the numbers (${u.n}v${t.n})` : `you were a player down (${u.n}v${t.n})`);
+  else {
+    const dl = u.lv - t.lv, di = u.items - t.items;
+    if (Math.abs(dl) >= 2) why.push(dl > 0 ? `your side was ${dl} levels up` : `their side was ${-dl} levels up`);
+    if (Math.abs(di) >= 800) why.push(`${di > 0 ? "your" : "their"} side had ${(Math.abs(di) / 1000).toFixed(1)}k more in items`);
+    if (Math.abs(di) >= 800 && Math.sign(di) !== Math.sign((u.items + u.un) - (t.items + t.un))) why.push(`even though ${di > 0 ? "they" : "you"} had more total gold, some of it wasn't spent`);
+    if (!why.length) why.push("about even");
+  }
+  return `<details class="fight"><summary>Going in: ${why.join(", ")}</summary>${side(f.us, "Your side")}${side(f.them, "Their side")}
+    <div class="sub">Items from purchases; unspent gold is from the minute before, so it's approximate. Summoner spells and cooldowns aren't in the data.</div></details>`;
+}
+
+// A death that was worth it: your team came out ahead in that fight, took an objective for it,
+// or (in lane) you were still further ahead a minute after dying than you were 3 minutes before.
+function worthIt(A, d) {
+  const f = A.fightOf(d.e), took = tookAfter(A, d.t);
+  if (f && f.theirDeaths > f.ourDeaths) return { why: `your team came out ${f.theirDeaths} for ${f.ourDeaths} in that fight` };
+  const big = took.filter(x => /Baron|Elder|dragon|Herald|Atakhan|inhibitor|tower/.test(x));
+  if (big.length && (!f || f.theirDeaths + 1 >= f.ourDeaths)) return { why: `your team took ${big.join(", ")} at the same time` };
+  // In lane: only when your lane opponents killed you (a roam or gank changes the trade), and you
+  // still gained on them in both gold and XP from 3 minutes before to a minute after.
+  if (d.t < 840 && A.diff && A.xpdiff && A.opp) {
+    const lane = { BOT: ["BOT", "SUPPORT"], SUPPORT: ["BOT", "SUPPORT"] }[A.role] || [A.role];
+    const killers = [d.e.killerId, ...(d.e.assistingParticipantIds || [])].filter(p => p > 0);
+    const byLane = killers.every(p => lane.includes(A.roles[p]) && A.g.participants.find(x => x.participantId === p)?.teamId !== A.me.teamId);
+    const m = Math.floor(d.t / 60), a = Math.max(0, m - 3), b = Math.min(A.minutes, m + 1);
+    const g = A.diff[b] - A.diff[a], x = A.xpdiff[b] - A.xpdiff[a];
+    if (byLane && g >= 0 && x >= 0 && (g >= 250 || x >= 300))
+      return { why: `you still gained ${signed(g)} gold and ${signed(x)} XP on ${champName(A.opp.championId)} from ${a}:00 to ${b}:00` };
+  }
+  return null;
+}
+
+// Pings: this game against what players at each rank average for this role (from 750 ranked games, Nov 2026).
+const PING_RANKS = ["Bronze", "Silver", "Gold", "Emerald", "Master+"];
+const PING_PM = { TOP: [.43, .46, .52, .54, .72], JUNGLE: [.71, .87, .92, 1.41, 1.82], MID: [.56, .62, .70, .88, 1.09], BOT: [.37, .46, .49, .56, .86], SUPPORT: [.44, .51, .61, .83, 1.08] };
+const PING_KINDS = [["onMyWayPings", "On my way"], ["enemyMissingPings", "Enemy missing"], ["getBackPings", "Get back"], ["enemyVisionPings", "Enemy vision"], ["assistMePings", "Assist me"], ["allInPings", "All in"], ["pushPings", "Push"], ["needVisionPings", "Need vision"]];
+function pingCard(A) {
+  if (!A.pings) return "";
+  const total = Object.values(A.pings).reduce((a, v) => a + (+v || 0), 0), pm = total / (A.g.gameDuration / 60);
+  const ladder = PING_PM[A.role] || PING_PM.MID, at = ladder.filter(v => pm >= v).length;
+  const like = at === 0 ? "below the Bronze average" : at === 5 ? "at Master+ level" : `about ${PING_RANKS[at - 1]} level`;
+  return `<div class="card pings" style="grid-column:1 / -1"><div class="k">Pings: telling your team what you're doing</div>
+    <div class="prow"><b class="${at >= 4 ? "good" : at <= 1 ? "warn" : ""}">${total}</b><span>this game (${pm.toFixed(2)} a minute), ${like} for ${esc(ROLE_NAME[A.role] || "your role")}</span></div>
+    <div class="ladder">${PING_RANKS.map((r, i) => `<span class="${i < at ? "on" : ""}">${r}<i>${Math.round(ladder[i] * A.g.gameDuration / 60)}</i></span>`).join("")}</div>
+    <div class="kinds">${PING_KINDS.map(([k, n]) => `<span class="${A.pings[k] ? "" : "zero"}">${n} <b>${A.pings[k] || 0}</b></span>`).join("")}</div>
+    <div class="d">Higher ranks ping a lot more, mostly "on my way", "enemy missing" and "get back": they say what they're about to do. Numbers under each rank are its average for a game this long.</div></div>`;
+}
+
 function killRow(A, k, n) {
   const t = k.timestamp / 1000, helpers = (k.assistingParticipantIds || []).map(A.champOf);
   const where = area(k.position?.x, k.position?.y), lane = A.opp && k.victimId === A.opp.participantId;
@@ -977,7 +1114,7 @@ function killRow(A, k, n) {
   return `<div class="moment">
     <div class="when">${clock(t)}<small class="kd">kill ${n + 1}</small></div>
     <div class="what"><div class="part"><b>You killed ${esc(A.champOf(k.victimId))}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
-      <div class="cmp">${notes.join(" · ")}</div></div></div>
+      <div class="cmp">${notes.join(" · ")}</div>${fightPanel(A, A.fightOf(k))}</div></div>
     <div class="acts"><button data-watch="${Math.max(0, t - 30)}">Watch in my replay</button></div>
   </div>`;
 }
@@ -993,11 +1130,12 @@ function deathRow(A, d) {
   const unspent = A.pf(A.frames[m], A.me.participantId).currentGold;
   if (unspent >= 900) notes.push(`about <b>${Math.round(unspent).toLocaleString()} gold</b> unspent at ${m}:00`);
   if (A.diff) { const m2 = Math.min(A.minutes, m + 2); notes.push(`lane gold ${signed(A.diff[m])} → ${signed(A.diff[m2])} two minutes later`); }
-  const lead = A.deaths.filter(x => x.t < d.t).length;
-  return `<div class="moment">
-    <div class="when">${clock(d.t)}<small style="color:var(--red-ink)">death ${lead + 1}</small></div>
+  const lead = A.deaths.filter(x => x.t < d.t).length, worth = worthIt(A, d);
+  if (worth) notes.unshift(`<b class="kd">Worth it:</b> ${worth.why}`);
+  return `<div class="moment${worth ? " worth" : ""}">
+    <div class="when">${worth ? `<span class="badge ok">Worth it</span>` : ""}${clock(d.t)}<small style="color:var(--red-ink)">death ${lead + 1}</small></div>
     <div class="what"><div class="part"><b>${killers.length ? esc(killers.join(" + ")) : "Executed"}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
-      ${notes.length ? `<div class="cmp">${notes.join(" · ")}</div>` : ""}</div></div>
+      ${notes.length ? `<div class="cmp">${notes.join(" · ")}</div>` : ""}${fightPanel(A, A.fightOf(e))}</div></div>
     <div class="acts"><button class="primary" data-watch="${Math.max(0, d.t - 30)}">Watch in my replay</button></div>
   </div>`;
 }
