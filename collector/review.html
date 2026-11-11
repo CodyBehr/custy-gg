@@ -1898,11 +1898,20 @@ async function startChampSelect() {
   const tick = async () => {
     let st; try { st = await api("/api/champselect"); } catch (e) { $("csBody").innerHTML = `<div class="empty">${esc(e.message)}</div>`; return; }
     if (st.phase !== "ChampSelect") {
+      // After champ select the last pick stays up, so you can tab out mid-game to check the build and skills.
+      if (CS.st?.champion) {
+        if (CS.live !== false) { CS.live = false; CS.key = ""; }
+        CS.phase = st.phase;
+        const key = "off" + st.phase;
+        if (CS.offKey !== key) { CS.offKey = key; drawChampSelect(); }
+        return;
+      }
       $("csHead").innerHTML = "";
-      $("csBody").innerHTML = `<div class="empty">${st.phase === "InProgress" || st.phase === "GameStart" ? "Good luck! This window closes in a moment." : st.error ? esc(st.error) : "Not in champ select right now. This window opens by itself when you're in one."}</div>`;
-      if (CS.st && (st.phase === "InProgress" || st.phase === "GameStart" || st.phase === "None" || st.phase === "Lobby")) setTimeout(() => window.close(), 4000);
-      CS.st = null; return;
+      $("csBody").innerHTML = `<div class="empty">${st.error ? esc(st.error) : "Not in champ select right now. This window updates by itself when you're in one."}</div>`;
+      return;
     }
+    if (CS.live === false) { CS.champ = null; CS.key = ""; CS.offKey = ""; }   // a new champ select
+    CS.live = true;
     CS.st = st;
     if (st.champion && (st.champion !== CS.champ || st.role !== CS.role)) {
       CS.champ = st.champion; CS.role = st.role; CS.picked = null;
@@ -1926,6 +1935,8 @@ function drawChampSelect() {
   $("csHead").innerHTML = `<div class="me">${champImg(st.champion)}<div><b>${esc(csName(st.champion))}</b><small>${esc(ROLE_NAME[st.role] || "role unknown")}${st.assigned ? "" : " (guessed)"}${st.locked ? "" : " · hovering"}</small></div></div>
     <div class="vs"><small>Lane opponent${CS.picked ? "" : " (best guess, tap to change)"}:</small><div class="echs">${enemies || `<span class="sub">Enemy picks will show here.</span>`}</div></div>`;
   const parts = [];
+  const live = CS.live !== false;
+  if (!live) parts.push(`<div class="note">${CS.phase === "InProgress" ? "In game." : "Champ select is over."} Showing your last pick so you can check the build and skill order. This window switches to your next champ select by itself.</div>`);
   // Runes
   const rec = vs?.rec || S?.rec;
   if (rec) {
@@ -1935,12 +1946,12 @@ function drawChampSelect() {
         <div class="rcol">${styleIcon(sub)}${perks.slice(4, 6).map(id => runeIcon(id)).join("")}</div>
         <div class="rcol shards">${shards.map(id => `<span>${esc(SHARDS[id] || id)}</span>`).join("")}</div></div>
       <div class="sub">${ks ? `${esc(DD.runes?.[ks[0]]?.name || "This keystone")} in ${Math.round(ks[1] * 100)}% of expert games${vs?.rec ? ` against ${esc(csName(CS.opp))} (${vs.n} games)` : ` on ${esc(csName(st.champion))}`}. ` : ""}Other runes are the most common pick in each slot.</div>
-      <button class="primary" id="csRunes">Use this rune page</button></div>`);
+      ${live ? `<button class="primary" id="csRunes">Use this rune page</button>` : ""}</div>`);
   }
   // Spells
   const sp = (vs?.spells?.[0]) || S?.spells?.[0];
   if (sp) parts.push(`<div class="card css"><div class="ctitle">Summoner spells</div><div class="sp">${sp[0].map(spellIcon).join("")}<span>${Math.round(sp[1] * 100)}% of expert games${vs?.spells?.[0] ? ` vs ${esc(csName(CS.opp))}` : ""}</span></div>
-    <button id="csSpells">Set these spells</button></div>`);
+    ${live ? `<button id="csSpells">Set these spells</button>` : ""}</div>`);
   // Skills
   if (S?.skills) {
     const k = S.skills, L = (s) => "QWER"[s - 1];
@@ -1957,8 +1968,8 @@ function drawChampSelect() {
       ${start ? `<div class="row"><small>Start</small><div class="ics">${icons(start[0])}</div></div>` : ""}
       ${backs.map((b, i) => `<div class="row"><small>Back ${i + 1} · ~${clock(b.t)}</small><div class="ics">${b.items.map(([id, r]) => `<span title="${esc(itemName(id))}: ${Math.round(r * 100)}% buy it">${icons([id])}</span>`).join("")}</div></div>`).join("")}
       ${path ? `<div class="row"><small>Core path</small><div class="ics core">${icons(path.items)}</div></div>` : ""}
-      <button id="csItems">Add as an item set</button>
-      <div class="sub">The item set shows in the in-game shop under "custy.gg".</div></div>`);
+      ${live ? `<button id="csItems">Add as an item set</button>
+      <div class="sub">The item set shows in the in-game shop under "custy.gg".</div>` : ""}</div>`);
   }
   if (!S) parts.unshift(`<div class="note">${B ? "Expert runes, spells and skill order for this champion are still being collected; check back after the next update." : `No expert data for ${esc(csName(st.champion))} ${esc(ROLE_NAME[st.role] || "")} yet.`}</div>`);
   $("csBody").innerHTML = parts.join("");

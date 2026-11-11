@@ -81,6 +81,7 @@ def guess_roles(enemies, index, taken=None):
 
 def state(cfg):
     """What the champ select page needs: phase, your champion and role, enemy champions, lane opponent guess."""
+    _state["polled"] = time.time()   # a helper window is open and asking
     lcu = _lcu(cfg)
     if not lcu:
         return {"phase": None, "error": "League isn't open."}
@@ -185,6 +186,7 @@ def watch(cfg, stop, open_page):
             key = s.get("gameId") or "cs-%d" % (int(time.time()) // 600)
             if _state["opened_for"] != key:
                 _state["opened_for"] = key
-                open_page()
+                if time.time() - _state.get("polled", 0) > 8:   # one is already open from last game: it updates itself
+                    open_page()
         except Exception as e:
             core.log.info("Champ select watch: %s", e)
