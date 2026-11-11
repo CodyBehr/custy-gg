@@ -5,7 +5,7 @@
 Each game gives 10 player samples (every champion and role in it). A champion+role stops collecting once it has
 --cap samples, and games whose 10 players are all full are skipped before their timeline is fetched.
 """
-import argparse, json, os, sys, time, urllib.error, urllib.request
+import argparse, http.client, json, os, sys, time, urllib.error, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import bench_core as C
 
@@ -39,6 +39,13 @@ def get(host, path):
         try:
             with urllib.request.urlopen(req, timeout=30) as r:
                 return json.loads(r.read())
+        except (ValueError, ConnectionError, TimeoutError, http.client.IncompleteRead) as e:
+            # A response cut off part way (it happens on big timelines): try again a few times, then skip it.
+            fails = stamps.setdefault("_bad", {}); fails[path] = fails.get(path, 0) + 1
+            if fails[path] >= 3:
+                print("Skipping %s after 3 broken responses (%s)" % (path, e), flush=True)
+                return None
+            time.sleep(3); continue
         except urllib.error.HTTPError as e:
             if e.code == 429:
                 time.sleep(int(e.headers.get("Retry-After") or 10)); continue
