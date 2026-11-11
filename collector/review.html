@@ -72,6 +72,11 @@ svg text { fill:var(--mute); font-size:11px; }
 .well-card .w { display:flex; gap:10px; padding:7px 0; } .well-card .w i { color:var(--green); font-style:normal; font-weight:700; }
 .well-card .w b { display:block; } .well-card .w span { color:var(--mute); font-size:13px; }
 .warn { color:var(--amber-ink) !important; }
+.strip .backs { display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px 6px; margin:10px 0 6px; }
+.strip .bk { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.strip .ic { display:flex; gap:2px; } .strip .ic img { width:30px; height:30px; border-radius:5px; border:1px solid var(--line); }
+.strip .ic img.done { border:2px solid var(--gold); }
+.strip small { color:var(--mute); font-size:11.5px; } .strip .arr { color:var(--faint); font-style:normal; font-size:18px; margin-top:4px; }
 .moment.worth { background:linear-gradient(90deg, var(--green-wash), transparent 60%); }
 details.fight { margin-top:6px; font-size:12.5px; color:var(--mute); }
 details.fight summary { cursor:pointer; color:var(--ink); opacity:.85; }
@@ -199,6 +204,17 @@ async function loadDD() {
 }
 const champName = (id) => DD.champ[id]?.name || ("Champion " + id);
 // Experts' 3 most common build paths, with your build underneath.
+// Your build back by back, like the item timelines on stats sites: what you bought at each back, with the time.
+function buildStrip(A) {
+  const skip = (id) => (DD.items[id]?.tags || []).includes("Trinket");
+  const start = { t: 0, items: (A.buys0 || []).filter(id => !skip(id)) };
+  const backs = [start, ...A.backs.map(b => ({ t: b.t, items: b.items.filter(id => !skip(id)) }))].filter(b => b.items.length);
+  if (backs.length < 2) return "";
+  const icon = (id) => `<img src="${itemIcon(id)}" alt="" title="${esc(itemName(id))} (${itemCost(id)}g)" class="${isCompleted(id) ? "done" : ""}">`;
+  return `<div class="card strip"><div class="ctitle">Your build, back by back</div>
+    <div class="backs">${backs.map((b, i) => `${i ? `<i class="arr">›</i>` : ""}<div class="bk"><div class="ic">${b.items.map(icon).join("")}</div><small>${b.t ? clock(b.t) : "start"}</small></div>`).join("")}</div>
+    <div class="sub">Gold borders are finished items. Coming later: what experts on this champion usually buy at each back, for comparison.</div></div>`;
+}
 function buildPaths(A, B) {
   const paths = B.paths?.length ? B.paths : (B.orders || []).slice(0, 3).map(([items, games]) => ({ items, games, rates: [] }));
   if (!paths.length) return "";
@@ -353,6 +369,7 @@ function analyse(data) {
     csdiff: opp ? myCs.map((v, i) => v - cs(opp.participantId)[i]) : null,
     items: completed, armorN: defense("FlatArmorMod"), mrN: defense("FlatSpellBlockMod"),
     backs: backsOf(me.participantId), oppBacks: opp ? backsOf(opp.participantId) : [],
+    buys0: (buys[me.participantId] || []).filter(b => b.t <= 120).map(b => b.id),
     firstItem: firstOf(me.participantId, isCompleted),
     lvl6: lvl6(me.participantId), oppLvl6: opp ? lvl6(opp.participantId) : null,
     deaths: kills.filter(e => e.victimId === me.participantId).map(e => ({ t: e.timestamp / 1000, e })),
@@ -796,8 +813,11 @@ function context(A, w) {
       if (dist(jp, mp) < 2600) add(m * 60, `${m}:00 enemy jungler (${champName(A.enemyJg.championId)}) <b>near you</b> in ${area(jp.x, jp.y)}`);
     }
   }
-  for (const b of A.backs) if (inWin(b.t)) add(b.t, `${clock(b.t)} you bought ${describeBuy(b)}`);
-  for (const b of A.oppBacks) if (inWin(b.t)) add(b.t, `${clock(b.t)} ${champName(A.opp.championId)} bought ${describeBuy(b)}`);
+  // Purchases only matter for moments about backs and builds; the build strip in Breakdown has the rest.
+  if (w.parts?.some(p => ["back", "item", "pen"].includes(p.kind))) {
+    for (const b of A.backs) if (inWin(b.t)) add(b.t, `${clock(b.t)} you bought ${describeBuy(b)}`);
+    for (const b of A.oppBacks) if (inWin(b.t)) add(b.t, `${clock(b.t)} ${champName(A.opp.championId)} bought ${describeBuy(b)}`);
+  }
   for (const e of A.events) {
     const t = e.timestamp / 1000; if (!inWin(t)) continue;
     if (e.type === "ELITE_MONSTER_KILL" && e.monsterType !== "HORDE") add(t, `${clock(t)} ${monsterName(e)} taken by ${teamOf(A, e.killerId)}`);
@@ -1272,6 +1292,7 @@ function expertsView(A, B) {
     <div class="legend"><span><i style="background:var(--gold)"></i>You</span><span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of expert games</span><span style="color:var(--red-ink)">✕ your deaths</span></div></div>
 
   <h2>Build</h2>
+  ${buildStrip(A)}
   ${buildPaths(A, B)}
   <div class="card"><table class="grid"><tr><th>Your items</th><th>Bought</th><th>Experts</th><th>How often experts build it</th></tr>
     ${A.items.slice(0, 6).map((b, n) => { const e = byId[b.id]; return `<tr><td>${n + 1}. ${esc(itemName(b.id))}</td><td>${clock(b.t)}</td>
