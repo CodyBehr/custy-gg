@@ -703,12 +703,25 @@ def make_handler(cfg, token):
             if url.path == "/api/replay":
                 with _lock:
                     return self._send(200, dict(_replay))
+            if url.path == "/api/champselect":
+                import champselect
+                return self._send(200, champselect.state(cfg))
             return self._send(404, {"error": "not found"})
 
         def do_POST(self):
             url = urlparse(self.path)
             if not self._allowed():
                 return self._send(403, {"error": "forbidden"})
+            m = re.match(r"^/api/champselect/(runes|spells|itemset)$", url.path)
+            if m:
+                import champselect
+                try:
+                    body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
+                    {"runes": champselect.set_runes, "spells": champselect.set_spells, "itemset": champselect.set_item_set}[m.group(1)](cfg, body)
+                    return self._send(200, {"ok": True})
+                except Exception as e:
+                    core.log.info("Champ select %s failed: %s", m.group(1), e)
+                    return self._send(409, {"error": str(e)})
             m = re.match(r"^/api/replay/(\d+)$", url.path)
             if m:
                 try:
@@ -808,6 +821,27 @@ def running_url():
     except Exception:
         pass
     return None
+
+
+def open_small(url, w=470, h=860):
+    """A narrow app window on the right of the screen, for the champ select helper."""
+    import subprocess
+    if sys.platform == "win32":
+        try:
+            import ctypes
+            sw = ctypes.windll.user32.GetSystemMetrics(0)
+        except Exception:
+            sw = 1920
+        for env in ("PROGRAMFILES(X86)", "PROGRAMFILES", "LOCALAPPDATA"):
+            root = os.environ.get(env)
+            for exe in ([os.path.join(root, r"Microsoft\Edge\Application\msedge.exe"), os.path.join(root, r"Google\Chrome\Application\chrome.exe")] if root else []):
+                if os.path.exists(exe):
+                    try:
+                        subprocess.Popen([exe, "--app=" + url, "--window-size=%d,%d" % (w, h), "--window-position=%d,%d" % (max(0, sw - w - 20), 60)], close_fds=True)
+                        return
+                    except OSError:
+                        pass
+    open_window(url)
 
 
 def open_window(url):

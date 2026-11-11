@@ -8,6 +8,12 @@ for p in m["participants"]:
     lane, role = LANE.get(p.get("teamPosition"), ("NONE", "NONE"))
     st = {k: p.get(k) for k in ("win", "kills", "deaths", "assists", "totalMinionsKilled", "neutralMinionsKilled", "roleBoundItem", "goldEarned")}
     st.update({"item%d" % i: p["item%d" % i] for i in range(7)})
+    sty = (p.get("perks") or {}).get("styles") or []
+    if len(sty) >= 2:   # the client's shape: perk0-5, perkPrimaryStyle, perkSubStyle, statPerk0-2
+        sel = [x["perk"] for x in sty[0]["selections"]] + [x["perk"] for x in sty[1]["selections"]]
+        st.update({"perk%d" % i: v for i, v in enumerate(sel)}, perkPrimaryStyle=sty[0]["style"], perkSubStyle=sty[1]["style"])
+        sp = p["perks"].get("statPerks") or {}
+        st.update(statPerk0=sp.get("offense"), statPerk1=sp.get("flex"), statPerk2=sp.get("defense"))
     parts.append({"participantId": p["participantId"], "teamId": p["teamId"], "championId": p["championId"], "spell1Id": p["summoner1Id"],
                   "spell2Id": p["summoner2Id"], "stats": st, "timeline": {"lane": lane, "role": role}})
     ids.append({"participantId": p["participantId"], "player": {"puuid": p["puuid"], "gameName": p.get("riotIdGameName"), "tagLine": p.get("riotIdTagline")}})

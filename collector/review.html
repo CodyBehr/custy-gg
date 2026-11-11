@@ -72,6 +72,33 @@ svg text { fill:var(--mute); font-size:11px; }
 .well-card .w { display:flex; gap:10px; padding:7px 0; } .well-card .w i { color:var(--green); font-style:normal; font-weight:700; }
 .well-card .w b { display:block; } .well-card .w span { color:var(--mute); font-size:13px; }
 .warn { color:var(--amber-ink) !important; }
+.setup .lbl { color:var(--mute); font-size:12px; margin-top:8px; }
+.setup .rrow { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin:4px 0; }
+.setup .rrow img { width:28px; height:28px; } .setup .rrow img.ks { width:38px; height:38px; } .setup .rrow img.st { width:20px; height:20px; opacity:.8; }
+.setup .rrow span { border-radius:50%; border:2px solid transparent; display:inline-flex; } .setup .rrow span.same { border-color:var(--gold); }
+.setup .rrow .sep { width:12px; } .setup .rrow small { color:var(--faint); margin-left:8px; }
+.setup .notes { margin-top:8px; display:grid; gap:4px; } .setup .notes img { width:20px; height:20px; border-radius:4px; vertical-align:middle; margin:0 1px; }
+body.cs { padding:12px 14px; font-size:13px; }
+#csHead .me { display:flex; gap:10px; align-items:center; } #csHead .me img { width:44px; height:44px; border-radius:10px; }
+#csHead .me b { display:block; font-size:17px; } #csHead .me small { color:var(--mute); }
+#csHead .vs { margin:10px 0 4px; } #csHead .vs small { color:var(--mute); }
+.echs { display:flex; gap:6px; margin-top:4px; flex-wrap:wrap; }
+.ech { padding:0; border:2px solid transparent; border-radius:8px; background:none; cursor:pointer; opacity:.55; }
+.ech img { width:34px; height:34px; border-radius:6px; display:block; } .ech.on { border-color:var(--gold); opacity:1; }
+body.cs .card { margin-top:10px; padding:12px; } body.cs .card button { margin-top:8px; }
+.csr .rp { display:flex; gap:16px; align-items:flex-start; margin:6px 0; }
+.csr .rcol { display:flex; flex-direction:column; align-items:center; gap:4px; }
+.csr .rcol img { width:30px; height:30px; } .csr .rcol img.ks { width:44px; height:44px; } .csr .rcol img.st { width:22px; height:22px; opacity:.8; }
+.csr .shards { align-items:flex-start; gap:6px; font-size:12px; color:var(--mute); padding-top:26px; }
+.css .sp { display:flex; gap:6px; align-items:center; } .css .sp img { width:34px; height:34px; border-radius:6px; } .css .sp span { color:var(--mute); margin-left:6px; }
+.csk .lv18 { display:grid; grid-template-columns:repeat(9, 1fr); gap:3px; margin:6px 0; }
+.csk .lv18 span { text-align:center; border-radius:5px; padding:2px 0; font-weight:700; background:var(--line-soft); }
+.csk .lv18 span i { display:block; font-style:normal; font-weight:400; font-size:10px; color:var(--faint); }
+.csk .lv18 .s1 { color:#7fb8ff; } .csk .lv18 .s2 { color:#8be8c6; } .csk .lv18 .s3 { color:#f0c98a; } .csk .lv18 .s4 { color:#ff8fa0; }
+.csb .row { display:grid; grid-template-columns:96px 1fr; gap:8px; align-items:center; padding:4px 0; }
+.csb .row small { color:var(--mute); } .csb .ics { display:flex; gap:3px; flex-wrap:wrap; }
+.csb .ics img { width:30px; height:30px; border-radius:5px; border:1px solid var(--line); } .csb .core img { border-color:var(--gold); }
+
 .strip .backs { display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px 6px; margin:10px 0 6px; }
 .strip .bk { display:flex; flex-direction:column; align-items:center; gap:4px; }
 .strip .ic { display:flex; gap:2px; } .strip .ic img { width:30px; height:30px; border-radius:5px; border:1px solid var(--line); }
@@ -203,7 +230,35 @@ async function loadDD() {
   } catch (e) { console.warn("Data Dragon unavailable", e); }
 }
 const champName = (id) => DD.champ[id]?.name || ("Champion " + id);
-// Experts' 3 most common build paths, with your build underneath.
+// Your rune page, spells and skill order next to what experts use (for this matchup when there are enough games).
+function setupCard(A, B) {
+  const S = B?.setup; if (!S || !DD.runes) return "";
+  const st = A.me.stats || {}, oppAlias = A.opp ? DD.champ[A.opp.championId]?.id : null, vs = S.vs?.[oppAlias];
+  const rec = vs?.rec || S.rec; if (!rec) return "";
+  const mine = st.perk0 ? [st.perkPrimaryStyle, st.perkSubStyle, [0, 1, 2, 3, 4, 5].map(i => st["perk" + i]), [st.statPerk0, st.statPerk1, st.statPerk2]] : null;
+  const page = (pg, other) => `<div class="rrow">${styleIcon(pg[0])}${pg[2].slice(0, 4).map((id, i) => `<span class="${other && other[2].includes(id) ? "same" : ""}">${runeIcon(id, i === 0)}</span>`).join("")}
+    <i class="sep"></i>${styleIcon(pg[1])}${pg[2].slice(4).map(id => `<span class="${other && other[2].includes(id) ? "same" : ""}">${runeIcon(id)}</span>`).join("")}
+    <small>${pg[3].map(id => esc(SHARDS[id] || "")).join(" · ")}</small></div>`;
+  const ks = (vs?.keystones || S.keystones || []);
+  const myKs = mine ? ks.find(k => k[0] === mine[2][0]) : null;
+  const spells = (vs?.spells?.[0]) || S.spells?.[0], mySp = [A.me.spell1Id, A.me.spell2Id].sort((a, b) => a - b);
+  const spOk = spells && spells[0].join() === mySp.join();
+  const mySkills = A.events.filter(e => e.type === "SKILL_LEVEL_UP" && e.participantId === A.me.participantId && (e.levelUpType || "NORMAL") === "NORMAL").map(e => e.skillSlot);
+  const order = (q) => { const n = { 1: 0, 2: 0, 3: 0 }, done = []; for (const x of q) if (x in n && ++n[x] === 5 && !done.includes(x)) done.push(x);
+    return [...done, ...[1, 2, 3].filter(x => !done.includes(x)).sort((a, b) => n[b] - n[a])].map(x => "QWE"[x - 1]).join(""); };
+  const myOrder = mySkills.length >= 9 ? order(mySkills) : null;
+  const lines = [];
+  if (mine) lines.push(mine[2][0] === rec.page[2][0] ? `<span class="good">Same keystone as the experts.</span>`
+    : `You took <b>${esc(DD.runes[mine[2][0]]?.name || "another keystone")}</b>${myKs ? `, which ${Math.round(myKs[1] * 100)}% of experts also take` : ", which few experts take"}; most take <b>${esc(DD.runes[rec.page[2][0]]?.name || "")}</b>${ks[0] ? ` (${Math.round(ks[0][1] * 100)}%)` : ""}.`);
+  if (spells) lines.push(spOk ? `<span class="good">Same summoner spells as most experts.</span>` : `Spells: you took ${mySp.map(spellIcon).join("")} · most experts take ${spells[0].map(spellIcon).join("")} (${Math.round(spells[1] * 100)}%).`);
+  if (S.skills && myOrder) lines.push(myOrder.slice(0, 1) === S.skills.order.slice(0, 1) ? `<span class="good">Maxed ${myOrder[0]} first, like ${Math.round(S.skills.rate * 100)}% of experts.</span>`
+    : `You maxed <b>${myOrder.slice(0, 3).split("").join(" › ")}</b>; ${Math.round(S.skills.rate * 100)}% of experts max <b>${S.skills.order.slice(0, 3).split("").join(" › ")}</b>.`);
+  return `<h2>Runes, spells and skills</h2><div class="card setup">
+    ${mine ? `<div class="lbl">Yours</div>${page(mine, rec.page)}` : ""}
+    <div class="lbl">Experts${vs?.rec ? ` vs ${esc(champName(A.opp.championId))} (${vs.n} games)` : ` on ${esc(champName(A.me.championId))}`}</div>${page(rec.page, mine)}
+    <div class="notes">${lines.map(l => `<div>${l}</div>`).join("")}</div>
+    <div class="sub">Gold rings mark runes you share. The expert page is the most common pick in each slot.</div></div>`;
+}
 // Your build back by back, like the item timelines on stats sites: what you bought at each back, with the time.
 function buildStrip(A) {
   const skip = (id) => (DD.items[id]?.tags || []).includes("Trinket");
@@ -215,6 +270,7 @@ function buildStrip(A) {
     <div class="backs">${backs.map((b, i) => `${i ? `<i class="arr">›</i>` : ""}<div class="bk"><div class="ic">${b.items.map(icon).join("")}</div><small>${b.t ? clock(b.t) : "start"}</small></div>`).join("")}</div>
     <div class="sub">Gold borders are finished items. Coming later: what experts on this champion usually buy at each back, for comparison.</div></div>`;
 }
+// Experts' 3 most common build paths, with your build underneath.
 function buildPaths(A, B) {
   const paths = B.paths?.length ? B.paths : (B.orders || []).slice(0, 3).map(([items, games]) => ({ items, games, rates: [] }));
   if (!paths.length) return "";
@@ -1291,6 +1347,7 @@ function expertsView(A, B) {
     <div id="xchart">${benchChart(A, B, "gold")}</div>
     <div class="legend"><span><i style="background:var(--gold)"></i>You</span><span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of expert games</span><span style="color:var(--red-ink)">✕ your deaths</span></div></div>
 
+  ${setupCard(A, B)}
   <h2>Build</h2>
   ${buildStrip(A)}
   ${buildPaths(A, B)}
@@ -1730,7 +1787,114 @@ async function enableApi() {
   } catch (e) { toast("Couldn't change League's settings: " + e.message); }
 }
 
-loadDD().then(loadList).catch(e => { $("list").innerHTML = `<div class="note">Couldn't load: ${esc(e.message)}</div>`; });
+// ---------------------------------------------------------------- Champ select helper (?champselect=1)
+const SHARDS = { 5008: "Adaptive Force", 5005: "Attack Speed", 5007: "Ability Haste", 5010: "Move Speed", 5001: "Health Scaling",
+  5011: "Health", 5013: "Tenacity and Slow Resist", 5002: "Armor", 5003: "Magic Resist" };
+const CS = { st: null, champ: null, role: null, B: null, opp: null, picked: null, key: "" };
+async function loadCsData() {
+  try {
+    const rr = await (await fetch(`https://ddragon.leagueoflegends.com/cdn/${DD.v}/data/en_US/runesReforged.json`)).json();
+    DD.runes = {}; DD.styles = {};
+    for (const s of rr) { DD.styles[s.id] = s; for (const sl of s.slots) for (const r of sl.runes) DD.runes[r.id] = r; }
+    const sm = await (await fetch(`https://ddragon.leagueoflegends.com/cdn/${DD.v}/data/en_US/summoner.json`)).json();
+    DD.spells = {}; for (const s of Object.values(sm.data)) DD.spells[s.key] = s;
+  } catch (e) { console.warn(e); }
+}
+const runeIcon = (id, big) => DD.runes?.[id] ? `<img class="${big ? "ks" : ""}" src="https://ddragon.leagueoflegends.com/cdn/img/${DD.runes[id].icon}" title="${esc(DD.runes[id].name)}" alt="">` : "";
+const styleIcon = (id) => DD.styles?.[id] ? `<img class="st" src="https://ddragon.leagueoflegends.com/cdn/img/${DD.styles[id].icon}" title="${esc(DD.styles[id].name)}" alt="">` : "";
+const spellIcon = (id) => DD.spells?.[id] ? `<img src="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/spell/${DD.spells[id].id}.png" title="${esc(DD.spells[id].name)}" alt="">` : "";
+const champImg = (alias) => `<img src="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/champion/${alias}.png" alt="">`;
+const csName = (alias) => Object.values(DD.champ).find(c => c.id === alias)?.name || alias;
+
+async function startChampSelect() {
+  document.title = "custy.gg · champ select";
+  document.body.className = "cs";
+  document.body.innerHTML = `<div id="csHead"></div><div id="csBody"><div class="empty">Reading champ select…</div></div><div id="toast" class="toast"></div>`;
+  await loadDD(); await loadCsData();
+  const tick = async () => {
+    let st; try { st = await api("/api/champselect"); } catch (e) { $("csBody").innerHTML = `<div class="empty">${esc(e.message)}</div>`; return; }
+    if (st.phase !== "ChampSelect") {
+      $("csHead").innerHTML = "";
+      $("csBody").innerHTML = `<div class="empty">${st.phase === "InProgress" || st.phase === "GameStart" ? "Good luck! This window closes in a moment." : st.error ? esc(st.error) : "Not in champ select right now. This window opens by itself when you're in one."}</div>`;
+      if (CS.st && (st.phase === "InProgress" || st.phase === "GameStart" || st.phase === "None" || st.phase === "Lobby")) setTimeout(() => window.close(), 4000);
+      CS.st = null; return;
+    }
+    CS.st = st;
+    if (st.champion && (st.champion !== CS.champ || st.role !== CS.role)) {
+      CS.champ = st.champion; CS.role = st.role; CS.picked = null;
+      CS.B = st.role ? await api(`/api/benchmark/${st.champion}-${st.role}`).catch(() => null) : null;
+    }
+    CS.opp = CS.picked || st.opponent;
+    const key = JSON.stringify([st.champion, st.role, CS.opp, st.enemies, !!CS.B, st.spells]);
+    if (key !== CS.key) { CS.key = key; drawChampSelect(); }
+  };
+  await tick(); setInterval(tick, 2000);
+}
+
+function drawChampSelect() {
+  const st = CS.st, B = CS.B && !CS.B.missing ? CS.B : null, S = B?.setup, vs = S?.vs?.[CS.opp];
+  if (!st.champion) {
+    $("csHead").innerHTML = "";
+    $("csBody").innerHTML = `<div class="empty">Hover or pick a champion and the experts' setup shows up here.${st.enemies.length ? `<br><br>Enemy picks so far: ${st.enemies.map(e => esc(csName(e.champion))).join(", ")}` : ""}</div>`;
+    return;
+  }
+  const enemies = st.enemies.map(e => `<button class="ech${e.champion === CS.opp ? " on" : ""}" data-opp="${esc(e.champion)}" title="${esc(csName(e.champion))}${e.role ? " (probably " + esc(ROLE_NAME[e.role] || e.role) + ")" : ""}">${champImg(e.champion)}</button>`).join("");
+  $("csHead").innerHTML = `<div class="me">${champImg(st.champion)}<div><b>${esc(csName(st.champion))}</b><small>${esc(ROLE_NAME[st.role] || "role unknown")}${st.assigned ? "" : " (guessed)"}${st.locked ? "" : " · hovering"}</small></div></div>
+    <div class="vs"><small>Lane opponent${CS.picked ? "" : " (best guess, tap to change)"}:</small><div class="echs">${enemies || `<span class="sub">Enemy picks will show here.</span>`}</div></div>`;
+  const parts = [];
+  // Runes
+  const rec = vs?.rec || S?.rec;
+  if (rec) {
+    const [prim, sub, perks, shards] = rec.page, ks = (vs?.keystones || S.keystones || [])[0];
+    parts.push(`<div class="card csr"><div class="ctitle">Runes ${vs?.rec ? `vs ${esc(csName(CS.opp))}` : ""}</div>
+      <div class="rp"><div class="rcol">${styleIcon(prim)}${runeIcon(perks[0], true)}${perks.slice(1, 4).map(id => runeIcon(id)).join("")}</div>
+        <div class="rcol">${styleIcon(sub)}${perks.slice(4, 6).map(id => runeIcon(id)).join("")}</div>
+        <div class="rcol shards">${shards.map(id => `<span>${esc(SHARDS[id] || id)}</span>`).join("")}</div></div>
+      <div class="sub">${ks ? `${esc(DD.runes?.[ks[0]]?.name || "This keystone")} in ${Math.round(ks[1] * 100)}% of expert games${vs?.rec ? ` against ${esc(csName(CS.opp))} (${vs.n} games)` : ` on ${esc(csName(st.champion))}`}. ` : ""}Other runes are the most common pick in each slot.</div>
+      <button class="primary" id="csRunes">Use this rune page</button></div>`);
+  }
+  // Spells
+  const sp = (vs?.spells?.[0]) || S?.spells?.[0];
+  if (sp) parts.push(`<div class="card css"><div class="ctitle">Summoner spells</div><div class="sp">${sp[0].map(spellIcon).join("")}<span>${Math.round(sp[1] * 100)}% of expert games${vs?.spells?.[0] ? ` vs ${esc(csName(CS.opp))}` : ""}</span></div>
+    <button id="csSpells">Set these spells</button></div>`);
+  // Skills
+  if (S?.skills) {
+    const k = S.skills, L = (s) => "QWER"[s - 1];
+    parts.push(`<div class="card csk"><div class="ctitle">Skill order: max ${k.order.slice(0, 3).split("").join(" › ")}</div>
+      <div class="lv18">${k.typical.map((s, i) => `<span class="s${s}"><i>${i + 1}</i>${L(s)}</span>`).join("")}</div>
+      <div class="sub">${Math.round(k.rate * 100)}% of experts max in this order.</div></div>`);
+  }
+  // Build
+  const path = (B?.paths || [])[0];
+  const start = S?.start?.[0], backs = (S?.backs || []).slice(0, 3);
+  if (path || start) {
+    const icons = (ids) => ids.map(id => `<img src="${itemIcon(id)}" title="${esc(itemName(id))}" alt="">`).join("");
+    parts.push(`<div class="card csb"><div class="ctitle">Build</div>
+      ${start ? `<div class="row"><small>Start</small><div class="ics">${icons(start[0])}</div></div>` : ""}
+      ${backs.map((b, i) => `<div class="row"><small>Back ${i + 1} · ~${clock(b.t)}</small><div class="ics">${b.items.map(([id, r]) => `<span title="${esc(itemName(id))}: ${Math.round(r * 100)}% buy it">${icons([id])}</span>`).join("")}</div></div>`).join("")}
+      ${path ? `<div class="row"><small>Core path</small><div class="ics core">${icons(path.items)}</div></div>` : ""}
+      <button id="csItems">Add as an item set</button>
+      <div class="sub">The item set shows in the in-game shop under "custy.gg".</div></div>`);
+  }
+  if (!S) parts.unshift(`<div class="note">${B ? "Expert runes, spells and skill order for this champion are still being collected; check back after the next update." : `No expert data for ${esc(csName(st.champion))} ${esc(ROLE_NAME[st.role] || "")} yet.`}</div>`);
+  $("csBody").innerHTML = parts.join("");
+
+  document.querySelectorAll("[data-opp]").forEach(b => b.onclick = () => { CS.picked = b.dataset.opp; CS.key = ""; drawChampSelect(); });
+  const post = (path, body, done) => api(path, { method: "POST", body: JSON.stringify(body) }).then(() => toast(done)).catch(e => toast(e.message));
+  if ($("csRunes")) $("csRunes").onclick = () => { const [p, s, perks, shards] = rec.page;
+    post("/api/champselect/runes", { name: `custy.gg ${csName(st.champion)}`, primary: p, sub: s, perks, shards }, "Rune page added and selected."); };
+  if ($("csSpells")) $("csSpells").onclick = () => post("/api/champselect/spells", { spells: sp[0], current: st.spells }, "Summoner spells set.");
+  if ($("csItems")) $("csItems").onclick = () => {
+    const blocks = [];
+    if (start) blocks.push({ name: "Start", items: start[0] });
+    backs.forEach((b, i) => blocks.push({ name: `Back ${i + 1} (~${clock(b.t)})`, items: b.items.map(x => x[0]) }));
+    if (path) blocks.push({ name: "Core path", items: path.items });
+    post("/api/champselect/itemset", { championId: st.championId, title: `custy.gg ${csName(st.champion)}`, blocks }, "Item set added. Find it in the shop under custy.gg.");
+  };
+}
+
+if (new URLSearchParams(location.search).get("champselect")) startChampSelect();
+else loadDD().then(loadCsData).then(loadList).catch(e => { $("list").innerHTML = `<div class="note">Couldn't load: ${esc(e.message)}</div>`; });
 </script>
 </body>
 </html>

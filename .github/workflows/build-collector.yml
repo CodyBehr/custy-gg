@@ -48,7 +48,7 @@ jobs:
           pyinstaller --onefile --noconsole --name custy-collector
           --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;."
           --version-file collector/version_info.txt
-          --paths collector --hidden-import windows_app --hidden-import review --hidden-import overlay --hidden-import tkinter --hidden-import pystray._win32
+          --paths collector --hidden-import windows_app --hidden-import review --hidden-import overlay --hidden-import champselect --hidden-import tkinter --hidden-import pystray._win32
           collector/custy_collector.py
 
       - name: Check the app starts and reads attached settings

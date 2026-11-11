@@ -400,10 +400,15 @@ def run_with_tray(cfg, start_collector):
         webbrowser.open(site)
 
     review_url = {"url": None}
+    if "champ_select_helper" in _read_json(SETTINGS, {}):
+        cfg["champ_select_helper"] = bool(_read_json(SETTINGS, {})["champ_select_helper"])
     try:
         import review
         review_url["url"] = review.start(cfg)
         threading.Thread(target=review.keep_cache_fresh, args=(cfg, stop), name="review-cache", daemon=True).start()
+        import champselect
+        threading.Thread(target=champselect.watch, args=(cfg, stop, lambda: review.open_small(review_url["url"] + "&champselect=1")),
+                         name="champ-select", daemon=True).start()
     except Exception as e:
         core.log.warning("Game review page didn't start: %s", e)
 
@@ -423,6 +428,13 @@ def run_with_tray(cfg, start_collector):
         status["state"] = "Paused" if status["paused"] else "Resuming"
         icon.update_menu()
 
+    def toggle_champ_select(icon, item):
+        st = _read_json(SETTINGS, {})
+        st["champ_select_helper"] = not cfg.get("champ_select_helper", True)
+        cfg["champ_select_helper"] = st["champ_select_helper"]
+        _write_json(SETTINGS, st)
+        icon.update_menu()
+
     def toggle_autostart(icon, item):
         set_autostart(not autostart_enabled())
         icon.update_menu()
@@ -439,6 +451,7 @@ def run_with_tray(cfg, start_collector):
     menu = pystray.Menu(
         pystray.MenuItem("Open custy.gg", open_site, default=True),
         pystray.MenuItem("Review my games (test)", open_review_window),
+        pystray.MenuItem("Champ select helper", toggle_champ_select, checked=lambda item: cfg.get("champ_select_helper", True)),
         pystray.Menu.SEPARATOR,
         pystray.MenuItem(status_text, None, enabled=False),
         pystray.MenuItem(uploads_text, None, enabled=False),
