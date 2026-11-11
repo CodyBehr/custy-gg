@@ -72,6 +72,13 @@ svg text { fill:var(--mute); font-size:11px; }
 .well-card .w { display:flex; gap:10px; padding:7px 0; } .well-card .w i { color:var(--green); font-style:normal; font-weight:700; }
 .well-card .w b { display:block; } .well-card .w span { color:var(--mute); font-size:13px; }
 .warn { color:var(--amber-ink) !important; }
+.jgl .jt { width:100%; border-collapse:collapse; font-size:13.5px; } .jgl .jt th { text-align:left; color:var(--faint); font-weight:500; font-size:12px; padding:4px 6px; }
+.jgl .jt td { padding:6px; border-top:1px solid var(--line-soft); } .jgl .jt td:first-child { color:var(--mute); }
+.jgl .wbar { display:flex; height:26px; border-radius:7px; overflow:hidden; margin:6px 0; }
+.jgl .wbar span { display:flex; align-items:center; justify-content:center; font-size:11px; color:#0b1020; font-weight:700; white-space:nowrap; overflow:hidden; }
+.jgl .gks { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin:6px 0 10px; }
+.jgl .gl { background:var(--line-soft); border-radius:8px; padding:8px 10px; } .jgl .gl b { display:block; } .jgl .gl span { font-size:13px; } .jgl .gl small { display:block; color:var(--faint); font-size:11.5px; }
+.jgl .jcurve { width:100%; max-width:520px; height:auto; margin-top:6px; }
 .setup .lbl { color:var(--mute); font-size:12px; margin-top:8px; }
 .setup .rrow { display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin:4px 0; }
 .setup .rrow img { width:28px; height:28px; } .setup .rrow img.ks { width:38px; height:38px; } .setup .rrow img.st { width:20px; height:20px; opacity:.8; }
@@ -230,6 +237,82 @@ async function loadDD() {
   } catch (e) { console.warn("Data Dragon unavailable", e); }
 }
 const champName = (id) => DD.champ[id]?.name || ("Champion " + id);
+// ---- Jungle: the first 14 minutes, against junglers at each rank (750 ranked games, Nov 2026) and experts on this champion.
+const JG_RANKS = ["Bronze", "Silver", "Gold", "Emerald", "Master+"];
+const JG = { jcs10: [60, 64, 64, 67, 70], firstTakedown: [305, 283, 259, 235, 226], laneMins: [3.02, 3.05, 3.37, 3.54, 3.65],
+  enemyJg: [.7, .7, .78, .85, .88], ganks: { top: [.52, .58, .70, .79, .82], mid: [.53, .62, .78, .82, .94], bot: [1.13, 1.30, 1.44, 1.51, 1.44] } };
+function mapArea(p) {
+  const x = p?.x ?? 7400, y = p?.y ?? 7400;
+  if ((x < 3600 && y < 3600) || (x > 11200 && y > 11200)) return "base";
+  if (x < 2400 || y > 12400) return "top";
+  if (y < 2400 || x > 12400) return "bot";
+  if (Math.abs(x - y) < 1600) return "mid";
+  if (Math.abs(x + y - 14800) < 1300) return "river";
+  return "jungle";
+}
+function jungleOf(A) {
+  const pid = A.me.participantId, end = Math.min(A.minutes, 14), team = A.me.teamId;
+  const at = (k) => A.pf(A.frames[k], pid);
+  const own = (p) => (p.x + p.y < 14800) === (team === 100);
+  const where = {};
+  for (let k = 2; k <= end; k++) {
+    let a = mapArea(at(k).position);
+    if (a === "jungle") a = own(at(k).position) ? "own jungle" : "enemy jungle";
+    where[a] = (where[a] || 0) + 1;
+  }
+  const firstLane = (() => { for (let k = 2; k <= end; k++) { const a = mapArea(at(k).position); if (["top", "mid", "bot"].includes(a)) return [k, a]; } return null; })();
+  const ganks = { top: [0, 0], mid: [0, 0], bot: [0, 0] };
+  for (const k of A.kills) {
+    if (k.timestamp > 840000) continue;
+    const a = mapArea(k.position); if (!ganks[a]) continue;
+    if (k.killerId === pid || (k.assistingParticipantIds || []).includes(pid)) ganks[a][0]++; else if (k.victimId === pid) ganks[a][1]++;
+  }
+  const ft = A.kills.find(k => k.killerId === pid || (k.assistingParticipantIds || []).includes(pid));
+  const p2 = at(Math.min(2, end)).position || { x: 0, y: 0 };
+  return { jcs: Array.from({ length: end + 1 }, (_, k) => at(k).jungleMinionsKilled || 0), where, firstLane, ganks,
+    firstTakedown: ft ? ft.timestamp / 1000 : null, start: p2.y - p2.x > 0 ? "top" : "bot", end };
+}
+// Where on the Bronze..Master+ ladder a value sits (higher is better unless lowerBetter).
+function ladderAt(v, ladder, lowerBetter) {
+  const n = ladder.filter(x => lowerBetter ? v <= x : v >= x).length;
+  return n === 0 ? `below ${JG_RANKS[0]}` : `${JG_RANKS[n - 1]}${n === 5 ? "" : "-like"}`;
+}
+function jungleCard(A, B) {
+  if (A.minutes < 10) return "";
+  const J = jungleOf(A), E = B?.jungle, who = E ? `Experts on ${esc(champName(A.me.championId))}` : "Master+ junglers";
+  const lane = (J.where.top || 0) + (J.where.mid || 0) + (J.where.bot || 0);
+  const rows = [];
+  rows.push(["Jungle CS at 10:00", J.jcs[10], E?.jcs?.[10] ?? JG.jcs10[4], ladderAt(J.jcs[10], JG.jcs10)]);
+  rows.push(["First kill or assist", J.firstTakedown ? clock(J.firstTakedown) : "none before 14:00", E?.first_takedown ? clock(E.first_takedown) : clock(JG.firstTakedown[4]),
+    J.firstTakedown ? ladderAt(J.firstTakedown, JG.firstTakedown, true) : "below Bronze"]);
+  // One game's whole minutes against averages is too rough for a rank level, so these just compare.
+  rows.push(["Minutes in lanes (2:00–14:00)", lane, E ? ((E.where.top || 0) + (E.where.mid || 0) + (E.where.bot || 0)).toFixed(1) : JG.laneMins[4], ""]);
+  rows.push(["Minutes in their jungle", J.where["enemy jungle"] || 0, E ? (E.where["enemy jungle"] || 0).toFixed(1) : JG.enemyJg[4], ""]);
+  const gk = ["top", "mid", "bot"].map(l => {
+    const ex = E?.ganks?.[l]?.[0] ?? JG.ganks[l][4], [t, d] = J.ganks[l];
+    return `<div class="gl"><b>${l === "bot" ? "Bot" : l[0].toUpperCase() + l.slice(1)}</b><span>${t} takedown${t === 1 ? "" : "s"}${d ? ` · ${d} death${d === 1 ? "" : "s"}` : ""}</span><small>${E ? "experts" : "Master+"} ${ex.toFixed(1)}</small></div>`;
+  }).join("");
+  const W = J.where, tot = Math.max(1, J.end - 1), seg = [["own jungle", "Your jungle", "var(--blue)"], ["river", "River", "#7fb8ff88"], ["top", "Top", "var(--gold)"], ["mid", "Mid", "var(--gold)"], ["bot", "Bot", "var(--gold)"], ["enemy jungle", "Their jungle", "var(--red)"], ["base", "Base", "var(--line)"]];
+  const curve = (() => {   // your jungle CS by minute against experts (or Master+ at 10)
+    const ex = E?.jcs; if (!ex) return "";
+    const w = 300, h = 70, mx = Math.max(...J.jcs, ...ex.slice(0, J.end + 1).filter(v => v != null), 1);
+    const pt = (v, k) => `${(k / 14 * w).toFixed(1)},${(h - v / mx * h).toFixed(1)}`;
+    return `<svg viewBox="0 0 ${w} ${h + 14}" class="jcurve"><polyline points="${ex.slice(0, J.end + 1).map(pt).join(" ")}" fill="none" stroke="var(--faint)" stroke-dasharray="4 3"/>
+      <polyline points="${J.jcs.map(pt).join(" ")}" fill="none" stroke="var(--gold)" stroke-width="2"/><text x="0" y="${h + 12}" font-size="10" fill="var(--faint)">0:00</text><text x="${w}" y="${h + 12}" font-size="10" fill="var(--faint)" text-anchor="end">14:00</text></svg>
+      <div class="sub">Your jungle CS by minute (gold) against ${who.toLowerCase()} (dashed).</div>`;
+  })();
+  return `<h2>Jungle: your first 14 minutes</h2><div class="card jgl">
+    <table class="jt"><tr><th></th><th>You</th><th>${who}</th><th>Your level</th></tr>
+      ${rows.map(([k, v, e, l]) => `<tr><td>${k}</td><td><b>${v}</b></td><td>${e}</td><td class="${/Master/.test(l) ? "good" : /Bronze|below/.test(l) ? "warn" : ""}">${l}</td></tr>`).join("")}</table>
+    <div class="ctitle" style="margin-top:12px">Where you spent 2:00–14:00</div>
+    <div class="wbar">${seg.filter(([k]) => W[k]).map(([k, n, c]) => `<span style="flex:${W[k]};background:${c}" title="${n}: ${W[k]} min">${W[k] / tot > .08 ? n : ""}</span>`).join("")}</div>
+    <div class="sub">From one position per minute, so it's rough. You started on the ${J.start} side${J.firstLane ? ` and first showed up in ${J.firstLane[1]} lane around ${J.firstLane[0]}:00` : ""}.</div>
+    <div class="ctitle" style="margin-top:12px">Ganks before 14:00 (kills and assists in each lane)</div>
+    <div class="gks">${gk}</div>
+    ${curve}
+    <div class="sub" style="margin-top:8px">${E ? `Expert numbers from ${E.n} games on this champion. ` : "Per-champion expert jungle numbers arrive with tonight's data update. "}Rank levels come from 1,500 ranked junglers across Bronze to Master+.</div></div>`;
+}
+
 // Your rune page, spells and skill order next to what experts use (for this matchup when there are enough games).
 function setupCard(A, B) {
   const S = B?.setup; if (!S || !DD.runes) return "";
@@ -1090,6 +1173,7 @@ function render(A, B, moments, s, label, well = []) {
       ${levelCard(A, B)}
       ${pingCard(A)}
     </div>
+    ${A.role === "JUNGLE" ? jungleCard(A, B) : ""}
     <h2>Moments to watch, in order</h2>
     <div class="card">${moments.length ? moments.map((w, i) => `
       <div class="moment${w.good ? " well" : w.parts.some(p => p.turning) ? " swing" : ""}">
