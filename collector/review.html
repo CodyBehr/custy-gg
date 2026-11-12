@@ -226,7 +226,16 @@ details.allnums { margin-top:22px; } details.allnums summary { cursor:pointer; c
 .gmap .legend { justify-content:center; }
 .moment .ci { width:22px; height:22px; border-radius:5px; vertical-align:-6px; margin-right:5px; border:1px solid var(--line); }
 .moment .ci.sm { width:17px; height:17px; vertical-align:-4px; margin-right:3px; } .moment .ci.fc { width:26px; height:26px; margin:0; }
-details.fight .fp { flex-direction:column; flex-wrap:nowrap; gap:0; }
+details.fight:not(.full) .fp { flex-direction:row; flex-wrap:wrap; gap:6px; margin-top:4px; }
+details.fight.full .fp { flex-direction:column; flex-wrap:nowrap; gap:0; }
+details.fight:not(.full) .fpl { position:relative; padding:2px 8px 2px 2px; border:1px solid var(--line-soft); border-radius:8px; gap:6px; cursor:default; }
+details.fight:not(.full) .fpl .its, details.fight:not(.full) .fpl .name { display:none; }
+details.fight:not(.full) .fpl .nm { min-width:0; }
+details.fight:not(.full) .fpl .g { margin-left:0; }
+details.fight .fpl .pop { display:none; }
+details.fight:not(.full) .fpl:hover .pop { display:flex; position:absolute; left:0; top:calc(100% + 4px); z-index:20; gap:3px; padding:6px; background:#0d1526; border:1px solid var(--line); border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,.5); white-space:nowrap; font-size:12px; color:var(--mute); }
+details.fight .fpl .pop img { width:26px; height:26px; border-radius:4px; border:1px solid var(--line); opacity:.65; } details.fight .fpl .pop img.done { opacity:1; border-color:var(--gold); }
+.fulltog { display:inline-flex; align-items:center; gap:5px; font-size:12px; color:var(--mute); margin-top:6px; cursor:pointer; }
 .fight .fpl { display:flex; align-items:center; gap:8px; padding:3px 0; } .fight .fpl .nm { min-width:110px; } .fight .fpl .nm i { color:var(--mute); font-style:normal; font-size:12px; }
 .fight .fpl .its { display:flex; gap:3px; flex-wrap:wrap; } .fight .fpl .its img { width:22px; height:22px; border-radius:4px; opacity:.6; border:1px solid var(--line); }
 .fight .fpl .its img.done { opacity:1; border-color:var(--gold); width:26px; height:26px; } .fight .fpl .g { color:var(--mute); font-size:12px; margin-left:auto; } .fight .fpl .g em { color:var(--amber-ink); font-style:normal; }
@@ -1289,6 +1298,10 @@ function render(A, B, moments, s, label, well = []) {
     </div>
     <p class="sub" style="margin-top:22px">Compared with ${B ? esc(label) : "nothing yet"}. It only says where to look; watching the replay is how you see why.</p>`;
   document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
+  document.querySelectorAll("[data-fullitems]").forEach(c => c.onchange = () => {
+    try { localStorage.setItem("custy.fullItems", c.checked ? "1" : "0"); } catch {}
+    document.querySelectorAll("details.fight").forEach(d => d.classList.toggle("full", c.checked));
+    document.querySelectorAll("[data-fullitems]").forEach(x => x.checked = c.checked); });
   document.querySelectorAll("[data-kd]").forEach(c => c.onclick = () => { const el = $(c.dataset.kd); if (!el) return;
     el.scrollIntoView({ behavior: "smooth", block: "center" }); el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); });
   markExpired(document, A.g.gameId);
@@ -1310,6 +1323,8 @@ function render(A, B, moments, s, label, well = []) {
 }
 
 // "Going in": players, levels and gold on each side of the fight a kill or death was part of.
+// "Going in" shows compact chips (hover for items) unless the player switched on "Show all items". Remembered per browser.
+const fightFull = () => { try { return localStorage.getItem("custy.fullItems") === "1"; } catch { return false; } };
 function fightPanel(A, f) {
   if (!f || !A.hasItems) return "";
   const side = (list, label) => {
@@ -1317,9 +1332,11 @@ function fightPanel(A, f) {
     const k = (v) => (v / 1000).toFixed(1) + "k";
     return `<div class="fs"><b>${label}: ${list.length}</b> · levels ${lv} · ${k(built)} in items${un >= 300 ? ` · ${k(un)} not spent` : ""}
       <div class="fp">${list.map(x => { const done = x.items.filter(isCompleted).concat(x.items.filter(isBoots)), rest = x.items.filter(id => !done.includes(id));
-        return `<div class="fpl">${pidIcon(A, x.pid, "fc")}<span class="nm">${esc(A.champOf(x.pid))} <i>lv ${x.lv}</i></span>
-          <span class="its">${done.map(id => `<img class="done" src="${itemIcon(id)}" title="${esc(itemName(id))}" alt="">`).join("")}${rest.map(id => `<img src="${itemIcon(id)}" title="${esc(itemName(id))}" alt="">`).join("")}</span>
-          <span class="g">${k(x.built + x.parts)}${x.unspent >= 600 ? ` <em>+${k(x.unspent)} unspent</em>` : ""}</span></div>`; }).join("")}</div></div>`;
+        const its = `${done.map(id => `<img class="done" src="${itemIcon(id)}" title="${esc(itemName(id))}" alt="">`).join("")}${rest.map(id => `<img src="${itemIcon(id)}" title="${esc(itemName(id))}" alt="">`).join("")}`;
+        const gold = `${k(x.built + x.parts)}${x.unspent >= 600 ? ` <em>+${k(x.unspent)} unspent</em>` : ""}`;
+        return `<div class="fpl">${pidIcon(A, x.pid, "fc")}<span class="nm"><span class="name">${esc(A.champOf(x.pid))} </span><i>lv ${x.lv}</i></span>
+          <span class="its">${its || `<span class="sub">no items</span>`}</span><span class="g">${gold}</span>
+          <span class="pop">${its || "no items"}</span></div>`; }).join("")}</div></div>`;
   };
   const S = (l) => ({ n: l.length, lv: l.reduce((a, x) => a + x.lv, 0), items: l.reduce((a, x) => a + x.built + x.parts, 0), un: l.reduce((a, x) => a + x.unspent, 0) });
   const u = S(f.us), t = S(f.them), why = [];
@@ -1331,8 +1348,9 @@ function fightPanel(A, f) {
     if (Math.abs(di) >= 800 && Math.sign(di) !== Math.sign((u.items + u.un) - (t.items + t.un))) why.push(`even though ${di > 0 ? "they" : "you"} had more total gold, some of it wasn't spent`);
     if (!why.length) why.push("about even");
   }
-  return `<details class="fight"><summary>Going in: ${why.join(", ")}</summary>${side(f.us, "Your side")}${side(f.them, "Their side")}
-    <div class="sub">Items from purchases; unspent gold is from the minute before, so it's approximate. Summoner spells and cooldowns aren't in the data.</div></details>`;
+  return `<details class="fight${fightFull() ? " full" : ""}"><summary>Going in: ${why.join(", ")}</summary>${side(f.us, "Your side")}${side(f.them, "Their side")}
+    <label class="fulltog"><input type="checkbox" data-fullitems${fightFull() ? " checked" : ""}> Show all items</label>
+    <div class="sub">${fightFull() ? "" : "Hover a champion to see their items. "}Items from purchases; unspent gold is from the minute before, so it's approximate. Summoner spells and cooldowns aren't in the data.</div></details>`;
 }
 
 // A death that was worth it: your team came out ahead in that fight, took an objective for it,
