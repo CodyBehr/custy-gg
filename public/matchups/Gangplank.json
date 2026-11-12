@@ -1,0 +1,587 @@
+{
+"champ": "Gangplank",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/gangplank-matchups-guide-14-10-by-eune-rank-2-637840",
+"author": "Wielki B",
+"updated": "2024-05-20",
+"title": "GANGPLANK MATCHUPS GUIDE 14.10 by EUNE rank 2"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Run Fleet Footwork with Bone Plating, or First Strike if confident; he can easily kill you in lane. Buy anti-heal and Swiftness Boots, and dodge his Q sweet spots and W. Poke heavily; you can win a duel when he is around 40% health and you are full."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Take First Strike and poke her with Q and barrels. Once you have hit her with your passive auto, you can see her inside her shroud."
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His range and passive make it tricky, though only a strong Akshan makes it hard. Fleet Footwork with Second Wind is the safe setup."
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"A skill matchup. Her passive shield does not block your passive, so reset it often and poke her down; with a small lead you can win the duel."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You can win early: take Ignite and poke him until Flash, passive auto, Q and Ignite can kill. Avoid his pull. Once he has ult, only fight after poking him below half health."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Easy: take First Strike and Cut Down, dodge his cleavers, and kill him early. Buy anti-heal but do not rush it."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Hard against a good Fiora. Poke her and only fight when she is below half health and you have anti-heal. Grasp and Bone Plating work, and you can bait her riposte with an emote-style animation cancel."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Avoid losing health and stay near or under your tower; below half health he can Flash-Q, Ignite and ult you."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Take Fleet Footwork and Second Wind and avoid his poke. You rarely win a duel unless he misplays."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A good Gwen is very hard to handle; farm near your tower. First Strike is recommended."
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Dodge her E and walk out of range if it hits. Take First Strike if you dodge well, otherwise Fleet. Never fight inside her ult; with Ignite you can try to kill her before level 6."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You win with good play before she completes Blade of the Ruined King. Avoid overextending; Ignite and Plated Steelcaps help."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Take First Strike and Bone Plating, and use W to cleanse his stun. Keep poking and you win easily."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He out-damages you at range during laning, but he can be killed with careful play. Fleet Footwork with Second Wind."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Kill her before level 6, since it gets harder afterward. Do not push into her so your jungler can punish her. First Strike with Gathering Storm."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Take Fleet Footwork and Second Wind, dodge his shuriken, and poke him; if you are ahead on health you can win the duel."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Take Bone Plating, dodge his Q, watch for dives and never stay in lane on low health."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Rough early if he runs Comet. Take Second Wind and buy armor penetration."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Very hard since your W no longer cleanses his ult. Take Bone Plating and stay near your tower after level 6. If you cannot dodge his Q, stand among minions to reduce its damage."
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His healing outpaces your poke, so you cannot stop him stacking. Freeze near your tower and call for your jungler."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Poke him, dodge his axe and avoid his E."
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Take First Strike and Cut Down; he simply out-stats you. Dying once makes the lane hard, but if he misplays and you kill him, you can duel him later."
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Take Fleet Footwork and Second Wind, poke her without overextending, and ask for ganks."
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Take Bone Plating and avoid fighting during his ult unless the kill is certain. With anti-heal and two items you kill him easily."
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Against a skilled Riven the lane feels unplayable; at level 6 she can kill you in seconds. Take Bone Plating and poke her down."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork and Second Wind. Dodge his harpoon and do not walk up at levels 3-4 when his flamethrower hits very hard. Poke him and chase when he is low."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Take Bone Plating and avoid his E. You can W his ult; do it quickly to avoid the slam damage."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He hits hard early. W his taunt, poke him, and run First Strike with Cut Down."
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"A free farming lane where you can rack up very high CS."
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid his E and Q and respect his passive damage after death. Keep resetting your passive; take First Strike and Cut Down."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Dodge his tongue since he hits hard, and W his ult. First Strike with Cut Down."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet with Second Wind or First Strike with Second Wind both work. W cleanses his blind, and with items you one-shot him."
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Do not overextend; freeze near your tower. Take Bone Plating or Cut Down and buy anti-heal. Poke him but only engage when you are sure to kill him even through his ult."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"With ult he can dive you, so ult yourself if needed and W his slow. Exhaust is an option."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Getting hit by his E is usually fatal. You can W his ult recast so you still get pulled but survive. Bone Plating is good."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet, Second Wind and Doran's Shield. Farm without losing much health, stay near your tower, poke lightly and ask for ganks; after a few items you one-shot her."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Take Cut Down; he deals a lot of damage. Poke him, watch for dives and do not stay low when he has ult."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"With Ignite at level 6 he can one-shot you, and his early game is strong. Take Bone Plating; hard but winnable."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Annoying but not hard. Bone Plating helps, bait his wind wall with an animation cancel, and you can W his ult."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Poke him down, respect his W shield during trades, and take Bone Plating."
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Nearly unwinnable against a competent Yorick: his cage and E take huge chunks of health and his push is strong. You can kill him before level 6, but the lane stays very hard."
+]
+]
+}
+]
+}
+}

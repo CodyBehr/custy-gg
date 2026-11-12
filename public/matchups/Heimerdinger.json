@@ -1,0 +1,419 @@
+{
+"champ": "Heimerdinger",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/13-11-in-depth-heimerdinger-guide-mid-top-bot-support-616072",
+"author": "SanyGame",
+"updated": "2026-02-21",
+"title": "[26.4] In-Depth Heimerdinger Guide [Mid/Top/Bot/Support]"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Arcane Comet; a strong ban candidate mid. Aim to stay even since she needs to snowball. Place turrets behind the wave and only when needed, because she can stun or pick them up with Q and E; combine E and W when short on turrets. Early boots help dodge, prefer ult W or E in fights since her E can displace your ult turret, and Banshee's Veil helps later."
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Arcane Comet; a basic mid matchup. Place turrets away from the wave so she cannot clear both, and stand behind minions or turrets to block her charm. If she ults in, weave around your turrets and save your E since she dodges it easily. Your W poke outranges her."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Conqueror or Aery. Poke rather than all-in, since she is mobile and your turrets cannot hit her in shroud; be more aggressive while it is on cooldown. She has little kill pressure before level 6. Exhaust and possibly Bone Plating are good picks."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Arcane Comet. Place turrets so she cannot hit them and the wave together, and pressure her when she uses her storm on the wave to force her back. Build more ability haste and mana, such as Luden's, to keep up with her waveclear."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Comet or Conqueror. His weak early game and waveclear favor you: shove constantly to deny his stacks and stun him with E when he walks up to poke. His ult can set up ganks."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet. Like Xerath but shorter ranged: dodge his skillshots and avoid the stun since he can one-shot you by midgame. Do not stand near your turrets on low health, as his ult can bounce off them into you."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Conqueror or Aery. Never throw E while his E is up, and note his Q can also dodge the stun. If his shark lands you usually die. Barrier or Exhaust, sometimes Bone Plating, can save you; watch the enemy jungler since he sets up ganks with ult."
+]
+]
+}
+],
+"Hwei": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet; similar to Xerath or Ziggs. Keep turrets out of the wave and apart, take Teleport and early boots. Watch his EE follow-up, which lets him land his full combo. His early waveclear is strong; it gets manageable after Lost Chapter."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Conqueror. Space turrets so she cannot dash between them, poke while she farms and back off when she engages. Her Q can dodge your E and Q. Zhonya's and Exhaust help. Farm safely early, stay near your turrets, and roam to objectives rather than fighting her; punish her when she overextends."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Conqueror. Weak early but dangerous late. Harass him, deny free CS, and avoid over-pushing into his tower farming. After 6 be more careful landing E, and punish his roams by taking towers or counter-roaming with Teleport. Pop Shattered Queen's shield with W or turrets, and try to end early."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Conqueror. Keep pushing and zone her with turrets. If confident, answer her E with your grenade, and if she ults, a Q-E-Q combo usually kills her."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Arcane Comet; like Xerath and Brand but easier. Her E plus auto can kill turrets, so spread them out behind the wave. Her Q only hits two targets, so stay near turrets and minions. Barrier or Teleport, early boots, Stopwatch and Null-Magic Mantle are recommended."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Aery or Electrocute, the latter for quick trades. Do not stand still for her W-Q combo; use minions and turrets to block her chain. Use your waveclear to push her out and poke with W while she farms. Your turrets target the real LeBlanc thanks to your mark, which helps spot her clone."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet with Biscuits and Refillable for sustain. Be aggressive before level 6 while his damage is low and his cooldowns long, but never dive him. Barrier is recommended against his ult, or Ignite for aggression. Ward deep since he relies on ganks, and use a wide W to pop his passive."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet. Her root passes through minions and turrets and can cost you half your health. Spread turrets since one Q can clear them. If she ults at you, stun her with a grenade and fire a double beam."
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Arcane Comet. Her ball outranges your turrets and can destroy them, so position carefully. Poke and shove early while her kill pressure is low, but respect her after Lost Chapter or Luden's. She outscales you, so focus on surviving and denying farm."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Conqueror or Comet. He is immobile and easy to CC, with a short Q and dodgeable W and E. If he ults near your turrets, use ult Q, stun him and let turrets finish."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Conqueror. He must get close, which you counter well. Stay behind minions to block his chain; if he reaches you, use ult Q and a combo to kill him. Poke him in lane; many Sylas players waste your stolen ult."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Arcane Comet. Her long poke and zone control make it tough; spread out turrets. When she walks up for her E, stun her first and follow with Q and W. Respect her W damage, and use early boots and your passive to dodge."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet. Harass him and deny CS, and keep turrets behind the wave so his Q cannot stack off them; spread them against his W. If he cages you for a gank, drop all turrets and your ult turret for safety. Barrier and later Banshee's Veil are good."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Arcane Comet; easier than Xerath or Ziggs. Keep turrets out of the wave and out of a line so his W cannot hit them all, and block his Q with turrets or minions. His E-W-Q-R combo can kill you quickly if the knockup lands."
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet. Be very aggressive before he upgrades abilities. His E, especially upgraded, wipes turrets, so spread them out or keep some in reserve."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet. He can Q your turrets for sustain and farm safely under tower. Shove for priority and help early skirmishes, where he cannot match you. Buy Oblivion Orb after Blackfire Torch or Liandry's."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet. Spread turrets away from the wave so he must destroy them one by one, draining his mana. Use your passive speed and early boots to dodge his spells."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Conqueror or Electrocute. His wind wall blocks your damage but has a long cooldown, so poke when it is down, using autos to break his shield. Set turrets in a spread triangle; if he enters, stun him and follow with ult Q or ult W. Ignite or Exhaust help, and late game avoid his ult and wait out wind wall."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Conqueror; easier than Yasuo. Sidestep his Q dash and ult, predict his dash with your stun, and poke while he farms. Save your stun for his E return, since wasting it loses the trade. Ignite, Barrier or Exhaust all work; do not let him engage you at full health."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Arcane Comet or Aery. Going even is fine since he needs to snowball; do not overextend. Rush Cloth Armor and Stopwatch, punish his roams by taking his tower and ping when he is missing. After his ult he appears behind you, so throw your stun there. Barrier or Exhaust."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet; like Xerath. His range makes kills hard, so aim to stay even and keep turrets away from the wave. Barrier or Teleport and early boots are recommended."
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Arcane Comet. Learn to block skillshots with turrets; without her E-Q combo she is harmless. If her bubble hits you, place a turret in front to block the Q. Her movement is predictable around her ult and Q, which helps you land your stun."
+]
+]
+}
+]
+}
+}

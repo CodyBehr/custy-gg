@@ -1,0 +1,31 @@
+{
+ "champ": "Chogath",
+ "url": "https://www.mobafire.com/league-of-legends/build/the-passionate-guide-to-chogath-jungle-620807",
+ "title": "THE PASSIONATE GUIDE TO CHO'GATH JUNGLE",
+ "author": "LeonAtreides",
+ "rank": "?",
+ "updated": "2024-12-10",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Lillia": {
+   "difficulty": "Extreme",
+   "summary": "The author considers her overwhelming for Cho'Gath jungle and simply recommends banning her."
+  },
+  "Vayne": {
+   "difficulty": "Major",
+   "summary": "The guide's build lets you fight her off reasonably well. Try to shut her down early; if that fails, you can still outplay her with the build and good execution."
+  },
+  "Trundle": {
+   "difficulty": "Major",
+   "summary": "Unless he is behind or misplays, expect to lose duels against him. A well-placed Q lets you escape if he has no Flash. In teamfights, lock him down for your team and look to execute him with your ult."
+  },
+  "Belveth": {
+   "difficulty": "Major",
+   "summary": "A dangerous hypercarry who snowballs off small mistakes. She is weak in teamfights, squishy and vulnerable to CC that disrupts her spells, so group up and run her over."
+  },
+  "Shyvana": {
+   "difficulty": "Major",
+   "summary": "She out-farms you no matter what. Your best option is to catch her while she is distracted on a camp and hope she misplays."
+  }
+ }
+}

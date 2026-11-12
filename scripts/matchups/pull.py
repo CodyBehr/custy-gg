@@ -13,6 +13,7 @@ import csv, io, json, os, re, sys, time, urllib.request, urllib.error, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SRC = os.path.join(ROOT, "scripts", "matchups", "sheets.json")
+SUMS = os.path.join(ROOT, "scripts", "matchups", "summaries")
 OUT = os.path.join(ROOT, "public", "matchups")
 BENCH = os.path.join(ROOT, "public", "benchmarks", "index.json")
 
@@ -207,6 +208,23 @@ def main():
                 if os.path.exists(path):
                     os.remove(path)                  # author stopped sharing: drop our copy
             print(f"{c:14} {meta['quality']:14} {meta.get('opponents', '')} {meta.get('pull', '')}")
+        elif os.path.exists(os.path.join(SUMS, f"{c}.json")):
+            # our own short summaries of a written guide's matchup section (scripts/matchups/summaries)
+            sm = json.load(open(os.path.join(SUMS, f"{c}.json")))
+            meta = {k: v for k, v in {"quality": "summary", "url": sm.get("url"), "author": sm.get("author"),
+                    "rank": sm.get("rank"), "updated": sm.get("updated"), "title": sm.get("title")}.items() if v not in (None, "", "?")}
+            rows = {}
+            for opp, r in sm.get("rows", {}).items():
+                if opp in ids and r.get("summary"):
+                    rows[opp] = [{"fields": [["Difficulty", r["difficulty"]]] * bool(r.get("difficulty")) + [["", r["summary"]]]}]
+            if not rows:          # guide had no usable matchup notes: keep it as a plain link
+                meta = {k: s.get(k) for k in ("quality", "url", "author", "rank", "updated") if s.get(k) not in (None, "", "?")}
+            if rows:
+                body = {"champ": c, "source": meta, "fetched": sm.get("summarized", ""), "rows": rows}
+                json.dump(body, open(path, "w"), indent=0, ensure_ascii=False)
+                meta["opponents"] = len(rows)
+            elif os.path.exists(path):
+                os.remove(path)
         elif os.path.exists(path):
             os.remove(path)
         index[c] = meta

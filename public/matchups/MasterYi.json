@@ -1,0 +1,769 @@
+{
+"champ": "MasterYi",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/25-24-master-yi-guide-649922",
+"author": "Eddeeken",
+"updated": "2026-01-09",
+"title": "Season 15 Master Yi Guide"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Khazix": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Kha'Zix will invade and try to catch you isolated early. Place deep wards and avoid 1v1s before level 6 unless you know his leap is on cooldown."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Do not let her hit level 6 uncontested. Pick up some magic resist early and use Control Wards to reveal her before she can burst you."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"The author's standard ban since Shaco is frustrating and often played by one-tricks. Track him from the start, stay clear of his boxes, and punish him once his early cheese fails, since he duels poorly afterward."
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Elise dominates the early game. Focus on surviving and farming inside warded areas until she falls off, then your scaling takes over."
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Never fight him while his W is up. Wait for him to use his taunt, then lean on Q resets and true damage to get through his armor."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Ward the corners of your jungle and around objectives. If you avoid his ultimate engage, he is an easy kill."
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her early ganks and targeted ultimate demand respect. Once you have tenacity and damage items she falls off sharply."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"With good farm and resets she can beat you in clear speed and skirmishes. Deny her early tempo so she cannot snowball."
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her map presence and tunnels make early invades dangerous. Play safe and avoid being caught out of position."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Long late-game duels tend to favour Jax. Hit your item spikes on time and do not let him scale freely."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Pantheon crushes you before level 6. Kite him or stay away from him until your first completed item."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His CC and burst can wreck your engages. Wait until he has used his E or ultimate before going all in."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A hard early counter. Track her W cooldown so you can escape fights with Alpha Strike or Flash when it is down."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Wukong can beat you early and interrupt resets with his knock-ups. If you reach two items, you outscale him comfortably in longer fights."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Keep farm even and avoid giving early kills. If you hit your two-item spike first, you beat either of his forms."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fighting him head-on lets him kite you forever. Flank him or Q over walls when his dash is on cooldown to close the distance."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Lee Sin pressures hard early. Survive that phase without taking risks and you take over later."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His burst and mobility can dodge your resets if you engage carelessly. Played patiently, you outscale him in most games."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His early sustain and fear can wreck your duels. Wait out his early pressure and punish once you have items."
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He is like a smaller Yi with crowd control. Avoid giving him early resets; if you get ahead, you outscale him."
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Do not burn Alpha Strike on his slingshot engage. Kill his blobs quickly so he cannot revive."
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Deny her marks with deep wards and fast clears. Once you are ahead, your damage kills her even through her ultimate."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You farm freely early, but he is dangerous in teamfights. Engage only after he misses his Q or uses his ultimate."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Diana wins early skirmishes but falls off. Dodge her pull engage and you win drawn-out fights."
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Do not duel him next to his pillar, and wait for him to use his ultimate first, or he will drain your stats."
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Vision is the key. Fight only after he uses his leap or ultimate, and stay in tight spaces where his burst is less effective."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She outdamages you before level 6, so avoid early skirmishes. Farm efficiently and catch her when she overextends."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her chained CC breaks your resets. Bait out her Q or ultimate before committing."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid early river fights since he wins before items. Once you have lifesteal and your ultimate, you flip the duel."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her root and W zone slow you down. Use your ultimate to run through and kill her before she can CC you again."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She is deadly in the river, so ward and fight away from walls. Punish her if she wastes her combo."
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her kiting and speed are annoying early. Get early boots or a red buff advantage so you can stick to her."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His skirmishing and burn zones beat you before items. Avoid fights in jungle corridors and wait until you have sustain."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Hard early, even later. Never fight inside her mist, and use your range and true damage once you are scaled."
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His ultimate can lock you out of a fight if you dive in blindly. Build QSS or Mercury's Treads and wait for him to use it on someone else."
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Ivern cannot kill you, so this is a free farming game. Invade early and take over his jungle."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Early duels are risky. Kite back until your ultimate and E true damage let you outdamage him."
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Respect his early invade. He falls off quickly once you have armor and sustain from Blade of the Ruined King."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid fights before two items. With Blade of the Ruined King and Guinsoo's, you shred him if he misses his ultimate."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Keep farm even and respect his level 6 ultimate. From mid game on, your damage and ultimate outclass him."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He cannot kill you but will win early objectives. Counter-farm his jungle and punish ganks that fail."
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Hold your Q for when he tries to trap you with his ultimate; Alpha Strike lets you escape his combo."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He wins 1v1s before level 6. After that, dodge his stun and shred him with true damage once you have attack speed items."
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early duelist. When she overcommits, back off until her frenzy runs out, then turn on her with ultimate resets."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His ultimate can isolate you. Build QSS or wait for him to spend it on someone else before diving."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Respect his early skirmishing and avoid letting him steal your ultimate in teamfights."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Stay away from walls to avoid her knockback. If you reach her with Q, she dies before she can kite."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Do not fight him early. Farm up and shred him later with true damage."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Very squishy but bursty. Dodge his stun combo with Alpha Strike and you can kill him before he ults."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"He invades hard early, but once you buy any sustain item he cannot keep up with your damage."
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Avoid him before level 6, when his knock-up and dueling are lethal. You beat him comfortably later on."
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Outfarm her and skip early fights. Once both of you have scaled, your true damage beats her burn."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"He aims to outfarm you, so invade early and punish him before he scales; you win melee duels easily."
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Her packmates can block your autos early. Use Q to target her directly and dodge her bite combo."
+]
+]
+}
+]
+}
+}

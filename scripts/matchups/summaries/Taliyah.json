@@ -1,0 +1,51 @@
+{
+ "champ": "Taliyah",
+ "url": "https://www.mobafire.com/league-of-legends/build/taliyeah-jungle-guide-568467",
+ "title": "Taliyeah! Jungle Guide",
+ "author": "liklik969",
+ "rank": "?",
+ "updated": "2020-03-06",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Vi": {
+   "difficulty": "Major",
+   "summary": "She reaches you easily, which is bad for you. With precise timing you can drop your E minefield on her dash and knock her away with W."
+  },
+  "Nunu": {
+   "difficulty": "Minor",
+   "summary": "He can chase you down, but it costs him a lot to do so, and he is not much of a threat otherwise."
+  },
+  "Twitch": {
+   "difficulty": "Tiny",
+   "summary": "Once he is revealed he dies quickly. Keep your laners informed of his position, since his plan is to spam cheese ganks."
+  },
+  "Kayn": {
+   "difficulty": "Minor",
+   "summary": "He is weak early, so invade him and win the fights he takes. Respect him more once he has transformed."
+  },
+  "RekSai": {
+   "difficulty": "Extreme",
+   "summary": "She knocks you up and kills you before you can cast, and she is hard to kill even when you do get your spells off."
+  },
+  "JarvanIV": {
+   "difficulty": "Major",
+   "summary": "Keep your distance and only go in after he misses his E-Q combo."
+  },
+  "XinZhao": {
+   "difficulty": "Major",
+   "summary": "Plays much like Rek'Sai: he gets on you fast and bursts you before you can respond, so keep your distance."
+  },
+  "Khazix": {
+   "difficulty": "Extreme",
+   "summary": "Avoid him; he is extremely dangerous to you, so run when he shows up."
+  },
+  "Elise": {
+   "difficulty": "Major",
+   "summary": "Her combo is easier to land than yours and a good Elise can rappel out of it. Wait for her to make a mistake before fighting."
+  },
+  "Ekko": {
+   "difficulty": "Major",
+   "summary": "Your E can catch his first dash but not his blink, and he is generally hard to hit. If you do land your spells, he goes down easily."
+  }
+ }
+}

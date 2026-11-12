@@ -2005,7 +2005,7 @@ const NOTES = { index: null, champ: {} };
 function loadNotes(champ, redraw) {
   if (!NOTES.index) { NOTES.index = {}; api("/api/notes/index").then(d => { NOTES.index = d && !d.missing ? d : {}; redraw(); }).catch(() => {}); return; }
   const m = NOTES.index[champ];
-  if (m?.quality === "sheet" && NOTES.champ[champ] === undefined) {
+  if ((m?.quality === "sheet" || m?.quality === "summary") && NOTES.champ[champ] === undefined) {
     NOTES.champ[champ] = null;
     api(`/api/notes/${champ}`).then(d => { NOTES.champ[champ] = d && !d.missing ? d : false; redraw(); }).catch(() => { NOTES.champ[champ] = false; });
   }
@@ -2018,17 +2018,18 @@ function expertNotes(champ, opp, redraw) {
   const who = m.author ? esc(m.author) + (m.rank && m.rank !== "?" ? ` (${esc(m.rank)})` : "") : esc(site);
   const upd = String(m.updated || "").replace(/\?/g, "").trim(), yr = +(upd.match(/20\d\d/) || [0])[0];
   const old = yr && yr < 2025 ? `<span class="old" title="Written for an older patch. Items and runes may have changed; the lane advice usually still holds.">Lane tips only</span>` : "";
-  const src = (label) => `<div class="src">From ${who}${upd ? ` · updated ${esc(upd)}` : ""}${old} · <a href="${esc(m.url)}" target="_blank">${label}</a></div>`;
-  if (m.quality !== "sheet") {
+  const src = (label) => `<div class="src">${summ ? "Summarized from the guide by " : "From "}${who}${upd ? ` · updated ${esc(upd)}` : ""}${old} · <a href="${esc(m.url)}" target="_blank">${label}</a></div>`;
+  const summ = m.quality === "summary";
+  if (!summ && m.quality !== "sheet") {
     return `<div class="card xn"><div class="ctitle">Expert guide</div><div class="sub">A written ${esc(csName(champ))} guide${m.quality === "guide" ? "" : " with notes for each matchup"} on ${esc(site.includes("docs.google") ? "Google Sheets" : site)}. We can't show it here, but it's one click away.</div>${src("Open the guide")}</div>`;
   }
   const d = NOTES.champ[champ];
   if (!d) return d === null ? `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">Loading…</div></div>` : "";
-  if (!opp) return `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">${who} wrote notes for ${Object.keys(d.rows).length} opponents. Pick an opponent to see them.</div>${src("Open the full sheet")}</div>`;
+  if (!opp) return `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">${who} wrote notes for ${Object.keys(d.rows).length} opponents. Pick an opponent to see them.</div>${src(summ ? "Open the full guide" : "Open the full sheet")}</div>`;
   const rows = d.rows[opp];
-  if (!rows) return `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">${who}'s sheet has nothing on ${esc(csName(opp))}.</div>${src("Open the full sheet")}</div>`;
+  if (!rows) return `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">${who}'s ${summ ? "guide" : "sheet"} has nothing on ${esc(csName(opp))}.</div>${src(summ ? "Open the full guide" : "Open the full sheet")}</div>`;
   const body = rows.map(e => `${e.as ? `<div class="as">${esc(e.as)}</div>` : ""}<dl>${e.fields.map(([k, v]) => `${k ? `<dt>${esc(k)}</dt>` : ""}<dd>${esc(v)}</dd>`).join("")}</dl>`).join("");
-  return `<div class="card xn"><div class="ctitle">Expert notes vs ${esc(csName(opp))}</div>${body}${src("Open the full sheet")}</div>`;
+  return `<div class="card xn"><div class="ctitle">Expert notes vs ${esc(csName(opp))}</div>${body}${src(summ ? "Open the full guide" : "Open the full sheet")}</div>`;
 }
 
 function gamePlan(B, champ, role, opp) {

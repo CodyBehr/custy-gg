@@ -1,0 +1,195 @@
+{
+ "champ": "Aurora",
+ "url": "https://www.mobafire.com/league-of-legends/build/26-1-shoks-rank-1-challenger-aurora-guide-645849",
+ "title": "[26.1] Shok's Rank 1 Challenger Aurora Guide",
+ "author": "ShokLoL",
+ "rank": "Challenger",
+ "updated": "2026-01-09",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Viktor": {
+   "difficulty": "Extreme",
+   "summary": "He is very strong one-on-one and scales well. Comet with an E max improves your trading, but the lane stays hard. He is vulnerable to your gank setup and weaker in skirmishes, so trade defensively and keep enough health to play around ganks."
+  },
+  "Orianna": {
+   "difficulty": "Extreme",
+   "summary": "A Comet Orianna has a very strong lane but is fairly immobile and scales modestly. Run Comet with E max and focus on dodging her Qs. Stay healthy enough to set up a gank with your R once you hit level 6."
+  },
+  "Irelia": {
+   "difficulty": "Extreme",
+   "summary": "Her mobility and sustain make her very hard to kill in a duel. Hold W to dodge her stun; if you stay roughly even you will be far more valuable in fights. After level 6, if you burn W on her stun she may engage with R while it is on cooldown."
+  },
+  "Syndra": {
+   "difficulty": "Major",
+   "summary": "With Comet or Aery she lanes well, but you can win by dodging skillshots. Run Comet E max, trade when your E is up and play safe while it is down. You outclass her in teamfights and gank setup, so just avoid getting bursted solo."
+  },
+  "Vladimir": {
+   "difficulty": "Major",
+   "summary": "With a Teleport, Resolve and Doran's Shield setup he is very annoying, since he is hard to gank without forcing his pool and you will run out of mana before killing him. Without that sustain setup, time your harass for when he walks up to CS and you can get an early kill. Ignite is worth considering for kill pressure."
+  },
+  "Azir": {
+   "difficulty": "Major",
+   "summary": "Comet with E max beats him early, but the lane gets much harder over time. A well-timed E lets you buffer his ult, so ganks are less scary. Build a lead in the first few levels if you can; otherwise focus on skirmishes and teamfights."
+  },
+  "Neeko": {
+   "difficulty": "Major",
+   "summary": "She is strong early but beatable. Take Comet with E max and prioritize dodging her root so she cannot follow up with Q. You outscale her, so staying even counts as a win, and good dodging can put you ahead."
+  },
+  "Xerath": {
+   "difficulty": "Major",
+   "summary": "The early levels are manageable but the lane gets harder as it goes on. Run Comet E max, dodge his spells and hit him with E as he walks up to farm. At level 6 look to set up a gank, and avoid losing too much in the 1v1 since you are the better teamfighter."
+  },
+  "Hwei": {
+   "difficulty": "Major",
+   "summary": "Not too bad if you exploit your early Comet E max pressure, but once you fall behind and cannot contest the wave it gets miserable. Punish him early, then set up ganks after level 6."
+  },
+  "Lux": {
+   "difficulty": "Major",
+   "summary": "One of the tougher duels. Run Comet E max and stand away from the wave so her E cannot hit both you and the minions; use W to dodge her Q if needed. From level 6 set up ganks or outplay her in fights and sidelanes."
+  },
+  "Heimerdinger": {
+   "difficulty": "Major",
+   "summary": "Surprisingly hard: his ult turret makes him difficult to gank and his push makes the wave hard to contest. Run Comet E max but expect to fall slightly behind. Minimize lost CS and plates by timing good backs (often with Teleport or after clearing a wave), since you are far more useful in fights."
+  },
+  "Cassiopeia": {
+   "difficulty": "Even",
+   "summary": "A volatile skill matchup; if you overextend without W or E ready she will chase you down. Comet E max with constant ranged play is the safest option, though Electrocute with Q max can work. Always keep either E or W available to disengage and do not get caught far up the lane."
+  },
+  "Leblanc": {
+   "difficulty": "Even",
+   "summary": "She punishes wasted cooldowns hard, but if you keep Q ready you can proc Electrocute and win when she jumps in. At level 1 her W has a long cooldown, so if she uses it you can zone her and take priority. Afterward respect her gank setup and stand in the wave to block her chain."
+  },
+  "Corki": {
+   "difficulty": "Even",
+   "summary": "Beware his level 1, when his E can chase you down. From level 2 you win Q-E trades and can disengage before he does much. If you do not waste E he has few windows, and you are usually more useful in fights as long as you keep farming."
+  },
+  "Akali": {
+   "difficulty": "Even",
+   "summary": "She has lots of sustain but struggles to kill you. Poke mainly with Q and autos and save E until your mana allows it. Match her aggressive W with your own W to escape, mindful of mana early. After level 6, if she ults you while you are overextended, ult back to bounce out."
+  },
+  "Fizz": {
+   "difficulty": "Even",
+   "summary": "Bully him hard at levels 1 and 2, stepping up when his minions are low so he cannot E onto you early. From level 3 be careful: slow push the first three waves and let the wave bounce back to you. If you are ahead on damage keep trading; otherwise watch for him Qing onto you when your cooldowns are down. Both of you have strong level 6 gank setup."
+  },
+  "Zoe": {
+   "difficulty": "Even",
+   "summary": "Very swingy, and mistakes snowball quickly. Take wave control early and use it to build a health lead. Avoid her bubble at all costs by keeping minions in front of you and using W to dodge it if needed. She is very gankable after level 6, especially once chunked."
+  },
+  "Zed": {
+   "difficulty": "Even",
+   "summary": "Bully him at levels 1-2. From level 3 he will trade with W, so either match it with your W if you have mana or at least dodge one shuriken. After level 6 keep enough mana to answer each W and punish when it is down; if he ults you, ult back immediately and bounce out."
+  },
+  "Yasuo": {
+   "difficulty": "Even",
+   "summary": "He can be scary early, but you are far better in teamfights unless you lose lane badly. Trade defensively, keep the wave on your side and do not give him space to run you down."
+  },
+  "Yone": {
+   "difficulty": "Even",
+   "summary": "He has sustain and strong gank setup. Abuse levels 1-2, then let the wave return to the middle or your side. You win trades when he lacks his Q3, and with more mana you can match your W to his E. Be very careful around his Blade of the Ruined King spike."
+  },
+  "Sylas": {
+   "difficulty": "Even",
+   "summary": "It depends on his build, but dodging his E chain is vital, so stand inside your wave. Against Electrocute Sylas, play cautiously early and do not let him run you down. A Conqueror Sylas scales better but is weak in lane unless trades go long. Ignite adds kill pressure."
+  },
+  "Naafiri": {
+   "difficulty": "Even",
+   "summary": "She sustains well but is mana hungry. Position aggressively, dodge her Q or force her to spend it on the wave. If you waste cooldowns she will W onto you, so time your spells for when she walks up to CS or hold E/W to disengage."
+  },
+  "Ziggs": {
+   "difficulty": "Even",
+   "summary": "He outranges you but lacks kill threat. Run Comet E max and avoid too many Qs, standing apart from the wave so he cannot push and poke at once. Your skirmishing is far better, but do not roam so much that you lose tower plates."
+  },
+  "Anivia": {
+   "difficulty": "Minor",
+   "summary": "She becomes rough if she gets through lane untouched, so punish her weak early game to keep her item-light by level 6. Stand near the wave and look for Q-E trades, using W to dodge her Q. After level 6 look for ganks, but avoid getting walled in far up the lane without W."
+  },
+  "Ahri": {
+   "difficulty": "Minor",
+   "summary": "Her mobility makes her hard to punish, but landed abilities give you very favorable trades. Even without a lane lead she cannot really set you back, and you are the stronger teamfighter and skirmisher."
+  },
+  "Diana": {
+   "difficulty": "Minor",
+   "summary": "Focus on dodging her Q, either by backing out of range or stepping forward to punish. She only wins by poking you down or forcing a trade after you miss your cooldowns, so play safer while they are down."
+  },
+  "Ekko": {
+   "difficulty": "Minor",
+   "summary": "Fairly easy with a few tricks. His level 1 E start with Hail of Blades trades hard, so stay in your wave and answer with Q plus Electrocute. When he pushes with Q, stand beside the wave to zone him while it is down. From level 2 trades favor you, but watch for W cast from fog."
+  },
+  "Galio": {
+   "difficulty": "Minor",
+   "summary": "Very punishable before his first back, so force trades while watching your mana if he started Doran's Shield. Do not walk up without cooldowns or he will E onto you. Snowball a lead before his first back; once he has Spectre's Cowl you cannot do much, so play for 2v2s and 3v3s."
+  },
+  "Lissandra": {
+   "difficulty": "Minor",
+   "summary": "She is hard to gank and has good gank setup, but trades favor you. Comet E max wins lane harder, while Electrocute gives better skirmishing and still lanes well. Stand apart from the wave so her Q cannot hit both."
+  },
+  "Smolder": {
+   "difficulty": "Minor",
+   "summary": "He is strong at level 1 if he can chase you, so take the first Electrocute proc and kite back into your wave. From level 2 you win Q-E trades while his Bone Plating is down, and draining his mana by forcing Es is effective. If you do not punish early, the lane gets hard around levels 7-9."
+  },
+  "AurelionSol": {
+   "difficulty": "Minor",
+   "summary": "Easy to trade against with a few risky windows. At level 1 poke with Q from behind your minions. At level 2 short Q-E trades are good, but he may chase with W, so kite into your wave. From level 3 onward harass freely and W away if he chases."
+  },
+  "Kassadin": {
+   "difficulty": "Minor",
+   "summary": "Tough if your laning is weak, but if you land lots of Q, Electrocute and auto harass early you should hold a big item lead. If he is not well behind by his first back he starts to out-stat you, so get ahead and stay ahead."
+  },
+  "Katarina": {
+   "difficulty": "Minor",
+   "summary": "Never stand on her daggers, since her trades start from them. At level 2 she may E onto you if you walk too far up; land your combo and you will likely kill her. From level 3 you can always kite out with W. Ignite adds kill threat."
+  },
+  "Qiyana": {
+   "difficulty": "Minor",
+   "summary": "She is weak early, so Q-auto or Q-E her whenever she approaches the wave. The danger is getting run down after missing cooldowns, so from level 3 keep the lane centered rather than pushed to her tower. After level 6 avoid standing near walls and river."
+  },
+  "Taliyah": {
+   "difficulty": "Minor",
+   "summary": "Weak at early trading and gankable, but she scales well and pushes hard. Contest her autos while her Q is down to regain push, and Q-E after she spends spells on the wave. From level 3 you can usually W backward to dodge her E."
+  },
+  "Vex": {
+   "difficulty": "Minor",
+   "summary": "She is strong with fear ready and weak without it. Later you can W away from her fear-empowered E or Q; early you may just have to take it and then play aggressive while it is down. You outscale her heavily."
+  },
+  "Swain": {
+   "difficulty": "Minor",
+   "summary": "His rune page matters. Without Aery he is easy to trade into at any time; with Aery, trade only when Electrocute is ready. Move side to side to avoid his E. The only real danger is being caught far up after level 6 without escapes."
+  },
+  "Velkoz": {
+   "difficulty": "Minor",
+   "summary": "Weak before level 6. Stand just inside the wave so minions block his Q but not so deep that his W hits too. Comet E max punishes lane harder; Electrocute Q max skirmishes better. At 6 a landed E means an immediate ult, so W his E whenever he casts it. He is very immobile and easy to gank."
+  },
+  "Tristana": {
+   "difficulty": "Minor",
+   "summary": "At level 1 she may start W and chase you; with Q plus Electrocute inside your wave you should win, especially after popping her Bone Plating. At level 2 hold Q-E defensively so she cannot jump on you. From level 3 you can W away from her jumps and go back to aggressive Q-E."
+  },
+  "Jayce": {
+   "difficulty": "Tiny",
+   "summary": "He is weak until he has two points in Q at level 3, so take priority and keep the wave in front of you. Harass with Q-E when he approaches, and beware of him Qing onto melee minions to chase you after you waste cooldowns. If he gets an early Serrated Dirk without being punished he can be scary."
+  },
+  "Ryze": {
+   "difficulty": "Tiny",
+   "summary": "He pushes well early but cannot trade with you. Exploit his short range by harassing with Q-E as he walks up. He also struggles in teamfights, so you only lose by being too passive or dying to a level 3 gank."
+  },
+  "Malzahar": {
+   "difficulty": "Tiny",
+   "summary": "Very weak in lane; you can win trades almost anytime. Kill his voidlings quickly even if it costs a cooldown. When he spends spells on the wave, step up to deny autos or force trades. Punish early so he does not reach waveclear too fast; his level 6 gank setup is the main threat."
+  },
+  "TwistedFate": {
+   "difficulty": "Tiny",
+   "summary": "A weak laner, so keep wave control and Q-E him whenever he comes to farm. Force trades or deny his autos after he uses cooldowns. His threats are gank setup and roams if you do not pressure him enough."
+  },
+  "Talon": {
+   "difficulty": "Tiny",
+   "summary": "Easy as long as you do not get hit by both halves of his W, which your speed makes simple. At level 1 poke with Q from beside the wave; at level 2 look for Q-E trades. Take W at level 3 and use it whenever he engages. At 6 you can trade ults if his would deal heavy damage."
+  },
+  "Zilean": {
+   "difficulty": "Tiny",
+   "summary": "Weak in lane, so secure push and force trades whenever he uses Q. He has good gank setup, so ward. Your AoE counters him in fights, but avoid engaging too early."
+  },
+  "Veigar": {
+   "difficulty": "Tiny",
+   "summary": "Very easy. Stand away from the wave so his Q cannot stack on minions and hit you. When Q is down, walk up and force a trade. He is immobile and easily ganked; just watch for his cage and avoid engaging early in fights."
+  }
+ }
+}

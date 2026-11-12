@@ -1,0 +1,111 @@
+{
+ "champ": "Nami",
+ "url": "https://www.mobafire.com/league-of-legends/build/11-2-nami-the-fish-ex-top-85-euw-diamond-1-guide-576966",
+ "title": "[12.4] Nami, the Fish (ex-Top 85 EUW) | Diamond 1 Guide",
+ "author": "PicklePantsLoL",
+ "rank": "?",
+ "updated": "2022-02-27",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Alistar": {
+   "difficulty": "Extreme",
+   "summary": "Keep the brushes warded and stay away from them even when you can see him there, since Flash into Q-W can throw you into his team. He will look to all-in once he has W and Q at level 2: either poke him hard at level 1 so he cannot commit, or give up the push and keep the wave by your tower. After level 6, do not let him crash a big wave into your tower, as that sets up dives with his jungler. In fights, avoid the jungle where his Q can hit several people."
+  },
+  "Annie": {
+   "difficulty": "Minor",
+   "summary": "Her E speed boost closes the gap quickly, so standing at the edge of her auto range is not as safe as it looks. Track her passive stacks, since her next spell after the fourth stack stuns, and her spells reach as far as her autos. Ward the brushes to stop free poke and surprise Flash-ultimates, and poke her down before fights so she cannot engage."
+  },
+  "Bard": {
+   "difficulty": "Even",
+   "summary": "Do not push too far up, because his E portal lets him and his allies gank from odd angles; deep wards help spot this. He often leaves lane to collect chimes or roam, so when he does, all-in or zone his ADC off farm. In fights, spread out so his ultimate cannot catch several of you."
+  },
+  "Blitzcrank": {
+   "difficulty": "Extreme",
+   "summary": "Keep the wave near your tower so he cannot all-in and you can farm safely; avoiding his Q gives you the upper hand. His hook has a long early cooldown, so harass his duo every time he misses. His passive shield usually means you need two all-ins to kill him, so do not overextend chasing. In fights, ward the blind spots over walls and protect your carry from picks."
+  },
+  "Brand": {
+   "difficulty": "Major",
+   "summary": "He is a combo mage who is useless until his next rotation if he misses. Dodge his W, stay behind minions to block his Q, and watch for E into Q from the brushes. He is immobile, so hold the wave near your tower and call for ganks after baiting his W and E. In fights, spread out and try to pick him off beforehand."
+  },
+  "Braum": {
+   "difficulty": "Minor",
+   "summary": "Do not get hit by his Q; stay behind your wave and poke from range. Bait out his E shield before all-ins since it blocks projectiles, including ultimates. Fight in open areas and dodge his ultimate to the side rather than straight back."
+  },
+  "Janna": {
+   "difficulty": "Even",
+   "summary": "Her E shield has a long early cooldown, so trade whenever it is down. Her W slow also leaves her easy to catch when it is on cooldown. In fights, focus her first or pick her off beforehand, since she enables her team heavily if left alone."
+  },
+  "Karma": {
+   "difficulty": "Even",
+   "summary": "Do not stand near your minions, or her Q hits both you and the wave. Punish her when her E is on cooldown, and gank her when her ultimate is down so she cannot empower the shield. Avoid her W tether when overextended."
+  },
+  "Leona": {
+   "difficulty": "Extreme",
+   "summary": "Do not push early unless you are about to crash and recall, so her all-ins have to take tower shots. Have any movement or defensive spell ready for the moment her E is about to land, ideally moving toward your tower. After level 6 she can dive with her jungler, so do not linger in lane at low health. In fights, keep spacing and avoid the center of her ultimate."
+  },
+  "Lulu": {
+   "difficulty": "Even",
+   "summary": "She wants to protect her ADC and reach her power spike. Bait out her W polymorph before all-ins, since it can flip a 2v2. Force her to spend E often to drain her mana, and harass her since her range is short."
+  },
+  "Lux": {
+   "difficulty": "Even",
+   "summary": "Do not keep eating her E poke, which builds up and lets her proc her passive. Her Q root is the key spell; after level 6 getting rooted can mean death, so sidestep it. Let her push in to set up ganks, and bait out Q first."
+  },
+  "Morgana": {
+   "difficulty": "Even",
+   "summary": "Wait for her Black Shield to be used, since it blocks CC and has a long cooldown. If her Q misses she has almost no pressure, so go aggressive. Stay behind minions to avoid the root, and kill her in fights before Zhonya's is available."
+  },
+  "Pyke": {
+   "difficulty": "Extreme",
+   "summary": "His kill threat jumps at level 6, so recall if you are low near that point. Stay behind minions to dodge his Q and move sideways from his E. Warn your team when he disappears from lane, and do not stay in fights on low health where his ultimate can reset on you."
+  },
+  "Rakan": {
+   "difficulty": "Major",
+   "summary": "Hold your CC for his W engage; a quick enough bubble can even stop the knock-up, and he dies fast once locked down. Keep the nearest brush warded so he cannot zone you from it, and dodge his Q, which is both his poke and his healing. In fights, watch for him flanking from fog."
+  },
+  "Senna": {
+   "difficulty": "Major",
+   "summary": "Watch your positioning while farming so her Q does not poke you through minions. Her W root is the spell to respect; once it is down you can all-in. If she spends her ultimate elsewhere on the map, she has lost her self-peel and is open to an all-in."
+  },
+  "Shen": {
+   "difficulty": "Extreme",
+   "summary": "Keep out of taunt range, since it locks you down while his Q-W combo blocks your ADC's autos. Trade when his E is down, as that is his mobility. After level 6, save CC for his ultimate plays, and if he teleports away, all-in or zone his ADC."
+  },
+  "Sona": {
+   "difficulty": "Minor",
+   "summary": "Her Q is her main poke, so trade when it is down. Force her to use her expensive W heals early until she is out of mana, then all-in. Avoid clumping so her ultimate cannot hit several targets, and consider Grievous Wounds."
+  },
+  "Soraka": {
+   "difficulty": "Minor",
+   "summary": "Dodge her Q, which both damages you and heals her. Her E silence is her only reliable CC and has a long cooldown, so all-in if she spends it on poke. Keep poking her down until an all-in is lethal."
+  },
+  "TahmKench": {
+   "difficulty": "Minor",
+   "summary": "He is very vulnerable to poke, especially at level 1 before his grey health helps. Save CC for after he uses W to save his ADC. Do not get greedy on tower plates, since his ultimate can bring his jungler in for a 3v2."
+  },
+  "Zyra": {
+   "difficulty": "Even",
+   "summary": "Do not walk carelessly into the bottom brushes when returning to lane, as she may be waiting with a combo. Avoid fighting her near brushes or plants. If her E misses, play aggressively during its cooldown, since she has little else to protect herself."
+  },
+  "Zilean": {
+   "difficulty": "Minor",
+   "summary": "If you get tagged by his bombs, walk near low minions so the blast kills them away from his ADC. After level 6 his ultimate makes targets hard to kill, so do not burn summoners into it. Fight after he has used a Q, since he cannot stun you then."
+  },
+  "Yuumi": {
+   "difficulty": "Minor",
+   "summary": "Do not stand in the wave when she throws Q. Go for long, lethal trades so she cannot just heal back up afterwards. After level 6, if she detaches, focus and CC her, since that puts her W on cooldown."
+  },
+  "Xerath": {
+   "difficulty": "Major",
+   "summary": "Make him miss part of his combo and he becomes useless in lane. Use minions to block his E stun and all-in when it is down. CC him while he is charging Q, as he is slowed then. Pick him off in fights since he is immobile."
+  },
+  "Thresh": {
+   "difficulty": "Extreme",
+   "summary": "Do not overcommit on his allies since his lantern can save them; standing on it or warding on it denies the escape. He has heavy CC, so keep your distance and stay behind minions to avoid his hook; fight when he wastes it."
+  },
+  "Taric": {
+   "difficulty": "Even",
+   "summary": "Poke him constantly to drain his mana without overextending. Keep the brushes warded, but not right next to him where he can clear wards quickly. Sidestep his E stun, and in fights disengage when he uses his ultimate or fight while it is down."
+  }
+ }
+}

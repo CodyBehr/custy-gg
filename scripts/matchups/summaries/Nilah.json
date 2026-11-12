@@ -1,0 +1,127 @@
+{
+ "champ": "Nilah",
+ "url": "https://www.mobafire.com/league-of-legends/build/25-17-a-guide-to-might-and-joy-624271",
+ "title": "[25.17] A Guide to Might and Joy",
+ "author": "Wungus",
+ "rank": "Diamond",
+ "updated": "2025-09-01",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Xayah": {
+   "difficulty": "Extreme",
+   "summary": "One of Nilah's hardest ADC lanes: her feathers zone you and her ultimate dodges your engage. Banning her is the cleanest answer, though since she is rarely picked, Smolder may be the better ban."
+  },
+  "Smolder": {
+   "difficulty": "Extreme",
+   "summary": "His short range is his only weakness. He pokes you to build stacks, his W covers a huge area, and his E completely counters your engage. He keeps scaling and becomes very hard to stop from around 20 minutes, so he is a strong ban."
+  },
+  "Seraphine": {
+   "difficulty": "Extreme",
+   "summary": "She is very hard to reach and deals solid lane damage. Your best chance is an engage support who can lock her down for you."
+  },
+  "Veigar": {
+   "difficulty": "Extreme",
+   "summary": "His early game is weak if you have an engage support, so you can build a lead by playing well. He will still outscale you regardless."
+  },
+  "Swain": {
+   "difficulty": "Extreme",
+   "summary": "He wants to brawl just like you. You should win before level 6, but after that his ultimate makes fights hard; if you have no lead by then, farm safely and never duel him."
+  },
+  "Sivir": {
+   "difficulty": "Extreme",
+   "summary": "She kites well, harasses constantly, and her spell shield blocks your engage. Coordinate engages with your support, and if you get ahead of her you are in a great position."
+  },
+  "Caitlyn": {
+   "difficulty": "Extreme",
+   "summary": "She keeps you at a distance very effectively. Dodge her net, close the gap by dashing to minions or with Galeforce, and use your W to avoid headshots."
+  },
+  "Ziggs": {
+   "difficulty": "Extreme",
+   "summary": "He has range, strong wave clear and good poke. Play with your team and punish him while his long cooldowns are down."
+  },
+  "Jhin": {
+   "difficulty": "Major",
+   "summary": "He bullies you early and his W can set up kills with his support. Survive lane with your W and good positioning; later in the game he is easy to kill."
+  },
+  "Kaisa": {
+   "difficulty": "Minor",
+   "summary": "Standard Kai'Sa relies on her passive and isolated Q; your W delays the passive proc and staying near your support or minions blunts her Q. The AP Lich Bane version is a Major threat that bombards from range, but it comes online slowly, so shut her down early."
+  },
+  "Karthus": {
+   "difficulty": "Major",
+   "summary": "Like Swain but easier. Use your E mobility to dodge his Q, and since he is squishier, snowballing a lead against him is simpler."
+  },
+  "Ashe": {
+   "difficulty": "Major",
+   "summary": "Her constant slows and ultimate are annoying. Take Cleanse for her arrow and dash to minions to close the distance."
+  },
+  "Draven": {
+   "difficulty": "Major",
+   "summary": "He punishes walking up for the wrong last hit and can put you in kill range quickly. Play safe, farm carefully and stay in XP range; if you hit level 3 first you can kill him, and if you leave lane ahead in gold he stops being a problem."
+  },
+  "Kalista": {
+   "difficulty": "Major",
+   "summary": "Similar to Draven: one mistake and you die. With an engage support and by reaching level 3 first, you can lock her down and kill her."
+  },
+  "Zeri": {
+   "difficulty": "Major",
+   "summary": "She struggles to poke you in lane, but from level 6 her mobility becomes a problem. CC plus burst handles her."
+  },
+  "Vayne": {
+   "difficulty": "Major",
+   "summary": "Her Tumble hits hard after recent buffs, so she can bully you if you are careless, and she kites well. Play near your support and use W to dodge her empowered autos."
+  },
+  "Senna": {
+   "difficulty": "Major",
+   "summary": "She is dangerous if ignored, but very squishy. Burn her Flash and play with your support; once you are on top of her without Flash, she usually dies."
+  },
+  "Lucian": {
+   "difficulty": "Major",
+   "summary": "His early game is far stronger than yours. Protect your health, look for XP leads, and consider Exhaust to blunt his damage."
+  },
+  "KogMaw": {
+   "difficulty": "Even",
+   "summary": "The only issue is closing the gap against his range. Items, dashing through minions or an engage support solve it."
+  },
+  "MissFortune": {
+   "difficulty": "Even",
+   "summary": "She struggles to damage you outside her ultimate. Position to avoid her bouncing Q in lane and you should win fights."
+  },
+  "Jinx": {
+   "difficulty": "Even",
+   "summary": "Her range is annoying in lane, but if you dodge her W and avoid her traps, she is an easy target."
+  },
+  "Aphelios": {
+   "difficulty": "Even",
+   "summary": "He can poke with some weapons and hit very hard with others, but he has little self-peel. Your W is excellent against him and your mobility overwhelms him."
+  },
+  "Varus": {
+   "difficulty": "Even",
+   "summary": "He has long range and little else. Take Cleanse for his ultimate and burn his Flash, and he has few answers."
+  },
+  "Ezreal": {
+   "difficulty": "Even",
+   "summary": "Staying behind minions shuts down his poke. His E makes him hard to kill, but playing with your support makes it possible."
+  },
+  "Samira": {
+   "difficulty": "Minor",
+   "summary": "An easy lane: she is short ranged, has no projectiles of yours to block, and your ultimate counters hers. Your W can also deny her style stacks and delay her ultimate."
+  },
+  "Tristana": {
+   "difficulty": "Minor",
+   "summary": "Your W stops her from all-inning you. Her W and ultimate make her hard to finish, so play with your team to secure kills."
+  },
+  "Twitch": {
+   "difficulty": "Minor",
+   "summary": "Your W makes it hard for him to stack his passive. Dash onto him when he positions badly for autos; AP Twitch is harder but still manageable."
+  },
+  "TwistedFate": {
+   "difficulty": "Minor",
+   "summary": "AD Twisted Fate is all autos, so as long as you dodge his gold card you should be fine."
+  },
+  "Yunara": {
+   "difficulty": "Minor",
+   "summary": "The author has limited experience here, but as an auto-attacker she suits Nilah. Save your W for when she activates her Q."
+  }
+ }
+}

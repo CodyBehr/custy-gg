@@ -1,0 +1,103 @@
+{
+ "champ": "Kaisa",
+ "url": "https://www.mobafire.com/league-of-legends/build/16-19-exploit-their-weaknesses-615677",
+ "title": "Exploit Their Weaknesses",
+ "author": "DemonsEdge90",
+ "rank": "?",
+ "updated": "2026-11-11",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Aphelios": {
+   "difficulty": "Even",
+   "summary": "The fight depends on his active weapons. Once his red and white guns are empty, he loses his dueling power and becomes easy to burst."
+  },
+  "Ashe": {
+   "difficulty": "Extreme",
+   "summary": "Every arrow slows you and keeps you out of range. She has no escapes, but walking up to farm is risky unless your support is a tank who can protect you."
+  },
+  "Caitlyn": {
+   "difficulty": "Extreme",
+   "summary": "She pokes you from long range whenever you go for minions. Let her push toward your tower so your support has room to engage and catch her."
+  },
+  "Corki": {
+   "difficulty": "Tiny",
+   "summary": "His escape dash is slow and straight, so your support can easily catch him for a burst."
+  },
+  "Draven": {
+   "difficulty": "Extreme",
+   "summary": "His early axe damage stops you from farming safely. You can aim W at where his axes will land, but never fight him alone early."
+  },
+  "Ezreal": {
+   "difficulty": "Even",
+   "summary": "He pokes from range and blinks away when you approach. Stand behind your minions to block his skillshots."
+  },
+  "Jinx": {
+   "difficulty": "Minor",
+   "summary": "She has no escapes, making her easy for your support to catch. Burst her quickly, since a takedown gives her passive speed to flee."
+  },
+  "Kalista": {
+   "difficulty": "Major",
+   "summary": "Her hops make your skillshots hard to land. A slow or Exhaust from your support strips her mobility and makes her easy to kill."
+  },
+  "KogMaw": {
+   "difficulty": "Minor",
+   "summary": "Fragile and immobile; any stun from your support usually kills him. Back off while his W is active, since it greatly extends his range."
+  },
+  "Lucian": {
+   "difficulty": "Major",
+   "summary": "Same short range as you but much higher early burst. He falls off later, so survive the early lane and you win."
+  },
+  "MissFortune": {
+   "difficulty": "Major",
+   "summary": "She dominates early because her Q bounces through your minions when you farm. When she channels her ult she is stationary, so use your ult to dash through and kill her."
+  },
+  "Nilah": {
+   "difficulty": "Minor",
+   "summary": "Her shorter range lets you poke her. Step back while her W makes her immune to your autos."
+  },
+  "Samira": {
+   "difficulty": "Major",
+   "summary": "Her wind wall deletes your W, and her range is even shorter than yours, so attack her from a safe distance before she closes in."
+  },
+  "Senna": {
+   "difficulty": "Tiny",
+   "summary": "She is very squishy and cannot survive your burst when she farms. End before her souls give her huge range."
+  },
+  "Sivir": {
+   "difficulty": "Tiny",
+   "summary": "Her short range and predictable waveclear let you keep the wave near your tower. Bait her spell shield before using your main damage."
+  },
+  "Smolder": {
+   "difficulty": "Even",
+   "summary": "His early game is very weak, so bully him off minions. Close the game before his fireball upgrades take over fights."
+  },
+  "Tristana": {
+   "difficulty": "Major",
+   "summary": "Her bomb hits hard and she jumps away if you fight back. She pushes fast, so let the wave come to you and farm safely."
+  },
+  "Twitch": {
+   "difficulty": "Major",
+   "summary": "He ambushes from stealth with high attack speed. Use an Oracle Lens to reveal him before he surprises you."
+  },
+  "Varus": {
+   "difficulty": "Extreme",
+   "summary": "His long-range arrows pierce your wave and take big chunks. He is slow and fragile, so a support stun usually kills him."
+  },
+  "Vayne": {
+   "difficulty": "Even",
+   "summary": "Both of you are short-ranged scalers. Your burst is much faster early, giving you the advantage in short fights."
+  },
+  "Xayah": {
+   "difficulty": "Even",
+   "summary": "She roots you by recalling feathers. Use your ult to dash behind her and avoid the feather line to win the duel."
+  },
+  "Yunara": {
+   "difficulty": "Extreme",
+   "summary": "Her crits add magic damage and a stacked Q makes her autos splash heavily. Pressure her early before she stacks, since late game she outranges and melts you."
+  },
+  "Zeri": {
+   "difficulty": "Minor",
+   "summary": "Her autos are blocked by minions, so stand behind your wave. She can slide over walls, so your support must stun her quickly."
+  }
+ }
+}

@@ -1,0 +1,671 @@
+{
+"champ": "Skarner",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/652253",
+"author": "Hazardist",
+"updated": "2026-11-04",
+"title": "(26.22) The Last Bastion of Ixtal: a Skarner Jungle Guide"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He has to be in melee range to work, so you can keep him in check in fights. Watch his Q sweet spot, whose knock-up can interrupt your E charge if timed badly."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You can absorb his CC for your team, but he has enough damage to threaten you, and dragging him into your team can set up his ultimate. Do not fight him alone and keep him away from your backline."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Mobile, true damage, and usually building Blade of the Ruined King. Let her engage first, then use E or your ultimate to shove her off whoever she is on, and build anti-auto armor like Frozen Heart and Randuin's Omen."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"With Rylai's, one spell from him keeps you slowed all fight. He is squishy enough for you to burst alone, so find creative engage angles that avoid his stun and you will have the edge."
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her movement is predictable and she must stay in her frenzy to hurt you, so your CC lands easily. A Bramble Vest can make fights hopeless for her."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She has to fully commit into melee and rarely has the damage to kill you, so she must play cautiously. That gives you many chances to keep her irrelevant."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A fellow health-stacking juggernaut with a bit more damage but less CC. You cannot out-damage his sustain alone, but you can lock him down by using E to pop his CC-cleanse passive before landing your ultimate."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Slippery, high damage throughout, and his ultimate undoes your lockdown. Stand between him and your backline so he must go through you; one magic resist item keeps him from bursting you."
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy, immobile, and cannot kill you alone, though cocoon and rappel can dodge or stall your engage. Making her spend cooldowns on you leaves her little for your team."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Any magic resist item plus Mercury's Treads makes her combo unable to kill you. Good Evelynns go for your backline instead, so do not force engages while she is unseen or her charm is ready."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Immobile and rooted while draining, with only his fear to keep you away, so he dies whenever caught, especially if you have Mercury's Treads. In fights, ult him away from your team during his Crowstorm."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He needs to be close, but his mobility and damage hurt if he gets items. He clears slightly faster, so be ready to counter-gank mid and side lanes after your clear."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She can beat you alone and engage or disengage freely with her cooldowns up. If you ult her inside her mist, drag her out so your team can hit her."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He loses 1v1s unless well ahead. Fight him when you meet in the jungle and stay on him in fights to keep him slowed."
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"His root lands easily on you, his seed slows you, and Daisy CCs you with no escape. Go for his backline to draw his attention so your teammates can play freely."
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Slippery but low damage, and easy to kill in extended fights. If he dives your backline, hit his so they cannot follow up on his ultimate."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He outscales you and excels in small river skirmishes; lock him down so he cannot get into your team. Build both armor and magic resist against his mixed damage."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Rhaast counters you with dashes, CC and max-health-based healing. Ban him or dodge."
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He has one dash and your abilities still hit him while stealthed. Do not tunnel his backline when he is near with cooldowns up, as he will dive your squishies."
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her short-cooldown dashes make her hard to catch, and her damage scales with your health. Be careful before using E to engage and never fight her alone unless ahead and isolated."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He hits and runs; with armor and good health he loses fights to you. Engage first in teamfights so he cannot kick a teammate into his team."
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her speed lets her kite you while Rylai's slows you and burn items melt you. Engage first and catch her near your team, bursting her before her full rotation."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He dodges your CC with Alpha Strike, ignores slows in his ultimate and hits very hard. A skill matchup until he has three or more items, after which he outscales; focus him when he engages and stay with your backline."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He wins duels but teamfights worse and is less mobile. Build slow resistance such as Boots of Swiftness and Force of Nature, and avoid being caught alone before mid-game fights."
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She lacks the damage to kill you alone and is fairly immobile. Do not ult her until her pack-call is on cooldown, and let her engage first."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Slippery and hard to engage, and her spears and pounces wear you down before fights. Find clear engage angles quickly so she cannot poke your team."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He struggles against health and armor stackers and relies on his ultimate for ganks. If he engages, pop his spell shield with a basic spell or Smite before ulting him."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Slow and easy to catch but very tanky, so only fight with a numbers advantage. Save E or your ultimate to interrupt his Absolute Zero channel."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"His ultimate makes him CC immune, so he has the upper hand early and mid game; play safe and give up camps if he invades. Once his ultimate expires, punish him during the long cooldown."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"His burst does little to a tank built for long fights. He is immobile and fairly squishy, and his downtime after spending cooldowns is long."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Low damage; she mainly interrupts your E charge with her ultimate. If she is charging her ultimate at you, ult her so she gets dragged back with you."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong in teamfights and slippery, but your abilities hit her even while stealthed. Zone her away from your backline before fights."
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A stalemate where it comes down to who disrupts the enemy backline better. He is tankier but lower damage, so itemize against his laners' damage so you outlast him."
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She has the damage, mobility and CC to keep up, and her tunnels make her hard to lock down. If you force her ultimate as a disengage, she is much less threatening while it is down."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"A stalemate, but she is less tanky than Rammus. Poke off her bonus resistances with Q from range before fights."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Tag the real Shaco with your passive or a slow before he clones so you can tell them apart. His damage is negligible and E chases him after his stealth, so fight him freely."
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She matches you in long fights and her burn ignores CC. She outscales through farm but ganks worse, so be aggressive before her level 6 and while she lacks fury for her ultimate."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Like Brand, she zones you with CC and kills you slowly if left free. Her knockback is hard to land while you are charging in with E, so engage from long range before she pokes you down."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Vulnerable to CC and weak against tanks, but his blind disrupts you and he outruns you when slowed. Engage only without being outnumbered, after buying magic resist, and not from too far since his speed boost dodges your E."
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He beats tanks at every stage, especially after unlocking his ultimate. Avoid early fights and counter-gank instead, and stack armor for the frontline."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His strong slow makes him hard to chase or escape, and both his AD and AP builds win most 1v1s. Avoid early duels and stack resistances against his damage type."
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Dangerous in long fights and excellent at bypassing you to reach your backline. Build armor and Plated Steelcaps and fight her alongside teammates."
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Predictable and fairly squishy, but you rarely have the damage to kill him before he chains resets. Only duel him when clearly ahead, and focus him in teamfights."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Either buy Grievous Wounds yourself at the cost of your build, or rely on teammates for it, since his sustain beats your damage. He ganks and duels better but falls off and teamfights worse, so counter-gank to stop him getting fed."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His impact depends on his ultimate; once it is used he is much less threatening. Fight front to back, dealing with him first, and do not throw your ultimate at him while his clone is available."
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He has to engage, which usually favours you, but he matches you 1v1 and his W keeps him safe from your backline. Stay near your backline so you are not isolated with him and his ranged allies."
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"The most troublesome tank: lots of CC and damage, long threat range and easy disengage. He is weaker than you 1v1, so duel him when he is isolated and drain his cooldowns or health to discourage him from diving your backline."
+]
+]
+}
+]
+}
+}

@@ -1,0 +1,322 @@
+{
+"champ": "Zac",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/12-16-a-master-tier-guide-to-zac-wip-615890",
+"author": "Yuki H.",
+"rank": "Diamond",
+"updated": "2022-08-27",
+"title": "[12.16] A Master Tier Guide To Zac (WIP)"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Like you, he farms early and rarely invades. Mirror his pathing so you can counter-gank."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her Q dashes dodge your CC and her E negates burst, but her early game is weak and 2v2 or 3v3 skirmishes favour you."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"After level 6 her ultimate can cancel your E jump, and she is mobile. She clears about as fast or slightly faster; skirmishes favour you, so only contest objectives when your laners have priority."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A scaling champion whose early game is not oppressive, and he cannot burst you in one rotation early to mid game. Watch his W, and play to counter-gank since he is harmless without it."
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her threat is her early game; cover dives from level 3 by tracking each lane's wave state. If you dodge her cocoon, you should never be in kill range."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She has little early pressure, so you control the tempo: power farm, gank or counter-gank. Watch her early habits and adapt."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Not much of a threat alone but strong CC and teamfighting. Counter-gank right after he spends his abilities to turn his ganks around."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His only answer is to body-slam you out of your jump, but if your Q lands first he cannot escape. Counter-gank after he uses his E."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His early invades are the main threat; from level 4 he rarely kills you unless you jump in and miss. He can handle you late if even, but you win most skirmishes."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He clears fast and ganks often, but his pre-6 ganks are telegraphed, so counter-gank or catch him with your laners. He likely out-duels you alone; Conqueror helps."
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"More of a nuisance and pseudo-support than a threat. He is easy to catch from fog, and you can Q Daisy to pull Ivern in place; invade if your laners have priority."
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He ganks, invades and dives from level 2 while you need level 3, so watch for invades. Engage on him after he uses his E-Q combo, which could otherwise interrupt your jump or help him escape."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His only CC is his counter-strike, which you can dodge or negate by jumping as the stun triggers. Engage on him when it is down, and watch his Q, which can hop to any unit."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong 1v1 but weak in skirmishes, squishy and immobile, so one CC chain usually kills him. Power farm alongside him or counter his telegraphed ganks after his full clear."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Both his forms trouble you, so fight him before he transforms. Blue form dodges your skillshots and roams fast; red form out-duels you and can cancel your jump with W."
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"If he catches you on a camp without spells you take heavy damage, so track him. Late game, stay near your carries to deny his assassinations."
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"She kites you very well with mobility and slows and favours marked invades, which are easier to defend. Her ultimate can save her team after you spend your spells, so hold your ultimate or use it as hers ends. A weaker Kindred is closer to Even."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Only his invade pressure makes him a concern; he lacks the damage to kill you and your kit counters him."
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She out-clears, out-moves and out-damages you with percent-health damage. Only fight her by Q-ing onto another target and autoing to guarantee CC before jumping; retreat if you miss the jump."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Dangerous 1v1, but you rarely seek 1v1s. Q him to interrupt his meditate, and if his Alpha Strike is up, throw Q at a minion and auto him instead. If losing, jump toward your team; if he follows, he likely dies."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He farms efficiently and will likely ult you mid-jump to remove you from teamfights. Sidestep his Q and avoid 1v1s."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A strong Nidalee is extremely oppressive early, while a weak one lets you scale freely. Read her pathing and invades in the first 5 to 10 minutes, path opposite her, and remember her invades can fail if your laners have priority to collapse."
+]
+]
+}
+]
+}
+}

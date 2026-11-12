@@ -1,0 +1,321 @@
+{
+"champ": "Tristana",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/ad-tristana-build-guide-patch-25-16-392183",
+"author": "Nortoxz",
+"updated": "2025-08-21",
+"title": "(AD) Tristana Build Guide (Patch 25.16)"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"As a bot laner she mostly pokes and provides utility with no real early kill threat. She is easy to jump onto."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Similar to Seraphine: no mobility, so he is an easy target for your burst."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She has good CC but no mobility. Use your W to dodge her arrow and force fights."
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Long-range poke and sustain, but very squishy and vulnerable to your all-ins."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Lethality Varus pokes hard, but you can dodge his skillshots with W and all-in when he is exposed."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak early with decent mid-game poke; a rare bot lane pick and only a situational threat."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You beat her early, but she becomes deadly late, so use your early advantage."
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You have early kill pressure, but she outranges you later and scales hard."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Safe and hard to pin down. He rarely wins early trades but farms well and scales."
+]
+]
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her ultimate keeps her safe and lets her punish overaggression. Well-timed feather recalls make her hard to all-in."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She controls the lane well, but is vulnerable to hard engage when caught without her trap or net."
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong poke and ultimate that punish poor positioning, so mind where you stand."
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"High burst and CC that can punish you if you overcommit."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Explosive, mobile early trades, especially paired with enchanters like Nami or Milio."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Dangerous in all-ins and her W blocks key abilities. You need to snowball before her power spike."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Strong up close and can outduel you in extended fights with good support backing."
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her spell shield can deny your engage, and she becomes hard to burst once she has lifesteal."
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Weak early but terrifying late, so shut him down quickly."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A strong early duelist and tough in good hands."
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Extremely strong early and very hard to deal with if he snowballs. Play around his cooldowns, avoid early trades unless your support commits, and farm safely. Plated Steelcaps, Death's Dance and Guardian Angel help you survive his burst and snowball."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"With an engage support she matches your burst and follows up with her ultimate, and is dangerous when even or ahead. Pick Plated Steelcaps or Mercury's Treads based on their team, and consider Navori Quickblades, Guardian Angel, and Mercurial Scimitar against hard CC."
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"With an enchanter, he out-damages you later if not killed early, so shut him down in lane. Early armor and Plated Steelcaps help, Frozen Mallet aids kiting, Maw of Malmortius covers magic threats, and Bloodthirster sustains through his poke."
+]
+]
+}
+]
+}
+}

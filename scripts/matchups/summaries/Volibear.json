@@ -1,0 +1,227 @@
+{
+ "champ": "Volibear",
+ "url": "https://www.mobafire.com/league-of-legends/build/26-17-challenger-volibear-top-guide-609641",
+ "title": "[26.21] Challenger Volibear Top Guide",
+ "author": "Federals1",
+ "rank": "Challenger",
+ "updated": "2026-11-02",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Aatrox": {
+   "difficulty": "Even",
+   "summary": "You crush him at level 2 with Q and E, but once he has W he has the edge if he plays well, and his Q poke keeps you away. Let him push to you and run him down before he reaches his tower, poking with your trade combo first. You can re-cast Q to keep its speed after his sweet spot cancels you. Max Q, start Doran's Ring or Blade, and build speed first."
+  },
+  "Akali": {
+   "difficulty": "Extreme",
+   "summary": "Her shroud makes your W fizzle and she wins every short trade. Bait out her shroud, then all-in, and respect her Ignite all-in. Late she beats you unless you have Force of Nature or Anathema's Chains; max Q, build lots of health and resists, and take Flash and Ignite."
+  },
+  "Akshan": {
+   "difficulty": "Extreme",
+   "summary": "As with all ranged tops, he swings away from your engage. Recall early for boots to cut off his E. From level 6 until he has 2 to 3 items you beat him and can dive him whenever your ultimate is up; Anathema's Chains rush is best."
+  },
+  "Camille": {
+   "difficulty": "Major",
+   "summary": "Hard until you have practiced it; the key is landing your combo without eating hers. Max Q, let her ult you first and use yours as she becomes targetable again. Late she wins 1v1s unless you build Divine Sunderer or a dedicated bruiser setup; build speed first."
+  },
+  "Cassiopeia": {
+   "difficulty": "Extreme",
+   "summary": "Her poison zone blocks your ultimate, and getting hit by her ultimate stun usually means death. She deals huge damage, so look to snowball and set up a level 6 dive. Max Q; Anathema's Chains, Force of Nature or Cosmic Drive with a lead."
+  },
+  "Chogath": {
+   "difficulty": "Even",
+   "summary": "Gets easier with practice. Only trade with E ready or you lose short trades, and dodge his Q to win 1v1s. Max Q and build speed first."
+  },
+  "Darius": {
+   "difficulty": "Even",
+   "summary": "Very skill-based. Do not fight him at levels 1 or 2; farm with E. From level 3 you can win if you dodge his Q with yours, and never let him stack his bleed for free, especially at 6. Your ultimate can dodge his pull if timed well. Max W, and rush Cosmic Drive or Iceborn Gauntlet."
+  },
+  "DrMundo": {
+   "difficulty": "Even",
+   "summary": "His passive and Q slow make him very hard to kill; break his passive before an all-in to guarantee your Q-R combo. He outscales you in teamfights, so split push to draw pressure. Max W; Divine Sunderer rush works."
+  },
+  "Fiora": {
+   "difficulty": "Extreme",
+   "summary": "A parried stun usually means death. Bait her parry by running at her without hitting, or use W to trick her. Max Q, build speed first, take Ghost and Ignite, and get Divine Sunderer to compete late."
+  },
+  "Gangplank": {
+   "difficulty": "Major",
+   "summary": "His poke is annoying; newer players can take Second Wind and Revitalize with a Plated Steelcaps rush. At level 6 you destroy him in a dive with Ignite; bait his W cleanse first, and break his barrels when possible. Anathema's Chains rush is very good."
+  },
+  "Garen": {
+   "difficulty": "Even",
+   "summary": "You should win levels 1 to 5; at 6 it gets riskier, especially with his Ignite. Bait his W before engaging, since it can deny dives. He is better in teamfights, so split push. Max W and build bulk and damage."
+  },
+  "Gnar": {
+   "difficulty": "Major",
+   "summary": "Mega Gnar is the bigger threat, poking you down before all-in. Burst Mini Gnar at level 6, but bait his hop first or you will miss your ultimate. Max Q and build speed first."
+  },
+  "Gragas": {
+   "difficulty": "Major",
+   "summary": "He stacks ability haste for quick combo trades before going in. Match his haste through runes and items; Ionian Boots are very good. Max Q and build bulk."
+  },
+  "Gwen": {
+   "difficulty": "Major",
+   "summary": "Keep trades very short; she wins long fights unless you have already combo'd her a few times. You can always ult into her mist, so baiting it is optional. Take Ghost and Ignite and build speed first."
+  },
+  "Heimerdinger": {
+   "difficulty": "Extreme",
+   "summary": "At 6 he matches your burst, and diving into his turrets plus empowered turret and stun kills you. Fake an all-in to bait his ultimate, back off, then commit once your Q is back. Max Q and build speed first."
+  },
+  "Illaoi": {
+   "difficulty": "Extreme",
+   "summary": "You win short trades while her ultimate is down but lose badly when she uses it, and every E she lands is lethal, so dodge them all. Anathema's Chains helps you survive. Max W, or Q if you trust yourself to dodge E with the speed."
+  },
+  "Irelia": {
+   "difficulty": "Extreme",
+   "summary": "She can kill you from full at level 6 without pre-stacking, and becomes overwhelming with Blade of the Ruined King, so try to kill her before that. Bait out her W before your ultimate burst. Max W and build bulk."
+  },
+  "Jax": {
+   "difficulty": "Extreme",
+   "summary": "Probably Volibear's worst matchup: he dodges your Q and W, his ultimate resists blunt your magic E, and his counter-strike reduces area damage. Ban him; if not, start Doran's Ring, max Q, take Ghost and Ignite, and consider Anathema's Chains into Bramble Vest."
+  },
+  "Jayce": {
+   "difficulty": "Major",
+   "summary": "He has strong kill pressure until 6, after which you can usually run him down with Q. His knockback resets your Q, so avoid autoing him up close so you can re-speed toward him. Max Q; Anathema's Chains rush works."
+  },
+  "KSante": {
+   "difficulty": "Even",
+   "summary": "His pull back to his tower is what kills you most often. In his ultimate he hits hard but is less tanky. Max W rather than Q since kiting gets hard once he has Iceborn Gauntlet, and save your ultimate for after his W. Cosmic Drive, Iceborn Gauntlet or Black Cleaver are good."
+  },
+  "Kayle": {
+   "difficulty": "Major",
+   "summary": "Hard to stop her scaling. At 6 her ultimate blocks yours and her speed and slow keep you off her. Set up dives at levels 3 to 5, alone or with your jungler, to build a lead; take Flash and Ghost and build speed or rush Anathema's Chains."
+  },
+  "Kennen": {
+   "difficulty": "Major",
+   "summary": "Very bad for you; his level 6 ultimate makes all-ins risky. Max Q, rush Anathema's Chains, and Force of Nature later cuts his damage a lot."
+  },
+  "Kled": {
+   "difficulty": "Major",
+   "summary": "His bear trap heavily reduces your healing, so keep trades short. If you max Q, dismount him before all-inning or you will lack the damage to finish. Rush Cosmic Drive or Iceborn Gauntlet."
+  },
+  "Malphite": {
+   "difficulty": "Even",
+   "summary": "Survive his poke until you can win 1v1s; with Cosmic Drive or big AP components you can dive him under tower. Your ultimate can cut his knock-up short if timed well. Anathema's Chains wins wars of attrition against his recent buffs; max W."
+  },
+  "Maokai": {
+   "difficulty": "Minor",
+   "summary": "Very easy in lane: he loses any engage on you. He outscales you in teamfights, so build for the enemy comp freely."
+  },
+  "Mordekaiser": {
+   "difficulty": "Even",
+   "summary": "Slightly favours you. You can cancel his ultimate with yours if timed well; if you used E before being pulled into his realm, you lose its damage and shield there. Max Q to dodge his pull and win short trades, or max W to win straight 1v1s but lose chase power. Cosmic Drive or Force of Nature."
+  },
+  "Nasus": {
+   "difficulty": "Even",
+   "summary": "Hard to stop him scaling, but you can punish him with an E-auto-Q-W-auto combo whenever he walks up to farm. Wave management is key; set up dives at levels 3 to 5 for a lead. Max W; Black Cleaver rush is strong."
+  },
+  "Neeko": {
+   "difficulty": "Extreme",
+   "summary": "Her stun and W speed let her walk away whenever you approach, and she pressures more in fights. Your ultimate can dodge both her root and ultimate stun, and your W mark shows which Neeko is real. Max Q; rush Anathema's Chains with Mercury's Treads."
+  },
+  "Olaf": {
+   "difficulty": "Major",
+   "summary": "He wins levels 1 and 2, you win 3 to 5, and he wins again at 6, cleansing your stun. Kite out his ultimate so he cannot refresh it, then turn and fight. Q max gives speed to kite; W max wins trades but cannot catch him. Take Ghost and Ignite."
+  },
+  "Ornn": {
+   "difficulty": "Major",
+   "summary": "Beatable with Divine Sunderer plus Black Cleaver, but nearly unkillable without them, especially late. He fights better and his triple brittle combo shreds you, and his E is a reliable disengage. Build bruiser items for an early lead; max W."
+  },
+  "Pantheon": {
+   "difficulty": "Extreme",
+   "summary": "Much stronger into you lately. He pokes with Q from max range; only all-in when his shield is down, since it blocks your ultimate. Push to punish his ultimate roams. Bone Plating with Doran's Shield helps beginners; Frozen Heart rush (Warden's Mail first) stops his snowball, then Iceborn Gauntlet."
+  },
+  "Poppy": {
+   "difficulty": "Even",
+   "summary": "Her damage is higher than expected, often with Divine Sunderer or Iceborn Gauntlet, so match it. Her W stops your Q lunge from max range but not up close. Max W; rush Cosmic Drive or Iceborn Gauntlet."
+  },
+  "Quinn": {
+   "difficulty": "Extreme",
+   "summary": "Her vault keeps you away and she runs you down if careless. Rather than matching her roams, shove every wave quickly so she is stuck farming under tower. Tank up and survive to mid game, and only dive with your ultimate up and ideally an ally."
+  },
+  "Renekton": {
+   "difficulty": "Major",
+   "summary": "His empowered W breaks your shield, and he wins short trades only with empowered spells. Chasing him through two dashes is hard; punish his E-W-Q-E pattern. If chunked by repeated trades, recall and try again at full health; Doran's Shield helps."
+  },
+  "Rengar": {
+   "difficulty": "Major",
+   "summary": "Respect his very strong level 1; farm with E from range. You start winning with item components like Bramble Vest or Plated Steelcaps, and Bone Plating helps. Avoid trading into his W heal; Warden's Mail into Bramble Vest or Iceborn Gauntlet works well."
+  },
+  "Riven": {
+   "difficulty": "Even",
+   "summary": "Bone Plating blunts her level 1 all-in and short trades, and like Irelia she can kill you from full at 6. A tank build makes you hard to kill but you will not 1v1 her reliably. Q max is usually better; Q her just before her W stun lands."
+  },
+  "Rumble": {
+   "difficulty": "Major",
+   "summary": "His flamethrower hurts, his harpoon slow is hard to handle, and his shield speed plus early boots make him hard to catch. Max Q, consider Swiftness Boots, and dive at 6 with care."
+  },
+  "Sett": {
+   "difficulty": "Even",
+   "summary": "You win early short trades, but his passive regen means you must finish him quickly. Time your ultimate to avoid his throw. Max Q to trade and escape his pull range; Warden's Mail rush into Frozen Heart or Iceborn Gauntlet."
+  },
+  "Shen": {
+   "difficulty": "Even",
+   "summary": "He wins level 1 outright and his W blocks your Q and W from level 3, but at 6 the matchup swings hard to you. After 6 keep shoving so he cannot ult freely, while tracking the enemy jungler."
+  },
+  "Singed": {
+   "difficulty": "Minor",
+   "summary": "Easy; resist chasing him. You cannot ult while standing in his goo, and his ultimate reduces your healing. If you want to catch him, max Q and build Boots of Swiftness first."
+  },
+  "Sion": {
+   "difficulty": "Even",
+   "summary": "He sits in the side lane taking towers, with annoying early damage and CC. Cosmic Drive rush works, but you need Divine Sunderer later to win 1v1s, or Hullbreaker to match his split push."
+  },
+  "Sylas": {
+   "difficulty": "Even",
+   "summary": "His E can dodge your E and ultimate, so stun with Q first or wait for him to use E. Do not let him use W on you freely for sustain. He outscales you, so shut him down early; Cosmic Drive rush works."
+  },
+  "TahmKench": {
+   "difficulty": "Major",
+   "summary": "Tough: with Anathema's Chains he is unkillable unless you have Black Cleaver plus Divine Sunderer, and his early to mid damage is high. Dodging his Q is key; max Q to weave around him. Divine Sunderer is a must for late 1v1s."
+  },
+  "Teemo": {
+   "difficulty": "Extreme",
+   "summary": "His poke and blind shut down your Q and W. Play back until level 6 and health items like Giant's Belt; Anathema's Chains rush gives the best chance. Max Q."
+  },
+  "Trundle": {
+   "difficulty": "Minor",
+   "summary": "Doran's Ring and magic-damage runes offset his stat steal. Respect his level 6: hold Q until he ults, then stun, slow with E and run until his ultimate expires, then turn and fight."
+  },
+  "Tryndamere": {
+   "difficulty": "Even",
+   "summary": "He can try a Ghost all-in at 6, but you can survive it; with Ghost yourself, W him on cooldown while running and stun when possible. Warden's Mail into Plated Steelcaps and Frozen Heart lets you dominate early and mid game. Max Q."
+  },
+  "Urgot": {
+   "difficulty": "Even",
+   "summary": "He can poke you out early, but one recall for Warden's Mail swings the lane. You can deny his execute with a well-timed ultimate, easier from range. Max Q."
+  },
+  "Vayne": {
+   "difficulty": "Extreme",
+   "summary": "She scales freely with little to fear. Play back for ganks or rush Edge of Night, which blocks her Condemn and lets you stick to her. Either play frontline for your team or build a heavy split-push dueling setup, but do not let her reach full build."
+  },
+  "Vladimir": {
+   "difficulty": "Even",
+   "summary": "Easier than most ranged tops, but his late game is huge, so pressure him hard early. Bait his pool before ulting and all-in; you can often burst him before his ultimate heal or empowered Q. Max Q; Anathema's Chains or Cosmic Drive."
+  },
+  "Warwick": {
+   "difficulty": "Even",
+   "summary": "You can match him early and win short trades, but he heals back to about half health. Track his E, which negates your burst, and you can cancel his ultimate with yours by predicting it. Get him to half, then burst him in one combo; Executioner's Calling helps."
+  },
+  "MonkeyKing": {
+   "difficulty": "Even",
+   "summary": "Not very threatening; his low base magic resist makes Doran's Ring hurt. If he ults you, back off until both casts are done, then re-engage if above about 40% health. Your W mark reveals the real Wukong versus his clone; Chain Vest, Plated Steelcaps and Bone Plating are safe."
+  },
+  "Yasuo": {
+   "difficulty": "Tiny",
+   "summary": "Very easy: his wind wall does nothing and your Q stops his dashes. It only gets hard if you dive without your ultimate or eat too many tornadoes; build speed to match his."
+  },
+  "Yone": {
+   "difficulty": "Major",
+   "summary": "His E gives him spacing that makes chasing hard. Max Q to chase once his Q3 and E are used, or W to win upfront all-ins. Frozen Heart rush is good, but remember he deals plenty of magic damage too."
+  },
+  "Yorick": {
+   "difficulty": "Major",
+   "summary": "Save Q early to instantly break his cage, or his ghouls and Maiden shred you. Kill three ghouls quickly with auto, W and Q. You need the bruiser build to win late 1v1s and must match his side-lane push; max W."
+  }
+ }
+}

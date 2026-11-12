@@ -1,0 +1,79 @@
+{
+ "champ": "LeeSin",
+ "url": "https://www.mobafire.com/league-of-legends/build/lee-sin-guide-605858",
+ "title": "Lee Sin Guide",
+ "author": "Abes_o7",
+ "rank": "?",
+ "updated": "2021-12-09",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Warwick": {
+   "difficulty": "Even",
+   "summary": "His healing lets him dominate the early game, so buy anti-heal."
+  },
+  "Vi": {
+   "difficulty": "Extreme",
+   "summary": "A hard counter: she can interrupt your Q2 dash and cancel your ult knockup."
+  },
+  "Zac": {
+   "difficulty": "Even",
+   "summary": "A tank who soaks most of your damage, heals from his passive and can revive."
+  },
+  "Nasus": {
+   "difficulty": "Extreme",
+   "summary": "Rare in the jungle, but very dangerous once his stacks build up; expect a hard game."
+  },
+  "Rengar": {
+   "difficulty": "Major",
+   "summary": "He can one-shot you before you react. Rely on your team to deny him easy stacks and kills."
+  },
+  "Khazix": {
+   "difficulty": "Major",
+   "summary": "He can one-shot you quickly. Get a level lead and dominate him before his evolutions come online."
+  },
+  "Kindred": {
+   "difficulty": "Tiny",
+   "summary": "One of your easiest matchups: you can kick her out of her ult zone, and she is too squishy to survive outside it."
+  },
+  "Chogath": {
+   "difficulty": "Extreme",
+   "summary": "Extremely tanky even without stacks; late game you will struggle to damage him."
+  },
+  "Shaco": {
+   "difficulty": "Major",
+   "summary": "AD Shaco can one-shot you, while AP Shaco harasses you with boxes all over the map."
+  },
+  "MasterYi": {
+   "difficulty": "Minor",
+   "summary": "Not overpowered if you know how to play Lee Sin well."
+  },
+  "JarvanIV": {
+   "difficulty": "Even",
+   "summary": "Weak in duels, but in teamfights his ult can trap you when there is no ally to W out to."
+  },
+  "Gragas": {
+   "difficulty": "Extreme",
+   "summary": "The author rates him among the hardest matchups but gives no specific counterplay."
+  },
+  "Sylas": {
+   "difficulty": "Tiny",
+   "summary": "Weaker in the jungle since his W nerf; you will usually hold a level advantage."
+  },
+  "Amumu": {
+   "difficulty": "Minor",
+   "summary": "His CC does little in duels, but be wary of it in teamfights."
+  },
+  "Diana": {
+   "difficulty": "Major",
+   "summary": "Strong in both jungle duels and teamfights, so be cautious."
+  },
+  "Fiddlesticks": {
+   "difficulty": "Extreme",
+   "summary": "His drain healing and ult make him one of your hardest matchups."
+  },
+  "Zed": {
+   "difficulty": "Major",
+   "summary": "Not hard on paper, but without wards for your W escape you can die when he ults you."
+  }
+ }
+}

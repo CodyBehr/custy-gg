@@ -1,0 +1,155 @@
+{
+ "champ": "Vi",
+ "url": "https://www.mobafire.com/league-of-legends/build/vi-matchup-notes-tips-amp-tricks-updated-14-15-639887",
+ "title": "Vi Matchups, Tips & Tricks [updated 14.15]",
+ "author": "y every name taken",
+ "rank": "?",
+ "updated": "2024-08-11",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Ahri": {
+   "difficulty": "Major",
+   "summary": "Her straight-line spells clash awkwardly with your straight-line Q, and she is very hard to catch while her ultimate dashes are up."
+  },
+  "Amumu": {
+   "difficulty": "Minor",
+   "summary": "Do not underestimate him: a Conqueror Amumu can win an early river 1v1 even if you land everything. Check his runes."
+  },
+  "AurelionSol": {
+   "difficulty": "Even",
+   "summary": "Save your ultimate for when he flies away, or to interrupt his channel if Q is down. With neither available, stay in melee range, since he wants mid range."
+  },
+  "Camille": {
+   "difficulty": "Major",
+   "summary": "Her wall dive and ultimate interrupt channels, including your Q charge, so account for that when engaging."
+  },
+  "Cassiopeia": {
+   "difficulty": "Major",
+   "summary": "Stay out of her poison pool, which stops you using Q or your ultimate. Predict her ultimate and turn away from it."
+  },
+  "Ezreal": {
+   "difficulty": "Even",
+   "summary": "Slippery while his blink is up. Hold your Q or ultimate for when he blinks away."
+  },
+  "Fiora": {
+   "difficulty": "Extreme",
+   "summary": "Never 1v1 her, even when she is behind. Fight with your back to a wall so she cannot proc vitals from behind, and fake your Q direction since good Fioras parry the dash."
+  },
+  "Gragas": {
+   "difficulty": "Even",
+   "summary": "A real skill matchup; the Gragas player's skill decides it."
+  },
+  "Graves": {
+   "difficulty": "Major",
+   "summary": "He sidesteps a visible Q, so in a 1v1 open with your ultimate and Q after he dashes. Watch for early invades."
+  },
+  "Heimerdinger": {
+   "difficulty": "Extreme",
+   "summary": "Avoid ganking him; his turrets let him beat two melee champions at once."
+  },
+  "Illaoi": {
+   "difficulty": "Extreme",
+   "summary": "Never 1v1 her even when she is behind. Fight her with your team and keep moving to dodge tentacles instead of standing still to attack."
+  },
+  "Ivern": {
+   "difficulty": "Major",
+   "summary": "He will try to steal your camps. His brushes give vision, so do not hide in them, and do not underestimate Daisy; Smite her if needed."
+  },
+  "JarvanIV": {
+   "difficulty": "Even",
+   "summary": "A well-timed E-Q dash can cancel your Q knockback even after it hits. Otherwise even; watch for early invades and ganks."
+  },
+  "Jax": {
+   "difficulty": "Major",
+   "summary": "Most Jaxes wait the full duration before recasting E for the stun, so time your ultimate to dodge it even in melee range."
+  },
+  "Katarina": {
+   "difficulty": "Minor",
+   "summary": "In teamfights save your Q or ultimate for her ultimate. If she is their only fed player, your job is to make her irrelevant."
+  },
+  "Kayn": {
+   "difficulty": "Extreme",
+   "summary": "He clears fastest, so stay active on the map and get yourself or a laner ahead rather than farming passively. Your ultimate is great for chasing him through walls."
+  },
+  "Khazix": {
+   "difficulty": "Extreme",
+   "summary": "Excellent ganks but weaker 1v1 against fighters like you who survive his burst. Be active, ping him whenever seen, and Smite him to pop Edge of Night if he builds it."
+  },
+  "Kindred": {
+   "difficulty": "Major",
+   "summary": "Annoying because countering her mostly means chasing her marks around the map."
+  },
+  "LeeSin": {
+   "difficulty": "Extreme",
+   "summary": "The strongest early jungler; a good Lee will gank or invade at level 3 or sooner. If he does not snowball, you beat him from mid game on."
+  },
+  "Lillia": {
+   "difficulty": "Extreme",
+   "summary": "Avoid 1v1s since she kites you. Pin her down with your team and use your ultimate to dodge her sleep."
+  },
+  "Mordekaiser": {
+   "difficulty": "Extreme",
+   "summary": "Never gank him while his ultimate is up; he will isolate and kill you."
+  },
+  "Morgana": {
+   "difficulty": "Major",
+   "summary": "Do not Q straight at her while her root is up. Use your ultimate to dodge her Q or ultimate, or Q out of tether range. Mercury's Treads are important."
+  },
+  "Nocturne": {
+   "difficulty": "Extreme",
+   "summary": "Smite can pop his spell shield. His fear in duels and his ultimate are the real issues; check your allies' screens for who he is ulting and ping him whenever seen."
+  },
+  "Poppy": {
+   "difficulty": "Extreme",
+   "summary": "Her W stops your dashes, which effectively silences you. Time your ultimate around hers so you are not knocked away."
+  },
+  "Rammus": {
+   "difficulty": "Major",
+   "summary": "He counters AD, but keep hitting him with your W armor shred; Black Cleaver is worth it against him regardless of team."
+  },
+  "Sett": {
+   "difficulty": "Extreme",
+   "summary": "His W does huge damage and his shield makes autoing pointless during it, so sidestep the true damage center line instead. Your ultimate is too slow to dodge it. Avoid 1v1s."
+  },
+  "Shyvana": {
+   "difficulty": "Extreme",
+   "summary": "She outduels you at almost every stage except the first levels with a good Q, and roams everywhere. She likes to counter-jungle and prioritizes dragons; the author bans her."
+  },
+  "Teemo": {
+   "difficulty": "Minor",
+   "summary": "Sweep with Oracle Lens before ganking, and memorize shroom positions rather than clearing them."
+  },
+  "Thresh": {
+   "difficulty": "Major",
+   "summary": "His ADC is very hard to reach while he is near. Use your ultimate to dodge his CC, do not Q at him while hook or flay is ready, and block his lantern by standing on or warding it."
+  },
+  "Udyr": {
+   "difficulty": "Extreme",
+   "summary": "He outduels you at every stage with either build and loves to invade. His speed lets him escape even when your team arrives."
+  },
+  "Vayne": {
+   "difficulty": "Even",
+   "summary": "A good Vayne can 1v1 you after 6, but she is harmless if you pin her with your ultimate while your carries hit her. Use Oracle Lens to find her in stealth and avoid walls."
+  },
+  "Volibear": {
+   "difficulty": "Extreme",
+   "summary": "He deals huge damage even on tank items, so buy Chempunk Chainsword or Thornmail. Your tower will not stop his dives."
+  },
+  "Warwick": {
+   "difficulty": "Major",
+   "summary": "Very strong early and falls off a bit later; he chases low-health targets very fast. Chempunk Chainsword or Thornmail is a must."
+  },
+  "MonkeyKing": {
+   "difficulty": "Even",
+   "summary": "Watch for his clone and stealth, and remember his ultimate interrupts your dash and deals heavy damage. Avoid fighting him alone without an item lead."
+  },
+  "Xayah": {
+   "difficulty": "Major",
+   "summary": "Her ultimate dodges yours, so only ult her once hers is on cooldown."
+  },
+  "Yasuo": {
+   "difficulty": "Major",
+   "summary": "He deals heavy damage with autos even if you dodge his knock-up with your ultimate. Avoid 1v1s."
+  }
+ }
+}

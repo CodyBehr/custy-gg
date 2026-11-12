@@ -1,0 +1,377 @@
+{
+"champ": "Karthus",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/karthus-stomping-bot-start-free-elo-hack-638123",
+"author": "Kociokwik",
+"updated": "2026-06-19",
+"title": "Karthus stomping bot start (free elo hack)"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"The author's permaban, though rarely faced. You cannot make use of your passive against her, and she outranges and outscales you while her resets are strong in solo queue."
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Strong in the meta and very tanky with Doran's Helmet; she outranges and outscales you. Avoid her short auto-Q trades and go for longer trades or all-ins instead; her long attack animation makes your Q easy to land. Trade when her W is dodged or wasted, your W slow cancels her E speed, look for plays on her slow pushes, and consider an early Liandry's against her health build."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"You can never engage on him; he always has priority and scales well. Match his Teleport or take Exhaust and look for kills with your slow after he wastes W. When the wave pushes toward him, stand in it to bait spells that would otherwise bounce to you."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her range and damage deny you priority, and she often takes your tower before 10 minutes. You need an engage support to punish her; bait her E before engaging. Watch for traps behind your tower, and do not fight at level 1 unless she face-checks, since brush autos double her passive."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A safe laner who counters you with her W shield and heal, so a big lead is hard; consider matching her Teleport. Slow her with W and dodge her E for free trades. Count her passive stacks, since her double E is the main danger and she gets only one double cast per rotation."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Support-dependent. Her short range lets you land Q as she last hits, but respect her level 6 all-in. Her tumble range is fixed and predictable. She scales and can build tanky enough to survive your burst late, so do not feed her."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You win before level 6, but afterward you must dodge his ult or die. You outscale him, so avoid risky fights."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You outscale her, but her all-in can one-shot you. Early her range is shorter, so Q her as she last hits; short trades are good when she cannot detonate her bomb. She pushes but cannot freeze. When she jumps you, turn on E, W her and Exhaust as her bomb is about to explode."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Never fight her at level 1. From level 2 you can win lane if your Qs land, but her slows can be a problem late."
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You win every trade before level 6, but afterward his slows let him kite you easily."
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Strong currently, with more range and speed, but he has no escape, so slow him and let your support engage. Late game, stay behind your team to avoid his ult poke."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You outrange her, but a good Kalista dodges your Q. Avoid early fights and farm to Lost Chapter and Fated Ashes; you outscale. Her hop speed depends on her movement speed, so save W to slow her."
+]
+]
+}
+],
+"Zeri": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Weak early, so you win fights before level 6, but her ult is a big spike. Zone her away from walls so she cannot escape with E. She becomes hard to hit late."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Support-dependent. Her all-ins are strong, so do not force fights, though short trades are fine when she cannot proc her passive. All-in when she wastes spells on the wave. You are stronger at one or two items, but an AP Kai'Sa may outscale; dodge her W late."
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Support-dependent; do not engage yourself, wait for your support. You outscale him but he snowballs better, so even trades are not always good. Aim Q at his axe landing spots, and Exhaust him as an axe is about to land."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You out-damage him early if your Qs land, and you outscale him hard. His passive shots reduce his E cooldown, so expect two dashes in a fight."
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You are stronger early and can use brush at level 1; you usually win 2v2s. Be careful when he holds Severum and Chakram together, and wait for one to empty."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"As a melee champion she gives your E more value, and your kit counters hers. Push and punish her on the bounce back, and deny free farm since she outscales. She levels at different times, reaching level 2 after the first wave plus one melee minion."
+]
+]
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She is weaker early and you outscale; dodge her root and you win fights. After level 6, all-in to force her ult so she cannot dodge yours, and track it in teamfights."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Punish her short range when she farms. If she engages, use E and W and land Q; even if you die, she should too. Against her usual engage support, pair with an enchanter or mage tank, and consider Zhonya's later."
+]
+]
+}
+],
+"Smolder": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He is weak early, but dodge his W or he slows you and escapes. You push better, so take plates and fight on the bounce back. You are stronger until his 225 stacks and four or five items."
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She pokes better but all-ins worse; you outscale. Avoid her Q bounces, especially behind minions on low health, and after 6 beware being stunned into her ult. Stay close to her."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Space correctly to outrange him, but respect his early damage. With Exhaust you should win duels."
+]
+]
+}
+],
+"Yunara": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Similar to Zeri: modest early with a level 6 spike, though you can still fight her ult. Take short trades since she needs to stack her Q."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You out-push and outscale him, but his blink makes trading pointless, so farm and take plates. Being weak-sided is fine; look for ult plays."
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She out-pushes you all game, denying dives and plates, though you can punish her on bounce backs by landing W and walking up. Scale and help your team with ults."
+]
+]
+}
+]
+}
+}

@@ -1,0 +1,159 @@
+{
+ "champ": "Braum",
+ "url": "https://www.mobafire.com/league-of-legends/build/26-21-first-we-fight-then-we-eat-a-comprehensive-braum-guide-628355",
+ "title": "[26.22] First we fight, then we eat! - A comprehensive Braum guide.",
+ "author": "Aerenax",
+ "rank": "Emerald",
+ "updated": "2026-11-04",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Alistar": {
+   "difficulty": "Even",
+   "summary": "A skill matchup: when he engages on you, answer by going onto the enemy ADC to even the trade. In teamfights, look to interrupt his engage with your ult."
+  },
+  "Amumu": {
+   "difficulty": "Minor",
+   "summary": "His bandage telegraphs who he is going for, so step in front of it to protect your ADC and the lane stays comfortable."
+  },
+  "Ashe": {
+   "difficulty": "Major",
+   "summary": "Her W poke and slows make lane miserable. She has no mobility though, so if your Q lands and she is out of position, she can be caught."
+  },
+  "Bard": {
+   "difficulty": "Even",
+   "summary": "He can stun you against the ally you jump to, which is irritating. He is catchable when he misplaces and often leaves lane, which helps you; ping when he disappears."
+  },
+  "Blitzcrank": {
+   "difficulty": "Tiny",
+   "summary": "Pleasant for you: if he hooks you, start stacking your passive on him or his ADC; if he hooks your ADC, W to them and keep fighting."
+  },
+  "Brand": {
+   "difficulty": "Major",
+   "summary": "He deals a lot of damage, but your shield blocks much of it. Try to catch his ult with your E so it fizzles."
+  },
+  "Janna": {
+   "difficulty": "Even",
+   "summary": "Your shield can absorb her tornado for your team, though you still get knocked up. She creates space with tornado or ult when you approach, making it a skill matchup."
+  },
+  "Fiddlesticks": {
+   "difficulty": "Even",
+   "summary": "He is hard to reach, but if you land CC on him it is usually a kill."
+  },
+  "Karma": {
+   "difficulty": "Major",
+   "summary": "She will poke you out of lane if you are careless. Engage only when you have stayed healthy, and expect her to escape with W or E; a hard lane overall."
+  },
+  "Leona": {
+   "difficulty": "Tiny",
+   "summary": "Very winnable. Her E lands her behind you, so auto her to build your passive or turn onto her ADC. When she engages your ADC, stand between them and use your shield to peel."
+  },
+  "Lulu": {
+   "difficulty": "Major",
+   "summary": "Her main job is polymorphing you or your ADC when you engage; your shield blocks the polymorph since it is a projectile. She also pokes you hard, so focus on staying healthy."
+  },
+  "Lux": {
+   "difficulty": "Major",
+   "summary": "She pokes heavily like Karma, but if you reach her she has no escape beyond Flash and usually dies. Your shield can block her Q, though you will be rooted yourself."
+  },
+  "Maokai": {
+   "difficulty": "Even",
+   "summary": "He can reach your carry in ways you cannot stop, but your shield easily blocks his ult, so look for those chances."
+  },
+  "Milio": {
+   "difficulty": "Even",
+   "summary": "His W range boost makes it easy for him to poke you; play around that cooldown and the lane is fine."
+  },
+  "Morgana": {
+   "difficulty": "Even",
+   "summary": "Your Q's magic damage, scaling with your health, can break her Black Shield while still applying a passive stack. If you play around her bindings, the lane is quite winnable."
+  },
+  "Nami": {
+   "difficulty": "Major",
+   "summary": "Her sustain and poke make lane hard, but your shield can catch her bubble and block her ult. You have the edge in teamfights."
+  },
+  "Nautilus": {
+   "difficulty": "Tiny",
+   "summary": "He will engage, but you are well equipped to neutralize it: stack your passive on him when he hooks your ADC and shield their ADC's damage."
+  },
+  "Pantheon": {
+   "difficulty": "Even",
+   "summary": "He engages with his W and is hard to peel off your ADC, but stack your passive on him once he comes close."
+  },
+  "Poppy": {
+   "difficulty": "Even",
+   "summary": "Her W stops your W jump to allies. Play around it and you can neutralize her kill pressure."
+  },
+  "Pyke": {
+   "difficulty": "Minor",
+   "summary": "Play it like Blitzcrank: when he hooks your carry, follow with W. Your shield can block his E dash."
+  },
+  "Rakan": {
+   "difficulty": "Major",
+   "summary": "He is very mobile and hard to catch, and he counter-engages on your carry whenever you go in. Focus on surviving lane, since punishing him is difficult for Braum."
+  },
+  "Rell": {
+   "difficulty": "Minor",
+   "summary": "Her engage is simple to read; if her W misses she loses speed and is easy to catch. An easy lane."
+  },
+  "Renata": {
+   "difficulty": "Even",
+   "summary": "Her poke slows you, but her early cooldowns, especially W, are long, so play around them. Block her ult with your shield in fights, and avoid a full crit build that turns her ult against your team."
+  },
+  "Senna": {
+   "difficulty": "Major",
+   "summary": "Her long range, damage and sustain make laning very hard; neutralize the lane as best you can. In teamfights your shield blocks much of her damage."
+  },
+  "Seraphine": {
+   "difficulty": "Even",
+   "summary": "Lots of poke; stay healthy and punish her cooldowns. Your shield blocks her ult, though you will still be charmed."
+  },
+  "Shaco": {
+   "difficulty": "Extreme",
+   "summary": "His fear boxes are very annoying, and you will walk into them when fighting for brush or engaging. An early Oracle Lens helps a lot."
+  },
+  "Sona": {
+   "difficulty": "Even",
+   "summary": "She pokes and sustains heavily, so commit fully when you go in; reaching her usually means a kill. Your shield can block her ult, though you get stunned doing so."
+  },
+  "Soraka": {
+   "difficulty": "Major",
+   "summary": "Her sustain and Q slow leave you vulnerable. Buying anti-heal is strongly recommended."
+  },
+  "Swain": {
+   "difficulty": "Major",
+   "summary": "He brings damage, CC and healing, so anti-heal is close to mandatory for you or your ADC. In fights, slow him with Q or R to let his ult expire, then re-engage."
+  },
+  "TahmKench": {
+   "difficulty": "Minor",
+   "summary": "A tanky but beatable opponent. He plays aggressively, so be ready to peel; both of you stack passives with autos, which makes fights explosive."
+  },
+  "Taric": {
+   "difficulty": "Even",
+   "summary": "His damage ramps quickly once he gets autos off on melee supports. Play around his stun when engaging; when he ults in a fight, slow enemies with your ult and re-engage after it expires."
+  },
+  "Thresh": {
+   "difficulty": "Even",
+   "summary": "Like other hook matchups: peel your ADC when hooked and re-engage on their ADC when possible."
+  },
+  "Velkoz": {
+   "difficulty": "Major",
+   "summary": "A damage-focused support; stay healthy in lane and punish his cooldowns."
+  },
+  "Xerath": {
+   "difficulty": "Extreme",
+   "summary": "A damage support with CC. Stay healthy and play around his long E cooldown. Reaching him lets you and your ADC burst him, but your shield cannot block his W or ult."
+  },
+  "Yuumi": {
+   "difficulty": "Minor",
+   "summary": "She adds little to the lane against you and cannot peel your stun, so position aggressively; reaching her ADC is often a free kill."
+  },
+  "Zilean": {
+   "difficulty": "Major",
+   "summary": "Later in the game his heavy slow and low-cooldown revive are annoying. You can catch his bombs with your shield, but two bombs on you still stun."
+  },
+  "Zyra": {
+   "difficulty": "Major",
+   "summary": "Her plants and steady Q poke are annoying. Play around her root and punish misplaced plants or a missed E."
+  }
+ }
+}

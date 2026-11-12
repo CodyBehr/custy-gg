@@ -1,0 +1,195 @@
+{
+ "champ": "Evelynn",
+ "url": "https://www.mobafire.com/league-of-legends/build/s15-evelynn-bible-by-excalibur-grandmaster-insights-amp-all-matchups-explained-648568",
+ "title": "(RANK 1 EVELYNN) Excalibur's Evelynn Bible - All Matchups Explained with Tips and Strategies",
+ "author": "LoL_Excalibur",
+ "rank": "?",
+ "updated": "2025-07-07",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Amumu": {
+   "difficulty": "Minor",
+   "summary": "He clears slowly, cannot invade you and has no kill pressure before or after level 6. Respect his ult and CC chain and you can control the map freely."
+  },
+  "Belveth": {
+   "difficulty": "Extreme",
+   "summary": "She will invade you repeatedly and dominates the early jungle. Start on wolves or raptors and then clear the opposite side; if she invades at level 1, abandon the camp and move away. Expect to reach level 6 behind against her."
+  },
+  "Brand": {
+   "difficulty": "Minor",
+   "summary": "He needs vision to land his combo, so he cannot hurt you while you are stealthed charging W. Once charm is ready, he is squishy and usually dies to one combo."
+  },
+  "Briar": {
+   "difficulty": "Extreme",
+   "summary": "Very hard to win. Ward the opposite buff for cheese and start raptors or wolves so she cannot clear one camp and invade. Her damage reduction and CC chain make her hard to one-shot, though she invades less than Bel'Veth."
+  },
+  "Diana": {
+   "difficulty": "Even",
+   "summary": "Both of you play for level 6, so she rarely invades and you can farm freely. At two items with stacks you can one-shot her; the better player wins."
+  },
+  "DrMundo": {
+   "difficulty": "Major",
+   "summary": "Neither of you can kill the other, and you lack max-health or true damage to handle him, so late game becomes a problem."
+  },
+  "Ekko": {
+   "difficulty": "Even",
+   "summary": "Whoever engages first usually one-shots the other. His ult makes him hard to finish, so you need to be quite fed to execute him with your ult before he rewinds."
+  },
+  "Elise": {
+   "difficulty": "Even",
+   "summary": "She usually focuses on ganking and diving rather than invading, so you can farm to 6. Ward your opposite buff since she invades around level 3, track her, and warn or cover teammates against dives. A skill matchup."
+  },
+  "Fiddlesticks": {
+   "difficulty": "Extreme",
+   "summary": "Very hard: even if you get ahead, one ult catches you with enough CC to die before you can ult. Play around vision and approach from unusual angles."
+  },
+  "Graves": {
+   "difficulty": "Major",
+   "summary": "You lose extended fights early but can one-shot him with a couple of items. When fighting, land full charm, burst, then use your speed to leave before the trade gets long."
+  },
+  "Gwen": {
+   "difficulty": "Extreme",
+   "summary": "Hard to kill and scales very well, and you struggle to shut her down late. Get fed by ganking lanes to stack Dark Seal and Mejai's so you can one-shot her before her regen makes her a nightmare."
+  },
+  "Hecarim": {
+   "difficulty": "Major",
+   "summary": "With bruiser builds and fast clears he can do as he pleases, and a fed Hecarim feels unbeatable. If he is not fed and you are, you can one-shot him."
+  },
+  "Ivern": {
+   "difficulty": "Extreme",
+   "summary": "His shield blanks your combo, he can steal camps to delay your level 6, and his brush counters your stealth roaming. You need a solid team to beat him."
+  },
+  "JarvanIV": {
+   "difficulty": "Even",
+   "summary": "A skill matchup; you can ult out of his arena. He rarely invades and has little kill pressure. His E-Q can escape your combo, so wait for him to commit first."
+  },
+  "Karthus": {
+   "difficulty": "Minor",
+   "summary": "Like Brand, he needs vision to hit you and is immobile, making him one of your best matchups. If he runs Exhaust he will win pre-6 fights, so respect that."
+  },
+  "Kayn": {
+   "difficulty": "Minor",
+   "summary": "You win every duel before his transformation, and at two items or one item with many stacks you one-shot him before he can ult to safety. Ward or start raptors to avoid a raptor cheese."
+  },
+  "Khazix": {
+   "difficulty": "Even",
+   "summary": "Whoever spots the other first wins. Ward your opposite buff for level 3 invades, and never get caught without ult or Flash."
+  },
+  "Kindred": {
+   "difficulty": "Major",
+   "summary": "She harasses your jungle from level 3 and her ult stops your one-shot. Play on the opposite side of the map from her."
+  },
+  "LeeSin": {
+   "difficulty": "Even",
+   "summary": "Dodge his Q and you win fights, but be careful in extended trades. Ward your opposite buff for level 3 invades."
+  },
+  "Lillia": {
+   "difficulty": "Even",
+   "summary": "Before she scales you are stronger if your Q lands, and she mostly keeps to herself early. Later you can time your ult with hers to avoid the sleep, but you are weaker than her without ult."
+  },
+  "MasterYi": {
+   "difficulty": "Minor",
+   "summary": "He must reach you to deal damage, and by then charm is ready, so you can combo him before his Meditate helps. He builds little MR, so with CC layered he dies quickly."
+  },
+  "Naafiri": {
+   "difficulty": "Even",
+   "summary": "More annoying than hard: her dogs block your Q. She is very squishy and dies to your combo in midgame; land it first and ult out to avoid her Q2."
+  },
+  "Nidalee": {
+   "difficulty": "Extreme",
+   "summary": "Like Bel'Veth, she invades and makes your pre-6 miserable. Ward the entrance on your starting side to reach level 3 safely, then back for Dark Seal or gank. Playing more aggressively before 6 helps, but watch her counter-ganks."
+  },
+  "Nocturne": {
+   "difficulty": "Even",
+   "summary": "A knowledge check: use spells so his spell shield does not waste them, and do not gank without ult or Flash when he can ult in. He gets annoying later with MR."
+  },
+  "Nunu": {
+   "difficulty": "Even",
+   "summary": "A skill matchup with similar smites, sustain and burst; you can duel him most of the game. Consider Rocketbelt, and your ult can dodge his."
+  },
+  "Pantheon": {
+   "difficulty": "Minor",
+   "summary": "He is squishy, cannot one-shot you, and has no mobility once he loses sight of you, so charm lands easily. He usually dies to charm in teamfights."
+  },
+  "Poppy": {
+   "difficulty": "Minor",
+   "summary": "Like Amumu, low kill pressure lets you play the map freely. Early on she can finish you below half health with her combo, so keep that in mind."
+  },
+  "Rammus": {
+   "difficulty": "Minor",
+   "summary": "A low-threat tank who struggles against AP, cannot kill you and takes objectives slowly."
+  },
+  "RekSai": {
+   "difficulty": "Even",
+   "summary": "Her tremor sense partly counters you, but she is one-shottable and easy to charm. Ward your opposite buff to avoid her level 3 invade."
+  },
+  "Rengar": {
+   "difficulty": "Extreme",
+   "summary": "Historically your worst matchup: he punishes you in his ult, invades, and his W negates your damage. It is still winnable but you have less control; ward your opposite buff."
+  },
+  "Sejuani": {
+   "difficulty": "Minor",
+   "summary": "A low-damage, slow-clearing tank who cannot stop you from snowballing."
+  },
+  "Shaco": {
+   "difficulty": "Even",
+   "summary": "He is hard to track and can invade your buff. Avoid starting buffs, or ask for a leash and warn your team; alternatively ward your buff and start on a small camp. Whoever gets the jump wins."
+  },
+  "Shyvana": {
+   "difficulty": "Even",
+   "summary": "She will not invade, is weak before 6 and does not snowball off lanes. You can only one-shot her in midgame with items and stacks, so whoever gets more fed wins."
+  },
+  "Skarner": {
+   "difficulty": "Minor",
+   "summary": "Like other tank junglers, he cannot stop you from playing freely. Be careful of his ult."
+  },
+  "Taliyah": {
+   "difficulty": "Minor",
+   "summary": "The toughest mage jungler for you because her W can knock you away while you set up charm, and her Q hits you in stealth. Still one-shottable."
+  },
+  "Talon": {
+   "difficulty": "Even",
+   "summary": "Whoever is fed wins. You can complete your combo before he finishes his and hops a wall. Ward your opposite buff for level 3 invades."
+  },
+  "Udyr": {
+   "difficulty": "Major",
+   "summary": "He beats you one-on-one at every stage, and after Kaenic Rookern you cannot one-shot him. Play away from him and get fed through lanes; he rarely invades, so you can farm to 6."
+  },
+  "Vi": {
+   "difficulty": "Major",
+   "summary": "Her ult forces you to burn yours, neutralizing you, but she has low kill pressure and rarely invades; duels are even or in your favor. She becomes a problem with MR and tank items."
+  },
+  "Viego": {
+   "difficulty": "Even",
+   "summary": "Evenly matched in duels, but a single reset can let him take over fights. Try to one-shot him before that happens; he rarely invades and is weak before 6."
+  },
+  "Volibear": {
+   "difficulty": "Major",
+   "summary": "He beats you in early duels and clears. Play with teammates to beat him, consider covering his level 6 dives, and do not expect invades."
+  },
+  "Warwick": {
+   "difficulty": "Even",
+   "summary": "Your constant regen means he cannot chase you on low health, and his scaling is poor. He rarely invades, but you can ward your opposite buff."
+  },
+  "MonkeyKing": {
+   "difficulty": "Major",
+   "summary": "His clone dodges charm and his ult can chain CC you before you ult; he is too tanky to kill. Avoid teamfights with him and protect your stacks so he cannot catch you alone."
+  },
+  "XinZhao": {
+   "difficulty": "Even",
+   "summary": "Straightforward to play around. Ward your opposite buff and path toward a lane with priority for help with his level 3 invade, which many Xins misjudge against your level 3 strength."
+  },
+  "Zac": {
+   "difficulty": "Even",
+   "summary": "The hardest tank: decent clear and lots of CC. Still, his limited damage lets you play the jungle largely how you want."
+  },
+  "Zed": {
+   "difficulty": "Even",
+   "summary": "Like Talon, but he prefers full clearing over a level 3 invade. Watch for an invade on your second buff after his clear, and save Smite for it."
+  },
+  "Zyra": {
+   "difficulty": "Minor",
+   "summary": "Plays like Brand but with less damage and a slightly faster clear."
+  }
+ }
+}

@@ -1,0 +1,602 @@
+{
+"champ": "Amumu",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/26-08-amumu-support-615048",
+"author": "Navn",
+"rank": "Master",
+"updated": "2026-04-22",
+"title": "[26.08] Amumu SUPPORT"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She has no way out once you hit her with Q, so landing a bandage on her is usually a kill."
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Be careful about engaging when he holds the red or white weapons, since those make him want to fight up close. Pick your engage when he is on his other guns."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He can be irritating to deal with because he is fairly durable for a support, so your engages on him do less."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A difficult lane: he can counter your engage by using his ult and knocking you away. Track his tools before committing."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Awkward to play around, but if he hooks you into his team it can set up a strong ult for you. The outcome depends heavily on the situation."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He is fragile but deals heavy damage, and diving into melee range clumps you up for a big Brand ult. Engaging on him can easily backfire."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He rarely threatens anyone directly, but his shield can absorb much of your team's follow-up damage after your engage."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Take Second Wind. Wait until you have both Q charges before engaging, since with only one you lack the sticking power to stay on her."
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His E can interrupt your Q, so be mindful of it. If he uses it poorly, your engages can disrupt his axe catching and greatly reduce his damage."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Engage only with both Q charges ready so you can stay on him after his blink. Not a hard lane."
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She does not trouble you much in lane, but in teamfights an alert Janna can push you out with her ult before you cast yours. Track her ult and be ready to use yours first."
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Hold both Q charges before going in to keep him locked down. Should be a comfortable lane."
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Go in with two Q charges so you can keep up with her. The lane should not be much of a problem."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Make sure both Q charges are up before you engage, as one charge gives you much less stick. Generally an easy lane."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Time your engages for when her Mantra is on cooldown, so she cannot shield the damage or help her partner survive your all-in."
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Engage with both Q charges ready to stay on him. Not much trouble overall."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She is too tanky to engage on, so you have to target her lane partner, which can be difficult to reach."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He is mobile, so wait for both Q charges before committing. Should be a manageable lane."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Go in only with both Q charges available for extra stickiness. Generally not a problem lane."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Wait for two Q charges before engaging so you can follow up properly. The lane should be easy."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Laning is not very punishing, but his saplings in brush and strong vision control make it hard to find a good engage window."
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Engage with both Q charges up to stay on target. Not much trouble."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"This lane can get difficult, especially since your Q can fly into her binding and her Black Shield blocks your crowd control. In teamfights she can only shield one ally, so that is when you get value."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Hold both Q charges before you go in. Should be a comfortable lane."
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He can cause problems. Target his lane partner and body block his counter-engage on your own carry. After laning your teamfighting should outclass his."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A dangerous lane because he is slippery and deals a lot of damage early. After laning, catching him usually kills him instantly since he is squishy and cannot use his mobility in time."
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He is hard to pin down, so look to engage on his lane partner instead when you can."
+]
+]
+}
+],
+"Rell": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Tough in lane. Engaging on her partner still puts you close enough for her E to punish you, so focus on teamfights instead."
+]
+]
+}
+],
+"Renata": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Big engages into her are very risky because her ult can completely flip a fight. A multi-person Amumu ult can be turned back on your team if she ults toward you, so factor it in before committing."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She wants to be close anyway, which makes her dangerous. Your ult can interrupt hers, but you may already have used it on a big engage before she commits."
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Engage with both Q charges ready to keep her locked down. Not much trouble."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Wait for two Q charges before going in. The lane should be manageable."
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"When her spell shield is down, look for your ult on her. Otherwise it becomes a guessing game around her shield."
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Engage with both Q charges up for stick. Generally an easy lane."
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Use both Q charges before going in. If you engage on someone else, watch for her silence, which can ruin your big ult play."
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He is troublesome because he wants melee range too, and his ult can negate the follow-up to your big engage."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Engage with two Q charges ready, and try to be the one who starts fights; if he picks the moment, you can end up in trouble."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her long jump, which she can still use after being hit, makes her hard to catch, and her ult can knock you out of position for your ult."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Hold both Q charges before engaging. Not much trouble."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"With Cleanse she is very hard to handle since her true damage shreds tanks. She is also hard to hit with Q and her E can push you away."
+]
+]
+}
+],
+"Zeri": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Engage with both Q charges available, and avoid going in when she is near a wall she can use to escape."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She is dangerous if she has many seeds around her and can spawn plants before you lock her down. Catch her before her plants come out and even her ult will not be too bad."
+]
+]
+}
+]
+}
+}

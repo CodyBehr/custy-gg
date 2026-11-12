@@ -1,0 +1,2351 @@
+{
+"champ": "Pyke",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/pykens-grandmaster-s15-pyke-guide-643635",
+"author": "Pykings",
+"updated": "2025-11-11",
+"title": "Pyken's [Grandmaster] S15 Pyke Guide"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Dodge his Q sweet spots; his healing and ultimate naturally counter you, and he has a dash. You can E or W out of his Q, W and ultimate range, though that usually ends the fight rather than winning it."
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Gank her before 6, before she has her ultimate dashes, and watch for charm when you throw hooks. After 6, hook her right after a dash since there is a brief gap between charges. Avoid the return of her Q, which deals true damage."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Hard to gank because of her dashes and shroud; if she becomes a problem, buy magic resist such as Hexdrinker so she cannot one-shot you. You can drag her with your E when she uses her second E onto you. Most of her burst comes from her ultimate, so punish her while it is down."
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Counter his E swing with your Q to pull him out of it or your E to cut it short, with E being easier. Track his roams and he will not cause many problems."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He is tankier, has more CC and hits harder at levels 1 and 2, so do not rush early plays. Play slowly and wear him down; you can interrupt his headbutt animation with Q or E."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Rarely a threat unless his items are overtuned. His Q is telegraphed, so space with Q and W to dodge both casts and use E as needed. Avoid clumping for his ultimate, and consider Mercury's Treads or Edge of Night if he is a problem."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She is very immobile and easy as long as you dodge her Q. Punish her when her egg passive is on cooldown."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Her E speed is not enough to dodge your hooks. With ultimate and stun ready she can burst you from full, but if she has fewer than three passive stacks, one hook can mean a free kill, especially with a teammate nearby."
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Very immobile and weak unless he holds his red and white weapons. Play aggressively early and keep it up without dying, since a fed Aphelios is unkillable. Against early lethality Aphelios, an early Cloth Armor helps."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Immobile but oppressive early, and with a good support she is hard to touch; with a lead she can chase you down. The author suggests Exhaust plus Ghost with Nimbus Cloak and Celerity."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"He has no tools against Pyke and scales slowly. One hook kills him, and you can E or W out of all his abilities."
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Nimble but squishy. You can E or W out of her ultimate if you react quickly, and holding your hook charge until her invisibility ends counters her dashes. She hits hard mid to late game, so consider Hexdrinker."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Hold Q to answer his dash and hold E to answer his ultimate."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Do not hug waves, walls or allies where his Q can stun you, be careful chasing him through portals, and keep E to dodge his ultimate. You are the stronger roamer, so play around vision, tempo and objectives."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She is tanky, mobile and thrives in early skirmishes, killing you if she knocks you up; she can gank, invade and counter-gank you freely. Predict her dashes, shut her down early as a team, and avoid fights when you do not know where she is."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His hook is deadlier than yours, but he is useless when it is down, and whoever gets early kills snowballs; consider rushing Edge of Night. Warn your team about level 1 invades and ward over walls. If your duo is stronger, getting hooked at level 1 gives you a free E onto their ADC, but do not try this later when his knock-up interrupts it."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Immobile and harmless if you dodge his stun. Bait his W and Q before fighting, respect his ultimate once Q is down, and do not stand near the wave where his E spreads."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A natural counter: he blocks your access to his ADC, absorbs follow-up damage and stuns you with no escape. Consider dodging if his ADC procs his passive easily; playing safe wastes Pyke's early impact."
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy with no burst and telegraphed spells; you can react to her Q, W and ultimate with E to stun her, and dodge her E with E or W. Watch the healing during her E channel and listen for her ultimate cue."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her range, chain CC and poke counter you when she is meta, but she is squishy if she fails to dodge with her net. A hook into E lets your Q slow keep damage going. Respect traps, avoid Guardian Angel since she traps your revive, engage from fog with E, ultimate and Flash, and avoid being low and visible for her ultimate."
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her long-range lockdown and true damage counter you, and armor does not help, so consider Edge of Night for her engage. Hooking her out of her ultimate breaks the cage, and her empowered Q2 deals heavy true damage. Dodge her E with your E, or bait her into your stun."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her W stops you from using E, so position outside it or W out of it. Dodge her ultimate by walking forward and back; she lacks burst, so if you are healthy a stun will not kill you. She is only a late-game problem when meta."
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Skill-dependent. Dodge his knock-up and respect his silence and ultimate; he is immobile, so shutting him down early keeps him irrelevant."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Lethality Corki spikes very early and can make Pyke irrelevant with his burst and self-sufficiency. He is weaker after nerfs, so punish him early before he scales."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Stay out of his E range and respect his passive stacks and he cannot kill you. Once E is on cooldown and he has no stacks, hook him to chunk or kill him with your team."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her dashes and burst counter Pyke, but if you respect her E and ultimate she cannot kill you. Delay her item spikes and she falls off; consider Hexdrinker or Edge of Night."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Dodge his cleaver and kite him. If he is a problem, buy Grievous Wounds, Eclipse or Last Whisper."
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Immobile but slippery thanks to W and E. Edge of Night lets you engage through his E, and Voltaic Cyclosword helps with an E plus auto slow engage. Once you reach him without Flash, he dies."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You can drag him by stunning him during his E, though Protobelt or his ultimate can save him; bait the ultimate with E. Do not give him three passive stacks or walk into his W."
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She struggles to dive you since you dodge cocoon and E out of range, but you also struggle to kill her because her rappel dodges your skills."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You can escape her first engage, but her ultimate can close gaps. Keep E to dodge her spells and open with W when she charms you. Buy plenty of Control Wards, possibly Vigilant Wardstone, ward her jungle camps, and watch for her stealing objectives over walls."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Do not force it; he is harmless unless you feed him. Hide behind minions, juke his Q, bait his E or burn his Flash, then go for kills, opening with W into E or E into W and holding Q for his blink. If he plays too safe, roam and take objectives."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Respect his ultimate, ward heavily and remind your team of his flank angles; spread out when sieging. Save Q or E to cancel his W drain, and consider Vigilant Wardstone, Mercury's Treads, Edge of Night or Hexdrinker."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Use E and W to play around her parry; if you have no other target, throw your hook near her to bait it. Armor does little against her true damage, so look at shields such as Edge of Night, Eclipse, Locket or Celestial; Zhonya's or Guardian Angel can work late."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Use E to answer his E or Q, and be ready for his Q into ultimate; he cannot kill you from full unless the shark lands. Hexdrinker, Edge of Night or Celestial help."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid chained CC that sets up a collapse. Edge of Night, Hexdrinker or Mercury's Treads are good, and Eclipse helps against bruiser-heavy teams."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You cannot 1v1 him, so wear him down slowly and set up teammates. Expect him to cleanse your stun, avoid free barrel hits and poke, and do not stand in his ultimate."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Mobility items like Youmuu's or Swiftmarch, Trailblazer, Dead Man's or Edge of Night stop him chasing you down, and Tiamat helps match a split push. You can buffer E as he silences you and W away, but it is safer to keep distance."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Slippery and hard to kill. Back off when he is about to turn Mega, and do not let him throw you into terrain."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Only a problem when his items are strong. Dodge his skillshots with E and W, bait his spells with E, and avoid facechecking without a spell shield; Edge of Night, Hexdrinker or Celestial help."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Do not stand near terrain where his Q explodes instantly, leave his W smoke quickly, and dodge his ultimate sideways. Respect his ganks and dodge his skills and he cannot kill you."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Respect her ultimate, which can kill you if it lands two or three times; otherwise she struggles if you keep E and W. Her W mist makes her untargetable unless you are inside it."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Strong at every stage with speed, tankiness, damage and CC, and he punishes your aggression. Consider invading him if your matchup is losing."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Annoying early: he outdamages you, his turrets block hooks and he can burst you if you facecheck. Do not all-in at level 1; deny him early kills and wait for openings to snowball."
+]
+]
+}
+],
+"Hwei": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Stay behind minions from his poke and hook him when he is out of position. Roam if lane is hard, use Oracle Lens to set up picks, and look for flanks and ultimate executes later."
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid extended fights and her tentacle zones; use hit-and-run trades. If her E grabs your spirit, back off until it ends. Roam to pressure elsewhere while she split pushes, and focus on picking off squishy targets."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Respect her early all-in and avoid long trades, especially when her passive is fully stacked. Disengage if her stun lands, kite her Q resets, and focus on picks and map pressure while she split pushes."
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Ivern is weak early, so invade with your jungler and steal camps to slow his scaling. Counter his roams by pressuring the same lanes, and ignore him in fights in favour of his carries."
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Stay behind minions to avoid her poke. Her tornado and ultimate are her disengage, so bait them out before committing."
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His early E-Q ganks are strong, so ward the river and stay near minions. Keep E or Flash ready to escape his ultimate arena."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He wins long trades, so use hit-and-run trades and back off as soon as he activates his counter-strike. Do not try to stop his split push alone; group with your team instead."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Stay behind minions to avoid his ranged poke. Bait out his knockback and Shock Blast before going in."
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He pokes well and can root you once you are marked. Stay behind minions and bait out his W and traps before engaging."
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid her rocket poke from behind the wave. Bait out her chompers and Zap before you commit."
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong in extended trades; use quick trades and disengage if his knock-up lands. Do not fight his ultimate all-in alone, and pressure elsewhere while he split pushes."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her Q and W give her strong poke and burst. Stay behind minions, wait for those spells to be used, then look for your engage."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She pokes with Q and E and kites with her passive hops. Stay behind minions and bait her spells before going in."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her empowered Q poke is strong and her E shield and speed save her ADC. Bait out the shield and empowered spells before engaging."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Dodge his Q spam from behind minions. Bait out his spells, then catch him."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He is weak early, so punish him before he scales and trade when his Q shield is down. Ward the river and track his roams after level 6."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her dagger all-ins and kill resets are dangerous. Stay behind minions and bait out her Q and E before committing."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak early but scales hard, so pressure her and deny farm. Use short trades rather than extended ones and kill her before she comes online."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His early ganks are strong, so ward the river and stay near minions. Keep E or Flash to escape his ultimate."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Stay behind minions to avoid his poke and stun stacks. Bait out his Q and W before engaging."
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He deals bonus damage to isolated targets, so stay near minions or allies. Ward his jungle entrances to track him."
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Track and contest her marks when safe, and invade with your jungler while she is squishy early. Bait her ultimate, since it can deny your execute."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Strong in long trades; use hit-and-run and back off if his bear trap lands. Kite his engages and do not fight his all-in alone."
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He pokes and slows from range. Stay behind minions and bait out his slow and artillery before committing."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her Q and W give strong poke and burst. Stay behind minions and engage only after those spells are used."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His early ganks are strong, so ward the river and stay near minions. Keep E or Flash ready so his kick cannot send you into his team."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her E and Q engage is strong early. Stay behind minions and bait out her engage spells before fighting."
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid her Q poke and wait for her to use her sleep and slow before engaging."
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She can root and burst you. Bait out her W and her E teleport before you commit."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He trades hard with Q and his passive. Stay behind minions and engage after his Q and W are used."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her polymorph and shield shut down your engage. Bait them out first and avoid her poke from behind minions."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid her E and Q from behind minions. Engage after she wastes her root."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Stay behind minions from his Q, and bait out his slow and ultimate before committing."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid his poke and silence from behind minions. Bait out his silence and ultimate suppression before engaging."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid his poke and saplings, and engage after his W root has been used."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He wins extended fights, so trade quickly and disengage when he uses Alpha Strike. Kite him and do not try to stop his split push alone."
+]
+]
+}
+],
+"Milio": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Stay behind minions from his Q. Wait for his disengage tools to be used before going in."
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid her bouncing Q and slow from behind minions. Bait her slow and ultimate before committing."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He wins long trades, so hit and run, and back off if his pull lands. Keep E or Flash to escape his Death Realm."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her root and Black Shield shut down your engage. Avoid her W poke and bait out the root and shield before committing."
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid her Q poke from behind minions and wait for her burst spells to be used before going in."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid her bubble and bouncing heal poke, and engage when her spells are down. Her ultimate can disengage, so flank carefully and bait the bubble first."
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Punish him early before he stacks Q, and avoid extended fights after level 6. Kite his slow and ignore him in teamfights to focus squishy targets."
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Dodge his hook and avoid his full Q-E-R all-in. Bait the hook before engaging; later he is tanky but low on damage, so flank around his CC."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Watch for her root, poke and empowered autos early. In fights, beware of her disguise and ultimate, and look to catch her out."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Dodge her spears and punish her when she misplaces herself, since she is squishy. Track her and clear vision to deny picks."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She is strong in extended trades and her ultimate can snowball fights. Bait out her dash before committing and look to catch her out."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Weak early, so punish him before level 6. Later, keep E or Flash for his fear and counter-engage when he dives your carries."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid his snowball and punish missed spells. Track his roams and counter-gank, and dodge his ultimate area in fights."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early, so avoid long fights and his axes. His ultimate makes him CC immune, so kite him and save E or Flash for his all-in."
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Dodge her ball poke and watch where she places it before engaging. Avoid her ultimate in teamfights and look to catch her alone."
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Tanky but slow; avoid his knock-up and brittle procs. Ignore him in fights and focus squishy targets."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He has strong early burst and a point-and-click stun. Bait his shield block before fighting; he falls off later, so outscale him."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Avoid her wall stun; she is tanky but low on damage. Her W can stop your E dash, so play around it and flank to avoid her CC."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She has strong burst, so avoid her combos and her ultimate in tight spaces. Track her with vision and look for catches."
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Dodge her blind and knockback; she is squishy but mobile. Bait her vault before engaging and watch for roams."
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid his poke and W knock-up. Bait the W before committing, and flank carefully since his ultimate can disengage."
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Avoid his rolling engage and taunt. He is tanky but low on damage, so kite him and focus squishy targets."
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Her early ganks and knock-up are strong. Track her tunnels with vision; she falls off later, so outscale her."
+]
+]
+}
+],
+"Rell": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Avoid her stun and W engage. Bait the W before fighting and flank carefully around her ultimate."
+]
+]
+}
+],
+"Renata": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid her root and poke. Bait her W revive before committing, and flank since her ultimate can turn fights."
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong early; avoid his stun and fury-empowered spells. He falls off, so kite him and outscale."
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid his brush leaps and burst combos. Track him with vision and avoid his ultimate engages."
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early with combo burst and a stun. Bait out her cooldowns before engaging and kite her."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid his flamethrower and slows; he wins extended trades. Bait his overheat and flank around his ultimate zone."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Dodge his poke and root; he is squishy but scales. Bait his root before engaging and look for catches."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Squishy but mobile. Bait her wind wall before committing and avoid her ultimate in teamfights."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Tanky but slow; avoid her engage and stun. Kite her CC and flank around her ultimate."
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Dodge her poke and root; she is squishy but scales. Bait her stealth before committing and look to catch her out."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Avoid her poke and root. Bait her shield before fighting, and flank since her ultimate can swing fights."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early; avoid his W true damage and stun. Bait the W before committing and kite him."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His early ganks are strong, so clear vision and avoid his boxes. Track him carefully, as his clone can confuse fights."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Avoid his taunt and empowered autos. Bait his W block before committing, and flank since his ultimate can swing fights."
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak early; avoid her poke and speed boost. Track her dragon form and kite her."
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak early; avoid his poison and fling. Do not chase him into his team."
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Tanky but slow; dodge his knock-up and poke. Kite him, including after his passive revive, and flank around his ultimate."
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Dodge her poke; she is squishy but mobile. Bait her spell shield before committing to a hook."
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak early; avoid his stun and ultimate. Kite him and avoid fighting in his zones."
+]
+]
+}
+],
+"Smolder": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak early, so look to catch him before he scales. Avoid his poke and bait his spells before committing."
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Squishy but with strong utility; avoid her poke. Bait her heal before committing and flank around her ultimate."
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Avoid her poke and silence; she is squishy but heals a lot. Bait her heal before engaging and look to catch her out."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Dodge his poke and root. His ultimate makes him tanky, so kite him and avoid fighting in its zone."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Strong early burst; avoid his chain and dash. Bait his heal before committing and watch for stolen ultimates."
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Squishy but bursty; dodge her poke and stun. Bait her stun before engaging and avoid her ultimate burst."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Tanky but slow. Avoid his poke and engage, bait his shield before committing, and kite him."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Squishy but mobile; dodge her poke and knockback. Bait her W before committing and watch for her ultimate engages."
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong early burst; avoid his W combo. Track him with vision and look to catch him out."
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid his stun and sustain. Bait the stun first, and flank since his ultimate can negate your burst."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Squishy but annoying; dodge his blind and poison. Use Oracle Lens to clear shrooms."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Dodge his hook and avoid his full all-in combo. Bait the hook before engaging; he is tanky but low on damage later."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Squishy but mobile; avoid her bomb and jump. Bait her jump before committing and watch for her ultimate knockback."
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early; avoid his bite and pillar and do not take extended fights. His ultimate makes him tanky, so kite him."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Strong early; avoid his spin and slow. His ultimate makes him unkillable briefly, so bait it before committing and kite him."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Dodge his poke and stun card. Track his global roams with vision and look to catch him out."
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Weak early; avoid his slow and burst. Use Oracle Lens to reveal his stealth."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Strong early with a stun and burst; avoid extended fights. He is tanky, so kite him."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong early; avoid his poke and flip. Bait his W before committing and kite him, as his ultimate can execute."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy but with strong poke; dodge his Q and slow. Bait his ultimate root before committing."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Squishy but scales well; avoid her knockback. Use Oracle Lens against her stealth and look for catches."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy but scales; dodge his poke and cage. Bait the cage before engaging and avoid his ultimate burst."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Squishy with strong poke; dodge his Q and knock-up. Bait his E before engaging and avoid his ultimate."
+]
+]
+}
+],
+"Vex": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy but bursty; dodge her poke and fear. Bait her shield before committing and avoid her ultimate engages."
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong early; avoid her Q engage. Bait the Q before committing, and kite her since her ultimate locks you down."
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong early; avoid his poke and stun. Bait his W before committing, and kite him since his ultimate can reset fights."
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy but scales; dodge his poke and laser. Bait his W before committing and avoid his ultimate."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Weak early but sustains well; avoid his poke and burst. Kite him and avoid extended fights."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early with a stun and sustain. Bait his E before committing and kite him."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early with sustain and a fear. Bait his spells before committing, and kite him since his ultimate locks you down."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong early; avoid his poke and dash. Bait his clone before committing and kite his ultimate."
+]
+]
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy but slippery; dodge her feathers and root. Bait her ultimate before committing."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy with strong poke; dodge his Q and stun. Bait the stun before engaging and avoid his ultimate."
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early; avoid his poke and sustain. Bait his E before committing and kite him."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early; avoid his Q and dashes. Bait his wind wall before committing a hook."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early; avoid his Q and dashes. Bait his W before committing and avoid his ultimate engage."
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Weak early; avoid his poke and ghouls. Avoid extended fights and kite him."
+]
+]
+}
+],
+"Yuumi": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Weak early; avoid her poke and heals. Bait her W before committing and look to catch her when she detaches."
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak early; avoid his engage. Kite him and avoid extended fights."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong early; avoid his poke and slow. Bait his W before committing and avoid his ultimate burst."
+]
+]
+}
+],
+"Zeri": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak early; avoid her poke and dash. Bait her W before committing and look to catch her out."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Squishy with strong poke; dodge his Q and slow. Bait his W before committing and avoid his ultimate."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Weak early; avoid his bomb poke and slow. Bait his W before committing, and play around his revive ultimate."
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Squishy but bursty; dodge her poke and sleep. Bait her W before committing and look to catch her out."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy with strong poke; dodge her root. Bait her W before committing and avoid her ultimate knock-up."
+]
+]
+}
+]
+}
+}

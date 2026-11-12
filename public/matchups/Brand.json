@@ -1,0 +1,321 @@
+{
+"champ": "Brand",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/brand-mid-apc-guide-patch-25-20-649510",
+"author": "BurnVictim69",
+"updated": "2025-10-14",
+"title": "Brand Mid, APC Guide [Patch 25.20]"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His gap closers and burst make him strong against you. Dodge his chain, keep good spacing, and use W-E or Q-E on the wave to poke while keeping him away. Completing Rylai's swings the lane heavily in your favor."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His passive shield blunts your wave-based poke combos. Pop it with an auto before casting, and always hold at least two spells including Q so you can stun his engage. After Rylai's you can genuinely compete."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"The author sees no way for him to win this lane against you."
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She outranges you and can bully you before Rylai's if you struggle to dodge. Once you have Rylai's, a single mistake from her can be lethal."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Watch for a four-stack Flash-ult, which can stun and one-shot you. Otherwise your range dominates her."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His range and burst make him annoying, but his early mana issues make him easy to poke. He gets stronger than you once he has mana items. After Rylai's, punish any missed stun for an easy kill."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His W-Q spam is the main threat, so dodge or stand behind minions. After level 6 he can kill you easily; hold your E-Q or R-Q for after his ult, since casting R first is wasted when he vanishes."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Hard if your spacing or knowledge of Fizz is weak. Keep your distance from his E and W dash, and do not throw Q or R until he has used his W or they will miss."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Easy before level 6; just back off when she uses shroud. After 6 she can kill you easily. Apply your passive before she shrouds to keep vision, and save Q so you do not miss the stun. Rylai's gives you a real chance."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You win before level 6. After that, farm safely from range and avoid getting caught, since you have no escape from her ult."
+]
+]
+}
+],
+"Vex": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You win clearly before level 6. Afterward, avoid her ult and you still win most fights; Rylai's swings the lane fully your way."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Your poke and range outclass him. Do not stand too close to your wave, and watch his targeted root, which he uses when you overextend near his jungler."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Harass her before level 6 while her mana is limited. Once she has mana items and level 6 she can close the gap and dodge your poke, and her dash return makes follow-up hard. Play safe and punish mistakes; Rylai's is a key spike for you and your jungler."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"One of the few ADCs you struggle against, because her constant hops make your spells very hard to land."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"If he catches you out of position you have little recourse. Play safe and avoid overextending so he cannot snowball. Play around your stun, but he can buffer his E or ult to close the gap anyway."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A skill matchup in mid or support: out-poke her, respect her Q, predict her E, and always trade back when she lands a spell."
+]
+]
+}
+],
+"Hwei": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Similar to Lux; learn his many spells so you can dodge them. If you are good at avoiding skillshots, the lane is manageable."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"One of your hardest mid lanes. She usually uses the river element to root you into an Electrocute combo, and level 6 is even more dangerous. Track her element and the distance she needs to close, and space carefully."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He pushes slightly faster and his passive shield absorbs some poke, but he is not a big threat. After level 6 avoid overextending, as Flash-ult with his jungler nearby can kill you."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Bully her before level 6 if you land your spells. After 6, hold Q and R until she ults; stunning her mid-channel cancels it and usually wins the fight."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her tumbles and invisibility make her hard to hit, and she out-damages you in a duel, especially if her stun lands first. She and Kalista are the main ADCs to fear when playing Brand bottom."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Keep him at range and avoid his CC and the lane is manageable. If he lands his full combo, his magic shield passive usually lets him win the return trade."
+]
+]
+}
+]
+}
+}

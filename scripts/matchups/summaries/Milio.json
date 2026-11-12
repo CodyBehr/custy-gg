@@ -1,0 +1,151 @@
+{
+ "champ": "Milio",
+ "url": "https://www.mobafire.com/league-of-legends/build/26-22-milio-support-in-depth-guide-653599",
+ "title": "[26.22] Milio Support | In-Depth Guide",
+ "author": "Alvestraquina",
+ "rank": "Master",
+ "updated": "2026-11-04",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Blitzcrank": {
+   "difficulty": "Extreme",
+   "summary": "A single hook can cost Milio the lane. Stay behind your minions at all times and hold Q so you can knock him back when he engages."
+  },
+  "Thresh": {
+   "difficulty": "Major",
+   "summary": "Thresh punishes sloppy positioning with picks, though your kit can stop his follow-up. Do not throw Q from predictable angles, and keep your defensive spells up whenever he looks for a hook."
+  },
+  "Senna": {
+   "difficulty": "Major",
+   "summary": "Her long range and steady poke make the lane uncomfortable. Do not let her land free Q trades, and lean on your healing to stay healthy."
+  },
+  "Rakan": {
+   "difficulty": "Major",
+   "summary": "He can dive you or your ADC fast with W and R. Hold Q and your ultimate to break up his engage chain."
+  },
+  "Rell": {
+   "difficulty": "Major",
+   "summary": "Rell has a strong engage and long CC chain. Save Q for her dive and avoid standing clumped with your ADC."
+  },
+  "Brand": {
+   "difficulty": "Major",
+   "summary": "His poke and area damage make lane tough. Focus on not getting tagged by his spells over and over."
+  },
+  "Neeko": {
+   "difficulty": "Major",
+   "summary": "She has strong engage and burst, especially when disguised. Keep your distance and watch for a Flash into ultimate."
+  },
+  "Swain": {
+   "difficulty": "Major",
+   "summary": "Swain applies constant pressure with area CC, and once he is in range he is hard to kite away from. Avoid letting him close the gap."
+  },
+  "Pyke": {
+   "difficulty": "Major",
+   "summary": "His hook, mobility and roams give constant kill threat. Q and R let you disengage, but an early catch can lose the lane, so play carefully in the first levels."
+  },
+  "Camille": {
+   "difficulty": "Major",
+   "summary": "Very dangerous if she reaches you, and her mobility makes your usual spacing unreliable. Respect her threat range at all times."
+  },
+  "Leona": {
+   "difficulty": "Even",
+   "summary": "Her engage is readable, so Q can interrupt her E and your ultimate can cleanse the follow-up CC. Positioning mistakes still get punished, so keep defensive spells ready."
+  },
+  "Braum": {
+   "difficulty": "Even",
+   "summary": "His shield eats your poke and his passive punishes long trades. Keep Q and R for disengaging rather than trading."
+  },
+  "Janna": {
+   "difficulty": "Even",
+   "summary": "Her disengage makes it hard to force fights. Play for scaling and do not waste Q into her peel."
+  },
+  "Lulu": {
+   "difficulty": "Even",
+   "summary": "Both supports protect well. Skip long poke battles and get value from buffing your carry instead."
+  },
+  "Taric": {
+   "difficulty": "Even",
+   "summary": "Strong in melee range, but his engage is predictable. Keep distance and play around his cooldowns."
+  },
+  "Nami": {
+   "difficulty": "Even",
+   "summary": "She pokes and heals well but is vulnerable to your Q. Punish her when her E and W are on cooldown."
+  },
+  "Maokai": {
+   "difficulty": "Even",
+   "summary": "His engage is predictable and you can interrupt his W, but his chained CC is still dangerous if it lands."
+  },
+  "Poppy": {
+   "difficulty": "Even",
+   "summary": "She can punish bad positioning and block your movement. Keep your distance and she is much less threatening."
+  },
+  "Zilean": {
+   "difficulty": "Even",
+   "summary": "His speed and slow control plus his ultimate make fights awkward, but you can still protect your team well."
+  },
+  "Velkoz": {
+   "difficulty": "Even",
+   "summary": "He has long-range poke but becomes vulnerable if he misses his E. Your healing can absorb some of his pressure."
+  },
+  "Nautilus": {
+   "difficulty": "Even",
+   "summary": "His engage is predictable, but one misstep can decide the lane. Stay behind minions, keep Q for his follow-up, and do not give him free openings."
+  },
+  "Morgana": {
+   "difficulty": "Minor",
+   "summary": "Her Black Shield blocks your Q and her root punishes bad positioning. From level 6, your ultimate can fully negate her Q and R engage."
+  },
+  "Alistar": {
+   "difficulty": "Minor",
+   "summary": "He threatens your ADC with engage, but his range is easy to read. Q him as he comes in or disengage after his combo."
+  },
+  "Soraka": {
+   "difficulty": "Minor",
+   "summary": "She sustains well but is vulnerable to poke and pressure. Look for Q hits and punish her positioning."
+  },
+  "Renata": {
+   "difficulty": "Minor",
+   "summary": "Her W and ultimate can swing fights, but she lacks steady pressure on you. Save your ultimate for her CC."
+  },
+  "Lux": {
+   "difficulty": "Minor",
+   "summary": "Her Q is the danger; once it misses, she has little else to threaten you with. Play around her cooldowns."
+  },
+  "Seraphine": {
+   "difficulty": "Minor",
+   "summary": "She brings lots of teamfight utility, but you usually have enough tools to protect your ADC and cleanse her CC."
+  },
+  "Yuumi": {
+   "difficulty": "Minor",
+   "summary": "She puts little pressure on you directly, so the lane mostly comes down to how well her ADC plays."
+  },
+  "Sona": {
+   "difficulty": "Minor",
+   "summary": "Mostly a scaling matchup. Pressure her early and do not give her free poke."
+  },
+  "Xerath": {
+   "difficulty": "Minor",
+   "summary": "Strong range and poke, but he is exposed when his E stun is on cooldown."
+  },
+  "Karma": {
+   "difficulty": "Minor",
+   "summary": "Strong early poke, but your utility outscales hers in longer games. Avoid needless early trades."
+  },
+  "Zyra": {
+   "difficulty": "Minor",
+   "summary": "She pokes well but is vulnerable if her E misses. Use Q to interrupt her engage."
+  },
+  "Pantheon": {
+   "difficulty": "Minor",
+   "summary": "His early all-in is dangerous, but once you survive the first pressure your range and defensive tools make him manageable."
+  },
+  "Bard": {
+   "difficulty": "Tiny",
+   "summary": "He pressures through roaming, but you can protect your ADC comfortably. Keep track of where he goes."
+  },
+  "TahmKench": {
+   "difficulty": "Tiny",
+   "summary": "Hard to kill but has little reliable access to you. Play around his W and keep Q for his engage."
+  }
+ }
+}

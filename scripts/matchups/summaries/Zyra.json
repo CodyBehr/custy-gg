@@ -1,0 +1,263 @@
+{
+ "champ": "Zyra",
+ "url": "https://www.mobafire.com/league-of-legends/build/zyra-jungle-16-4-651093",
+ "title": "Zyra Jungle 16.19",
+ "author": "AMotherTruckingUnicorn",
+ "rank": "Diamond",
+ "updated": "2026-09-23",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Ambessa": {
+   "difficulty": "Extreme",
+   "summary": "She reaches you from very far, her shields soak your plant damage, and her dashes let her stick to you in fights."
+  },
+  "Belveth": {
+   "difficulty": "Even",
+   "summary": "Her current version gains less from invading you, and you clear faster. Her dashes still let her partly ignore your plants."
+  },
+  "Briar": {
+   "difficulty": "Minor",
+   "summary": "A good diver, but Oblivion Orb punishes her healing and your E catches her straight-line movement."
+  },
+  "Diana": {
+   "difficulty": "Major",
+   "summary": "A mobile, durable diver who often forces Zhonya's as your second item, plus Null-Magic Mantle against heavier AP teams. Save Flash for important fights rather than burning it when she jumps you on low-value timers."
+  },
+  "DrMundo": {
+   "difficulty": "Tiny",
+   "summary": "You apply Grievous Wounds easily, your E pops his passive and slows him, and your plants block his cleaver."
+  },
+  "Ekko": {
+   "difficulty": "Major",
+   "summary": "He goes untargetable and likes to dive you. If his team has other healers that justify Oblivion Orb, it is less bad."
+  },
+  "Elise": {
+   "difficulty": "Even",
+   "summary": "She can go untargetable and has a long engage, but you often path apart, your plants block her cocoon, and you out-clear her."
+  },
+  "Evelynn": {
+   "difficulty": "Tiny",
+   "summary": "She can go untargetable but usually cannot reach you."
+  },
+  "Fiddlesticks": {
+   "difficulty": "Even",
+   "summary": "You play different games, but keep his ultimate engage in mind at all times. Mercury's Treads are very good against him."
+  },
+  "Fizz": {
+   "difficulty": "Even",
+   "summary": "Untargetable with a long engage, but if you play smart most Fizzes waste their ultimate. Zhonya's is excellent if it suits the rest of his team."
+  },
+  "Graves": {
+   "difficulty": "Minor",
+   "summary": "Your plants block his autos, but he can still reach you fairly easily."
+  },
+  "Gwen": {
+   "difficulty": "Minor",
+   "summary": "Your plant slows still work inside her mist, and Oblivion Orb punishes her, so it is manageable."
+  },
+  "Hecarim": {
+   "difficulty": "Extreme",
+   "summary": "Fed with Stormraider's Surge he ignores your slows, his ultimate is unstoppable against your E, and he dives very well. Liandry's and Oblivion Orb do not reliably beat him, and he can match your clear and steal camps if you over-rotate."
+  },
+  "Ivern": {
+   "difficulty": "Minor",
+   "summary": "You rarely interact. Ask an AD teammate to buy Serpent's Fang if their team has other shields; only consider it yourself as a last item in extreme cases."
+  },
+  "JarvanIV": {
+   "difficulty": "Major",
+   "summary": "A tanky diver with an unstoppable ultimate. Against his healing bruiser build, Oblivion Orb wins until he has Spirit Visage; against lethality, Zhonya's beats him if affordable."
+  },
+  "Jax": {
+   "difficulty": "Minor",
+   "summary": "For top-lane Jax your E lands reliably. Jungle Jax is harder because of pet movement speed."
+  },
+  "Jayce": {
+   "difficulty": "Even",
+   "summary": "He can poke you, but plants often block it, and you mostly do not interact."
+  },
+  "Karthus": {
+   "difficulty": "Major",
+   "summary": "A mage jungler who can set up his divers from anywhere on the map and match your clear speed."
+  },
+  "Kayn": {
+   "difficulty": "Major",
+   "summary": "Blue Kayn builds Edge of Night and goes untargetable; Rhaast is closer to even since Oblivion Orb hurts him, though both follow through walls. Start raptors or expect them invaded; two enemies contesting your raptors is not a loss for you."
+  },
+  "Khazix": {
+   "difficulty": "Tiny",
+   "summary": "Your plants disable his isolation passive, and you can punish him heavily when he over-rotates."
+  },
+  "Kindred": {
+   "difficulty": "Tiny",
+   "summary": "Good with divers, but your fast clear denies many of her marks. If you clear on time and take high-percentage ganks, she is easy."
+  },
+  "LeeSin": {
+   "difficulty": "Even",
+   "summary": "A great diver, but well-placed plants block his Q, and he can punish you hard. Oblivion Orb against healing builds, Zhonya's against lethality."
+  },
+  "Lillia": {
+   "difficulty": "Even",
+   "summary": "Oblivion Orb with Liandry's is strong against her, but her long-range engage and matching clear speed are a problem."
+  },
+  "Malphite": {
+   "difficulty": "Even",
+   "summary": "His ultimate is unstoppable, but Liandry's naturally destroys him."
+  },
+  "Maokai": {
+   "difficulty": "Even",
+   "summary": "He has untargetable movement and long-range CC, but Liandry's plus Oblivion Orb shreds him."
+  },
+  "MasterYi": {
+   "difficulty": "Major",
+   "summary": "He goes untargetable, ignores your E slow, can reposition out of your E with Alpha Strike, and his meditate dodges your burst even early. Review your decisions in games where Yi carried to learn how to deny him."
+  },
+  "Naafiri": {
+   "difficulty": "Even",
+   "summary": "She can dive straight onto you and go untargetable, but her engage is telegraphed."
+  },
+  "Nidalee": {
+   "difficulty": "Even",
+   "summary": "A strong invader who likes skirmishing you. Oblivion Orb helps if her team has other healing, plants block her spears, and your fast clear makes her invades risky."
+  },
+  "Nocturne": {
+   "difficulty": "Extreme",
+   "summary": "His ultimate is unstoppable, but staying out of vision, having your mid ward his camps and spacing well make it manageable; one good counter-gank from him can still swing the game."
+  },
+  "Nunu": {
+   "difficulty": "Minor",
+   "summary": "He gets his level 3 gank and can be dangerous with setup, but your E counters his snowball and Oblivion Orb works well. On blue side, a raptors start into his blue and gromp before a bot play can wreck his common route."
+  },
+  "Qiyana": {
+   "difficulty": "Even",
+   "summary": "A great diver who can go invisible, but your plant damage handles her well otherwise."
+  },
+  "Rammus": {
+   "difficulty": "Minor",
+   "summary": "Dangerous with other divers, but you deal magic damage, build Liandry's, and have reliable CC and zone control."
+  },
+  "RekSai": {
+   "difficulty": "Major",
+   "summary": "An untargetable ultimate on a tanky diver who can keep ganking even if you take her camps. Buy tier-1 boots before Liandry's and tier-2 right after, or the matchup feels unplayable."
+  },
+  "Rengar": {
+   "difficulty": "Extreme",
+   "summary": "Ban him; otherwise start on your red so he cannot steal it and then chase you down with both buffs."
+  },
+  "Sejuani": {
+   "difficulty": "Even",
+   "summary": "Your E and Liandry's are very good against her, but she is still a good diver."
+  },
+  "Shaco": {
+   "difficulty": "Even",
+   "summary": "He blinks, goes invisible and often repeatedly invades. Your plants break his boxes and Liandry's burn shows where he is while stealthed."
+  },
+  "Sylas": {
+   "difficulty": "Major",
+   "summary": "He invades well, gets great value from your ultimate, and dives well. Plants block his chain and Oblivion Orb hurts him; keep up in levels and focus on counter-ganking."
+  },
+  "Talon": {
+   "difficulty": "Major",
+   "summary": "He invades well, often builds Edge of Night, drops plant aggro with stealth, and pairs well with divers. He is the main case where Arcane Comet is worth considering."
+  },
+  "Trundle": {
+   "difficulty": "Minor",
+   "summary": "Oblivion Orb is very good against him, but alone he will likely catch and beat you."
+  },
+  "Udyr": {
+   "difficulty": "Major",
+   "summary": "He can ignore your E but suffers against Liandry's and sometimes Oblivion Orb. Check whether he is AD or AP so you can buy Zhonya's against AD with other threats."
+  },
+  "Vi": {
+   "difficulty": "Major",
+   "summary": "A great diver with an unstoppable ultimate, though most Vis are easy to bait."
+  },
+  "Viego": {
+   "difficulty": "Even",
+   "summary": "His E dodges your plant damage and his ultimate is unstoppable, so respect his range constantly, and you are often a reset target for him."
+  },
+  "Volibear": {
+   "difficulty": "Minor",
+   "summary": "A strong diver with an unstoppable ultimate, but Oblivion Orb punishes him."
+  },
+  "Warwick": {
+   "difficulty": "Minor",
+   "summary": "An excellent diver with an unstoppable ultimate, but Oblivion Orb punishes him. Do not linger on the map at low health, even against a top-lane Warwick."
+  },
+  "MonkeyKing": {
+   "difficulty": "Major",
+   "summary": "Excellent engage, and his clone drops your plants' aggro."
+  },
+  "XinZhao": {
+   "difficulty": "Major",
+   "summary": "His ultimate makes him immune to damage from outside its radius, though your CC still works; he is a tanky diver who can ruin you with invades."
+  },
+  "Zaahen": {
+   "difficulty": "Tiny",
+   "summary": "Despite his unstoppable ultimate he is immobile and melts to slows, Oblivion Orb and Liandry's. Camp him if he is a laner; if he is jungling and invades, start raptors."
+  },
+  "Zac": {
+   "difficulty": "Even",
+   "summary": "A very good diver, but Liandry's and Oblivion Orb shred him."
+  },
+  "Zed": {
+   "difficulty": "Even",
+   "summary": "He has many blinks, but you can make diving you hard and throw E behind you when he ults on a bad timer."
+  },
+  "Yasuo": {
+   "difficulty": "Extreme",
+   "summary": "His wind wall makes most of your ganks unworkable, and he enables other divers with knock-ups."
+  },
+  "Samira": {
+   "difficulty": "Even",
+   "summary": "Her wind wall blocks your spells and she pairs well with divers."
+  },
+  "Mel": {
+   "difficulty": "Major",
+   "summary": "She reflects your spells and nearly matches your range. If you are the only AP threat, Shadowflame lets you trade poke evenly; otherwise it is very hard."
+  },
+  "Braum": {
+   "difficulty": "Major",
+   "summary": "His shield blocks your spells and his ultimate engages from long range; it gets easier once you have tier-2 boots."
+  },
+  "Fiora": {
+   "difficulty": "Major",
+   "summary": "Her parry acts like a wind wall and she likes to dive you, but Oblivion Orb keeps it from being worse."
+  },
+  "Kassadin": {
+   "difficulty": "Major",
+   "summary": "He blinks onto you; it is more playable if you are the only AP threat or can buy Zhonya's."
+  },
+  "Vex": {
+   "difficulty": "Major",
+   "summary": "Untargetable with long engage or follow-up, but her ultimate is very outplayable, especially when you can build Zhonya's."
+  },
+  "Olaf": {
+   "difficulty": "Even",
+   "summary": "Unstoppable and very sticky. You can itemize against him, but if he is their only healer and their team is not heavy AD, Oblivion Orb or Seeker's Armguard are costly."
+  },
+  "Camille": {
+   "difficulty": "Extreme",
+   "summary": "Her long dash into untargetability and one-shot builds make her very dangerous for you."
+  },
+  "Alistar": {
+   "difficulty": "Minor",
+   "summary": "He can cleanse your E root but not the slow, and your range plus Liandry's counters him; incidental Grievous Wounds help in ganks."
+  },
+  "Leblanc": {
+   "difficulty": "Major",
+   "summary": "Her blinks reach you and she combines well with other divers."
+  },
+  "Aatrox": {
+   "difficulty": "Minor",
+   "summary": "Your E works well into him, plants can block his W, and Oblivion Orb is good against his healing."
+  },
+  "Taliyah": {
+   "difficulty": "Even",
+   "summary": "Good with divers and likely good against your setup, but you can poke her out of many plays."
+  },
+  "Shyvana": {
+   "difficulty": "Major",
+   "summary": "Based on limited games against her rework, she feels very strong, and her ultimate is excellent at reaching you."
+  }
+ }
+}

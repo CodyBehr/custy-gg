@@ -1,0 +1,307 @@
+{
+"champ": "Soraka",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/nzans-guide-to-soraka-be-the-best-teammate-you-can-be-632791",
+"author": "nZan",
+"updated": "2024-11-18",
+"title": "SupportZan's Guide to Soraka: Be the Best Teammate You Can Be!"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Akshan": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Respect his roams and teammates' callouts when he goes invisible, since he has more ambush potential than you have answers. If he jumps you while you are healthier, let him spend his burst and swing; he usually stops there, so drop Q and E on his landing spot and run or turn on him."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You should clearly win level 1, since his knock-up combo needs level 2, so poke him or his ADC hard early. His passive heals counter some poke. Later he is hard to escape if he catches you, and Redemption helps against his team's burst."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Support Ashe pokes and runs you down with slows, so stay behind minions and back off when she approaches; you can out-sustain her if your Qs land. As an ADC with an engage support, her slows set up quick kills, so trade only when spells are down."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He can either bully you or roam, which makes early decisions hard: freeze to deny their ADC, push for tower, or match his roams. Use deep brush wards to track where he comes from, remembering he can take teammates over walls."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"One of your worst counters: his W speed runs through your spells and his hook lands if you are caught. Keep your distance and let him focus your allies, whom you can bail out; you rarely survive being grabbed yourself. Use a Guardian rune page to survive lane."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His burn is hard to heal through, but trades are even if you step up after he misses or uses his stun. Bully him and shut him down early so he never scales past your healing."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She outranges almost everyone. Do not let her chip you; throw Q when she is auto-attacking your ally or farming, since a missed Q lets her run you down."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His poke adds up, so stay behind minions and avoid his W-E combo. You cannot out-poke his quick casts; instead pressure his support so he ends up alone."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Easy if you take him seriously: have your ADC clear turrets while you heal them, and do not let him catch you from an unwarded spot. His poke annoys, but his full burst is the real danger."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her buffed Q poke is frequent and heavy, so your sustain matters more than usual. Do not overextend to land Q if you are losing health for little return, and watch for her baiting your Q by shielding and walking out of it."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Always save your silence zone for her ultimate."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A mobile bully who dodges skillshots, and his Q pierces the wave, so mind your positioning. Throw Q in his path when he runs at you, lead your shots, and drop your silence on him to stop his ultimate."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her long range makes even trades hard. Poke when her spells are down and push her out after she misses Q; otherwise just survive. She cannot full-combo your team later without a lead from lane."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her bind is frustrating, but you win poke trades and long fights while she relies on all-ins. She rarely maxes her shield early, so you can break it with Q plus E and then silence her."
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His short-cooldown shield absorbs your poke, and his hook closes gaps. Stay behind minions, keep poking, and save your silence for his allies' follow-up; his damage alone does not beat your healing."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He is a serious threat with stealth and brush tricks, so give him room. Save your silence to cancel his hook channel, or combo Q into E when he dashes in. Your heals can deny his execute, and wards in his favorite brushes stop his grey health regen."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Even worse than Katarina; always save your silence for her ultimate."
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She scales better if you over-trade. Avoid her double auto or auto-into-Q patterns, take Second Wind, and later your healing matches her damage. Boots of Swiftness, Ardent Censer or Redemption are good options."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You counter him: silence him when he tries to dive you in vision, and he is useless until it comes back."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Heavy CC but low damage. If he hooks your ADC, throw your silence toward the enemy ADC to split them and weaken the engage; you out-heal them in trades. If you get hooked yourself, do whatever you can to survive."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"More annoying than hard. Take Second Wind and possibly a Refillable Potion, and prioritize dodging her roots, since her plants' slows make escape harder. She falls off against you mid to late, so play safe."
+]
+]
+}
+]
+}
+}

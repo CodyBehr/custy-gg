@@ -1,0 +1,51 @@
+{
+ "champ": "Kalista",
+ "url": "https://www.mobafire.com/league-of-legends/build/653317",
+ "title": "The Spear of Vengeance | An in-depth Kalista Guide!",
+ "author": "OtakuGaming",
+ "rank": "?",
+ "updated": "2026-10-09",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Morgana": {
+   "difficulty": "Extreme",
+   "summary": "Her Black Shield can nullify your support's engage and much of your ult's value, and her binding heavily punishes you if you get caught while hopping forward aggressively."
+  },
+  "Janna": {
+   "difficulty": "Extreme",
+   "summary": "She is excellent at stopping the all-ins you want: her tornado, ult and speed boosts repeatedly break up your engages and separate you from your target."
+  },
+  "Lulu": {
+   "difficulty": "Extreme",
+   "summary": "Her polymorph, slows and shields punish your short-range aggression, and protecting her ADC makes it hard to finish kills with Rend."
+  },
+  "Nami": {
+   "difficulty": "Extreme",
+   "summary": "Her poke, sustain and CC make long trades uncomfortable, and her bubble is especially dangerous because you rely on constant movement in fights."
+  },
+  "Brand": {
+   "difficulty": "Extreme",
+   "summary": "His area damage punishes your predictable hopping, and one stun can stop your momentum and let his team burst you."
+  },
+  "Ashe": {
+   "difficulty": "Major",
+   "summary": "Her steady poke and slows make your hop-based trading hard, and her ult can catch you before you start stacking spears."
+  },
+  "Zyra": {
+   "difficulty": "Major",
+   "summary": "Her plants restrict your movement and punish extended trades, while her long-range poke and area CC make clean engages hard to find."
+  },
+  "Velkoz": {
+   "difficulty": "Major",
+   "summary": "His long range lets him harass you without giving you trades, and his CC and true-damage ult punish you in extended fights."
+  },
+  "Xerath": {
+   "difficulty": "Major",
+   "summary": "He pokes you from outside your trading range, and one misplaced hop into his long-range stun can lead to a devastating punish."
+  },
+  "Soraka": {
+   "difficulty": "Major",
+   "summary": "Her healing undoes the value of your short trades and Rend stacks, and her silence zone can stop your support's engage before an all-in completes."
+  }
+ }
+}

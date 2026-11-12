@@ -1,0 +1,811 @@
+{
+"champ": "Rell",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/hi-im-rell-600234",
+"author": "HerYandere",
+"updated": "2021-07-28",
+"title": "Hi, I'm Rell :)"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"She shreds you at every stage unless you itemize against her. Never engage first, and if your ADC is low, do not dive in to save them or you will both die."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"The author bans him every game. If you face him, rush boots, focus on not dying, and only all-in if he is alone and not fed."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A misplaced W engage gets you killed unless your ADC follows up. With a competent ADC the lane is actually easy."
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A pure skill matchup that depends on all four players in the lane."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"An easy lane. His only threat is out-roaming and out-warding you, then returning through a portal with his jungler or mid."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Getting hooked just delivers you to his ADC. Only avoid his hook when you are pushed up."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He can carry his ADC if you are careless. Do not commit after his Q hits you; focus the enemy ADC together with yours."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Annoying, but if you have not had to use a potion by level 3, you usually win the lane, unless her support is scary, in which case focus on not dying."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Rare as an ADC. Wait for her to throw her W, then go all in, but only if your ADC can follow you onto her."
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Depends on his support: against a weak one you cannot lose; against stronger ones engage only Draven, wait for your jungler, and aim to reach late game, where you win."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Mostly your ADC versus his. Do not engage him unless he blinks toward you."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"If you can engage their ADC without Galio landing on yours, you win the all-in; otherwise you lose."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"With a poke support, concede the lane and roam a lot, since he scales hard otherwise. With other supports, engage only onto him."
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A skill matchup. Use your W armor to eat her tornado for your ADC. You can kill her if she wanders from an immobile ADC, but not when her ADC is mobile."
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Immobile and easy to reach, unless he runs Fleet Footwork and Swiftness Boots, in which case he becomes much more dangerous and you need CC from your ADC."
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She has almost no answer to you and gets even easier late. Just play your game."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"With an AP or healing support, take Mercury's Treads and rush Thornmail if she has lifesteal items. With an engage support, skip early Thornmail and engage only onto her."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A strong Kalista makes this rough but winnable; an average one you dominate."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Easy as a tank. As a battlemage, avoid her root or the ADC can kill you. Dodge her Q and you win."
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He hurts at every stage. If paired with Lulu, kill her first, after which he is weak. With other supports, engage him only at full health or roam."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Whoever engages the ADC first usually wins. If they get ahead, avoid fights without a numbers advantage and roam."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He hits hard early, but you win easily after level 6. Before that, punish him if he dashes onto you or your ADC."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Mostly ignore her and go all in on the ADC. With Kog'Maw she becomes the priority target, since he cannot be killed while she lives."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Rush boots and engage whoever has the most items."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Get ahead before he hits 6, after which you cannot save your ADC from his ultimate. As a tank, go on him once he is poked to half; as a battlemage, go for their ADC. Teamfights are easy."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A slow, tedious lane where positioning is everything. If he engages first without his ADC joining, you win."
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Bully her from level 1 if your ADC can. You cannot kill her alone, so your ADC has to win this lane."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You counter her completely and can dive her ADC. The catch: save your Q to break her Black Shield; if you waste it, she becomes very dangerous."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She outlanes you, so all-in her or her ADC as early as possible."
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Ignore him and focus only the enemy ADC with yours; once their ADC is dead, he is harmless."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A strong support who can kill your ADC alone. Getting the first lead usually wins the lane."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"If he engages you, go onto their ADC with yours; if he engages your ADC, punish him. You need a competent ADC."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Easier than it looks. Your shield does not save you from his execute, but you can use it to dash away."
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Only dangerous paired with Tristana. Avoid his Q poke, and when he ults, move away from your ADC and get ready to dive theirs."
+]
+]
+}
+],
+"Rell": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"In the mirror, whoever engages first loses. When she uses W, answer with Q."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Wait for her dash, then go on her, holding your ultimate or stun for her ultimate."
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"You only have the early game; from around level 7 to 8 you lose hard. A good ban. Mid game, roam and stack armor."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Depends on her build: Moonstone Seraphine is easy, Liandry's Seraphine kills you quickly."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Rare as a support. Save your Q to break his W shield."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Rarely a real threat. Buy Oracle Lens on your first back and a Control Ward every back."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Rare and easy to counter. Save Q for his ultimate shield and always engage the ADC."
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Engage freely until level 6, then buy Grievous Wounds and keep punishing her and the ADC."
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Rush boots, dodge her Q, and kill her first if you can. If your ADC lacks Grievous Wounds by level 6, do not engage."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Rush boots and avoid dying. Engage the ADC first, and after level 6 you need Grievous Wounds or someone in your lane dies every fight."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Let him hook you while you stand next to your ADC, fight him, and switch onto his ADC when they come close."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You counter her, though her bomb still hurts. Both W forms and your ultimate interrupt her jump, so let her engage first and react quickly."
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You dominate him early. Buy two Control Wards on your first back; if he snowballs to a big lead, there is little you can do."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Immobile and weak against you unless you are already low. Do not engage his support first without Plated Steelcaps and a Kindlegem, or he will kill you."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Think ahead about his plays. Do not W out of his cage; stay inside, dodge what you can, then W in or away."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He makes you dodge constantly but is immobile. Wait for them to push up, clear part of the wave, then chase him; his ultimate can delete you."
+]
+]
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A smart Xayah roots you instead of using her ultimate to disengage. Do not engage until she recalls her feathers. Her support becomes easy once you have Plated Steelcaps and some health."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Kill and suppress him early. Mercury's Treads only if they suit the whole enemy team. If your ADC is losing badly, start roaming."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He is only as strong as his support. Do not engage; peel and keep your ADC alive, rushing Plated Steelcaps if the enemy team suits it."
+]
+]
+}
+],
+"Yuumi": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Only one target to CC and your Q breaks her shield, so this lane is easy."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Rare but scary. A smart Ziggs will never let you reach him, so roam instead."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Annoying and harder after level 6, but after a revive you can chain CC onto the revived ADC. Watch your positioning against his slow and stun."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Never engage first or you die. Wait for your ADC to start the all-in after her root, or counter-engage. Falling even one kill behind loses the lane."
+]
+]
+}
+]
+}
+}

@@ -1,0 +1,868 @@
+{
+"champ": "Fizz",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/s15-challenger-fizz-guide-all-matchups-items-explained-609527",
+"author": "Esrucnl",
+"rank": "Diamond",
+"updated": "2026-07-03",
+"title": "[S16] CHALLENGER Fizz Guide ALL MATCHUPS"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"The author's go-to ban. He stacks his E when you last hit with W, his magic shield evens or wins early trades, and his blink dodges your E-R combo. He outscales you badly and also holds his own before level 16. Freeze the wave early and get your jungler to gank him repeatedly."
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Considered the strongest assassin counter: she pokes you, her root stops your engage, and she ults herself to become invulnerable when your shark lands. She also teamfights well. Leave lane and find kills elsewhere."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Nearly unkillable thanks to his sustain and strong against assassins. Even if you roam, he will take your turret early, so there is little you can do in this lane."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"You will almost never win one-on-one: his shield, Q-E poke while you farm, and passive win trades. Focus on CS, stay healthy and let your jungler gank him since he is immobile; a gold lead can let you fight him later."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Favors LeBlanc, though the better player wins. Her range pokes you, her chain still roots you through your E, and she dodges E-R easily. Punish missed chains or bad W usage. Mercury's Treads help, especially with another AP enemy, and hiding in brush when she W's onto the wave can set up a kill with ult."
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He wins trades, dodges your ult and E with his dash, and gets very tanky from his items. Push the wave and roam."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His W and item path make him unkillable, and he wins duels. Push the wave and roam."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Early lane is very hard: she is tankier, bursts as hard as you, and her shield soaks your combo while her passive wins long fights. Set up the wave for your jungler to punish her."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His W gives him a magic shield and tankiness. You can kill him in the first levels if you dodge his spells and all-in with Ignite, but later he becomes too tanky and a strong frontline."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His W lets him win early, but Ignite makes him killable. Use E or R only after his E dash. When he tries to steal your ult, E mid-animation so his steal is wasted. Rush Oblivion Orb right after Dark Seal."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He out-sustains you and his pool dodges your ult, so landing it is nearly impossible. Leave lane, roam top and bot and support your jungler, since he outscales you. Rush Oblivion Orb after Dark Seal."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Very annoying and hard to kill, and his Q can pull you out of your E."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Almost impossible early: he wins trades and his shield soaks your combo. After an item or two you can win. Bait his E before you ult; if your jungler ganks, ult him to slow him and draw out E."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her Q spam and shroud make early lane annoying. From level 6, landing your shark can win, but only with plenty of health. Do not open with Q since she will E away; bait it first. Your shark grants true vision of her inside shroud."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Even; the better player wins. Avoid playing deep in the wave where he dashes freely, pop his passive shield and Bone Plating before all-ins, and Q into R immediately since a delayed shark gets wind walled."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Slightly favors you. Avoid fighting in the first levels against his passive and Lethal Tempo, and pop his Bone Plating first. Before 6, E after his E and dodge his Qs; his W shield grows in a wave. After 6, usually save E for his ult. You can land your shark when timed around his E."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her W blunts your burst. Play around her stacks and the wave: all-in when she has no stacks or after her W. Use E to dodge her stun before 6 and her ult afterward. Most Irelias push hard, so freeze and get your jungler to kill her."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Favors Zed early, but you should win after level 6 and Stopwatch or Zhonya's, which you should rush. Press E as his ult is being cast on you to avoid it; if you wait until the mark is applied, the damage still lands."
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You lose early but win after Zhonya's and level 6. E to dodge his W or Q so he cannot apply his bleed. Your shark gives true vision of him after he ults."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She is stronger early, but you shine after Zhonya's. Your shark reveals her stealth. Dodge her ult with E and use brush to deny vision for an easy shark. With Zhonya's, use E on her Q or for burst and time Zhonya's for her ult."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You can hop her wall and dodge her Q and E, but a decent Anivia is annoying early, and her egg makes kills hard. She is immobile, so get your jungler involved."
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His passive shield, speed and double shot let him poke you off CS. From level 6, landing your ult can win; if it misses he will out-damage you. Your E can cancel his ult."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Pop his passive shield, for example with a quick Q in and out, then ult within the window before it returns; once the shark is on him he cannot ult you. Use E when he has many voidlings."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Dodge her Q or E out when hit, or she runs you down. Only commit when you can burst her or after her Miasma is down, and E her ult before Miasma grounds you. If you cannot kill her quickly, her DPS will finish you."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Annoying early; dodge his poke even if it costs CS. From level 6 you can burst him if healthy, though a good Jayce keeps distance; freeze and Q-R off a minion to land the shark. He is fairly gankable."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"In lower elo he is easy, and your E dodges his ult. A skilled Azir pokes heavily with long range and dodges your E-R with his own E, making it a skill matchup."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Tanky with passive sustain, and his E can catch your Q. Favors Gragas but he will not kill you if you play well: E his Q and E, and try to Q out of his ult. He does not push hard, so you can roam."
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A tank or bruiser Nasus with MR and Divine Sunderer is nearly unkillable and outscales you. Gank him with your jungler or roam to other lanes."
+]
+]
+}
+],
+"Vex": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She punishes your Q and E, so it is slightly Vex-favored. Engage only when her fear is not ready and avoid taking chip damage. She is immobile, so your jungler can exploit her."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Before 6 she out-pushes and out-damages you. From level 6, landing your shark wins duels, but remember her jump. Use vision to land the ult and chase with Q, and E her ult animation so it whiffs."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"When he uses Q on the wave, go in and trade; you win. E out as soon as he casts his W."
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You can dodge her spells but her ult lets her dodge yours too. Timing your E on her charm is key; if you avoid it, you usually win. Her dashes and Flash make finishing her hard."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You win most trades if you dodge his Q and play around his E. His W can dodge your shark, so time it carefully. Hexdrinker is annoying but manageable."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Should be easy if you land your shark and E her root and ult. Her clone can absorb your shark, and avoid getting poked first."
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Annoying before 6 due to poke; stay healthy even if you give up CS. After 6 a landed shark should kill her; hold E until you are sure of the kill or to dodge her ult."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"A decent Ryze can annoy you early, but with ult and some AP he is easy to kill and gankable without his speed. He gets tanky later, so shut him down early."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Easy to trade against early; E away from double bombs. After 6 his ult is annoying and he has good waveclear. In fights, ult Zilean to force his revive onto himself, then go for the ADC or peel."
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Annoying early; avoid his Q-E poke. From level 6 your full combo usually kills him. His laser is dodgeable and E reduces his ult damage."
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She spaces you while poking, so wait until level 6 unless she errs. Save E for her ult to fully dodge it unless you can secure the kill. When ahead, E her stun and run her down with R."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He wins early, but with some items it gets easy: ult him and E his barrels. Ignite before he uses his orange heal. He is immobile and gankable."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He shoves and roams rather than lanes. After 6, freeze to land your shark and run him down, using Q and E to dodge his Q and ult. Good Sol players make it closer to even."
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Easy; her Q and E are dodgeable. E her bubble, and ult before or after her portal for a kill, unless her W holds a strong pickup like Exhaust."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You out-trade her at levels 3-5, but avoid level 1 fights once she has stacks. After 6 her ult and range counter you, so dodge her Q. She scales hard, so roam and make plays before she reaches around three items."
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You can dodge his Q and W, but he out-sustains you if you do not kill him and gets tanky later. He is very gankable."
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"An AP Kog'Maw shoves constantly with E but is easy to gank and kill once your shark lands. If needed, roam for kills instead."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Only her poke and speed buff matter. She is immobile and gankable; stay out of her root range before bursting and use E to engage after R or to dodge her Q."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Trade from levels 4-5 onward and avoid early fights against Conqueror. Ult her when no minions or champions are around so she cannot shunpo, then burst. If you lack damage, save E to dodge her ult."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Engage with your ult when her shield is down or before she uses it. You can interrupt her Q and dodge her W and ult with E."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Dodge his hook and you win trades and can chase him. Avoid early fights against Hail of Blades, and ward and ping since mid Pykes roam constantly."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You can dodge every spell, including his ult, and E out of his cage; just do not Q into the cage edge. He is immobile and easy to gank."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"A landed shark usually kills him, and every spell is dodgeable. He tends to clear from under turret, so freeze, then Q off a minion and ult him. Very gankable."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Land your ult and he dies. His range is shorter than Xerath's, and your E dodges his passive, Q, W and ult."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Every spell is dodgeable. Save E for his E or ult and dodge Q and W by moving; if you waste E and he lands a combo, you die."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She has no mobility, so your combo lands easily; just dodge her Q. If she hides under turret, roam or freeze and call your jungler."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Easy to burst, and your E dodges his ult. Avoid taking many Qs."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Immobile and easy to burst; you can dodge his cards. Ward and ping well since he shoves and roams."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Squishy, and your E dodges all his skillshots. Ideally ult after he spends his satchel jump, or bait it first; ulting near your turret also works."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Every spell is dodgeable and she lacks mobility; avoid her W and you are fine."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You can dodge her spells and out-trade her, and her range is shorter than the long-range mages. She is immobile and gankable."
+]
+]
+}
+],
+"Zeri": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Use your passive to avoid her Q while on the wave, take small trades, then all-in once she is low. Mind her dash."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"An AP Malphite is easy to kill; E his ult and avoid too much Q poke. Against tank Malphite, leave lane and roam."
+]
+]
+}
+]
+}
+}

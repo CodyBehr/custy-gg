@@ -1,0 +1,853 @@
+{
+"champ": "Briar",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/ultimate-briar-jng-guide-25-21-643257",
+"author": "Arctic Arrow",
+"updated": "2025-11-25",
+"title": "Ultimate Briar Jng Guide - 25.21"
+},
+"fetched": "2026-11-12",
+"rows": {
+"RekSai": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"One of your hardest matchups against a skilled player: her burrow knockup stops your engage and her ult cuts off your healing window. Avoid isolated early duels, W in the moment she unburrows into your team, and buffer E during her knockup to slam her into a wall. After level 6, frenzy near allies or monsters so her ult cannot cancel you."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"A hard counter: her bindings, Black Shield against your E, and constant CC shut down your engages. She is a slow full-clear jungler, so invade early and deny her first gank, which is her main path to tempo. Sidestep her Q with W, never dump your combo into Black Shield, and avoid diving her when she has ult and Zhonya's; pick off stragglers instead of grouped fights."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"The author bans him permanently: he outscales you in every phase, his counter strike blanks your autos, and his ult resistances make long fights hopeless. Do not duel him; play the map and gank elsewhere. Conditioning, Unflinching, and Frozen Heart or Randuin's help if he is fed, and warn your top laner early."
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"His ult steals your tank stats and his sustain makes extended fights unwinnable; he wins every early duel and can pillar you away. Path to the opposite side and play for tempo, build anti-heal plus Eclipse and Cleaver for kiting, and avoid tower dives against him."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He wins every skirmish from level 1 to 6, so do not contest him early. Once you have two or three items, fight him near your team or off his cooldowns. Delay your W recast until the last moment so you do not feed his attack speed, and use E before he ults since his ult ignores your fear and knockback. Survive the first ten minutes and you outvalue him in teamfights."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"A good Hecarim's speed, CC and unstoppable ult make him very hard to stick to. Never E into his ult, build Blade of the Ruined King or Voltaic to match his speed, and commit only when his R is down. Fight near your team and invade his slow first clear; do not chase him alone."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"His stealth, boxes and clone constantly disrupt your tempo and he invades freely. Do not chase blind; a Hydra clears his boxes quickly. Confirm the real Shaco before using your ult, track him with deep wards, save Q or E for when he reappears, and keep your ADC protected."
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her cocoon and rappel counter your engage, and she clears and ganks faster than you while you lack early MR. Do not W-Q blindly; only commit when she is in range and forced to panic rappel, and ult her landing spot. Avoid early duels, counter-gank her dives, and outscale if she fails to snowball."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He cannot duel you before level 7, but he snowballs off your lanes. Invade early and help lanes so he cannot farm kills. If he gets ahead, stop fighting him alone since his ult resets fights; Q him just before he ults to lock him down."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He full clears faster, hits 6 first and avoids interacting with you, and his Exhaust stops your engage. Invade or force early fights before level 6 and bait Exhaust before re-engaging with E. Move with your team, and in grouped fights dive him first before he can cast."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Weak early, so invade her low-health first clear. Step sideways out of the center of her Q where the true damage hits, and E over her during her ult animation. Do not let her reach two items; end the game fast since she outscales you."
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Your point-and-click engage stops her kiting if you connect first with W-Q. Buffer E or R through her sleep, and build Blade of the Ruined King or Voltaic to keep up. Do not chase endlessly after a whiff; once her sleep is down she is an easy kill."
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He cannot fight you through the first six levels, so invade and duel early. E immediately if he Q-jumps on you. Track his roams since he wins only by snowballing sidelanes, and do not chase him over walls."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Play around his W heal and shield windows rather than his rhythm. Use a clean W-Q-auto-W2 trade, then reset instead of overchasing. Counter his ult with your own as he lands, and once his E, W and Q are spent you win the fight."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She deals real damage early, has heavy CC and tanks your burst, so never engage first. Buffer E into her Q or ult to cancel it, and full-commit with W-Q when she whiffs. Blade of the Ruined King helps once she is isolated; avoid fighting her near her team."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Either build of Udyr outscales you if the game drags. Force early skirmishes since you win first clears, and do not let him farm freely. Buffer E against his Tiger Q burst and turn with W-Q after he burns cooldowns; later you need your team to kill him."
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He avoids duels and plays for picks and objectives, becoming too tanky after two items. Buffer E when he ults to knock him into a wall, punish deep engages with W-Q, and build Blade of the Ruined King plus Titanic. Focus on map pressure rather than chasing."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Bait his bandage before you W forward or you get chain-CC'd. You clear faster, so invade early. Dodge his Q with W, buffer E when he ults to avoid the stun, and keep pressure on if his early gank fails."
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Early is manageable, but in teamfights his sustain, AoE CC and ult that cancels your engage dominate. Invade and skirmish before he has items and before level 6, and counter-engage right after his knockup ends. Respect every slingshot."
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His shields, root and Daisy shut down your engage and sustain. Never fight head-on; commit early when he is in W-Q range, save E until after Daisy or his root, and buy Serpent's Fang third. Focus him first in fights, and punish Iverns who walk too close."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A stat check where the first mistake loses. Do not waste E early since his fear can go through it; W out as his fear ends, then all-in with W-auto-Q once his damage reduction is used. You can buffer your ult into his to go unstoppable."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She out-duels you before level 3 and can invade early, so ward your raptors and red and respect her. Punish failed plays since she falls behind easily, and fight with teammates because her auto-based kit struggles against CC. If she gets early Void form, slow the game and play teamfights."
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Looks even early but she scales into a strong late game and her ult blanks your all-in. Avoid front-to-back fights; flank to force her ult early, hold E until her ult ends to fear enemies as it expires, and burst with Titanic and W2 around her ult. Fight early and deny marks."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He clears faster and his smoke disrupts your targeting. Take short trades only, using a quick W-auto-Q-auto-W2 combo before disengaging. Avoid fighting inside his smoke, and use Flash engages with team follow-up if he is fed."
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You win early fights and duels before she has items, so invade. Sidestep her Q combo, her main damage. If she gets a big farm lead she can poke you, so play for tempo rather than trades; staying ahead makes her irrelevant by midgame."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Before his transformation he cannot fight you, so invade and punish hard. Q him to cancel his wall walk, then E him into the wall. Dodge or buffer his W, buffer E as he exits his ult, and deny early tempo to delay his form."
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His resets punish overcommitting. Engage first with a fast W-Q-auto-W2, then hold E to dodge his returning W, which decides the fight. Dodge his stun to win, and disengage immediately if he gets a soul reset."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He wins duels while you win teamfights, so avoid 1v1s. When he Qs onto you, E or Q him as he lands. Punish him while Q is down and track his invades and split pushing."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"In higher elo his kick can interrupt your frenzy and his mobility lets him disengage. Never overcommit; buffer your ult as he kicks, E after his Q2 to slam him into a wall, and sidestep his first Q with W. Fight grouped and punish failed Insec attempts."
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You win most duels; his threat is displacing you with his combo. Fight him head-on, sidestep his E-Q with W, and do not E while his ult animation makes him unstoppable. If he misses his ult, knock him into his own wall."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He can clone-dodge your W and chain CC with his ult, but many players misuse it. Track his W; once it and his E-R are used, you have a long window to run him down twice. Against a strong Wukong, play patiently and reactively."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Never W-Q first or he pulls you mid-cast and wins. Wait for his E, then punish with W-Q, and disengage before he reaches five stacks. Swiftness Boots help with spacing."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Rare and inconsistent, but a good Teemo can scale and hurt you since you lack early MR. Invade early, and if you catch him, Q-auto, wait out his blind, then W-Q. Avoid face-checking shroom zones and add some MR like Mercury's or Hexdrinker if he scales."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A full-clear mage who controls zones but dies once you reach her. Look for catches in jungle or river, E her into walls, and use W or Flash to dodge her root. In fights wait out her first spell rotation, then re-engage, buffering E during her ult."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A full-clear mage who crumbles if you reach him. Catch him in jungle or river, E him into walls, and dodge his stun with W or Flash. In fights wait for his first rotation before re-engaging, and buffer E during his burn to survive."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her burst is scary but she is squishy and full AP, so W-Flash-Q or W-Q kills her early. Start with E if you expect her W, and avoid fighting in tight terrain. If she walls off a fight, take tempo elsewhere."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His clear is slow, so he usually does three camps into a forced gank around 2:30. Ward, track and punish that first gank and he struggles to recover. You win early fights; if he steals your ult, wait it out."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His fear and spell shield make early duels risky. Break his shield with Smite or Q, then full combo; W over walls to break his fear tether. Do not ego duel him with lethal tempo uptime, and bait his cooldowns."
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Never fight isolated; force grouped fights and skirmishes near objectives. Burst him with a full W-auto-Q-auto-W2-R combo, and ult to chase if he jumps away. Respect his Serrated Dirk and level 6 spikes."
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He punishes bad positioning but struggles against disciplined play, and you have the stronger early game. Avoid brush, buffer E when he ults, and W-Q him when he jumps a teammate. Do not dump all damage into his double W heal."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She only wins by snowballing off chaotic lanes. Use W early to bait her combo, E during her W, and Titanic helps you survive her burst. Avoid fighting near walls; once her first rotation is down, she cannot keep up."
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"E him into a wall when he Qs in or after taunt, and dive his teammates rather than the tank. Ult when he ults or bounces in. He becomes annoying only very late with full armor; avoid overcommitting early 2v2s."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"The matchup hinges on buffering E the instant he Ws, which cancels his combo; then re-engage with W-Q. A misplayed E can let him snowball. Ult his landing spot to counter his ult ganks; you outscale him."
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He can dominate early skirmishes if you walk into range carelessly, so avoid early 1v1s. Buffer E into his Q3 knockup, W-Q him after his dash, and wait out his ult zone before re-engaging. You win later teamfights."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"One of your easiest matchups; you out-skirmish her from level 3, so invade early. Sidestep her Q with W, as missing it removes her pressure. Blade of the Ruined King breaks her. Respect a multi-person ult in grouped fights."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Ask your laners to buy Control Wards. She cannot fight you before level 6, so invade and camp her jungle entrances. Respect charm setups, buffer E when charmed, and ult behind her to catch her landing spot."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He cannot duel you; invade early. Sidestep his snowball with W, interrupt his ult channel with Q or E, and punish him when he rolls toward an ally. His value comes from ganks, so control tempo."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His first clear is very slow, so invade. Do not W into his body slam; bait it first, then punish with W-Q, and avoid random Es. Blade of the Ruined King and Mercury's Treads are good buys."
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You out-trade her in close combat. Sidestep her Q with W or interrupt it with E, and keep E to cancel her engage. If her Q misses she is vulnerable for a few seconds."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"He cannot match your sustain early; invade or fight before he has items. When he ults, move behind him to punish his return. Stay grouped and do not duel a fed Zed."
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Before level 6 she cannot fight you, so invade her slow clears and contest dragons. Sidestep her dragon-form fireball with W, and buffer E to knock her into a wall when she ults in."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Sidestep his cleavers with W and he cannot touch you; any build works. Skirmish early and wait out his passive before re-engaging."
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Avoid fighting inside his cage; use W or Q on a ghoul or Yorick to escape. Fight him before Maiden comes online, keep tempo high, and kill Maiden first or disengage in fights."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Invade his weak first clear. Cancel his drain with Q or E, buffer E when feared, and avoid face-checking fog where his ult can wipe fights. If he ults, turn and burst him since he is fragile."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"A good Nidalee kites you endlessly, so do not chase through walls. Force grouped fights, W2 early before she starts kiting, and burst her with W-Q if she dives your team. Play around objectives where she cannot disengage."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"He loses every early duel; invade his slow clear and gank him before he overheats. Respect his ult only in teamfights."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Tanky but harmless to you; Blade of the Ruined King, then Titanic and Black Cleaver, melt him. Clear his saplings before objectives, and E into a wall to break his root or W-Q afterward."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You out-clear and out-duel him before level 6, so invade. Inside his ult, focus on surviving: E to reposition and sidestep his Q with W. Once it ends, punish with W-Q, Titanic and an E into a wall."
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Slow clear and very squishy; invade him on camps for easy kills. Respect stealth ganks only when your lanes are low, and build normally."
+]
+]
+}
+],
+"Ambessa": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Currently a free jungle matchup: punish her early and invade so she never scales."
+]
+]
+}
+]
+}
+}

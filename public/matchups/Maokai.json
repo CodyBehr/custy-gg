@@ -1,0 +1,476 @@
+{
+"champ": "Maokai",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/maokai-tank-support-2026-621820",
+"author": "FunnyBunnyH",
+"rank": "Emerald",
+"updated": "2026-03-30",
+"title": "Maokai (Tank) Support 2026"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Taric": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Taric is the one true hard counter to support Maokai. In lane his durability, healing and counter-engage shut you down, and later his ultimate negates your fights. Ban him if he worries you; he is only left open because few people play him."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Sylas hits very hard early and gets more out of your ultimate than you do. When he shows up as a support or jungler he usually wins the early game against you. The author bans him by default."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Samira can buffer her dash through your W root and bursts targets quickly. Paired with a hard engage support like Alistar or Rell, she can kill your ADC before you can peel, so play around protecting your carry rather than forcing fights."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Vayne spikes sharply at level 6 and can chase you down after her first item, especially with Ghost. Her percent-health true damage makes tank itemization weak against her, and she can carry games on her own if left alone."
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Draven bullies the early lane harder than most ADCs, so you cannot do much against his duo. Only all-in when you are sure you can kill him outright, usually needing Q, W and Ignite together; a failed all-in just feeds him."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Plays much like Samira, though she is rarer and weaker in teamfights. How hard she is depends on the overall 2v2 pairing."
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Manageable in a straight 2v2, but his E makes him slippery and hard to kill. He often runs Guardian, which makes your burst on him even less reliable."
+]
+]
+}
+],
+"Rell": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Rell has the stronger early game, both in lane and in early roams and skirmishes. You scale past her and control objectives better later, so avoid giving her early leads."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Alistar spikes harder than you at level 2 regardless of whether you start Q or W, and his level 6 is very strong. How hard the lane is depends on the ADCs. You outscale him as the game goes on."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"How much trouble Braum causes depends on his ADC; duos like Ashe, Kog'Maw or Jinx with Braum are hard to engage onto. Overall your teamfighting is much better than his."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Favours Maokai overall since you scale better and can outplay his combo from level 2. The danger is his vision denial with an Umbral Glaive rush and his roams, so keep track of where he goes."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Tahm currently has very high base damage and strong tank items, but his kit does not do much specifically against Maokai. Treat him as a fair matchup."
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Sivir is not scary until she has a few items, but her spell shield can neutralize your engage in lane. Since all-ins are hard if she plays safe, lean into roaming."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"As a support Ziggs clears waves instantly after Lost Chapter, leaving few windows to punish him even though he is squishy and immobile. His Q poke is only limited by early mana problems."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"The first few levels are rough against her range. Once you have both Q and W you threaten kills on her and her usually fragile support."
+]
+]
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Like Sivir, she has self-peel that makes her hard to burst, plus playmaking from her E. Her ultimate has a long cooldown early, so look for engages when it is down."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His lane threat scales with how early-game focused his ADC is, since that raises the cost of getting hooked. A skilled Thresh provides annoying peel later."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He has early kill pressure and can always land a game-changing hook, but in general the matchup favours you. Respect the hook and you should be fine."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Poppy hits hard early thanks to her base damage, but you outperform her outside of lane and scale better on support gold."
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He is mostly dangerous because he tends to be paired with strong early ADCs. You can counter-engage his hooks well and you outscale him heavily."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Plays out like Nautilus: you counter-engage her well and scale better. Her ultimate is weaker than his, though her E can pass through units."
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Janna can bully you hard at level 1, so take Second Wind. After that she has to play perfectly to stop your W into Q engage, especially when you have Flash."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong at level 1 and annoying with the right ADC, but she is squishy and immobile, so you are comfortable once past the first level."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her Q root lasts very long and her spell shield blocks your CC, but she must time both perfectly to stop you. Her lane harass is weaker than other mages."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"With poke-heavy ADCs like Ezreal, Caitlyn or Jhin she can be a problem early. Once you get past the first levels you handle her well."
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong at level 1 like the other enchanters, then easy to catch. Her silence can cancel your combo, so try to bait it before committing."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Zyra is among the most annoying mage supports thanks to her plants and CC, and the same advice applies to Lux, Xerath, Vel'Koz and similar. Avoid taking heavy poke early; once you have W and Q you usually win the lane."
+]
+]
+}
+],
+"Renata": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Her kit looks threatening, but she is kept weak by balance aimed at pro play, and her anti-dive ultimate lasts very briefly at level 6."
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Her only real danger is late scaling. She is very vulnerable to hard engage, so with an early-game ADC you can keep her out of the game."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Only a concern with certain ADC partners; otherwise she is easy for you to punish."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Like Pyke, you can outplay his combo, but he has to commit harder, so you can punish him more. He also falls off badly against tanks."
+]
+]
+}
+],
+"Milio": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Rated Even because current meta ADCs pair well with him and he is in a strong spot. Players also tend not to buy Serpent's Fang against his shields, which helps him."
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Unlike other enchanters, she lacks strong peel, which makes this an easy matchup for you."
+]
+]
+}
+]
+}
+}

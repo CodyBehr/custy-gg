@@ -1,0 +1,195 @@
+{
+ "champ": "Hecarim",
+ "url": "https://www.mobafire.com/league-of-legends/build/14-8-challenger-hecarim-build-guide-by-huncho1v9-636454",
+ "title": "[Patch 26.1] [CHALLENGER] Hecarim Build Guide by Huncho1v9",
+ "author": "Huncho1v9",
+ "rank": "Master",
+ "updated": "2026-01-08",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Amumu": {
+   "difficulty": "Tiny",
+   "summary": "Among the easiest matchups; just watch his bandage toss. Play for counter-ganks and out-tempo him. Conqueror is preferred unless the enemy comp says otherwise."
+  },
+  "Belveth": {
+   "difficulty": "Extreme",
+   "summary": "One of the hardest: watch for an early raptor invade and her strong level 3 invade. If she does not get ahead and has to full clear, you can usually space and duel her depending on build. Conqueror or Phase Rush based on enemy comp."
+  },
+  "Brand": {
+   "difficulty": "Minor",
+   "summary": "A good Brand clears as fast as you, but early vision lets you punish and run him down with Ghost. Stay out of point-blank Q range and you win every duel; good Brands often take Ghost, so respect their spacing."
+  },
+  "Briar": {
+   "difficulty": "Minor",
+   "summary": "Easy after her nerfs. A bruiser Briar is annoying against a lethality build, while a lethality Briar just loses. Watch raptor cheese or late invades, and kite her with E and Ghost. Conqueror preferred."
+  },
+  "Diana": {
+   "difficulty": "Minor",
+   "summary": "Easy; with Conqueror you beat her early. She full clears and cannot invade at level 3 without lane priority."
+  },
+  "Ekko": {
+   "difficulty": "Minor",
+   "summary": "He plays for a three-camp reset or full clear; as long as he does not get ahead you snowball easily. Phase Rush is usually best."
+  },
+  "Elise": {
+   "difficulty": "Major",
+   "summary": "Medium to hard unless you handle her early pressure. Be present for her early ganks and dives and you can make her game miserable. She likes to invade like Graves or Nidalee, but her cocoon is easy to avoid, and you can stack Q on her spiderlings."
+  },
+  "Evelynn": {
+   "difficulty": "Even",
+   "summary": "You are much stronger early and can snowball, but a good Eve usually gets fed off your team and becomes very hard to deal with. Your ult can avoid her charm. Phase Rush is usually best."
+  },
+  "Fiddlesticks": {
+   "difficulty": "Major",
+   "summary": "He never invades, but his clear matches yours, he has late-game lockdown and stays useful even when behind. Ward blue mid to late game and deny his ult angles; make him useless and run him down if ahead. Conqueror with a tenacity rune is usually best."
+  },
+  "Gragas": {
+   "difficulty": "Major",
+   "summary": "He has a level 3 invade window, which you can avoid by skipping your second buff and heading to your last camp. AP Gragas gets annoying late with slows and burst. Phase Rush is best."
+  },
+  "Graves": {
+   "difficulty": "Extreme",
+   "summary": "One of the hardest in high elo: he punishes you early and outscales. Get early vision. Against a level 1 invade, stack your team top or bot or play for a level 1 skirmish; against a level 3 cross-map invade, ward the second buff brush and skip that buff for gromp or krugs; against a level 2 wall invade, ward river or have your team do it."
+  },
+  "Gwen": {
+   "difficulty": "Minor",
+   "summary": "Easy early but she scales well. Punish and skirmish early, or she can out-duel you by midgame. Phase Rush and Conqueror both work."
+  },
+  "Ivern": {
+   "difficulty": "Extreme",
+   "summary": "The author permabans him: he sets you too far behind and does not need gold to be effective."
+  },
+  "JarvanIV": {
+   "difficulty": "Even",
+   "summary": "Easy in low elo, harder higher up. With Conqueror and by dodging his E-Q, you always win duels at even items with Q stacks. Watch for a level 3 cross-map cheese and snowball."
+  },
+  "Jax": {
+   "difficulty": "Even",
+   "summary": "Easy in low elo but can be very hard in high elo, since he is hard to play well. Phase Rush or Conqueror depending on the enemy comp."
+  },
+  "Karthus": {
+   "difficulty": "Major",
+   "summary": "He clears as fast as you and wants constant fighting, which benefits him more. With Phase Rush against an Exhaust Karthus you can run him down early. Movement is key; Phase Rush is always better than Conqueror here."
+  },
+  "Kayn": {
+   "difficulty": "Even",
+   "summary": "As long as he cannot start on your wolves or raptors, you win early and out-tempo him. Below Masters he often plays for early cheese, so protect those camps."
+  },
+  "Khazix": {
+   "difficulty": "Even",
+   "summary": "His main invade angle is a level 3 cross-map invade on your second buff; ward your second-half entrance and skip that buff for krugs or gromp. Watch laners rotating. A fed Kha'Zix is hard to play into. Phase Rush or Conqueror."
+  },
+  "Kindred": {
+   "difficulty": "Extreme",
+   "summary": "One of the hardest because she can punish you early almost every game. Use the same anti-invade plan as against Graves; she is slightly more annoying."
+  },
+  "LeeSin": {
+   "difficulty": "Even",
+   "summary": "Watch for early cheese and a level 3 cross-map invade; a landed Q gives him kill pressure, so space and dodge it. In mid and late game your E can cancel his Q2, making it easier. Either keystone works."
+  },
+  "Lillia": {
+   "difficulty": "Major",
+   "summary": "She matches your tempo and is very hard if ahead. Watch for a raptor invade, and contest her raptors early when mid has priority. With Conqueror, avoid getting kited."
+  },
+  "Maokai": {
+   "difficulty": "Minor",
+   "summary": "He may cheese your raptors but otherwise will not invade. His CC is annoying without good movement; Conqueror if confident, Phase Rush is safer against his slows."
+  },
+  "MasterYi": {
+   "difficulty": "Extreme",
+   "summary": "He has cheese potential with occasional level 2-3 invades, but usually full clears. You have better tempo; respect his item spikes. With Phase Rush and good movement you can kite him and E him during his Meditate."
+  },
+  "Morgana": {
+   "difficulty": "Tiny",
+   "summary": "Dodge her Q and run her down; avoid ulting through her Black Shield."
+  },
+  "Nidalee": {
+   "difficulty": "Extreme",
+   "summary": "Like Graves and Kindred she invades early, so use the same counter plan. You can often run her down and duel her; save E to follow her wall hops. Either keystone works."
+  },
+  "Nocturne": {
+   "difficulty": "Minor",
+   "summary": "He wins duels if played well; Phase Rush helps kite his fear. He can invade at level 3 cross-map or cheese your buff or raptors at level 1, though he usually full clears for 6. Phase Rush is easier, Conqueror duels better, but avoid dueling anyway."
+  },
+  "Nunu": {
+   "difficulty": "Minor",
+   "summary": "Easy in low elo where you out-tempo him. A good Nunu pressures weak laners, so warn them about early ganks. Phase Rush lets you space his root."
+  },
+  "Poppy": {
+   "difficulty": "Minor",
+   "summary": "She has a level 3 cross-map invade window; survive her early cheese and you win by out-farming her."
+  },
+  "Rammus": {
+   "difficulty": "Minor",
+   "summary": "Similar to Nunu; you easily out-farm and out-tempo him. A full lethality build may struggle to duel him, so take Black Cleaver over Shojin."
+  },
+  "RekSai": {
+   "difficulty": "Even",
+   "summary": "She plays for a level 3 gank or cross-map invade; get vision or counter-gank and you snowball. Space her while burrowed and bait her out to win duels."
+  },
+  "Rengar": {
+   "difficulty": "Major",
+   "summary": "Easy in low elo but hard higher up, since he can punish you any time early. You lose to his level 3 cross-map invade, but if you farm and force him to match your tempo it is manageable. Conqueror favored."
+  },
+  "Sejuani": {
+   "difficulty": "Minor",
+   "summary": "No real invade windows and you win duels. She can gank well in high elo, but you should snowball through her. Conqueror preferred."
+  },
+  "Shaco": {
+   "difficulty": "Major",
+   "summary": "Visit his raptors to break his boxes and slow his clear. He can punish you if ahead and has a level 3 cross-map invade, but he mostly threatens your laners. Against AP Shaco, Mercury's Treads are valuable late."
+  },
+  "Shyvana": {
+   "difficulty": "Minor",
+   "summary": "You beat her at every stage; AP Shyvana's poke is annoying but your early snowball is stronger. She only threatens a raptor cheese."
+  },
+  "Sylas": {
+   "difficulty": "Even",
+   "summary": "He cannot match your clear, so he looks for early ganks; if they fail you get a big lead. If your laners feed him, respect his burst. A level 3 invade is possible but rare. Conqueror favored."
+  },
+  "Taliyah": {
+   "difficulty": "Even",
+   "summary": "Easy in low elo, tougher higher up. She full clears at your pace; invades are rare. Dodge her flick knockback and use good movement to snowball. Phase Rush favored."
+  },
+  "Talon": {
+   "difficulty": "Even",
+   "summary": "He looks for level 3 plays; dodge either part of his W and you win unless he has Ignite. Play around his second raptor spawn. He clears fast later and bursts well, so whoever gets ahead wins; Conqueror duels better early."
+  },
+  "Trundle": {
+   "difficulty": "Even",
+   "summary": "You cannot duel him, especially early, unless ahead. Phase Rush is easier since it negates his pillar slow. Get ahead through farming, since he cannot keep up with your clear."
+  },
+  "Udyr": {
+   "difficulty": "Extreme",
+   "summary": "Like Trundle with a better clear; he matches your pace and plays for objectives and Ghost ganks. Take Conqueror to duel or Phase Rush to kite his empowered R. Do not fall behind."
+  },
+  "Vi": {
+   "difficulty": "Minor",
+   "summary": "You out-tempo her and snowball. A level 3 invade is possible but rare. With your ult up you can avoid her knockup unless her Q hits first. Slightly harder in high elo; Conqueror is best."
+  },
+  "Viego": {
+   "difficulty": "Minor",
+   "summary": "Watch raptor cheese and a level 3 cross-map invade. Dodge his W and space him to win duels; play for tempo and counter-ganks."
+  },
+  "Warwick": {
+   "difficulty": "Minor",
+   "summary": "Phase Rush lets you space his whole kit. He has a level 3 cross-map invade angle. Conqueror is better if you are confident spacing him."
+  },
+  "MonkeyKing": {
+   "difficulty": "Minor",
+   "summary": "He farms early and you do it better; he should never reach 6 before you. Conqueror is better, and avoid all-ins without Q stacks around his level 6 and Divine Sunderer spikes."
+  },
+  "XinZhao": {
+   "difficulty": "Even",
+   "summary": "He needs early ganks or you out-tempo him badly. Respect his strong level 3 cross-map invade window and his plays when his laners have priority."
+  },
+  "Zac": {
+   "difficulty": "Minor",
+   "summary": "He full clears and may cheese a gank but has no real invade window; get ahead through farm. Your E can cancel his E. Conqueror is best."
+  },
+  "Zed": {
+   "difficulty": "Tiny",
+   "summary": "The author considers Zed jungle very weak and an easy matchup."
+  }
+ }
+}

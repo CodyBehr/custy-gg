@@ -1,0 +1,713 @@
+{
+"champ": "Orianna",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/10-18-command-attack-one-trick-orianna-mid-528060",
+"author": "Sylvan Lore",
+"updated": "2021-11-13",
+"title": "[11.22] Command: Attack - One Trick Orianna Mid"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You outrange her, and at level 1 you can poke with autos and Q while spacing her Q; if she lands it, she usually wins the trade. You lose fair all-ins from level 3, and her level 6 all-in is lethal, so poke carefully and keep mana. She falls off later; take Phase Rush and Stopwatch, and treat Zhonya's as an early priority, with Mercury's Treads if you are struggling."
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Roughly even before 6 but it can snowball. Stand neither fully behind nor exposed beside your wave, trade after she misses charm, and Flash early when her jungler comes. After 6 she wins fair trades, so poke safely and use your ultimate after her dashes are spent or right after she uses one. Phase Rush is recommended; Cleanse or Barrier both work."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her skillshots are slow, but respect her wall range. You can bully and push her early, and kill her through her passive with a gank. From level 6 a wall plus ultimate can kill you outside tower range, though your ultimate can cancel hers. Teleport or Ignite and Phase Rush suit the lane; Liandry's is good since many Anivias build health."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Respect her long auto range and track her stun stacks; early trades are good if you avoid the stun, and wasted Qs drain her mana. Her level 6 is far stronger than yours. Later she relies on Flash, so ward flanks and trade Flashes if needed. Barrier works better than Cleanse here."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Orianna should win this. Do not waste mana on early poke unless it helps match his shove; outrange his stars and use your W speed and slow to move in and out of his range, and your ultimate briefly disables his stars. Your level 6 trades well. Track his roams and consider Teleport to match them."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Early trading is like Ahri: make him choose between pushing and poking you, but do not stand beside the wave where he can stun you. After 6 he usually outdamages you in a 1v1, though you outscale him on utility. Barrier or Teleport both work, with Mercury's Treads or Banshee's Veil if behind."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Harass her during levels 1 to 3, since trading drains her mana; a missed Q from her is your cue to go in. Keep up in CS. With Lost Chapter against her Tear you should win, but once she completes Archangel's it favours her. Phase Rush is essential; Morellonomicon or Liandry's work well mid game."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"A safe lane with little kill pressure on you; he only pokes harder after level 6. You can out-roam him and win 1v1s on rotations. When he holds his package he cannot use his short W, and ulting him can force him to waste it. Build aggressively and match his Teleport."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"One of your harder lanes. Dodge her curved Q by moving sideways, and pressure her early while avoiding poke. From level 3 she wins fair trades unless you have poked her first, so do not 1v1 without jungle help. Barrier or Exhaust suit the lane, and Zhonya's with Stopwatch counters her burst."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He pushes hard early, so match it, and watch for his level 2 E into Q passive proc. You can win trades before 6 against a weak Ekko, but after that even trades rarely go your way, especially once he buys Mercury's Treads. Mostly farm; Morellonomicon cuts the health his ultimate restores."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Mid Fiddlesticks maxes E to shove and poke. Lots of Control Wards around mid neutralize his kill threat, but respect his silence and ultimate fear, which can stop you using Flash or Barrier. Take Barrier and a damage build with Banshee's Veil late."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You can bully him hard early by playing around his Q and E cooldowns, but his level 6 is brutal even with a big CS lead. If death is likely, Flash his ultimate before it lands. Consider a Banshee's Veil rush after Tear or Lost Chapter, or take Stopwatch if you prefer damage."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He outpushes you, so Q as many minions as possible to avoid being shoved in. Track the enemy jungler and never overextend without knowing where they are, as his gank setup is excellent. You are more valuable late if you get there."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Good for Orianna: he likes short Q trades, so answer every Q with your own Q and autos. Watch for his ultimate catching you since you have no mobility. Do not be afraid to press your advantage."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He trades quickly with an ability-haste build and escapes. Magic resist works well, and Banshee's Veil stops his long-range picks. Going even and not dying is enough to win the game."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Your range lets you clear his turrets faster than he rebuilds them using Q alone, but avoid Q-W on turrets or you will run out of mana. Never try to kill him with three turrets up, even with your jungler. An extra early mana item helps you deny his push."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He wins early 1v1s unless you have a health or mana lead, so push him in since his wave clear is weak. A Seeker's Armguard is essential, and Zhonya's plus health matter a lot. Once Zhonya's is done and you track his shots, you are stronger late."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She has real damage, healing and wave clear, and any trade where she lands an empowered Q is lost, especially early. Early Grievous Wounds can give you kill pressure; otherwise farm and outscale her."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"His skillshots are easy to dodge and he has no CC. Respect his level 2 spike, then bully him early and burst him later. Zhonya's to survive his passive and ultimate beats buying magic resist."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Mostly decided by jungle pressure. With equal or better jungle help you can bully him from level 1 and end the game before he scales; if he gets an early lead he snowballs. Track the enemy jungler and punish every last hit he tries."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Trade carefully early and stay away from daggers on the ground. If she Qs you while chasing, step toward her rather than into the dagger landing spot. Land short Q-W trades when she Es to farm, respect her level 6 all-in, and consider Ignite."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You outrange her in lane for free trades. Her lifesteal builds call for anti-heal if you need to match her side lane. Once her attack speed comes online you cannot match her split push, so build damage and win teamfights."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A good LeBlanc bullies you from level 1 but clears waves poorly, so push her under tower. Go defensive with Mercury's Treads after your mana item and Banshee's Veil quickly; breaking even is a win since you outscale. Do not ult her until both W charges are used, and take Barrier or Cleanse."
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You outrange her easily, and with Cleanse she has no kill pressure. Her threat is roams, ganks and teamfights, so skip defensive items and build full damage."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His dash lets him dodge your ultimate and W in most trades. Play at long range and only trade when his E is on cooldown. Take Barrier and a damage build."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She outranges and outdamages you, and a landed Q usually means death. Consider E at level 1 to shield her E poke for the first three levels. Kill her if she overcommits, get Banshee's Veil second, and roam to force early fights since she gets stronger later while you are better against tanks."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He shoves, avoids you, and ults you when his team is near. Buy QSS after your first item to escape his ultimate. You can keep his passive shield down, but killing him is usually hard."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She maxes W to shove you in, so push back and keep farm even. Q into ultimate with Ignite can kill you, but Cleanse prevents that. Do not ult her while Black Shield is up; add Banshee's Veil late."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His short range lets you bully him early, as long as his E does not spread to you from minion kills. Level 6 is a great time to engage since his ultimate is not a combat tool. You cannot match him in a side lane at full build."
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Take E first if unsure about dodging her Q. You can win early trades since your spells are easier to land; only her stun loses you trades. Respect her level 6 heavily and wait for jungle help, since her combo can kill you from full. Late game favours you."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You cannot stop her shove-and-roam pattern, and before 6 her combo out-trades you. Play safe and look for all-ins after 6. Ward well and call her roams."
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Respect his passive bleed: if two W stacks hit you, step away from the wave until they fall off. Never let the W return hit you, and beware Flash-Q-Ignite at level 2 burning through Barrier. Poke him so he cannot all-in, then outscale; consider Stopwatch and Plated Steelcaps if their team lacks magic damage."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You can win early trades by dodging and landing spells. If he walks up with cards shuffling, back off for a possible gold card gank. From level 6 he threatens side lanes, so keep him low even at some cost. Cleanse makes gold cards survivable."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His Q and W are easy to dodge, so harass him early. Cleanse counters him well: if caught near the cage, walk in and Cleanse the stun. Add Banshee's Veil later, and Liandry's plus Void Staff if he goes tank."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He has long range and high damage. If you dodge toward his Q he can split it early, so be careful. You only win trades by dodging his spells; a landed E loses trades before 6 and can kill after. Your ultimate can interrupt his in late fights."
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Early trades are even and neither has kill pressure. Trade heavily before level 4 so he has to back before affording his Hex upgrade, which delays his wave clear. Respect his E range."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Bully him in lane, but fully commit or he heals off small chip damage. Rush Morellonomicon after your mana item, or just play safe. If no one on your team has Ignite, take it for late fights."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"The author's least favourite matchup: he outranges and outdamages you. Aim to break even, hiding in minions from his E, and build Mercury's Treads and Banshee's Veil after a mana item. He is squishy if you ever reach him."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Auto him early to pop his passive shield before trading, and check whether he started E for surprise mobility. You outrange him, but respect him reaching you through the wave. Take Exhaust, which you can use while he ults you, and add some armor."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He threatens kills from level 3 onward. Respect his shadows, avoid letting him proc Electrocute, and poke when his W is down. Stopwatch helps but arrives after his level 6; health and armor matter, but keep enough damage to stay a threat."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Depends on his accuracy: he outranges you and breaks your shield, so dodge and avoid his splash on the wave. You need Banshee's Veil late, but one ultimate combo kills him at 4 to 5 items if you reach him. Watch for his ultimate zoning objectives."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Trade with him often, especially after a double bomb since W has a cooldown. Do not push too far, as his stun plus slow sets up easy ganks. Your ultimate hitting multiple targets beats his single-target saves."
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Stay away from minions she can splash, and trade from within the wave so she cannot bubble you. Do not rely on Flash or Barrier, since she can pick them up. Take Cleanse and Banshee's Veil second; she does badly in teamfights."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You can trade early, but you lose any trade where his E pulls you in, and it travels through minions further than it looks. Morellonomicon second hurts his healing. Avoid getting stuck in his ultimate."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She can kill you from level 2 and you have little kill pressure without jungle help. Buy Zhonya's early to survive her all-in, and respect her Q-E burst once she has Tiamat. Avoid solo deaths and match her roams; take Exhaust or Barrier depending on her summoners."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You will not win the 1v1, but you can build efficiently to be more useful late, and he gets little out of your ultimate. Rush Morellonomicon right after Lost Chapter to cut his healing."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Avoid her E after it passes through minions, since that loses trades. Trade evenly before 6 and outscale her; watch for disguised ultimate plays. Her Q pops again on kills or hits, so do not stand in it."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Slightly favours Azir. Keep trades short, and answer his Q-auto pattern with long-range Q and Q-W poke. After 6 his all-in is dangerous. He must dash in to use his ultimate, so you have the edge in teamfights; force his dash when your jungler ganks."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He wins any trade where he lands W, but short long-range trades are even. He struggles to escape after committing. Get Seeker's Armguard, or Plated Steelcaps if their jungler is also AD."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Lane is fairly easy with your range, but it gets rough once she hits 6. Zhonya's is a must; if you stasis through her combo she has nothing left. Take Barrier and an anti-AD assassin build."
+]
+]
+}
+]
+}
+}

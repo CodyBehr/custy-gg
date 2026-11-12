@@ -1,0 +1,155 @@
+{
+ "champ": "Smolder",
+ "url": "https://www.mobafire.com/league-of-legends/build/651104",
+ "title": "SCORCHED EARTH: 225 Stacks to Glory",
+ "author": "ObiW",
+ "rank": "Gold",
+ "updated": "2026-11-11",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Caitlyn": {
+   "difficulty": "Extreme",
+   "summary": "Her range punishes every step you take to Q a minion, and her traps can block your E escape routes. She nets away from engages and pokes you under tower when you hang back, costing you stacks and forcing recalls."
+  },
+  "Samira": {
+   "difficulty": "Extreme",
+   "summary": "A smart Samira saves her wind wall to delete your Q or W, removing your damage and stacking. Once she dashes onto you, you lack the burst to fight back and her ultimate out-heals your poke, so play purely to survive."
+  },
+  "Kalista": {
+   "difficulty": "Extreme",
+   "summary": "Her constant hops make your W and Q hard to land while she stacks spears on you. You are fragile early, so one forward engage from her often means a death or a burned Flash and a lost stacking race."
+  },
+  "Draven": {
+   "difficulty": "Extreme",
+   "summary": "The biggest lane bully; his raw damage ignores your poke and his E can knock you out of your flight. Here, winning means staying alive and keeping your tower up as long as possible."
+  },
+  "Syndra": {
+   "difficulty": "Extreme",
+   "summary": "She outranges you and her stun stops your E flight, leaving you open to her burst. From level 6 her ultimate can kill you below roughly 70% health, so an early Negatron Cloak may be needed just to stay in XP range."
+  },
+  "Leblanc": {
+   "difficulty": "Extreme",
+   "summary": "She wins short burst trades early, dashing in and out before your Q lands, and her chain follows you through walls and mid-flight. Stay behind minions to block the chain, take Nullifying Orb or Bone Plating, and farm safely with W until you have defensive stats."
+  },
+  "Varus": {
+   "difficulty": "Extreme",
+   "summary": "His long-range poke shuts down your early stacking, and after 6 his ultimate stops your E escape. Consider Doran's Shield and early boots, farm with W from range, let him push, ping for jungle help, and keep E only for disengaging."
+  },
+  "Twitch": {
+   "difficulty": "Extreme",
+   "summary": "His stealth breaks your stacking rhythm. Do not cross the lane midpoint unless you see him elsewhere, hold E as a panic button for his ambush, keep a Control Ward in lane, and disengage immediately when he ults. Avoid duels and reach 225 stacks."
+  },
+  "Fizz": {
+   "difficulty": "Extreme",
+   "summary": "He dodges your W and Q with his E while closing in, and from level 6 his shark plus Q dash usually catches your flight. Stay far back, take Bone Plating, consider an early Negatron Cloak or Zhonya's component, and freeze near your tower to reach late game."
+  },
+  "Yasuo": {
+   "difficulty": "Major",
+   "summary": "His wind wall can delete your Q, W and even your ultimate, and he dashes through minions to reach you. Bait out the wind wall before using your big abilities, or you will run out of mana and stacks."
+  },
+  "Lucian": {
+   "difficulty": "Major",
+   "summary": "He thrives in the short-range trades you are forced into early, dashing in for his double shot and out before your Q finishes. Without a peeling support he will freeze and zone you off gold and stacks."
+  },
+  "Zed": {
+   "difficulty": "Major",
+   "summary": "You can poke him before 6, but after that his ultimate follows your flight over walls. Build an early Seeker's Armguard or time your ultimate heal well; if he gets ahead, he will hunt you all game."
+  },
+  "Akali": {
+   "difficulty": "Major",
+   "summary": "Her shroud hides her from your targeted Q, and she can follow your flight over walls with more reliable early execute damage. Play a safe lane, clear from range, and never let her E land."
+  },
+  "Jinx": {
+   "difficulty": "Major",
+   "summary": "Her rockets out-poke you and the lane usually pushes in her favour, so you stack under tower while dodging her Zap and chompers, which can cancel your flight. You both scale; avoid her traps and reach 225 stacks to match her late AoE."
+  },
+  "KogMaw": {
+   "difficulty": "Major",
+   "summary": "His W poke outranges you and his percent-health damage chunks you before you can trade. Retreat whenever his W is active and farm with your own W from range, and never face-tank him since his artillery can pick you off while escaping."
+  },
+  "Ahri": {
+   "difficulty": "Major",
+   "summary": "Her charm is the main threat when you step up to Q. Manage the wave with W from a safe distance, keep E to fly over walls if she all-ins with her ultimate, and dodge her skillshots; your late burn outvalues her if you do not feed."
+  },
+  "Yone": {
+   "difficulty": "Major",
+   "summary": "Track his Q3 wind-up and E range, since he dives from far away and returns, and his ultimate can pull you out of flight. Stay outside his engage range, farm with W and keep the wave near your tower; reaching 225 stacks even makes you the better teamfighter."
+  },
+  "Sylas": {
+   "difficulty": "Major",
+   "summary": "If his second E lands he forces an all-in you lose early. Poke with W at max range and keep E purely for escaping his chain; after level 6 he can steal your ultimate. Keep the wave near your tower and do not give him early kills."
+  },
+  "Veigar": {
+   "difficulty": "Major",
+   "summary": "His cage stuns you out of your flight, and after 6 his ultimate can execute you from half health. Dodge his W, stay outside cage range, and farm with W from afar; treat the cage zone as a no-fly zone."
+  },
+  "Ezreal": {
+   "difficulty": "Even",
+   "summary": "A scaling race. His poke is blocked by minions while your W passes through them; avoid repeated Q hits and you reach 225 stacks around when he completes his core."
+  },
+  "Orianna": {
+   "difficulty": "Even",
+   "summary": "She pokes constantly with her ball, but is as immobile as you. Use Fleet Footwork to sustain and W to keep her from shoving you in; late game your burn usually beats her ultimate if positioned well."
+  },
+  "Ashe": {
+   "difficulty": "Even",
+   "summary": "Her slows hamper repositioning and her arrow can stop your flight, but she lacks burst. Survive her poke, dodge arrows with E, and clear waves to avoid being shoved in; you outscale her."
+  },
+  "Katarina": {
+   "difficulty": "Even",
+   "summary": "Stay away from her dagger spots so she cannot reach you without her full combo. Use E to fly over walls from her ultimate, and hold your own ultimate to disrupt or heal through her burst; watch for her resets in teamfights."
+  },
+  "Kaisa": {
+   "difficulty": "Even",
+   "summary": "Her isolated Q shreds you early if you stand away from your wave, so stay inside it and poke with W. After 6 her ultimate follows your flight over walls when you are marked. Stack safely; your burn is stronger in clumped fights."
+  },
+  "MissFortune": {
+   "difficulty": "Even",
+   "summary": "Her Q bounces off low minions for big damage, so position diagonally rather than behind them and avoid long trades. Her slow can set up a lethal ultimate before you can fly away. Scale safely and poke back with W."
+  },
+  "Xayah": {
+   "difficulty": "Even",
+   "summary": "Do not ignore her feathers while stacking, since her E can root you, including pulling you down mid-flight. Her ultimate dodges your big abilities. Poke with your longer W and commit only once her ultimate is on cooldown."
+  },
+  "Mel": {
+   "difficulty": "Even",
+   "summary": "Her CC can cancel your flight and set up her rotation, and her defensive tools make chip damage hard. Position diagonally to dodge her line skillshots and farm with W; your burn at 225 stacks gets through her shields later."
+  },
+  "Ziggs": {
+   "difficulty": "Even",
+   "summary": "His long-range bombs and mines keep you dodging and can pin you under tower. Use E to escape his mines and ultimate, and stop him from executing your tower with his satchel; survive the poke to win late."
+  },
+  "Vayne": {
+   "difficulty": "Minor",
+   "summary": "She lacks range and wave clear to punish you, so poke her with W and Q when she last hits and fly away if she closes in. She duels better, but you teamfight better and stack faster than she scales."
+  },
+  "Zeri": {
+   "difficulty": "Minor",
+   "summary": "She lacks early tools to punish your stacking, and her skillshot autos are blocked by minions while your W lands reliably. With little kill pressure either way, the farm-off usually favours you."
+  },
+  "Ryze": {
+   "difficulty": "Minor",
+   "summary": "His early range is short and he lacks gap closers, so out-poke him with W; his root still lets you cast. Avoid minions carrying his E spread, and farm freely."
+  },
+  "Vladimir": {
+   "difficulty": "Minor",
+   "summary": "He has no hard CC to stop your flight. Buy an early Executioner's Calling to cut his healing, which forces him onto the defensive, and stack greedily."
+  },
+  "Kassadin": {
+   "difficulty": "Tiny",
+   "summary": "He is as weak as you early and cannot stop your stacking until several items in. You usually reach your spike more reliably than he reaches level 16."
+  },
+  "Sivir": {
+   "difficulty": "Tiny",
+   "summary": "Her short range and predictable clear make this a free stacking lane. Her spell shield blocks only one of your W or Q, and she lacks burst to threaten you; you outscale her."
+  },
+  "Jhin": {
+   "difficulty": "Tiny",
+   "summary": "His reload pattern is easy to read; trade while he reloads and fly away before his fourth shot. He is immobile and lacks steady damage, and your drain-tank items outlast his burst."
+  },
+  "Galio": {
+   "difficulty": "Tiny",
+   "summary": "Arguably your easiest mid lane. Hit him with W and Q whenever he last hits, and fly away from his telegraphed E dash; his magic-damage defenses do nothing against your damage, so you reach 225 stacks early."
+  }
+ }
+}

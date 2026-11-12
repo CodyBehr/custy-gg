@@ -1,0 +1,112 @@
+{
+"champ": "Yorick",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/s16-big-black-cleaver-best-yorick-guide-9-million-mastery-564708",
+"author": "Kampsycho",
+"rank": "Diamond",
+"updated": "2026-10-12",
+"title": "[S16] - Big Black Cleaver - Best Yorick Guide - [10 Million Mastery]"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her Q counts as an attack, so it kills your ghouls and Maiden instantly while stacking her passive, which makes the lane nearly unwinnable. Ban her unless you are in a very low rank."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He will not die, dashes over your wall, and out-damages and out-trades you almost every time. Rush Plated Steelcaps with a health item, then slowly finish your core into Randuin's Omen, or get Sheen and rush Randuin's."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He dodges all of your damage except your E, jumps over your wall and outduels you. Bait his leap, wall him in, trade, back off, and repeat until he dies."
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A lane bully who dashes over your wall, heals off your summons, and double-dashes away. You outscale him but he snowballs harder, so play carefully early and give up CS if needed."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His E can kill your summons in one hit and lets him dash over your wall after hitting you, and his Q anti-heal wins him trades. You are too weak early to kill him before he remounts, and he dives you easily."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Like Tryndamere, but she can die; you still cannot out-trade her easily. Q her early every time she goes for a vital without stopping to raise ghouls, and back off when she uses her parry. If your wall pushes her during her parry, you get stunned."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He dashes over your wall, blocks autos like Jax, and can split push, teamfight and stop you all at once, but you usually outscale him hard. The edge of your wall can stop his ultimate, though taking plates while he leaves can be better."
+]
+]
+}
+]
+}
+}

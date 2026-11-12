@@ -1,0 +1,23 @@
+{
+ "champ": "Katarina",
+ "url": "https://www.mobafire.com/league-of-legends/build/katarina-guide-26-15-all-matchups-653241",
+ "title": "Katarina Guide 26.15 - (ALL MATCHUPS)",
+ "author": "PrincipeQ",
+ "rank": "?",
+ "updated": "2026-08-11",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Lissandra": {
+   "difficulty": "Extreme",
+   "summary": "Her W or R easily stops your engage and cancels your ult, and she is very hard to kill one-on-one. Focus on farming and roaming, and in teamfights wait until she has used her CC before diving in."
+  },
+  "Azir": {
+   "difficulty": "Extreme",
+   "summary": "His soldiers poke and zone you off farm and engages, and his ult can deny your all-in and cancel your ult. Be patient, avoid free poke, and look for windows when his E or R is on cooldown; roaming is often better than forcing a lane kill."
+  },
+  "Galio": {
+   "difficulty": "Extreme",
+   "summary": "He resists magic damage well and has lots of CC to stop your engage and ult. An AD or on-hit Katarina build is a good option. Do not ult while his W is available, and punish him after he spends his abilities."
+  }
+ }
+}

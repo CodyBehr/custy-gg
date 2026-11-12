@@ -1,0 +1,171 @@
+{
+ "champ": "RekSai",
+ "url": "https://www.mobafire.com/league-of-legends/build/595303",
+ "title": "[S16] LordGrox High Elo Rek'sai Guide",
+ "author": "LordGrox",
+ "rank": "Emerald",
+ "updated": "2026-05-13",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Amumu": {
+   "difficulty": "Even",
+   "summary": "He is strong right now thanks to sustained burn damage from his items, so expect him to hit harder than he looks."
+  },
+  "Belveth": {
+   "difficulty": "Even",
+   "summary": "A truly even matchup. Play your normal game and focus on denying her objectives."
+  },
+  "Brand": {
+   "difficulty": "Even",
+   "summary": "Weaker than before but still a strong farmer. Build an early lead through ganks and mirror his pathing so he cannot take objectives."
+  },
+  "Briar": {
+   "difficulty": "Tiny",
+   "summary": "Easy, similar to fighting Master Yi. Dodge her E, which hits hard, and knock her up during her Q leap to cancel it."
+  },
+  "Diana": {
+   "difficulty": "Major",
+   "summary": "Still dangerous, but you are fine unless she lands her full combo. Use your ultimate to dodge hers or wait for her spells to be used before engaging."
+  },
+  "Ekko": {
+   "difficulty": "Even",
+   "summary": "His W bubble can negate your damage and let him burst you. His ultimate dodges yours, so do not use it early."
+  },
+  "Elise": {
+   "difficulty": "Major",
+   "summary": "Skill-based. Dodge her human E at all costs or you get one-shot, and remember her spider E lets her avoid your knock-up and ultimate."
+  },
+  "Evelynn": {
+   "difficulty": "Minor",
+   "summary": "Your Tremor Sense gives you vision of her, but she still bursts hard. Shut her down early before she becomes a problem."
+  },
+  "Fiddlesticks": {
+   "difficulty": "Major",
+   "summary": "Buy Mercury's Treads to shorten his CC, and watch for his ultimate around objectives."
+  },
+  "Gragas": {
+   "difficulty": "Extreme",
+   "summary": "Nearly unplayable because his E body slam has no real counterplay. Avoid fighting him unless ahead, and do not overchase since he turns fights easily."
+  },
+  "Graves": {
+   "difficulty": "Even",
+   "summary": "His E grants Grit stacks that make him much tankier than his items suggest. Fight him when those stacks have run out."
+  },
+  "Hecarim": {
+   "difficulty": "Even",
+   "summary": "Fairly simple: knock up his engage with W to stop his damage. Do not try to W him during his ultimate."
+  },
+  "Ivern": {
+   "difficulty": "Extreme",
+   "summary": "His constant shields and CC are very frustrating, and Daisy is not to be underestimated. Mirror his pathing, since counter-ganks shut him down well."
+  },
+  "JarvanIV": {
+   "difficulty": "Even",
+   "summary": "A similar champion to Rek'Sai. You can knock up his E-Q combo with W; otherwise it comes down to skill."
+  },
+  "Karthus": {
+   "difficulty": "Even",
+   "summary": "Deny his ganks and plays by exploiting his lack of mobility; his damage is very high. Consider Mercury's Treads against AP-heavy teams, and invade him at Krugs on his first clear."
+  },
+  "Khazix": {
+   "difficulty": "Even",
+   "summary": "He can kite you and dodge much of your damage with stealth, but can still be burst down. Mostly a skill matchup."
+  },
+  "Kindred": {
+   "difficulty": "Even",
+   "summary": "She can kite you with high damage output. The matchup is about not letting her kite you to death."
+  },
+  "LeeSin": {
+   "difficulty": "Even",
+   "summary": "Knock up his Q or W attempts, then kill him, but watch for ward-hop jukes and respect his kick. With Goredrinker and Sterak's he outscales you."
+  },
+  "Lillia": {
+   "difficulty": "Minor",
+   "summary": "Stridebreaker usually shuts her down by letting you catch her easily."
+  },
+  "Maokai": {
+   "difficulty": "Minor",
+   "summary": "Watch out for his CC, but otherwise he is easy to kill. His saplings give him lots of vision control, so respect them."
+  },
+  "MasterYi": {
+   "difficulty": "Tiny",
+   "summary": "An easy matchup since Yi is weak right now and his early ganks are poor, giving you chances to get ahead. Avoid ulting him while his W is active."
+  },
+  "Nidalee": {
+   "difficulty": "Even",
+   "summary": "Depends heavily on her skill. Knock her up when she pounces onto you."
+  },
+  "Nocturne": {
+   "difficulty": "Major",
+   "summary": "A good Nocturne can block your W or ultimate with his spell shield. His fear can be dodged with your ultimate. He usually out-tanks you while still dealing big damage."
+  },
+  "Nunu": {
+   "difficulty": "Major",
+   "summary": "Comes down to your own knowledge; you need to win skirmishes. Do not start objectives when he is nearby, since his Q plus Smite steals easily."
+  },
+  "Olaf": {
+   "difficulty": "Minor",
+   "summary": "His ultimate ignores your CC and lets him run you down, but he is only average right now."
+  },
+  "Poppy": {
+   "difficulty": "Even",
+   "summary": "Rare in the jungle, but her W blocks your tunnels and she can CC you until you die. Knock up her engage to stop the follow-up."
+  },
+  "Rammus": {
+   "difficulty": "Minor",
+   "summary": "His updated kit has more CC, including a knock-up on his ultimate, and his high armor makes fights hard."
+  },
+  "Rengar": {
+   "difficulty": "Major",
+   "summary": "His W can negate much of your burst. Your W can knock him up mid-leap and cancel his attack damage."
+  },
+  "Sejuani": {
+   "difficulty": "Even",
+   "summary": "A standard tank matchup; do not let her kite you too much."
+  },
+  "Shaco": {
+   "difficulty": "Minor",
+   "summary": "Your W reveals him, and he is weak right now, though buffs could change that."
+  },
+  "Shyvana": {
+   "difficulty": "Tiny",
+   "summary": "Once knocked up she has few defenses. AP builds still hit hard in dragon form; against AD Shyvana, let her ultimate onto you before using your knock-up."
+  },
+  "Skarner": {
+   "difficulty": "Even",
+   "summary": "He shuts down your engages well and his ultimate can set up a one-shot on squishy you. Respect his movement speed."
+  },
+  "Taliyah": {
+   "difficulty": "Major",
+   "summary": "Her E is a strong counter to your tunnels. She is squishy, so if you reach her you can burst her."
+  },
+  "Udyr": {
+   "difficulty": "Major",
+   "summary": "High speed and CC let him kite you. Do not try to one-shot a tanky Udyr; it will not work."
+  },
+  "Vi": {
+   "difficulty": "Major",
+   "summary": "A hard counter: her tanky build and CC shut down your engages. The author considers her worth banning right now."
+  },
+  "Viego": {
+   "difficulty": "Even",
+   "summary": "Good CC and damage but dies easily to a good catch. His passive possession invulnerability can block your ultimate."
+  },
+  "Warwick": {
+   "difficulty": "Even",
+   "summary": "His kit counters Rek'Sai, but he lacks the damage to exploit it in his current state."
+  },
+  "XinZhao": {
+   "difficulty": "Major",
+   "summary": "He has very long engages, protection and burst, and makes it hard for you to peel for your carries."
+  },
+  "Zac": {
+   "difficulty": "Minor",
+   "summary": "You can knock him up at any point while he is airborne. Use that and fight him."
+  },
+  "Zyra": {
+   "difficulty": "Major",
+   "summary": "Squishy, but her plants clear camps and objectives very fast. Use your ultimate to dodge hers and avoid her biggest burst."
+  }
+ }
+}

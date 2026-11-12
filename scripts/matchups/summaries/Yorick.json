@@ -1,0 +1,39 @@
+{
+ "champ": "Yorick",
+ "url": "https://www.mobafire.com/league-of-legends/build/s16-big-black-cleaver-best-yorick-guide-9-million-mastery-564708",
+ "title": "[S16] - Big Black Cleaver - Best Yorick Guide - [10 Million Mastery]",
+ "author": "Kampsycho",
+ "rank": "Diamond",
+ "updated": "2026-10-12",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Irelia": {
+   "difficulty": "Extreme",
+   "summary": "Her Q counts as an attack, so it kills your ghouls and Maiden instantly while stacking her passive, which makes the lane nearly unwinnable. Ban her unless you are in a very low rank."
+  },
+  "Tryndamere": {
+   "difficulty": "Extreme",
+   "summary": "He will not die, dashes over your wall, and out-damages and out-trades you almost every time. Rush Plated Steelcaps with a health item, then slowly finish your core into Randuin's Omen, or get Sheen and rush Randuin's."
+  },
+  "Jax": {
+   "difficulty": "Extreme",
+   "summary": "He dodges all of your damage except your E, jumps over your wall and outduels you. Bait his leap, wall him in, trade, back off, and repeat until he dies."
+  },
+  "Renekton": {
+   "difficulty": "Major",
+   "summary": "A lane bully who dashes over your wall, heals off your summons, and double-dashes away. You outscale him but he snowballs harder, so play carefully early and give up CS if needed."
+  },
+  "Kled": {
+   "difficulty": "Major",
+   "summary": "His E can kill your summons in one hit and lets him dash over your wall after hitting you, and his Q anti-heal wins him trades. You are too weak early to kill him before he remounts, and he dives you easily."
+  },
+  "Fiora": {
+   "difficulty": "Major",
+   "summary": "Like Tryndamere, but she can die; you still cannot out-trade her easily. Q her early every time she goes for a vital without stopping to raise ghouls, and back off when she uses her parry. If your wall pushes her during her parry, you get stunned."
+  },
+  "Shen": {
+   "difficulty": "Even",
+   "summary": "He dashes over your wall, blocks autos like Jax, and can split push, teamfight and stop you all at once, but you usually outscale him hard. The edge of your wall can stop his ultimate, though taking plates while he leaves can be better."
+  }
+ }
+}

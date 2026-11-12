@@ -1,0 +1,235 @@
+{
+ "champ": "Singed",
+ "url": "https://www.mobafire.com/league-of-legends/build/minishcap1s-singed-guide-649537",
+ "title": "Minishcap1's singed guide",
+ "author": "Hoikatop",
+ "rank": "?",
+ "updated": "2025-09-25",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Aatrox": {
+   "difficulty": "Minor",
+   "summary": "Run Phase Rush with Ghost and Flash or Teleport, and start Doran's Ring with two potions. Dodge his Q sweet spots and pop Phase Rush just before or after his W lands to escape the pull. At level 6 you can kill him with an all-in near your tower; otherwise proxy farm, and buy Grievous Wounds for teamfights."
+  },
+  "Akali": {
+   "difficulty": "Even",
+   "summary": "She bullies you until 6, then has the stronger all-in. Early, bait her Q onto the wave and stay away until she has used her empowered passive auto. Rush Negatron Cloak, survive, and outscale her in teamfights."
+  },
+  "Akshan": {
+   "difficulty": "Major",
+   "summary": "With Conqueror, trade hard early but back off before dying, since you can push and recall. With Unsealed Spellbook, crash the wave safely and proxy using Hexflash, skipping a wave if needed. Play for teamfights."
+  },
+  "Ambessa": {
+   "difficulty": "Even",
+   "summary": "Her Q has a long early cooldown so you can bully her before your first back, but afterward she wins every 1v1 as she scales hard with AD and haste. Farm and scale for teamfights; if she ults you, drop W under yourself and kite."
+  },
+  "Aurora": {
+   "difficulty": "Major",
+   "summary": "Like other ranged lanes: trade very aggressively early with Conqueror to drain her health before you reset. Once she has mana and haste she is more annoying, but at 6 you win an all-in near your tower; otherwise farm or proxy."
+  },
+  "Camille": {
+   "difficulty": "Even",
+   "summary": "You win early Conqueror trades and can look for kills before her first back. After Sheen it tilts toward her, so do not lose tempo or feed. Dodge her W and E2, predict her E1 wall landing with your W, scale for teamfights, and Teleport to answer her split push."
+  },
+  "Chogath": {
+   "difficulty": "Even",
+   "summary": "He dominates lane with Grasp, E and silence; Hail of Blades makes him deadlier 1v1 but weaker late. Rush Liandry's, farm, and do not fight below about 60% health unless you are sure you can dodge his Q and W."
+  },
+  "Darius": {
+   "difficulty": "Extreme",
+   "summary": "Phase Rush only, with Ghost and Flash mandatory. Never approach him at level 1, and never walk up without Phase Rush and fling ready. Rush Rylai's (or Liandry's if ahead) and play for teamfights, where you are stronger."
+  },
+  "DrMundo": {
+   "difficulty": "Even",
+   "summary": "He farms well against you and is hard to kill after his first back. Avoid his cleavers by hiding behind minions, fling him to pop his passive, and trade with Conqueror stacks. Rush Liandry's or Deathcap and Teleport to stop his split push."
+  },
+  "Fiora": {
+   "difficulty": "Major",
+   "summary": "Let her push the first waves so it bounces off your tower, then hard push and proxy; you lose early trades. Do not fling while her Riposte is up unless sure, and avoid long trades. Rush Rylai's or Liandry's, scale for teamfights and Teleport to answer her split push."
+  },
+  "Gangplank": {
+   "difficulty": "Major",
+   "summary": "Hard: he has level 1 wave priority and wins every trade when his passive is up. Let the wave bounce off your tower and proxy. You can only reach him to fling with Ghost, Flash, a barrel outplay or jungle CC."
+  },
+  "Gnar": {
+   "difficulty": "Major",
+   "summary": "Against Mini Gnar in the first three waves, trade aggressively to build a crash, then proxy and reset. He beats you after the first back, but you beat him at 6. Mega Gnar is easier: dodge his W and fling him under your tower. Rush tier-2 boots, likely Swiftness Boots."
+  },
+  "Gragas": {
+   "difficulty": "Major",
+   "summary": "Easy until he buys mana and haste, after which his E and W can chain-lock you; Phase Rush is your escape. Early Mercury's Treads or Negatron Cloak cut his damage, and either Liandry's or Rylai's is fine. Beware him ulting you into his tower."
+  },
+  "Heimerdinger": {
+   "difficulty": "Extreme",
+   "summary": "Take Unsealed Spellbook or you will suffer. He wins push, trades, all-ins and poke. The lane is only playable if your jungler camps it and you Flash over the wall to proxy; consider dodging or picking another champion."
+  },
+  "Urgot": {
+   "difficulty": "Extreme",
+   "summary": "The author's permanent ban: he beats you in short trades, long trades, all-ins and after lane, can zone you and cancel your fling. If forced to play it, rush Warden's Mail and Plated Steelcaps and hope your team wins."
+  },
+  "Illaoi": {
+   "difficulty": "Major",
+   "summary": "Rush Chain Vest, building toward Swiftness Boots, Liandry's and Dead Man's Plate. Dodge her E; if hit, run and kite out of her tentacles. Her ultimate cancels your fling, but you outscale her for teamfights."
+  },
+  "Irelia": {
+   "difficulty": "Even",
+   "summary": "Skill matchup; she has early wave priority with her passive and Conqueror. You win trades when she misses her E, and you should W her as soon as she ults. Rush Liandry's, since Rylai's is weak with minions around."
+  },
+  "Jax": {
+   "difficulty": "Major",
+   "summary": "Do not fling until he has used Q, or he jumps straight back for his stun. You win long trades before his Sheen and can all-in at 6 near your tower. He outscales you in the side lane, so stop his split push and look for teamfights; Liandry's or Rylai's vs dive comps."
+  },
+  "Jayce": {
+   "difficulty": "Major",
+   "summary": "Either trade very hard early and crash to proxy, or skip the wave to proxy; avoid getting stuck under tower. Chain Vest makes you hard to kill, or rush Rylai's or Liandry's if ahead. You win a level 6 all-in near your tower, but the lane favours him."
+  },
+  "KSante": {
+   "difficulty": "Even",
+   "summary": "You almost never solo kill him while he has several windows to kill you. Farm and proxy for teamfights; when he ults a teammate, ground him with W and peel. Rush Liandry's."
+  },
+  "Kayle": {
+   "difficulty": "Major",
+   "summary": "She wins trades until you have two points in Q at level 3, and even then it is close. Take Ignite for kill attempts; after 6 she becomes ranged and hard to kill. All-in instantly with ultimate and Ghost if she pushes to your tower. Build heavy AP and play for teamfights."
+  },
+  "Kennen": {
+   "difficulty": "Major",
+   "summary": "Rush Negatron Cloak against AP Kennen. Slow push the first two waves into a third-wave proxy. Solo kills are hard unless he uses E on the wave near your tower while you have summoners; focus on teamfights."
+  },
+  "Kled": {
+   "difficulty": "Even",
+   "summary": "He has huge mounted health, so rush Liandry's. He wins long trades before 6 thanks to remounting; after 6 dodge his Q and fling him during his dash. Both his dismount and dismounted dash can cancel your fling, while your W stops his dismounted dash. W him when his ultimate lands in fights."
+  },
+  "Malphite": {
+   "difficulty": "Tiny",
+   "summary": "He can poke and close distance with Q and Comet but struggles to all-in unless you take too much poke. Farm and rush Liandry's. In fights, W him just before he ults, and do not get caught in his ultimate since tenacity does not shorten knock-ups."
+  },
+  "Maokai": {
+   "difficulty": "Tiny",
+   "summary": "Easy apart from his base damage and Grasp; you win long trades, and your poison does not charge his passive heal much. He clears waves well, so just scale for teamfights with Liandry's."
+  },
+  "Mordekaiser": {
+   "difficulty": "Even",
+   "summary": "Harder than it looks: his base damage, shield and healing win most trades. You can kill him by flinging him under your tower. Hold your W until after he ults so you can fling him inside his realm and escape. QSS no longer works against his ultimate; you win teamfights."
+  },
+  "Nasus": {
+   "difficulty": "Major",
+   "summary": "His sustain beats you in trades, so push hard, crash waves and hit his plates, using W to stop him recalling. After his Sheen he wins trades and you should farm. He beats you 1v1, but you are strong against him in teamfights; Rylai's helps peel and Phase Rush escapes his Wither."
+  },
+  "Nocturne": {
+   "difficulty": "Even",
+   "summary": "If his Q hits, he chases you until he runs out of mana or you die. The matchup only becomes playable once you finish Rylai's, or Aether Wisp plus Moonplate in a movement-speed build."
+  },
+  "Olaf": {
+   "difficulty": "Major",
+   "summary": "Phase Rush is mandatory and you cannot win level 1 priority. Dodge his axes and never walk up without Phase Rush. Cosmic Drive helps. You can win kiting 1v1s before his Ravenous Hydra; after that it is much harder."
+  },
+  "Ornn": {
+   "difficulty": "Even",
+   "summary": "He trades hard but cannot stop you farming; take priority in the first three waves and proxy. If he Ws you before you are in melee, back off to avoid the brittle proc. W on him stops his dash into his ultimate ram. Rush Liandry's and Bloodletter's."
+  },
+  "Pantheon": {
+   "difficulty": "Major",
+   "summary": "Play defensively for the first three waves and let it bounce off your tower. He bullies early, but with armor and level 6 you can farm more aggressively and all-in near your tower. Chain Vest early is an option; Aftershock helps survive his burst."
+  },
+  "Poppy": {
+   "difficulty": "Even",
+   "summary": "She pokes with Q and passive, but you can take early priority and proxy. Her mana costs are low, so do not run yourself out of mana. Stay away from walls since she always looks for a stun. You outscale her both 1v1 and in teamfights; rush Liandry's."
+  },
+  "Quinn": {
+   "difficulty": "Major",
+   "summary": "Hard. Trade very aggressively early with Conqueror and Ignite, crash and reset quickly, and spam ping for ganks; your jungler needs to camp her. Chain Vest with armored boots helps against AD teams. Consider dodging."
+  },
+  "Rammus": {
+   "difficulty": "Tiny",
+   "summary": "The easiest matchup: he has no way to pressure you, and his W does nothing since you build no AD or attack speed. You will rarely kill him, so get perfect CS and scale for teamfights. Rush Liandry's into Bloodletter's."
+  },
+  "Renekton": {
+   "difficulty": "Even",
+   "summary": "He out-trades you before your first back, so let him push and look for tower flings when he walks up. Recall and Teleport back if chunked, and do not let him dive you. If he gets ahead he steamrolls you, but going even means you outscale him for teamfights."
+  },
+  "Rengar": {
+   "difficulty": "Even",
+   "summary": "Avoid brushes at level 1 and drag the first wave toward the river to limit his leaps; you can W a brush he is in. He wins short trades, but you outscale him if you do not feed. Liandry's rush, or Chain Vest or Plated Steelcaps to be much harder to kill."
+  },
+  "Riven": {
+   "difficulty": "Major",
+   "summary": "She takes Ignite and can kill you at levels 2 and 3, so give up early priority if needed; Bone Plating and early armor help. From 6 you can farm and proxy more confidently. You can fling her out of her third Q and W yourself as she dashes in. Ward for her roams."
+  },
+  "Rumble": {
+   "difficulty": "Major",
+   "summary": "Like an AP Renekton with poke: he has early priority and wins trades. Back off when he is overheated. At 6 you can all-in near your tower. Negatron Cloak and Mercury's Treads help; Phase Rush is preferred."
+  },
+  "Ryze": {
+   "difficulty": "Major",
+   "summary": "You can win priority and trade hard at levels 1 and 2. Rylai's is preferred since he cannot escape once Phase Rush is spent. Your W or a fling stops his ultimate teleport. He scales well and can split push with it, so be ready to answer."
+  },
+  "Sett": {
+   "difficulty": "Minor",
+   "summary": "He can snowball if ahead, so early armor is strong. You win long trades. Fling during his E pull to get out, dodge his W center, and W him to prevent his ultimate. Play carefully if he has Ignite."
+  },
+  "Shen": {
+   "difficulty": "Even",
+   "summary": "He out-trades you all lane, but his wave clear is weak until Tiamat or Hollow Radiance, so crash and proxy. After 6, use W or E to stop his ultimate, or let him go and take plates. You outscale him for teamfights; rush Liandry's."
+  },
+  "Sion": {
+   "difficulty": "Even",
+   "summary": "He trades well early but cannot stop you farming. Look for kills when he overcommits, and stay in front of him so he cannot ult away. After lane his health is too high to solo kill, but you deal far more damage in teamfights."
+  },
+  "Sylas": {
+   "difficulty": "Major",
+   "summary": "He out-trades you early, but you clear waves better after the first back. Avoid long trades against his W heal. He makes great use of your stolen ultimate. You win a full-health all-in near your tower and eventually outscale him."
+  },
+  "TahmKench": {
+   "difficulty": "Even",
+   "summary": "One of the harder tank lanes due to his single-target damage and CC. Never get stunned near his tower, dodge his Q, and only all-in near your tower. Rush Liandry's; you outscale him for teamfights."
+  },
+  "Teemo": {
+   "difficulty": "Major",
+   "summary": "Trade aggressively early, but his early damage can kill you on the first wave. Skip waves to proxy, using Flash or Hexflash over walls. If you reach 6 even, all-in near your tower. Buy Oracle Lens around level 5 or 6 to clear shrooms, and get your jungler to camp. Nearly dodge-worthy."
+  },
+  "Trundle": {
+   "difficulty": "Major",
+   "summary": "Take Teleport to answer his relentless split push, and Phase Rush to escape. Never walk up without fling and Phase Rush. He wins trades and all-ins and his ultimate counters yours, but you teamfight far better; send a teammate to match him. Rush Liandry's; Zhonya's helps against his ultimate."
+  },
+  "Tryndamere": {
+   "difficulty": "Even",
+   "summary": "Similar to Garen but with less burst at 6. Never walk up without fling and Phase Rush; let him push early and look for tower flings. You can win all-ins and kite him during his ultimate. Rylai's is safest, Liandry's kills him after his ultimate; Teleport to answer split push."
+  },
+  "Vayne": {
+   "difficulty": "Major",
+   "summary": "Trade hard early, crash and reset, and look for kills when the wave bounces. She is squishy and gankable, so ping your jungler; otherwise only all-in near your tower. Build heavy AP like Liandry's into Zhonya's. She outscales you 1v1, but you win teamfights."
+  },
+  "Vladimir": {
+   "difficulty": "Major",
+   "summary": "He is weak before 6 and before his first back, so take priority, crash and proxy. Rush tier-2 boots and all-in near your tower; your ultimate cuts his healing. His pool cancels your fling, so wait it out and fling afterward. Avoid his empowered Q and hide from his E behind minions."
+  },
+  "Volibear": {
+   "difficulty": "Major",
+   "summary": "After his first bite, stay away. He keeps early priority and wins short trades, and long ones in melee. From 6 treat every trade as an all-in and farm with your ultimate. Rylai's is safer for newer players; his ultimate cancels your fling."
+  },
+  "Warwick": {
+   "difficulty": "Major",
+   "summary": "Never fight him 1v1; his healing, ultimate and Barrier turn every fight. Only trade to access the wave, and never open with fling, since holding his Q cancels it. Farm, proxy and scale for teamfights; Rylai's helps against his chase."
+  },
+  "MonkeyKing": {
+   "difficulty": "Minor",
+   "summary": "A standard fighter lane; watch your health and get early armor. His clone can cancel your fling, but your poison reveals him while stealthed. Kite out of his ultimate and his armor-shredding Q. You can all-in near your tower and eventually beat him 1v1."
+  },
+  "Yasuo": {
+   "difficulty": "Minor",
+   "summary": "Pop his passive shield with an auto or poison before flinging. Your W stops his dashes and ultimate, and flinging him during his knock-up combo prevents the ultimate. You spike earlier than him, but he scales well and his wind wall blocks your W."
+  },
+  "Yone": {
+   "difficulty": "Major",
+   "summary": "Harder than Yasuo: his Q dash and E return can cancel your fling and his W shield wins trades. Armor helps only partly since some of his autos deal magic damage. Rylai's to punish his E, and you can trap him with W at the end of his E. Do not solo die to him."
+  },
+  "Yorick": {
+   "difficulty": "Major",
+   "summary": "Take Teleport and Conqueror. Dodge his E, kite his ghouls, and break his cage by attacking it; Legend: Alacrity is nearly mandatory. At 6, fling the Maiden under your tower and kill her if you can, since you beat him while she is on cooldown."
+  },
+  "Zac": {
+   "difficulty": "Even",
+   "summary": "He has strong base damage, sustain and all-in. Step on his blobs to deny healing, and use your ultimate's Grievous Wounds. Your W blocks his E jump, but you cannot stop his ultimate. You generally outscale him; rush Liandry's."
+  }
+ }
+}

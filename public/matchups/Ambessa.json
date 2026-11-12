@@ -1,0 +1,573 @@
+{
+"champ": "Ambessa",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/challenger-ambessa-top-build-amp-match-up-tips-644780",
+"author": "SprdLoL",
+"updated": "2024-12-09",
+"title": "CHALLENGER AMBESSA TOP BUILD & MATCH-UP TIPS."
+},
+"fetched": "2026-11-12",
+"rows": {
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"The author's worst lane for Ambessa: his kit shuts you down and his cooldowns are shorter than yours. Take Grasp, put your level 1 point in W, and play to survive. You scale better than he does, so the lane is about getting through it."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"She bullies you both in and out of lane and is especially strong against dash-heavy champions like you. Take Grasp and focus on farming. You can still outperform her in teamfights if you play them well."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"A skilled Irelia can wreck you, so always keep one ability available to answer her E. You are the stronger teamfighter. In sidelanes, catching her with none of her minions nearby is usually a free kill."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"There is little you can do in lane against him. Take Grasp and focus on CS. Once you have two items and Mercury's Treads, you outscale him."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He can chase you down with Ghost. Use your passive dashes to avoid the outer edge of his Q and the lane becomes manageable. It is a difficult matchup if you are still learning Ambessa."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A rough lane. Focus on farming and do not chase him when his health looks low, since that is bait for his sustain and all-in."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Neither of you can really hurt the other in lane. Whoever commits to the fight first tends to lose it, so let him engage."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Use your passive dashes to kite him during trades. You can bait out his ult by casting your own and then dashing away."
+]
+]
+}
+],
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Punish him with your passive mobility; his W pull should never catch you unless you badly misposition. Buy anti-heal on your first back."
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"As long as you avoid her E, the lane is fine for you."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Do not let him cheese you during the first three levels. Your W wins trades against him, and Plated Steelcaps should be your first boots."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Mini Gnar is very weak early, so throw abilities at him and bully him. Be careful once he completes Plated Steelcaps and Trinity Force."
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Save your W for her E. She has poor waveclear, so freeze the wave and then all-in her. She may win late-game duels; dodging her E is the key to the lane."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Poke him with your second Q cast and farm. Not much happens in this lane; take Grasp."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Take Bone Plating and always have W available when he engages. Your W and his E share the same cooldown, so play around that timing. He can outscale you if he gets ahead."
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A skill matchup where Grasp and Sudden Impact are recommended. You win the lane, but a single death can let him snowball into someone you cannot kill."
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Mostly a farming lane with little interaction."
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Bully him hard before level 6. After level 6 his all-in becomes very strong and his W shuts down your passive, so be careful."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Use your passive mobility to stop him from easily regaining his mount. Your Q, which scales with enemy health, hits him very hard."
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You deal heavy damage to him until he buys Plated Steelcaps. If he stacks a lot of armor, consider building Black Cleaver first."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Depends on how good the Jayce is. After level 6 he is vulnerable to your all-in, and you can use your R to run him down."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"All he can do is try to out-stat you in a straight fight. Your ultimate cancels his."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Very favorable; take Ignite and try to kill him early. He scales well, so build your lead before he gets going."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Do not let him poke you down; trade whenever you can. Watch his heat bar and avoid his empowered autos while overheated."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You out-damage her early. Use your passive dashes to avoid the center of her Q and bully her in lane, but keep her scaling in mind."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Your mobility vastly exceeds his, so you should win the lane comfortably."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid extended trades and you will beat him badly. Buy Plated Steelcaps first."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Neither of you can do much to the other in lane, and you are the better teamfighter. After level 6 he has all-in potential, so keep at least one ability available."
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Focus on farming and only trade using W. Buy Hexdrinker first and the lane becomes easy."
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her early cooldowns are shorter than yours, so be patient. Get Plated Steelcaps and outscale her."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He is very sturdy until you have Black Cleaver and he hits level 11. Take Grasp and trade with W plus Sudden Impact; otherwise the lane is quiet."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His level 1 is extremely strong. Put your first point in W to answer his E."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Buy Plated Steelcaps and you beat him at every stage. All-in him whenever his minions are not around."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She is weak against you in lane and lacks waveclear. Use your passive dashes to dodge her Q sweet spots and you will win trades."
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"An unpleasant lane because his W silence counters you hard, but you outscale him. Expect mostly farming."
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid letting him proc his Brittle effect and you win every trade. His late game is strong, though."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You beat Swain at every stage of the game."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Concede priority to him early. Use your passive movement to make his Q harder to land, and rely on your much stronger scaling."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Buy Hexdrinker first and you should win easily. You also outscale him in a 1v1."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Watch for his barrels in the early levels; Doran's Shield is a strong start. Your auto attack is faster than his, so use it to take his barrels first."
+]
+]
+}
+]
+}
+}

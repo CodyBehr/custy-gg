@@ -1,0 +1,237 @@
+{
+"champ": "Velkoz",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/keeping-an-eye-on-your-carry-support-velkoz-389556",
+"author": "NorthernRedStar",
+"updated": "2015-05-25",
+"title": "Keeping An Eye On Your Carry - Support Vel'koz"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She is weak early and easy to out-poke, and her Black Shield does not block your true damage. Your spells hit several targets at once, so this is easy as long as you dodge her root."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Stay in position and do not let him walk up freely, since you can chunk him when he tries. If he hooks your ADC, either punish Thresh hard or go for the enemy ADC, ideally lining up your spells to hit both."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She has almost no lane presence at level 1 and only becomes threatening around level 3, so harass both enemies for free early. Stay out of her E path and respect her ultimate, her best chance to kill you."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A skill matchup: both of you poke heavily and chain CC, and her plants punish you if you stay aggroed. One combo from either side is decisive, so keep vision on her and exploit her cooldowns and immobility."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Without Flash his engages are easy to stop with positioning and spells. He is melee with weak poke, so harass him freely."
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Like a weaker Braum with a heal and no mobility. Focus his ADC first and Taric is easy to deal with."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He heals off much of your poke and wins all-ins with his CC. Dominate the early levels so he falls behind, and do not auto-harass him while his headbutt combo is ready."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She out-pokes you early but you outscale her damage quickly. Play safe until 6 or trade back, dodge her empowered Q, and remember her mana costs are higher than yours."
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her shield is annoying, but she is squishy, cannot trade back, and is easy to all-in. Deny her ADC farm; her main danger is setting up jungle ganks."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Keep your distance while her stun is ready, all-in when it is down, and out-poke her. Watch for Flash into Tibbers stun and choose your ultimate timing carefully."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her heals drain her mana quickly, she is squishy, and one combo nearly kills her. Your range lets you fight her without stepping into bubble range."
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Only annoying; she dies to your full combo. Kill her first so she cannot out-heal your damage, and consider Ignite."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Depends on how often your ADC gets hooked. You can poke him out of engage range and kill him if he misplays, but an ADC who keeps exposing themselves makes this much harder."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She has two CC tools to interrupt your ultimate, strong auto harass for long trades, and great tools to protect her carry. Engage when her expensive spells have left her low on mana."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her hop-on-attack mobility lets her dodge most of your spells, and her ultimate both denies kills and throws her support onto you for a CC chain."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You dominate the 2v2, but he is a playmaker; when he disappears, expect a portal gank. Do not trade autos while his passive is up, and watch for his ultimate picking you off when you are separated."
+]
+]
+}
+]
+}
+}

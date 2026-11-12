@@ -1,0 +1,99 @@
+{
+ "champ": "Zilean",
+ "url": "https://www.mobafire.com/league-of-legends/build/12-18-arcuraths-rank-1-zilean-support-guide-598382",
+ "title": "[12.18] Arcurath's Rank 1 Zilean Support Guide",
+ "author": "Arcurath",
+ "rank": "?",
+ "updated": "2022-09-21",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Samira": {
+   "difficulty": "Extreme",
+   "summary": "Consider not picking Zilean into her. Her W blocks your double bomb, her dash ignores your slow, and if you cannot stun her she resets through your team. You outscale her, but early lane is brutal, especially with an engage support."
+  },
+  "Zac": {
+   "difficulty": "Extreme",
+   "summary": "A strong counterpick in support or jungle: his long, fast engage cannot be cancelled and his CC chain stops you from casting your ultimate for several seconds."
+  },
+  "Tristana": {
+   "difficulty": "Extreme",
+   "summary": "She looks to jump on you at level 2 and you can do little about it; a double bomb on her landing spot still loses to her E bomb. Sit back and farm until 6. Later, her burst and ultimate knockback can kill you before you can ult."
+  },
+  "Blitzcrank": {
+   "difficulty": "Extreme",
+   "summary": "An early hook plus Ignite and ADC focus usually kills you. Later his ultimate silence can stop you from ulting a hooked teammate in range."
+  },
+  "Pyke": {
+   "difficulty": "Extreme",
+   "summary": "A good Pyke abuses you early and one hook in the first levels is lethal. Play safe until level 6, after which ulting his execute target counters him. He roams better, so punish his ADC or match his roams."
+  },
+  "Nautilus": {
+   "difficulty": "Major",
+   "summary": "Play very safe behind the wave early, since one hook kills you. After 6 you are comfortable: ult whoever he locks down and he is left stranded in your team."
+  },
+  "Pantheon": {
+   "difficulty": "Major",
+   "summary": "Unplayable before level 6 since his W outranges your E and he jumps on you whenever you walk up; his shield also blocks your double bomb. Farm safely until 6 and watch his roams."
+  },
+  "Leona": {
+   "difficulty": "Major",
+   "summary": "Her CC is overwhelming; play safe until 6, as one E hit kills you. You outscale hard by speeding allies to dodge her E or ultimate. Her roams are decent."
+  },
+  "Thresh": {
+   "difficulty": "Major",
+   "summary": "A pre-6 hook usually kills you, and his flay slow makes escaping with E speed hard. His lantern can save targets from double bomb and bring his jungler in. He roams and 2v2s strongly early."
+  },
+  "Sett": {
+   "difficulty": "Major",
+   "summary": "He looks for Flash-E combos at levels 1 to 3, then repeats with Hextech Flashtraption. Stand back from the wave so he cannot stun you; you outscale hard after 6, but watch for dives before then."
+  },
+  "Karma": {
+   "difficulty": "Major",
+   "summary": "She pokes you all lane and you can do little unless a gank lets you land an E-double-bomb combo. Sit back until 6 or roam earlier."
+  },
+  "Alistar": {
+   "difficulty": "Even",
+   "summary": "Abuse your range at level 1, then play safe and poke from level 2, watching for Flash-headbutt into tower. With an aggressive ADC it is tough; after 6 your ultimate ruins their dives."
+  },
+  "Rell": {
+   "difficulty": "Even",
+   "summary": "Tough with an aggressive ADC if she lands W into E. Bait her W, escape with E speed, then turn and combo her. After 6 you win as long as she cannot land her full combo on you and your ADC."
+  },
+  "Yuumi": {
+   "difficulty": "Even",
+   "summary": "A scaling lane she wins long term, and punishing her is hard. Roam a lot since she cannot match it; you should win fights after 6, but late game gets tough."
+  },
+  "Janna": {
+   "difficulty": "Even",
+   "summary": "She will poke you with W; punish with an E-double-bomb combo, slowing her first since she is too fast to hit otherwise. Her W speed makes her roams strong."
+  },
+  "Lux": {
+   "difficulty": "Even",
+   "summary": "Avoid her root and you are fine; you win the 2v2 combo as long as you start the fight."
+  },
+  "Seraphine": {
+   "difficulty": "Minor",
+   "summary": "Easy: poke her with bombs while her long W cooldown is down, and she is weak to engage, so an E-double-bomb with your jungler kills her. Later, stay out of her ultimate so you can save allies it hits."
+  },
+  "Brand": {
+   "difficulty": "Minor",
+   "summary": "Dodge his spells with E speed. His AoE pushes the wave into you, making him easy to gank with an E-double-bomb."
+  },
+  "Taric": {
+   "difficulty": "Minor",
+   "summary": "Almost free: your slows keep him out of range and he needs Flash-E to engage. Kite him constantly, and in fights speed your team away from his ultimate, wait it out, then re-engage."
+  },
+  "Renata": {
+   "difficulty": "Tiny",
+   "summary": "You heavily outscale her; her ultimate on you does little since your autos deal no damage. Not a threat early or late."
+  },
+  "Braum": {
+   "difficulty": "Tiny",
+   "summary": "One of the easiest lanes unless it is a cheesy Lucian-Braum duo. When he holds up his shield, your double bomb cannot miss."
+  },
+  "TahmKench": {
+   "difficulty": "Tiny",
+   "summary": "Basically free: he cannot reach you to devour you. Slow and double bomb him rather than the ADC for easy kills."
+  }
+ }
+}

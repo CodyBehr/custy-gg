@@ -1,0 +1,191 @@
+{
+ "champ": "Jinx",
+ "url": "https://www.mobafire.com/league-of-legends/build/challenger-jinx-guide-595454",
+ "title": "Challenger Jinx Guide",
+ "author": "KingAmazin",
+ "rank": "Emerald",
+ "updated": "2021-04-19",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Caitlyn": {
+   "difficulty": "Even",
+   "summary": "She holds priority early by pushing with Q. Use rocket splash on the wave to avoid being shoved under tower where her traps zone you. From level 4 your rockets match her range, so auto-trade after she spends her headshot. Stay in your wave to avoid isolated Q, watch for hidden traps near your tower, and you will outscale her if you stay close early."
+  },
+  "Draven": {
+   "difficulty": "Extreme",
+   "summary": "One of the hardest lanes against a skilled Draven, especially with an aggressive support. You outrange him with rockets, but his speed lets him punish your harass; poke him as he moves to catch axes or via splash. Play passively near your tower for ganks, take Exhaust, and ward river; deny his stacks since he collapses when behind, and you outscale him if even."
+  },
+  "Ashe": {
+   "difficulty": "Even",
+   "summary": "Take short one-auto rocket trades at level 1 when ranges match; later you outrange her. Stand in your wave to block Volley, noting it passes through minions it kills. Watch for her ult, and consider Cleanse or Galeforce to deal with it."
+  },
+  "Aphelios": {
+   "difficulty": "Even",
+   "summary": "His level 1 is very weak, so push with rockets for priority; you can auto-trade since he barely outranges you. Respect his root on the Gravitum gun for support follow-ups, and stand away from the wave when he holds Infernum."
+  },
+  "Ezreal": {
+   "difficulty": "Tiny",
+   "summary": "Probably your easiest ADC lane. Stand in your wave to block his Q, poke with rockets from inside it, and buy Berserker's Greaves on your first back to dodge more easily."
+  },
+  "Jhin": {
+   "difficulty": "Even",
+   "summary": "Stay away from minions to avoid his bouncing grenade, avoid trading into his fourth shot, and dodge his W root. Take Cleanse against heavy-CC supports, get early Berserker's Greaves, and a Refillable Potion helps since his fourth shot scales with missing health."
+  },
+  "Kaisa": {
+   "difficulty": "Even",
+   "summary": "Her short range lets you poke with single rocket autos and step back. Stay behind and inside your wave to avoid her W and reduce Q damage, and never get isolated. She wins straight all-ins, so chip her down safely."
+  },
+  "Kalista": {
+   "difficulty": "Extreme",
+   "summary": "Her hops close the range gap, and with a hard-CC support she is very dangerous; play passively and scale. After 6 never walk up to auto her since she can ult her support onto you. Your W slow cuts her hop speed. From level 9 your range helps; aim to stay even and win teamfights."
+  },
+  "Lucian": {
+   "difficulty": "Minor",
+   "summary": "His short range makes him easy to poke with rockets. Reposition around the wave to avoid his Q through minions. If he dashes in, switch to minigun and W him during his animations; your range advantage grows with Q levels."
+  },
+  "MissFortune": {
+   "difficulty": "Even",
+   "summary": "Avoid her Q bouncing off minions, both dying ones (guaranteed crit) and healthy ones. If you dodge her Q poke, you usually win all-ins since her passive weakens repeated hits on one target."
+  },
+  "Samira": {
+   "difficulty": "Even",
+   "summary": "Harass her with rockets when she goes to CS. A good W angle can bait her wind wall for your support to engage. Exhaust helps against her all-in, and do not ult until her W is down. You outscale and outrange her late; she can no longer dash through allies."
+  },
+  "Senna": {
+   "difficulty": "Extreme",
+   "summary": "She matches your scaling range and out-sustains you; her auto-Q heals through your short trades. With an aggressive support, all-in her for extended fights, since her passive has a cooldown and she struggles against hard engage."
+  },
+  "Sivir": {
+   "difficulty": "Even",
+   "summary": "Poke her short range, but stay in your wave to avoid isolated Q hits, and never throw W into her spell shield. Against lethality Sivir, focus on dodging Q and buy Berserker's Greaves and Refillable early."
+  },
+  "Tristana": {
+   "difficulty": "Extreme",
+   "summary": "Her long jump negates your rocket range and her bomb wins all-ins. Take Exhaust, trade when she uses her bomb elsewhere, otherwise poke lightly. Play safe and scale, since you will not win 2v2 or 1v1."
+  },
+  "Twitch": {
+   "difficulty": "Major",
+   "summary": "Rare but strong into you. Never walk up alone when he is missing, since he can ambush from stealth. He scales and with ult reaches your range, so always track him."
+  },
+  "Varus": {
+   "difficulty": "Extreme",
+   "summary": "Lethality Varus pokes hard and you lack mobility to dodge. Take Cleanse for his ult, buy Refillable early and Berserker's Greaves."
+  },
+  "Vayne": {
+   "difficulty": "Minor",
+   "summary": "Abuse her weak early game; she has no waveclear, so take priority with rockets. Poke when she goes for CS and avoid taking three autos. Never duel her after level 6."
+  },
+  "Xayah": {
+   "difficulty": "Minor",
+   "summary": "Poke her short range with rockets, avoid lining up with her feathers through the wave, and track feathers to avoid the root."
+  },
+  "Alistar": {
+   "difficulty": "Major",
+   "summary": "Play aggressively at level 1, but from level 2 respect his combo, which can kill you since you are immobile. Watch for Q-Flash-W that throws you into his ADC."
+  },
+  "Bard": {
+   "difficulty": "Minor",
+   "summary": "Do not line up with your support for a double stun, watch for portals bringing his jungler, and his ult can set up picks; Galeforce helps you escape it."
+  },
+  "Blitzcrank": {
+   "difficulty": "Extreme",
+   "summary": "Always stand behind your minions; one hook usually means death. Do not rely on dodging, and consider Galeforce to dash out."
+  },
+  "Braum": {
+   "difficulty": "Minor",
+   "summary": "Stay in your wave to block his Q, and his ult is easy to dodge unless you are already CC'd. His shield blocks your W and ult."
+  },
+  "Galio": {
+   "difficulty": "Even",
+   "summary": "He engages easily with knockup and taunt; respect his dash range and space him with rockets. Cleanse helps against his taunt or heavy-CC teams."
+  },
+  "Gragas": {
+   "difficulty": "Even",
+   "summary": "Respect his Flash-body slam and ult engage, and avoid his barrel poke whose slow sets up other CC."
+  },
+  "Janna": {
+   "difficulty": "Tiny",
+   "summary": "She can barely affect you; trade back with rockets when she W's you, and you outrange her later. Walk out of her slow-charging tornado."
+  },
+  "Karma": {
+   "difficulty": "Even",
+   "summary": "Tough if you struggle to dodge Q. Stand behind minions but not hugging them, and buy an early Refillable."
+  },
+  "Leona": {
+   "difficulty": "Extreme",
+   "summary": "Take Cleanse unless you trust your support's peel, and consider Galeforce to escape her ult after level 6."
+  },
+  "Lulu": {
+   "difficulty": "Minor",
+   "summary": "She mostly buffs her ADC; punish her short range with rockets if she gets aggressive, and move unpredictably when Pix is on you to dodge her Q."
+  },
+  "Lux": {
+   "difficulty": "Even",
+   "summary": "She deals a lot of damage for a support. Get early Berserker's Greaves to dodge her binding and E, and a Refillable for sustain."
+  },
+  "Morgana": {
+   "difficulty": "Tiny",
+   "summary": "Play behind minions to block her binding; her other poke is minor and you scale freely."
+  },
+  "Nami": {
+   "difficulty": "Minor",
+   "summary": "Avoid running into her so her W bounce cannot return to heal her. Her bubble is easy to dodge, more so with Berserker's Greaves."
+  },
+  "Nautilus": {
+   "difficulty": "Major",
+   "summary": "Play behind your wave early to avoid his hook, and after 6 watch for his point-and-click ult; position carefully since you are immobile."
+  },
+  "Pyke": {
+   "difficulty": "Extreme",
+   "summary": "Position to dodge his hook; with Hail of Blades he does big damage himself and his hook has a short cooldown. Galeforce helps, and use rockets to build a wave to hide behind."
+  },
+  "Rakan": {
+   "difficulty": "Minor",
+   "summary": "Watch his W engage; after level 6 his Flash engages become a bigger threat, but early he is manageable."
+  },
+  "Rell": {
+   "difficulty": "Major",
+   "summary": "Her CC can pick you off without Galeforce or Flash. Learn her W range, punish her with your support if it misses, and watch for her remount Flash flip."
+  },
+  "Seraphine": {
+   "difficulty": "Even",
+   "summary": "Against heavy CC, consider Cleanse. Her ult is long range and hard to dodge, so Galeforce is an alternative."
+  },
+  "Sett": {
+   "difficulty": "Even",
+   "summary": "Paired with an aggressive ADC he makes laning hard; he may Flash early to bait yours, then engage from brush with Hextech Flashtraption. A peeling support makes it manageable."
+  },
+  "Sona": {
+   "difficulty": "Tiny",
+   "summary": "Mostly Q and auto poke; set the wave near your tower since she is gankable. She spikes somewhat at level 6."
+  },
+  "Soraka": {
+   "difficulty": "Tiny",
+   "summary": "Dodge her Q and she poses no threat; buy an early Executioner's Calling to cut her healing."
+  },
+  "TahmKench": {
+   "difficulty": "Minor",
+   "summary": "Watch his tongue slow; otherwise he cannot do much to you."
+  },
+  "Thresh": {
+   "difficulty": "Extreme",
+   "summary": "Be very careful of his hook; when he stands near a wall he may be setting up a lantern gank. His flay-empowered autos also hit hard."
+  },
+  "Taric": {
+   "difficulty": "Minor",
+   "summary": "His stun is the only threat; stay out of its range and watch for him charging it before a Flash."
+  },
+  "Yuumi": {
+   "difficulty": "Tiny",
+   "summary": "Stand in your wave to block her Q and buy an early Executioner's Calling."
+  },
+  "Zilean": {
+   "difficulty": "Minor",
+   "summary": "Avoid getting double-bombed; if a bomb lands on you, drag it into your wave so it pushes the wave toward you."
+  },
+  "KogMaw": {
+   "difficulty": "Minor",
+   "summary": "Bait out his W with a rocket trade and back off; without W he is very weak, so trade then."
+  }
+ }
+}

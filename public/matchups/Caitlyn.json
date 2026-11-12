@@ -1,0 +1,336 @@
+{
+"champ": "Caitlyn",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/26-21-master-adc-caitlyn-guide-1-shot-late-game-scaling-caitlyn-build-meta-build-included-643874",
+"author": "Rowzkit",
+"rank": "Diamond",
+"updated": "2026-11-06",
+"title": "26.22 Caitlyn Build ADC 1 SHOT LATE GAME SCALING CAITLYN BUILD Meta Build Included"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He outranges you by a wide margin, so fighting him is often impossible. Dodge his Q, his main damage, and avoid trades unless you are going all-in. Always keep E or Flash available to disengage."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"His E reaches about as far as your autos, which makes trading into him very hard. Avoid fights whenever possible and keep E or Flash ready to escape."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"You out-damage her on paper but rarely reach her: she outranges you and brings shields, heals, slows and hard CC. Trading usually gets you CC'd from outside your range, so avoid it and keep E or Flash for disengage."
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He wins extended fights if left alive, so only trade when you are well ahead and certain to win. The standard build can burst him, so aim for at least two items before fighting him."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her shield blocks all your autos, headshots included, and she wins both extended fights and all-ins. Play around that shield's roughly 20-30 second cooldown."
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid all-ins; his empowered axes out-damage your extended trades. Your best chance is baiting him into range for your E plus Q combo."
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He is mainly dangerous if your team does not handle him well. Play far back and confirm where he is before committing to fights."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You outrange him heavily, but his gap closer can let him burst you before you react. Never trade unless your E is ready, and play around your E-Q."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You outrange her, but if she reaches you through poor spacing you will lose. Stay far enough back that she cannot dash onto you."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You outrange her, but her jump can put her on top of you for an E plus ult burst."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Not a big threat unless he builds a large lead. Play carefully in lane and he is manageable."
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Use your range, but you are very vulnerable to his root. He is hard at every stage, with burst plus sustain in long fights."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her shorter range makes laning manageable, but she bursts harder than you and can close the gap."
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She outscales you, so push your lane lead as hard as you can before she leaves laning phase."
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her spell shield can block the headshot your E normally guarantees, which makes winning trades difficult."
+]
+]
+}
+],
+"Zeri": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You out-damage her through most of the game. Be careful of her full combo when you lack vision."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Both of you have long range, but her poke is more consistent. Play near your wave and avoid getting pushed up, or she will run you down."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He outranges you and has solid poke and burst. Play back and focus on surviving lane."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Use your range to dominate, but do not trade when she is inside her minion wave, since headshots are hard to land through minions. She outscales you, though good positioning keeps her off you."
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid all-ins, poke with your range, and stay away from low-health minions she can bounce her Q off."
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You outrange him all through laning. Do not stay in lane on low health or his ult can finish you."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A good Varus is hard for almost anyone. Survive the early game and avoid his ult in later fights."
+]
+]
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She lanes poorly into you, but after level 6 you will rarely kill her with your ult because she can avoid it."
+]
+]
+}
+]
+}
+}

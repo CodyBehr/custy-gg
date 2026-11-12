@@ -1,0 +1,966 @@
+{
+"champ": "Poppy",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/25-22-supporting-the-hero-a-poppy-support-guide-630853",
+"author": "kcmichalson",
+"rank": "Emerald",
+"updated": "2025-11-17",
+"title": "[25.22] Supporting the Hero! A Poppy Support guide."
+},
+"fetched": "2026-11-12",
+"rows": {
+"Aphelios": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A skilled Aphelios can dominate the lane. Engage while he is holding his green or blue weapon, and only when your carry has enough health to follow up."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her constant slows shut down the movement Poppy relies on. Play safe until she wastes her E, after which she cannot easily stop your engage. As a support Ashe she does not need to farm and scales damage more slowly, so stay behind minions to avoid her W and consider diving her carry instead."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Track her headshot counter in her stats panel and step over traps right after she places them, before they arm. Her net slows you but can push her toward a wall, setting up your stun. She is mana-starved early, so keep her from getting Presence of Mind procs."
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"His damage and speed depend on catching axes, so disrupt his catches to stop him escaping or chasing you down. Bait out his E knockback before you engage."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid getting tagged repeatedly, since his spells stack Lethal Tempo. Bait out his blink before engaging; it has a long early cooldown and makes him hard to pin while available."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"The author singles Fizz out as a frustrating opponent for Poppy in any role, so treat him as a serious threat."
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Count his shots and engage while he is reloading, far from his fourth-shot crit. Once you have taken damage, stay away from his W so you keep your mobility."
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Dodge her W slow and her root traps and the lane is easy. Punish her weak early game before she scales."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Be aggressive early, since she trades poorly at range and has long base cooldowns. Engage while she is casting; a fed Kai'Sa is very hard to handle."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She is vulnerable but can still shred tanks in long fights. Engage when you see an opening and either finish her or back off before too many spears stack."
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His W is his main damage source; punish him whenever it is on cooldown."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He wants to abuse his early strength and passive procs. Play safe and wait for him to misposition."
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Do not stand next to low-health minions, since she bounces her Q off them onto you. Engage when she is badly positioned or low on mana."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her W blocks auto attacks, so make her use it before engaging or your carry cannot kill her. Punish her short range early; she has to push the wave to farm safely."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her only dash sends her toward an enemy, so cut off her path back to tower and punish her after she uses it. If she dives in and is about to ult, you can pre-charge your own ultimate."
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She usually has wave clear pressure on your carry. Wait for her to push up and look for misplays you or your jungler can punish."
+]
+]
+}
+],
+"Smolder": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His attacks are slow and telegraphed; avoid CC and tight corridors. His E is his only mobility and starts with a long cooldown. If you dash him into a wall without killing quickly, he may fly over it."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He can kill you fast if you are careless. He is slowed while charging Q, so engage then to cancel it and punish how fragile he is."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Both of you want to pin the other to a wall. Bait her Q tumble before engaging or stop it with your W; without mobility she struggles against longer-ranged carries."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His short range and reliance on spells make him punishable with good positioning; as a support he focuses on hitting you with Q for stacks. Bait his cage, using your dash to escape before it closes, then rush him down, since one or two kills put him far ahead."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She has burst and wave pressure and looks to poke then jump in with her charge. Use W to stop her jump, her only mobility, and punish her trades."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak early and immobile. Bait or waste his gold card, then engage right away."
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fragile but enormous damage. Keep wards in the brush near their tower and in the river, where he likes to go invisible for ambushes."
+]
+]
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Stay out of the line between her and her feathers. Bait her ultimate before trying to stun her on a wall, since she will use it to dodge your engage."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Poke him to pop his brief Flow shield before engaging, and bait his wind wall, which is his only way to keep you away."
+]
+]
+}
+],
+"Yunara": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fight near the wave to block her W poke. She has little mobility, so aggression can force her Flash and set up a wall stun later. Either win priority and fight level 2 or back off, since her early W and Q hit hard."
+]
+]
+}
+],
+"Zeri": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Watch for her dashing over walls by keeping vision in the brush near their tower wall. Chained hard CC shuts her down, and her short range makes her movement predictable."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A farming lane where you rarely interact unless he misplays. Avoid his mines unless you are already close, punish his long cooldowns, and dodge his satchel knockback."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Tanky with a simple combo. Activate your W before he can stun you to stop his headbutt, and disengage while his ultimate is active."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Stay behind minions since his Q is his only gap closer. His W scales off your max health, so prefer magic resist over health if you tank him, and keep him off your carry."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Break his shrines before he can use them to heal, though he tends to place them near his tower. Watch his level for his ultimate, which he may use on your turret or carry."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His hook has a large early mana cost and cooldown, so punish right after he uses it. His passive shield may force you to pop it and back off before you can kill him."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He wants to chain spells to proc his passive. Do not stand near your carry, and after taking one spell, avoid his Q, which will now stun you."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"After his Q or an auto hits you, his team can build stun stacks, so back off until they expire. His shield blocks damage but not CC, so stun him and let your carry hit him."
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her threat depends heavily on the player. She engages with E, which has a slightly shorter cooldown than your W, so do not waste W. Put her behind early and she stays behind."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He places turrets in brush corners and tries to stun you inside their range. His damage drops when he moves forward, so letting the wave push once his turrets are set can help."
+]
+]
+}
+],
+"Hwei": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He is squishy, weak early and immobile. Force him into bad positions and pick him off during laning."
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her shield cooldown drops whenever she slows or knocks up, so avoid her CC. You can dash her out of her ultimate, so hold your dash for it."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Hitting you lowers her empowered cooldown, so avoid long trades unless she is low on mana. If she tethers you, leave range or dash to hit her when rooted."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her W damage is delayed, so use your W or E after she activates it. Move out of the center of her ultimate to take only the slow."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She must choose between CC and buffing her carry, so force that choice at a bad time. Her empowered extra shots do not pass through minions, so stay behind the wave after she buffs."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her Q roots two targets, so stand behind at least two minions. Her E slow lingers after you leave it, so stay out if you need mobility."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Very tanky, and his E heavily reduces nearby ADC attack speed, so keep him off your carry. After 6, stay spaced from your carry so his ultimate cannot hit both of you."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His saplings explode on minions, so drag them through the wave. Small poke only speeds up his healing, so do not bother; your shield throw is fine."
+]
+]
+}
+],
+"Milio": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Play around his Q, which is both his peel and his damage. Punish his long cooldowns and bait his ultimate, since a good Milio can wreck your engage."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She punishes you for getting close, and she will W the brushes so camping there is risky. Bait her Black Shield, which she uses as soon as you engage."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her empowered autos slow, so avoid fights right after she buffs her carry. Her early cooldowns are long; punish early."
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His hook is easy to read and your W stops his pull. Break his shield before fighting, since his shielded autos hit hard."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She roams a lot, often right after the first back, so ping when she disappears. Avoid her root and spread out so her ultimate cannot hit you and your ADC together."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fragile and wants to ambush from the brush. Keep the nearby brush warded and use your W to stop his leap onto you or your carry."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Poppy has many answers. Dash into him to throw off his stun or hook, and dash him away when he goes for your low-health carry."
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"His engage is telegraphed and his mobility needs a nearby ally. Your W stops both his engage and his jump to allies, so you can bully him; knocking his carry away with your ultimate leaves him exposed."
+]
+]
+}
+],
+"Rell": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her engage is easy to block, but her shield-breaking Q hurts your sustain. Keep her off your ADC and she accomplishes little."
+]
+]
+}
+],
+"Renata": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her short-range Q root sets up her carry, so do not walk close without a way out. Her cooldowns are long, so punish her early."
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She hits hard and can clear brushes easily. Play safe until she misplaces herself; she tends to hug walls when escaping with her mist, which sets up your stun."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Engage while her long-cooldown W speed boost is down. Her E only roots if both hits land or you are already slowed, and you can dash through it to her."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He controls the brushes with boxes unless you have wave pressure. Buy Oracle Lens on your first back and ward the lane and river brushes near his tower to track him before he stealths. He has nasty CC and huge damage when fed."
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong sustain and painful poke, especially with AP. Stay out of range and poke, then burst her when she misplaces herself."
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Not dangerous alone, but she can make her carry unkillable. Dodge her Q to deny healing, and watch her silence, which disables your Q and ultimate on engage."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Lots of CC and sustain; hard to kill unless your carry is ahead. Avoid his long-range E, and just engage his ADC early since he cannot stop you. Later, hold your ultimate to knock him out of the fight when he ults."
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Bait his stun and engage without losing much health. His ultimate has a long delay; when you see it start, either burst someone or disengage."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He punishes failed engages and his blind makes trades uneven. His shrooms matter little until he has 2 or more items, so limit his gold before then."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Your W stops his hook dash. Keep minions between you, and use your dash to re-engage or escape after his flay."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Do not let him use his range; stay close and poke him early, as he is easy to rush down. Depending on the ADC you may not get to engage, so watch his angles."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He pokes from behind minions and drifts to the wave's edge to hit your carry; when he does, rush in and pin him to a wall. During his ultimate, use W and E to suddenly change position."
+]
+]
+}
+],
+"Yuumi": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Your CC hits both her and her carry at once. Avoid her early Q poke, and rush in once you can kill her carry."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Low damage but strong CC and peel; his speed-ups and slows make engaging hard unless he is dealt with first. If he revives someone, wait for it to end before finishing them."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her zone control makes moving around a hassle. Your passive buckler can one-shot plants, so use it often, and engage after baiting her E."
+]
+]
+}
+]
+}
+}

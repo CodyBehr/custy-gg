@@ -1,0 +1,532 @@
+{
+"champ": "Nautilus",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/25-24-echoes-from-the-deep-a-comprehensive-nautilus-guide-642579",
+"author": "Aerenax",
+"rank": "Emerald",
+"updated": "2025-12-04",
+"title": "[25.24] Echoes from the deep! - A comprehensive Nautilus guide."
+},
+"fetched": "2026-11-12",
+"rows": {
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A skill matchup. Play around the cooldown of his W-Q combo, and watch out for Flash combos from good Alistars."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He stays right on top of you, which makes hooks awkward to land. Dodge his Q and then re-engage onto his carry."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Ashe is very squishy and your base damage is high, so almost any hook that lands on her should turn into a kill."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He roams a lot and you will struggle to follow him. If you stay in lane, make the enemy ADC's life as hard as possible while he is gone."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"One of your easiest lanes. If he grabs your ADC, follow up with your own hook; if he grabs you, he has just brought you into range to lock him or his ADC down."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He chips you down with constant poke, but if you catch him you can burst him. Stay patient and do not let your health drop too low before you find a hook."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A failed engage gives him lots of ways to lock you down, and his shield absorbs a lot of your damage. Play around his E cooldown and you should win."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He controls the brushes and will fear you as soon as you go in, so tenacity is a strong pick. Once out of the fear you can cut his healing or interrupt his ultimate. Prioritize vision."
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She pokes with W and has timely disengage with Q or her ultimate. Patience is key; wait for those spells to be used before committing."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"She brings strong damage and utility. Avoid her empowered Q, and remember her shields mean she will not die instantly to your combo, so choose fights carefully."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her E lands her behind you, so you cannot use your hook to escape. Re-engaging is hard as well, so make sure you are the one who starts fights."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She will polymorph you and ult her carry, denying your burst. Bait those spells out before re-engaging."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her E is hard to dodge, but any hook on her should kill. Sidestep her Q and burst her."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He reaches you easily and has long CC with W and Q, but he lacks escape tools, so punish him when he commits."
+]
+]
+}
+],
+"Milio": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His Q can knock you away and cancel your hook pull, and his ultimate cleanses CC on his whole team. It cannot remove the knock-up from your ultimate, so lean on that."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Your worst matchup: her root lasts long, her shield blocks your engages, and she hits hard. The author bans her every game."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her slow, bubble stun and wave disengage make engaging hard. Play around her ultimate, which is ideal for stopping your engage."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He deals heavy damage. Play around his W leap, interrupting it mid-air or as soon as he lands on your carry."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She disengages easily with W or her ultimate, and an aggressive Poppy uses W to stop you escaping with your hook."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy but mobile. Catch him and burst him quickly; if you fail to finish him he regenerates, but you can try again."
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Easy once you know it: hook him as he starts his ultimate engage. Getting charmed is fine if he is stopped too, and shutting down his engage wins fights."
+]
+]
+}
+],
+"Rell": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her W has a slow wind-up that your hook can cancel. If she misses it, punish hard; doing this consistently wins the lane."
+]
+]
+}
+],
+"Renata": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Plays like a Lux: dodge her Q and E. Her W makes 2v2s much harder, and her ultimate can make your passive root your own allies."
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She outranges you heavily, deals lots of damage, and her W root is strong CC in lane. Expect a hard lane."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"She pokes from long range and sustains with W. If she misses her empowered E root or her ultimate, all-in her, but make sure you can kill her or her sustain will undo your damage."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His boxes block your hooks in lane, but he offers little in teamfights. Play around his stealth and punish him away from his boxes."
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Annoying poke but no CC besides her ultimate. Play around her cooldowns, respect the ultimate, and you should win most lanes."
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"One of the easiest matchups. Dodge her Q and she offers little; her E silence is the only thing that can stop your engage."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He pulls you in with E or any lane CC and then bursts you, while you struggle to burst him back. Avoid his pull range."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He walks up to stack his passive on you, and from level 6 he can protect his carry with his kit. Expect a tough lane."
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He sustains well and fights back on all-ins. Dodge his E stun, and back off when he ultimates, re-engaging after it expires."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Looks easy, but his E can cancel your hook follow-up and leave you open to his own hook. Respect the flay."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His poke will likely push you under tower at half health. Learn his Q angles, play around his E, and hook him when his spells are down."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His passive refunds mana so he can keep poking. Dodge his spells and engage when he steps too far forward."
+]
+]
+}
+],
+"Yuumi": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She has little lane pressure, so pressure the enemy ADC hard; her healing cannot outpace your burst. Kill her when she detaches."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His bombs can stun you through minions, and his E slow is annoying. Stay away from your own minions and wait for him to overstep."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her plants block your hook. Play around her E and punish misplaced plants or a missed E."
+]
+]
+}
+]
+}
+}

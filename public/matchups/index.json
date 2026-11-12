@@ -19,25 +19,34 @@
 "opponents": 88
 },
 "Akshan": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-13-the-only-akshan-guide-youll-need-matchups-included-652317",
 "author": "Peteruso",
-"rank": "Grandmaster (self-reported)",
-"updated": "2026-06"
+"rank": "Grandmaster",
+"updated": "2026-06-30",
+"title": "[26.13] The Only Akshan Guide You'll Need - Matchups Included",
+"opponents": 22
 },
 "Alistar": {
 "quality": "guide",
 "url": "https://www.mobafire.com/league-of-legends/build/tank-alistar-muu-635412"
 },
 "Ambessa": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/challenger-ambessa-top-build-amp-match-up-tips-644780",
-"rank": "Challenger (claimed)"
+"author": "SprdLoL",
+"updated": "2024-12-09",
+"title": "CHALLENGER AMBESSA TOP BUILD & MATCH-UP TIPS.",
+"opponents": 40
 },
 "Amumu": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-08-amumu-support-615048",
-"updated": "2026"
+"author": "Navn",
+"rank": "Master",
+"updated": "2026-04-22",
+"title": "[26.08] Amumu SUPPORT",
+"opponents": 42
 },
 "Anivia": {
 "quality": "sheet",
@@ -47,11 +56,13 @@
 "opponents": 45
 },
 "Annie": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/s16-rank-1-annie-complete-guide-by-coach-xblademojo-610365",
 "author": "xblademojo",
-"rank": "Rank 1 Annie / Challenger (self-reported)",
-"updated": "2026-08"
+"rank": "Challenger",
+"updated": "2026-08-27",
+"title": "[S16] Rank 1 Annie Complete Guide | By Coach xblademojo",
+"opponents": 20
 },
 "Aphelios": {
 "quality": "none"
@@ -66,58 +77,81 @@
 "quality": "stats_only"
 },
 "Aurora": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-1-shoks-rank-1-challenger-aurora-guide-645849",
-"author": "Shok",
-"rank": "Rank 1 Challenger",
-"updated": "2026-01"
+"author": "ShokLoL",
+"rank": "Challenger",
+"updated": "2026-01-09",
+"title": "[26.1] Shok's Rank 1 Challenger Aurora Guide",
+"opponents": 46
 },
 "Azir": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/season-16-bodythosefools-challenger-azir-guide-in-depth-10-000-000-mastery-points-beat-faker-614215",
-"author": "BodyThoseFools",
-"rank": "Challenger peak (self-reported)",
-"updated": "2026-08"
+"author": "Body Those Fools",
+"updated": "2026-11-03",
+"title": "[Season 16] BodyThoseFools' Challenger Azir Guide [In-depth] (10,000,000+ Mastery Points) (Beat Faker)",
+"opponents": 92
 },
 "Bard": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/25-s1-2-na-beefys-challenger-bard-guide-607952",
-"author": "Beefy",
-"rank": "Challenger NA (claimed)",
-"updated": "2025"
+"author": "BeefyyLoL",
+"updated": "2025-01-31",
+"title": "[25.S1.2] [NA] Beefy's Challenger Bard Guide",
+"opponents": 39
 },
 "Belveth": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/mo100z-26-10-new-split-challenger-belveth-indepth-guide-updated-630970",
 "author": "Mo100z",
-"rank": "Challenger (claimed)",
-"updated": "2026-05"
+"rank": "Master",
+"updated": "2026-11-12",
+"title": "Mo100z [26.10] NEW SPLIT !! CHALLENGER BEL'VETH INDEPTH GUIDE UPDATED!!",
+"opponents": 11
 },
 "Blitzcrank": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/25-15-loadingscreen-guide-greatest-support-575111",
-"updated": "2025-07"
+"author": "PalestinianLuck",
+"rank": "Diamond",
+"updated": "2025-08-09",
+"title": "[25.15] LOADINGSCREEN GUIDE GREATEST SUPPORT",
+"opponents": 20
 },
 "Brand": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/brand-mid-apc-guide-patch-25-20-649510",
-"updated": "2025-10"
+"author": "BurnVictim69",
+"updated": "2025-10-14",
+"title": "Brand Mid, APC Guide [Patch 25.20]",
+"opponents": 22
 },
 "Braum": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-21-first-we-fight-then-we-eat-a-comprehensive-braum-guide-628355",
-"updated": "2026"
+"author": "Aerenax",
+"rank": "Emerald",
+"updated": "2026-11-04",
+"title": "[26.22] First we fight, then we eat! - A comprehensive Braum guide.",
+"opponents": 37
 },
 "Briar": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/ultimate-briar-jng-guide-25-21-643257",
-"updated": "2025"
+"author": "Arctic Arrow",
+"updated": "2025-11-25",
+"title": "Ultimate Briar Jng Guide - 25.21",
+"opponents": 60
 },
 "Caitlyn": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-21-master-adc-caitlyn-guide-1-shot-late-game-scaling-caitlyn-build-meta-build-included-643874",
-"rank": "Master (claimed)",
-"updated": "2026-11"
+"author": "Rowzkit",
+"rank": "Diamond",
+"updated": "2026-11-06",
+"title": "26.22 Caitlyn Build ADC 1 SHOT LATE GAME SCALING CAITLYN BUILD Meta Build Included",
+"opponents": 23
 },
 "Camille": {
 "quality": "sheet",
@@ -134,11 +168,12 @@
 "rank": "Rank 1 Challenger"
 },
 "Chogath": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/the-passionate-guide-to-chogath-jungle-620807",
 "author": "LeonAtreides",
-"rank": "Platinum peak",
-"updated": "2024-12"
+"updated": "2024-12-10",
+"title": "THE PASSIONATE GUIDE TO CHO'GATH JUNGLE",
+"opponents": 5
 },
 "Corki": {
 "quality": "none"
@@ -180,11 +215,12 @@
 "updated": "2026-08"
 },
 "Evelynn": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/s15-evelynn-bible-by-excalibur-grandmaster-insights-amp-all-matchups-explained-648568",
-"author": "Excalibur",
-"rank": "Grandmaster",
-"updated": "2025"
+"author": "LoL_Excalibur",
+"updated": "2025-07-07",
+"title": "(RANK 1 EVELYNN) Excalibur's Evelynn Bible - All Matchups Explained with Tips and Strategies",
+"opponents": 46
 },
 "Ezreal": {
 "quality": "guide",
@@ -206,20 +242,24 @@
 "opponents": 66
 },
 "Fizz": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/s15-challenger-fizz-guide-all-matchups-items-explained-609527",
-"author": "esrucnl",
-"rank": "Challenger (claimed)",
-"updated": "2026"
+"author": "Esrucnl",
+"rank": "Diamond",
+"updated": "2026-07-03",
+"title": "[S16] CHALLENGER Fizz Guide ALL MATCHUPS",
+"opponents": 61
 },
 "Galio": {
 "quality": "stats_only"
 },
 "Gangplank": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/gangplank-matchups-guide-14-10-by-eune-rank-2-637840",
-"rank": "EUNE rank 2",
-"updated": "2024-05"
+"author": "Wielki B",
+"updated": "2024-05-20",
+"title": "GANGPLANK MATCHUPS GUIDE 14.10 by EUNE rank 2",
+"opponents": 41
 },
 "Garen": {
 "quality": "guide",
@@ -228,10 +268,13 @@
 "updated": "2026"
 },
 "Gnar": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-05-wyverns-gnar-648280",
-"author": "Wyvern",
-"updated": "2026"
+"author": "Dragonlord1022",
+"rank": "Diamond",
+"updated": "2026-03-08",
+"title": "[26.05] Wyvern's Gnar",
+"opponents": 51
 },
 "Gragas": {
 "quality": "guide",
@@ -254,23 +297,30 @@
 "rank": "Challenger"
 },
 "Hecarim": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/14-8-challenger-hecarim-build-guide-by-huncho1v9-636454",
-"author": "huncho1v9",
-"rank": "Challenger (claimed)",
-"updated": "2024"
+"author": "Huncho1v9",
+"rank": "Master",
+"updated": "2026-01-08",
+"title": "[Patch 26.1] [CHALLENGER] Hecarim Build Guide by Huncho1v9",
+"opponents": 46
 },
 "Heimerdinger": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/13-11-in-depth-heimerdinger-guide-mid-top-bot-support-616072",
-"updated": "2023"
+"author": "SanyGame",
+"updated": "2026-02-21",
+"title": "[26.4] In-Depth Heimerdinger Guide [Mid/Top/Bot/Support]",
+"opponents": 29
 },
 "Hwei": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-1-shoks-rank-1-challenger-hwei-guide-634326",
-"author": "Shok",
-"rank": "Rank 1 Challenger (claimed)",
-"updated": "2026-01"
+"author": "ShokLoL",
+"rank": "Challenger",
+"updated": "2026-01-09",
+"title": "[26.1] Shok's Rank 1 Challenger Hwei Guide",
+"opponents": 60
 },
 "Illaoi": {
 "quality": "sheet",
@@ -287,11 +337,12 @@
 "opponents": 44
 },
 "Ivern": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/season-16s-shekars-ivern-guide-2-5-million-mastery-650559",
 "author": "Shekar",
-"rank": "OTP 2.5M mastery (claimed)",
-"updated": "2026"
+"updated": "2026-10-06",
+"title": "Season 16's Shekars Ivern Guide (3 Million+ Mastery)",
+"opponents": 42
 },
 "Janna": {
 "quality": "guide",
@@ -300,11 +351,13 @@
 "updated": "2018"
 },
 "JarvanIV": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/s11-destroy-soloq-with-jarvan-iv-udysof-challenger-j4-564584",
-"author": "Udysof",
-"rank": "Challenger (claimed, OCE)",
-"updated": "2021"
+"author": "Udysof_OCE",
+"rank": "Emerald",
+"updated": "2024-02-03",
+"title": "[S14] DESTROY SOLOQ WITH JARVAN IV - UDYSOF Challenger J4!",
+"opponents": 35
 },
 "Jax": {
 "quality": "sheet_link",
@@ -319,32 +372,53 @@
 "quality": "none"
 },
 "Jinx": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/challenger-jinx-guide-595454",
-"rank": "Challenger (per title)"
+"author": "KingAmazin",
+"rank": "Emerald",
+"updated": "2021-04-19",
+"title": "Challenger Jinx Guide",
+"opponents": 45
 },
 "KSante": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/ksante-2026-653162",
-"updated": "2026"
+"author": "Auroline",
+"updated": "2026-08-03",
+"title": "K'Sante 2026",
+"opponents": 34
 },
 "Kaisa": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/16-19-exploit-their-weaknesses-615677",
-"updated": "2026"
+"author": "DemonsEdge90",
+"updated": "2026-11-11",
+"title": "Exploit Their Weaknesses",
+"opponents": 23
 },
 "Kalista": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/653317"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/653317",
+"author": "OtakuGaming",
+"updated": "2026-10-09",
+"title": "The Spear of Vengeance | An in-depth Kalista Guide!",
+"opponents": 10
 },
 "Karma": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/s14-karma-support-itemization-matchups-playstyles-640071",
-"updated": "2024"
+"author": "ZSharpFire",
+"updated": "2024-10-07",
+"title": "|S14| Karma SUPPORT Itemization+Matchups+Playstyles",
+"opponents": 31
 },
 "Karthus": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/karthus-stomping-bot-start-free-elo-hack-638123"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/karthus-stomping-bot-start-free-elo-hack-638123",
+"author": "Kociokwik",
+"updated": "2026-06-19",
+"title": "Karthus stomping bot start (free elo hack)",
+"opponents": 26
 },
 "Kassadin": {
 "quality": "sheet_link",
@@ -353,9 +427,12 @@
 "pull": "http 404"
 },
 "Katarina": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/katarina-guide-26-15-all-matchups-653241",
-"updated": "2026"
+"author": "PrincipeQ",
+"updated": "2026-08-11",
+"title": "Katarina Guide 26.15 - (ALL MATCHUPS)",
+"opponents": 3
 },
 "Kayle": {
 "quality": "sheet",
@@ -366,10 +443,12 @@
 "opponents": 171
 },
 "Kayn": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/kukizius-guide-s15-21-updated-every-situation-matchups-guide-616712",
-"author": "Kukiziu",
-"updated": "2025"
+"author": "Kukiziuu_",
+"updated": "2025-10-22",
+"title": "Kukiziu's Guide [S15.21 UPDATED] Every Situation | MATCHUPS + GUIDE",
+"opponents": 49
 },
 "Kennen": {
 "quality": "none"
@@ -395,8 +474,12 @@
 "quality": "none"
 },
 "LeeSin": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/lee-sin-guide-605858"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/lee-sin-guide-605858",
+"author": "Abes_o7",
+"updated": "2021-12-09",
+"title": "Lee Sin Guide",
+"opponents": 17
 },
 "Leona": {
 "quality": "guide",
@@ -413,15 +496,21 @@
 "quality": "none"
 },
 "Lucian": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/lucian-mid-guide-in-depth-591417",
-"updated": "2021"
+"author": "bboyxje123",
+"updated": "2025-12-29",
+"title": "Lucian Mid Guide [In-Depth]",
+"opponents": 15
 },
 "Lulu": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/s16-2-master-elo-in-depth-lulu-support-guide-651229",
-"rank": "Master",
-"updated": "2026"
+"author": "Joxuu",
+"rank": "Diamond",
+"updated": "2026-07-30",
+"title": "[S16/2] Master elo In-depth Lulu support guide",
+"opponents": 45
 },
 "Lux": {
 "quality": "sheet",
@@ -443,14 +532,21 @@
 "url": "https://www.mobafire.com/league-of-legends/build/malzahar-the-void-beckons-649775"
 },
 "Maokai": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/maokai-tank-support-2026-621820",
-"updated": "2026"
+"author": "FunnyBunnyH",
+"rank": "Emerald",
+"updated": "2026-03-30",
+"title": "Maokai (Tank) Support 2026",
+"opponents": 33
 },
 "MasterYi": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/25-24-master-yi-guide-649922",
-"updated": "2025-12"
+"author": "Eddeeken",
+"updated": "2026-01-09",
+"title": "Season 15 Master Yi Guide",
+"opponents": 54
 },
 "Mel": {
 "quality": "guide",
@@ -460,9 +556,13 @@
 "updated": "2025"
 },
 "Milio": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-22-milio-support-in-depth-guide-653599",
-"updated": "2026"
+"author": "Alvestraquina",
+"rank": "Master",
+"updated": "2026-11-04",
+"title": "[26.22] Milio Support | In-Depth Guide",
+"opponents": 35
 },
 "MissFortune": {
 "quality": "none"
@@ -490,10 +590,12 @@
 "opponents": 169
 },
 "Nami": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/11-2-nami-the-fish-ex-top-85-euw-diamond-1-guide-576966",
-"rank": "Diamond 1 / ex-top 85 EUW (per title)",
-"updated": "2021"
+"author": "PicklePantsLoL",
+"updated": "2022-02-27",
+"title": "[12.4] Nami, the Fish (ex-Top 85 EUW) | Diamond 1 Guide",
+"opponents": 25
 },
 "Nasus": {
 "quality": "guide",
@@ -501,9 +603,13 @@
 "updated": "2025"
 },
 "Nautilus": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/25-24-echoes-from-the-deep-a-comprehensive-nautilus-guide-642579",
-"updated": "2025-12"
+"author": "Aerenax",
+"rank": "Emerald",
+"updated": "2025-12-04",
+"title": "[25.24] Echoes from the deep! - A comprehensive Nautilus guide.",
+"opponents": 37
 },
 "Neeko": {
 "quality": "guide",
@@ -518,9 +624,13 @@
 "opponents": 57
 },
 "Nilah": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/25-17-a-guide-to-might-and-joy-624271",
-"updated": "2025"
+"author": "Wungus",
+"rank": "Diamond",
+"updated": "2025-09-01",
+"title": "[25.17] A Guide to Might and Joy",
+"opponents": 29
 },
 "Nocturne": {
 "quality": "guide",
@@ -537,10 +647,12 @@
 "updated": "2026"
 },
 "Orianna": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/10-18-command-attack-one-trick-orianna-mid-528060",
-"rank": "one trick",
-"updated": "2020"
+"author": "Sylvan Lore",
+"updated": "2021-11-13",
+"title": "[11.22] Command: Attack - One Trick Orianna Mid",
+"opponents": 50
 },
 "Ornn": {
 "quality": "sheet_link",
@@ -556,16 +668,21 @@
 "opponents": 65
 },
 "Poppy": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/25-22-supporting-the-hero-a-poppy-support-guide-630853",
-"updated": "2025-11"
+"author": "kcmichalson",
+"rank": "Emerald",
+"updated": "2025-11-17",
+"title": "[25.22] Supporting the Hero! A Poppy Support guide.",
+"opponents": 68
 },
 "Pyke": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/pykens-grandmaster-s15-pyke-guide-643635",
-"author": "Pyken",
-"rank": "Grandmaster (claimed)",
-"updated": "2025"
+"author": "Pykings",
+"updated": "2025-11-11",
+"title": "Pyken's [Grandmaster] S15 Pyke Guide",
+"opponents": 167
 },
 "Qiyana": {
 "quality": "sheet_link",
@@ -578,20 +695,32 @@
 "quality": "none"
 },
 "Rakan": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/25-11-rakan-for-low-elo-updated-every-patch-in-depth-wip-647318",
-"updated": "2026"
+"author": "DaltonFresh",
+"updated": "2026-10-23",
+"title": "[26.21] Rakan for Low Elo | Rush Dark Seal, play with Xayah! | Updated Every Patch",
+"opponents": 33
 },
 "Rammus": {
 "quality": "stats_only"
 },
 "RekSai": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/595303"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/595303",
+"author": "LordGrox",
+"rank": "Emerald",
+"updated": "2026-05-13",
+"title": "[S16] LordGrox High Elo Rek'sai Guide",
+"opponents": 40
 },
 "Rell": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/hi-im-rell-600234"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/hi-im-rell-600234",
+"author": "HerYandere",
+"updated": "2021-07-28",
+"title": "Hi, I'm Rell :)",
+"opponents": 57
 },
 "Renata": {
 "quality": "none"
@@ -659,27 +788,40 @@
 "updated": "2026"
 },
 "Singed": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/minishcap1s-singed-guide-649537",
-"author": "minishcap1",
-"updated": "2025"
+"author": "Hoikatop",
+"updated": "2025-09-25",
+"title": "Minishcap1's singed guide",
+"opponents": 56
 },
 "Sion": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/the-ultimate-sion-mid-guide-master-400-lp-player-all-match-ups-629654",
-"rank": "Master 400 LP (per title)"
+"author": "The Milelator",
+"updated": "2023-10-22",
+"title": "The ULTIMATE SION MID GUIDE | Master 400 lp Player | ALL MATCH UPS",
+"opponents": 48
 },
 "Sivir": {
 "quality": "stats_only"
 },
 "Skarner": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/652253",
-"updated": "2025"
+"author": "Hazardist",
+"updated": "2026-11-04",
+"title": "(26.22) The Last Bastion of Ixtal: a Skarner Jungle Guide",
+"opponents": 47
 },
 "Smolder": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/651104"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/651104",
+"author": "ObiW",
+"rank": "Gold",
+"updated": "2026-11-11",
+"title": "SCORCHED EARTH: 225 Stacks to Glory",
+"opponents": 36
 },
 "Sona": {
 "quality": "guide",
@@ -688,9 +830,12 @@
 "updated": "2026"
 },
 "Soraka": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/nzans-guide-to-soraka-be-the-best-teammate-you-can-be-632791",
-"author": "Nzan"
+"author": "nZan",
+"updated": "2024-11-18",
+"title": "SupportZan's Guide to Soraka: Be the Best Teammate You Can Be!",
+"opponents": 21
 },
 "Swain": {
 "quality": "sheet",
@@ -709,10 +854,12 @@
 "opponents": 53
 },
 "Syndra": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://mobafire.com/league-of-legends/build/ultimate-syndra-guide-mid-by-gaming-academy-youtube-channel-644459",
 "author": "Gaming Academy",
-"updated": "2025"
+"updated": "2024-11-24",
+"title": "Ultimate Syndra Guide MID by GAMING ACADEMY YouTube Channel",
+"opponents": 21
 },
 "TahmKench": {
 "quality": "sheet_link",
@@ -721,8 +868,12 @@
 "updated": "2025-01"
 },
 "Taliyah": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/taliyeah-jungle-guide-568467"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/taliyeah-jungle-guide-568467",
+"author": "liklik969",
+"updated": "2020-03-06",
+"title": "Taliyeah! Jungle Guide",
+"opponents": 10
 },
 "Talon": {
 "quality": "stats_only"
@@ -750,9 +901,12 @@
 "opponents": 49
 },
 "Tristana": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/ad-tristana-build-guide-patch-25-16-392183",
-"updated": "2025"
+"author": "Nortoxz",
+"updated": "2025-08-21",
+"title": "(AD) Tristana Build Guide (Patch 25.16)",
+"opponents": 22
 },
 "Trundle": {
 "quality": "stats_only"
@@ -768,10 +922,12 @@
 "quality": "none"
 },
 "Twitch": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/13-24-twitchs-guide-matchup-sheets-613281",
 "author": "LewisTheRat",
-"updated": "2023-12"
+"updated": "2023-12-22",
+"title": "[13.24] Twitch's Guide + Matchup sheets",
+"opponents": 33
 },
 "Udyr": {
 "quality": "sheet",
@@ -803,8 +959,12 @@
 "opponents": 61
 },
 "Velkoz": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/keeping-an-eye-on-your-carry-support-velkoz-389556"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/keeping-an-eye-on-your-carry-support-velkoz-389556",
+"author": "NorthernRedStar",
+"updated": "2015-05-25",
+"title": "Keeping An Eye On Your Carry - Support Vel'koz",
+"opponents": 16
 },
 "Vex": {
 "quality": "guide",
@@ -812,9 +972,12 @@
 "updated": "2025"
 },
 "Vi": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/vi-matchup-notes-tips-amp-tricks-updated-14-15-639887",
-"updated": "2024-08"
+"author": "y every name taken",
+"updated": "2024-08-11",
+"title": "Vi Matchups, Tips & Tricks [updated 14.15]",
+"opponents": 36
 },
 "Viego": {
 "quality": "sheet_link",
@@ -835,10 +998,13 @@
 "updated": "2020-12"
 },
 "Volibear": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-17-challenger-volibear-top-guide-609641",
-"rank": "Challenger (claimed)",
-"updated": "2026"
+"author": "Federals1",
+"rank": "Challenger",
+"updated": "2026-11-02",
+"title": "[26.21] Challenger Volibear Top Guide",
+"opponents": 54
 },
 "Warwick": {
 "quality": "guide",
@@ -870,31 +1036,43 @@
 "opponents": 10
 },
 "Yorick": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/s16-big-black-cleaver-best-yorick-guide-9-million-mastery-564708",
-"rank": "9M mastery",
-"updated": "2026"
+"author": "Kampsycho",
+"rank": "Diamond",
+"updated": "2026-10-12",
+"title": "[S16] - Big Black Cleaver - Best Yorick Guide - [10 Million Mastery]",
+"opponents": 7
 },
 "Yunara": {
 "quality": "none"
 },
 "Yuumi": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/25-23-aura-kitty-yuumi-649660",
-"updated": "2025"
+"author": "YujiYT",
+"rank": "Emerald",
+"updated": "2025-11-26",
+"title": "[25.23] Aura Kitty Yuumi",
+"opponents": 7
 },
 "Zaahen": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/25-24-master-zaahen-toplane-guide-by-albi-builds-matchups-mindset-650463",
-"author": "Albi",
-"rank": "Master",
-"updated": "2025-12"
+"author": "albidzn",
+"rank": "Diamond",
+"updated": "2025-12-22",
+"title": "[25.24] Master Zaahen Toplane Guide by albi | Builds, Matchups, Mindset",
+"opponents": 9
 },
 "Zac": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/12-16-a-master-tier-guide-to-zac-wip-615890",
-"rank": "Master",
-"updated": "2022"
+"author": "Yuki H.",
+"rank": "Diamond",
+"updated": "2022-08-27",
+"title": "[12.16] A Master Tier Guide To Zac (WIP)",
+"opponents": 22
 },
 "Zed": {
 "quality": "sheet",
@@ -902,28 +1080,34 @@
 "opponents": 51
 },
 "Zeri": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/challenger-zeri-fatusa-adc-guide-650106",
 "author": "Fatusa",
-"rank": "Challenger (claimed)",
-"updated": "2025"
+"updated": "2026-01-16",
+"title": "CHALLENGER ZERI FATUSA - SEASON 16 GUIDE",
+"opponents": 23
 },
 "Ziggs": {
 "quality": "none"
 },
 "Zilean": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/12-18-arcuraths-rank-1-zilean-support-guide-598382",
 "author": "Arcurath",
-"rank": "Rank 1 Zilean EUW / Master",
-"updated": "2022"
+"updated": "2022-09-21",
+"title": "[12.18] Arcurath's Rank 1 Zilean Support Guide",
+"opponents": 22
 },
 "Zoe": {
 "quality": "stats_only"
 },
 "Zyra": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/zyra-jungle-16-4-651093",
-"updated": "2026"
+"author": "AMotherTruckingUnicorn",
+"rank": "Diamond",
+"updated": "2026-09-23",
+"title": "Zyra Jungle 16.19",
+"opponents": 63
 }
 }

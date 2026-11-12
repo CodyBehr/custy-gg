@@ -1,0 +1,140 @@
+{
+"champ": "Zaahen",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/25-24-master-zaahen-toplane-guide-by-albi-builds-matchups-mindset-650463",
+"author": "albidzn",
+"rank": "Diamond",
+"updated": "2025-12-22",
+"title": "[25.24] Master Zaahen Toplane Guide by albi | Builds, Matchups, Mindset"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"His sustain, especially after level 6, and free passive stacks off you make long trades a losing proposition. Keep trades short, never fight inside his ultimate, and respect his pull. Take early defensive boots, prefer Stridebreaker over Trinity Force first, and consider Executioner's Calling; aim to survive lane and matter through side pressure and fights when his ultimate is down."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She outscales you heavily in 1v1s, and her parry can shut down your W and flip trades. Keep trades short, avoid long fights after level 6, and play around the wave. Take defensive boots and Stridebreaker first; win through teamfights and map play rather than matching her split push."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her W blocks your dashes and her Q slows are awkward to play around."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"The author finds him very frustrating to lane against."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"The author finds him very frustrating to lane against."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Mostly a skill matchup that comes down to the players."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Once he has Blade of the Ruined King, beating him 1v1 gets much harder."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"One of the most punishing lanes: his range, poke and wave control make contesting the lane hopeless. Give up CS if needed, stay in XP range and healthy, and let the wave come to you, since dying early is far worse than losing farm. Take early defensive boots and Stridebreaker first; reaching mid game alive is a success."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His early armor, Bramble Vest and E attack-speed slow cut your trading power, so avoid long trades and do not force fights once Bramble is done. Farm safely with a neutral wave and take early defensive boots, with Trinity Force first and Black Cleaver only if you need side-lane progress. Aim to stay even and outplay him in the mid game."
+]
+]
+}
+]
+}
+}

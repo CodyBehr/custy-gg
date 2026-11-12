@@ -1,0 +1,699 @@
+{
+"champ": "Kayn",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/kukizius-guide-s15-21-updated-every-situation-matchups-guide-616712",
+"author": "Kukiziuu_",
+"updated": "2025-10-22",
+"title": "Kukiziu's Guide [S15.21 UPDATED] Every Situation | MATCHUPS + GUIDE"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Khazix": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"A good Kha'Zix snowballs and outscales you, so falling behind usually loses. Gank often, take every objective and counter-jungle him when ahead. The author permabans him."
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her burst can one-shot Shadow Assassin Kayn. Avoid early fights unless ahead, and dodge her cocoon with Q or R. If she does not get fed, you will be fine."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He dodges your skillshots easily and his E stacks armor, making him hard to burst. Avoid early fights; in mid and late game you can one-shot him when his E stacks are down."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"A strong counter: big early damage and better scaling at every point. You cannot burst him through Meditate as Shadow Assassin, and he shreds Rhaast quickly. Without CC on your team, the game is very hard."
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Annoying early and able to kite Rhaast. If ahead you can fight her; when she ults at low health, ult immediately to wait out her zone."
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Strong early with invades and strong ganks. Avoid her, take objectives and counter-gank."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He beats both forms; never fight him one-on-one, only with a teammate."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A skill matchup where she can burst you and shut down your kit. Use your ult to avoid hers, avoid fighting her, and focus on ganks, objectives and farming."
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Stronger mid and late than early, so take objectives early. As Rhaast avoid fighting him unless far ahead. As Shadow Assassin you can poke him but avoid his pillar canceling your E; steal objectives and counter-gank."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Much stronger after his rework, though manageable unless he buys lethality. Kite him with your W."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He beats you, especially before your transformation when your damage is low. Only gank him when your top laner is healthy, and respect his ult execute."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"As Rhaast you are fine: W him when he uses E, and when he ults you, combo then ult to heal. Shadow Assassin can one-shot him, but getting feared usually means death."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His burst can one-shot you and he scales well, so Shadow Assassin falls behind. You lose most duels after level 6; do not ult him too early. Play safe, gank and take objectives."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong early and mid. Rhaast need not fear him, but a good Lee can kill Shadow Assassin, so be careful."
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid Shadow Assassin against him unless the rest of their team is squishy. Rhaast handles him better; buy Black Cleaver second or third, take objectives and counter-gank."
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A skill matchup. Rhaast is fine if he does not snowball; his W heal stops Shadow Assassin one-shots. Keep vision, counter-gank and take objectives."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Rhaast's damage and healing handle him. Shadow Assassin struggles against a full tank build and cannot fight until snowballed."
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You usually cannot duel him. As Rhaast avoid fighting, play near objectives and dodge his ult with yours; Shadow Assassin can kite with W and one-shot him if ahead."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"If he snowballs you can do little, and neither form wins a duel. Play near objectives and counter-gank."
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Stronger after buffs; avoid fighting near Daisy. Rhaast usually wins, while Shadow Assassin struggles if CC'd; buy Edge of Night on Shadow Assassin."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A skill matchup where he can shut down your kit; use your ult to dodge his combo. Edge of Night on Shadow Assassin; Rhaast fares slightly better. Buy Mercury's Treads against two or more AP threats."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"After two items he can kill you even from behind. If his ult lands on you, use your ult to dodge the execute, which greatly improves your chances."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You can invade him at every stage, but his gank setup is strong; your ult dodges his combo. Counter-gank, take objectives and do not fall behind."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His clear is healthier after buffs and his CC hurts Shadow Assassin, but it is manageable; Rhaast handles him fine."
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Your clears are similar. Rhaast can duel her if not behind; avoid her as Shadow Assassin and contest objectives."
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her early game is rough, so you should win with either form, though she becomes more of a problem for Rhaast later and remains a late-game threat."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Shadow Assassin can duel her, but avoid full combos while her E is up. Rhaast handles her until late game, when she can shred you; keep her behind."
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fine in both forms unless he builds lethality; Rhaast wins easily, Shadow Assassin should watch his build."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He ganks constantly, so counter-gank and take objectives. Shadow Assassin can one-shot him with a clean combo, and your ult reveals him if he uses Q or R. Rhaast usually wins."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Easy to kill in mid and late game unless he is heavily fed."
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She can kill you early, so avoid her before your form and level 6; afterward you beat her in both forms."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He can kill you before your first item. Rhaast handles him easily; Shadow Assassin has some trouble."
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Even a small lead lets either form beat her; if you fall behind she deletes you. With lane priority, objectives are usually free."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"As Rhaast do not let him kite you; approach from unexpected angles. Shadow Assassin kills him easily after the transformation."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Rhaast wins easily with higher damage and healing. Shadow Assassin struggles against his tankiness but can still win."
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Similar to Skarner: Rhaast handles him, but watch his strong gank potential."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Shadow Assassin one-shots her in most cases; Rhaast has minor trouble."
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Rhaast handles him; he ganks well but falls off if not ahead. Shadow Assassin has a bit more trouble but should still win. Gank and farm, since you peak in midgame."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Less threatening after nerfs unless fed; with three items she can one-shot you, so dodge her ult with yours. Gank and play near objectives."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Your easiest matchup in either form; invade his jungle often and play around objectives."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You deal huge damage to her in either form and she cannot one-shot you unless you are behind. Force dragons as Rhaast; as Shadow Assassin the jungle is yours."
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Rhaast wins easily; Shadow Assassin should avoid fighting him alone but will out-farm and outscale him."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Her early damage cannot kill you; Shadow Assassin one-shots her and Rhaast out-heals her. Play near dragons and ganks."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Same as Skarner: Rhaast wins easily, Shadow Assassin should avoid solo fights and outscale."
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Strong early, but you beat her mid and late, especially as Shadow Assassin. When she dashes in, use W-Q-R to avoid most of her damage and one-shot her."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She is never a real threat; you win everything after your transformation or when ahead."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You win at every stage, and your ult dodges all his spells."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Not a threat unless far ahead. Shadow Assassin one-shots him; Rhaast tanks his damage and heals back with ult. Respect his burst, invade early and take objectives."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You can deny him heavily; Rhaast makes it free. Shadow Assassin falls behind late since he scales hard, so invade, take objectives and gank."
+]
+]
+}
+]
+}
+}

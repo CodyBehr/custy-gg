@@ -1,0 +1,112 @@
+{
+"champ": "Yuumi",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/25-23-aura-kitty-yuumi-649660",
+"author": "YujiYT",
+"rank": "Emerald",
+"updated": "2025-11-26",
+"title": "[25.23] Aura Kitty Yuumi"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He favours the early game heavily: his hook and ultimate lock down your ADC and punish you whenever you detach. Paired with early ADCs like Draven or Samira he wins short trades, and your Q is hard to land when they hide behind the wave. Play very safe, avoid early skirmishes, and do not fall behind, since recovering is hard."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her W can block you from re-attaching or switching targets, stranding you while detached, and her ultimate can knock away your host. Only detach or re-attach when her W is on cooldown, and do not overcommit into her zone."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His hook and flay punish any detach, and with an aggressive ADC like Kalista, Draven or Kai'Sa he can dictate the lane. Play defensively, rarely detach, stay on safe hosts, and only poke while his hook is down. You scale better in long teamfights with good frontline."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She forces short, explosive all-ins that your poke and sustain cannot answer, and a mistimed detach gets you chain-CC'd and killed. Her kill pressure rises sharply at level 6 with her long-range ultimate. Position carefully and prefer a mobile or wave-clearing ADC."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"One mistake can be disastrous: detaching to ward, heal or swap lets him hook you, and if he grabs your ADC his follow-up burst can outpace your healing. His shield makes him hard to poke off. Track his cooldowns and avoid unnecessary detaching."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her steady poke and slowing zones make detaching dangerous and wear down your ADC. Play cautiously with good vision and positioning; fortunately she is rarely seen in this role."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His headbutt-pulverize combo can burst you or your ADC before your shields and heals matter, and any brief detach lets him catch you. Stay near a reliable frontline and coordinate with your team to avoid getting picked."
+]
+]
+}
+]
+}
+}

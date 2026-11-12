@@ -1,0 +1,143 @@
+{
+ "champ": "Rakan",
+ "url": "https://www.mobafire.com/league-of-legends/build/25-11-rakan-for-low-elo-updated-every-patch-in-depth-wip-647318",
+ "title": "[26.21] Rakan for Low Elo | Rush Dark Seal, play with Xayah! | Updated Every Patch",
+ "author": "DaltonFresh",
+ "rank": "?",
+ "updated": "2026-10-23",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Poppy": {
+   "difficulty": "Extreme",
+   "summary": "The author bans her every game: her W zone stops all dashes, so your W and E cannot get you in or out. She usually uses it to engage and lock down your ADC for its whole duration. Play safe, peel with Q, and try to build an early lead."
+  },
+  "Mel": {
+   "difficulty": "Extreme",
+   "summary": "Her long-cooldown E root can fully stop your engage, and her long-range Q punishes squishy ADCs. Her W reflects your Q, which barely matters, but it does not block CC, so wait for her to waste the root and then engage."
+  },
+  "Pantheon": {
+   "difficulty": "Extreme",
+   "summary": "His point-and-click stun combo can delete your ADC before you react, and he can stun you mid-air out of your W, which is lethal under tower. You can hit him through his shield from behind. Ping his roams and track his ultimate cooldown in chat (roughly 2:30 at level 6, 2:00 at 11, 1:45 at 16 with his usual haste). Going even lets you outscale him in teamfights."
+  },
+  "Caitlyn": {
+   "difficulty": "Extreme",
+   "summary": "If she holds her net for your slow W, she dodges it and combos you with net, empowered autos and a trap. She is mana-hungry early, so punish spell spam. Depending on her support, play safe, bait the net, or engage while she is locked in her Q animation."
+  },
+  "Janna": {
+   "difficulty": "Extreme",
+   "summary": "Her tornado interrupts your W and E, and her ultimate can undo your engage and ultimate. Fight for brush control so she has less reaction time, and buy Oracle Lens early."
+  },
+  "Lulu": {
+   "difficulty": "Extreme",
+   "summary": "She holds polymorph for your engage or speeds up her ADC to dodge you, and her slow and peel are constant. Look for plays when her W has been used."
+  },
+  "Soraka": {
+   "difficulty": "Extreme",
+   "summary": "Her instant, huge silence zone is the main threat, so bait it, then focus the ADC; buy an early Oblivion Orb. She can refund most of her heal cost by landing Q first. If she lands her spells you are limited to Q peel and short W-auto-E trades, so roam for an early lead."
+  },
+  "Renata": {
+   "difficulty": "Extreme",
+   "summary": "Largely a knowledge matchup: her Q can cancel your W mid-dash, and her ultimate can counter your teamfight engage. Her W can rescue a dying ally during roams. She is slow and cannot push, so roam often and trade when her long early Q and W cooldowns are down."
+  },
+  "Taric": {
+   "difficulty": "Extreme",
+   "summary": "Very tanky with heavy peel, so getting your ADC ahead is hard without an early kill. He stuns you whenever you step onto his ADC. Roam for advantages elsewhere, play around his cooldowns, and be ready to disengage from his ultimate."
+  },
+  "Elise": {
+   "difficulty": "Extreme",
+   "summary": "She can dodge your W in spider form, stun you mid-dash in human form, and dive your ADC with lots of damage. Aim to go even in lane; if she does not win early, you outscale her in teamfights."
+  },
+  "Zoe": {
+   "difficulty": "Extreme",
+   "summary": "She has big safe poke and can dodge your engage with her ultimate. If her sleep hits you, W away from the follow-up Q; if it hits your ADC, body-block the Q at some risk. Go even, play safe, or find an early lead."
+  },
+  "Seraphine": {
+   "difficulty": "Major",
+   "summary": "Enchanter builds keep her ADC alive; full AP builds turn the lane into dodgeball. With Rylai's, a single E hit stuns you. Consider Mercury's Treads for tenacity."
+  },
+  "Alistar": {
+   "difficulty": "Major",
+   "summary": "His headbutt can push you away and stop your engage, and he out-tanks you. Play safe until you have an edge, peel with Q, avoid his headbutt, and focus their ADC."
+  },
+  "Brand": {
+   "difficulty": "Major",
+   "summary": "A good Brand holds his spells for your engage and either bursts you or stops it. Play around his cooldowns and look to exploit his mistakes for a lead."
+  },
+  "Thresh": {
+   "difficulty": "Major",
+   "summary": "Tankier with more playmaking before 6. He will hook your ADC since you can E away from his hooks; you can use one E to take the hook for your ADC and the second to escape. Punish missed hooks, but his flay can cancel your W. Go even early and take more risks after 6."
+  },
+  "Morgana": {
+   "difficulty": "Major",
+   "summary": "If she wastes spells you can pressure hard; if she holds them, you may be reduced to Q poke, so consider extra Q points. Her slow Q is easy to dodge with E or W and is blocked by minions. Her Black Shield negates your knock-up and charm and has a long cooldown, so wait it out."
+  },
+  "Neeko": {
+   "difficulty": "Major",
+   "summary": "Her E root passes through minions and interrupts your engage. Count minions or check her portrait to spot her disguised, and remember her ultimate shows no preview while disguised. She has high damage, so be careful baiting her stun."
+  },
+  "Lux": {
+   "difficulty": "Major",
+   "summary": "A landed Q-E-R combo deletes a health bar, so deny her a lead and punish her cooldowns. Win early brush control so her Q cannot catch you off guard."
+  },
+  "Lucian": {
+   "difficulty": "Major",
+   "summary": "His dash dodges your W and lets him force fights. Punish him when he dashes forward, since the cooldown is long early; this works less well later when his attack speed shortens it."
+  },
+  "Maokai": {
+   "difficulty": "Major",
+   "summary": "His root and knockback both cancel your engage, and he likes to root you mid-W and push you into his ADC. You can outrun his ultimate, but blocking it for your ADC is often better."
+  },
+  "Nami": {
+   "difficulty": "Major",
+   "summary": "Bait her telegraphed bubble and punish its cooldown; dashing to your ADC can get you both stunned. Space well against her W bounce, and wait for her E buff before engaging. Her ultimate is easy to dodge in lane but watch for jungle follow-up. Play safe until you understand her."
+  },
+  "Sona": {
+   "difficulty": "Major",
+   "summary": "Her heals, speed and stun make killing her ADC hard. Punish her when she misses her ultimate or is low on mana."
+  },
+  "TahmKench": {
+   "difficulty": "Major",
+   "summary": "You usually have the edge since his W engage is easy to dodge. If he dives your ADC, W him and let your ADC back off. Never focus him unless he is the last one alive; avoid his tongue and pressure his ADC."
+  },
+  "Zilean": {
+   "difficulty": "Major",
+   "summary": "If he bombs you, E to your ADC to disrupt his lane. His speed-ups let his team walk away from your W and his slow can make your ultimate whiff. His W resets his spells, so punish after a double bomb."
+  },
+  "Leblanc": {
+   "difficulty": "Even",
+   "summary": "Her clones make her very confusing; learn her in practice tool or videos. If you ignite her, the real LeBlanc shows the burn while the clone does not."
+  },
+  "Leona": {
+   "difficulty": "Even",
+   "summary": "Her engage ignores minions and she becomes very tanky with a lead. Hold W for her engage: disengage if she lands, engage her ADC if she misses. She destroys wards quickly if she sees you place them, which you can use to bait her away."
+  },
+  "Milio": {
+   "difficulty": "Even",
+   "summary": "His Q can completely stop your engage, so be sure it is used first. His W extends his ADC's range, and his ultimate cleanses CC. He peels and heals more, but lacks engage and mobility."
+  },
+  "Nautilus": {
+   "difficulty": "Even",
+   "summary": "A CC-heavy champion with no mobility; his hook is easy to dodge but the rest is point and click, including a passive stun if you engage onto him. Force him into mistakes and peel with Q when unsure."
+  },
+  "Shaco": {
+   "difficulty": "Even",
+   "summary": "Do not W where a box might be, since it cancels your engage and boxes block your Q. Leave him for last in fights. Against AP Shaco rush Oracle Lens; against AD Shaco, W him and his clone and E back to safety. If he double-jungles, stomp the 2v1 lane and roam, or try to catch him early."
+  },
+  "Twitch": {
+   "difficulty": "Even",
+   "summary": "His stealth ambushes are the danger. Buy early Oracle Lens and Control Wards and ask your ADC to bring a Lens too. If you survive or get ahead, he will roam, so ping mid and ward well."
+  },
+  "Ashe": {
+   "difficulty": "Minor",
+   "summary": "A double-AD lane with little hard CC. Build armor, such as Plated Steelcaps, Trailblazer or Frozen Heart, and tank so your ADC can kill both; Swiftness Boots help against her slows and arrow. AP Ashe is weak until late."
+  },
+  "Yuumi": {
+   "difficulty": "Minor",
+   "summary": "Her shields are strong, but you can hit her and her host with one W and ultimate. Do not let her ADC get a lead, since she snowballs with them; avoid risky plays until you are ahead."
+  },
+  "Anivia": {
+   "difficulty": "Tiny",
+   "summary": "Rare as a support. You can E or W over her wall and use them to dodge her stun or leave her ultimate."
+  }
+ }
+}

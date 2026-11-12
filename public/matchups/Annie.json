@@ -1,0 +1,294 @@
+{
+"champ": "Annie",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/s16-rank-1-annie-complete-guide-by-coach-xblademojo-610365",
+"author": "xblademojo",
+"rank": "Challenger",
+"updated": "2026-08-27",
+"title": "[S16] Rank 1 Annie Complete Guide | By Coach xblademojo"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Start Corrupting Potion and take Teleport, with Electrocute or Predator as your keystone. His waveclear and kit counter you, so you will need your jungler's help to get anything going."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Run Predator and start Corrupting Potion; look to make plays through roaming rather than in lane."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He is very hard to kill. Take Predator to keep up with his roams, or Aery if you want to focus on laning. If his knockup lands, he wins the trade."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"A good Kassadin will start Doran's Shield and Second Wind and farm safely. Work with your jungler to set up ganks and help other lanes before he outscales you."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"She has big early kill threat, and from levels 2-3 she can win full all-ins, so keep the wave on your side or even and do not push into her turret. Only push when she is already low. Her runes matter a lot; Aery or Electrocute work here."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"From level 1 he can win trades if his chain lands. Avoid pushing toward his turret, play slowly and bait out his E before trading harder. Buy Oblivion Orb on your first back or right after Lost Chapter."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"From level 2 she will look for trades, so only push into her if you are confident in your positioning, depending on her health. An early Seeker's Armguard can help absorb her burst."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He is extremely hard to kill unless he misplays. Farm efficiently and wait for mistakes. Stand behind minions to block his body slam, and use your E speed to dodge his barrel."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Predator is the only keystone that works; a good Seraphine will pin you under turret and deny engages. Teleport with Predator is an option to play around the map."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Go Electrocute, Ignite and Corrupting Potion with a Q max. Dodge her chain and answer each of her jumps with your Q. If she gets strong, buy a Null-Magic Mantle on your second or third back. Overall fairly even."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Take Predator with Teleport or Ghost; expect her to shove constantly and poke you. Depending on her skill you can solo kill her with Predator. Start Corrupting Potion for sustain or Doran's Ring to farm under turret."
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her Q range and waveclear are very strong. Electrocute is viable; pair it with a Corrupting Potion start and Ignite."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Take Corrupting Potion and Ignite; a weak Cassiopeia can be killed. Look for quick trades when she misses Q, but never fully commit. She is weak before her first recall and needs respect afterward."
+]
+]
+}
+],
+"Vex": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She has excellent disengage, but the lane itself is not that punishing. Electrocute with a Corrupting Potion start is a reasonable setup."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You need to dodge his E to win trades. From level 6 he is very hard to kill unless you have Ignite or Oblivion Orb."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Take Bone Plating; you win at level 1. Once he has W he will try to poke you with shadow Qs, so dodge them. Start Doran's Ring for safety and consider Seeker's Armguard on your first back."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Run Predator with Corrupting Potion or Doran's Ring. Buy boots on your first back, then Lost Chapter, max W and play with your jungler. A weak Xerath can be killed with Predator."
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Take Electrocute, Corrupting Potion and Ignite. Respect her early Q poke and above all her sleep bubble by playing behind minions. From level 6 you are favored."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"The author recommends Aery for this lane."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Watch out for her dashing through minions while setting up her E stun, which can cost you Flash or your life. Do not push hard into her unless you poked her well at levels 1 and 2."
+]
+]
+}
+]
+}
+}

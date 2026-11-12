@@ -1,0 +1,728 @@
+{
+"champ": "Gnar",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/26-05-wyverns-gnar-648280",
+"author": "Dragonlord1022",
+"rank": "Diamond",
+"updated": "2026-03-08",
+"title": "[26.05] Wyvern's Gnar"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Bone Plating and Unflinching; Doran's Blade into Swiftness Boots, Executioner's and Trinity Force. Play for wave priority rather than poke early, since he can time his Qs around your autos. Farm until Swiftness Boots, then the lane opens up; before that save E to dodge his second Q or his W pull, and punish when he misses Qs."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Fleet Footwork with Doran's Shield, Refillable, then Hexdrinker, Mercury's or Swiftness Boots into Trinity Force. Contest level 1 only if she lacks Ignite. Your goal is survival: her ult can kill Mini Gnar from full even when she is slightly behind. From even you only win in Mega, so save Mega for crashing waves and dives; if ahead, Hexdrinker is better than Mercury's."
+]
+]
+}
+],
+"Ambessa": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Doran's Shield, then either armor into Sunfire and Sterak's or Plated Steelcaps into Trinity Force. If she has Electrocute, give her first-wave priority since she procs it easily at level 1. Trade when her cooldowns, which are both her mobility and damage, are down; stay healthy and use Mega to crash waves and stop dives."
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Biscuits or Second Wind. She will poke hard before level 6, so dodge what you can and accept losing some CS to survive. After 6, Mega wins if you reach her; open with your ult so at least one W and Q rotation lands, aiming for a kill or a big health lead."
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork and Cut Down with Doran's Blade, then Plated Steelcaps into Trinity Force. Respect her Q speed boost on the wave, her quick E and her E or R when a gank threatens. Settle for small pokes rather than full trades, dodge her W early, and use Mega to crash waves and deter dives."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Doran's Shield. Both of you are weak at level 1, so fight for priority; whoever hits level 2 first gains a big edge. Dodging her E is crucial since you win trades when you are not poisoned. Do not force it; you can always play for teamfights."
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet Footwork with Doran's Blade into Swiftness Boots and Trinity Force or Blade of the Ruined King (the latter if he rushes Heartsteel). Freeze and slow push to out-farm him and take plates. He is very gankable; your main risk is overaggression into ganks once he has ult."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Doran's Blade into Swiftness Boots and Trinity Force. Taking E first can let you escape a level 1 auto and turn the wave toward you. Avoid going for Fleet procs early unless his Q is down, since your short range lets him pull or Q you. Manage the wave to deny his windows; you outscale him but he always threatens sidelanes."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Take Ignite and Fleet Footwork, then Doran's Blade into Blade of the Ruined King, Trinity Force and Sterak's. Stand behind minions to block his cleavers and do not let him gain a CS lead through free poke. Your W plus Blade of the Ruined King gives Mini Gnar real kill threat later in lane."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Bone Plating and Doran's Shield into Plated Steelcaps and Trinity Force. Walk with the first wave and ward the first brush so minion aggro punishes an early zone attempt. Use walls to deny her vitals, and once you have ult you can play more aggressively, mind-gaming your ult against her riposte."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Fleet Footwork with Absolute Focus and Scorch, starting Long Sword into Swiftness Boots and Trinity Force. Take only safe trades and stay above about 70% health, since below that he can kill you with a Flash-Ignite combo. Hop onto him just before his Q to dodge his E spin, and do not chase a proxy without help."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Conditioning and Overgrowth, Doran's Shield into boots and Trinity Force. Easy before first backs, hard until you finish an item, and playable after. Do not force trades since he out-sustains you; build an early CS lead and keep it."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Biscuits and Cosmic Insight; Doran's Blade into Swiftness Boots and Trinity Force. You can contest level 1 and should deny her melee access to the wave. Her Q-E is her main trade and grows with stacks; after level 6 avoid long lanes where she can run you down. Your boomerang can hit her on the return after her mist ends."
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Bone Plating, Doran's Blade into Swiftness Boots and Trinity Force. Shove at level 1, staying opposite her on the wave to hold aggro. If her E hits you, usually run; if you dodge it, you can win trades. Consider anti-heal, armor shred and speed such as Black Cleaver, Sundered Sky or Blade of the Ruined King, and remember her ult spawns an extra tentacle when you are spirit-pulled."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Fleet Footwork, Bone Plating and Unflinching; Doran's Blade into Bramble Vest, Plated Steelcaps and Trinity Force. Start E and contest the level 1 pixel brush; when she Qs onto you after the melee minions, E onto her toward your tower for a winning trade. If she has Ignite, stay above 70% on her first crash. Buy Bramble on the next reset, dodge her E, and play with Mega and your jungler."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet Footwork with Bone Plating, Doran's Blade into Swiftness Boots and Trinity Force. Fight for early priority; with shove you can poke, without it you lose trades. His Q cooldown is shorter than your E. Walk with the first wave and avoid face-checking brush; Bone Plating and the wave win if he jumps you. After 6, watch for him jumping in with his empowered third hit."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork, Bone Plating and Unflinching; Doran's Shield into Plated Steelcaps and Trinity Force. Survive the first shove onto your tower: ward the first brush, take only quick auto-Q trades against Electrocute or Ignite, and avoid poke while he pushes the first three waves. Plated Steelcaps opens the lane; his Q splashes, so do not hide on backline minions, and half-hop backward to kite his knockback."
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet Footwork with Cash Back; Doran's Blade into Swiftness Boots and Black Cleaver. Play for priority and poke at level 1, though a Q-start K'Sante can out-shove you and an E-start one can win trades if you overcommit. Swiftness Boots open the lane a lot."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet Footwork with Doran's Blade into boots and Trinity Force, then Plated Steelcaps. Before 6, poke and deny CS while farming. After 6, against Lethal Tempo bait her ult with Mega and disengage, prioritizing poke; against Fleet Footwork prioritize short trades."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Second Wind; Doran's Shield into Mercury's or Swiftness Boots and Trinity Force. Walk with the first wave. He out-damages Mini Gnar but you out-sustain, so both play the poke game while farming. After 6, avoid being caught below 60-70% health unless you can outplay with Mega."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Bone Plating; Doran's Blade into Plated Steelcaps or Swiftness Boots and Trinity Force. His remount comes back quickly. Dismount him in Mini form, then finish him with Mega lockdown."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A common counter. Fleet and Cut Down with Second Wind and Unflinching; Doran's Shield into Phage or Null-Magic Mantle, Black Cleaver, boots, Sterak's and Trinity Force. Use brush or river at level 1, then auto him with every Fleet proc until his first back to drain mana, taking only his Q. Play safe until Black Cleaver, after which you win on Mega timings. Ping his roams, do not chase his proxy alone, and be ready to Flash his ult."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Fleet Footwork with Doran's Blade into Swiftness Boots and Trinity Force. Before 6 the lane is free: bait his Q and E and harass. After 6 you only die if he ults you in Mini form away from your tower."
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Conqueror with Legend: Haste, Biscuits, and Doran's Blade into Swiftness Boots and Black Cleaver. Use strong wave management to bully an early gold lead and deny CS. After 6, bait his ult somewhere safe to make him weak for a while, and avoid his lane in mid game. His W cripples attack speed; Black Cleaver or Spear of Shojin work for Mega fights."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet Footwork with Doran's Blade into Swiftness Boots and Trinity Force; the author rarely faces him."
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet Footwork with Cash Back and Biscuits; Doran's Blade into Swiftness Boots, Phage and Trinity Force or Black Cleaver. You control the early lane. After 6, his ult gives his jungler setup and threatens you if you misstep, so stay healthy; go Black Cleaver if he got ahead."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Doran's Shield into boots and Trinity Force. His ult is not a combat tool, so if you survive to level 6, you win with Mega."
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Bone Plating, Doran's Shield into boots and Trinity Force. Surviving is not hard, but she bullies you off CS early and impacts the map well before you can duel her."
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Bone Plating; Doran's Blade into boots and Trinity Force. He is strong early with Q sustain and many ways to reach you; his empowered W strips shields. Keep him at about one and a quarter to one and a half times his E range so you can E away from a second dash, and avoid his range when your E is down. Below about 60% health give him no angles; if he does not get ahead he falls off."
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork, Bone Plating and Unflinching; rush Sunfire for armor if even or ahead, or go Plated Steelcaps into Trinity Force if behind. Against double combat summoners consider E start; otherwise contest priority. Flash out if she Flashes on you. Use Mega to crash and survive dives. From even you win with Mega from above 70% health before items or by finishing Sunfire first; staying even through laning is a good result."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Second Wind and Unflinching, or Cash Back with Cosmic Insight or Biscuits if you expect ganks; Doran's Blade into Trinity Force. Poke early if anything, since he can burst Mini Gnar. You spike harder on first item."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Similar to Darius: Fleet Footwork with Bone Plating; Doran's Blade into boots and Trinity Force. Do not auto him until your range grows if his E is up; the first levels are most dangerous, especially with Ignite. Stay healthy and poke, using Bone Plating when fishing. You outgrow him by mid-late lane."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Grasp with Demolish and Bone Plating or Conditioning; Doran's Blade into boots, Stridebreaker and Sterak's or Black Cleaver. Matching his E start wins extended trades. Dodge his taunt by hovering your E to the side from medium range. With Tiamat and Demolish after 6, out-shove him to punish his ult or rest, and respect upgraded Teleport with Shield Bash."
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Biscuits and Cosmic Insight; Doran's Shield into Swiftness Boots and Trinity Force. Your weak waveclear lets him proxy freely; do not stress over it, just ping his position for your team."
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Cash Back; Doran's Blade into Swiftness Boots, Blade of the Ruined King or Trinity Force. He out-damages and out-shoves you early, so focus on the wave and force him to choose between spending spells on you or on minions. Bait his Q so you dodge and it misses the wave. Rush Blade of the Ruined King if enemies stack health, after which you can crush him."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Fleet Footwork with Bone Plating and Unflinching. The author bans him, since even from mid lane he is a monster with a stolen Gnar ult."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Fleet Footwork with Biscuits; Doran's Shield into Mercury's and Trinity Force. Watch for a level 1 cheese: start Sweeper and E, and get the wave pushing toward you. Your goal is not dying, even at the cost of CS or plates; if even, you threaten kills in Mega."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Fleet Footwork with Bone Plating; Doran's Blade into Plated Steelcaps and Trinity Force or Stridebreaker. Survive the early levels, since falling behind hands him the game. He wins trades and sustain, so focus on the wave and matching rotations. Against Hail of Blades always concede push at level 1."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet Footwork with Doran's Blade, Refillable, Swiftness Boots and Trinity Force is the recommended setup."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Cosmic Insight; Doran's Shield into boots and Trinity Force. Never hop onto him at level 1 if he started E. Stay healthy and punish misused E and Q through spacing. After 6, be ready to Flash his E-Flash engage."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Second Wind; Doran's Shield into Plated Steelcaps and Trinity Force. Treat her like Kennen: use Q for farming, do not try to out-poke her, and look for angles only once you have ult."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Bone Plating; Doran's Shield into boots and Trinity Force or Sterak's. Against Ignite Vlad or an aggressive jungler, stay healthy since he can dive at level 3; keep Bone Plating or Mega ready. Kill him after level 6 by jumping on him in Mega without casting to bait pool, then W. Once he has his first item he usually wins the duel from even."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet Footwork with Conditioning and Unflinching or Nimbus Cloak and Celerity; avoid Bone Plating since his passive breaks it. Stay healthy, take free trades and never let him reach you unless one Mega rotation kills him. Use your W procs, E out when you misstep and keep him out of range when E is down. With disciplined kiting this lane favors you."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet Footwork with Doran's Blade into Swiftness Boots and Trinity Force. He gets dangerous when either of you is low; once he is below half health with a wave, avoid trading beyond a quick poke."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Play it like Riven. He may start E and jump you at level 1, so give priority. When he Qs the wave, take a short trade just long enough for a W proc before his Q returns."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Bone Plating; Doran's Shield into Sunfire or Plated Steelcaps and Trinity Force. Like Irelia, the wave often works against you, so manage it so he pushes into you early. His E travels a fixed distance and stacks damage; his ult will not pull him into tower range if you are knocked up at the edge, so dodge Q3 or stand deep under tower."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Bone Plating; Doran's Shield into Refillable, Plated Steelcaps and Trinity Force."
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork with Absorb Life, Cash Back and Biscuits; Doran's Blade into Swiftness Boots, Stridebreaker and Executioner's. Shove him under tower early to occupy his ghouls. Your only kill threat is poking him then finishing with one Mega ult rotation. Survival is the goal; a badly timed death costs at least three plates, but he is weak in teamfights."
+]
+]
+}
+],
+"Zaahen": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Fleet with Bone Plating and Unflinching; Doran's Blade into boots and Trinity Force. You have first-shove priority, but avoid overcommitting into his E start and play safe after the first crash. Poke with Q before 6 and with W procs after; fish for trades when his E or W is down. His ult makes him unstoppable, so do not open with W while it is up. Late game is easy as long as you avoid melee range."
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Fleet Footwork, Bone Plating and Unflinching; Doran's Blade into Plated Steelcaps, Trinity Force and Sterak's. With Hail of Blades he can W-Q combo you and stop your hop away. Play very safe early; if he does not get fed, you beat him in Mega once you have Trinity Force."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fleet Footwork with Bone Plating, Doran's Blade into Trinity Force. You can contest priority at level 1."
+]
+]
+}
+]
+}
+}

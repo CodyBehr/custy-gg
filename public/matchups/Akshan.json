@@ -1,0 +1,322 @@
+{
+"champ": "Akshan",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/26-13-the-only-akshan-guide-youll-need-matchups-included-652317",
+"author": "Peteruso",
+"rank": "Grandmaster",
+"updated": "2026-06-30",
+"title": "[26.13] The Only Akshan Guide You'll Need - Matchups Included"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A skill matchup where Electrocute is the preferred keystone. Quick Q plus auto trades while your shield is up cost you little, and if you sidestep her orb or charm you win the exchange. In midgame she usually has ultimate available, but you can still catch her out."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Use the early levels to whittle her health down so she cannot punish you when she hits levels 4-5; an aggressive rune page can secure kills. Avoid eating her passive and respect her item spikes: after an Alternator first back, and especially with Gunblade, one combo can kill you. Your R reveals her inside her shroud, which is great in duels and teamfights, and swinging away during her E denies her a free gap close. Buy Mercury's Treads once your mid quest is done."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Before level 6 she is only dangerous if her stun lands. After level 6 the lane becomes miserable: her ult outranges you, you cannot escape her Q inside it, and she is too tanky to kill with a Catalyst-style build. Mercury's Treads, Swiftness boots and Stormrazor help you dodge, and Teleport plus scaling runes (or Biscuits) make the lane more bearable."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Unflinching and Bone Plating are both useful, and Mercury's Treads are mandatory. If she spends her stun on the wave you can go for the kill; after level 6 she will look to burst you with her ult, so track its long cooldown and her Flash. Watch for ganks she sets up, but you generally hold priority and win skirmishes."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"A very favorable lane: run aggressive runes and aim to solo kill him multiple times, since keeping him weak is the whole point. Avoid even trades, stay away from his breath until it fades (it is not permanent until level 9), and follow any roam he makes. Control the wave rather than mindlessly shoving, consider early magic resist to win stat checks, and swing after him when he flies away. His ultimate still hits hard."
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"An annoying lane where her poke is tough to react to, so focus on reading her movement and keep out of E range and away from the wave. She relies on W to escape and outranges your autos, so long trades rarely happen; Electrocute helps you answer short trades. Your R can reveal her W, but her ult hops cancel yours. Ping her roams, buy Mercury's Treads, and consider a lethality first item since the lane is about who chunks who before the all-in."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He outranges you but is extremely weak at level 1, so you can ignore a soldier and just auto him. Never get hit by two soldiers at once; reposition when he sends them at you and trade back from another angle. He grows stronger with items and makes sidelaning awkward, but he has no hard lockdown, so you can always E out and reset. Your waveclear keeps him from roaming, and 2v2s with your jungler should favor you."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Go aggressive since he has almost no way to peel for himself. Stay off the wave and avoid getting tagged by two spells in a row. When he ults to force a trade, just swing away rather than fighting it, then punish him on the next wave, in a gank or a 2v2. He can be a problem in teamfights, so pick up some magic resist."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Stick to short trades and dodge her Q or keep your distance, because a landed Q lets her run you down. Electrocute and Press the Attack both work, and the lane is usually quiet if you play clean. Her Miasma blocks you from starting your E on the ground (it will not knock you out mid-swing), and since E turns you to face your target, swinging in when she has R up is a free stun for her. Early boots help."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"A very hard lane, but you can win early trades if you dodge her Q, space well and extend when she retreats, so Ignite has value. Her poke and all-in are both strong and she can use minions to close distance. Bone Plating stops her one-shotting you; go Mercury's Treads and Shieldbow if you are somehow ahead. Back rather than die, save Flash to dodge her ult, and do not let her roam freely when she has priority."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Take Bone Plating. His short trades are good, but he depends on cooldowns while you do not, so extend fights. Move away from where his W is landing. Later, anti-heal and Serpent's Fang make him much easier to kill; you can chase him after he ults away and punish him when he dives with E since he is fragile. Shieldbow or Maw keeps him from one-shotting you late."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Take Bone Plating. His short trades are threatening, but you can chase him down with autos. Early his E cooldown is only slightly lower than yours, but that gap grows as he ranks it up. Stormrazor helps since dodging his E wins the fight, and holding Flash for his shark or E is worthwhile when even. Respect his Alternator purchase, and buy Shieldbow or Maw so he cannot one-shot you later."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Easy with the right build: Stormrazor is essential because it lets you dodge his E and W in duels. Poke him throughout laning while avoiding his Q; throw Q as he dashes at you and walk off, then auto and walk off again. He is easy to kite in sidelanes. Keep his ult in mind when roaming or fighting near river, and punish him when he engages since he is not very tanky."
+]
+]
+}
+],
+"Hwei": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Plays a lot like the Ahri lane; Electrocute works, but an aggressive setup is good because a behind Hwei is weak. Move diagonally out of his QE so the follow-up EE pull does not catch you, and expect QQ to be his main laning poke. Do not E in without a plan since his fear cancels it; his rooting eye cannot proc on you while you are camouflaged. Your E also ignores his R slow."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Press the Attack, Bone Plating and Shield Bash are must-haves, and rush Plated Steelcaps. If you start well you can bully her from level 1 until her first back, poking her as she farms, but never try to win a stat check. From her first recall onward it gets rough; avoid falling behind in CS and watch low-health minions she uses to gap close. Getting stunned at any point is lethal. Swinging away from her outruns her Q, and while she holds W you can safely cast R."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A skill matchup where combat-oriented secondary runes shine, since he is fragile and you win stat checks when ahead. Watch for his E-Q poke from fog. From level 6 you can often solo kill him. When he leaps in hammer form, either Q plus auto for the shield or E away. Shieldbow and Plated Steelcaps are good buys because he goes full damage."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Your easiest lane; aim to kill him two or three times during laning since he cannot defend himself. Poke him every time he goes for a minion and run him down with autos if he fights back, and diving him is easy even at level 6. Prioritize denying his CS over simply shoving. He can stack armor once he has items and becomes strong from level 11."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Many Kayles try to fight at level 1, but you can kill her there, and even a cautious one often dies at level 2. Build Stormrazor to exploit her lack of base magic resist and to keep pace with her W and outrun her R. Play very aggressively and set the wave so she must walk up. In midgame, open from camouflage with Q and auto after she uses Q on the wave, force her R, E away to wait it out, then ult her. Late game, Rapid Firecannon is essential."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Any runes work, though aggressive ones are preferred. You win level 1 through raw damage, and you can kill her if she misses Q, whether solo or in skirmishes. Getting hit by Q is costly: early she pokes you with autos from outside your range, and after level 6 she ults regardless of your health, so avoid flipping E forward without a plan. She is essentially a milder Annie and can only kill you alone if you misplay."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Take Bone Plating. Normally this lane is easier, but the author considers Sylas overtuned on patch 26.13 and able to beat you from even. His Q detonation is his main damage, so focus on dodging his E stun as well. Him stealing your R is usually not a big problem."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Early-game runes like Bone Plating and Sudden Impact are good, build Stormrazor or Kraken for damage, and get Plated Steelcaps. You can often kill him at level 1 with a good E; bully him through lane and back off when his Q is charged. Short trades go badly if he is ready to shield, but his self-peel is otherwise poor. If you dodge his E-Q engage, hook toward his E spirit to extend as he returns. Late he hits very hard and his ult usually means death."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Run aggressive runes; Electrocute is good. Early lane is easy if you avoid his shurikens, and you can dive him if he starts Long Sword. Focus on chunking him rather than denying CS, and E in when he spends shadow on the wave. When he ults you, E the opposite way so he gets left behind. Duels stay risky because his R-E-auto damage is hard to avoid, and a fed Zed can one-shot you; use your stronger early game to take priority, force 2v2s and follow his roams."
+]
+]
+}
+]
+}
+}

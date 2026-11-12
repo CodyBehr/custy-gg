@@ -1,0 +1,489 @@
+{
+"champ": "KSante",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/ksante-2026-653162",
+"author": "Auroline",
+"updated": "2026-08-03",
+"title": "K'Sante 2026"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her range, sustain and scaling are all better than yours and you cannot force early fights. Be patient, farm cleanly and only punish when her E or W is down. Once she has range and levels, stop trying to kill her and play for teamfights and side pressure, without feeding her stacks."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her silver bolts ignore your resistances, her Condemn stops your engages and she is hard to catch. Use the wave as cover and only engage with W plus All Out when she lacks Condemn. Build early armor and Bramble, consider Thornmail, and treat it as a survive-and-scale lane."
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her mobility dodges your W and Q, and she trades and re-engages well. Respect her early damage, avoid extended fights while her abilities are up, and trade after she spends Q or E. Save W to interrupt her or escape. Bone Plating is strong."
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her true damage and hookshot undercut your tankiness and she duels well. Take short Q trades and leave, space or E-dodge her hookshot, and avoid fighting while her ult is available, since being ulted is usually a lost fight."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her vitals deal true damage and her riposte can block your W. Keep moving so she cannot proc vitals freely, trade when riposte is down and avoid predictable W usage. Prefer short trades, build armor and consider Thornmail if she gets fed."
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He proxies and poisons, draining the lane. Do not chase into poison; freeze or slow push, alert your jungler to his proxy, and accept some lost CS while playing for midgame teamfights."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Very strong early with stun and burst. Play extremely safe until level 6 and use E to avoid his spear and stun. He falls off relative to you, so survive early and take over later."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her W stops your E and All Out dashes. Trade without dashing while it is available and save big engages for when it is on cooldown, playing more like a traditional tank."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Safe and hard to push out. Focus on CS and small advantages, avoid overcommitting when his taunt is up, and track his ult since his global pressure is the main threat."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Never take long fights where he can stack his bleed. Short Q trades then leave, respect his pull, and play around his cooldowns outside pull range."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His W converts damage taken into heavy true damage. Avoid long trades, bait his W before committing and beware its execute when low. Space his E and use your W to start short trades or escape."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Respect his silence; short Q trades then walk away before his spin or silence. His sustain blunts poke, so farm and look for windows when his Q is down. After some armor you match him better; avoid fighting when both are low because of his ult."
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Everything revolves around her E: if it lands, back off immediately and stay out of her tentacles; if it misses, punish hard. Fight when tentacles are not set up, keep trades short and manage the wave."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Mini Gnar kites and pokes; use minions as cover and engage only when you can commit or his rage is low. Track his rage bar and respect Mega Gnar's stun and throw."
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Do not let Maiden control the lane freely; kill or zone her when possible. Avoid long fights near many ghouls, and freeze or slow push to prevent his setup."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His shotgun knees win short trades if he can auto freely, so trade when his passive is on cooldown and avoid his ideal range. His ult executes, so be careful low. Good W timing and armor help you win cleaner all-ins."
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Strong early all-ins and short trades, but he falls off relative to you. Play safer until you have items and levels."
+]
+]
+}
+],
+"Ambessa": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Manageable with clean spacing and trading; avoid overextending into her abilities."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Dangerous with rage and ult, but predictable. Play around his rage bar and avoid fighting when both are up."
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Zone and punish him early before he stacks."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Manageable as long as you time your W well."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Never auto into his Counter Strike; trade around its cooldown. You can gain early and mid advantages, but respect his late game."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her true damage partially ignores your resistances and she pokes safely, melting tanks with items. Take short trades, respect her ult, build armor earlier than usual and avoid free autos in sidelanes."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His ult isolates you from your team and removes your teamfight value. Avoid fighting when his ult is up unless much stronger; track its cooldown and trade normally when it is down."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Strong early with sustain, and his ult makes him immune to your CC. Play conservatively early, never fight while his ult is active, and respect his axe and sustain until you have items."
+]
+]
+}
+],
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His Q sweet spots deal big damage and heal him. Dodge them, especially Q3, keep trades short, and fight when his abilities are down and his ult is not available."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Do not let her stack passive freely off minions; fight when it is down. Save defensive tools for her ult engage and keep trades short."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Respect him while mounted; when he dismounts, punish hard, but avoid overcommitting as he nears remounting."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His blind shuts down your autos. Avoid trades while it is up, buy early magic resist if poison hurts, farm cleanly, all-in when blind is down and avoid shrooms."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He controls tempo with cannon poke. Use the wave as cover, do not chase while he has disengage, and engage when he is in melee form or after his escape."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Respect his heat and ult. Take short trades and avoid fighting inside his Equalizer; magic resist makes the lane comfortable."
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Safe and tanky but not aggressive. Do not force early kills; farm, match him in sidelanes later and play for teamfights."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Generally comfortable. Buy early magic resist against AP Malphite and respect his ult cooldown in fights and sidelanes."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You can take early advantages, but he becomes very tanky later. Use Grievous Wounds and focus on teamfights and objectives rather than sidelane kills."
+]
+]
+}
+]
+}
+}

@@ -1,0 +1,143 @@
+{
+ "champ": "Twitch",
+ "url": "https://www.mobafire.com/league-of-legends/build/13-24-twitchs-guide-matchup-sheets-613281",
+ "title": "[13.24] Twitch's Guide + Matchup sheets",
+ "author": "LewisTheRat",
+ "rank": "?",
+ "updated": "2023-12-22",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Nautilus": {
+   "difficulty": "Extreme",
+   "summary": "Even a missed hook can still put him next to you, and he peels well for his ADC. Do not fight near walls; the author bans him."
+  },
+  "Yasuo": {
+   "difficulty": "Extreme",
+   "summary": "He is hard to escape and has a strong shield. Never fight in the minion wave, remember his wind wall blocks your ultimate, and expect to die if his Q knock-up lands and he reaches you."
+  },
+  "Vi": {
+   "difficulty": "Extreme",
+   "summary": "An excellent ganker who can engage from far away and usually targets you. Track her with map awareness, and in late fights wait until she has used her combo on someone before revealing yourself."
+  },
+  "Blitzcrank": {
+   "difficulty": "Major",
+   "summary": "His hook and strong early burst make getting caught very costly; stay out of hook range."
+  },
+  "Leona": {
+   "difficulty": "Major",
+   "summary": "She locks you down and her ultimate is excellent CC. Dodge her E, which can only latch onto champions, not minions."
+  },
+  "Shen": {
+   "difficulty": "Major",
+   "summary": "A good Shen taunts you to break your angle, then his W blocks your autos. In lane keep away from him and track his ultimate; in fights wait out his taunt before firing."
+  },
+  "Thresh": {
+   "difficulty": "Major",
+   "summary": "Low damage himself, but if he hooks you, his ADC kills you. Respect his hook and CC."
+  },
+  "Tristana": {
+   "difficulty": "Major",
+   "summary": "She jumps onto you and wins with aggressive supports like Nautilus, Leona or Blitzcrank, and she duels better than you. Bait her W and find a good angle before engaging; you are stronger in teamfights, and she is worth banning."
+  },
+  "Draven": {
+   "difficulty": "Major",
+   "summary": "A better duelist who will bully you in lane. Never engage on him even when ahead; your strength is carrying teamfights."
+  },
+  "KogMaw": {
+   "difficulty": "Major",
+   "summary": "He outscales you as a duelist. Avoid his poke, focus him first in teamfights, and steer clear of his death passive after killing him."
+  },
+  "Alistar": {
+   "difficulty": "Even",
+   "summary": "He likes to headbutt you into a wall and knock you up, so fight away from walls. He peels strongly and can deny your kills."
+  },
+  "Caitlyn": {
+   "difficulty": "Major",
+   "summary": "A strong lane bully who will shove and poke you. If you approach stealthed, cut off her path to tower so she cannot net away, and watch for hidden traps by the tower. Both of you scale well, so avoid being shoved in."
+  },
+  "Vayne": {
+   "difficulty": "Major",
+   "summary": "You are stronger early, but she outscales you; do not duel her late. You have more teamfight impact, so always focus her."
+  },
+  "Samira": {
+   "difficulty": "Even",
+   "summary": "A skilled Samira is a pain: her gap closer breaks your angle and her W blocks your ultimate. You can kill her from range, and whoever has the bigger lead usually wins."
+  },
+  "Kaisa": {
+   "difficulty": "Even",
+   "summary": "Respect her W, which can lead to a quick burst late game, and her ultimate gap closer that breaks your angle. You are stronger in teamfights."
+  },
+  "Ezreal": {
+   "difficulty": "Even",
+   "summary": "Fight behind minions and avoid his Q; he is bursty. Do not engage without full health and a good wave, and cut off his escape when ganking him while ahead."
+  },
+  "Lucian": {
+   "difficulty": "Even",
+   "summary": "A bursty lane bully who closes gaps quickly and usually builds Galeforce. Do not fight him before level 6; late game he is easily handled with peel."
+  },
+  "Zyra": {
+   "difficulty": "Even",
+   "summary": "High burst. Dodge her E root and walk over her seeds to destroy them, since spells cast near seeds are stronger and they become plants, especially with Liandry's. She can win even from behind, so only engage when well ahead."
+  },
+  "Lux": {
+   "difficulty": "Even",
+   "summary": "She can burst you even when behind and her root lasts a long time. Do not engage while her Q is up with an ally beside her."
+  },
+  "Ashe": {
+   "difficulty": "Even",
+   "summary": "Stronger early with great pick potential. Wait for Blade of the Ruined King before dueling; you outscale her, but always respect her arrow and consider Cleanse."
+  },
+  "Jhin": {
+   "difficulty": "Minor",
+   "summary": "His W combo is dangerous with engage supports like Nautilus, Leona, Morgana or Lux. Avoid his Q through the wave and his fourth shot, and you should win since you outscale."
+  },
+  "Kalista": {
+   "difficulty": "Minor",
+   "summary": "Her danger depends on her support, especially if she can throw them onto you. Respect her when paired with strong engage."
+  },
+  "Soraka": {
+   "difficulty": "Minor",
+   "summary": "She scales hard but is weak early; this is one of the rare lanes where focusing the support over the ADC is the right call."
+  },
+  "Sivir": {
+   "difficulty": "Minor",
+   "summary": "Stand away from minions to avoid her Q and W poke. Her ultimate speeds her up, so cut off her path and wait out her spell shield before using E. You outscale her; shove her under tower."
+  },
+  "MissFortune": {
+   "difficulty": "Minor",
+   "summary": "Avoid her E poke and standing in the wave where her Q bounces hit hard. She is strong early, but after 6 you can engage close, Exhaust her, Flash out of her ultimate, and kill her."
+  },
+  "Quinn": {
+   "difficulty": "Minor",
+   "summary": "Rare as an ADC; she must get close to blind you. You are the stronger ADC and outscale her."
+  },
+  "Xayah": {
+   "difficulty": "Minor",
+   "summary": "Do not stand between her and her feathers, and time your E around her ultimate, during which she is untargetable. Flash out of her feather recall to avoid the root. You outscale; track her feathers in fights."
+  },
+  "Jinx": {
+   "difficulty": "Minor",
+   "summary": "You are stronger early and outscale. She will poke with W and rockets; step around her chompers and get close before engaging out of stealth."
+  },
+  "Varus": {
+   "difficulty": "Tiny",
+   "summary": "Avoid his poke and do not stand beside your support once he has his ultimate. He only threatens you with a strong support."
+  },
+  "Aphelios": {
+   "difficulty": "Minor",
+   "summary": "A high-skill champion and one of the best scalers; stop him before he gets there."
+  },
+  "Zeri": {
+   "difficulty": "Tiny",
+   "summary": "The author rates her low threat because her range has been reduced."
+  },
+  "Karthus": {
+   "difficulty": "Minor",
+   "summary": "Not much of a threat in bot lane now. Maw of Malmortius helps if he is ahead."
+  },
+  "Nilah": {
+   "difficulty": "Major",
+   "summary": "Very mobile; respect her all-in ultimate, which can win a duel and ruin your teamfight if she gets close."
+  }
+ }
+}

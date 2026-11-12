@@ -1,0 +1,601 @@
+{
+"champ": "Ivern",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/season-16s-shekars-ivern-guide-2-5-million-mastery-650559",
+"author": "Shekar",
+"updated": "2026-10-06",
+"title": "Season 16's Shekars Ivern Guide (3 Million+ Mastery)"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"She clears very fast, making early objectives and invades hard to contest, and her plants block your root. Her zone control punishes your weak early skirmishing, so play defensively; if she gets early priority she can choke you out before your midgame."
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her dogs block your root and she is untargetable during her W dash, so she ignores peel. You lose direct duels, so play very safe. Serpent's Fang fits her lethality builds and heavily cuts your shields."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"He clears fast and invades where you cannot duel him. His ult dodges your root before he returns to his shadow, making peel very hard. Dodge his shurikens, since his full combo can kill through shields, and expect Serpent's Fang to blunt your shielding."
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"She can invade constantly, kite you and poke, making early trades and counter-ganks risky. Always keep Smite for objectives. Use your brush to block her autos and make her overextend; careful pathing and map awareness are required to survive and scale."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Among the hardest in high elo, easy in low elo. A skilled Nidalee invades, pokes and dodges your root. Survive early through vision and counter-ganks, and your shields and Daisy make you much stronger later."
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Lethality Jarvan clears very fast, can one-shot squishies and engages from range with E-Q. Flash his ult immediately to avoid the burst, but with Axiom Arc it returns quickly, so avoid moving alone or contesting objectives carelessly."
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You have the edge before his second item. After that he can invade, burst you and escape over walls. Counter-gank him with good timing and vision to stop his snowball, but beware he can escape instantly near walls."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her mobility lets her invade, steal camps and dodge CC with E and ult, and after two or three items her burst deletes squishies. Play safe early, use vision and Daisy, and consider Knight's Vow to protect carries."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His autos knock back Daisy, and with three or four items he bursts her and outscales you. You out-clear him early, so use that tempo to counter-gank and keep him behind."
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Weak early, but he spikes hard with Kraken Slayer on crit builds, out-farming and out-skirmishing you and bursting through your shields. His invisibility makes him hard to track and peel, and Serpent's Fang further weakens you."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her Black Shield is the main problem, blocking your CC."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Before his transformation and level 11 you control the map, so pressure lanes and punish mistakes. Afterward he outclasses you; build anti-heal against Rhaast, and Zhonya's (AP) or Knight's Vow (support) against Shadow Assassin."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His ult lets him dive and removes your brush. His spell shield blocks your root, so pop it with Smite first. In grouped fights he can be caught out; lock him down with Daisy and your team."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You out-tempo him early with root, shields and Daisy, but after two or three AP items his burst and mobility are dangerous. His E and ult can dodge your engage, though you can still punish misplays with slows and roots."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her mobility, attack speed and resets make her hard to lock down. Use root, slows and Daisy to contest early skirmishes and interrupt her resets; if she snowballs she dives through your peel."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You control the map early, but after two AP items her ult combo can out-damage your shields. She must fully commit, so punish deep dives with shields, slows and Daisy, and use vision to deny flanks."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Positioning matters most. His stolen ult is not a big threat to you, and his W cannot heal off Daisy. Keep spacing, land your root and use Daisy and slows to stop him sticking to targets."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Dangerous early with burst, stun and poke, making trades and counter-ganks risky. He falls off later, so survive with vision and positioning, then control fights with shields and Daisy."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Much stronger early with invades and duels, and his kick can remove carries from shield range. He falls off; if you track him and avoid bad skirmishes for the first 10-15 minutes, you outscale with utility."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His Q can eat Daisy, and his snowball gives mobility. Rooting him while he rolls is fairly easy. Both of you rely on counter-ganks and objective control, so better jungle tracking decides the matchup."
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He wins most early skirmishes, and after 6 his ult knocks back Daisy and protects him while diving. If he does not snowball early he falls off; survive his early game and avoid isolated fights."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her poke and mist let her trade safely, but you can punish overextensions with root, slows and Daisy. She gets more dangerous with items, but your shields help survive her engages; slightly favors you with careful play."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He threatens early ganks, but you can farm safely and counter-gank. His ult can devastate fights from flanks and your root does not cancel it, so use vision to prevent flanks."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Manage early trades with root, slows and Daisy; his tankiness makes him hard to burst, so build anti-heal. In high elo he can out-clear you; kite and punish overextensions."
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"A skill matchup around vision and timing. He can pick targets from brush, but your root, shields and Daisy disrupt his engage; if he jumps in badly he gets locked down. Without vision he can snowball."
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Daisy prevents you from being isolated, which removes much of his burst. You can match or out-tempo him early; play with vision and keep Daisy active."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"A favorite matchup: your slows, root and Daisy knockup stop him from moving once he commits. Stay near carries with vision and he struggles to find clean engages."
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She threatens early skirmishes and invades and can snowball if ahead. She falls off later; counter-gank her and use vision to avoid her cocoon."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"The first two clears are tricky; ward your entrances and track him. After that, Daisy, root and slows make his commits risky and your shields blunt his burst."
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She can trade and poke early, but landing root and chaining Daisy locks her down. Early pressure and counter-ganks keep her from scaling into extended fights."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His early pressure is predictable and he is vulnerable to CC. His ult can be dangerous in fights, but your shields and CC mitigate it."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He duels poorly; you can beat him with Daisy even on enchanter builds. Dodge his Q, lock him down, and use vision and positioning to limit his ult's impact."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"A favorite: your CC and counter-ganks stop his farming and snowball. Late he is more dangerous, but Zhonya's or defensive support items handle his dives."
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Very easy; her W frenzy makes your root easy to land, after which you dash in and lock her down with Daisy."
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"His engages are very telegraphed, so root him and chain Daisy before he reaches carries. His damage is limited."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Ward her camps, where she cannot stealth, and place Control Wards around objectives. Good vision lets you react to her engages even after level 6."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Squishy and predictable. Daisy can block his Q; land your root and chain slows to punish his positioning."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Land your root, dash in and chain Daisy; he cannot move through your slows and knockups. Kite well and build anti-heal for long fights."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Early trades carry some risk from his sustain and fear, but kiting with root, slows and Daisy controls him. Anti-heal helps in long fights."
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She can trade early but is vulnerable to your root and Daisy when out of position. Track her with vision and punish overextensions."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"He cannot escape Daisy, slows and root once caught and is easy to kite."
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Punish her with root and Daisy; you can E a teammate to reach range, then root her and chain CC to stop her reaching carries."
+]
+]
+}
+]
+}
+}

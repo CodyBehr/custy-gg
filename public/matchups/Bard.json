@@ -1,0 +1,559 @@
+{
+"champ": "Bard",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/25-s1-2-na-beefys-challenger-bard-guide-607952",
+"author": "BeefyyLoL",
+"updated": "2025-01-31",
+"title": "[25.S1.2] [NA] Beefy's Challenger Bard Guide"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She is slippery and her charm is a real threat, but as a support she lacks the gold she needs and usually underperforms."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Bully him hard at level 1 before he can use his combo. Avoid getting caught by his headbutt-pulverize and you outscale him heavily; one of your best matchups."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His ult is a huge teamfight tool, but its long cooldown gives you many windows to force fights with your own ult while his is down."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Mage supports like Annie are immobile, which makes them easy ult targets, and they cannot burst you once you have one or two items."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"An Ashe support is a very favorable draft for you; just play normally."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Dangerous if you or your ADC cannot dodge his hook; he punishes your roams and zones your ADC well. With confident movement the lane is manageable."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Learn his skillshot habits and avoid eating everything and the lane is easy. Your ult gives free picks or forces Flashes whenever it is up."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His shield stops your Q from passing through to stun a second target or wall. If his passive stacks on you alongside an aggressive ADC like Lucian or Samira, you can die quickly."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Respect his CC early or you can die. From level 6 he can follow your roams with his ult. Keep your distance early and you outscale him, much like against Alistar."
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A skill matchup: a good Janna is hard to catch and peels very well, making engages difficult and trading tough. A weak Janna dies whenever you land a stun or ult."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"One of the hardest lanes: her empowered Q bullies you and her empowered E scales into fights and makes landing your spells difficult. The author considers her worth banning."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Even with Unflinching she can kill you early. Survive laning and she becomes far less useful than you."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"She bullies you in lane and scales equally well, and her speed boosts make your ult hard to land. Worth banning."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"An immobile mage; trust your dodging and hope your ADC dodges well too."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Very hard: you cannot win brush control against his saplings, his W engage is reliable, and his ult peels for his team or counters your ult engages."
+]
+]
+}
+],
+"Milio": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His E shield and passive let him win lane trades, and his range and attack speed buffs scale well. He can cleanse your stun off allies, though not your ult's stasis."
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Like Ashe support, a favorable draft for you."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her Black Shield counters your whole kit, blocking both your stun and ult, especially if she maxes it first. If your Q breaks the shield, the stun still lands. Worth banning."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her W trades bully you in lane, but she scales less than other enchanters, so stay patient."
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Like Leona: avoid being chain-CC'd and killed early, then you outscale. His ult is slow and obvious, so your ult can negate it."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"A weak support pick, essentially a lesser Leona or Nautilus."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A cheesy early pick with good tools against you: tunnelling often lines you up for her stun, and her W blocks your tunnel. Easy to die early, but you outscale."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"His hook is hard to dodge since he can hold it, and watch for a level 1-2 E-Flash engage. If he does not snowball ult resets you outscale, though vision control gets hard once he finishes Umbral Glaive."
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Slippery and rarely catchable. With Xayah the 2v2 is strong, but with others you can bully him. His W knockup becomes easy to dodge with practice."
+]
+]
+}
+],
+"Rell": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Bully her hard in lane. After she commits W she is an easy target for you and your ADC; avoid clumping with allies so she gets no free engage."
+]
+]
+}
+],
+"Renata": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Squishy and immobile early but with unique outplay tools. Your tankiness makes her W revive hard to trigger off you, and you can ult yourself like a Zhonya's while her ally dies again."
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"She struggles into ranged supports. Deny her free souls in lane and she becomes an immobile target for your ult."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Very annoying and she outranges you, making trades hard. From level 6 you can start making plays; do not line up with teammates when her ult is up and stay patient."
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She outranges your autos, so be patient until level 6. She is very squishy, so any CC you land should be lethal."
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Take Ignite and avoid small trades; either commit for the kill or do not trade, since she out-sustains you. Dodge her Qs and wait for level 6."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"A mage support you handle well, but his E snare hitbox can be deceptive, so give it room."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Still a strong laner, but since his devour became his ult he is much worse at stopping your picks. You can bully him fairly hard early."
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Walk perpendicular as soon as he throws his stun and it will miss unless he Flashes. Your ult can neutralize his invulnerability window."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"One of your worst lanes: his lantern saves anyone you try to ult, and you can die quickly to a hook or flay. Worth banning."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"An immobile mage; avoid eating every skillshot and you win."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"An immobile mage; avoid his skillshots and you win."
+]
+]
+}
+],
+"Yuumi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She cannot follow your roams or punish your ADC while you are away, but if an ally of hers gets fed you cannot stop them. If she detaches as your Q lands, she can stun herself."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"His speed boosts and revive are strong anti-pick tools against you; you largely rely on the Zilean being weak. He is rare, so the author does not consider him ban-worthy."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"An immobile mage; dodge her skillshots and you win."
+]
+]
+}
+]
+}
+}

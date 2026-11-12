@@ -1,0 +1,135 @@
+{
+ "champ": "Karma",
+ "url": "https://www.mobafire.com/league-of-legends/build/s14-karma-support-itemization-matchups-playstyles-640071",
+ "title": "|S14| Karma SUPPORT Itemization+Matchups+Playstyles",
+ "author": "ZSharpFire",
+ "rank": "?",
+ "updated": "2024-10-07",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Maokai": {
+   "difficulty": "Extreme",
+   "summary": "He brings sustain, crowd control and an untargetable engage, and his saplings zone you out of the brush you want to control."
+  },
+  "Nautilus": {
+   "difficulty": "Major",
+   "summary": "It depends on his jungler and ADC; paired with an aggressive ADC like Draven or Lucian he is very hard to contain. In that case play for late game and take Gathering Storm."
+  },
+  "Yuumi": {
+   "difficulty": "Extreme",
+   "summary": "The author's permaban: she cannot kill you but neutralizes your lane presence, and with a hypercarry like Twitch she becomes far more useful than you late."
+  },
+  "Blitzcrank": {
+   "difficulty": "Major",
+   "summary": "The lane is not lost outright, but he makes it hard to do everything you want."
+  },
+  "Sivir": {
+   "difficulty": "Minor",
+   "summary": "Once your W tether is attached, her spell shield cannot block it, so you do not need to wait for her E before engaging."
+  },
+  "Pyke": {
+   "difficulty": "Extreme",
+   "summary": "Ban him or Yuumi. He deals too much damage, ults through your shields and heals off your poke with his passive; unless you bully him out or have jungle priority, the lane is usually lost."
+  },
+  "Janna": {
+   "difficulty": "Tiny",
+   "summary": "Very easy; before level 6 you are a stronger version of her. If she pokes with W, answer with empowered Q until she is low, since she cannot shield your damage."
+  },
+  "Braum": {
+   "difficulty": "Tiny",
+   "summary": "Bully him out; he has no real answer. Watch his Q and keep poking."
+  },
+  "Swain": {
+   "difficulty": "Tiny",
+   "summary": "Your strong early damage lets you poke him out; always watch for his E. Take Comet and Scorch, and probably Dark Seal."
+  },
+  "Alistar": {
+   "difficulty": "Major",
+   "summary": "A good Alistar is a big problem. You can poke him or the ADC with empowered Q, but a Fleet Footwork ADC with his heal out-sustains it. Go Shield or Peel builds."
+  },
+  "Morgana": {
+   "difficulty": "Major",
+   "summary": "A good Morgana with a good ADC will likely push you out of lane. Stay very aware of her binding and bait it before poking; she has little other lane damage."
+  },
+  "Thresh": {
+   "difficulty": "Even",
+   "summary": "A skill matchup where you usually hold the edge, though a hyper-aggressive Thresh and ADC are hard to contain. If you win lane, a damage build is an option; if you lose, go Shield or Peel."
+  },
+  "Lux": {
+   "difficulty": "Even",
+   "summary": "Watch her Q closely; she usually uses E on your ADC. Poke with empowered Q or bait her cooldowns, and avoid holding your W tether while her Q is up. Take Comet unless your comp is late-game."
+  },
+  "Lulu": {
+   "difficulty": "Major",
+   "summary": "Her big shields and peel make her hard to poke out, and she becomes more useful late with strong ADCs. Take Gathering Storm with a Peel or Shield build."
+  },
+  "Milio": {
+   "difficulty": "Extreme",
+   "summary": "His utility and passive damage boost for his ADC are overwhelming early and worse late. Ban him if your ADC is weak early; lanes like Milio with Kog'Maw are miserable."
+  },
+  "Amumu": {
+   "difficulty": "Major",
+   "summary": "His long Q range and all-ins are tough. Play behind minions and poke with empowered Q while watching his bandage."
+  },
+  "Bard": {
+   "difficulty": "Even",
+   "summary": "Easy to fight in lane with your early damage, but you cannot match his fast roams. Look for low-risk, high-reward plays and early roams of your own."
+  },
+  "Brand": {
+   "difficulty": "Minor",
+   "summary": "Empowered Q gives you range to poke him safely, and he has no sustain. When you W him, watch his Q and use your E speed to dodge if your ADC does not need the shield."
+  },
+  "Heimerdinger": {
+   "difficulty": "Major",
+   "summary": "His turrets zone you and deny brush control and poke. With an Ezreal it is manageable since he clears turrets; otherwise go Shield or Peel and play for teamfights."
+  },
+  "Nami": {
+   "difficulty": "Even",
+   "summary": "She is not a big threat herself; your E absorbs her W poke and its speed dodges her Q. Her E empowering her ADC is the danger, so bully the lane but back off when it is active unless they are low."
+  },
+  "Poppy": {
+   "difficulty": "Minor",
+   "summary": "Poke her out with Q. If she is very aggressive, hold R for empowered W when she engages. Ward against her strong gank setup."
+  },
+  "Leona": {
+   "difficulty": "Even",
+   "summary": "A skill matchup leaning Leona. Spacing is everything: close enough to damage, far enough to avoid her CC, especially her E gap closer. Bully her out early to keep her out of the game."
+  },
+  "Rakan": {
+   "difficulty": "Even",
+   "summary": "Leans in your favor. His W is slow and predictable to dodge; his Q heals off your poke and his ult is hard to avoid."
+  },
+  "Rell": {
+   "difficulty": "Tiny",
+   "summary": "She has no damage, so you have strong kill pressure on her ADC. Poke her out, but positioning badly can turn it into a coin flip."
+  },
+  "Renata": {
+   "difficulty": "Minor",
+   "summary": "She does little; poke her and dodge her Q with E speed. Watch her W, which can turn fights."
+  },
+  "Senna": {
+   "difficulty": "Minor",
+   "summary": "Your damage outpokes her sustain early; try to end before a long game favors her."
+  },
+  "Seraphine": {
+   "difficulty": "Major",
+   "summary": "Lane is easy, but late her Moonstone plus W is unmatched. Poke her out and try to win quickly."
+  },
+  "Sona": {
+   "difficulty": "Even",
+   "summary": "The most even skill matchup; watch her ult closely."
+  },
+  "Soraka": {
+   "difficulty": "Minor",
+   "summary": "Dodge her Q above all; without it she is useless early. Poke her, but do not rely too much on E speed since she can silence you."
+  },
+  "Zyra": {
+   "difficulty": "Major",
+   "summary": "Her plants are a big problem for you. Go Shield or Peel and play for teamfights and jungle plays."
+  },
+  "Zilean": {
+   "difficulty": "Major",
+   "summary": "Weak before level 6 but very hard to fight afterward."
+  }
+ }
+}

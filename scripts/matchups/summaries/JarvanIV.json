@@ -1,0 +1,151 @@
+{
+ "champ": "JarvanIV",
+ "url": "https://www.mobafire.com/league-of-legends/build/s11-destroy-soloq-with-jarvan-iv-udysof-challenger-j4-564584",
+ "title": "[S14] DESTROY SOLOQ WITH JARVAN IV - UDYSOF Challenger J4!",
+ "author": "Udysof_OCE",
+ "rank": "Emerald",
+ "updated": "2024-02-03",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Warwick": {
+   "difficulty": "Even",
+   "summary": "He fights you on roughly equal terms, so neither of you has a clear dueling edge."
+  },
+  "MonkeyKing": {
+   "difficulty": "Minor",
+   "summary": "He fills the same role as you but less effectively, so you should outperform him."
+  },
+  "Zac": {
+   "difficulty": "Tiny",
+   "summary": "He is weak early, and you can out-pace him in most games."
+  },
+  "XinZhao": {
+   "difficulty": "Even",
+   "summary": "He is strong in early fights but falls off hard. Play slowly and avoid early fights around him to exploit his decline."
+  },
+  "Volibear": {
+   "difficulty": "Major",
+   "summary": "His E and Q easily cancel your E-Q combo, and he out-tanks you. His teamfighting is weak and he lacks terrain-based tools."
+  },
+  "Vi": {
+   "difficulty": "Even",
+   "summary": "She duels well, but if you dodge her Q she loses the one-on-one."
+  },
+  "Udyr": {
+   "difficulty": "Minor",
+   "summary": "Strong early fighter, but he struggles to gank and your E-Q lets you kite him."
+  },
+  "Trundle": {
+   "difficulty": "Even",
+   "summary": "He can ult you as you engage to steal your tank stats and burst you, but he struggles to chase you through the jungle."
+  },
+  "Taliyah": {
+   "difficulty": "Tiny",
+   "summary": "Your ult traps her easily, forcing her to Flash or fight in melee range."
+  },
+  "Skarner": {
+   "difficulty": "Even",
+   "summary": "He clears fast and counter-ganks well but struggles to make early plays. QSS counters his ult."
+  },
+  "Shyvana": {
+   "difficulty": "Tiny",
+   "summary": "Her kit lacks terrain tools and she gets out-pressured hard early."
+  },
+  "Shaco": {
+   "difficulty": "Minor",
+   "summary": "He gets hard to fight later, but his weak early game lets you start red and invade him easily."
+  },
+  "Sejuani": {
+   "difficulty": "Even",
+   "summary": "Both of you scale with tank stats and bring engage; the better jungler wins."
+  },
+  "Rengar": {
+   "difficulty": "Minor",
+   "summary": "He can fight you in the jungle, but you can easily E-Q away."
+  },
+  "RekSai": {
+   "difficulty": "Major",
+   "summary": "She can cancel your E-Q and wins early duels. She does not scale especially well but can snowball the matchup heavily."
+  },
+  "Rammus": {
+   "difficulty": "Minor",
+   "summary": "Not a problem early, though he can out-tank you late."
+  },
+  "Qiyana": {
+   "difficulty": "Extreme",
+   "summary": "She dodges your abilities easily and can use your ult's walls to bounce her ult stun. Be very careful against Qiyana jungle."
+  },
+  "Poppy": {
+   "difficulty": "Extreme",
+   "summary": "She dominates fights: her W cancels your E-Q instantly, she runs you down, stuns you against your own ult walls, and disengages with her ult."
+  },
+  "Olaf": {
+   "difficulty": "Even",
+   "summary": "He can duel you early but cannot chase you."
+  },
+  "Nunu": {
+   "difficulty": "Minor",
+   "summary": "He must out-pressure you early, or your reliable engage and peel will outscale him."
+  },
+  "Nocturne": {
+   "difficulty": "Tiny",
+   "summary": "He poses little threat unless he jumps you in a brush while your Flash is down."
+  },
+  "Nidalee": {
+   "difficulty": "Extreme",
+   "summary": "She dodges all your abilities and can hop out of your ult, making her a very hard matchup."
+  },
+  "MasterYi": {
+   "difficulty": "Minor",
+   "summary": "He cannot escape your engage, so catching him out usually means a kill."
+  },
+  "LeeSin": {
+   "difficulty": "Major",
+   "summary": "His W and Q let him dodge your abilities, and he is strong early and easily outplays you."
+  },
+  "Kindred": {
+   "difficulty": "Extreme",
+   "summary": "She chases you easily in the jungle and her ult can negate yours."
+  },
+  "Khazix": {
+   "difficulty": "Major",
+   "summary": "He hunts you down and takes objectives easily, and his speed and invisibility make him hard to peel."
+  },
+  "Kayn": {
+   "difficulty": "Minor",
+   "summary": "His low early pressure lets you gank freely without being punished."
+  },
+  "Karthus": {
+   "difficulty": "Minor",
+   "summary": "He can farm and outscale you, but he has no answer to your ult."
+  },
+  "Ivern": {
+   "difficulty": "Tiny",
+   "summary": "He wants small early leads but your early map pressure denies them."
+  },
+  "Hecarim": {
+   "difficulty": "Minor",
+   "summary": "He is easy to invade, so you can win hard early."
+  },
+  "Graves": {
+   "difficulty": "Major",
+   "summary": "He beats you in duels, though he does not gank particularly well."
+  },
+  "Gragas": {
+   "difficulty": "Major",
+   "summary": "A solid counterpick: he scales well and can cancel your E-Q."
+  },
+  "Evelynn": {
+   "difficulty": "Minor",
+   "summary": "She struggles against you. Late game you can ult her to trade ultimates and take her out of fights."
+  },
+  "Ekko": {
+   "difficulty": "Major",
+   "summary": "His mobility lets him jump around you, making him hard to pin down."
+  },
+  "Amumu": {
+   "difficulty": "Tiny",
+   "summary": "His slow early clear gives you a free invade path."
+  }
+ }
+}

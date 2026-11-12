@@ -1,0 +1,854 @@
+{
+"champ": "Hwei",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/26-1-shoks-rank-1-challenger-hwei-guide-634326",
+"author": "ShokLoL",
+"rank": "Challenger",
+"updated": "2026-01-09",
+"title": "[26.1] Shok's Rank 1 Challenger Hwei Guide"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her sustain makes her nearly impossible to push out of lane. Avoid pushing unless you can clear the wave in one go and hold E defensively. You outscale her, so focus on not dying even if it costs CS."
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A Comet Orianna is tough to lane against, while a Phase Rush one can be bullied. Take wave control with autos so she lacks time to poke; your growing waveclear eventually neutralizes the lane."
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A strong early bully, but your QQ zone keeps her from killing you. Play to set up ganks, usually with EE, and consider rushing Mercury's Treads."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A strong laner, but dodging her skillshots lets you win, and you outscale her so even is good for you. Rushing Mercury's Treads helps."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Bully him hard at levels 1-2, then let the wave come back to you. Do not get caught far up, especially after wasting W or E. After 6 respect his all-in and gank setup; buying a Null-Magic Mantle early can keep you alive."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Hard to push out, but she cannot kill you unless you stand too far up. Run First Strike and scale. In skirmishes and teamfights avoid being caught alone, where she will kill you."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Bully him whenever he goes to CS and back with a gold lead, or he will outscale you. After 6, save E defensively for his jump."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"The lane revolves around dodging his W-E-Q combo. Play aggressively when his W is on cooldown to recover health, and consider Exhaust for after level 6."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Strong in lane but very gankable. Keep the wave on your side, avoid being pushed up, and avoid duels; you outperform him in teamfights."
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"A very strong laner but less useful than you in 2v2s and skirmishes. Trade back when his E or Q is down, and if you fall far behind focus on clearing waves."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Win trades by poking and dodging his chain, or cancel it with a well-timed EQ. If he reaches you it hurts, so respect his gank setup, and after 6 beware of him chasing you with your stolen ult."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Weak one-on-one with low waveclear, so you can build a lead. From level 3 her gank setup is excellent; without vision or Flash, be careful pushing into her."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You out-trade and out-push him for most of lane, but he gradually outscales. Build a solo lead and after 6 respect his gank setup when the jungler is unaccounted for."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She is strong if she gets past the wave, but your waveclear and fear threat stop her. Later, shove her in so she cannot group with her jungler; respect her early 2v2 and gank setup."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Respect his windows: back off when he has Q3 or E. Hold E defensively unless he wastes cooldowns. After 6 beware getting run down when pushed up and his gank setup."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"A weak laner; bully his poor waveclear and trading. Avoid random ganks and keep pressure on him after 6 so he cannot roam freely."
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Positioning is key: avoid random Qs and stay near minions to block her bubble. You outrange her and her early waveclear is weak. If she grabs Exhaust or Ignite, hold E defensively against an all-in."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Stand apart from the wave and dodge her E, or at least use the moment to push and poke. Mercury's Treads is a safe option; after 6, getting hit by Q means heavy damage."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A dodging matchup, so rush tier 2 boots. Do not stack with the wave so he must choose targets, and zone him after he uses his long-cooldown combo."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Bully her before 6 with QQ and EE harass; afterward it becomes a waveclear battle. With a better back, shove waves into her until she runs low on mana."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You can bully him while respecting his empowered Q. His waveclear is low, so you can nuke the wave and reset. Use mana efficiently or he will out-sustain your poke."
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Bully her before 6 while staying behind minions to block her charm. After 6 she can all-in if you waste key cooldowns, and her gank setup is strong, so play around vision."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Abuse him in lane; holding your fear prevents him from going in with melee form. Be careful around his Serrated Dirk spike and keep poking from range."
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Avoid being hit by both parts of his W, especially when your E is down. Stand away from the wave. Exhaust or Barrier and an early Cloth Armor help after 6."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You outrange and out-poke her; just keep E available to disengage. She struggles in teamfights against you, especially when behind."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Depends on her runes: Aery plus Resolve is tough in lane but lacks waveclear and you outscale; a Dark Harvest or First Strike Annie can be bullied and shoved in."
+]
+]
+}
+],
+"Vex": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Punish her long cooldowns and weak waveclear before 6. After 6 avoid her ult; if it hits, fear her as she arrives for a free ult."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak in duels but good in early skirmishes, so avoid 2v2s. Be aggressive when his Q is down, and after 6 keep the wave pushed to make roaming hard."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His Q is both his trading and waveclear tool, so stand outside the wave and push forward when it is down. Hold E so he cannot E onto you freely."
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Strong early, but your waveclear limits his roams and holding E stops his swing engage. Poke him with Q whenever possible."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Very easy; you bully her throughout. Avoid being far up without E, and when she jumps in, delay your E slightly since she may move to dodge it."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Tanky and snowbally, but she struggles to engage while you hold E. Poke with Q and save other spells to punish or chase."
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Very weak in lane; harass with Q and autos. Save E for her dash, which can cancel her W entirely. After 6, push and ward so she cannot roam freely."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"A well-timed EQ cancels his W, making the lane easy. Poke him, and after 6 keep the wave pushed to punish or prevent roams."
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She cannot match your push and loses trades, but her post-6 gank setup is dangerous; drop EW at your feet if she walks at you. Mercury's Treads help."
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Practically unkillable in lane, so take First Strike and scale. Play around his knockup and push waves to farm freely."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Poke him with QQ; if he dashes in, fear then ult him. Before 6 avoid eating Q poke through the wave."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Bully her at levels 1-2, then respect her level 3 spike by keeping the wave central or returning. After 6 stay away from walls and use E defensively."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Poke with Q and autos and hold E for when he gets aggressive. Avoid his harpoon poke."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Surprisingly strong in lane, but you can poke him out and he struggles with your waveclear. After 6 you can push and harass him under tower if you are not behind."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He is strong and outranges you, but struggles to push you out. Get tier 1 or even tier 2 Swiftness Boots early. After 6, avoid his E knockup or his ult deals heavy damage."
+]
+]
+}
+],
+"Smolder": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Little lane threat; bully him all lane. Avoid shoving waves into him for free; keeping the wave central gives more trades."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Weak at trading but strong waveclear. Punish her with QQ or EE trades after she spends spells on the wave."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Poke him down freely. If you use E aggressively, play safer afterward since he may W onto you."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Poke as much as you like while holding E to fear her off when she jumps."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"One of the weakest early laners; kill his voidlings immediately to handle his waveclear. After 6 be careful stepping up without knowing the jungler's location. QSS is usually unnecessary given your range."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Force trades whenever his Q is spent on farming, and target his low waveclear. Watch the enemy jungler since his gank setup is the main threat."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Force him to choose between using Q on you or on farm, and push aggressively when it is down. You will rarely kill him but can build a big lead; after 6 push and pressure tower or roam."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"If you dodge his skillshots you out-poke and out-clear him. Rush tier 2 boots, usually Sorcerer's Shoes."
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Mostly a waveclear battle; make her spend cooldowns on CS while you use yours to poke and zone her."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Weak early with long, dodgeable cooldowns and low waveclear. After 6 save E for when he ults onto you."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Very weak early; build a big lead before 6, push him in and harass under tower while he lacks mana."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Your push is better and you outrange him all game. Watch his point-and-click gank setup with his jungler."
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A skill matchup; using your range well should let you edge out the duel, but respect her post-6 gank setup."
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He has surprising kill threat; get tier 1 boots early to dodge his Q and hold EQ so he cannot chase you with Hail of Blades autos."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Annoying early, but once your waveclear grows he is harmless. Get to lane early at level 1 to stop him setting turrets before the wave."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Abuse her low waveclear and poke her under turret, watching your mana if she has Doran's Shield. After 6 she may chase you down if you miss EQ."
+]
+]
+}
+],
+"Mel": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fairly strong in lane, but avoid casting R or EQ into her reflect. Push and poke with Q spam while she holds W."
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Your waveclear handles her push and holding EQ stops her engages."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You match her waveclear and can disengage from her ult; you outrange her in fights. The main danger is early ganks."
+]
+]
+}
+]
+}
+}

@@ -1,0 +1,91 @@
+{
+ "champ": "Blitzcrank",
+ "url": "https://www.mobafire.com/league-of-legends/build/25-15-loadingscreen-guide-greatest-support-575111",
+ "title": "[25.15] LOADINGSCREEN GUIDE GREATEST SUPPORT",
+ "author": "PalestinianLuck",
+ "rank": "Diamond",
+ "updated": "2025-08-09",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Alistar": {
+   "difficulty": "Major",
+   "summary": "He is a tank, so pulling him into your team rarely pays off and usually just hands him an engage."
+  },
+  "Braum": {
+   "difficulty": "Major",
+   "summary": "A tank you should not pull: a grab gives him a chance to all-in with his ult, or he can simply W back to an ally."
+  },
+  "Morgana": {
+   "difficulty": "Major",
+   "summary": "Her Black Shield blocks your hook and undermines your whole game plan."
+  },
+  "Bard": {
+   "difficulty": "Tiny",
+   "summary": "A favorable lane; land a hook and he is easy to burst."
+  },
+  "Rakan": {
+   "difficulty": "Even",
+   "summary": "A skill matchup where whoever lands first usually wins. You can interrupt his shield or W dash, but if his knockup lands first you rarely trade back in time."
+  },
+  "Nami": {
+   "difficulty": "Tiny",
+   "summary": "A ranged support with no mobility; a landed hook usually means a kill."
+  },
+  "Zyra": {
+   "difficulty": "Minor",
+   "summary": "Immobile and ranged, but her plants can block your hook, so aim around them."
+  },
+  "Ezreal": {
+   "difficulty": "Major",
+   "summary": "While his blink is available your hook is effectively useless against him, so wait for it to be on cooldown."
+  },
+  "Janna": {
+   "difficulty": "Major",
+   "summary": "A ranged support with a bit more mobility, and she can knock you away with her ult right after you hook her."
+  },
+  "Pyke": {
+   "difficulty": "Even",
+   "summary": "He is very mobile and hard to hook in open lane, so only target him when his cooldowns are down. If you land the hook, use E immediately to cancel his dash."
+  },
+  "Karma": {
+   "difficulty": "Even",
+   "summary": "A mobile ranged support who can poke you down heavily if you play loose."
+  },
+  "Leona": {
+   "difficulty": "Major",
+   "summary": "Another tank you should avoid pulling into your own team."
+  },
+  "Lulu": {
+   "difficulty": "Minor",
+   "summary": "She cannot defend herself well in lane but becomes a real threat later, so punish her early."
+  },
+  "Nautilus": {
+   "difficulty": "Major",
+   "summary": "A tank you do not want to hook into your team."
+  },
+  "Senna": {
+   "difficulty": "Tiny",
+   "summary": "Immobile, so hooking her is usually enough to win the exchange."
+  },
+  "TahmKench": {
+   "difficulty": "Tiny",
+   "summary": "Rarely played, and the author sees him as no real concern."
+  },
+  "Sett": {
+   "difficulty": "Major",
+   "summary": "Think very carefully before hooking him, since pulling him in can backfire."
+  },
+  "Taric": {
+   "difficulty": "Tiny",
+   "summary": "The author considers him weak and rarely seen, so he is not much of a threat."
+  },
+  "Yuumi": {
+   "difficulty": "Minor",
+   "summary": "Catching her while detached usually wins the lane, but she becomes a major late-game threat if left alone."
+  },
+  "Brand": {
+   "difficulty": "Even",
+   "summary": "If your team cannot burst him right after the hook, he will land his full combo on you."
+  }
+ }
+}

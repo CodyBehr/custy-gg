@@ -1,0 +1,191 @@
+{
+ "champ": "Lulu",
+ "url": "https://www.mobafire.com/league-of-legends/build/s16-2-master-elo-in-depth-lulu-support-guide-651229",
+ "title": "[S16/2] Master elo In-depth Lulu support guide",
+ "author": "Joxuu",
+ "rank": "Diamond",
+ "updated": "2026-07-30",
+ "summarized": "2026-11-12",
+ "rows": {
+  "Thresh": {
+   "difficulty": "Extreme",
+   "summary": "You are vulnerable to hard engage while trying to scale with your ADC. Respect his hook and punish when it is on cooldown. Against all-in supports, buying health components and early boots makes you safer."
+  },
+  "Blitzcrank": {
+   "difficulty": "Extreme",
+   "summary": "His whole kit hinges on the hook. Use the bot lane brush at levels 1-2 and minion aggro if you get pulled, and punish a missed hook with auto poke."
+  },
+  "Braum": {
+   "difficulty": "Extreme",
+   "summary": "No threat early; control brush and weave autos while dropping minion aggro. After the first backs a landed Q lets him fully engage, so treat it like Blitzcrank and Thresh, punishing misses and staying near minions."
+  },
+  "Caitlyn": {
+   "difficulty": "Extreme",
+   "summary": "You cannot contest her range, and her traps restrict your brush play and movement under turret. Securing brush control makes it more playable."
+  },
+  "Sona": {
+   "difficulty": "Major",
+   "summary": "Little kill threat, but her healing makes her hard to push out and she scales well. Avoid even trades she can heal back from and trade smartly."
+  },
+  "Leona": {
+   "difficulty": "Major",
+   "summary": "Early, hide in brush and punish her melee range; win level 2 and push to stay safe until level 3. After first back she stat-checks you and forces all-ins, so play around her E missing and respect her ult range at 6."
+  },
+  "Nami": {
+   "difficulty": "Major",
+   "summary": "Similar role to yours but a better laner thanks to her setup and heals. Avoid even trades so she does not out-sustain you."
+  },
+  "Velkoz": {
+   "difficulty": "Major",
+   "summary": "His range and poke let him control the lane and brush. Play smart around minions, defensively toward your turret, and look for your jungler to relieve pressure."
+  },
+  "Fiddlesticks": {
+   "difficulty": "Major",
+   "summary": "His W sustain and fear let him trade well and pick engagements, and his silence disables your kit. Play even with E-Q poke and brush control; from level 6 he can force ult plays."
+  },
+  "Brand": {
+   "difficulty": "Major",
+   "summary": "Like most mage supports he wants to poke or all-in you out. Use minions to block his Q; otherwise your E-Q poke range is roughly even with his."
+  },
+  "Bard": {
+   "difficulty": "Even",
+   "summary": "He trades well with chimes and Electrocute and you struggle to punish his roams. Trade when he lacks chimes, accept an even lane, and track his side of the map for tunnel and jungle ganks."
+  },
+  "Rakan": {
+   "difficulty": "Even",
+   "summary": "Hardly a threat before 6 but sustains with Q. Respect his W and his level 6 all-ins; otherwise take brush control and auto poke."
+  },
+  "Seraphine": {
+   "difficulty": "Even",
+   "summary": "Plays like a mage bot laner with more range, so she chooses trades. Poke when her double Q is down and aim for an even early lane."
+  },
+  "Senna": {
+   "difficulty": "Even",
+   "summary": "Lots of sustain and close-range Q poke, but squishy and mana-hungry. Trade evenly early with E-Q and avoid long auto trades."
+  },
+  "Xerath": {
+   "difficulty": "Even",
+   "summary": "Like Vel'Koz with less hard engage since minions block his stun. Your E absorbs his poke; deny his free autos so he runs low on mana."
+  },
+  "Milio": {
+   "difficulty": "Even",
+   "summary": "Scales similarly through his ADC. You have more lane pressure with E-Q; trade when his E shields are down and avoid trades while his W range boost and burn are active."
+  },
+  "Pyke": {
+   "difficulty": "Even",
+   "summary": "Like Thresh or Blitzcrank, play around his hook cooldown and respect Hail of Blades burst. Survive the first three levels with minion cover; he is not tanky, so poke him out or punish missed hooks or E."
+  },
+  "Karma": {
+   "difficulty": "Even",
+   "summary": "Play around her empowered Q, staying near minions but not close enough to get splashed. An even lane is a fine result."
+  },
+  "Poppy": {
+   "difficulty": "Minor",
+   "summary": "Abuse her melee range and stay away from walls. She stat-checks you later, so build a lead early with auto weaving and spacing."
+  },
+  "Neeko": {
+   "difficulty": "Minor",
+   "summary": "Simple E-Q trading; ping her roams since she likes to gank mid. Her root gains power passing through minions. If Pix is on her, it reveals the real Neeko when she uses her clone."
+  },
+  "Lux": {
+   "difficulty": "Minor",
+   "summary": "She wants an early lead with E-Q aggression. Use your shields well and respect her E to go even, which is good for you."
+  },
+  "Renata": {
+   "difficulty": "Minor",
+   "summary": "She struggles against your poke if you use brush and avoid her short hook. Watch for her W all-ins and remember it can revive allies."
+  },
+  "Morgana": {
+   "difficulty": "Minor",
+   "summary": "Dodge her Q, her only real threat besides shoving with W. Hard to all-in, but an even lane lets you outscale her."
+  },
+  "Alistar": {
+   "difficulty": "Minor",
+   "summary": "Your W can block his W-Q and prevent his follow-up stun. Bully him out with autos and E-Q poke from brush."
+  },
+  "Zilean": {
+   "difficulty": "Tiny",
+   "summary": "His laning is weak, so play aggressively and dodge double bombs. Build a lead before level 6 when his revive comes online."
+  },
+  "Maokai": {
+   "difficulty": "Tiny",
+   "summary": "He struggles with mana and range in lane. Poke his short range, win brush control and push him out, though he can tank more poke after 6."
+  },
+  "Yuumi": {
+   "difficulty": "Tiny",
+   "summary": "While she is attached it is effectively 2v1; weave autos and E-Q and punish her ADC from brush. Polymorph her when she detaches to stop her jumping back."
+  },
+  "Swain": {
+   "difficulty": "Tiny",
+   "summary": "Dodge his E with your mobility and disengage his ult with slows or speed. Poke with E-Q but avoid long trades since he answers with Q."
+  },
+  "Mel": {
+   "difficulty": "Tiny",
+   "summary": "Her base damage is low, her spells easy to dodge, and her W rarely reflects anything important in lane."
+  },
+  "Taric": {
+   "difficulty": "Tiny",
+   "summary": "Watch his E stun and avoid long auto trades that lower his cooldowns. Poke with E-Q and autos from brush and dodge his E with your mobility."
+  },
+  "Aphelios": {
+   "difficulty": "Minor",
+   "summary": "His long-range poke and red or white gun all-ins can contest you more than most ADCs."
+  },
+  "Draven": {
+   "difficulty": "Even",
+   "summary": "Hard with a matching support. Early Bloodthirster negates your poke and his E can let him all-in through your W. Respect early levels and his all-in."
+  },
+  "Vayne": {
+   "difficulty": "Tiny",
+   "summary": "E-Q poke forces her to choose between last hits and taking damage, and your E and W handle her ult. A free lane."
+  },
+  "Ezreal": {
+   "difficulty": "Minor",
+   "summary": "He builds utility early and spikes later, so play behind minions and lane comfortably."
+  },
+  "Ashe": {
+   "difficulty": "Even",
+   "summary": "Play behind minions and respect her chase power; take only short E-Q trades and watch your positioning."
+  },
+  "Corki": {
+   "difficulty": "Minor",
+   "summary": "His short-range play lets you poke easily, but respect his early E damage. Your W can cancel his W all-in."
+  },
+  "Kaisa": {
+   "difficulty": "Even",
+   "summary": "Vulnerable to your poke, but do not stand so far forward that she can isolate Q on you. During all-ins, do not give her an easy ult escape."
+  },
+  "Yunara": {
+   "difficulty": "Minor",
+   "summary": "Little early pressure. Save your W for her ult or Q and disengage, avoid extended fights and poke her down."
+  },
+  "Twitch": {
+   "difficulty": "Minor",
+   "summary": "Weak early but dangerous during his Q and ult windows; commit if he engages since he can chase. Use W after his Q to burn his window, and poke when he farms."
+  },
+  "Varus": {
+   "difficulty": "Even",
+   "summary": "Respect his poke and his all-in after 6, and avoid standing in a direct line for his Q."
+  },
+  "Zeri": {
+   "difficulty": "Minor",
+   "summary": "Play around her Q range and use W to stop her wall-hop escape or ult all-in; stay behind minions."
+  },
+  "Tristana": {
+   "difficulty": "Even",
+   "summary": "Depends on your ADC matching her. Save W for her jump all-in; your E shield handles her bomb early. In extended lanes, avoid giving her jump resets off a full bomb."
+  },
+  "Xayah": {
+   "difficulty": "Major",
+   "summary": "Respect her Q-auto-E combo that roots you quickly, and her ult punishes aggression. Avoid auto poke through minions and her W steroid; poke between windows and accept an even or defensive lane."
+  },
+  "Sivir": {
+   "difficulty": "Minor",
+   "summary": "She shoves and pokes under turret with W bounces; watch isolated Q damage and her auto-W reset. An even or defensive lane is fine."
+  },
+  "Ziggs": {
+   "difficulty": "Extreme",
+   "summary": "You cannot contest his range or poke, and it demands attention so roaming away from your ADC is hard."
+  }
+ }
+}
