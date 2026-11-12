@@ -2022,12 +2022,23 @@ function gamePlan(B, champ, role, opp) {
       : `<b>First waves:</b> level 2 is a race here (experts first in ${pct(lv)}).`);
     if (S.skills?.typical?.length >= 3) L.push(`Skills: start <b>${S.skills.typical.slice(0, 3).map(x => "QWER"[x - 1]).join(" › ")}</b>, max ${S.skills.order.slice(0, 3).split("").join(" › ")}.`);
     if (M) {
-      L.push(M.gd10 >= 250 ? `<b>A lane experts win:</b> ${g(M.gd10)} gold and ${g(M.csd10)} CS at 10:00 on average. Play forward.`
-        : M.gd10 <= -250 ? `<b>A lane experts lose a little:</b> ${g(M.gd10)} gold and ${g(M.csd10)} CS at 10:00. Give up some CS if you have to and play for later.`
+      L.push(M.gd10 >= 150 ? `<b>A lane experts win:</b> ${g(M.gd10)} gold and ${g(M.csd10)} CS at 10:00 on average. Play forward.`
+        : M.gd10 <= -150 ? `<b>A lane experts lose a little:</b> ${g(M.gd10)} gold and ${g(M.csd10)} CS at 10:00. Give up some CS if you have to and play for later.`
         : `<b>Usually even at 10:00</b> (${g(M.gd10)} gold, ${g(M.csd10)} CS).`);
       L.push(M.kills14 >= 1.5 && M.deaths14 >= 1.5 ? `A bloody lane: experts average ${M.kills14} kills and ${M.deaths14} deaths before 14:00.`
         : M.kills14 < .8 && M.deaths14 < .8 ? `A quiet lane: under one kill or death before 14:00 on average. Win it on CS.`
         : `Before 14:00 experts average ${M.kills14} kills and ${M.deaths14} deaths here.`);
+    }
+    // Before the first item: does this matchup reward early aggression? Experts' gold lead at the minute
+    // they usually finish their first item, against this opponent (20+ games).
+    const firstItemT = B.timings?.legendary1?.[1];
+    if (M?.n >= 20 && M.gd?.length && firstItemT) {
+      const mi = Math.min(M.gd.length - 1, Math.floor(firstItemT / 60)), lead = M.gd[mi];
+      const item = (B.paths || [])[0]?.items?.[0];
+      const it = item ? ` (${esc(itemName(item))}, ~${clock(firstItemT)})` : ` (~${clock(firstItemT)})`;
+      L.push(lead >= 150 ? `<b>Before your first item${it}:</b> experts are already <b>${Math.round(lead)} gold</b> up on ${esc(name)} by then. This is a lane to play aggressive early.`
+        : lead <= -150 ? `<b>Before your first item${it}:</b> experts are usually <b>${Math.round(-lead)} gold</b> behind ${esc(name)} by then. The early lane is theirs; farm safely and play for your item.`
+        : `<b>Before your first item${it}:</b> usually even (${g(lead)} gold). Neither side tends to win the early lane outright.`);
     }
     // When the lead moves most: the 3-minute stretch where experts' median gold lead grows (or shrinks) fastest,
     // against this opponent when there are 20+ games, else against everyone. Lined up with their item spikes.

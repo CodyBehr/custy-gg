@@ -71,5 +71,5 @@ jobs:
           git add public/benchmarks
           git diff --cached --quiet && echo "Nothing new" && exit 0
           git commit -m "Expert benchmarks: $(ls public/benchmarks | wc -l) files"
-          git pull --rebase origin main
+          git pull --rebase -X theirs origin main   # our freshly built files win
           git push origin HEAD:main
