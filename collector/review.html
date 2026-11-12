@@ -290,6 +290,15 @@ function jungleOf(A) {
   return { jcs: Array.from({ length: end + 1 }, (_, k) => at(k).jungleMinionsKilled || 0), where, firstLane, ganks,
     firstTakedown: ft ? ft.timestamp / 1000 : null, start: p2.y - p2.x > 0 ? "top" : "bot", end };
 }
+// Seconds until a per-minute cumulative count first reaches target (linear between the minute snapshots).
+function csAt(curve, target) {
+  for (let k = 1; k < (curve || []).length; k++) {
+    if (curve[k] != null && curve[k] >= target) { const a = curve[k - 1] || 0, b = curve[k]; return Math.round((k - 1 + (b > a ? (target - a) / (b - a) : 1)) * 60); }
+  }
+  return null;
+}
+// Expert first-clear time (24 jungle CS): [p25, median, p75] from the data, or the median curve until tonight's update.
+const expertClear = (E) => E?.cs24 || (csAt(E?.jcs, 24) ? [null, csAt(E.jcs, 24), null] : null);
 // Where on the Bronze..Master+ ladder a value sits (higher is better unless lowerBetter).
 function ladderAt(v, ladder, lowerBetter) {
   const n = ladder.filter(x => lowerBetter ? v <= x : v >= x).length;
@@ -300,6 +309,16 @@ function jungleCard(A, B) {
   const J = jungleOf(A), E = B?.jungle, who = E ? `Experts on ${esc(champName(A.me.championId))}` : "Master+ junglers";
   const lane = (J.where.top || 0) + (J.where.mid || 0) + (J.where.bot || 0);
   const rows = [];
+  // First clear: when you hit 24 jungle CS (a full clear) against experts. Slow = route, smite or kiting trouble.
+  const my24 = csAt(J.jcs, 24), ex24 = expertClear(E);
+  if (ex24) {
+    const lane1 = J.firstLane && (!my24 || J.firstLane[0] * 60 < my24);
+    const slow = my24 ? my24 - ex24[1] : null, p75 = ex24[2] ?? ex24[1] + 30;
+    const verdict = !my24 ? (lane1 ? "Ganked instead of clearing" : "Never reached 24 before 14:00")
+      : lane1 && slow > 20 ? "Ganked before finishing your clear"
+      : slow <= 15 ? "On pace" : my24 <= p75 + 20 ? "A bit slow" : "Slow first clear";
+    rows.push(["First clear (24 jungle CS)", my24 ? clock(my24) : "—", `${clock(ex24[1])}${ex24[0] ? ` <span class="sub">(most ${clock(ex24[0])}–${clock(ex24[2])})</span>` : ""}`, verdict]);
+  }
   rows.push(["Jungle CS at 10:00", J.jcs[10], E?.jcs?.[10] ?? JG.jcs10[4], ladderAt(J.jcs[10], JG.jcs10)]);
   rows.push(["First kill or assist", J.firstTakedown ? clock(J.firstTakedown) : "none before 14:00", E?.first_takedown ? clock(E.first_takedown) : clock(JG.firstTakedown[4]),
     J.firstTakedown ? ladderAt(J.firstTakedown, JG.firstTakedown, true) : "below Bronze"]);
@@ -321,7 +340,8 @@ function jungleCard(A, B) {
   })();
   return `<h2>Jungle: your first 14 minutes</h2><div class="card jgl">
     <table class="jt"><tr><th></th><th>You</th><th>${who}</th><th>Your level</th></tr>
-      ${rows.map(([k, v, e, l]) => `<tr><td>${k}</td><td><b>${v}</b></td><td>${e}</td><td class="${/Master/.test(l) ? "good" : /Bronze|below/.test(l) ? "warn" : ""}">${l}</td></tr>`).join("")}</table>
+      ${rows.map(([k, v, e, l]) => `<tr><td>${k}</td><td><b>${v}</b></td><td>${e}</td><td class="${/Master|On pace/.test(l) ? "good" : /Bronze|below|Slow first|Never/.test(l) ? "warn" : ""}">${l}</td></tr>`).join("")}</table>
+    ${rows.some(r => r[3] === "Slow first clear") ? `<div class="sub">A slow first clear usually means a wasted camp, a missed Smite, a late leash or extra walking. Watch the first three minutes of the replay.</div>` : ""}
     <div class="ctitle" style="margin-top:12px">Where you spent 2:00–14:00</div>
     <div class="wbar">${seg.filter(([k]) => W[k]).map(([k, n, c]) => `<span style="flex:${W[k]};background:${c}" title="${n}: ${W[k]} min">${W[k] / tot > .08 ? n : ""}</span>`).join("")}</div>
     <div class="sub">From one position per minute, so it's rough. You started on the ${J.start} side${J.firstLane ? ` and first showed up in ${J.firstLane[1]} lane around ${J.firstLane[0]}:00` : ""}.</div>
@@ -2046,7 +2066,8 @@ function gamePlan(B, champ, role, opp) {
     const J = B.jungle;
     if (J) {
       L.push(J.start_top >= .6 ? `Most start <b>top side</b> (${pct(J.start_top)}).` : J.start_top <= .4 ? `Most start <b>bot side</b> (${pct(1 - J.start_top)}).` : `They start either side (${pct(J.start_top)} top).`);
-      if (J.jcs?.[3] != null) L.push(`Clear: about <b>${J.jcs[3]}</b> jungle CS by 3:00 and <b>${J.jcs[4]}</b> by 4:00.`);
+      const c24 = expertClear(J);
+      if (c24) L.push(`<b>First clear:</b> experts hit <b>24 jungle CS around ${clock(c24[1])}</b>${c24[0] ? ` (most between ${clock(c24[0])} and ${clock(c24[2])})` : ""}. If you're well past that, your route is losing time.${J.lane_before_clear != null ? ` ${J.lane_before_clear >= .5 ? `Over half the time (${pct(J.lane_before_clear)}) they show up in a lane <b>before</b> finishing it, so ganking early is normal on this champion.` : `Most (${pct(1 - J.lane_before_clear)}) <b>finish the clear first</b>, then look for a lane.`}` : ""}`);
       if (J.first_lane?.length) L.push(`First lane visit is usually <b>${J.first_lane[0][0]}</b> (${pct(J.first_lane[0][1] / J.n)}) around ${clock((J.first_lane_min || 3) * 60)}; first kill or assist around <b>${clock(J.first_takedown || 0)}</b>.`);
       const gl = Object.entries(J.ganks || {}).sort((a, b) => b[1][0] - a[1][0])[0];
       if (gl) L.push(`Most early takedowns come in <b>${gl[0]}</b> lane (${gl[1][0]} a game before 14:00).`);

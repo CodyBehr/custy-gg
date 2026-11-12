@@ -204,6 +204,15 @@ def area(p):
     return "jungle"
 
 
+def cs_at(curve, target):
+    """Seconds until a per-minute cumulative count first reaches target (linear between minutes), or None."""
+    for k in range(1, len(curve)):
+        if curve[k] >= target:
+            a, b = curve[k - 1], curve[k]
+            return round((k - 1 + (target - a) / (b - a)) * 60) if b > a else k * 60
+    return None
+
+
 def jungle(m, tl, me):
     """How a jungler played the first 14 minutes: clear speed, start side, where they spent time,
     ganks (takedowns and deaths in each lane), invades, scuttles and objectives."""
@@ -213,6 +222,8 @@ def jungle(m, tl, me):
     pos = lambda k: pf(k, pid).get("position") or {"x": 7400, "y": 7400}
     own = lambda p: (p["x"] + p["y"] < 14800) == (team == 100)   # own half of the map (split along the river)
     j = {"jcs": [pf(k, pid)["jungleMinionsKilled"] for k in range(0, min(len(fr), 15))]}
+    # first clear speed: when jungle CS first reaches 24 (a full clear), interpolated between minute frames
+    j["cs24"] = cs_at(j["jcs"], 24)
     p2 = pos(2)
     j["start"] = "top" if p2["y"] - p2["x"] > 0 else "bot"   # which side of the map they were on at 2:00
     j["where"] = {}
@@ -222,6 +233,8 @@ def jungle(m, tl, me):
             a = "own jungle" if own(pos(k)) else "enemy jungle"
         j["where"][a] = j["where"].get(a, 0) + 1
     j["first_lane"] = next(([k, area(pos(k))] for k in range(2, min(len(fr), 15)) if area(pos(k)) in ("top", "mid", "bot")), None)
+    # did they show up in a lane (gank/cover) before finishing the clear?
+    j["lane_before_clear"] = bool(j["first_lane"] and (j["cs24"] is None or j["first_lane"][0] * 60 < j["cs24"]))
     gank = {}
     for e in ev:
         if e["type"] != "CHAMPION_KILL" or e["timestamp"] > 840000:
@@ -250,6 +263,14 @@ def jungle(m, tl, me):
     return j
 
 
+def qs(v):
+    """[25th percentile, median, 75th percentile, n] or None."""
+    if len(v) < 10:
+        return None
+    q = S.quantiles(v, n=4)
+    return [round(q[0]), round(S.median(v)), round(q[2]), len(v)]
+
+
 def jungle_summary(rows):
     """Expert jungle habits for one champion: clear speed, start side, time in each area, ganks per lane."""
     js = [r["jg"] for r in rows if r.get("jg")]
@@ -262,6 +283,8 @@ def jungle_summary(rows):
     return {
         "n": n,
         "jcs": [med([j["jcs"][k] for j in js if len(j["jcs"]) > k]) for k in range(15)],
+        "cs24": qs([c for c in (j.get("cs24") or cs_at(j["jcs"], 24) for j in js) if c]),
+        "lane_before_clear": round(sum(1 for j in js if j.get("lane_before_clear", bool(j.get("first_lane") and (cs_at(j["jcs"], 24) or 1e9) > j["first_lane"][0] * 60))) / n, 2),
         "start_top": round(sum(1 for j in js if j["start"] == "top") / n, 2),
         "where": {a: round(S.mean(j["where"].get(a, 0) for j in js), 2) for a in areas},
         "first_lane": Counter(j["first_lane"][1] for j in js if j.get("first_lane")).most_common(),
