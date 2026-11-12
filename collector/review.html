@@ -220,6 +220,8 @@ details.allnums { margin-top:22px; } details.allnums summary { cursor:pointer; c
 .legend i { display:inline-block; width:12px; height:8px; border-radius:2px; margin-right:5px; vertical-align:middle; }
 .xn dl { margin:6px 0 0; } .xn dt { color:var(--mute); font-size:12px; margin-top:8px; } .xn dd { margin:2px 0 0; line-height:1.45; white-space:pre-line; }
 .xn .as { font-size:12px; color:var(--mute); margin-top:10px; font-weight:600; } .xn .src { margin-top:10px; font-size:12px; color:var(--mute); } .xn .old { display:inline-block; font-size:11px; padding:1px 6px; border-radius:6px; border:1px solid var(--line-soft); margin-left:6px; }
+.vtabs { display:flex; gap:6px; flex-wrap:wrap; margin:6px 0 10px; } .vtabs button { padding:5px 10px; border-radius:8px; border:1px solid var(--line); background:transparent; color:var(--text); font-size:13px; cursor:pointer; }
+.vtabs button.on { border-color:var(--gold); background:rgba(200,170,110,.12); } .vtabs small { color:var(--mute); font-size:11px; margin-left:4px; }
 </style>
 </head>
 <body>
@@ -355,28 +357,37 @@ function jungleCard(A, B) {
 function setupCard(A, B) {
   const S = B?.setup; if (!S || !DD.runes) return "";
   const st = A.me.stats || {}, oppAlias = A.opp ? DD.champ[A.opp.championId]?.id : null, vs = S.vs?.[oppAlias];
-  const rec = vs?.rec || S.rec; if (!rec) return "";
   const mine = st.perk0 ? [st.perkPrimaryStyle, st.perkSubStyle, [0, 1, 2, 3, 4, 5].map(i => st["perk" + i]), [st.statPerk0, st.statPerk1, st.statPerk2]] : null;
   const page = (pg, other) => `<div class="rrow">${styleIcon(pg[0])}${pg[2].slice(0, 4).map((id, i) => `<span class="${other && other[2].includes(id) ? "same" : ""}">${runeIcon(id, i === 0)}</span>`).join("")}
     <i class="sep"></i>${styleIcon(pg[1])}${pg[2].slice(4).map(id => `<span class="${other && other[2].includes(id) ? "same" : ""}">${runeIcon(id)}</span>`).join("")}
     <small>${pg[3].map(id => esc(SHARDS[id] || "")).join(" · ")}</small></div>`;
+  // Several setups are common on most champions: compare with experts who took the same keystone as you.
+  const V = S.variants || [], myV = mine ? V.find(v => v.keystone === mine[2][0]) : null;
+  const rec = (myV?.rec) || vs?.rec || S.rec; if (!rec) return "";
+  const ksName = (id) => esc(DD.runes[id]?.name || "another keystone"), P = (x) => Math.round(x * 100) + "%";
   const ks = (vs?.keystones || S.keystones || []);
   const myKs = mine ? ks.find(k => k[0] === mine[2][0]) : null;
-  const spells = (vs?.spells?.[0]) || S.spells?.[0], mySp = [A.me.spell1Id, A.me.spell2Id].sort((a, b) => a - b);
+  const spells = (myV?.spells?.[0]) || (vs?.spells?.[0]) || S.spells?.[0], mySp = [A.me.spell1Id, A.me.spell2Id].sort((a, b) => a - b);
   const spOk = spells && spells[0].join() === mySp.join();
   const mySkills = A.events.filter(e => e.type === "SKILL_LEVEL_UP" && e.participantId === A.me.participantId && (e.levelUpType || "NORMAL") === "NORMAL").map(e => e.skillSlot);
   const order = (q) => { const n = { 1: 0, 2: 0, 3: 0 }, done = []; for (const x of q) if (x in n && ++n[x] === 5 && !done.includes(x)) done.push(x);
     return [...done, ...[1, 2, 3].filter(x => !done.includes(x)).sort((a, b) => n[b] - n[a])].map(x => "QWE"[x - 1]).join(""); };
   const myOrder = mySkills.length >= 9 ? order(mySkills) : null;
   const lines = [];
-  if (mine) lines.push(mine[2][0] === rec.page[2][0] ? `<span class="good">Same keystone as the experts.</span>`
-    : `You took <b>${esc(DD.runes[mine[2][0]]?.name || "another keystone")}</b>${myKs ? `, which ${Math.round(myKs[1] * 100)}% of experts also take` : ", which few experts take"}; most take <b>${esc(DD.runes[rec.page[2][0]]?.name || "")}</b>${ks[0] ? ` (${Math.round(ks[0][1] * 100)}%)` : ""}.`);
+  if (mine) {
+    if (myV && V.length > 1) lines.push(`<span class="good">You ran the <b>${ksName(myV.keystone)}</b> setup, one of ${V.length} common expert setups (${P(myV.rate)} of experts, ${P(myV.win)} wins).</span> The page below is from experts who took it too.`);
+    else if (myV || mine[2][0] === rec.page[2][0]) lines.push(`<span class="good">Same keystone as the experts.</span>`);
+    else lines.push(`You took <b>${ksName(mine[2][0])}</b>${myKs ? `, which ${P(myKs[1])} of experts also take` : ", which few experts take"}. ${V.length > 1 ? `Experts take ${V.map(v => `<b>${ksName(v.keystone)}</b> (${P(v.rate)})`).join(", ")}.` : `Most take <b>${ksName(rec.page[2][0])}</b>${ks[0] ? ` (${P(ks[0][1])})` : ""}.`}`);
+    const others = V.filter(v => v !== myV);
+    if (myV && others.length) lines.push(`<span class="sub">Other expert setups: ${others.map(v => `${ksName(v.keystone)} ${P(v.rate)} (${P(v.win)} wins)`).join(" · ")}.</span>`);
+  }
   if (spells) lines.push(spOk ? `<span class="good">Same summoner spells as most experts.</span>` : `Spells: you took ${mySp.map(spellIcon).join("")} · most experts take ${spells[0].map(spellIcon).join("")} (${Math.round(spells[1] * 100)}%).`);
-  if (S.skills && myOrder) lines.push(myOrder.slice(0, 1) === S.skills.order.slice(0, 1) ? `<span class="good">Maxed ${myOrder[0]} first, like ${Math.round(S.skills.rate * 100)}% of experts.</span>`
-    : `You maxed <b>${myOrder.slice(0, 3).split("").join(" › ")}</b>; ${Math.round(S.skills.rate * 100)}% of experts max <b>${S.skills.order.slice(0, 3).split("").join(" › ")}</b>.`);
+  const SK = myV?.skills || S.skills;
+  if (SK && myOrder) lines.push(myOrder.slice(0, 1) === SK.order.slice(0, 1) ? `<span class="good">Maxed ${myOrder[0]} first, like ${P(SK.rate)} of experts${myV && V.length > 1 ? ` on this setup` : ""}.</span>`
+    : `You maxed <b>${myOrder.slice(0, 3).split("").join(" › ")}</b>; ${P(SK.rate)} of experts${myV && V.length > 1 ? ` on this setup` : ""} max <b>${SK.order.slice(0, 3).split("").join(" › ")}</b>.`);
   return `<h2>Runes, spells and skills</h2><div class="card setup">
     ${mine ? `<div class="lbl">Yours</div>${page(mine, rec.page)}` : ""}
-    <div class="lbl">Experts${vs?.rec ? ` vs ${esc(champName(A.opp.championId))} (${vs.n} games)` : ` on ${esc(champName(A.me.championId))}`}</div>${page(rec.page, mine)}
+    <div class="lbl">${myV?.rec && V.length > 1 ? `Experts who took ${ksName(myV.keystone)} (${myV.n} games)` : `Experts${vs?.rec ? ` vs ${esc(champName(A.opp.championId))} (${vs.n} games)` : ` on ${esc(champName(A.me.championId))}`}`}</div>${page(rec.page, mine)}
     <div class="notes">${lines.map(l => `<div>${l}</div>`).join("")}</div>
     <div class="sub">Gold rings mark runes you share. The expert page is the most common pick in each slot.</div></div>`;
 }
@@ -393,9 +404,10 @@ function buildStrip(A) {
 }
 // Experts' 3 most common build paths, with your build underneath.
 function buildPaths(A, B) {
+  const mineIds = A.items.slice(0, 6).map(b => b.id), first3 = new Set(mineIds.slice(0, 3)), mineAll = new Set(mineIds);
+  if (B.builds?.length > 1) return buildOptions(A, B, mineIds, first3, mineAll);
   const paths = B.paths?.length ? B.paths : (B.orders || []).slice(0, 3).map(([items, games]) => ({ items, games, rates: [] }));
   if (!paths.length) return "";
-  const mineIds = A.items.slice(0, 6).map(b => b.id), first3 = new Set(mineIds.slice(0, 3)), mineAll = new Set(mineIds);
   const icon = (id, hit, note) => `<div class="pi${hit ? " hit" : ""}${note ? " late" : ""}" title="${esc(itemName(id))}"><img src="${itemIcon(id)}" alt=""><span>${esc(itemName(id))}</span>${note ? `<em>${note}</em>` : ""}</div>`;
   const row = (ids, label, sub, cls, match, note = () => "") => `<div class="path ${cls}"><div class="pl"><b>${label}</b><small>${sub}</small></div>
     <div class="pitems">${ids.map((id, i) => (i ? `<i class="arr">${i === 3 ? "┊" : "›"}</i>` : "") + icon(id, match(id, i), note(i))).join("")}</div></div>`;
@@ -407,6 +419,23 @@ function buildPaths(A, B) {
         (id, i) => paths.some(p => i < 3 ? p.items[i] === id : p.items.slice(3).includes(id))) : ""}
     <div class="sub" style="margin-top:8px">${same >= 0 ? `Your first 3 items match the experts' #${same + 1} path. ` : ""}Gold borders mark items you share with that path. Few games last long enough for item 4, so items after ┊ are what experts usually add later, with the share of those games that bought each.</div>
   </div>`;
+}
+// The experts' common builds (by first item), each with its full path; yours is matched to the one you went.
+function buildOptions(A, B, mineIds, first3, mineAll) {
+  const P = (x) => Math.round(x * 100) + "%";
+  const icon = (id, hit, note) => `<div class="pi${hit ? " hit" : ""}${note ? " late" : ""}" title="${esc(itemName(id))}"><img src="${itemIcon(id)}" alt=""><span>${esc(itemName(id))}</span>${note ? `<em>${note}</em>` : ""}</div>`;
+  const row = (ids, label, sub, cls, match, note = () => "") => `<div class="path ${cls}"><div class="pl"><b>${label}</b><small>${sub}</small></div>
+    <div class="pitems">${ids.map((id, i) => (i ? `<i class="arr">${i === 3 ? "┊" : "›"}</i>` : "") + icon(id, match(id, i), note(i))).join("")}</div></div>`;
+  const same = B.builds.findIndex(b => b.item === mineIds[0]);
+  const rows = B.builds.map((b, n) => { const p = b.path || { items: [b.item], rates: [] };
+    return row(p.items, `${esc(itemName(b.item))} first`, `${P(b.rate)} of experts · ${P(b.win)} wins · ${b.n} games`, n === same ? "same" : "",
+      (id, i) => i < 3 ? first3.has(id) : mineAll.has(id), i => i >= 3 && p.rates?.[i - 3] ? P(p.rates[i - 3]) : ""); }).join("");
+  const mineRow = mineIds.length ? row(mineIds, "Your build", A.items.length >= 3 ? `3rd item at ${clock(A.items[2].t)}` : "not finished", "yours",
+    (id, i) => { const b = B.builds[same >= 0 ? same : 0]?.path?.items || []; return i < 3 ? b[i] === id : b.slice(3).includes(id); }) : "";
+  const note = !mineIds.length ? "" : same >= 0 ? `You went the <b>${esc(itemName(mineIds[0]))}</b> build, like ${P(B.builds[same].rate)} of experts; gold borders compare you with that path. `
+    : `Your first item, <b>${esc(itemName(mineIds[0]))}</b>, isn't one of the experts' common starts on ${esc(champName(A.me.championId))}. `;
+  return `<div class="card paths">${rows}${mineRow}
+    <div class="sub" style="margin-top:8px">${note}Experts on this champion go more than one way; each row is a build at least 6% of them use, with its own path. Items after ┊ are what they usually add later, with the share that bought each.</div></div>`;
 }
 const itemIcon = (id) => DD.v ? `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/item/${id}.png` : "";
 const champIcon = (id) => DD.champ[id] ? `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/champion/${DD.champ[id].id}.png` : "";
@@ -2205,19 +2234,26 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
   parts.push(gamePlan(B, st.champion, st.role, C.opp));
   parts.push(expertNotes(st.champion, C.opp, () => C === MU ? drawMatchups(false) : drawChampSelect(C, head, bodyId)));
   if (!live && !C.page) parts.unshift(`<div class="note">${C.phase === "InProgress" ? "In game." : "Champ select is over."} Showing your last pick so you can check the build and skill order. This window switches to your next champ select by itself.</div>`);
-  // Runes
-  const rec = vs?.rec || S?.rec;
+  // Runes: one tab per setup experts commonly run (by keystone); the matchup page when it uses the same keystone
+  const V = S?.variants || [], P = (x) => Math.round(x * 100) + "%";
+  if (C.vFor !== st.champion + "/" + st.role) { C.vFor = st.champion + "/" + st.role; C.rv = null; C.bv = null; }
+  if (C.rv == null || C.rv >= V.length) C.rv = Math.max(0, V.findIndex(v => v.keystone === vs?.rec?.page?.[2]?.[0]));
+  const cur = V[C.rv];
+  const useVs = vs?.rec && (!cur || vs.rec.page[2][0] === cur.keystone);
+  const rec = useVs ? vs.rec : (cur?.rec || S?.rec);
+  const tabs = (list, sel, attr, label) => list.length > 1 ? `<div class="vtabs">${list.map((x, i) => `<button class="${i === sel ? "on" : ""}" data-${attr}="${i}">${label(x)}</button>`).join("")}</div>` : "";
   if (rec) {
-    const [prim, sub, perks, shards] = rec.page, ks = (vs?.keystones || S.keystones || [])[0];
-    parts.push(`<div class="card csr"><div class="ctitle">Runes ${vs?.rec ? `vs ${esc(csName(C.opp))}` : ""}</div>
+    const [prim, sub, perks, shards] = rec.page, ks = cur ? [cur.keystone, cur.rate] : (vs?.keystones || S.keystones || [])[0];
+    parts.push(`<div class="card csr"><div class="ctitle">Runes ${useVs ? `vs ${esc(csName(C.opp))}` : ""}</div>
+      ${tabs(V, C.rv, "rv", v => `${esc(DD.runes?.[v.keystone]?.name || "Keystone")} <small>${P(v.rate)} · ${P(v.win)} wins</small>`)}
       <div class="rp"><div class="rcol">${styleIcon(prim)}${runeIcon(perks[0], true)}${perks.slice(1, 4).map(id => runeIcon(id)).join("")}</div>
         <div class="rcol">${styleIcon(sub)}${perks.slice(4, 6).map(id => runeIcon(id)).join("")}</div>
         <div class="rcol shards">${shards.map(id => `<span>${esc(SHARDS[id] || id)}</span>`).join("")}</div></div>
-      <div class="sub">${ks ? `${esc(DD.runes?.[ks[0]]?.name || "This keystone")} in ${Math.round(ks[1] * 100)}% of expert games${vs?.rec ? ` against ${esc(csName(C.opp))} (${vs.n} games)` : ` on ${esc(csName(st.champion))}`}. ` : ""}Other runes are the most common pick in each slot.</div>
+      <div class="sub">${ks ? `${esc(DD.runes?.[ks[0]]?.name || "This keystone")} in ${P(ks[1])} of expert games on ${esc(csName(st.champion))}${useVs ? `; this page is from their games against ${esc(csName(C.opp))} (${vs.n})` : ""}. ` : ""}${V.length > 1 ? "Pick a tab for the other setups experts run. " : ""}Other runes are the most common pick in each slot.</div>
       ${live ? `<button class="primary" id="csRunes">Use this rune page</button>` : ""}</div>`);
   }
   // Spells
-  const sp = (vs?.spells?.[0]) || S?.spells?.[0];
+  const sp = (useVs && vs?.spells?.[0]) || cur?.spells?.[0] || (vs?.spells?.[0]) || S?.spells?.[0];
   if (sp) parts.push(`<div class="card css"><div class="ctitle">Summoner spells</div><div class="sp">${sp[0].map(spellIcon).join("")}<span>${Math.round(sp[1] * 100)}% of expert games${vs?.spells?.[0] ? ` vs ${esc(csName(C.opp))}` : ""}</span></div>
     ${live ? `<button id="csSpells">Set these spells</button>` : ""}</div>`);
   // Lane fights by level
@@ -2225,28 +2261,34 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
   if (ls?.rows.length) parts.push(`<div class="card csl"><div class="ctitle">Lane fights by level${ls.vs ? ` vs ${esc(csName(C.opp))}` : ""}</div>${levelBars(ls)}
     <div class="sub">Kills and deaths against the lane opponent before 14:00, by the expert's level at the time${ls.vs ? " (this matchup where there are 10+ fights at a level, otherwise all matchups)" : ", all matchups"}.</div></div>`);
   // Skills
-  if (S?.skills) {
-    const k = S.skills, L = (s) => "QWER"[s - 1];
+  if (cur?.skills || S?.skills) {
+    const k = cur?.skills || S.skills, L = (s) => "QWER"[s - 1];
     parts.push(`<div class="card csk"><div class="ctitle">Skill order: max ${k.order.slice(0, 3).split("").join(" › ")}</div>
       <div class="lv18">${k.typical.map((s, i) => `<span class="s${s}"><i>${i + 1}</i>${L(s)}</span>`).join("")}</div>
       <div class="sub">${Math.round(k.rate * 100)}% of experts max in this order.</div></div>`);
   }
-  // Build
-  const path = (B?.paths || [])[0];
-  const start = S?.start?.[0], backs = (S?.backs || []).slice(0, 3);
+  // Build: one tab per build experts commonly go (by first item)
+  const BL = (B?.builds || []).filter(b => b.path);
+  if (C.bv == null || C.bv >= BL.length) C.bv = 0;
+  const bcur = BL[C.bv];
+  const path = bcur?.path || (B?.paths || [])[0];
+  const start = bcur?.start ? [bcur.start] : S?.start?.[0], backs = (S?.backs || []).slice(0, 3);
   if (path || start) {
     const icons = (ids) => ids.map(id => `<img src="${itemIcon(id)}" title="${esc(itemName(id))}" alt="">`).join("");
     parts.push(`<div class="card csb"><div class="ctitle">Build</div>
+      ${tabs(BL, C.bv, "bv", b => `${esc(itemName(b.item))} <small>${P(b.rate)} · ${P(b.win)} wins</small>`)}
       ${start ? `<div class="row"><small>Start</small><div class="ics">${icons(start[0])}</div></div>` : ""}
       ${backs.map((b, i) => `<div class="row"><small>Back ${i + 1} · ~${clock(b.t)}</small><div class="ics">${b.items.map(([id, r]) => `<span title="${esc(itemName(id))}: ${Math.round(r * 100)}% buy it">${icons([id])}</span>`).join("")}</div></div>`).join("")}
       ${path ? `<div class="row"><small>Core path</small><div class="ics core">${icons(path.items)}</div></div>` : ""}
       ${live ? `<button id="csItems">Add as an item set</button>
-      <div class="sub">The item set shows in the in-game shop under "custy.gg".</div>` : ""}</div>`);
+      <div class="sub">The item set shows in the in-game shop under "custy.gg"${BL.length > 1 ? ", with every build above in it" : ""}.</div>` : ""}</div>`);
   }
   if (!S) parts.unshift(`<div class="note">${B ? "Expert runes, spells and skill order for this champion are still being collected; check back after the next update." : `No expert data for ${esc(csName(st.champion))} ${esc(ROLE_NAME[st.role] || "")} yet.`}</div>`);
   $(bodyId).innerHTML = parts.join("");
 
-  document.querySelectorAll("[data-opp]").forEach(b => b.onclick = () => { C.picked = b.dataset.opp; C.key = ""; drawChampSelect(C, head, bodyId); });
+  document.querySelectorAll("[data-opp]").forEach(b => b.onclick = () => { C.picked = b.dataset.opp; C.key = ""; C.rv = null; drawChampSelect(C, head, bodyId); });
+  document.querySelectorAll("[data-rv]").forEach(b => b.onclick = () => { C.rv = +b.dataset.rv; drawChampSelect(C, head, bodyId); });
+  document.querySelectorAll("[data-bv]").forEach(b => b.onclick = () => { C.bv = +b.dataset.bv; drawChampSelect(C, head, bodyId); });
   const post = (path, body, done) => api(path, { method: "POST", body: JSON.stringify(body) }).then(() => toast(done)).catch(e => toast(e.message));
   if ($("csRunes")) $("csRunes").onclick = () => { const [p, s, perks, shards] = rec.page;
     post("/api/champselect/runes", { name: `custy.gg ${csName(st.champion)}`, primary: p, sub: s, perks, shards }, "Rune page added and selected."); };
@@ -2255,7 +2297,8 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
     const blocks = [];
     if (start) blocks.push({ name: "Start", items: start[0] });
     backs.forEach((b, i) => blocks.push({ name: `Back ${i + 1} (~${clock(b.t)})`, items: b.items.map(x => x[0]) }));
-    if (path) blocks.push({ name: "Core path", items: path.items });
+    if (BL.length > 1) BL.forEach(b => blocks.push({ name: `${itemName(b.item)} build (${P(b.rate)} of experts)`, items: b.path.items }));
+    else if (path) blocks.push({ name: "Core path", items: path.items });
     post("/api/champselect/itemset", { championId: st.championId, title: `custy.gg ${csName(st.champion)}`, blocks }, "Item set added. Find it in the shop under custy.gg.");
   };
 }

@@ -172,6 +172,7 @@ def aggregate(rows, source, built):
             break
     out["orders"] = [[list(k), c] for k, c in Counter(tuple(i for _, i in r["items"][:3]) for r in rows if len(r["items"]) >= 3).most_common(6)]
     out["paths"] = full_paths(rows)
+    out["builds"] = builds(rows)
     out["levels"] = level_races(rows)
     out["setup"] = setup(rows)
     out["matchups"] = matchups(rows)
@@ -439,6 +440,18 @@ def setup(rows, top=3, min_vs=8):
         return out
     out = {"rec": recommended(rows), "pages": pages(rows), "keystones": keystones(rows), "spells": spells(rows), "skills": skills(rows),
            "start": starts(rows), "backs": backs(rows)}
+    # Every rune setup a real share of experts use (by keystone), each with its own page, spells and skills, so a
+    # player on the second-most-common setup is compared with experts who made the same choice.
+    with_runes = [r for r in rows if r.get("runes")]
+    variants = []
+    for ks, k in Counter(r["runes"][2][0] for r in with_runes).most_common(4):
+        sub = [r for r in with_runes if r["runes"][2][0] == ks]
+        if k < 20 or k / len(with_runes) < 0.06:
+            continue
+        variants.append({"keystone": ks, "rate": round(k / len(with_runes), 3), "n": k,
+                         "win": round(sum(1 for r in sub if r["win"]) / k, 3), "rec": recommended(sub),
+                         "spells": spells(sub)[:1], "skills": skills(sub)})
+    out["variants"] = variants[:3]
     by = defaultdict(list)
     for r in rows:
         if r.get("opp") and r.get("runes"):
@@ -465,6 +478,22 @@ def level_races(rows, even=3):
                 by[r["opp"]].append(r)
         out[str(n_)] = {"first": f, "even": e, "n": c, "by": {o: rate(rs) for o, rs in by.items() if len(rs) >= 8}}
     return out
+
+
+def builds(rows, top=3):
+    """Every build a real share of experts go (by first finished item), each with its own full path, starting
+    items and win rate, so a player who went the second build is compared with experts who did the same."""
+    have = [r for r in rows if r.get("items")]
+    out = []
+    for item, k in Counter(r["items"][0][1] for r in have).most_common(5):
+        if k < 20 or k / len(have) < 0.06:
+            continue
+        sub = [r for r in have if r["items"][0][1] == item]
+        path = (full_paths(sub, top=1) or [None])[0]
+        start = Counter(tuple(r["start"]) for r in sub if r.get("start")).most_common(1)
+        out.append({"item": item, "rate": round(k / len(have), 3), "n": k, "win": round(sum(1 for r in sub if r["win"]) / k, 3),
+                    "path": path, "start": list(start[0][0]) if start else None})
+    return out[:top]
 
 
 def full_paths(rows, top=3):
