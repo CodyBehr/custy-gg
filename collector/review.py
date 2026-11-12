@@ -681,6 +681,8 @@ def make_handler(cfg, token):
                 return self._send(200, {"ok": True})
             if not self._allowed():
                 return self._send(403, {"error": "forbidden"})
+            if url.path == "/api/app-version":      # lets an open page notice that the app updated
+                return self._send(200, {"version": core.VERSION})
             if url.path == "/api/games":
                 me, err = refresh(cfg)
                 if me:

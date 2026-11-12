@@ -239,6 +239,7 @@ details.fight .fpl .pop img { width:26px; height:26px; border-radius:4px; border
 .fight .fpl { display:flex; align-items:center; gap:8px; padding:3px 0; } .fight .fpl .nm { min-width:110px; } .fight .fpl .nm i { color:var(--mute); font-style:normal; font-size:12px; }
 .fight .fpl .its { display:flex; gap:3px; flex-wrap:wrap; } .fight .fpl .its img { width:22px; height:22px; border-radius:4px; opacity:.6; border:1px solid var(--line); }
 .fight .fpl .its img.done { opacity:1; border-color:var(--gold); width:26px; height:26px; } .fight .fpl .g { color:var(--mute); font-size:12px; margin-left:auto; } .fight .fpl .g em { color:var(--amber-ink); font-style:normal; }
+#updbar { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:50; background:#1b2a44; border:1px solid var(--gold); color:var(--text); padding:10px 14px; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,.5); display:flex; gap:12px; align-items:center; font-size:14px; }
 </style>
 </head>
 <body>
@@ -2360,6 +2361,18 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
 
 if (new URLSearchParams(location.search).get("champselect")) startChampSelect();
 else loadDD().then(loadCsData).then(loadList).catch(e => { $("list").innerHTML = `<div class="note">Couldn't load: ${esc(e.message)}</div>`; });
+
+// Notice when the app updated (or restarted) under an open page, and offer a reload.
+(() => {
+  let loaded = null, misses = 0;
+  const bar = (msg, reload) => { if ($("updbar")) return; const d = document.createElement("div"); d.id = "updbar";
+    d.innerHTML = `${msg}${reload ? ` <button class="primary">Reload</button>` : ""}`; document.body.appendChild(d);
+    if (reload) d.querySelector("button").onclick = () => location.reload(); };
+  const check = () => api("/api/app-version").then(v => { misses = 0;
+      if (!loaded) loaded = v.version; else if (v.version && v.version !== loaded) bar(`custy.gg updated to ${esc(v.version)}.`, true); })
+    .catch(() => { if (++misses >= 2) bar("custy.gg restarted, probably for an update. Open the review again from the tray icon.", false); });
+  check(); setInterval(check, 3 * 60 * 1000);
+})();
 </script>
 </body>
 </html>
