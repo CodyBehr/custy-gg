@@ -2088,18 +2088,26 @@ function gamePlan(B, champ, role, opp) {
       const spikes = [[B.timings?.legendary1?.[1], path[0]], [B.timings?.legendary2?.[1], path[1]]].filter(([t, id]) => t && id);
       const spikeNear = (m) => spikes.filter(([t]) => t <= (m + 1.5) * 60 && t >= (m - 3) * 60).pop();
       const vsWho = general ? "" : ` on ${esc(name)}`;
+      // players think in levels: the experts' typical level at each minute (median)
+      const lvAt = (m) => B.minutes?.level?.[Math.min(m, (B.minutes.level.length || 1) - 1)]?.[1];
+      const lvls = (a, b) => { const x = lvAt(a), y = lvAt(b); return x && y ? (x === y ? `level ${x}` : `levels ${x}–${y}`) : `${a}:00–${b}:00`; };
       if (up && up.d >= 150) {
         const sp = spikeNear(up.m);
-        L.push(`<b>Power window:</b> experts${vsWho} pull ahead most from ${up.m}:00 to ${up.m + 3}:00 (${g(up.d)} gold)${sp ? `, right after finishing ${esc(itemName(sp[1]))} (~${clock(sp[0])})` : ""}. Look for trades then.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
+        L.push(`<b>Power window: ${lvls(up.m, up.m + 3)}</b>${sp ? `, right after ${esc(itemName(sp[1]))}` : ""} (about ${up.m}:00–${up.m + 3}:00). Experts${vsWho} pull ahead most here (${g(up.d)} gold). Look for trades then.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
       }
-      if (down && down.d <= -150) L.push(`<b>Careful</b> from ${down.m}:00 to ${down.m + 3}:00: experts usually lose ${Math.round(-down.d)} gold of lead${vsWho} there. Play safe and farm.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
+      if (down && down.d <= -150) {
+        // name the item that ends the weak stretch, if they finish one during or just after it
+        const fix = spikes.find(([t]) => t >= down.m * 60 && t <= (down.m + 5) * 60);
+        L.push(`<b>Careful: ${lvls(down.m, down.m + 3)}</b>${fix ? `, before ${esc(itemName(fix[1]))}` : ""} (about ${down.m}:00–${down.m + 3}:00). Experts usually lose ${Math.round(-down.d)} gold of lead${vsWho} here. Play safe and farm${fix ? ` until ${esc(itemName(fix[1]))} is done` : ""}.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
+      }
     }
     const ls = levelStrength(B, opp);
     if (ls && (ls.strong || ls.weak)) {
       L.push(`<b>By level</b>${ls.vs ? ` vs ${esc(name)}` : ""}: ${ls.strong ? `experts win most of their lane fights at level${/[–and]/.test(ls.strong) ? "s" : ""} <b>${ls.strong}</b>` : ""}${ls.strong && ls.weak ? "; " : ""}${ls.weak ? `they lose most at level${/[–and]/.test(ls.weak) ? "s" : ""} <b>${ls.weak}</b>, so avoid fights there` : ""}.`);
     }
     const fb = M?.first_back ?? B.timings?.first_back?.[1], back = S.backs?.[0];
-    if (fb) L.push(`First back around <b>${clock(fb)}</b>${back?.items?.length ? `, usually for ${back.items.slice(0, 2).map(([id]) => esc(itemName(id))).join(" and ")}` : ""}.`);
+    const fbLv = B.minutes?.level?.[Math.floor((fb || 0) / 60)]?.[1];
+    if (fb) L.push(`First back around <b>${clock(fb)}</b>${fbLv ? ` (level ${fbLv})` : ""}${back?.items?.length ? `, usually for ${back.items.slice(0, 2).map(([id]) => esc(itemName(id))).join(" and ")}` : ""}.`);
     if (!M && opp) L.push(`<span class="sub">Not enough expert games against ${esc(name)} for matchup numbers; these are for ${esc(me)} in general.</span>`);
   }
   return L.length ? `<div class="card plan"><div class="ctitle">Game plan${opp ? ` vs ${esc(name)}` : ""}</div>${L.map(l => `<div>${l}</div>`).join("")}</div>` : "";
