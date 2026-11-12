@@ -460,6 +460,7 @@ def run_with_tray(cfg, start_collector):
         pystray.MenuItem("Start with Windows", toggle_autostart, checked=lambda item: autostart_enabled()),
         pystray.MenuItem("Update automatically", toggle_updates, checked=lambda item: auto_update_on()),
         pystray.MenuItem("Open log", open_log),
+        pystray.MenuItem("Version " + core.VERSION, None, enabled=False),
         pystray.Menu.SEPARATOR,
         pystray.MenuItem("Quit", quit_app),
     )
