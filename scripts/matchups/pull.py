@@ -29,6 +29,7 @@ ALIASES = {
     "sej": "Sejuani", "kayn": "Kayn", "gnar": "Gnar", "ksante": "KSante", "belveth": "Belveth",
 }
 LABEL = re.compile(r"champ|opponent|matchup|vs\.?|enemy|name", re.I)
+PLACEHOLDER = re.compile(r"\s*(in progress|tbd|todo|wip|coming soon|n/?a|-+|\?+|\.+)\s*\.?\s*", re.I)
 HEAD = re.compile(r"\s*(vs\.?\s*)?(champions?( name)?|opponents?|matchups?|enem(y|ies)|against)\s*:?\s*", re.I)
 
 
@@ -129,7 +130,7 @@ def parse(text, me, look):
         fields = []
         for c, v in enumerate(r):
             v = " ".join(v.split()) if "\n" not in v else "\n".join(" ".join(x.split()) for x in v.splitlines() if x.strip())
-            if c == oc or not v or v.startswith("http"):
+            if c == oc or not v or v.startswith("http") or PLACEHOLDER.fullmatch(v):
                 continue
             label = labels.get(c, "")
             if label and LABEL.fullmatch(label.strip(" :")):

@@ -588,10 +588,6 @@
 {
 "fields": [
 [
-"Difficulty",
-"????"
-],
-[
 "Rune Page",
 "remake"
 ]
@@ -1932,16 +1928,6 @@
 [
 "Rune Page",
 "pta"
-]
-]
-}
-],
-"Yuumi": [
-{
-"fields": [
-[
-"Difficulty",
-"????"
 ]
 ]
 }
