@@ -1,0 +1,3785 @@
+{
+"champ": "Garen",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1hoDv6XMqwK_ABrUaeqM0D8UP6jDbiw33G9m7USmCrLg/edit",
+"author": "Federals1",
+"rank": "Challenger",
+"updated": "2026-11"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Executioner's Calling > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+],
+[
+"Tips (summarized from Federals1's guide)",
+"Take Conqueror and look to duel him early and repeatedly to get ahead, rather than waiting to scale."
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Null-Magic Mantle > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Conditioning, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Ambessa": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Shield Bash, Second Wind, Overgrowth\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Serpent's Fang > Sheen > Stridebreaker > Trinity Force"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Conditioning, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"level up order",
+"3 points E > Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Lord Dominik's Regards > Serpent's Fang"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > mercury's treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Inspiration: Unsealed Spellbook, Magical Footwear, Biscuit Delivery, Cosmic Insight\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Negatron Cloak > Tiamat > Stridebreaker > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, scaling health, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Warmog's Armor > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Demolish, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Conditioning, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Conditioning, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Executioner's Calling > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Shield Bash, Second Wind, Overgrowth\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Sheen > Boots > Trinity Force > Plated Steelcaps > Stridebreaker > Black Cleaver"
+],
+[
+"Matchup difficulty",
+"Extremely hard Matchup"
+],
+[
+"Tips (summarized from Federals1's guide)",
+"A Conqueror lane: force early fights to snowball a lead while your early dueling is strongest."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, flat health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Boots of Swiftness > Trinity Force > Youmuu's Ghostblade > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+],
+[
+"Tips (summarized from Federals1's guide)",
+"He can buy early health and armor to stop you triggering Stormraider's Surge, unless your first item is something like Trinity Force. Manage your cooldowns carefully in this juggernaut lane."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triump, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Boots > Executioner's Calling > Boots of Swiftness > Stridebreaker > Voltaic Cyclosword > Mortal Reminder > Infinity Edge"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Conditioning, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > mercury's treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Bramble Vest > Plated Steelcaps > Stridebreaker > Black Cleaver > Spear of Shojin > Sterak's Gage"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+],
+[
+"Tips (summarized from Federals1's guide)",
+"With Conqueror, this is a lane to abuse early: fight her often in the first levels to build a lead before she scales."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Ruby Crystal > Plated Steelcaps > Stridebreaker > Randuin's Omen > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder > Randuin's Omen"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Shield Bash, Second Wind, Overgrowth\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Trinity Force > Youmuu's Ghostblade > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+]
+]
+}
+],
+"Hwei": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Ghost + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"level up order",
+"3 points E > Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Boots > Trinity Force > Lord Dominik's Regards > Voltaic Cyclosword"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, flat health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Bramble Vest > Plated Steelcaps > Stridebreaker > Black Cleaver > Sterak's Gage"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Demolish, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+],
+"as": "Jarvan"
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Berserker's Greaves > Stridebreaker > Lord Dominik's Regards > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Nimbus Cloak, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Lord Dominik's Regards > Serpent's Fang"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+],
+[
+"Tips (summarized from Federals1's guide)",
+"Like other tanks, he soaks enough damage that you can't reliably trigger Stormraider's Surge, which blunts your Stridebreaker trading pattern."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Serpent's Fang > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Demolish\nSmall shards: adaptive force, movement speed, scaling health\nSummoner spells: Flash + Ghost"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Negatron Cloak > Stridebreaker > Kaenic Rookern > Hullbreaker > Phantom Dancer"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"level up order",
+"3 points E > Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Inspiration: Unsealed Spellbook, Cash Back, Biscuit Delivery, Cosmic Insight\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Negatron Cloak > Tiamat > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Kaenic Rookern"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Plated Steelcaps > Stridebreaker > Lord Dominik's Regards > Voltaic Cyclosword"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Inspiration: Unsealed Spellbook, Magical Footwear, Biscuit Delivery, Cosmic Insight\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, movement speed, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Executioner's Calling > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade/ Serpent's Fang is he maxes W+ Eclipse buy > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Demolish\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Black Cleaver > Serpent's Fang"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Demolish\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Mel": [
+{
+"fields": [
+[
+"level up order",
+"3 points E > Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Milio": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Serpent's Fang > Stridebreaker > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Extremely hard Matchup"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W\ncan also do E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ghost"
+],
+[
+"General build path to 2/3 items and components",
+"Cull > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, flat health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Executioner's Calling > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Demolish\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Helm > Berserker's Greaves > Stridebreaker > Lord Dominik's Regards > Voltaic Cyclosword"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+],
+[
+"Tips (summarized from Federals1's guide)",
+"Too tanky for Garen to deal the burst needed to trigger Stormraider's Surge, so short hit-and-run trades don't work well unless you build much more damage."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Ruby Crystal > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Demolish\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Serpent's Fang > Mortal Reminder > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Ruby Crystal > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Nimbus Cloak, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ghost"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade/ Black Cleaver > Mortal Reminder/ Youmuu's Ghostblade if you bought Cleaver"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Rell": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Renata": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+],
+"as": "Renata Glasc"
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Shield Bash, Second Wind, Overgrowth\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Cloth Armor > Sheen > Plated Steelcaps > Trinity Force > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, flat health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Ruby Crystal > Executioner's Calling > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Serpent's Fang > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Serpent's Fang"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Shield Bash, Bone Plating, Overgrowth\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Warden's Mail > Trinity Force > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+],
+[
+"Tips (summarized from Federals1's guide)",
+"Can stack early health and armor to deny your Stormraider's Surge proc; consider Trinity Force first if you want the keystone to work."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Unflinching, Demolish\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Helm > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Berserker's Greaves > Stridebreaker > Lord Dominik's Regards > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Cull > Tiamat > Boots of Swiftness > Stridebreaker > Edge of Night > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Serpent's Fang > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Helm > Berserker's Greaves > Stridebreaker > Lord Dominik's Regards > Serpent's Fang"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Smolder": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Executioner's Calling > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Executioner's Calling > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Executioner's Calling > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ghost"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Serpent's Fang > Lord Dominik's Regards"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Executioner's Calling > Stridebreaker > Serpent's Fang > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Sheen > Plated Steelcaps > Executioner's Calling > Trinity Force > Youmuu's Ghostblade > Mortal Reminder > Voltaic Cyclosword"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"level up order",
+"3 points E > Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Inspiration: Unsealed Spellbook, Cash Back, Biscuit Delivery, Cosmic Insight\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ghost"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Executioner's Calling > Tiamat > Stridebreaker > Youmuu's Ghostblade > Randuin's Omen > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ghost"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Demolish\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Helm > Boots of Swiftness > Executioner's Calling > Stridebreaker > Serpent's Fang > Mortal Reminder > Voltaic Cyclosword"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Trinity Force > Lord Dominik's Regards > Voltaic Cyclosword > Serpent's Fang"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Inspiration: Unsealed Spellbook, Magical Footwear, Biscuit Delivery, Cosmic Insight\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Ruby Crystal > Cloth Armor > Negatron Cloak > Stridebreaker > Merucry's Treads > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Extremely hard matchup"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Nimbus Cloak, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, movement speed, scaling health\nSummoner spells: Flash + Ghost"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Edge of Night > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Extremely hard matchup"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Vex": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Executioner's Calling > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Executioner's Calling > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W\nE > Q > W also works"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Unflinching\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Helm > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Conditioning, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Helm > Executiner's Calling > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Shield Bash, Second Wind, Overgrowth\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Trinity Force > Lord Dominik's Regards > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+],
+"as": "Wukong"
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Executioner's Calling > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W\nE > Q > W also works"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Executioner's Calling > Stridebreaker > Serpent's Fang > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Helm > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Yuumi": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nInspiration: Cash Back, Cosmic Insight\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Cull > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Blade > Executioner's Calling > Negatron Cloak > Berserker's Greaves > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+]
+]
+}
+],
+"Zaahen": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Precision: Conqueror, Triumph, Legend: Haste, Last Stand\nSorcery: Axiom Arcanist, Celerity\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Executioner's Calling > Berserker's Greaves > Stridebreaker > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"level up order",
+"E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Inspiration: Unsealed Spellbook, Cash Back, Biscuit Delivery, Cosmic Insight\nResolve: Overgrowth, Demolish\nSmall shards: adaptive force, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Cull > Boots of Swiftness > Stridebreaker > Dead Man's Plate > Youmuu's Ghostblade"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+]
+]
+}
+],
+"Zeri": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Plated Steelcaps > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Boots of Swiftness > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"level up order",
+"Q > E > W"
+],
+[
+"Runes+ Summoner spells",
+"Sorcery: Stormraider's Surge, Axiom Arcanist, Celerity, Gathering Storm\nResolve: Second Wind, Overgrowth\nSmall shards: adaptive force, adaptive force, scaling health\nSummoner spells: Flash + Ignite"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Mercury's Treads > Stridebreaker > Youmuu's Ghostblade > Mortal Reminder"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+]
+]
+}
+]
+},
+"general": "Garen plays very differently by keystone. With Conqueror, fight a lot early for lane priority; at level 6 with Ignite and Doran's Blade the all-in can nearly one-shot some opponents, but you get kited easily (save Q to cleanse slows) and fall off badly late. With Stormraider's Surge, play slower, abuse passive sustain and farm toward Stridebreaker, the first big spike, after which you do repeated short hit-and-run trades until a full combo with ult kills. Mid game, Stormraider's lets you side lane and escape collapses, and from about level 13 he is very hard to kill; with Conqueror, split pushing usually gets you collapsed on and killed. Aim to end around 25-30 minutes, as some champions out-duel him very late. Rotate with Q speed and use E to proxy or steal camps."
+}

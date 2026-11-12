@@ -6,6 +6,40 @@
  "rank": "Challenger",
  "updated": "2026-11-02",
  "summarized": "2026-11-12",
- "rows": {},
- "note": "no matchup notes (170 threats with ratings only, all notes empty)"
+ "rows": {
+  "Malphite": {
+   "difficulty": "",
+   "summary": "He can never poke you out: below half HP every auto heals you, so he would have to contest every minion to stop your sustain."
+  },
+  "Olaf": {
+   "difficulty": "",
+   "summary": "One of the few melee duelists who can push through your E fear, because his ult makes him immune to it. Don't count on E winning the duel once he has R active."
+  },
+  "Garen": {
+   "difficulty": "",
+   "summary": "Take Barrier so his ult execute burst (or an Ignite) can't kill you from half HP, and you can still win the 1v1."
+  },
+  "Riven": {
+   "difficulty": "",
+   "summary": "Her hard burst can kill you quickly from 50%, so buy the right defensive components and delay your usual core if needed to survive her all-ins."
+  },
+  "Sett": {
+   "difficulty": "",
+   "summary": "With E maxed second its damage reduction is huge: if he hits you with the edge of a charged W instead of the center, you may lose only about 15% HP even when he is fed."
+  },
+  "Fiora": {
+   "difficulty": "",
+   "summary": "Late game, sitting at half HP is no longer enough against her, so trade carefully and rely on Blade of the Ruined King lifesteal to heal above half."
+  },
+  "Darius": {
+   "difficulty": "",
+   "summary": "Late game your passive sustain at half HP can't keep up with him, so take only good trades and heal past half with Blade of the Ruined King lifesteal."
+  },
+  "Kayle": {
+   "difficulty": "",
+   "summary": "Once she scales, your half-HP sustain isn't enough in side-lane duels; trade well and use BotRK lifesteal to stay healthy."
+  }
+ },
+ "general": "Warwick has one of the strongest early games among melee top laners: levels 1-2 are fine, and at level 3 with all three basic abilities he wins almost every melee duel thanks to E's fear and damage reduction, with the passive keeping him around 50% HP all lane. Take Barrier to survive Ignite or execute burst, and expect to turn early ganks into kills with Lethal Tempo. His main risk is getting kited by ranged or mobile champions; Q to cut them off and E to fear them, and from 6 you can ult a healthy ranged laner and chase. First spike is Pickaxe or Vampiric Scepter, and Blade of the Ruined King is one of the best one-item spikes in the game, so contest every minion once you have it. He has no waveclear (buy Tiamat to roam, or Hullbreaker for plates). Mid game, push side lanes and win 1v1s (Stridebreaker helps you stick) or start fights with R; late game he falls off, so close out games through objectives.",
+ "linked_sheet": "https://docs.google.com/spreadsheets/d/1d59UTEwBiXXirC0zrJcb0WqLdHtmrZVzYBsAhjJdHZY/edit"
 }

@@ -196,7 +196,16 @@ def main():
                     break
             if rows:
                 rows.pop("_gid", None)
-                body = {"champ": c, "source": meta, "fetched": time.strftime("%Y-%m-%d"), "rows": rows}
+                extra = {}
+                sp = os.path.join(SUMS, f"{c}.json")
+                if os.path.exists(sp):      # tips the author keeps elsewhere, summarized by us: add to the sheet rows
+                    sm = json.load(open(sp))
+                    for opp, r in sm.get("rows", {}).items():
+                        if r.get("summary") and opp in ids:
+                            rows.setdefault(opp, [{"fields": []}])[0]["fields"].append(["Tips (summarized from " + (sm.get("author") or "the author") + "'s guide)", r["summary"]])
+                    if sm.get("general"):
+                        extra["general"] = sm["general"]
+                body = {"champ": c, "source": meta, "fetched": time.strftime("%Y-%m-%d"), "rows": rows, **extra}
                 old = json.load(open(path)) if os.path.exists(path) else {}
                 if old.get("rows") == rows and old.get("source") == meta:
                     body["fetched"] = old.get("fetched", body["fetched"])   # no change, no churn
@@ -217,10 +226,13 @@ def main():
             for opp, r in sm.get("rows", {}).items():
                 if opp in ids and r.get("summary"):
                     rows[opp] = [{"fields": [["Difficulty", r["difficulty"]]] * bool(r.get("difficulty")) + [["", r["summary"]]]}]
-            if not rows:          # guide had no usable matchup notes: keep it as a plain link
+            general = (sm.get("general") or "").strip()
+            if not rows and not general:   # guide had no usable notes: keep it as a plain link
                 meta = {k: s.get(k) for k in ("quality", "url", "author", "rank", "updated") if s.get(k) not in (None, "", "?")}
-            if rows:
+            if rows or general:
                 body = {"champ": c, "source": meta, "fetched": sm.get("summarized", ""), "rows": rows}
+                if general:
+                    body["general"] = general
                 json.dump(body, open(path, "w"), indent=0, ensure_ascii=False)
                 meta["opponents"] = len(rows)
             elif os.path.exists(path):

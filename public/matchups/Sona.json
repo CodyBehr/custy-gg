@@ -1,0 +1,25 @@
+{
+"champ": "Sona",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/26-15-actioners-sona-support-guide-550095",
+"author": "Actioner",
+"rank": "Master",
+"updated": "2026-11-03",
+"title": "[26.21] Sona Support in Action"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Blitzcrank": [
+{
+"fields": [
+[
+"",
+"Only step up to poke once his hook has been used, and stay level with or behind your own minion line so he has no clean angle to grab you."
+]
+]
+}
+]
+},
+"general": "Sona's lane is solid: poke the enemy ADC with Q and autos, especially when they step forward to last hit, but avoid Q when a nearby minion is low (the second bolt can steal your ADC's CS) and never go past your minion line into hooks or CC. Q poke also completes the support quest safely. Take a second Q point at level 3 if you're winning the poke; take E instead if your Flash is down or you expect a gank without vision. Save W for when damage is about to land so the heal and shield both count, and in 2v2 fights use the W-empowered auto to reduce the enemy ADC's damage. At level 6, if you and your ADC are healthy, look to start the 2v2 with R, but keep Flash for repositioning rather than Flash-R unless they have no summoners. Don't roam mid; stick to your ADC, and later stay with the team and use R on the biggest threats or to stop an engage or channel."
+}

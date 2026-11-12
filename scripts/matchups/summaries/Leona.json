@@ -6,6 +6,63 @@
  "rank": "?",
  "updated": "2026-10-14",
  "summarized": "2026-11-12",
- "rows": {},
- "note": "no matchup notes"
+ "rows": {
+  "Lulu": {
+   "difficulty": "",
+   "summary": "Enchanter matchup: her shields and buffs make early skirmishes awkward, but she cannot match Leona's lockdown. Keep up steady pressure and go in the moment her protective spells have been spent."
+  },
+  "Soraka": {
+   "difficulty": "",
+   "summary": "Healing enchanter who wants long, drawn-out trades. Play aggressively and commit when her heals are on cooldown so the sustain can't undo your engage."
+  },
+  "Sona": {
+   "difficulty": "",
+   "summary": "Enchanter who protects and buffs rather than engages. Keep pressure on the duo and punish the windows when her spells are down; aggressive skirmishing takes lane control away from her."
+  },
+  "Pyke": {
+   "difficulty": "",
+   "summary": "Playmaker support who looks to catch you out of position. Stay careful around his hook, use your own crowd control to break his engages and peel for your carry, then punish missed skillshots since he has little sustain."
+  },
+  "Blitzcrank": {
+   "difficulty": "",
+   "summary": "Hook playmaker: avoid giving free catches and keep vision so you see him coming. Once the grab is missed or on cooldown, that is your window to engage for a winning trade."
+  },
+  "Thresh": {
+   "difficulty": "",
+   "summary": "Engage support who relies on landing his hook. Play patiently, use Zenith Blade and Shield of Daybreak to interrupt his plays and protect your ADC, and go in when his key skillshot is down."
+  },
+  "Rakan": {
+   "difficulty": "",
+   "summary": "Aggressive playmaker who wants to start fights. Disrupt his engages with your own lockdown and peel, and turn on him when his tools are on cooldown since he lacks sustain."
+  },
+  "Lux": {
+   "difficulty": "",
+   "summary": "Long-range poke/burst mage; respect her damage and don't stand in her skillshots. She is squishy with limited sustained crowd control, so engage after she wastes her key spells or misplaces herself, and use brush control to deny her poke."
+  },
+  "Karma": {
+   "difficulty": "",
+   "summary": "Poke mage who harasses from range. Play cautiously, deny vision and brush control, and all-in when her main abilities are on cooldown because she is fragile up close."
+  },
+  "Brand": {
+   "difficulty": "",
+   "summary": "High-damage poke/burst mage who punishes a tank from range; avoid soaking his combos, then use your tankiness to dive him when his spells are down or he steps too far forward."
+  },
+  "Zyra": {
+   "difficulty": "",
+   "summary": "Poke/burst mage with long reach. Avoid needless poke, control the brushes to limit her zone, and engage when her abilities are spent since she cannot survive a full lockdown."
+  },
+  "Taric": {
+   "difficulty": "",
+   "summary": "Peeler-tank support with strong defensive tools. Don't hard all-in while his protective cooldowns are up; be patient, try to isolate a target and punish when he overcommits. He is immobile and can be outmaneuvered."
+  },
+  "TahmKench": {
+   "difficulty": "",
+   "summary": "Peeler-tank who saves his ADC from your engages. Wait for his defensive cooldowns before committing, look to isolate targets, and use your mobility to play around his slow pace."
+  },
+  "Braum": {
+   "difficulty": "",
+   "summary": "Peeler-tank with strong anti-engage. Avoid going in while his shield and stun are ready; play patiently, punish mispositioning and coordinate engages with your ADC."
+  }
+ },
+ "general": "Leona has little early burst but excellent lockdown: engage with Zenith Blade (E) into an instant Shield of Daybreak (Q) stun, pop Eclipse (W) first for the shield, and let your ADC consume Sunlight marks for extra damage. Look to hit level 2 first and use brushes and Hextech Flashtraption for surprise E engages. Level 6 Solar Flare makes her a major all-in and gank-setup threat. With S16 support quests, stay bot until about 8 minutes; roam only once after crashing the wave under the enemy tower, and expect the big spike around 11-12 minutes when the quest completes (upgraded support item plus control ward slot). Mid game, roam with jungle or mid, then frontline teamfights and objectives, diving priority targets and peeling for carries."
 }

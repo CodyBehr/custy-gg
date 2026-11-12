@@ -1,0 +1,305 @@
+{
+"champ": "Taric",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/s12-surfs-up-master-taric-support-guide-498036",
+"author": "L3gisLacerator",
+"rank": "Emerald",
+"updated": "2023-04-20",
+"title": "[S13] Surf's Up! | Master Taric Support Guide"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Blitzcrank": [
+{
+"fields": [
+[
+"",
+"His hook is effectively a free engage for you: if you get pulled, your tankiness keeps you alive and you can walk to their ADC for a stun; if your ADC is pulled, shield them and fire E from their position. Ping when he leaves lane to roam."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"",
+"You win this lane. Time your shield against his Q, and if he walks in to proc his passive stun, fight back since your passive-empowered melee trades are stronger. Your E is a beam, so his shield can't block it."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"",
+"You're built to answer hard engages: when she E's onto your ADC, shield them and walk to the enemy ADC so the stun hits both. After 6, react quickly to her ult with your own."
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"",
+"Lots of CC but low damage. Peel him with a stun when he locks someone down and use R against follow-up. He has to come into melee, so trade back with passive autos and constant heals and you win."
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"",
+"His attacks are telegraphed, so dodge or shield them; your armor beats an AD support and you out-tank him in 2v2 if you have mana. Stun him during his post-death form, and ult a couple of seconds before his R charge lands."
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"",
+"Hard to catch but easy to out-sustain. Engage his ADC rather than him (he may dash in and get stunned too). In teamfights stand slightly apart from your team so you can still ult after his flash-in engage."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"",
+"His bomb has a long delay, so shield it and you stay healthy all lane; avoid double-bomb stuns. Engaging is hard due to his speed/slow and later his revive ult, so look for an early gank."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"",
+"More annoyance than threat: you can tank his combo and stun him and his ADC back. If he uses his kit defensively you can't force trades. Watch your mana since his heal is free."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"",
+"His meeps hurt, so stay out of auto range, and don't stand next to your ADC to avoid a double stun. Ult just before his stasis ult lands to waste it, and ward/ping for his roams."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"",
+"Expect heavy damage and shield as much as you can; watch for him walking up to throw his pillar. Engage after he uses major spells, especially a missed stun. Move away from your ADC during his ult and time R to cut its damage."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"",
+"Avoid standing near minions vs her AoE Q, and shield when you hear her empowering it. If she tries to root with her tether, your stun can hold her until the target escapes."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"",
+"His voidlings shred a melee support; don't all-in at medium or low HP. His spell shield blocks your stun, so let a long-range ADC pop it first; once it's down you can stun him to interrupt his ult."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"",
+"Rough lane: her black shield negates your stun. Don't engage while it's up. Take her binding for your ADC with a shield, heal off her pool, and ult during her R's delay."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"",
+"Tricky: avoid unnecessary fights, protect your carry and punish over-aggression. Stuns only land after his dash and hook are used. Your armor and shields blunt his burst; if hooked, walk away. Ult allies before they drop into his execute range."
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"",
+"Main threat is her damage; shield her empowered Q poke. Your heal is comparable, so charge it before using. Answer her ult with your own, or ult ahead of it if fast enough."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"",
+"Beware his hook; if he misses, engage. Hit level 2 first by pushing wave two with E, since with Q and E he can force trades you'd lose. Ward vs his lantern ganks and warn lanes when he roams."
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"",
+"Very safe lane; kills mainly come from ganks or a strong ADC. Her poke hurts, stay out of range and use shield and heals. After 6, don't use your ult to boost initiators while her ult is up; keep it defensive."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"",
+"Devastating for melee Taric: poke, slows, and polymorph stops your engages, with her ult as a backup. Stay away from her, let your ADC farm, and wait for mid game."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"",
+"One of your worst counters: range, CC, sustain and poke. Don't walk up to her; her heal-bounce is mana-heavy. Prepare R for her wave engage."
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"",
+"Kill her first; she enables her whole team. Engage when your ADC is strong, call for early ganks since she's immobile, and keep distance from her Q."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"",
+"Hard to kill and can swallow allies to safety. Avoid melee range when he can stack his passive on you; after 6 play defensively vs his ambushes."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"",
+"He outranges you; dodge his Q. After 6, be ready to ult when he unloads spells, and stun him quickly to stop his laser."
+]
+]
+}
+],
+"Yuumi": [
+{
+"fields": [
+[
+"",
+"Patience lane: she pokes from range and is untargetable while attached. Hide near minions, shield her Q, aim engages at her ADC, and ult when she casts her root ult."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"",
+"Plants make approaching dangerous and she has roots; avoid confronting her and focus on sustain."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"",
+"She bullies you with range and escapes with her net; avoid direct engages unless she's out of position or you have help. Watch traps and shield after stepping in one."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"",
+"Hard to catch while his E is up; when he shifts toward you, that's your opening."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"",
+"Too jumpy to stun while she can hop; missing lets her chase you down."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"",
+"Don't stun until he's used his dash; when he dashes toward you, catch him."
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"",
+"Her spell shield blocks your stun and refunds mana; engage while it's on cooldown."
+]
+]
+}
+]
+},
+"general": "Aim to be in lane by 1:50 after leashing, defending your jungle or setting up a level-1 brush cheese. Level 1 has few tools, so only stun enemies who misposition; level 2 adds the shield and is a prime time to go aggressive (push wave two to hit it first in strong pairings), and level 4's second heal point doubles your healing, winning most melee fights. Level 6 ult wins close fights, escapes ganks or enables dives; keep at least 100 mana for it. Hold E as a threat rather than throwing it blindly, avoid fighting amid enemy minions, and target whoever is easiest to kill, usually the ADC. Use support-item charges on cannons and melee minions, push before recalling, and freeze near your tower to set up ganks against aggressive lanes."
+}

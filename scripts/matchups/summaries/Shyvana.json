@@ -6,6 +6,235 @@
  "rank": "?",
  "updated": "2026-11-07",
  "summarized": "2026-11-12",
- "rows": {},
- "note": "no matchup notes (single threat entry, Fiddlesticks, only points to a separate guide chapter)"
+ "rows": {
+  "RekSai": {
+   "difficulty": "Hard counter",
+   "summary": "She wins dark early river skirmishes. Only fight her when your lanes can move to help; otherwise trade objectives on the opposite side."
+  },
+  "Warwick": {
+   "difficulty": "Hard counter",
+   "summary": "He wants long, messy early fights and you don't. Keep clearing, skip ego duels, and beat him later through tempo and objectives."
+  },
+  "Belveth": {
+   "difficulty": "Hard counter",
+   "summary": "Don't give her free early skirmishes or grubs; one cashed objective fight makes the map much harder to control."
+  },
+  "Poppy": {
+   "difficulty": "Hard counter",
+   "summary": "Her W blocks your R dash completely, so don't let her cancel your engage in narrow jungle chokes. Play cross-map instead."
+  },
+  "Nunu": {
+   "difficulty": "Unfavorable",
+   "summary": "Don't flip river fights or objectives into his burst and snowball. When he shows somewhere, punish lanes and camps instead of racing him in the pit."
+  },
+  "XinZhao": {
+   "difficulty": "Unfavorable",
+   "summary": "Beats you in early short-range all-ins. If your lanes can't help, avoid his invade route and trade camps."
+  },
+  "Briar": {
+   "difficulty": "Unfavorable",
+   "summary": "Her forced engage turns messy fights her way. Kite her first commit, don't chase into fog, and buy armor earlier."
+  },
+  "Hecarim": {
+   "difficulty": "Unfavorable",
+   "summary": "Don't give him long run-ups through open river. Ward entrances early and fight after his first charge is spent."
+  },
+  "Rammus": {
+   "difficulty": "Unfavorable",
+   "summary": "Don't tunnel him through taunt and his anti-auto armor. Farm the opposite side, keep tempo, and hit targets he can't protect."
+  },
+  "Udyr": {
+   "difficulty": "Unfavorable",
+   "summary": "He matches your clear and wins early stand-and-fight duels. Avoid straight early 1v1s unless you have numbers."
+  },
+  "Olaf": {
+   "difficulty": "Unfavorable",
+   "summary": "Wins the first long all-in if you stand still. Break his axe rhythm, kite his first run and don't take early river fights into him."
+  },
+  "Pantheon": {
+   "difficulty": "Unfavorable",
+   "summary": "Respect his early invades and point-and-click setup. If he doesn't snowball early, your clear and neutrals outscale him."
+  },
+  "Nidalee": {
+   "difficulty": "Unfavorable",
+   "summary": "Dodge her spear first, then force close range; tight terrain suits you far better than open river."
+  },
+  "Rengar": {
+   "difficulty": "Unfavorable",
+   "summary": "Don't face-check isolated brush. Ward entrances, fight near teammates, and don't give him the first leap."
+  },
+  "Kindred": {
+   "difficulty": "Unfavorable",
+   "summary": "Track her marks and don't fight on ranged terms; save damage or E timing for when her ult zone ends."
+  },
+  "Darius": {
+   "difficulty": "Unfavorable",
+   "summary": "Never give him an early stand-still fight at five stacks. Kite his opener and make him choose between camps and lanes."
+  },
+  "Graves": {
+   "difficulty": "Skill matchup",
+   "summary": "Whoever gets first space owns the tempo, but one clean E in tighter terrain flips the fight quickly."
+  },
+  "Viego": {
+   "difficulty": "Skill matchup",
+   "summary": "The danger is his reset, not the first trade. Kill cleanly or leave before he can possess someone."
+  },
+  "Vi": {
+   "difficulty": "Skill matchup",
+   "summary": "Track when her point-and-click ult can reach you or your carry; save W for her commit, not before."
+  },
+  "Nocturne": {
+   "difficulty": "Skill matchup",
+   "summary": "Respect his first hard engage, then win the longer front-to-back fight once he runs out of tools."
+  },
+  "MonkeyKing": {
+   "difficulty": "Skill matchup",
+   "summary": "Don't dump damage into his clone or stack for a double knock-up. Make him reveal the real body, then re-engage."
+  },
+  "LeeSin": {
+   "difficulty": "Skill matchup",
+   "summary": "Real early pressure, but if he whiffs his early tempo it gets much easier. Keep your route clean and punish failed plays."
+  },
+  "Diana": {
+   "difficulty": "Skill matchup",
+   "summary": "Avoid clumping and track her engage angle; if she has to dive first, your counter-hit and follow-up are easier."
+  },
+  "Lillia": {
+   "difficulty": "Skill matchup",
+   "summary": "If she gets room to kite, the fight goes bad fast. Force tight spaces, make every E count, and don't chase into open fog."
+  },
+  "JarvanIV": {
+   "difficulty": "Skill matchup",
+   "summary": "Track his flag-and-drag and Flash angles; don't burn dragon form into his first engage. After his opener, fights get simpler."
+  },
+  "Amumu": {
+   "difficulty": "Skill matchup",
+   "summary": "He wants you lined up for a free engage. Fight spread out, avoid blind entrances and keep moving after the first bandage."
+  },
+  "Khazix": {
+   "difficulty": "Skill matchup",
+   "summary": "Don't isolate yourself around dark camps; with vision and nearby allies this matchup gets much better."
+  },
+  "Elise": {
+   "difficulty": "Skill matchup",
+   "summary": "Respect cocoon and her early burst. Counter-ganks and opposite-side trades beat blind early 1v1s."
+  },
+  "Kayn": {
+   "difficulty": "Skill matchup",
+   "summary": "Punish him before he transforms and track his wall exits. Once he has his form, armor and front-to-back fighting matter more than greedy chases."
+  },
+  "Ekko": {
+   "difficulty": "Skill matchup",
+   "summary": "Track his W and don't overchase into his rewind zone; if he uses his ult early, re-entering is much easier."
+  },
+  "Gwen": {
+   "difficulty": "Skill matchup",
+   "summary": "Don't waste form or E into her mist; wait it out, then stick to her when she has no room to kite."
+  },
+  "Taliyah": {
+   "difficulty": "Skill matchup",
+   "summary": "Respect her worked ground and wall angles around river; if you break through her zone first she dies fast."
+  },
+  "Evelynn": {
+   "difficulty": "Skill matchup",
+   "summary": "You win early tempo and she wins later in fog. Press camps and dragons early, then buy vision and stop walking into dark lanes."
+  },
+  "Skarner": {
+   "difficulty": "Skill matchup",
+   "summary": "Sweep flanks and respect his charge and ult angles; if he spends his first engage on the wrong target the fight improves for you."
+  },
+  "Zac": {
+   "difficulty": "Skill matchup",
+   "summary": "Control vision near walls and be ready for his second engage, not just the first jump; he's much weaker when he can't surprise you."
+  },
+  "Gragas": {
+   "difficulty": "Skill matchup",
+   "summary": "His displacement is annoying but he's squishy if caught. Dodge his E and R, then run him down; don't let him disengage free."
+  },
+  "Volibear": {
+   "difficulty": "Skill matchup",
+   "summary": "Kite his first burst and keep hitting; his early game is strong but you scale better into objectives and long fights."
+  },
+  "Sejuani": {
+   "difficulty": "Even",
+   "summary": "Don't give her free melee proc chains; once her first CC is down you outdamage her and take neutrals faster."
+  },
+  "Trundle": {
+   "difficulty": "Even",
+   "summary": "Refuse bad early pillar fights, then beat him with better target access and objective control."
+  },
+  "Maokai": {
+   "difficulty": "Even",
+   "summary": "Don't walk first into sapling zones; if you reach the space first you outdamage him and take neutrals faster."
+  },
+  "Shen": {
+   "difficulty": "Even",
+   "summary": "Outclear and out-take him. Track his taunt and cross-map ult and punish every time he leaves his camps."
+  },
+  "DrMundo": {
+   "difficulty": "Even",
+   "summary": "Don't waste form chasing him through his ult; hit the nearest target, win neutral tempo and cut him off the map."
+  },
+  "Malphite": {
+   "difficulty": "Even",
+   "summary": "Front-to-back fights favor you as long as you don't throw away form chasing past him."
+  },
+  "Aatrox": {
+   "difficulty": "Even",
+   "summary": "Avoid his sweet spots and long bleed-out skirmishes; if his first Q cycle misses, your sustained hits win."
+  },
+  "Karthus": {
+   "difficulty": "Favored",
+   "summary": "He folds if you touch him first. Only invade with lane priority; otherwise beat him by owning dragons and first setup."
+  },
+  "Fiddlesticks": {
+   "difficulty": "Favored",
+   "summary": "Sweep vision and deny flank fog so he must walk in from normal angles; owning the objective first ruins his engage."
+  },
+  "Sylas": {
+   "difficulty": "Favored",
+   "summary": "Deny him free value from your ult and punish his slower clear; your first item and neutral control are usually stronger."
+  },
+  "Talon": {
+   "difficulty": "Favored",
+   "summary": "When he shows early, take camps, dragon or catch his exits; don't let his wall roams dictate your tempo."
+  },
+  "Shaco": {
+   "difficulty": "Favored",
+   "summary": "Don't waste time fighting boxes and clones; keep tempo and drag him into real objective fights."
+  },
+  "MasterYi": {
+   "difficulty": "Favored",
+   "summary": "Don't give him resets; if you survive his first touch and keep him in front of you, structured fights favor you."
+  },
+  "Qiyana": {
+   "difficulty": "Favored",
+   "summary": "Avoid fighting on river or wall terms; flatter ground shrinks her burst windows."
+  },
+  "Zed": {
+   "difficulty": "Favored",
+   "summary": "Armor and vision remove most of the threat. Hold W for his re-entry and don't let him farm side control freely."
+  },
+  "Jayce": {
+   "difficulty": "Favored",
+   "summary": "Fragile and tempo-based; reach him through fog or objective setup and he can't handle the long fight."
+  },
+  "Brand": {
+   "difficulty": "Favored",
+   "summary": "Dies fast if you reach him cleanly; just don't start the fight already chunked or in narrow space."
+  },
+  "Morgana": {
+   "difficulty": "Favored",
+   "summary": "Sidestep her Q, bait out her black shield early, then run through her; she can't win first contact."
+  },
+  "Ivern": {
+   "difficulty": "Favored",
+   "summary": "Hit his camps and timers, not Daisy; if he sets up a shielded front line first, the fight drags too long."
+  },
+  "Zyra": {
+   "difficulty": "Favored",
+   "summary": "Don't path blindly through plant chokepoints; if you hit first or flank with vision she folds quickly."
+  }
+ },
+ "general": "Jungle guide. Max Q (Q-E-W early) and default to a full clear: arrive at the 2:55 scuttle healthy and only contest it with lane help or priority, since empty pre-form Shyvana is a weak river fighter. Gank early only when a lane is overextended, lacks Flash or has hard CC to follow your E. Levels 1-5 are a warm-up; level 6 (around the second clear) brings the first real dragon-form fights, the first item (Kraken Slayer) makes her strong, and 2-3 items is her peak, roughly 14-28 minutes. Build Fury on camps before objectives so you arrive near 80-100, set up the first dragon around 4:30-5:00 only with bot/mid priority, and don't press R just because the bar is full. Late game she is volatile: engage only on guaranteed angles, guard your form timer and play around Baron and Elder."
 }

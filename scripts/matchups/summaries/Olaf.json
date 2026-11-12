@@ -6,6 +6,43 @@
  "rank": "?",
  "updated": "2026-10-03",
  "summarized": "2026-11-12",
- "rows": {},
- "note": "no matchup notes (59 threats listed, every note only points to an external site)"
+ "rows": {
+  "Jax": {
+   "difficulty": "",
+   "summary": "Bruiser lane: space carefully and bait his spells by stepping in and out, then all-in instantly when he misuses them. Short trades are actually preferred here; mix Q and E points as the trades demand."
+  },
+  "Sett": {
+   "difficulty": "",
+   "summary": "Bruiser/juggernaut matchup: focus on spacing and baiting out his abilities with quick back-and-forth movement, then punish a mistake with an immediate all-in."
+  },
+  "Darius": {
+   "difficulty": "",
+   "summary": "Juggernaut lane: throw Q, pretend to walk up for the axe, then step back or sideways to dodge his spells. Bait his abilities and all-in right after he wastes one."
+  },
+  "Aatrox": {
+   "difficulty": "",
+   "summary": "Use the fake axe pickup: Q him, act like you are walking forward to grab it, then dodge sideways or back to avoid his Q sweet spots."
+  },
+  "Fiora": {
+   "difficulty": "",
+   "summary": "One of the few cases where opening with Q straight into E is the right way to start a fight."
+  },
+  "Malphite": {
+   "difficulty": "",
+   "summary": "Tank lane, so slow: rush Cull and Tiamat, aim for 10-12 CS per minute and treat kills as a bonus. Plan to shove with Tiamat and take the tower."
+  },
+  "Ornn": {
+   "difficulty": "",
+   "summary": "Slow tank lane: rush Cull and Tiamat, farm hard and push for the tower. Pop your ult before his E, because R does not cleanse a knock-up and the airborne still stuns you."
+  },
+  "Jayce": {
+   "difficulty": "",
+   "summary": "Ranged lanes are the hardest and the ranged champion controls the lane. Rush Tiamat, trade CS, look for Ghost plus Flash all-ins, and proxy farm behind his tower while they are down. Surviving counts as winning."
+  },
+  "Vayne": {
+   "difficulty": "",
+   "summary": "Ranged lane she controls; rush Tiamat, farm safely and survive. From 6, Q-R-Ghost can run her down in theory, but she may outduel you up close or run Ghost/Stormraider's; proxy when your summoners are down."
+  }
+ },
+ "general": "Level 1 Olaf beats most champions: let the waves meet in the middle and Q all three casters plus the enemy to win the trade, or take priority. With priority, dive on the cannon wave (wave 3) if they are low, crash wave 2 to fight near your tower, or crash wave 3 and proxy farm (good against tanks). Once ahead, don't freeze; perma-push and hit the tower or zone them between towers, valuing CS over repeated kills since kill gold is reduced. Trade with Q into E without autos, all-in with Q-auto-E-auto, and from full HP use Q-R (plus Ghost) as the opener; stay above about 250-270 mana so you can still go R-Q-W-Q. Against Stormraider's Surge avoid trades, take priority and recall when a trade goes badly; Ghost matches its speed around levels 9-11 and the rune matters much less after Ravenous Hydra. He is a stat-check diver who must play around item spikes; when strong, group and dive the enemy mid/ADC on their side of the map, and when behind, farm the opposite side until summoners are back."
 }

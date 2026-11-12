@@ -6,6 +6,231 @@
  "rank": "Grandmaster",
  "updated": "2025-08-08",
  "summarized": "2026-11-12",
- "rows": {},
- "note": "no matchup notes"
+ "rows": {
+  "Ahri": {
+   "difficulty": "5/10",
+   "summary": "Even skill lane where priority and dodging decide it, but her returning orbs can't be dodged and proc Electrocute. Stand farther back and poke with your range; if she walks in to trade, make sure she eats your minion wave, and W her charm. She will usually get priority."
+  },
+  "Akali": {
+   "difficulty": "7/10",
+   "summary": "Akali-favored: her Q nearly matches your auto range, so spacing must be precise. Play behind minions and bully with spells; buy Null-Magic Mantle if she builds magic pen. After 6 you lose any fight she gets on top of, so poke from range, don't die and scale to mid game."
+  },
+  "Akshan": {
+   "difficulty": "8/10",
+   "summary": "Not Mel-favored: he wins lane but is weak in teamfights. Poke from range and stay close to tower since one or two wall swings take half your HP. Shove, ping and follow his roams, and wait for a gank or his mistake."
+  },
+  "Anivia": {
+   "difficulty": "4/10",
+   "summary": "Fun skill lane. You're stronger at level 1: trade when she Qs the wave (take E for root, or Q). She's briefly stronger at 2, respect her Q+E, but afterward W makes her combo unreliable and you're stronger. Note reflected Q still pops at max range. After 6 she perma-shoves; match by shoving and following roams."
+  },
+  "Annie": {
+   "difficulty": "7/10",
+   "summary": "Annie is good into Mel since her Flash-Tibbers is unreactable for W. Abuse her levels 1-5 when she's weak and short-ranged, back early for Null-Magic Mantle, and upgrade it to Verdant Barrier after your two core items or if she's fed."
+  },
+  "Aurora": {
+   "difficulty": "3/10",
+   "summary": "Mel-favored thanks to range. Don't trade autos into her passive; reflect her Q+E when she combos them, poke with Q, and wait for her to reappear before using spells when she's invisible. She clears faster, so avoid getting shoved under tower. Max E."
+  },
+  "Azir": {
+   "difficulty": "9/10",
+   "summary": "One of Mel's hardest lanes: nothing of his is reflectable and his ult shuffle is dangerous. Only short trades; shove and roam, since you're the better skirmisher, or he outscales you."
+  },
+  "Cassiopeia": {
+   "difficulty": "6/10",
+   "summary": "She lacks range and should struggle early if you space well, but her Q is just shorter than your spells and the speed boost lets her chase and kill you. Poke from max range; priority matters less since shoving costs her lots of mana. Max Q."
+  },
+  "Corki": {
+   "difficulty": "7/10",
+   "summary": "High early damage but falls off; win by out-ranging and outscaling. He may zone you off some CS at the cost of HP, which is fine; not dying is the goal. Play safe, reflect his Q bomb, and expect to lose skirmishes without a stronger jungler."
+  },
+  "Diana": {
+   "difficulty": "6/10",
+   "summary": "You outscale her, but after 6 a landed Q into full combo kills you. Sidestep or reflect her Q with W; if she E's in without Q, punish during her long dash cooldown. Usually a no-kill lane; if Q lands, save W for her ult damage rather than the pull. Max E."
+  },
+  "Ekko": {
+   "difficulty": "2/10",
+   "summary": "Very good lane for Mel: he can't one-combo you. When he dives, W and trade back to win. If his W stun lands you must back; when he disappears, expect a W setup and back off. Poke him for a CS lead or solo kill. Max E."
+  },
+  "Ezreal": {
+   "difficulty": "3/10",
+   "summary": "Save W for when he's marked you with W and goes to detonate it. Don't throw E carelessly and let him dash on you; poke with Q from range, out-clear him and roam. Max Q."
+  },
+  "Fizz": {
+   "difficulty": "7/10",
+   "summary": "His damage is predictable and W-able. Start E but never throw it while his E is up; Q first to bait it, and punish with free poke otherwise. Shove and roam with better waveclear. After 6 keep W only for his ult; back off if W is down and his R is up. Max Q."
+  },
+  "Galio": {
+   "difficulty": "3/10",
+   "summary": "Easy: play at max auto range so his punch can't reach; if he charges it, back up and E-root him to stop the taunt follow-up. Keep him shoved and roam; he only matters when ulting to teammates. Max E."
+  },
+  "Garen": {
+   "difficulty": "2/10",
+   "summary": "With Second Wind and Doran's Shield he's nearly unkillable and outscales you, especially past level 9 passive healing. Damage resets his passive, but mostly clear and roam to win elsewhere. Max E."
+  },
+  "Gragas": {
+   "difficulty": "4/10",
+   "summary": "Only his Q poke and passive sustain matter at max range; his ult can't knock you in. Watch for E+Flash: W during his animation to block it and walk away. Max E."
+  },
+  "Heimerdinger": {
+   "difficulty": "7/10",
+   "summary": "Annoying: you can't easily kill turrets. Focus on clearing and CS rather than spells on him; expect to fall behind on CS vs a good Heimer. Call ganks only with junglers strong enough to survive his turrets, otherwise scale for teamfights."
+  },
+  "Hwei": {
+   "difficulty": "2/10",
+   "summary": "Free lane: he deals little damage and you outrange him, and your Q works from behind minions. Watch his E pull into lava river. Poke him down and look for kills."
+  },
+  "Irelia": {
+   "difficulty": "7/10",
+   "summary": "Dangerous at max passive stacks, weak otherwise and falls off late. Respect her minion-Q engages and give CS to survive. E only after she's dashed onto you; W her E or ult, whichever comes first. Max E, W at level 3."
+  },
+  "Jayce": {
+   "difficulty": "3/10",
+   "summary": "Very easy: stand behind the wave so his Q can't hit. If he hammer-leaps the casters, take the slow, he tanks your wave and can't dodge your root. W his empowered Q or leap. Max Q."
+  },
+  "Karma": {
+   "difficulty": "6/10",
+   "summary": "Strong lane bully; overstepping gives her a free root. W only reflects her empowered Q if it hits you directly; don't waste W on the root. Save E for close range. You'll likely lose priority but outscale her."
+  },
+  "Kassadin": {
+   "difficulty": "8/10",
+   "summary": "Abuse him early with your high damage and execute, especially when he farms under tower. After 6 avoid his ult damage; at 11 he can solo you in side lanes. Use your early lead to take dragons, invade and gank. Max E."
+  },
+  "Katarina": {
+   "difficulty": "3/10",
+   "summary": "Easy lane: shove and poke; step past her dagger so she can't pick it up. W reflects many ult daggers. Track and ping her roams; without a Doran's Shield start she should fall far behind."
+  },
+  "Kayle": {
+   "difficulty": "7/10",
+   "summary": "Easy before 6: abuse her from range, dodge Q, and only E when she approaches. A good Kayle outscales you."
+  },
+  "Leblanc": {
+   "difficulty": "9/10",
+   "summary": "Mel is one of the better mages into her: root her during her straight-line W, W her chain or a full Q+W+R combo. Null-Magic Mantle after Lost Chapter (never Mercury Treads), later Verdant Barrier. Max E."
+  },
+  "Lissandra": {
+   "difficulty": "6/10",
+   "summary": "She lacks range but sets up ganks well; track their jungler. Reflect her Q, poke with range; you win pre-6 trades if she engages alone. After 6 she wins combo trades, so play safer."
+  },
+  "Lucian": {
+   "difficulty": "8/10",
+   "summary": "Hardest ADC matchup: his Q isn't reflectable. Play safe, don't let him line up Q through minions, don't waste E, poke with Q and focus on shoving and surviving."
+  },
+  "Lux": {
+   "difficulty": "5/10",
+   "summary": "Both long-ranged, but you have two poke spells to her one. Focus waves; reflect her binding, and if it lands, W her ult. Reflecting her E only makes a slowing zone."
+  },
+  "Malphite": {
+   "difficulty": "3/10",
+   "summary": "His poke is short-ranged and easy to avoid; poke him out, and if he starts Doran's Ring you can kill him before 6. When he ults onto you, use W immediately or you may die and lose the chance to reflect his Q. If he goes tank, shove and roam. Max E."
+  },
+  "Malzahar": {
+   "difficulty": "5/10",
+   "summary": "Abusable, but his Flash+R sets up ganks, so track the jungler. His passive shield eats Q missiles, so pop it with Q then E and combo. Auto his voidlings the moment they spawn and avoid standing near minions dying with his E. Strong CS lead possible. Max Q."
+  },
+  "Morgana": {
+   "difficulty": "4/10",
+   "summary": "Very easy but hard to solo kill: her black shield blocks your E root and her W clears fast. Poke with Q, clear so you aren't stuck farming under tower, and reflect her Q when needed."
+  },
+  "Naafiri": {
+   "difficulty": "6/10",
+   "summary": "She lacks range but out-skirmishes you; you outscale heavily. Don't E until she engages and uses her untargetable dash; poke with Q and dodge daggers. Ping her roams. Max E."
+  },
+  "Neeko": {
+   "difficulty": "5/10",
+   "summary": "Tanking her spells loses short trades. When she clones, wait for the root and reflect it; don't use max-range E. If she dumps her combo on the wave, walk up and trade. Track minion counts to avoid surprise ults. Max E."
+  },
+  "Orianna": {
+   "difficulty": "8/10",
+   "summary": "Rough lane: nothing to reflect, small range edge, and she has more damage, waveclear and a better ult. Play around her ball (she can't hit you if it's not near), dodge Q+W, call your jungler, and look for Flash+E when both low. Consider banning."
+  },
+  "Pantheon": {
+   "difficulty": "2/10",
+   "summary": "Easy: spam spells on him. Don't W his W stun since he can hold autos; wait out the stun, root him, then reflect a later Q. Ping his roams/ult. You outscale."
+  },
+  "Qiyana": {
+   "difficulty": "9/10",
+   "summary": "One of the hardest assassins: a full combo kills you. You can reflect her Q; never stand near walls. Clear from range, W if she dashes in, hold E until she's too close to dodge. W can reflect her ult in teamfights. Max E."
+  },
+  "Rumble": {
+   "difficulty": "3/10",
+   "summary": "He has no long-range spells: poke from range, stay behind minions to avoid his harpoon and don't let him shove for free. Max E."
+  },
+  "Smolder": {
+   "difficulty": "2/10",
+   "summary": "Weak in mid: squishy and loses trades if you land spells. Poke with Q and E. Max Q."
+  },
+  "Swain": {
+   "difficulty": "4/10",
+   "summary": "Dangerous only if he sticks in melee. Keep distance, poke, and reflect his E (his Q can't be reflected). Max E."
+  },
+  "Sylas": {
+   "difficulty": "7/10",
+   "summary": "Tough: after level 3 his full combo leaves you nearly dead, so never tank it. Poke with Q and hold E until he dashes in. You can W his Q (hard) or his chain, but reflecting the chain pulls you to him, so E right after the stun ends to avoid his steal. Max E."
+  },
+  "Syndra": {
+   "difficulty": "8/10",
+   "summary": "As hard as Orianna: you can reflect only her W and ult. You must out-dodge and out-hit her since you deal less damage; consider early boots, Null-Magic Mantle vs magic pen, later Banshee's."
+  },
+  "Taliyah": {
+   "difficulty": "5/10",
+   "summary": "All her spells are dodgeable, but her E shove nearly matches your range; W immediately if shoved to avoid the rocks. Abuse her from range and never lose 1v1. Ping her roams; early boots help."
+  },
+  "Talon": {
+   "difficulty": "7/10",
+   "summary": "Watch for his level 2 Flash all-in; start E and consider W second. Stand far enough back to avoid his W return. Ping his moves/resets, keep priority and poke; played properly he can't stay in lane. Max E."
+  },
+  "Tristana": {
+   "difficulty": "10/10",
+   "summary": "One of the hardest lanes: unless you W her E bomb or R, she can one-shot you after 6. Keep distance from her jump slow, play safe for scaling, Plated Steelcaps if needed."
+  },
+  "Tryndamere": {
+   "difficulty": "8/10",
+   "summary": "Tricky due to healing and push: one auto can lose a trade. Save spells until he spins onto you, then E, step out of range and finish the combo. Solo kills possible before 6; after 6 with even items he's too hard to kill, so clear and play far. Finish boots after Lost Chapter. Max E."
+  },
+  "TwistedFate": {
+   "difficulty": "2/10",
+   "summary": "Free lane: reflect his gold card (wait for the actual attack, not the lock-in). You win trades even if stunned; keep priority and ping his ult roams."
+  },
+  "Veigar": {
+   "difficulty": "6/10",
+   "summary": "You can't reflect his W. Stay behind minions, track the jungler vs his cage setup, reflect his ult when in kill range, and never walk into the cage edge. Max Q."
+  },
+  "Velkoz": {
+   "difficulty": "8/10",
+   "summary": "Huge damage but squishy and gankable. Trade when he spends W on the wave; reflected Q often hits minions. Clear and poke with Q. Max Q."
+  },
+  "Vex": {
+   "difficulty": "4/10",
+   "summary": "Mel-favored: reflect her Q and ult (her E is very hard to reflect). Out-poke her, dodge her slow-starting Q, don't let her push free. Watch for a full fear bar and Flash+W fear combo. Early boots help."
+  },
+  "Viktor": {
+   "difficulty": "5/10",
+   "summary": "Reflect his E; you have two long-range spells to his one and win the poke war if you avoid his Q range. Match his boots timing. Often a reset-trading lane. Max Q."
+  },
+  "Vladimir": {
+   "difficulty": "6/10",
+   "summary": "Easy early if you dodge his empowered Q. Phase Rush makes him hard to gank; Electrocute plus Ignite can kill you from about 70%. Poke from range, and when he spends Q on the wave, step in for auto trades. Max E."
+  },
+  "Xerath": {
+   "difficulty": "7/10",
+   "summary": "Tough: he out-damages you but is very gankable. Dodge Q and W; his E is reflectable. Boots after Lost Chapter, ping his moves (ult picks), and play with your jungler."
+  },
+  "Yasuo": {
+   "difficulty": "8/10",
+   "summary": "Brutal without jungle help: he dashes through minions and his wall blocks Q and E; W is not useful. Play safe from range, outscale in teamfights, beware side lanes mid game. Boots after Lost Chapter. Max E."
+  },
+  "Yone": {
+   "difficulty": "6/10",
+   "summary": "Easier than Yasuo but scales harder; with Doran's Shield you likely can't kill him. Keep him shoved and low under tower and invade with your jungler. Respect his E+Q3: stand back or W it. Max E."
+  },
+  "Zed": {
+   "difficulty": "9/10",
+   "summary": "Pre-6 poke aggressively from range without tanking the wave. After 6 it's a mind game of W-blocking his ult; stand back and harass when he CSes. You win teamfights but lose side lanes."
+  },
+  "Ziggs": {
+   "difficulty": "4/10",
+   "summary": "Reflect everything but his ult. You're stronger in early skirmishes and close range with passive autos, but he outscales. Play for ganks when his satchel is down; ignore early mines. Push and force skirmishes."
+  }
+ },
+ "general": "Early game lasts until roughly 14-15 minutes and is about structured laning: warding, jungle tracking, trading and roaming. Mel's early waveclear is weak, so auto the wave constantly, focus casters first, and don't spend spells and mana on minions before Lost Chapter unless they also hit the enemy. Use your long range to poke, save W (reflect) for the opponent's key projectile or burst, and only throw E (root) when the target can't easily dodge. The author's main way to climb is roaming: shove waves to create a timer, then gank overextended lanes or invade together with your jungler (Mel can't invade alone). From mid game lanes swap and you shift to surviving long side lanes against assassins with first items, then play around objectives."
 }

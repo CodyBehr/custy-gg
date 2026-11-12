@@ -1,0 +1,365 @@
+{
+"champ": "Nocturne",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/nocturne-become-the-nightmare-628883",
+"author": "IR.Defender",
+"rank": "Grandmaster",
+"updated": "2026-10-07",
+"title": "Nocturne / Become the Nightmare"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Amumu": [
+{
+"fields": [
+[
+"",
+"Moderate 1v1 threat with CC and sustained W damage but little burst. Invade early to deny him farm, dodge his Q, counter-gank his engages, and fight when his ult is on cooldown."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"",
+"Mobile and bursty, and his rewind ult plus W stun can flip duels. Dodge his skillshots, engage when his CC is down, use vision to limit his roams and counter-gank his aggression."
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"",
+"Strong early duelist with burst and Cocoon. Juke her cocoon, ward her entrances and counter-gank since her early game depends on ganks; take extended fights, especially after she misses Cocoon."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"",
+"Relies on stealth ambushes and burst. Ward to track her, don't face-check, build MR and collapse on her in teamfights where she is squishy and lacks CC."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"",
+"Wins extended fights with drain and fear. Avoid long trades, break his drain by moving away, ward against his ult ambush and focus him when caught out; MR helps."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"",
+"Moderate threat with body slam and barrel burst. Avoid narrow spaces, anticipate his E, stay away from walls vs his ult, and engage during his long early cooldowns."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"",
+"Strong close-range duelist who kites with his dash and gains resistances in long fights. Be careful 1v1 up close, respect his stacked passive, use CC to stop his kiting and consider invading him early."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"",
+"Strong in prolonged fights with high mobility. Respect his level 3 and level 6 spikes, interrupt his charges with CC, ward river and choke points, and shut him down early before he snowballs."
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"",
+"Weak duelist who supports through utility. Invade his camps early, track him, punish his positioning in fights and consider grievous wounds against his healing."
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"",
+"Strong early-mid duelist with burst and a trapping ult. Avoid head-on early fights without an advantage, punish him when he overcommits, and coordinate counters to his ganks."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"",
+"Strong duelist who scales and blocks autos with his E. Avoid long trades while his E or stacked runes are up; kite and CC him, punish early overextension and watch his split pushing later."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"",
+"Weak early duelist and immobile. Pressure and contest objectives early to delay his scaling, deny his vision, and dive him with gap closers in fights."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"",
+"Vulnerable before transforming. Track his form progress, contest camps and scuttles to delay it, and avoid long fights with Rhaast; ward to stop him snowballing."
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"",
+"Deadly versus isolated targets. Avoid isolated areas, track him with vision and sweepers, build defensively and collapse with your team when he overextends."
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"",
+"Kites well and her ult saves her. Engage when her dash and ult are down, contest her marks and scuttles to slow her scaling, and use grievous wounds."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"",
+"Very strong early duelist who falls off if he doesn't snowball. Avoid extended early duels, dodge his Q, track his pathing and punish his cooldowns; scale to your spikes."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"",
+"Dangerous late duelist. Don't take long duels once his passive is up; CC and burst him, focus him in team fights, buy grievous wounds, and pressure the map so he can't farm freely."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"",
+"Strong early invader with poke. Avoid early fights without an advantage, ward defensively, dodge her spears, and engage when her cougar spells are down or she's low on mana; collapse with teammates when she invades."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"",
+"Mirror: invade and contest his camps early to slow his snowball, play safe when his ult is up, and group with your team so he can't isolate anyone; collapse on him when he dives."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"",
+"Strong objective control and CC. Contest his early objectives and invade to delay him, ward pits and river, and collapse when he tries to take dragons or Herald."
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"",
+"Hard to burst with his armor and taunt engages. Invade his slow early clear, stay grouped vs his catches, build tenacity and %HP or armor pen to get through his defenses."
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"",
+"Manageable: your W spell shield can block her knock-up, and you outscale and win extended fights with sustain and fear. Avoid early skirmishes without an advantage, track her paths and farm toward your spikes."
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"",
+"Moderate: respect his early burst and play safe without vision. W can absorb his burst and you can out-sustain him in longer fights; punish his limited mobility with CC."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"",
+"Formidable 1v1 due to deception, boxes and clone. Play safe early since he invades well, ward heavily, avoid wandering alone, and punish his squishiness once found."
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"",
+"Weak early, strong dragon-form duelist. Pressure and invade early to deny farm, track her ult cooldown and fight when it's down."
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"",
+"Sustained damage and a suppress ult that drags you away. Pressure early while he scales, avoid fighting near his spires, build tenacity and peel his ult engages."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"",
+"Manageable: she pokes and kites but lacks sustained damage, and your W can block her E knockback or ult. Engage when her spells are down or she is isolated, and set up ganks on her immobility; track her roams."
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"",
+"Significant challenge in extended fights since his ult steals stats. Avoid long duels while R is active, look for quick burst trades, spell-shield his pillar, and build %HP damage."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"",
+"Strong early duelist; respect his early power. Spell-shield his bear stun, kite him with Q and fear since he lacks gap closers, and build health-shredding items."
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"",
+"Burst and lockdown make it challenging. Spell-shield her Q knock-up or ult, then out-trade her in extended fights with Q and E sustained damage after her cooldowns are used."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"",
+"Avoid long trades when his W is empowered; take short bursts and disengage. Spell-shield his E, kite with Q and build armor-shredding damage."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"",
+"Don't duel him head-on, especially when his low-HP hunt bonuses kick in. Save W for his ult, poke before committing, and buy grievous wounds against his healing."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"",
+"Bursty with deceptive engages. Keep spacing from his E plus R, spell-shield his Q or ult, drain his mana in extended trades and punish after his E or W are used."
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"",
+"Strong early dueling with quick engages; avoid head-on fights without vision early. Spell-shield his E charge or ult and trade back after his Q and E are on cooldown."
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"",
+"Relatively manageable since he lacks burst. Avoid long fights, burst him quickly, spell-shield his E or Q, and catch him with your ult while he charges his slingshot."
+]
+]
+}
+]
+},
+"general": "Jungle guide; the matchup section covers enemy junglers. Early on, clear fast starting from a buff camp, watching for gankable lanes (overextended enemies, allies with CC), and start ganking from level 3, using Q to chase. Level 6 Paranoia is the big spike for ganks and dives on priority targets, and lets you answer cross-map plays. Invade junglers that duel poorly early and counter-jungle when the enemy shows on the other side, but watch the minimap to avoid collapses. Prioritize scuttle, early drakes and void grubs, then mid to late game split push as a strong duelist, dive carries in teamfights, deny vision with sweeper and control wards to set up ult picks, and control Baron and Elder."
+}

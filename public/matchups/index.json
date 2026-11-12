@@ -28,8 +28,12 @@
 "opponents": 22
 },
 "Alistar": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/tank-alistar-muu-635412"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/tank-alistar-muu-635412",
+"author": "PykeUGeo",
+"updated": "2026-10-14",
+"title": "✔️ Tank + Alistar = MUU!! ✔️",
+"opponents": 14
 },
 "Ambessa": {
 "quality": "summary",
@@ -68,10 +72,12 @@
 "quality": "none"
 },
 "Ashe": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/15-24-ashe-guide-by-misterfirstblood-v2-522633",
 "author": "misterfirstblood",
-"updated": "2025-12"
+"updated": "2026-01-06",
+"title": "[15.24] Ashe guide by misterfirstblood v2",
+"opponents": 0
 },
 "AurelionSol": {
 "quality": "stats_only"
@@ -162,10 +168,12 @@
 "opponents": 49
 },
 "Cassiopeia": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/hyravs-challenger-rank-1-cassiopeia-guide-585235",
 "author": "Hyrav",
-"rank": "Rank 1 Challenger"
+"updated": "2022-08-02",
+"title": "Hyrav's Challenger Rank 1 Cassiopeia Guide",
+"opponents": 70
 },
 "Chogath": {
 "quality": "summary",
@@ -190,10 +198,12 @@
 "quality": "stats_only"
 },
 "DrMundo": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/26-20-challenger-dr-mundo-top-guide-642014",
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1Z9DGU9wMKzOz34syRO-1a8ie9ABzJVmi6jevwvUEcqY/edit",
+"author": "Federals1",
 "rank": "Challenger",
-"updated": "2026-10"
+"updated": "2026-11",
+"opponents": 169
 },
 "Draven": {
 "quality": "sheet",
@@ -210,9 +220,12 @@
 "opponents": 73
 },
 "Elise": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/16-15-every-web-a-masterpiece-618524",
-"updated": "2026-08"
+"author": "DemonsEdge90",
+"updated": "2026-09-30",
+"title": "Every Web A Masterpiece",
+"opponents": 0
 },
 "Evelynn": {
 "quality": "summary",
@@ -223,10 +236,13 @@
 "opponents": 46
 },
 "Ezreal": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-9-challenger-ezreal-guide-620056",
-"rank": "Challenger",
-"updated": "2026-05"
+"author": "EloSanta",
+"rank": "Diamond",
+"updated": "2026-04-29",
+"title": "26.9 Challenger Ezreal Guide",
+"opponents": 0
 },
 "Fiddlesticks": {
 "quality": "sheet_link",
@@ -262,10 +278,12 @@
 "opponents": 41
 },
 "Garen": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/26-17-challenger-garen-top-guide-642197",
-"rank": "Challenger (claimed)",
-"updated": "2026"
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1hoDv6XMqwK_ABrUaeqM0D8UP6jDbiw33G9m7USmCrLg/edit",
+"author": "Federals1",
+"rank": "Challenger",
+"updated": "2026-11",
+"opponents": 170
 },
 "Gnar": {
 "quality": "summary",
@@ -277,11 +295,13 @@
 "opponents": 51
 },
 "Gragas": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/25-10-high-elo-gragas-top-guide-by-bomba-guy-580545",
-"author": "Bomba Guy",
-"rank": "Challenger (claimed, 1367 LP)",
-"updated": "2025-05"
+"author": "SloppyWalrusX",
+"rank": "Master",
+"updated": "2026-10-21",
+"title": "Challenger Gragas top guide by Bomba Guy",
+"opponents": 0
 },
 "Graves": {
 "quality": "sheet",
@@ -482,15 +502,23 @@
 "opponents": 17
 },
 "Leona": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/the-most-reliable-guide-on-leona-639043"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/the-most-reliable-guide-on-leona-639043",
+"author": "PykeUGeo",
+"updated": "2026-10-14",
+"title": "The Most Reliable guide on Leona",
+"opponents": 14
 },
 "Lillia": {
 "quality": "stats_only"
 },
 "Lissandra": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/kneel-to-the-watchers-lissandra-the-ice-witch-417900"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/kneel-to-the-watchers-lissandra-the-ice-witch-417900",
+"author": "MrMad2000",
+"updated": "2015-07-15",
+"title": "[S5] Kneel to the Watchers! - Lissandra The Ice Witch.",
+"opponents": 50
 },
 "Locke": {
 "quality": "none"
@@ -528,8 +556,12 @@
 "opponents": 54
 },
 "Malzahar": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/malzahar-the-void-beckons-649775"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/malzahar-the-void-beckons-649775",
+"author": "Katrian",
+"updated": "2025-10-20",
+"title": "Malzahar - The Void Beckons",
+"opponents": 0
 },
 "Maokai": {
 "quality": "summary",
@@ -549,11 +581,13 @@
 "opponents": 54
 },
 "Mel": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/evandabanks-grandmaster-mel-midlane-guide-648010",
-"author": "Evandabanks",
-"rank": "Grandmaster (claimed)",
-"updated": "2025"
+"author": "Evandabank",
+"rank": "Grandmaster",
+"updated": "2025-08-08",
+"title": "Evandabank's Grandmaster Mel Midlane Guide",
+"opponents": 56
 },
 "Milio": {
 "quality": "summary",
@@ -576,8 +610,12 @@
 "opponents": 57
 },
 "Mordekaiser": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/tier-list/mordekaiser-matchups-4376"
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/tier-list/mordekaiser-matchups-4376",
+"author": "N.I.",
+"updated": "2025-05-06",
+"title": "Mordekaiser Matchups (tier list)",
+"opponents": 1
 },
 "Morgana": {
 "quality": "none"
@@ -598,9 +636,13 @@
 "opponents": 25
 },
 "Nasus": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/nasus-stack-now-ascend-later-653394",
-"updated": "2025"
+"author": "IR.Defender",
+"rank": "Grandmaster",
+"updated": "2026-11-11",
+"title": "Nasus / Stack Now, Ascend Later",
+"opponents": 58
 },
 "Nautilus": {
 "quality": "summary",
@@ -633,18 +675,24 @@
 "opponents": 29
 },
 "Nocturne": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/nocturne-become-the-nightmare-628883",
-"updated": "2024"
+"author": "IR.Defender",
+"rank": "Grandmaster",
+"updated": "2026-10-07",
+"title": "Nocturne / Become the Nightmare",
+"opponents": 35
 },
 "Nunu": {
 "quality": "stats_only"
 },
 "Olaf": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/1kings-olaf-guide-653397",
-"author": "1kings",
-"updated": "2026"
+"author": "1KingLoL",
+"updated": "2026-10-03",
+"title": "1King's 1630LP Olaf Guide",
+"opponents": 9
 },
 "Orianna": {
 "quality": "summary",
@@ -783,9 +831,12 @@
 "updated": "2025"
 },
 "Shyvana": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-19-reworked-shyvana-jungle-guide-651433",
-"updated": "2026"
+"author": "Oikaton",
+"updated": "2026-11-07",
+"title": "[26.22] Reworked Shyvana // Jungle Guide",
+"opponents": 57
 },
 "Singed": {
 "quality": "summary",
@@ -824,10 +875,13 @@
 "opponents": 36
 },
 "Sona": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/26-15-actioners-sona-support-guide-550095",
 "author": "Actioner",
-"updated": "2026"
+"rank": "Master",
+"updated": "2026-11-03",
+"title": "[26.21] Sona Support in Action",
+"opponents": 1
 },
 "Soraka": {
 "quality": "summary",
@@ -879,10 +933,13 @@
 "quality": "stats_only"
 },
 "Taric": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/s12-surfs-up-master-taric-support-guide-498036",
-"rank": "Master",
-"updated": "2022"
+"author": "L3gisLacerator",
+"rank": "Emerald",
+"updated": "2023-04-20",
+"title": "[S13] Surf's Up! | Master Taric Support Guide",
+"opponents": 29
 },
 "Teemo": {
 "quality": "sheet",
@@ -947,11 +1004,12 @@
 "quality": "stats_only"
 },
 "Vayne": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/13-7-best-vayne-top-in-depth-guide-detailed-match-up-sheet-included-616719",
-"author": "Saskio",
-"rank": "NA Challenger",
-"updated": "2023-04"
+"author": "SaskioLoL",
+"updated": "2023-04-09",
+"title": "[13.7] BEST VAYNE TOP IN DEPTH GUIDE Detailed Match Up Sheet Included",
+"opponents": 0
 },
 "Veigar": {
 "quality": "sheet",
@@ -967,9 +1025,13 @@
 "opponents": 16
 },
 "Vex": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/vex-have-some-misery-651014",
-"updated": "2025"
+"author": "IR.Defender",
+"rank": "Grandmaster",
+"updated": "2026-10-07",
+"title": "Vex / Have Some Misery",
+"opponents": 47
 },
 "Vi": {
 "quality": "summary",
@@ -1007,10 +1069,12 @@
 "opponents": 54
 },
 "Warwick": {
-"quality": "guide",
-"url": "https://www.mobafire.com/league-of-legends/build/25-15-challenger-warwick-top-guide-642932",
-"rank": "Challenger (claimed)",
-"updated": "2025-07"
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1d59UTEwBiXXirC0zrJcb0WqLdHtmrZVzYBsAhjJdHZY/edit",
+"author": "Federals1",
+"rank": "Challenger",
+"updated": "2026-11",
+"opponents": 168
 },
 "Xayah": {
 "quality": "none"
@@ -1019,10 +1083,13 @@
 "quality": "none"
 },
 "XinZhao": {
-"quality": "guide",
+"quality": "summary",
 "url": "https://www.mobafire.com/league-of-legends/build/styllees-challenger-xin-zhao-544520",
-"author": "Styllee",
-"rank": "Challenger (per title)"
+"author": "styllEE",
+"rank": "Challenger",
+"updated": "2026-09-01",
+"title": "styllEE's Challenger Xin Zhao",
+"opponents": 0
 },
 "Yasuo": {
 "quality": "sheet_unparsed",

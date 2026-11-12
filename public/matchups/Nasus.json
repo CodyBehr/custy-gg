@@ -1,0 +1,823 @@
+{
+"champ": "Nasus",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/nasus-stack-now-ascend-later-653394",
+"author": "IR.Defender",
+"rank": "Grandmaster",
+"updated": "2026-11-11",
+"title": "Nasus / Stack Now, Ascend Later"
+},
+"fetched": "2026-11-12",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10"
+],
+[
+"",
+"He controls space with his Q sweet spots, repositions between casts and punishes predictable retreats, and his early pressure can deny the farm you need. Avoid Q sweet spots, Wither him when he commits to a long trade, and don't burn all your mana shoving with E. Preserve HP, trade off his missed Qs, and fight around his cooldowns once you have ult and your first big item."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10"
+],
+[
+"",
+"Her mobility and shroud bypass melee spacing, and careless CSing gives her free passive trades. Hold Wither until she commits, stay far enough from the wave that one CS doesn't become a full combo, and use E to make her shroud uncomfortable. Survive her kill windows; your side-lane pressure takes over later."
+]
+]
+}
+],
+"Ambessa": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Repeated dashes, strong extended fighting and sustain punish you before you're tanky. Don't chase through her dashes; Wither after she commits and use E in long fights. Play around wave states, then fight when her mobility is down."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Rare top pick whose range, wall and ult wave control make it awkward. Don't walk predictably into her Q, make her choose between wave and mana, and Wither once she's committed. Reach item spikes and punish her wave when she leaves."
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Wins short trades and escapes with Hookshot before you can convert. Hold Wither until her escape is gone, then slow her and stack E damage. Survive early short trades and force longer fights once her mobility is spent."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10"
+],
+[
+"",
+"One of the most punishing ranged tops: she kites endlessly, her W grounds you and her ult reverses engages. Don't walk straight at her; use wave, brush and Wither to shorten the path, and save Flash for a decisive engage. Reach durable items and pressure side lanes rather than forcing impossible engages."
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Farms safely with E and punishes predictable movement with Q; respect his silence and Feast execute. Watch his Q near low minions. Keep the wave where you threaten him without being zoned, then force fights once your Q stacks are developed."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"9/10"
+],
+[
+"",
+"Among the most dangerous: one extended trade can be lethal through bleed stacks and ult, and his pull punishes walking into range. Never fight him at five stacks, keep trades short, pull the wave to your side and punish missed E or Q. Level 6 alone doesn't win it; aim to reach the point where his threat is conditional."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10"
+],
+[
+"",
+"He farms comfortably but can't stop you scaling once his cleaver misses, and lacks burst to punish a patient Nasus. Don't waste Wither into his passive cleanse; E reduces his armor in long fights. Farm aggressively and later bully him in side lanes."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10"
+],
+[
+"",
+"Thrives on isolated melee targets and her Riposte punishes predictable Wither. Bait out her W before using Wither and avoid exposing vitals. Play around wave states and cooldowns, then make her answer your side lane later."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Farms safely with Q and uses barrels to control the wave; his global ult means lane wins don't equal map wins. Track barrel chains and engage the moment barrels are gone. Once tanky enough, force him to defend side lanes."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Simple pattern of passive regen, Q silence and spin. Don't chase while his W is up; Wither after his speed burst or when he commits, and keep light pressure to deny passive regen. Make him waste cooldowns farming; later the side lane favors you."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10"
+],
+[
+"",
+"Mini Gnar harasses from range and Mega Gnar can turn the lane lethal with his wall ult. Track his rage bar, Wither him while Mini and kiting, and respect Mega's burst. Punish form transitions; pressure grows once you survive his Mega engage."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Strong sustain, waveclear and disengage. Punish when his E is down; don't commit into him with all cooldowns up. Outscale his side lane and in teamfights wait for his displacement before ulting."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Shreds tanks in extended fights. Avoid fighting when her Q is fully charged; Wither after she commits and put E under the fight. Make her spend mobility to reach you."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"His turrets control lane and punish walking forward. Don't walk into turret nests; use E to clear and coordinate dives with your jungler. Survive the push and outscale; advance when turrets are down."
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Deadly inside her tentacle field. Dodge her E above all, and don't assume your ult beats hers in a prepared zone; drag fights away from tentacles. Pressure side lanes where her coverage is poor."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Uses low-health minions to chain dashes, so keep the wave healthy and Wither only after she commits. Deny her a minion battlefield and your extended fights win."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10"
+],
+[
+"",
+"Strong scaling and Counter Strike blocks autos. Hold Wither until after his dodge; once it ends he can't escape your damage. Contest his scaling, build durability, then out-push him."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10"
+],
+[
+"",
+"Punishes you from beyond Q range and swaps form to disengage. Use minions and brush to deny angles, Wither when he goes melee. Preserve HP early and punish overextension."
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Durable and slippery; his danger is his All Out. Don't chase through terrain, save Wither for his commit, E when he can't disengage. Make him spend mobility defending waves."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10"
+],
+[
+"",
+"Weak early, huge late. Don't give her free XP: Wither when she fights for CS and respect her ult before committing. Delay her scaling without throwing for a solo kill."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Ranged poke, mobility and a strong teamfight ult with energy. Watch his marks, Wither after his mobility is used, don't let him kite around your ult. Survive and force him to stay in lane answering you."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Forces fights with Q and ult; his remount makes his health deceptive. Track courage when he's dismounted, Wither after his engage, keep the wave on your side."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10"
+],
+[
+"",
+"Punishes careless movement with Q and threatens big ults, but can't contest your side-lane pressure if building for teamfights. Respect R when up; farm aggressively and punish when it's down."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Waveclear, range and suppression; passive blocks isolated spells. Clear voidlings, don't waste Wither into his shield, beware tower-side fights when R is up. Make him spend mana on waves."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Excels in extended fights and isolates you with his realm. Avoid needless fights before your defensive spike; Wither after his approach and save E for inside the realm. Fight when his ult is down."
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"",
+"Mirror: decided by wave control, stacking discipline, items and recall timing. Track Wither, E and ult carefully; win the wave before the champion."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10"
+],
+[
+"",
+"Brutal early extended fights with sustain and slows, and his ult ignores Wither. Fight around his axes, avoid long open chases, survive with wave control; he falls off once he can't stick."
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10"
+],
+[
+"",
+"Prefers teamfights over side-lane duels. Respect his ult and charge; E cuts his armor. Farm and force him to answer your side lane; take structures if he groups."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Brutal early burst with Q and W stun, and his E blocks your response; his ult adds cross-map pressure. Don't dump Q into his shield, and Wither after his stun entry. Survive early and punish cooldowns; each failed all-in loses him lane control and your scaling wins out."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10"
+],
+[
+"",
+"Durable with a W that stops dashes, but lacks the sustained damage to stop your scaling. Respect her wall stun and ult; Wither only when she commits to a long trade. Keep farming and keep her stuck in the side lane."
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"9/10"
+],
+[
+"",
+"One of the hardest ranged lanes: blind, vault and autos deny access, and her ult gives huge map tempo. Use wave and brush to cut her angles, Wither after her vault or when she must walk through the wave, and don't chase into unwarded river. Minimize HP loss, keep XP, and push into structures when she roams."
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Among the strongest early burst patterns; his dash gives access and his empowered W can stun you first. Track his fury, Wither after his entry, and avoid fighting into empowered spells. Survive early and punish poor fury management."
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Chains dashes and shields to win short trades. Don't chase her Q dashes; Wither after her main engage and use E in extended fights. Make her spend mobility farming; the longer it goes the harder you are to burst."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Bullies melee with flamethrower and shields; threat swings with his heat. Avoid long fights in his flamethrower, Wither when his heat prevents disengaging, respect his ult near objectives. Farm around his cooldowns."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Kites with spell rotations and clears waves fast. Don't chase through a full rotation; Wither after his movement is used or when he stands near the wave. If he roams, hit his tower and waves rather than following."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Punishes greedy farming with his Q and bursts with W. Never stand in his W center; Wither when he commits. Make him use W defensively, then fight."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10"
+],
+[
+"",
+"Trades decently but his main strength is ulting elsewhere. When he ults away, take wave, plates or tower instead of following. Keep him tied to lane."
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Wave manipulation and proxy play; his fling interrupts your approach. Don't chase him through poison; only Wither when the team or wave can capitalize. Prioritize wave and structures."
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10"
+],
+[
+"",
+"Clears and pressures towers fast and threatens after death. Don't stand in a charged Q; reposition after killing him. Use his low mobility to win side lanes."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Punishes melee farming with ranged spells and becomes very tanky in ult. Don't fight inside his ult needlessly; Wither after his movement is committed, E vs his durability. Don't feed his passive."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10"
+],
+[
+"",
+"Durable and wins isolated trades with his passive stun stacks, but can't match your scaling without kills. Respect his stun threshold and W; Wither only in prolonged fights. Farm safely and keep him in lane."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10"
+],
+[
+"",
+"Classic ranged counter: blind negates Q-empowered autos and his speed makes approaching costly; later shrooms mine side lanes. Farm with E from range, Wither after his speed burst, and sweep mushrooms before fighting."
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Serious duelist: his bite shrinks your AD and ult steals your resistances. Don't make it an auto-attack race; Wither helps but his ult can flip fights. Fight around his cooldowns, avoid isolated all-ins when his ult is up."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10"
+],
+[
+"",
+"Long trades and sustain with reliable dash; his ult breaks kill math. Track fury and ult cooldown, Wither when he chases after dashing. Don't waste your ult during his undying; create distance and win the next wave."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Threat depends on his empowered stance; his speed makes chasing awkward. Read his stance before committing, Wither when he enters range, control the wave."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Controls melee spacing with leg procs and E, and his ult executes low HP. Avoid walking around his legs, Wither after his E, and respect the execute threshold."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10"
+],
+[
+"",
+"Abuses your lack of mobility with poke. Approach through wave cover and punish his immobility with Wither when he kites from exposed spots. Don't trade at range; reach your durability spike and force side-lane fights."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"9/10"
+],
+[
+"",
+"Among the most punishing: %HP damage, tumble and ult make her hard to pin, and condemn near walls stops approaches. Avoid open ground, Wither after tumble or condemn, save Flash. Survive and make her defend structures alone."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Scales hard and dodges punish windows with pool. Don't waste Wither into pool; pressure when it's down and use E then. A passive farm lane favors him later, so apply controlled pressure."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Sustain, speed, stun and his ult can disable towers for dives. Respect the second W bite, Wither after he commits. Keep the wave close so he overextends; after his burst, your sustained damage wins."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10"
+],
+[
+"",
+"Deceptively dangerous due to low-HP healing and sticking tools. Don't assume a low Warwick is dead; Wither during his chase and avoid long low-HP fights. Keep HP high and trade in controlled bursts."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10"
+],
+[
+"",
+"Strong short trades with dash and clone, then resets. Don't Wither the clone; track whether it's been used. Punish his mobility cooldowns."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Uses the wave as dash network; his wall blocks your E. Don't place E where wall negates it, keep the wave from becoming a dash path, and Wither after he commits."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Engages repeatedly with a safe return point. Track his E return, Wither after commitment, and E where his escape path will be. Make short trades cost him."
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10"
+],
+[
+"",
+"Structure-focused split pusher whose ghouls make the wave dangerous. Avoid fighting through full ghouls; kill or dodge them, then Wither Yorick. Treat it as a structure race; track his Maiden."
+]
+]
+}
+],
+"Zaahen": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10"
+],
+[
+"",
+"Modern bruiser built for sustained fights. Avoid long trades before defensive items, Wither once he needs continued contact, and place E where the fight will continue. Control wave and cooldowns."
+]
+]
+}
+]
+},
+"general": "Nasus is a scaling fighter: the goal of lane is not to win early trades but to farm Q stacks safely and turn them into waves, towers and side-lane pressure, never giving up a whole wave or your HP for one extra stack. Against hard lanes survive (keep HP, hold the wave near your side, short trades), against easy ones farm aggressively and speed up. Treat ~2:30-3:30 as the first serious gank window and ward the likely route. The author's spikes are your early skill order, level 6 with Fury of the Sands (activate it early when the fight starts, not when nearly dead), Trinity Force, key defensive components and stack thresholds, and he warns to compare them with the enemy's spikes. Use Wither as a commitment tool after the opponent engages or to stop an escape, weave autos between Q resets, and split push only with vision, a known jungler position and a reason tied to the next objective."
+}

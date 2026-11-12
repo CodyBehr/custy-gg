@@ -6,6 +6,195 @@
  "rank": "Grandmaster",
  "updated": "2026-10-07",
  "summarized": "2026-11-12",
- "rows": {},
- "note": "no matchup notes"
+ "rows": {
+  "Ahri": {
+   "difficulty": "",
+   "summary": "Very favorable: each of her ult dashes triggers your passive. W her the moment she dashes in, sidestep her charm to remove her kill threat, and out-poke her with Q. In fights, hold the fear for when she commits her ult."
+  },
+  "Akali": {
+   "difficulty": "",
+   "summary": "One of your easiest lanes since her kit is built on dashes. Drop E inside her shroud so she gets feared when she attacks, W her after her E or R dash, and poke constantly; she can't trade without dashing into you."
+  },
+  "Akshan": {
+   "difficulty": "",
+   "summary": "His swing is a dash: W him mid-swing and place E where he will land. Fear can interrupt his ult channel if you get close. Poke with Q from safe range."
+  },
+  "Anivia": {
+   "difficulty": "",
+   "summary": "No dashes, so a skill lane between two immobile mages. Dodge her Q stun, poke with Q, and burst the egg instantly with E and Q. Out-roam her using your ult while she farms under tower."
+  },
+  "Annie": {
+   "difficulty": "",
+   "summary": "No dashes, but Tibbers' summon dash procs your passive, so fear him. Respect her at four stun stacks, poke from beyond her Q range, and Banshee's Veil blocks her stun engage. You out-roam her."
+  },
+  "AurelionSol": {
+   "difficulty": "",
+   "summary": "Favorable: don't let him stack safely. All-in with R whenever he overextends, fear his flight dash, interrupt his breath channel with E, and punish his immobility early before he scales."
+  },
+  "Aurora": {
+   "difficulty": "",
+   "summary": "Her spirit hop and recast are dashes: after her first cast, ready W to fear the return. Escape her ult with R before the walls form or zone her with E, and trade when your fear is up."
+  },
+  "Azir": {
+   "difficulty": "",
+   "summary": "His shuffle dash procs your passive; W him mid-dash. Early his soldiers outrange you, so farm and dodge, then trade harder after Lost Chapter. Zhonya's helps against his ult."
+  },
+  "Brand": {
+   "difficulty": "",
+   "summary": "Pure skill lane: dodge his pillar, avoid clumping near minions vs his ult, and if you dodge his stun your R all-in beats his. Banshee's breaks his combo; punish his positioning."
+  },
+  "Cassiopeia": {
+   "difficulty": "",
+   "summary": "Dodge her Q and avoid extended trades her E spam wins. Burst her with Q, E and W before she ramps, turn away from her ult, and out-roam her."
+  },
+  "Corki": {
+   "difficulty": "",
+   "summary": "His Valkyrie and package are dashes: fear him when he uses them aggressively. Sidestep his rockets, trade back with Q, and buy Zhonya's for his poke."
+  },
+  "Diana": {
+   "difficulty": "",
+   "summary": "Heavily Vex-favored: dodge her Q to deny the reset, W the moment she dashes, zone with E and out-poke her. Zhonya's for her ult."
+  },
+  "Ekko": {
+   "difficulty": "",
+   "summary": "Dream lane: every Phase Dive procs your passive. W him as he engages, put E on his rewind ghost to fear his return, and poke freely with Q."
+  },
+  "Fizz": {
+   "difficulty": "",
+   "summary": "His Q dash procs your passive; fear him before he can E away. Wait out his untargetable E and place your E where he lands. Poke him before level 3; Zhonya's for his ult."
+  },
+  "Galio": {
+   "difficulty": "",
+   "summary": "His E charge procs your passive; W cancels it mid-dash. Dodge his tornado and taunt range; he's hard to burst so poke and roam, match his roams with R and buy Void Staff."
+  },
+  "Heimerdinger": {
+   "difficulty": "",
+   "summary": "Farm lane: clear turrets with Q from range, dodge his stun grenade, don't fight in his turret nest. Out-roam him; Liandry's helps vs turrets."
+  },
+  "Hwei": {
+   "difficulty": "",
+   "summary": "Skill lane between artillery mages: dodge his skillshots, and your R all-in far exceeds his since he can't escape. Spread vs his ult."
+  },
+  "Irelia": {
+   "difficulty": "",
+   "summary": "Her Q resets constantly proc your passive. W when she dashes at you, deny free passive stacking near you, and place E on minions she wants to reset on. Zhonya's vs her all-in."
+  },
+  "Jayce": {
+   "difficulty": "",
+   "summary": "His hammer leap procs your passive: W and kite back. Dodge his gated Q in cannon form and match his poke. Early armor, later Zhonya's."
+  },
+  "Kassadin": {
+   "difficulty": "",
+   "summary": "Bully him hard pre-6 since he's weak. After 6, every Riftwalk procs your passive; fear and burst him when he blinks in. Banshee's blocks his silence."
+  },
+  "Katarina": {
+   "difficulty": "",
+   "summary": "You hard counter her: every Shunpo procs your passive. E on her daggers, fear her ult, poke with Q; she struggles to find any engage."
+  },
+  "Leblanc": {
+   "difficulty": "",
+   "summary": "Her W dash procs your passive; fear her before she returns and place E on her return pad. Walk out of her chain range after fearing. Banshee's for safety."
+  },
+  "Lissandra": {
+   "difficulty": "",
+   "summary": "Her E claw recast procs your passive: W as she arrives. Wait out her self-tomb, trade Q evenly vs hers, Banshee's blocks her W root. Your passive gives you the edge."
+  },
+  "Lux": {
+   "difficulty": "",
+   "summary": "Skill lane: dodge her binding to remove her kill pressure. When her Q is down, R in for the kill. Banshee's blocks a binding; out-roam her."
+  },
+  "Malzahar": {
+   "difficulty": "",
+   "summary": "His spell shield blocks poke; auto to pop it first. Buy Quicksilver vs his ult and clear voidlings with E. He'll perma-push, so roam with R and out-impact the map."
+  },
+  "Naafiri": {
+   "difficulty": "",
+   "summary": "Her leap, dash and ult all proc your passive. W fears her and kills her dogs; place E defensively when she ults. Zhonya's vs burst."
+  },
+  "Neeko": {
+   "difficulty": "",
+   "summary": "Skill lane: dodge her root, track her real body, match her poke with Q and E. W to shield and fear when she ults in."
+  },
+  "Orianna": {
+   "difficulty": "",
+   "summary": "Farm-oriented skill lane: track the ball, trade evenly, spread vs her ult, push and roam with R instead of trying to kill. Banshee's for her ult."
+  },
+  "Pantheon": {
+   "difficulty": "",
+   "summary": "His W stun dash procs your passive: W after the stun lands. Cast from the side vs his shield, respect early poke, then outscale him in mid-game fights."
+  },
+  "Qiyana": {
+   "difficulty": "",
+   "summary": "Her dash procs your passive; fear her before she combos. Stay away from walls vs her ult and E between you and terrain. Zhonya's vs her burst."
+  },
+  "Ryze": {
+   "difficulty": "",
+   "summary": "Skill lane: stand behind minions vs his Q, fear can cancel his ult teleport, and your R combo kills him before he ramps. Banshee's for his root."
+  },
+  "Sylas": {
+   "difficulty": "",
+   "summary": "His E dashes proc your passive; fear him mid-dash and when he closes for W. Respect him if he steals your ult. Buy Morellonomicon for anti-heal."
+  },
+  "Syndra": {
+   "difficulty": "",
+   "summary": "Pure skill lane: dodge her stun, match her poke, Zhonya's vs her ult, and land your combo first; both of you are gank-prone."
+  },
+  "Taliyah": {
+   "difficulty": "",
+   "summary": "Skill lane: avoid fighting on her worked ground, dodge her E into W combo, match poke and her roams with your R. First combo wins."
+  },
+  "Talon": {
+   "difficulty": "",
+   "summary": "His Q dash procs your passive; W when he jumps on you. Track and ping his wall roams, follow with R. Early armor into Zhonya's."
+  },
+  "Tristana": {
+   "difficulty": "",
+   "summary": "Her rocket jump procs your passive: fear her when she lands and place E there. Hold fear after her knockback if needed. Zhonya's vs her bomb burst."
+  },
+  "TwistedFate": {
+   "difficulty": "",
+   "summary": "Favorable: dodge gold card, out-range his Q, and he's very vulnerable to your all-in. Match or punish his ult roams. Banshee's blocks a card."
+  },
+  "Veigar": {
+   "difficulty": "",
+   "summary": "Weak early: dodge his cage and all-in early before he stacks; your R dash can go through the cage walls. Banshee's for his combo."
+  },
+  "Velkoz": {
+   "difficulty": "",
+   "summary": "Vex-favored: dodge his Q, all-in with R since he can't escape, fear to interrupt his laser. Banshee's vs his knock-up."
+  },
+  "Viktor": {
+   "difficulty": "",
+   "summary": "Weak before his upgrades: dodge his laser perpendicular, all-in early, Banshee's vs his slow field. Out-roam him."
+  },
+  "Vladimir": {
+   "difficulty": "",
+   "summary": "Bait his pool with E, then all-in while it's down. Buy Morellonomicon, poke to outpace his sustain, and get leads early since he outscales."
+  },
+  "Xerath": {
+   "difficulty": "",
+   "summary": "Heavily Vex-favored: dodge his Q and simply all-in with R; he has no escape. Banshee's vs his stun, fear to interrupt his ult."
+  },
+  "Yasuo": {
+   "difficulty": "",
+   "summary": "His E spam procs your passive constantly: W when he dashes in, place E on minions he dashes through, and play around his wind wall. Early armor."
+  },
+  "Yone": {
+   "difficulty": "",
+   "summary": "His E, Q3 and ult dashes proc your passive. W his E engage and put E on his body marker to fear his return. Armor into Zhonya's."
+  },
+  "Zed": {
+   "difficulty": "",
+   "summary": "His ult dash procs your passive: W the moment he appears behind you. Track shadows, poke when his W is down. Armor into Zhonya's."
+  },
+  "Zoe": {
+   "difficulty": "",
+   "summary": "Her portal jump procs your passive; place E where she returns. Dodge her bubble, fear her when she ults in, and R all-in since she returns to a fixed spot. Banshee's blocks a bubble."
+  },
+  "Ziggs": {
+   "difficulty": "",
+   "summary": "His satchel jump counts as a dash. Dodge his Q, all-in with R since he has little escape, Banshee's blocks a spell; out-roam his tower focus."
+  }
+ },
+ "general": "Vex punishes mobility: any enemy dash marks them with Gloom, and her Doom-empowered next ability fears and interrupts dashes, so lanes against dash-heavy champions (Yasuo, Yone, Katarina, Irelia, Ekko) are where she shines, while long-range artillery mages, heavy sustain and spell shields are harder. In lane, poke with Q (ideally E then Q then an auto to pop Gloom) and don't waste Doom on random poke; save it to fear an engage, often by W'ing point-blank when a diver jumps on you. From level 6, Shadow Surge all-ins (R, recast, W, Q, auto, Ignite) kill most squishies from about 70% HP, and E before R adds a Gloom mark for extra damage; wait a moment before recasting R so they waste Flash first. Use R to roam and out-impact immobile mid laners, and buy Zhonya's (Banshee's against key skillshots) since diving in leaves you exposed."
 }

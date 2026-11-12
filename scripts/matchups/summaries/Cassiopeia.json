@@ -6,6 +6,287 @@
  "rank": "?",
  "updated": "2022-08-02",
  "summarized": "2026-11-12",
- "rows": {},
- "note": "no matchup notes"
+ "rows": {
+  "Aatrox": {
+   "difficulty": "3/10",
+   "summary": "Predictable lane: poke him with autos woven between E while he sits on a defensive start. Hold W for the second and third Darkin Blade casts. No need for early armor unless their team is very AD heavy; Conqueror should out-sustain him."
+  },
+  "Ahri": {
+   "difficulty": "5/10",
+   "summary": "Same auto range, so whoever is more aggressive usually wins early. Stand behind minions to avoid charm, bait her Q near low-health minions and farm toward your first back. Magic resist is usually unnecessary; Dark Seal, Tear, and Luden's if they lack frontline."
+  },
+  "Akali": {
+   "difficulty": "7/10",
+   "summary": "Pre-6 you slightly outrange her Q, so space well and stay behind minions to dodge her shuriken. From level 6 her burst can kill you if you miss your ult, so respect it. Against a confident Akali buy an early Null-Magic Mantle."
+  },
+  "Anivia": {
+   "difficulty": "6/10",
+   "summary": "Her Q is slow and easy to dodge. Help your jungler take her blue buff, since her waveclear surpasses yours once she has R and the buff fuels her roams. Build normally and punish her lack of mobility."
+  },
+  "Annie": {
+   "difficulty": "8/10",
+   "summary": "Play aggressively before 6 with autos and E. After she has Tibbers, back off if she is holding a near-full stun stack and not using Q on minions, since that means an all-in or jungler is coming. Flash/Cleanse vs CC junglers; Quicksilver Sash can come before Liandry's."
+  },
+  "AurelionSol": {
+   "difficulty": "6/10",
+   "summary": "He is fragile early due to his starting item. Take Teleport and slow push to get a head start on his roams, and ping when he leaves. His Q-like breath projectile is slow and dodgeable; standard build."
+  },
+  "Azir": {
+   "difficulty": "7/10",
+   "summary": "Annoying because his soldiers effectively extend his range. W stops his dash, and his ult is readable; never stand near your tower with soldiers around and R up. Early Null-Magic Mantle vs heavy soldier poke, otherwise Liandry's into Rylai's."
+  },
+  "Brand": {
+   "difficulty": "6/10",
+   "summary": "Not easy: long-range poke, good mana and easy stuns. Take Ignite and play around your jungler to snowball, since he has no mobility. Luden's with early Dark Seal vs squishy teams."
+  },
+  "Camille": {
+   "difficulty": "5/10",
+   "summary": "Mid lane walls give her Hookshot lots of angles; throw W where she lands the second part. Poke with autos and E, take Ignite and get aggressive after Tear, buy early armor and keep R until after her ultimate."
+  },
+  "Chogath": {
+   "difficulty": "7/10",
+   "summary": "AP Cho can stomp you with low-cooldown Rupture plus silence before you reach execute range. Keep moving to dodge Q and bait it; save R plus Flash for the moment he turns to cast Rupture. Liandry's since he gets tanky."
+  },
+  "Corki": {
+   "difficulty": "2/10",
+   "summary": "Favorable: W shuts down his Valkyrie escape. Take Ignite and bully him out early because he outscales; Luden's path if they lack frontline."
+  },
+  "Diana": {
+   "difficulty": "6/10",
+   "summary": "Dodge her Q; each miss gives you a long window to trade with Q and E. Her ult is predictable so your ultimate lands easily. If her Q poke hurts, buy an early Null-Magic Mantle, since her kill threat spikes at 6."
+  },
+  "Ekko": {
+   "difficulty": "7/10",
+   "summary": "Unless facing an early-ganking jungler, shove the first waves to hit level 2 first and use E before he has his dash, keeping him away until your first back. Take Ignite, save W for when he needs his ult, and drop Q at your feet when he dashes in. Build Liandry's."
+  },
+  "Ezreal": {
+   "difficulty": "2/10",
+   "summary": "Stay behind minions so his Q can't reach; his only trade is stepping into auto range or using his long-cooldown dash. Use W to deny his Flash rather than his dash, and with Ignite, Dark Seal and Tear chase him down once E is down."
+  },
+  "Fiddlesticks": {
+   "difficulty": "3/10",
+   "summary": "Usually tanky and immobile with strong gank setup. Poke with E but don't spend Q mana before Tear since his drain heals it back; his drain gives you a free ult setup. If he vanishes, hug the far side of lane in case of an ult over the wall; Cleanse vs CC junglers."
+  },
+  "Fizz": {
+   "difficulty": "7/10",
+   "summary": "You dominate pre-6: weave autos with E and throw Q where he must walk up to last hit. Barrier, Exhaust or Ignite all work. Buy an early Null-Magic Mantle even when ahead, then Liandry's."
+  },
+  "Galio": {
+   "difficulty": "4/10",
+   "summary": "Strong gank setup with his E and W, so space carefully; his charged punch is visible and dodgeable. Poke him with autos to stack Conqueror; early Dark Seal into Liandry's and Demonic Embrace instead of Rylai's. Teleport or Cleanse."
+  },
+  "Gangplank": {
+   "difficulty": "6/10",
+   "summary": "His Q is oppressive early and he heals it back, so avoid extended trades until you have Tear. Take Teleport and impact side lanes, answering his global ult. Both scale; Luden's or Liandry's."
+  },
+  "Gragas": {
+   "difficulty": "2/10",
+   "summary": "Very easy: his barrel is slow and predictable. If he pops W while walking at you, expect a jungler; his body slam plus Flash is the only real threat. Take Ignite, start fights with W, and rush Lost Chapter into Luden's."
+  },
+  "Heimerdinger": {
+   "difficulty": "6/10",
+   "summary": "Turrets push you under tower and deny extended trades. Take Teleport, farm to first back before trying to 1v1, and dodge his stun grenade's center; once that misses you win. With Rylai's you can chase him."
+  },
+  "Irelia": {
+   "difficulty": "7/10",
+   "summary": "Don't fight her at 4-5 passive stacks unless you have an item or HP lead. If her W-stun looks like it will land, throw W to delay her Q follow-up. Early armor, then Tear into Liandry's; hit R while she charges W or after her Q."
+  },
+  "Jayce": {
+   "difficulty": "1/10",
+   "summary": "One of the easiest: when he leaps in, Q is guaranteed, drop W and kite back with E stacking Conqueror. He only wins at range, so hide behind minions. Ignite or Exhaust, rush Lost Chapter into Luden's."
+  },
+  "Karma": {
+   "difficulty": "4/10",
+   "summary": "Slow lane: her movement speed makes chasing hard, so bait her empowered Q near low minions and farm. Kills are rare early; take Teleport or Ghost and pressure river and sides after first back, slow pushing to create roam windows."
+  },
+  "Karthus": {
+   "difficulty": "3/10",
+   "summary": "Simple, immobile kit. Play near your jungler so his wall leaves you less distance to escape, and fight inside the wave so his Q doesn't get isolated bonus damage. Ignite for level 2-3 kills or Teleport; early Dark Seal."
+  },
+  "Kassadin": {
+   "difficulty": "6/10",
+   "summary": "Bully him very early with Conqueror, autos and E levels 1-4 so he must use Q to farm. Crash wave three or four for a cheater recall into Tear, take Ignite and punish when he steps up to last hit."
+  },
+  "Katarina": {
+   "difficulty": "6/10",
+   "summary": "Play like Kassadin: pressure and stack Conqueror levels 1-3 when she can't trade, then crash a wave for an item lead. Consider an early Null-Magic Mantle for her level 6 ult."
+  },
+  "Kayle": {
+   "difficulty": "2/10",
+   "summary": "Cassiopeia thrives before 6 while Kayle must step up to farm: Q her as she last hits and poke with E. You should win 1v1s until around level 11; punish the long cooldown after her ult. Teleport to spread your lead."
+  },
+  "Kennen": {
+   "difficulty": "4/10",
+   "summary": "You win until he has his ult. Stay behind minions to avoid his shuriken and hit Q when he steps up to farm; throw W and back off if he tries to engage with R. Focus side lanes rather than solo kills."
+  },
+  "KogMaw": {
+   "difficulty": "8/10",
+   "summary": "Becomes a problem once he has Luden's and poke from his ult. Pressure early, dodge his slow and stand behind minions vs his Q. Take Teleport and Phase Rush since early kills are unlikely."
+  },
+  "Leblanc": {
+   "difficulty": "5/10",
+   "summary": "When she W's in, throw your W at her return point so she has to commit, then land Q. She loses extended fights and relies on burst. Ignite and an early Null-Magic Mantle."
+  },
+  "Lissandra": {
+   "difficulty": "4/10",
+   "summary": "Stand properly in the wave to avoid her Q; danger comes from her point-and-click CC and gank setup, so ward and watch the map. W stops her E movement. With Conqueror and Ignite you can kill her."
+  },
+  "Lucian": {
+   "difficulty": "5/10",
+   "summary": "Level 1 you farm easily; be careful at 2 when his dash makes Press the Attack procs easy. Exhaust or Ignite, early armor, and R is easy since he faces you during his ultimate."
+  },
+  "Lulu": {
+   "difficulty": "3/10",
+   "summary": "She pokes well but can't take long trades; once her spells are down, Q and chase with E. Play to your jungler's side and use pressure to help sides; save R for ganks."
+  },
+  "Lux": {
+   "difficulty": "7/10",
+   "summary": "Squishy and immobile but self-peels well; only fight when her binding is down or baited. W sets up ganks; with Liandry's and Barrier/Cleanse you survive her combo. Punish hard when her Flash is down."
+  },
+  "Malphite": {
+   "difficulty": "2/10",
+   "summary": "Low gank threat before 6. Q him when he walks up to farm and W as he retreats. AP Malphite's R plus Ignite can kill you from high HP, so take Barrier and an early Stopwatch, then punish a failed all-in with your ult."
+  },
+  "Malzahar": {
+   "difficulty": "3/10",
+   "summary": "Annoying poke and pushing; your autos and E easily kill his voidlings. Q from range to pop his passive shield, then time your R to interrupt his suppression. Quicksilver Sash after Lost Chapter."
+  },
+  "Mordekaiser": {
+   "difficulty": "2/10",
+   "summary": "Q him as he last hits, sidestep his Q pull, and save R until after he ults you. Liandry's into Rylai's helps kite inside his realm; Conqueror out-heals him."
+  },
+  "Morgana": {
+   "difficulty": "5/10",
+   "summary": "Stay in the wave to avoid her bind. Only ult when her shield is down. Cleanse and Demonic Embrace instead of Rylai's, since her shield negates the slow."
+  },
+  "Neeko": {
+   "difficulty": "6/10",
+   "summary": "Oppressive long-range poke and clones make Q hard to land; a poisoned target reveals the real one. Barrier or Cleanse; ult after she uses her clone to engage, as she's usually running at you."
+  },
+  "Nocturne": {
+   "difficulty": "4/10",
+   "summary": "Bait his spell shield by delaying your ult. Take Cleanse for his fear, then R, W and kite. Early armor or Stopwatch after Lost Chapter; poke with Q from distance since he's melee."
+  },
+  "Nunu": {
+   "difficulty": "2/10",
+   "summary": "W interrupts his snowball, so save it for ganks. Hold R until he channels his ult. Build standard into Liandry's; watch for his objective control."
+  },
+  "Orianna": {
+   "difficulty": "9/10",
+   "summary": "One of the worst: she outranges you and pokes from level 2. Farm with E at distance and wait for ganks, using Flash+W to close the gap. Rush Lost Chapter, take Teleport or Barrier, and focus side lanes."
+  },
+  "Pyke": {
+   "difficulty": "4/10",
+   "summary": "Respect his burst and stun. Ult him when he last hits melee range and follow with W to deny escapes. If you dodge his E you win extended trades."
+  },
+  "Qiyana": {
+   "difficulty": "7/10",
+   "summary": "Play like Fizz: pressure the first three levels with autos and E, and when she jumps in, drop W under yourself to guarantee Q. Buy early armor for her ult; stay in mid-lane away from walls."
+  },
+  "Renekton": {
+   "difficulty": "4/10",
+   "summary": "Keep distance at high fury; save W for when he dashes through minions to deny the second dash. Weave autos and E to sustain; you can often kill him without R, so use it for side lanes."
+  },
+  "Rumble": {
+   "difficulty": "6/10",
+   "summary": "Oppressive with harpoon slows and flamespitter plus Ignite. Start Doran's Ring with two potions, keep distance until you have mana for extended trades, and match his roams."
+  },
+  "Ryze": {
+   "difficulty": "3/10",
+   "summary": "One of your best: W slows him and makes Q easy. Counter his root with R since he faces you. Start Tear to match his scaling and abuse early pressure."
+  },
+  "Seraphine": {
+   "difficulty": "1/10",
+   "summary": "Her slow skillshots are easy to dodge, so poke is minimal; ward river and stay near your jungler. Ult her as she casts her ult (may need Flash). Luden's vs squishy teams; Demonic Embrace."
+  },
+  "Sett": {
+   "difficulty": "2/10",
+   "summary": "Predictable; watch for surprise flanks with Flashtraption. Stay mid-lane, poke, and keep out of his Q range. Hold R for his E into Flash-ult combo."
+  },
+  "Swain": {
+   "difficulty": "3/10",
+   "summary": "Stacked Conqueror out-sustains him; Ignite wins 1v1s. Trade when his slow E is down and ult when he hits you with it. Start Tear."
+  },
+  "Sylas": {
+   "difficulty": "4/10",
+   "summary": "Punish early with Ignite and autos; you may solo kill at 2-3 with early Tear. W can't stop his second dash; after R, follow immediately with W."
+  },
+  "Syndra": {
+   "difficulty": "9/10",
+   "summary": "Big range advantage with cheap Q poke. Barrier and Doran's Ring; bait Q near low minions. She's immobile: save W for ganks and punish while her E is down; early Zhonya's."
+  },
+  "Taliyah": {
+   "difficulty": "5/10",
+   "summary": "She faces one direction while channeling Q, giving R windows. Walk toward her when she trades, since her E is usually thrown where you'd flee. Ignite and Tear; look for solo kills from level 3-4 once her spells are spent."
+  },
+  "Talon": {
+   "difficulty": "4/10",
+   "summary": "Stand to the side of the wave so his W forces a choice. Ignite lets you bully him under tower and limit roams; ping when he leaves. Early armor."
+  },
+  "Tristana": {
+   "difficulty": "6/10",
+   "summary": "Start Doran's Shield and rush armor; she is oppressive early with Press the Attack. Keep distance and farm; use W to stop her reset jump."
+  },
+  "TwistedFate": {
+   "difficulty": "6/10",
+   "summary": "Slow lane: he waits for 6 to roam. Teleport to match (Cleanse vs CC junglers). He's immobile and you win isolated extended trades, so step up when you know where the jungler is."
+  },
+  "Varus": {
+   "difficulty": "2/10",
+   "summary": "Favorable despite his range: he faces you when charging Q or casting R, giving easy ults, and his immobility makes him gankable. Tear, Ignite or Teleport."
+  },
+  "Veigar": {
+   "difficulty": "5/10",
+   "summary": "Mostly a farming lane; if he steps up or drops his cage, a gank is likely. Save mana for extended trades in his cage; early Null-Magic Mantle may be needed for his level 6 burst."
+  },
+  "Velkoz": {
+   "difficulty": "9/10",
+   "summary": "Very frustrating: outranged and constantly dodging. Wait for his ult and R or Flash+R, then W and Q. Start Doran's Ring and avoid extended trades until you have HP; dodging his knock-up is key."
+  },
+  "Viktor": {
+   "difficulty": "7/10",
+   "summary": "Respect his early damage for levels 1-3; afterward you out-sustain extended trades. Tear for pre-6 trades and an early Null-Magic Mantle for his post-6 burst. He's immobile and gankable."
+  },
+  "Vladimir": {
+   "difficulty": "5/10",
+   "summary": "Favorable: always Ignite, weave autos and E, stack Conqueror; with Tear you out-sustain pre-6. Your poisons and burns keep ticking through his pool. Demonic Embrace; play aggressively between his cooldowns."
+  },
+  "MonkeyKing": {
+   "difficulty": "3/10",
+   "summary": "When he dashes in, Q at your feet; poison reveals his invisible body vs the clone. Ignite or Exhaust, Tear first and pressure early; Zhonya's for his ult."
+  },
+  "Xerath": {
+   "difficulty": "9/10",
+   "summary": "Range-oppressive like Orianna and Syndra. Farm until 6, then Flash+R when he charges Q facing you. Mostly shove and roam to snowball teammates; he's immobile and gankable."
+  },
+  "Yasuo": {
+   "difficulty": "5/10",
+   "summary": "Coinflip. Pop his shield with autos and E, avoid standing in the wave where he dashes around you. Once you have W, ground him and win extended trades; Q behind his wind wall. Early armor."
+  },
+  "Yone": {
+   "difficulty": "6/10",
+   "summary": "Keep distance when his third Q is ready and throw Q in front so he dashes into it. W stops his E return. Exhaust or Ignite, early armor."
+  },
+  "Zed": {
+   "difficulty": "7/10",
+   "summary": "Bully him at level 1 and dodge his shuriken; once he has W respect Electrocute and double-shuriken combos. Stand beside the wave. When he ults, place W at your feet facing away so he lands in it. Early armor."
+  },
+  "Ziggs": {
+   "difficulty": "7/10",
+   "summary": "Cheap heavy poke; bait his Q near low minions. Barrier or Teleport and focus side lanes. Doran's Ring start, early Null-Magic Mantle; he's vulnerable when his satchel is down."
+  },
+  "Zilean": {
+   "difficulty": "4/10",
+   "summary": "Avoid minion waves from level 2 to dodge a double bomb stun. Cleanse or Teleport for his slow. Doran's Ring, then rush Lost Chapter for extended trades."
+  },
+  "Zoe": {
+   "difficulty": "5/10",
+   "summary": "Take Cleanse for her sleep. Stand far behind minions pre-6. After 6, W her portal return spot and R since she comes back facing the same way. Trade when her bubble is down."
+  },
+  "Zyra": {
+   "difficulty": "3/10",
+   "summary": "Respect plant damage, but pre-6 she is open once her root is down. Her immobility makes it easy; Ignite to snowball or Barrier to scale. Zhonya's may help vs her ult."
+  }
+ },
+ "general": "Max E (Twin Fang) from level 1 for last hits (it refunds mana on minion kills), Q at 2 for trade and kill pressure, and W at 3 only if you need it against mobile assassins or for an early gank, otherwise at 4; always take R at 6, 11 and 16. Against early-ganking junglers (Shaco, Jarvan IV, Nunu, etc.) ward before minions arrive. With a Tear start and no early gank expected, rush level 2 and take an extended trade with Barrier or Ignite, push waves 2-3 and move to help contest scuttle. Weave autos between E to stack Conqueror and out-sustain melee lanes; W can cancel channelled dashes (Vi, Nunu, Fiddlesticks ults). Into long-range mages (Orianna, Syndra, Vel'Koz, Xerath), farm and roam rather than looking for solo kills."
 }

@@ -1,0 +1,714 @@
+{
+"champ": "Lissandra",
+"source": {
+"quality": "summary",
+"url": "https://www.mobafire.com/league-of-legends/build/kneel-to-the-watchers-lissandra-the-ice-witch-417900",
+"author": "MrMad2000",
+"updated": "2015-07-15",
+"title": "[S5] Kneel to the Watchers! - Lissandra The Ice Witch."
+},
+"fetched": "2026-11-12",
+"rows": {
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"She has more early presence, a level 6 as strong as yours, better range and waveclear, and dangerous roams; mistakes get punished. Both of you are hard to gank, but your tools have longer cooldowns. You win teamfights: when she ults into your team, lock her with W and R."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"",
+"She can't bully you before 6 and needs her Q to farm, so zone her off minions. Her power jumps at 6; fight her right as she hits 6 with low energy. Buy wards or Oracle for her shroud mid game, shut her down early, and take mid tower to make plays."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Neither side has much kill pressure: play safe, don't call ganks, take blue buffs and deny XP. Roam whenever she leaves lane and hit her tower, but don't stay away long since her ult clears waves. Build MR and early health, and win around your mid-game spike before she scales."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Strong laner who outranges your autos; watch her stun passive. Poke with Q when her shield is down rather than auto-trading. At 6 with Ignite you can all-in, using your ult to stun her or dodge Tibbers. She snowballs hard, so respect her burst."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Weak early and item-dependent, so bully him and out-shove and out-roam him. Your E blink can go over his ult wall. Respect his mid-game item spike and his fast Q/R animations; don't let him get fed."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Make-or-break lane: he outranges you but must combo and his spells are mana-hungry. Dodge his stun and pillar and self-cast R before his ult lands; you can kill him with enough HP. You outscale and out-roam him, so be patient and leave lane to help elsewhere."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Strong at all stages with poke and sustain but no mobility beyond Flash. Self-cast R to dodge her ult if you can't turn. Shut her down by mid game; surprise her with E over a wall into R and W."
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Dangerous whatever he builds. Keep him down early, force recalls and get your jungler to camp; otherwise play very safe, farm and scale or he shuts you out of relevance."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Very safe laner who farms to 6 then pokes heavily. Your E goes through walls and can be re-activated to blink instantly; use it to surprise him and root with W so the team can burst him."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"From 6 she can duel you and turn ganks. Exploit her low mana and expensive spells: if she spams them, punish with a full combo and Ignite. Bully her early and never let her trade on her terms."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Slippery long-range hybrid poke that is hard to itemize against; avoid his W. He becomes a siege and ult threat mid game if ahead, so keep the lane from letting him scale freely."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"He has sustain, poke and fear; walk out of his drain range. Poke when his drain is down, and he's immobile so ganks work. W or R interrupt his ult channel; ward ambush spots in teamfights."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Snowballs off farm alone. Self-cast R to absorb her ult, bully her early, buy an early Zhonya's and bait her lunge to drain mana, but avoid too many early engages because her burst is high."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"You have the tools: self-cast R vs his ult and harass with Q to zone him off farm. Stall his items so your team spikes first."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"He stacks MR; punish early mistakes, then roam. Interrupt his ult with W or R, dodge spells to drain his mana, deny blue buff; early Void Staff can help."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"He pokes with Q; retaliate with your Q when he steps close. He's hard to duel, so roam but don't stay away long; an early Zhonya's helps."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"He shoves and farms under turrets. Close with E but watch for his stun grenade on arrival. He's immobile, so roam or call ganks."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Very strong early with shields negating your harass and AoE poke that hits you anyway. Little to do in lane; roam to have impact."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"",
+"Easy lane: dodge his Q, self-cast R to block his ult, and burst him or stun him to interrupt it when he casts in range. His wall shreds MR and slows heavily."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Weak early but resists your magic damage and has strong mobility and sustain. Deny him early (and blue buff) to snowball before he scales."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"",
+"Harmless in lane but strong later. Deny her early and stop roams; follow or take mid tower and cross-map when she leaves. Trade with W into point-blank Q."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"She just needs items. Deny her early, avoid long fights where she shreds you, and stun her to stop her ult."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Your CC does little against his damage. Stay behind and away from the wave, poke occasionally to keep him killable for your jungler, avoid getting outfarmed and dying, and focus him mid game."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Big early threat; avoid pointless trades and zone with Q at level 1, respect her level 2 burst. Poke from outside her range and all-in at 6 with Ignite. You outscale her."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Rare in lane but brutal. Rush Zhonya's, harass with Q, farm with AP for waveclear, and push to roam when he leaves."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Endless poke and peel; her ult can knock you up as you E in. Expect a farm lane and look to hit enemy carries mid game when she isn't there."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Outranges you and can kill you under tower; save R for her combo but beware being baited. Ward rivers heavily against her global-ish ult."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"He outranges you and trades better; you can't really stop his ult. Build tanky and beware his roams."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Trade at range early and zone him off farm. Respect his level 6 all-in with Ignite; catch him alone in the jungle since he is immobile."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Her spell shield negates you and she farms safely. Roam and punish greed; she's weak until level 4 and has short range, so zone her off CS."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Squishy but safe with range and sustain; root her with W when she pounces on you. The lane snowballs one way or the other, so don't give her the lead."
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Farm lane with no kill pressure either way. She runs low on mana before her first item, so exploit that."
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"A good Riven beats you. W disengages her, but missing it can be fatal. Deny her early but stay careful after 6."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Farm lane; he's weak early but scales. Exploit early, roam and farm."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Easy until 6; try to kill him before then and snowball with damage builds. Steal or ward his blue, roam and force objectives to delay his spike."
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Avoid her early poke or she kills you at 6. Self-cast R to block her ult, E in when her spells are down, and harass with Q in short trades."
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"He out-sustains you and his W chunks you. Build tankier, bully him until level 4, ward river and take camps; don't let him get an item lead."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"",
+"Weak early; harass with Q and autos and avoid frequent short trades. Ward river and interrupt his gate with W or R. When he locks blue card, you have a window to be aggressive."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Very hard: he outranges and outtanks you. Build armor early, get your jungler to camp him and roam/push when he leaves."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"",
+"Bully him early; he's squishy and immobile. Self-cast R to dodge his ult and snowball off him."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"MR is less useful due to his true damage. Push him out early, take his tower and gank him when he pushes up, since he is immobile."
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"",
+"Poke him back; he needs items. Jump him with Ignite, and use E to escape his W field."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Buy grievous wounds. He kills you at 6 unless you get ahead; freeze, then shove and take tower when he recalls, roam and farm."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Dodges your spells, escapes ganks and duels well; he will follow your roams and burn your tower if you leave."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"Treat like Lux but with more lane damage and less survivability; easy to beat after laning if he isn't fed."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Keep him down early and stay away from minions. His wall blocks Q and E, but W and R still work."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Easy in lane: he eats poke. Self-cast R negates his ult; build some magic pen and Zhonya's."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Poke machine; farm and roam, save R to mitigate his ult, and don't die under tower."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"",
+"No kill pressure either way. Roam, farm and scale."
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill"
+],
+[
+"",
+"Respect her poke and play safe; she's immobile and squishy, so jump on mistakes when you know where the jungler is, but her passive can still kill you."
+]
+]
+}
+]
+},
+"general": "Old Season 5 guide. In lane, land Ice Shard (Q) constantly to force the opponent passive, deny farm and bait overextensions for ganks; if they walk close, Ring of Frost (W) guarantees a Q, and repeating that wins kills. From level 6 Frozen Tomb is a huge disable: with some AP and cooldown reduction push your opponent out and draw jungle attention, and use Glacial Path over walls for surprise engages. Later in lane she is an excellent roamer: leave whenever your wave is pushed or the opponent recalls. Mid game she excels in tight skirmishes and objective pits, then becomes the late-game playmaker who dives grouped or mispositioned enemies."
+}

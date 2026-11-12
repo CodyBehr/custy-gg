@@ -6,6 +6,37 @@
  "rank": "Challenger",
  "updated": "2026-11-02",
  "summarized": "2026-11-12",
- "rows": {},
- "note": "no matchup notes"
+ "rows": {
+  "Fiora": {
+   "difficulty": "",
+   "summary": "With Conqueror, this is a lane to abuse early: fight her often in the first levels to build a lead before she scales."
+  },
+  "Aatrox": {
+   "difficulty": "",
+   "summary": "Take Conqueror and look to duel him early and repeatedly to get ahead, rather than waiting to scale."
+  },
+  "Camille": {
+   "difficulty": "",
+   "summary": "A Conqueror lane: force early fights to snowball a lead while your early dueling is strongest."
+  },
+  "Ornn": {
+   "difficulty": "",
+   "summary": "Too tanky for Garen to deal the burst needed to trigger Stormraider's Surge, so short hit-and-run trades don't work well unless you build much more damage."
+  },
+  "KSante": {
+   "difficulty": "",
+   "summary": "Like other tanks, he soaks enough damage that you can't reliably trigger Stormraider's Surge, which blunts your Stridebreaker trading pattern."
+  },
+  "Darius": {
+   "difficulty": "",
+   "summary": "He can buy early health and armor to stop you triggering Stormraider's Surge, unless your first item is something like Trinity Force. Manage your cooldowns carefully in this juggernaut lane."
+  },
+  "Sett": {
+   "difficulty": "",
+   "summary": "Can stack early health and armor to deny your Stormraider's Surge proc; consider Trinity Force first if you want the keystone to work."
+  }
+ },
+ "note": "bit.ly/Federals1 redirects to summonerschool.com (landing page; Garen course at summonerschool.com/course/garen-guide). The per-matchup tips there are a paid course behind sign-in/purchase, so rows come from the Mobafire guide body instead.",
+ "general": "Garen plays very differently by keystone. With Conqueror, fight a lot early for lane priority; at level 6 with Ignite and Doran's Blade the all-in can nearly one-shot some opponents, but you get kited easily (save Q to cleanse slows) and fall off badly late. With Stormraider's Surge, play slower, abuse passive sustain and farm toward Stridebreaker, the first big spike, after which you do repeated short hit-and-run trades until a full combo with ult kills. Mid game, Stormraider's lets you side lane and escape collapses, and from about level 13 he is very hard to kill; with Conqueror, split pushing usually gets you collapsed on and killed. Aim to end around 25-30 minutes, as some champions out-duel him very late. Rotate with Q speed and use E to proxy or steal camps.",
+ "linked_sheet": "https://docs.google.com/spreadsheets/d/1hoDv6XMqwK_ABrUaeqM0D8UP6jDbiw33G9m7USmCrLg/edit"
 }

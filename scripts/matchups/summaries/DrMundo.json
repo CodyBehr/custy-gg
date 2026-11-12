@@ -6,6 +6,48 @@
  "rank": "Challenger",
  "updated": "2026-11-02",
  "summarized": "2026-11-12",
- "rows": {},
- "note": "no matchup notes"
+ "rows": {
+  "Sett": {
+   "difficulty": "",
+   "summary": "Use W to absorb his charged W, since Mundo's W stores most of the burst so you can walk it off. From mid game his %HP damage still shreds you, so don't overvalue your tankiness."
+  },
+  "Volibear": {
+   "difficulty": "",
+   "summary": "Block his E burst with your W rather than eating it raw; poke him down with Q and E and only commit once he is low."
+  },
+  "Gwen": {
+   "difficulty": "",
+   "summary": "Save W for her fully stacked Q. Her %HP damage melts you in every phase of the game, even late."
+  },
+  "Irelia": {
+   "difficulty": "",
+   "summary": "A hard counter: forget scaling and just try not to die repeatedly, farming safely with Q."
+  },
+  "Illaoi": {
+   "difficulty": "",
+   "summary": "A hard counter that annihilates you in lane; the goal becomes simply surviving rather than playing to scale."
+  },
+  "Malphite": {
+   "difficulty": "",
+   "summary": "He can't stop your scaling early, so farm freely to your power spikes. Later he's weaker in the side lane, so keep forcing him to answer you there and take turrets with Demolish on cannon waves."
+  },
+  "Ornn": {
+   "difficulty": "",
+   "summary": "Better teamfighter but weaker on the side lane: keep split pushing so he must answer you, and destroy turrets if he can't clear waves fast enough."
+  },
+  "Fiora": {
+   "difficulty": "",
+   "summary": "Her %HP damage melts you even mid game, and she out-splits you. Either force 4v5 teamfights elsewhere or match her on the side lane, using your E waveclear to stonewall her pushes."
+  },
+  "Tryndamere": {
+   "difficulty": "",
+   "summary": "Stronger split pusher than you: either force 4v5 fights or hold the side lane, where your E waveclear can stall his push."
+  },
+  "Camille": {
+   "difficulty": "",
+   "summary": "The author argues Mundo actually counters Camille rather than the reverse, and links a dedicated video on how to play the matchup."
+  }
+ },
+ "general": "Mundo's early game is very weak: don't fight, invade or join river skirmishes; poke with Q and especially E (it goes through minions) and only go in once the opponent is low. Use W to absorb big burst abilities, which you can then heal off. At level 6 use R mainly to regenerate rather than mid-fight. Around levels 8-9 you can start taking longer fights, rank 2 ult in the mid game makes you a real threat, and rank 3 ult is your peak, when you can walk into the enemy team and threaten carries (build Titanic Hydra before Overlord's Bloodmail). %HP damage remains your biggest weakness at every stage. Mid game, match or out-push split pushers with E waveclear, and keep forcing weak side-laners to answer you while you take turrets.",
+ "linked_sheet": "https://docs.google.com/spreadsheets/d/1Z9DGU9wMKzOz34syRO-1a8ie9ABzJVmi6jevwvUEcqY/edit"
 }

@@ -2021,15 +2021,20 @@ function expertNotes(champ, opp, redraw) {
   const src = (label) => `<div class="src">${summ ? "Summarized from the guide by " : "From "}${who}${upd ? ` · updated ${esc(upd)}` : ""}${old} · <a href="${esc(m.url)}" target="_blank">${label}</a></div>`;
   const summ = m.quality === "summary";
   if (!summ && m.quality !== "sheet") {
-    return `<div class="card xn"><div class="ctitle">Expert guide</div><div class="sub">A written ${esc(csName(champ))} guide${m.quality === "guide" ? "" : " with notes for each matchup"} on ${esc(site.includes("docs.google") ? "Google Sheets" : site)}. We can't show it here, but it's one click away.</div>${src("Open the guide")}</div>`;
+    return `<div class="card xn"><div class="ctitle">Expert guide</div><div class="sub">A written ${esc(csName(champ))} guide${m.quality === "guide" ? "" : " with notes for each matchup"} on ${esc(site.includes("docs.google") ? "Google Sheets" : site)}. Open it for the author's full notes.</div>${src("Open the guide")}</div>`;
   }
   const d = NOTES.champ[champ];
   if (!d) return d === null ? `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">Loading…</div></div>` : "";
-  if (!opp) return `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">${who} wrote notes for ${Object.keys(d.rows).length} opponents. Pick an opponent to see them.</div>${src(summ ? "Open the full guide" : "Open the full sheet")}</div>`;
+  const gp = d.general ? `<div class="card xn"><div class="ctitle">Expert game plan</div><dl><dd>${esc(d.general)}</dd></dl>${src(summ ? "Open the full guide" : "Open the full sheet")}</div>` : "";
+  if (!opp) return gp || `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">${who} wrote notes for ${Object.keys(d.rows).length} opponents. Pick an opponent to see them.</div>${src(summ ? "Open the full guide" : "Open the full sheet")}</div>`;
   const rows = d.rows[opp];
+  if (!rows && gp) return gp;
   if (!rows) return `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">${who}'s ${summ ? "guide" : "sheet"} has nothing on ${esc(csName(opp))}.</div>${src(summ ? "Open the full guide" : "Open the full sheet")}</div>`;
   const body = rows.map(e => `${e.as ? `<div class="as">${esc(e.as)}</div>` : ""}<dl>${e.fields.map(([k, v]) => `${k ? `<dt>${esc(k)}</dt>` : ""}<dd>${esc(v)}</dd>`).join("")}</dl>`).join("");
-  return `<div class="card xn"><div class="ctitle">Expert notes vs ${esc(csName(opp))}</div>${body}${src(summ ? "Open the full guide" : "Open the full sheet")}</div>`;
+  // no real advice for this opponent (only runes/build)? add the author's general game plan underneath
+  const advice = rows.some(e => e.fields.some(([k, v]) => /tip|note|how|advice|summar/i.test(k) || (!k && v.length > 60)));
+  const tail = !advice && d.general ? `<div class="as">How ${esc(m.author || "the author")} plays the lane in general</div><dl><dd>${esc(d.general)}</dd></dl>` : "";
+  return `<div class="card xn"><div class="ctitle">Expert notes vs ${esc(csName(opp))}</div>${body}${tail}${src(summ ? "Open the full guide" : "Open the full sheet")}</div>`;
 }
 
 function gamePlan(B, champ, role, opp) {

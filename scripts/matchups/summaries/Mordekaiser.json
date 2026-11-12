@@ -6,6 +6,12 @@
  "rank": "?",
  "updated": "2025-05-06",
  "summarized": "2026-11-12",
- "rows": {},
- "note": "no matchup notes (URL is a tier list, not a guide; no threats section, only champion placements)"
+ "rows": {
+  "Illaoi": {
+   "difficulty": "",
+   "summary": "From the author's reply in the tier list discussion: a tough lane, but one you can still win overall. Track where her tentacles are and don't let her poke you for free, then lean on your ult from level 6. If her E pulls out your spirit, don't walk off; hit her with your E into Q while she is attacking it."
+  }
+ },
+ "note": "URL is a tier list (champion placements only, no guide chapters). The only written matchup advice is the author's comment about Illaoi in the discussion; no general laning content.",
+ "general": ""
 }
