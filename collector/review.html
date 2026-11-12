@@ -224,6 +224,12 @@ details.allnums { margin-top:22px; } details.allnums summary { cursor:pointer; c
 .vtabs button.on { border-color:var(--gold); background:rgba(200,170,110,.12); } .vtabs small { color:var(--mute); font-size:11px; margin-left:4px; }
 .moment.flash { animation: kdflash 1.4s ease-out; } @keyframes kdflash { 0% { background: rgba(200,170,110,.28); } 100% { background: transparent; } }
 .gmap .legend { justify-content:center; }
+.moment .ci { width:22px; height:22px; border-radius:5px; vertical-align:-6px; margin-right:5px; border:1px solid var(--line); }
+.moment .ci.sm { width:17px; height:17px; vertical-align:-4px; margin-right:3px; } .moment .ci.fc { width:26px; height:26px; margin:0; }
+details.fight .fp { flex-direction:column; flex-wrap:nowrap; gap:0; }
+.fight .fpl { display:flex; align-items:center; gap:8px; padding:3px 0; } .fight .fpl .nm { min-width:110px; } .fight .fpl .nm i { color:var(--mute); font-style:normal; font-size:12px; }
+.fight .fpl .its { display:flex; gap:3px; flex-wrap:wrap; } .fight .fpl .its img { width:22px; height:22px; border-radius:4px; opacity:.6; border:1px solid var(--line); }
+.fight .fpl .its img.done { opacity:1; border-color:var(--gold); width:26px; height:26px; } .fight .fpl .g { color:var(--mute); font-size:12px; margin-left:auto; } .fight .fpl .g em { color:var(--amber-ink); font-style:normal; }
 </style>
 </head>
 <body>
@@ -526,7 +532,7 @@ function analyse(data) {
       else if (e.type === "ITEM_DESTROYED" || e.type === "ITEM_SOLD") { const i = l.indexOf(e.itemId); if (i >= 0) l.splice(i, 1); }
       else if (e.type === "ITEM_UNDO") { const i = l.indexOf(e.beforeId); if (i >= 0) l.splice(i, 1); if (e.afterId) l.push(e.afterId); }
       const consumable = (id) => (DD.items[id]?.tags || []).some(t => t === "Consumable" || t === "Trinket");
-      (invLog[p] ??= []).push({ t: e.timestamp / 1000, built: l.filter(isCompleted).reduce((a, id) => a + itemCost(id), 0),
+      (invLog[p] ??= []).push({ t: e.timestamp / 1000, items: l.filter(id => !consumable(id)), built: l.filter(isCompleted).reduce((a, id) => a + itemCost(id), 0),
         parts: l.filter(id => !isCompleted(id) && !consumable(id)).reduce((a, id) => a + itemCost(id), 0) });
     } }
   const hasItems = Object.keys(invLog).length > 0;
@@ -535,10 +541,10 @@ function analyse(data) {
   const stateAt = (pid, t) => {
     const lv = events.filter(e => e.type === "LEVEL_UP" && e.participantId === pid && e.timestamp / 1000 <= t).reduce((a, e) => Math.max(a, e.level), 0)
       || pf(frames[Math.min(frames.length - 1, Math.floor(t / 60))], pid).level || 1;
-    const inv = (invLog[pid] || []).filter(x => x.t <= t).pop() || { built: 0, parts: 0 };
+    const inv = (invLog[pid] || []).filter(x => x.t <= t).pop() || { built: 0, parts: 0, items: [] };
     const m = Math.min(frames.length - 1, Math.floor(t / 60));
     const since = (buys[pid] || []).filter(b => b.t > m * 60 && b.t <= t).reduce((a, b) => a + itemCost(b.id), 0);
-    return { pid, lv, built: inv.built, parts: inv.parts, unspent: Math.max(0, (pf(frames[m], pid).currentGold || 0) - since) };
+    return { pid, lv, items: inv.items || [], built: inv.built, parts: inv.parts, unspent: Math.max(0, (pf(frames[m], pid).currentGold || 0) - since) };
   };
   // Fights: kills within 15s and 4,500 units of each other. Who was in: anyone who killed, assisted or died,
   // plus anyone within 2,000 units at the minute snapshot.
@@ -1310,7 +1316,10 @@ function fightPanel(A, f) {
     const lv = list.reduce((a, x) => a + x.lv, 0), built = list.reduce((a, x) => a + x.built + x.parts, 0), un = list.reduce((a, x) => a + x.unspent, 0);
     const k = (v) => (v / 1000).toFixed(1) + "k";
     return `<div class="fs"><b>${label}: ${list.length}</b> · levels ${lv} · ${k(built)} in items${un >= 300 ? ` · ${k(un)} not spent` : ""}
-      <div class="fp">${list.map(x => `<span>${esc(A.champOf(x.pid))} <i>lv ${x.lv}</i> ${k(x.built + x.parts)}${x.parts >= 600 ? ` <em>(${k(x.parts)} parts)</em>` : ""}${x.unspent >= 600 ? ` <em>+${k(x.unspent)} unspent</em>` : ""}</span>`).join("")}</div></div>`;
+      <div class="fp">${list.map(x => { const done = x.items.filter(isCompleted).concat(x.items.filter(isBoots)), rest = x.items.filter(id => !done.includes(id));
+        return `<div class="fpl">${pidIcon(A, x.pid, "fc")}<span class="nm">${esc(A.champOf(x.pid))} <i>lv ${x.lv}</i></span>
+          <span class="its">${done.map(id => `<img class="done" src="${itemIcon(id)}" title="${esc(itemName(id))}" alt="">`).join("")}${rest.map(id => `<img src="${itemIcon(id)}" title="${esc(itemName(id))}" alt="">`).join("")}</span>
+          <span class="g">${k(x.built + x.parts)}${x.unspent >= 600 ? ` <em>+${k(x.unspent)} unspent</em>` : ""}</span></div>`; }).join("")}</div></div>`;
   };
   const S = (l) => ({ n: l.length, lv: l.reduce((a, x) => a + x.lv, 0), items: l.reduce((a, x) => a + x.built + x.parts, 0), un: l.reduce((a, x) => a + x.unspent, 0) });
   const u = S(f.us), t = S(f.them), why = [];
@@ -1382,14 +1391,18 @@ function gameMap(A, myKills) {
     <div class="sub" style="margin-top:6px">Numbers match the list below; tap a dot to jump to it.${top && deaths.length >= 3 && top[1] / deaths.length >= .4 ? ` ${top[1]} of your ${deaths.length} deaths were in ${esc(top[0])}.` : ""}</div></div>`;
 }
 
+// A champion's square icon for a participant in this game.
+const pidIcon = (A, pid, cls = "") => { const c = A.g.participants.find(p => p.participantId === pid)?.championId;
+  return c && DD.champ[c] ? `<img class="ci ${cls}" src="${champIcon(c)}" alt="" title="${esc(champName(c))}">` : ""; };
 function killRow(A, k, n) {
   const t = k.timestamp / 1000, helpers = (k.assistingParticipantIds || []).map(A.champOf);
   const where = area(k.position?.x, k.position?.y), lane = A.opp && k.victimId === A.opp.participantId;
-  const notes = [helpers.length ? `with ${esc(helpers.join(", "))}` : `<b>solo kill</b>${lane ? " on your lane opponent" : ""}`];
+  const helperIds = (k.assistingParticipantIds || []);
+  const notes = [helpers.length ? `with ${helperIds.map(p => pidIcon(A, p, "sm") + esc(A.champOf(p))).join(", ")}` : `<b>solo kill</b>${lane ? " on your lane opponent" : ""}`];
   if (k.shutdownBounty > 0) notes.push(`${k.shutdownBounty} gold shutdown`);
   return `<div class="moment" id="kd-k${n}">
     <div class="when">${clock(t)}<small class="kd">kill ${n + 1}</small></div>
-    <div class="what"><div class="part"><b>You killed ${esc(A.champOf(k.victimId))}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
+    <div class="what"><div class="part"><b>${pidIcon(A, k.victimId)}You killed ${esc(A.champOf(k.victimId))}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
       <div class="cmp">${notes.join(" · ")}</div>${fightPanel(A, A.fightOf(k))}</div></div>
     <div class="acts"><button data-watch="${Math.max(0, t - 30)}">Watch in my replay</button></div>
   </div>`;
@@ -1410,7 +1423,7 @@ function deathRow(A, d) {
   if (worth) notes.unshift(`<b class="kd">Worth it:</b> ${worth.why}`);
   return `<div class="moment${worth ? " worth" : ""}" id="kd-d${lead}">
     <div class="when">${worth ? `<span class="badge ok">Worth it</span>` : ""}${clock(d.t)}<small style="color:var(--red-ink)">death ${lead + 1}</small></div>
-    <div class="what"><div class="part"><b>${killers.length ? esc(killers.join(" + ")) : "Executed"}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
+    <div class="what"><div class="part"><b>${killers.length ? [e.killerId, ...(e.assistingParticipantIds || [])].filter(p => p > 0).map(p => pidIcon(A, p) + esc(A.champOf(p))).join(" + ") : "Executed"}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
       ${notes.length ? `<div class="cmp">${notes.join(" · ")}</div>` : ""}${fightPanel(A, A.fightOf(e))}</div></div>
     <div class="acts"><button class="primary" data-watch="${Math.max(0, d.t - 30)}">Watch in my replay</button></div>
   </div>`;
