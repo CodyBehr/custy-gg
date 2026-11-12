@@ -1,0 +1,1195 @@
+{
+"champ": "Fiora",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/13tTzVG6RIXdnie6XnGHbdiZh36LAsnnY/edit",
+"author": "Sad",
+"rank": "Challenger EUNE",
+"updated": "2026"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"VERY EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"In the early game, Aatrox is a skill matchup since he has better wave control and sustain than you do and he can consistently E your parry. To beat him, either outscale him at one item, or Q-W into him when he uses his Q to CS to get a free stun. Or wait till he uses E then parry his next Q knockup or his W pull. You want to avoid getting used to W-ing the pull, and instead use your Q or MS to get out of it. Wasting your W on anything that isn't damage will make this matchup harder. Only W pull if it puts you in a good position in the middle of a fight, not just at the end or start of a trade to leave. You outscale at 1 item if even, 2 if behind."
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"LANE THREAT",
+"HARD"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"A good Akshan will always be able to dodge your W since the most obvious time for you to use your W is when he attempts to proc his passive + pta on you.\nThe only way you can win this early is to wait for him to walk close enough to the point where when you Q him, you will be able to stop him from E-ing. If you're 70% hp and are that close, then you will be able to oneshot him. You will have to give a lot of cs in this matchup though. Preserve HP, wait for him to slightly overstep when autoing and all-in. No other way to win this, but most Akshans don't have the mechanics to avoid this all-in. Exhaust will be useful versus him but not necessary. Make sure to block his E or he will always be …"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"LANE THREAT",
+"HARD"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Akali is an annoying matchup. You beat her the first few levels, and her lack of mobility early means that it's very easy for her to overextend and you get an all-in, especially if she runs ignite+tp. Akali hard wins this matchup. You have to just try to maintain/not lose too much till you get to sidelaning/2 items. Hexdrinker early is necessary, before or after tiamat is up to how the lane is going/how good Akali is. But a first buy long sword into null magic mantle is optimal. Buy phage as the first component in triforce, you need the HP. Oracle lens can be helpful in procing vitals in her shroud. Tiamat and Q will still proc the vitals. Keep in mind, that when she Rs you, if you are spamm…"
+]
+]
+}
+],
+"Ambessa": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Hail of Blades is our savior. Click Ambessa. Spam keyboard while she's dashing. You can consistently hit 3 auto attacks in her dash animation as long as you approach her from the side not from in front of her. Any time you have HoB and can reach Ambessa with Q, you can look for Q-auto-E insta, then back off if she goes too far back or play it slow and wait for next Q and use W. Try to time your W on her E slow so that her kiting is a bit negated running away. The best trade pattern is just to hit her while she's doing her dashes to get out. You can force on her. Click her. Matchup is so much more playable with HoB. Serpant's Fang 2nd can be good here."
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Take Stormsurge. Secondary, take domination with sudden impact. Play with the bushes. Level 1, Q into her, hard fight. She has a low HP pool, and you can easily make her oneshottable in a level 1 trade. If she tries to Q/E you, you can Q-W into it then trade her. If your Q-W hits, and you have room to run her down, insta ignite to proc the Stormsurge and all-in. After level 6, you can't quite all in her unless she messes up, you're more looking to hard trade to lower HP to either force R or make her low enough that you can oneshot her even if she Rs. But, you can't actually all-in until she's wasted her R. With the cyclosword damage, she struggles to not die before using her R to get away, a…"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"LANE THREAT",
+"VERY EASY"
+],
+[
+"GAME THREAT",
+"VERY EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Camille is technically a skill matchup. Always dodge into her W inner cone or out of her W entirely using your Q. An easy way to get some good poke damage is to use your parry on her after she auto attacks you then Q away, since she gets an attack damage shield. As much as possible, avoid fighting near walls since her E gets harder to react to. The only consistent way to win this matchup, besides waiting for Camille to misplay, is by fighting her in the middle of the lane, having her E away, and then you Flash Q-W to the section of the wall she grappled to, stunning her. Unless she misplays, this will be the most consistent way to secure a kill without your jungler. A huge interaction to be …"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"HARD"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Against Cassiopeia, you don't need Doran Shield, you can just get Doran Blade and heavy fight.. You have to dodge her Qs with your movement speed or your Qs. Getting hit by her Q is the single factor between winning or losing. This is an annoying matchup since she has the potential to 100-0 you at every stage in the game even if you start the fight melee range. You are looking for two things, her overstepping and her missing or you dodging her Q. If you get both, always and instantly force an all-in in lane. You can even flash early on her and force her flash, that's fine. No flash on Cassio means she has less room to screw up and outplay than you do. After 6, make sure to hug her in a fight…"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"LANE THREAT",
+"VERY EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"The only way for Cho’gath to beat you in lane is to either kite you with his E auto attack slow in the middle of a minion wave or for him to silence you into a Q knockup then walk away. So, for this matchup, you’ll have to practice looking at his champion model to determine when he will Q and immediately side stepping or taking a step back. Also, you will have to get used to using your Q-W at the start of the fight so you can reach your vitals more easily. You are looking for Qs that put you as close to Cho'gath as possible, not just max range Qs, because if you don’t, he will just kite you easily with his E slow. Something important to note is if you’re low HP and in range of cho’gath, you …"
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Darius is one of the few champions you lose to level 1, so be careful of that. You’ll want to wait for level 3 before taking any trades with him. Q-poking Darius max range, where you can hit with Q but he can't trade back is highly recommended and only thing you can do level 1. To win any trade after level 3, you will have to W his E or the more consistent option, W his W. If the enemy Darius player is skilled enough in this matchup, they will hold both abilities and kite you with ghost. If you believe the enemy Darius player is that skilled in the matchup (Master+ OTP), then you’ll only beat Darius after your first item. You’ll always beat Darius in the sidelane 1v1. The main issue you have…"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Mundo Q poke early is very annoying, try not to tank any Q for free, only to block cannon. You hard win if you take a specific fight where he walks far enough up where you can end up behind, if you have to max range Q just to get into vital range, it's a bad trade. After he gets Bramble Vest, matchup is harder. If Mundo throws a scripted Q when a vital is facing you (will be clear from the HP of low minions), Q-W into him and it's a hard winning trade. When Mundo presses W, delay vital hit, or R vitals to after he gets his W2, otherwise he will heal back most of the damage. Muramana is a very good buy this lane, get 10CS/M, Muramana, and you will demolish him in the sidelane under tower."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Step 1: Pick Fiora.\nStep 2: Realize you are Fiora.\nStep 3: Congratulations, you’ve already won the mental game."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"This matchup is, and I have talked to multiple Gangplank OTPs about this, one where you have to flip it. You will need to play really aggressive at every chance before GP gets his Sheen and try to force a lead before he can back. After GP gets Sheen, you have to give all minions to not get Qed and just look to all-in GP. The reason why you have to give all minions is because if you take 2 GP Qs after he gets Sheen, he’ll just be able to dive you under turret after that. Pay close attention to GP’s passive. You always want to W him when he auto attacks you while having his passive auto available to get maximum value during a fight. You can use your E to auto-E a barrel at 2HP and oneshot it. …"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"LANE THREAT",
+"VERY EASY"
+],
+[
+"GAME THREAT",
+"HARD"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Never Q melee of him, then Garen can respond with just pressing E and he wins the trade. Max range Q always so he can’t trade back. You win early, you outscale. Always use vital ms to go out of his E, if you tank his E damage, matchup becomes so much worse, so always keep in mind to bait it out. You outscale, and you beat him at every point. If he has stormsurge, you can’t kill him unless he chooses to die. If he has conqueror, you can run him down the lane if you’re high hp."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Get Dblade ignite. You want to Q-Auto-E into Gnar when he’s mini at all times. You can very easily burst Gnar with HoB. Anytime he is in range of melee Q, go for it and hard trade. He is very burstable. Try to avoid fighting him when he has a minion wave behind him so that he can't E on a minion. This is to make sure that he can’t double jump and gain too much distance away from you. If Gnar is in mega, give him some space to hit the wave. Giving him the illusion of saftey will get him to W the wave to push, and you can Q-W into his W and get a stun off. Try to avoid fighting him next to walls when he's in mega so you don't flip his R. If he's in the last few seconds of mega after 6, you can…"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Gragas is very annoying to kill. If you can read his E, congrats, you get a kill. If you can't read his E, then hold your W until he Rs for a free stun. You can consistently beat Gragas in lane and sidelane this way. Conserve hp, get Tiamat to clear wave and not interact, once you have Ravenous & Merc Treads, you autowin vs him. Grasp can help in surviving, but not necessary. Make sure to use your Q to dodge his poke Qs to not get low HP."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Easy matchup. Later in the game, when she has items, she can kite and oneshot you if you play mindlessly, so keep that in mind. Early game, you just beat her. If she is looking to auto minions, make sure to zone her/fight her off so she can't stack her Q for free. She can use her W as a wall by sitting at an edge of it and denying your vital. Most Gwens won't do this, but just something to keep in mind. When you see she has 4 stack Q, she will probably look to Q into you, you can be ready for this, and instead of even W-ing, you pre-emptively Q to the side of where she will E. You can also just W or Q-W it if you want to play it safer, but Q-ing it sets up for a kill most of the time. Gwen i…"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"HARD"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Get Dblade. Be in lane insta, don't cover. Kill any turrets he spawns instantly with Q + auto. With HoB, you can look to Q on Heimer insta, proc HoB, leave the second you're done autoing, then when HoB is back up, you oneshot. Do not all-in him from full hp in his turrets. He wins that. You have to trade once, back off then you kill on second trade if you're looking for fight. Or, you can play turrets and kill them. Do not let him ever spawn a turret for free even if you lose some hp for it, it's worth. Once you try to trade with him post level 3, make sure after you Q in, to walk out and in, weaving, to make him unsure of where you're going. The further away you are from him, the easier it …"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Be in lane instantly. Kill any tentacle that spawns instantly even if Illaoi is fighting you. You don't technically have to, level 1 and 2, but after, you have to. The tentacles are stronger than her. Illaoi W fighting pattern can let her damage you a lot more than you expect, don't go for any trade where you can't make sure hit her with your E/W as well, Q for Illaoi W is always bad. If She Rs and you're E-d, run away. If you didn't W her E, save your W not for her R, but her W after R, that will let you dodge the tentacle slam damage. Tip: You can Q out of Illaoi E range, and the spirit will travel to you, you can W at almost the end of Q animation and avoid the spirit debuff. You outscale…"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Deny level 1 access to minions. Check if Irelia's hiding in the bush or alcove level 1. Ignite is useful but not necessary. Hitting your W on her is very important to winning the fight. A good Irelia will bait out your W with her E, then dodge your W with her movement or Q on a minion. So, you have to get used to dodging her E with your movement or a Q. Avoid using your W to block her E, unless she's that bad. You generally want to W her R, denying her the Q reset stack and it's usually easy and unexpected to hit W on her in that animation. When you're fighting her in a wave, look at where she is relative to a minion that she can Q. When you're following her, make sure to have clicked her an…"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"You have to practice hiding intent. If you walk up into Jax and Q, then it's an obvious Q. But if you pretend to walk slightly into Q range, hit a minion, walk around, walk out and in, he has no idea when to press his E. Jax players do not react to Fiora Q unless it's mid to max range, they predict it based on when they think you will press it. Hide intent and it becomes easier to fight him. Any Q on him that he isn't able to E is a good Q. After you Q him, instantly walk out. If he Qs you, W him in his Q animation and walk it out sideways to fight him after his E is over. If you W Jax in his Q animation and instantly R, you can walk out of his E and he can't do anything about it. Whoever en…"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"LANE THREAT",
+"HARD"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Dblade ignite. Hail of Blades has saved us. Click Jayce, Q and auto 3 times for hail of blades, and then dip. If Jayce is able to stick on you correctly, use ignite for nimbus cloak, wait for next hail of blades or level 2 then oneshot him gg. Level 1-4, pre-recall, Jayce will struggle with mana if he uses abilities often, and he has a low base HP pool. Look for vitals facing you, Q into them and proc HoB. Q-auto-E-E2 crit basically makes Jayce unable to play lane. You just need one of those trades then he dies instantly to the next one. Ask for your jungler's help when Jayce is pushing into you. Try to W his Empowered Q instead of E, since the E is extremely high reward but very hard to get…"
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Creature. A good K'sante will always beat you after Bramble Vest. Early game, you have to see how he uses his Q, does he predict where you're going? Does he consistently get his Q on you after you Q cuz he's ready for it? Depending on that, you need to take your time with the fight and play it slightly slower to dodge his Qs. W-ing his Q3 while he has W is bad because you can't get any value or force anything after. Save W for his W or after he Rs, his W then. If he presses W on you, it's a fixed range, if you're very close, you have to W behind you to hit him, keep that in mind. If he ults you without W, you are oneshottable. You have to use your R and use the MS to move around and dodge hi…"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"VERY HARD"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Even when behind, her R on anyone you R will be very game-changing. You always have to keep that in mind. In lane, easy to deal with. Q-W through her Q and you will always get a kill. Play bushes, deny her entry to lane. Avoid Tiamat early to freeze waves on her, and all in her at every opportunity. Make sure to deprive her of exp the entire game because even if she's behind, when she scales, she will still beat you even if you're 5 items and she has 3."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"You outscale him. Even if he proxies you, it's fine. You can even get a cull or tear into manamune if he does that and full scale. It's not needed though. Level 1, when going for a vital, try to see if he is good enough to Q your Q in such a way that he denies vital. If he is, then you have to only Q when you're close enough to make sure you hit it, otherwise you can't start the fight. Kayn does a lot of damage early levels with Q. If you're not careful, you can get poked down and be in a bad spot. After level 3, it's pretty hard for Kayn to kill you. There's not much he can really do versus you. You can Q into his Q to dodge the 2nd part of the damage depending on where he dashes. When Kayn…"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"HARD"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Stormsurge has saved us. perma Q-W poke into vitals, get exhaust for when he engages on you with R. You will be able to beat him with exhaust. You win early until level 7, then if you get poked too much, he gets the edge. Make sure to maintain your HP then to deny him any all-in opportunity. Tiamat + early merc treads are very useful. Do not play to force fights on him. Play it slow, poke him down with Q-W on vital and slowly but surely you'll have kill range. If the wave is on your side of the lane, you have huge windows to run him down with stormsurge + nimbus cloak exhaust. If you have 2 stacks of his passive on you, you can Q-W into his Q or his E form to get a free stun. In an all-in, I…"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"LANE THREAT",
+"VERY EASY"
+],
+[
+"GAME THREAT",
+"VERY EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Easy matchup. You outscale. Play slow before Kled dismounts and save your burst for after he dismounts. Try to dodge his Q, if you get hit, understand if he Es behind you preemptively to dodge your W, or if he tries to dodge it with movement. W accordingly. You're better than him at every point in the game. Try not to fight with all his W autos up. Careful with max range Q-ing vs him when he's mounted, he can just R to cancel your Q. You beat him at every point unless you misplay it."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Get tear early. Q to dodge comet procs if he's running it. Early, your W is best used either when chasing to Q-W into his Q, or when fighting, to predict W his E. It's usually easy to predict because they're not trying to hide when they do it in every fight. After level 6, you have to use your R to poke. The second he walks up to Q you, Q-W into his Q, use your R insta and poke him with it. That's the only way to play this lane out. You outscale at Ravenous + Muramana. Laning is annoying but perma poke with R, crash waves with Tiamat, and you're chill after Ravenous Hydra sustain. You will lose team fights, so don't try to teamfight. Always stay in the sidelane."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"LANE THREAT",
+"VERY EASY"
+],
+[
+"GAME THREAT",
+"VERY EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Free. GG. Bramble is annoying like the rest, Muramana recommended. Hullbreaker recommended. Bramble vest is an annoying spike, you outscale quick, 10CS/M. GG."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"This matchup is here purely because of Monster SSS. Props to him. Matchup is easy. Yi only has one fighting pattern where he can actually beat you or anything close to it. He has to start the fight melee range, preferably with his passive stacked so he gets double strike instantly. You just need to poke him out with max range Qs that he cannot trade back into and you have to use your W the second he autos you. Do not hold your W. Always use it instantly after the first auto attack (assuming he has hail of blades). Even if you're behind in gold, you still beat him because he just doesn't have the DPS to kill you with the Titanic build compared to normal on hit Master yi jungle build. You just…"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"LANE THREAT",
+"VERY EASY"
+],
+[
+"GAME THREAT",
+"VERY EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Mordekaiser is a generally easy matchup, if the morde knows what he's doing, it's still easy, just have to respect his positioning. You win all-ins early. See whether Morde can dodge your W when he E-s you or not, if he can't, GG, easy lane. If he can, you need to be a little more cautious and use your Q to dodge his E instead. If he gets Bramble, you outscale at Ravenous, if not, you outscale at spawn. When you engage, you have to make sure you're not max range Q-ing, and instead Q-ing as close as possible to prolong the fight. Q-ing max range lets him trade back and gives him more control in this situation. You can consistently W his R, it has a clear sound and animation, you can also tank…"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Doggo. Sick sick champion that should burn in hell. You outscale at 2-ish items, but if you make a mistake after level 9, you're kinda done for. Early game, you hard win and try to punish him. After Bramble and level 5, your best option is to literally predict his W, and if you can, then all-in. Otherwise, you have to back off, and wait for wither to be over. He is a better champion than you from level 9 to 2 items. You have to keep high CS, not interact with him in that period, unless you've punished him early. If he Ws you in lane, just Q out and wait it out."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Play bushes. D-Shield or D-Blade both work fine. Do not let he walk up for the first 3 minions. You can heavy trade into her extremely well level 1. If you proc PTA, she will be in range to get oneshot level 2. She is pretty squishy. This matchup is chill for you. It was only ever bad with the attack speed Neeko setup, and that seems to be no longer viable. When she presses W, the Neeko that has a vital on her is the Neeko that's the real one. Regardless of whether you just procced a vital pre-W or not, the vital will always already be on the real Neeko or appear on the real Neeko faster than the clone. Try to not to get Q-ed for free. It is annoying poke. So, just try to dodge it or Q and h…"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Best thing is to W Olaf's E, generally they do it in the same time as soon as they walk up to you. If he ever throws his Q too far, that's a good timer to force a trade. Max range Q is very useful here. You always want to keep an eye on where his Q is and where he is, he will want to path to it, and you want to take the fight away from his Q. After level 6, when Olaf Rs, if he's not low and you're not ahead, you can use your Q or your R ms to kite his R. There is no need to fight until his R runs out. Once it does, then you can fight. It's a pretty easy matchup, he can kill you if you screw up your Q and you're too deep in, but generally chill to play."
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Bramble creature. He beats you after level 5 + Bramble. If your Ornn is better than instantly autoing a brittle proc to give you a free W stun, then you need to W his W as soon as you see it so that you don't get the brittle on you in the first place. Make sure to use your Q and vital MS to dodge his W. Keep in mind any walls while you're fighting him, he can E them to get the knockup, closer he is, the harder it is to read/react to the knockup. You outscale at Ravenous. Muramana is not needed in this sidelane. Tip: You can use his Q pillar when it comes up as a stun. If you use your W on something that does not get value (just to live or dodge damage), play very safe. In the timer you don't…"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"How early goes/ skill based laning. If you can bait out Pantheon empowered Q, then you can just all-in early and win. These matchup depends on how many Qs you can dodge in the early levels. Take barrier, use it early in the fight to deny Pantheon reaching his execute with Q. I prefer W-ing pantheon Q over W, more consistent. It's hard to W melee W, easier to W max range Panth W. You win any all-in where you don't tank the empowered Q. Avoid all-ing Pantheon at 3 or 4 stacks. All in at full or lower stacks, so he can't W+Q then empowered E to run away or W + empowered E to run away. If he can do either, you can't all-in him, he's just too fast. He wins trade then leaves. You can proxy vs this…"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Relatively easy matchup. If there's a vital facing you, you can max range Q into W, Poppy will generally W it, and you get free stun, or free vital then click away. If you're in an all-in with R and she Ws, you can walk out of it, then Q-W back into her to get the stun. You can bait Poppy E when you're very close to her, by walking into an angle where she can E you into a wall then instantly W-ing. In general trading, you want to space her Qs, walk into her max Q range, then walk out and bait it. This is especially doable when pretending to auto a low enemy minion. If Poppy wastes Q, you are gonna get a better trade. You are in a losing state after Bramble unless you play very well, winning …"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Stormsurge hard wins this lane. If you're starting the fight from behind her, then she can't E you away, and you win the all-in/trade. You want to determine what your Quinn does with her E. Most Quinns either try to instantly E you in your Q or they hold it thinking you're gonna W. If she does the first, instantly Q-W in, but most games, you're going to just Q into her whenever she's close enough for you to Q and instantly auto after. Your Q-W on vital + scorch usually will proc stormsurge and then you can just run the Quinn down, especially if you have ignite up so you can use nimbus cloak. Quinn, if she can play her champion and move, is a very annoying matchup for you. She will just kite …"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Either get PTA or Grasp, both work. Grasp is safer for overall lane, but reduces kill pressure, PTA is slightly riskier but you have more kill pressure. If you have PTA, I recommend ignite, if Grasp, get TP. For PTA, you need to make sure to auto Renekton while he's E-ing, don't wait till he arrives or don't stop clicking when he E-s away, make sure that you're hitting him in the actual dash for the most value. Level 1, do not let him get fury for free. The second he walks up to hit the wave, instantly force a fight. Renekton without fury is not a champion. Do not try to W his W, that generally won't end well for Fiora. It's better to get a read of when he uses his Q and W, since it's more c…"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Both Conq and ignite are needed. All in him level 1 in the bush. You will just win. After level 3, any time he jumps into you, you just win it. When fighting near bushes, you want to make sure not to Q too early. I would generally hold my Q for when he jumps onto a minion instead of early Q-ing to deny him the ability to kite me. If you ignite in a fight, make sure to do it before he has the chance to use his W. The only angle Rengar really has in this matchup to beat you is after level 6, to take a trade with you, get your W, back off with R and re-engage the second his cooldowns are back up. Besides that, he really has no angle to play any winning fight into you. The first 2 levels, just W…"
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Destroy any tunnels you see, especially the ones further back used as an escape. Use max Q on vital, anything shorter than max Q range is not worth it because it gives Reksai the chance to cancel your Q dash and trade hard into you. Take Conq for all-ins and agressive play, Grasp for sustain and surviving the lane. Rek'Sai will outsustain you in a very annoying way, so there's really not much point for any trading that isn't setting up for an instant all-in. Keep in mind, you can auto Rek'sai as she tunnels and follow with Q, and if she's still in tunnel animation, she can't knock you up in that animation or cancel it. You win at 2 items, and it's hard for you to die at 1 item. Before that, …"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Run Exhaust. Pretty free matchup. Biggest indicator of when you can go in or not, is her Q. If she doesn't delay her Qs, then it's a free all-in. If she does, you have to play normally. Make sure to not be close to a minion that is dying while she is, she will Q you for free poke. Any HP you lose in this matchup matters a lot. Generally the person who engages first is the one who loses, but you can still win it consistently and play it aggresively. Read how the Riven uses her W. Some use it at the very start of the all in, so you can start the fight with a Q-slight delay then W while at the end of Q animation and at Riven. Other Rivens will hold it, and then you can hold it for the middle of…"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"LANE THREAT",
+"HARD"
+],
+[
+"GAME THREAT",
+"HARD"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Level 1, if he doesn't do the heat trick with buying glowing motes, then you can just sit in bush and deny him complete access to the wave, and heavy fight. The first few early levels are when you're stronger, and once he hits level 4-5, his Q damage becomes too high. You want to try to trade in your own wave so he can't E you during the trade. If you engage outside of wave into Rumble, you need to Q-W one of his Es, otherwise fight is much harder. Early hexdrinker is very good vs Rumble. He'll still be able to oneshot you through it if you make a mistake, but it makes the fights easier to win. You can match Rumble at 1-2 items, your job in lane is really just to survive and get as much CS a…"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Technically can go Grasp, heavily prefer PTA. Dshield & Second wind. You can look for fights level 1. Play with the bush. If Ryze walks up, heavily punish. If he doesn't walk too far up, you can still go for Q-Auto and instantly leave and it's good. Punish him early before first recall. After Ryze gets his first recall + level 4-5 (2-3 points in Q), he starts doing damage, and it's hard to commit to the fight against him because of Phase Rush. In that case, you have to survive and CS till next recall where you get tiamat. After tiamat, you can oneshot waves and choose to not interact with Ryze, or even proxy. An easy trick you can do into him is to walk up to your wave and pretend like you'r…"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Shen with ignite beats you early game if you mess up. Avoid having his Q go through you, meaning you have to play the mini-game of dodging it, or Q-ing away to a minion so it doesn't hit you. An early Tiamat is very useful and you want to permashove to force Shen to stay in lane. Demolish is very useful in this lane for when Shen Rs away even if he has TP. If you want to force a trade into Shen, make sure that he can't E through you and stay max auto range away from his body, and away from where he wants to E to (his turret). A trick you can do is to W towards his turret when you're behind him, assuming that he will dash through you, which they generally do. You can also Q behind him to get …"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"You win the all in level 1 if you get the first auto-Q from a bush. If he levels W, you have to Flash the damage though. Laning, you want to only max range Q a vital then leave. If he E-s you early in the fight with no grit, force a heavy trade then W his W. That is good for you. If he doesn't, then leave. You only want to fight Sett in a situation where you can dodge his W or W it. This means you have to leave before he stacks grit or fight him outside of your wave. You can do that by fighting deeper into the enemy lane or fighting into river. A trick you can do versus Sett is after 6, you can walk behind him so that he can R you towards his tower, then you W behind yourself, stunning Sett …"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Maintain 10CS/M. You will kill him a couple of times in lane but that doesn't mean you will kill him later on, that relies on a skillcheck even if you're ahead. You want to maintain gold advantage and economy. You can get Cull in a lane like this. Make sure to deny any proxy attempt that he does, even if you lose 3 minions to block him from proxying. Singed usually has a telltale sign of when he's going to E, a way where he moves in the last second before he Es either to position himself to fling you into his W, or to fling you away from where he wants to go. Practice reading this movement and it will greatly help you predict it. If he has W on cooldown, you can just W regardless of his E, t…"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"LANE THREAT",
+"VERY EASY"
+],
+[
+"GAME THREAT",
+"VERY EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"If you're in Sion Q, you always hold your W till the last 0.75 seconds of it. You never W the instant stun Q. The reasoning being, it is better to be hit by medium damage 100% of the time, then getting hit by very high damage 50% of the time. More consistent, you can play around it. Of course, if you condition the Sion on you doing this, you can change up and get a free stun. If Sion is Q-ing the wave, you can always Q-W into it and get a free stun off. Sion beats you after bramble, loses after Ravenous. After level 6, you want to practice autoing then moving slightly back as you position to the next vital if his R will put you in an awkward spot, that way you can have more time to react to …"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"You always have to Q into Swain melee Range. If you Q max range into Swain, he will just be able to trade very well into you. Make sure when he presses E, if you're melee range of him, that there is nothing that his E will hit first before you (and you just waste your W on nothing). You don't always have to W his E. You can just use movement to dodge it. Ignite to cut his ultimate healing is very useful. He's surprisingly squishy.You just have to force when he walks into your range. You can try for a Q-W into vital as long as you're confident that you can dodge his E. Trinity second is good into him. You can easily dive or oneshot him in teamfights. When recalling, you have to know Swain wil…"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Early game you win any trade into him, he's too squishy and doesn't heal enough from W. You win all-ins as well. Note, you can actually W his W, which is pretty useful because it's a pretty scripted ability that he will use as soon as he's in range of you, so you can walk up to auto or Q and instantly W him and block the healing from it. Ignite is useful but TP is better for the game vs Sylas. You have to maintain gold generation throughout the game because Sylas becomes annoying at 2 items if you're not at 2.5-3, which you can consistently be at since the lane is easy to play out. Try to put a minion between you when Sylas presses E1, or go to medium E range to bait him to hit you and you c…"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"You hard win into him pre-Bramble. Early game before he has points in Q, his champ is pretty useless and you can fight him however you like and you will most likely win. After he gets level 4-5, you do not want to get Q-ed for free, make sure to stand behind minions or bait Q out before starting a fight. If he has a passive facing you, you can always walk out of your wave, walk into him, wait for him to press Q then Q-W into his Q, and that trade will go insanely well for you. After you get tiamat, you don't even need to fight, you can just perma wave clear, proxy, and move around the map and jungle. He is on a hard timer before he gets mega outscaled. You just have to be careful in lane aft…"
+]
+],
+"as": "Sir Thomas Kench \n(Tahm Kench)"
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"LANE THREAT",
+"HARD"
+],
+[
+"GAME THREAT",
+"HARD"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"If Teemo can consistently dodge your Q-W (Grandmaster+), GG. This lane is hell and you have to play grasp, Doran Shield, Q poke from bush and run. But, there's a handful of Teemos that can do that in all of league, and they tend to be extremely high elo OTPs. Merc Treads vs teemo is nice, early null magic mantle is nice. Level 1, you can sit in a bush and just all in him if he walks up, especially if he starts E. At any point, you can Q-W into his auto attack and force a fight. You can try to predict when he Qs in the fight and hold your W for that, but it's more consistent to start the fight with Q-W, tank his Q blind early, and hold your E for when the blind wears off. Or if he blinds late…"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"You need to know your damage. If you don't oneshot him with your ability rotation, and you keep trading auto for auto, he will win it. You have to poke him down with max range Q vitals, or small trade + W into walking out. You can't force an all-in until he's 60-65% HP, or he'll just fistfight you to death early levels. At Level 5, you get enough damage to start fighting at higher HP numbers, but after 6, his R comes in clutch for him. When he Rs you, you want to disengage, and wait for it to run out, then fight after. This matchup comes down to practice and knowledge of how many vitals you can proc while not getting damaged too much, take your time with it, you have more movement speed, mor…"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Do not let him touch the wave level 1. You hard win if he has no fury. Do not let him stack it for free. Level 2, and 3, you win. Fist fight, do not let him breathe. Level 4, when he finally has the wave and fury stacked, he will be annoying to deal with because he will just Auto+E away. You need to make sure when you fight him, you either max range Q and not give him the opportunity for that, or you play from an angle to his side and chase him when he E-s away. Bonus points if you're holding Q/got Q back up, and chase him with Q+W when he Es away. You just beat Tryndamere at level 6, he doesn't have enough damage. Later on, when you're at 1-2 items and so is he, what you want to do is not p…"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Go Dblade, Conq, and triple tonic (inspiration) in secondary. You can look for a kill on him level 1 if he walks up to fight you. You can only all-in. You can't poke him. Any type of poke battle he wins. If you are full HP and he uses an empowered R on you, always look for an all-in into him. You will be able to win that. Realistically into Udyr, you can only kill him once at level 6 with the adaptive force tonic + ignite. If Udyr presses empowered W with the shield/healing, just back off and wait for it to fade. There is no point trying to trade into that. He'll just come out on top. As the game progresses, it will become easier and easier to deal with the Udyr. If you exit lane without bei…"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"HARD"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"How likely you are to win a fight depends on how many shotgun knees he has used before the fight starts. Generally in lane, you want to dodge his Q poke, because if you get Q-ed, that's Q + 1 or 2 autos. If you need to Q to dodge his Q, do it. Do not get chunked for free like that. Any time he walks up to auto you, especially after missing Q, and a vital is facing you, you can look for the fight if he isn't full shotgun knees. A good Urgot will always E slightly to the side of you to bait your W out. You can Q into his E then W (make sure to W accordingly to where he meets you since if you W ahead, you might just miss him since your Q was too deep). Or, you can just fight normally and that w…"
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"LANE THREAT",
+"HARD"
+],
+[
+"GAME THREAT",
+"HARD"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Level 1, sit in bush, if he walks up to the middle of lane. All-in. If not, don't walk up into him because you can't take small trades vs him and win level 1. It's way too risky and unlikely to work. If he doesn't walk up, sit in middle bush, and just walk up for CS and insta walk back in bush and use your Q max range to hit minions without getting tagged. Your job is to preserve HP until you find the window to all in. That's why Dblade and Conq are better here. You will only ever take all-ins vs him. Eclipse secondary isn't bad. Cyclosword, Death's Dance and Maw are all decent items to build vs him. The main tip versus Varus is do not W his auto attacks. Pre-6, you have to W his E or his Q.…"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"LANE THREAT",
+"HARD"
+],
+[
+"GAME THREAT",
+"HARD"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Play bush, Doran blade, fist fight. Get Stormsurge. You don't need to W the Condemn(her E), you can just Q-W into Vayne. Anytime in lane before level 6 Vayne Qs into you for an autoattack, you always want to Q-W into her and force a fight. If you land the W, which you should if you do it in the auto animation, it is a hard winning fight. Play the bushes, and do not let Vayne walk up for free. After 6, matchup becomes easier. After around level 9 or 11 for Vayne + first item, it becomes better for her again, but still playable for you. Oracle lens is very useful for tracking the vayne, so is ignite. Exhaust is also good. It all depends on player preference. Cyclosword second is useful versus …"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Doran Blade. Fist fight. Get PTA or HoB. You don't really care about W-ing the Vladimir. You really only use it as a way to say \"Hey, pool now\". And when his pool is down, you can then fight him for the all-in. Bonus points if he goes Stormsurge and you use that opportunity to bait it out. Anytime he doesn't have Stormsurge + pool, he's dead. If he has both up, you can just Q+auto+E1+E2 and walk it out, getting a lot of damage. Make sure not to trade when he has empowered Q up, you can use that chance to Q-W into him if he looks to empower Q you. Don't make it obvious that's what you want to do, bait it out a bit, because the Q timer is a bit long, if he knows what he's doing, he can just ho…"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Do not let him touch the wave for free. Do not let him stack passive. Level 1, he starts E, and that makes him useless in a fight. If he walks in and Es, you can just stay behind him, wait for shield to expire, then fight. If he levels another ability, just hit him, he loses it. Early laning, you chunk him hard, if he's below 50% hp, he can't play. He just gets oneshot. Later in the lane, if you're both full hp and he has passive, you'd prefer to wait for the next wave, his passive drops, then you trade with him. Do not stay in the fight for his W2, you have to leave before he gets it. Generally, you just want to not get hit by his E. You can get stunned, and everything, but you're fine as l…"
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"LANE THREAT",
+"HARD"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"There is no point in trading with WW after he's 50% hp, he will just heal it back up. Any auto on him after that point is useless, unless it's a max range vital Q that heals you (but that's unlikely that he won't Q you back). So, at that point, you force an all-in when he's 50% hp. To force an all-in, either you fight at your side of the lane, kite his E then all-in or you W his E. Otherwise, you can't get the kill. Laning against this creature is hard. Ignite is needed or buy executioner's right after 1st item. Proxying is very useful. He's useless against you later on, but his laning is very oppressive. Later in the game, you just oneshot him and he can't deal with you."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Technically, Wukong is a hard lane, especially if he runs ignite, but I haven't really met good Wukong players yet. I take ignite into Wukong, to chase him after W and to have enough damage. Not needed but nice to play aggressive and match his ignite which he usually gets. Wukong will look for Q poke, you can walk slightly into range and pre-emptively W it then Q in for a trade. After you Q into Wukong, he will W away, and you have to practice walking where you think he will W before he even does it. When Wukong Ws, the vital will instantly despawn from his model, which is a clear indication of when he does it. Wukong's clone can tank your W, keep that in mind, especially for when he Ws away…"
+]
+],
+"as": "WUKONG"
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"LANE THREAT",
+"MEDIUM"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"The more skilled this Yasuo is, the more he can kite your vitals, and trade well with you. I would take ignite for this lane to limit skill expression. Yasuo W blocks your W. You can Q-W Yasuo tornado for a stun. Always look at your minions to see where Yasuo can E away to when he's fighting you, you need to be positioning accordingly and ready to chase him. Any area without minions (deeper into his side of the lane, river or after he's killed your wave). You generally win vs Yasuo unless he can kite you/space you really well. If he has Q3 up, he will take his time with it, do not be nervous. You can walk into his max E range, especially after he's been holding it for a few seconds, assume h…"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Easy lane, you generally win all trades and fights. Yone can only beat you in two scenarios. Max Range Q poke or E movement speed letting him kite you and you still try to fight while he's kiting you and vital. Any other type of fight or trade, you win. When he Q3s a wave, you can Q-W into it. If he Rs you, you can W behind you and get a free stun off. You win at every stage of the game, except in those two scenarios. Don't be afraid to heavy trade against him. Keep in mind, his E no longer cleanses your W, so the matchup is a lot worse for him now than it was before. Yone in his E has to either build space between his spirit E and himself, or get Q3 to be able to escape after he Es back. Yo…"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Hard trade early, don't let Yorick breathe. If he Ws you, you can stand on the edge of the cage, and press W, that will give you a free stun. Use your Q to dodge his E, the poke is a bit too much. If you get hit by E, press Q as ghouls are in air jumping at you, auto the 2nd ghoul, E the 3rd, to reduce damage. After 6, if he has maiden up, focus maiden down. A man without his mistress is useless. If he has Maiden and Bramble/ignite, you can't kill. Unless you play very well, he is stronger than you until you have Ravenous. After that, you can freely kill maiden and freely kill Yorick. You hard outscale in sidelane and not much he can do."
+]
+]
+}
+],
+"Zaahen": [
+{
+"fields": [
+[
+"LANE THREAT",
+"EASY"
+],
+[
+"GAME THREAT",
+"MEDIUM"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"Zaahen can't harrass you early if you choose to not fight him. You can W either his first auto since he will Auto + Q always, or you can hold your W for when you think he will recast his Q for the knockup. If you maintain range slightly out of auto and bait it, you can see when he recasts Q making it easier to W. Be very careful of his W pull, that will mess up your combo. If you W the pull instantly, it doesn't count as a stun because it's a two part ability. The first part tags you, the second pulls you. You have to wait to be tagged, then W after. It can take some getting used to to get the timing right.. You beat Zaahen in the early game. If his passive is almost or fully stacked, you ca…"
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"LANE THREAT",
+"VERY EASY"
+],
+[
+"GAME THREAT",
+"EASY"
+],
+[
+"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
+"You win. GG. Easy matchup. Muramana is nice. You outscale. GG. If Zac Qs you or minion then you, you lose control of your HUD and there's a clear indicator of when he presses it again before you actually can't press W, making it really scripted and easy to W. You can Q-W into him when he Rs for a stun. If he Es into a wave, you can Q-W into it for a free stun. Poor Zac."
+]
+]
+}
+]
+}
+}

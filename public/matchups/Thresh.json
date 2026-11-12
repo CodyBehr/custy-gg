@@ -1,0 +1,895 @@
+{
+"champ": "Thresh",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1nb-05_0ZSNphBqugyEgnjqm3m3aJcmY1A8nxmXQ-OY4/edit",
+"author": "Pirsuit (contrib. TheKat)",
+"rank": "high elo (claimed in index)",
+"updated": "2020-06"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"Poke him down in lane and play around his cooldowns, his Q is 17 seconds at rank 1, You should have your spell rotations back before his if you trade cooldowns. You need godlike reactions to flay his combo, try to look for tells when hes going to combo your adc, for example after your hook wears off/ hexflash. If you hook/flay him first before he combos, you can usually win out the trade. he will scale and be more effective than you in teamfights"
+],
+[
+"Level 2 all in?",
+"Dependent on AD matchup"
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"Easily abused, even if she stuns you during your trade, you should be able to aftershock tank the damage and win the 2v2, watch out for tibbers being able to block hook, you will be a sitting duck."
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"You win all ins, just dont stand next to your carry and get double stunned. You can flay him out of his tunnels, he can take it again after but in some cases its enough to kill him."
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"Try to flay if he grabs you so you can aftershock tank the incoming damage, blitz always 3head invades so your team can sit in your jungle bush and wait for them to come level 1. If he hooks your adc place lantern just BEHIND so he can't stand on on it but adc can reach it at the same time. Blitz hook has a large cd so consider all inning if he fucks it up"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"You need to not get poked down too much or lane is hell, his w is very telegraphed so get a feel for it.If you all in make sure you can chain cc enough to burst him down before he replies with his abilities."
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"He can win 2v2s depending on ADC matchup, he can negate your ADCs damage if you all in their ADC. Play around his E cooldown (18s at rank 1) they are very vulnerable when it's down, if you hook him use your flay to interrupt his W to his ADC."
+],
+[
+"Level 2 all in?",
+"Not really"
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"She dies if you hook her at any point in the game, very favoured towards you pre 6, can be hard to hook her when she gets mobis, post 6/mobis can try hooking a minion next to her into flay->box"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"Her early game poke is quite nasty, but you are one of her hardest matchups so use it to your advantage and all in her with ignite for guaranteed kills"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"Stand near your ADC, flay her E and she can never engage until 6. Punishable with ganks, can outtrade if you correctly flay her E of you/ADC but don't overcommit as her stun is a fairly short cooldown. Post 6 is favoured towards her so play around her cooldowns."
+],
+[
+"Level 2 all in?",
+"No"
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"All innable at any point pre 6, can still post 6 if you have enough of a lead. She can do nasty poke with the right ADC but it's your job to shut that down, another big advantage you have is outroaming her as its difficult for a lulu to 2v1 all in your ADC"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"One hook one kill, if she is magnetically attached to her tower like most lux players roam on her and their team will be tilted at the supp diff"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"Probably one of the most abusable supports pre 6, don't autopilot push waves into tower, except for getting level 2 first for all in. If you win out enough pre 6 he won't be that useful post 6."
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Comments",
+"Try to rush level 2 and all in before she levels E, if she skills W first this will be impossible. Playing around vision is very important, it's hard for her to reactively black shield with a hook from fog of war or if you keep her guessing the target to black shield. Also try to keep her guessing which target to black shield. If she is good, there isn't much you can do 2v2, if you trade hook for spellshield, there is a small window to re-hook when it's cooldown comes back (8.5s if you hit the hook).It will be a boring lane and you're dead if you make one mistake, dont be afraid to follow a hook that has been black shielded if you are being ganked for, you can lantern your jungle and the tar…"
+],
+[
+"Level 2 all in?",
+"Yes if you ding first"
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"She insta dies if you land the hooks on her with follow up, but get the snowball rolling on her early, otherwise her sustain poke can be too much for you to all in later, she has tools to outplay you so play smart"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Comments",
+"You generally lose 2v2 all ins, if he hooks your adc, chances are they die before they have a chance to take lantern, play cautiously, he is very susceptible to ganks and you can lantern in your jungler for free double kill. If you have the favorable ADC matchup, he has lowest base movespeed and a huge model so is an easy hook and kill"
+],
+[
+"Level 2 all in?",
+"Yes if you ding first"
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Comments",
+"he can Q you then insta E to stun lock you and you are just a sitting duck without aftershock, he can snowball very hard on you and his ult is very annoying in lane and teamfights. if you can hook him, flay him as he Es out, he is dead if you can guess his E correctly, can be psychological when you flay him, if hes good he'll let you flay and he'll e afterwards so you can hold it for a bit while he takes free damage."
+],
+[
+"Level 2 all in?",
+"Yes if you ding first"
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"You kind of neutralise each other, you can flay his W and E, but his E has a second charge so he can always recast it. You have good opportunities to hook his ADC early game as there isn't much he can do pre 6. His level 6 all in is better than yours especially with Xayah, so take care around his R cooldown and be ready to lantern your ADC."
+],
+[
+"Level 2 all in?",
+"No"
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"She has very squishy early game but her poke really hurts with glacial, play passive on your hook cooldown and look for every opportunity to all in"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"Put pressure on him as a melee suppport otherwise he just sits in bushes and hexflash/nimbus cheeses your adc, he is useless if you can keep him poked down and cowering under tower. Be careful when hooking him into a 2v2 fight as he has tools to all in your adc with R/E/W once your hook stops. You can use your flay to move his W away from your ADC"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"As with other enchanter supports look for easy all ins/snowball and dont get poked down too much"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"Really annoying to play against, if you hook the adc she can silence on him, preventing your flay and rooting you whilst healing the adc up, if you try and hook her good luck because she will stand behind the adc and the adc will poke you out before you can get in hook range"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"Skill matchup, land your hooks and dont get hit by his E or you'll lose 80% hp. can snowball both ways"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"He exists to neutralise you, it used to be a hard matchup before season 9 but with his W nerfs you can easily play around his cds when he eats an ally. It's very hard for him to play aggressive if you poke him down correctly."
+],
+[
+"Level 2 all in?",
+"No"
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"If you are against someone boring enough to play this guy, dont be afraid to poke him out and bully really hard as his heal is expensive and he is reasonably squishy and melee. He lowkey hurts with his passive so don't be complacent, that said you have the advantage all laning phase and it's possible to burst down the adc with hook->box->flay->auto before his ult invunerability starts"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"one hook one kill"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"I hate both sides of this matchup, you MUST abuse his pre 6, which you can do so very easily, you need to put him behind at least 2 kills otherwise he will scale on you and become a menace later on"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Comments",
+"Fuck this plant bitch, she kills you in one combo her plants poke you down so you can't all in and she can block your hooks with plants. Wait for her to miss an E and all in if there aren't a billion plants to deal with, she will die IF you ever get to land a hook. Feel free to rush mobis and roam to win the other side of the map. She will deal huge damage at all stages of the game, play smart and try to peel for your AD later on, your top side can deal with her a lot easier."
+],
+[
+"Level 2 all in?",
+"Yes, but dont facetank plants"
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"He's weak early, so there is good potential to abuse him, but you need to be sure you can burst him down in time because he hurts, watch out for his turret blocking hooks/turning all ins."
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Comments",
+"Can't walk up to her with her W poke, barely any good chances to hook her with her auto range, most times you will need a lantern flash gank, because of her immobility, you can abuse her if she's bad but thats about it"
+],
+[
+"Level 2 all in?",
+"Yes, but dont facetank a wave"
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"Unless she has a morgana or zyra, it's a pretty free lane. Pressure her hard early game, even if she pushes you into tower you can all in with summoners up. Her E can be quite telegraphed so look for opprtunities to interrupt with flay either after hooking her or by walking up if she is cocky. If you can make her fall behind with a couple of hooks/all ins she is completely useless."
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"if you cc combo him with ignite, he's dead. Can look to hook on his axe catches forcing him to drop axes or get hooked, have to time all ins carefully as it can go pear shaped in the wrong matchup. He always shoves so consider waiting for a jungler to lantern and tilt him to oblivion"
+],
+[
+"Level 2 all in?",
+"Situational"
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"He has no lane impact but you will never be in range to flay him and he can use E for your hooks which will come back at a similar time. Can try to deplete his mana bar early or all in his support as he is weak in early 2v2s. He is hard to kill but you can roam without much punishment"
+],
+[
+"Level 2 all in?",
+"Yes if you ding first"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Impossible"
+],
+[
+"Comments",
+"Can't all in because of turrets, can't hook because of turrets, can't push and roam because of turrets. You don't get to play league of legends this game, pray for a good team to carry you"
+],
+[
+"Level 2 all in?",
+"No"
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"He can shove up the wave better than nearly every other ADC making it hard to land hooks on him, better to flash flay for the all in than go for low percentage hooks"
+],
+[
+"Level 2 all in?",
+"Yes, but dont facetank a wave"
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"One hook one kill, make her live in fear of you"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"Try to fight with your minions, her Q really hurts if you walk up too far, making you the only target"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"Play respectfully, she has better level 1/2 potential than you if you can hook her by predicting her auto dash, she will be useless the second she falls behind"
+],
+[
+"Level 2 all in?",
+"Yes, if your adc in auto range"
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"Sitting duck champion, but very obnoxious when he gets a lead. You should be able to kill him at most stages of the game with your CC"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"If the matchup allows, he has short range so can be easy to walk up and flay for a good trade, can be hard to hook with his dash. Look for flash flays with all ins and its likely he'll dash as an escape making a hook easier to land"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"Can be hard to hook and all in with her ridiculous move speed and nimbus cloak"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Comments",
+"A good sivir will reactively spell shield your hook everytime rendering you pretty useless, they probably counter picked sivir after you picked thresh. The only opportunity for you is to flash->flay->box->hook but not recommended unless you have a strong adc or setting up a gank. Don't worry you'll get to play league of legends next game"
+],
+[
+"Level 2 all in?",
+"No"
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Comments",
+"Unless she wastes her E cooldown, dont bother walking up to her look for long range hooks or flash flays, a good syndra can poke you down and make your life hell, consider a jungler to lantern in"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"One of my favourite matchups, if you hook her, you can wait for her to W afterwards and reactively flay it to cancel. Can do this all game"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Comments",
+"Play aggressive pre 6, respect his stealth coming back to lane, you can snowball quite easily in a normal 2v2"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"Lethality varus can poke you down hard, be wary of the lane state before you all in"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"She can tumble your hooks and condemn you away if you walk up to flay, can be easy if your ADC is a lane bully, otherwise you have to predict where she will tumble for picks"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Comments",
+"She has huge lane pressure and can push you in making it hard to make plays, cant walk up past feathers otherwise you die, hard to all in because of her ult invulnerability, have to play around her mistakes"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Comments",
+"each minion wave gives him 6 dashes + 2 for you and your ADC, so it's hard to land skillshots on him, he can windwall your hook reactively. Punish him by poking when hes not melee range and flay/auto when he is. Consider one of you taking exhaust"
+],
+[
+"Level 2 all in?",
+"Not much point he can dash 5 times away"
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"One hook one kill, but he will throw everything in the kitchen at you as poke."
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+]
+}
+}

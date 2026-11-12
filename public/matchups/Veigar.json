@@ -1,0 +1,875 @@
+{
+"champ": "Veigar",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1Gw7ghDG6FtX0QJiUgFUe1QdCeUQmZFZbo6sGjZq0Y8s/edit"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Taric": [
+{
+"fields": [
+[
+"",
+"*This matchup guide assumes you are going Marius (Veigar V2)'s build - electrocute and GLP, which usually nets solo kills on squishy laners at around level 9-11. If you're going glacial, a lot of the laning tips will be around the same, but keep in mind the kill pressure timing is different as you won't have that extra burst. If you're going comet, stop."
+]
+],
+"as": "Edit 3/15: Added funnel strat under Tari"
+},
+{
+"fields": [
+[
+"",
+"Dodge"
+],
+[
+"",
+"It's not that this lane is inherently hard, it's the fact that it's funnel strat. As a Veigar, it'll be really hard to hit Yi because his movement speed and Q allows him to dodge a lot of your combo, negating your main job - to blow up the carry. Nonetheless, this is one of the lanes you have to shove in before 6 to try and deny as much CS as you can to either Taric or Yi. It'll be a free farm lane and you can pick up AP stacks off Taric, but your whole team needs to coordinate playing around Yi. You should shove in the lane and try to roam - but don't poke under tower, because Yi will come and Taric will stun you and you'll immediately die and feed Yi."
+]
+],
+"as": "Taric (Funnel Strat)"
+}
+],
+"Aatrox": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"He can close the gap on you with his E->Q1 combo or W - but once you get a feel for his range for his E->Q1 combo you can play around it. Stand behind casters so he can't W you. If he tries to walk up to you across the minion waves, feel free to W the melees (if you aren't pre-6 and low on mana) so you can shove the wave while also trying to deter him. Watch out for his movement speed boost post-6 from his R; he can kill you at around half health if you don't have barrier. He has no means of escaping your cage. Watch out if he buys Death's Dance/Steraks/Hexdrinker - it'll negate your combo."
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"A good Ahri will destroy you, a decent Ahri will be destroyed by you. Stand behind caster minions and she can't hit her charm and can only attempt to hit you with her Q, which will help negate a lot of her kill pressure. She can't dash through your cage without getting stunned, but be careful if you're just standing alone with no minions post-6 - a good Ahri won't hesitate to dash and charm you, and you probably can't fight back fast enough. Once you have Lost Chapter, you can shove the wave out while trying to find kills on her. Take Cleanse if the other team (esp. jungler) has a lot of CC, otherwise take Barrier."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"",
+"Easy"
+],
+[
+"",
+"She doesn't have a lot of kill pressure on you pre-6 because she's really low range, but keep in mind she can E into you and do her Q combo, which will half health you. She's also melee, so you get to poke her with your Q when she tries to walk up to get minions. The main reason why people cry about Akali is because of her crazy E/R dash mobility, but a well timed cage stops her and stuns her. If she uses R1 on you, cage yourself and keep running so she can't chase. Also, if your jungler is ganking you and she shrouds, put the cage around her so she can't do some sneaky juke or whatever. Make sure your idiot bot lane backs off when she roams."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Even if you get to the point where you have GLP and can one shot her, you'll still have to deal with her egg - and unless you're fed or late game, you probably can't kill her egg in time, so don't try to kill her unless you have someone to help you. Post-6, she'll shove the wave into you, so stand behind casters and let her shove because if she catches you with her wall in her ult, you're pretty much dead unless you can hit your cage at pinpoint accuracy and stun her immediately (I personally never try this). The good thing is if you let her shove, she also has no kill pressure - you're free to stack up Qs under tower. Since she usually roams after shoving, take TP to help out your lanes - y…"
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"",
+"Easy"
+],
+[
+"",
+"In my opinion, Annie is just a worse version of Veigar. She's just as low range as you are, but her ability to stun is shorter than yours with her Q and W (her R has a decent stun range). She doesn't really have kill pressure on you unless you perpetually get stunned by her and whittled down slowly in lane - if she's the type of Annie that keeps walking towards you when her stun is up, you can use the tip of your Q and W to farm while backing off. She also has no means of escaping your cage besides flash, so it's free ganks for your jungler and lets you run from her easier. Watch out if she has Predator - she can surprise you and run before you'll drop your cage. Cleanse is probably better t…"
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"He has higher range than you and will poke you out of lane with his stars if he gets close to you. Pre-6, you can W and Q him if he gets close to you while expanding, but just run and try to dodge if he expands and sends a star too. You outburst him after GLP and he can't escape your cage, so the lane becomes significantly easier later on (and even before GLP if you can poke him down well enough). He will roam a lot, so make sure you're dropping a ward in lane and calling your MIAs. Even with his star expansion, your E will still be in range of him, so you can catch him out that way if he plays too aggressively."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"",
+"Easy"
+],
+[
+"",
+"He's just as weak as you early game, but can still poke you down and deal damage to you. Nonetheless, if you're standing behind casters, his Q can't reach you unless he walks past the melees (and even then so, you can Q and W him back as a trade). Be careful for him ulting you into your tower if you shove the lane in before he does - I advise standing a bit back and not hitting him or the tower with autos if your minions are crashing into your towers, but also staying in a close enough range to still use your abilities. He can't escape your E with his E and he'll also be stopped, so you can negate a lot of his teamfight and laning kill pressure with a well-timed cage."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"For some stupid reason, his W can hit you even if you're standing behind casters and he's at his casters. Make sure you're always moving so it's harder for him to hit his combo. If he misses his W, stay away from any minions that are Ablaze as he can Q them to chain Ablaze onto you. He's really immobile, so it's easy to setup kills for yourself or for your jungler. Post 6 and before your GLP, he'll have a lot more kill pressure than you, so be careful and just wait it out until you can purchase GLP and start killing him. I advise Cleanse or Barrier."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Since you're immobile, if you get hit by one of her Qs, she can run up to you and spam her E on you which will chunk like 1/2 of your health early game. You can't fight back well if you get ulted by her, because you'll probably be dead before you can even drop your cage, much less your whole combo. She's also immobile though, so you can easily kill her once you have GLP. If you catch her in your cage but she doesn't get stunned, drop your whole combo quickly and then turn around so you won't get stunned by her ult. You won't really need Cleanse because if you get stunned, her W will probably also be underneath you, so it'll be a waste. Nonetheless, feel free to take it if you're not that con…"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"His Q has an unexpectedly long range, but if you keep moving, chances are he'll miss most of the time. If his Q is down, you can poke him down easily, as he doesn't really have any gap closers besides that. He's also really immobile, so if you know you're gonna get hit by his Q, drop your cage around him first so he can't use his full combo on you (but also watch out for him flashing through). If he's going full AP, he'll be an easy kill once you get GLP as he's melee - if you drop your cage around him and he doesn't get stunned, make sure you keep moving so you can dodge his Q retaliation."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"",
+"Easy"
+],
+[
+"",
+"He has virtually no kill pressure on you the entire game unless you get whittled down by his rockets - but even then so, he's still really weak early on. You only have to watch out for his Q, but it's easy to dodge. He's a super easy kill target even before GLP because his only means of escaping is his W, which will be stopped by your cage. Watch out if he has package, he'll try to roam bot lane if he figures out that you can kill him."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"If you stand behind casters and move a bit backwards everytime she moves towards the melees, you can dodge her Q while also getting out of her E range. She has decent kill pressure on you, but if you're playing your range advantage smart, she'll only have ever touched you with Qs in lane. Her E will also be stopped by your cage. Post 6, try to look for kills on her - since she's melee, you'll easily poke her out, but keep in mind she can easily turn around fights with her E->R, especially if she has Conqueror. If she Es and Rs you, I advise flashing out while also throwing your cage so she can't follow her dash (or else she'll be stunned)."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"There's two playstyles that Ekkos mainly do; they either shove the wave and roam or freeze it and try to kill you. If it's the first, just let him shove and try to farm under tower while alerting your teammates of him roaming. If it's the second, never get close to him unless you saw him use his Q or E - otherwise, he'll Q E you and immediately get his passive and electrocute off, which does half your health or so. W the melees and casters if you have to - not letting Ekko snowball is a higher priority than a few creeps. If he doesn't get merc treads, if he gets caught in your E with 2~ points in it, W him and click behind him so you walk up to him during the cast time of your W, then use GL…"
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"",
+"Dodge"
+],
+[
+"",
+"Honestly, I don't even bother picking Veigar into this matchup, I just pick Vlad or Kass lmao. But if you ever find yourself matched against him, you need to play super super safe. Take barrier and play super back. The good thing is, if you stand behind casters, he can't really get to you without using his E and Q (at which point, after you eat his combo, you can E him and poke him back after he tries to walk away - still, it won't be enough damage to match him unless you have GLP). His E can leave your cage, but his Q can't - so if he uses his E haphazardly, try to punish him for it. Sometimes, I rush negatron cloak early on if I'm having trouble or if he's fed - but if you'd like, you can …"
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"",
+"Easy"
+],
+[
+"",
+"He's a supposed anti-mage, but he's melee and gets stopped + stunned through your cage, so you can feel free to farm easily and pick up some kills on him once you have GLP (or even before then by poking him down post-6). Stand on the side of your casters, because he'll tend to Q the casters to push the wave - the worst that can happen is that you'll get hit as they converge, but not in the actual wind itself. Punish him for shoving the wave if he walks up and justice punches the melees. He does have good lockdown potential for his jungler, so make sure you stay out of his taunt."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"He can eat oranges to escape your cage, but that's pretty much the only downside of this matchup. Even if he does this, you can still GLP him right after eating and slow him to hit your combo. If he walks up to Q you, Q him back for some free AP. Try to shove the lane back if he shoves it in with barrels - if you stand aside casters, his barrel combo won't hit you unless he does the thing where he places a new one just as one detonates - make sure you're trying to kill the barrels. He doesn't have kill pressure on you unless you get super poked down."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"He has great all-in potential, so make sure you're standing at a safe range (at casters usually) to be able to walk away from him even if he Qs towards you. Other than his Q, he has no way of reaching you, so you can poke him easily. His E also shoves in the wave quickly, which is good for you because it lets you farm under the safety of your tower without having to worry about his all-in. Still, know that Garen can kill you around half health or even 3/4 health if you're not playing careful, so keep in mind he can Q and flash onto you and kill you really quickly. Also, you don't have great kill potential on him, because his W can negate a chunk of your stun and soak up your combo's damage -…"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Your Q and W can reach his towers without being targetted by them, but I wouldn't advise trying to kill them - instead, focus on farming minions with your Q. After a certain point, you'll be able to one shot his towers with one ability anyways. He shoves in the lane towards you, which is good because you can farm under tower and you pretty much only have to worry about his W (you can stand behind casters). He can't escape your cage, so you have great kill potential on him once you have GLP. Don't get too close to him though, as he can stun you and deal tons of damage with towers."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"She's melee but can quickly slice through a minion wave like butter, activating her passive while also jumping onto you. If this happens, you're pretty much dead, so prevent this by recognizing when her Q is able to one shot the casters (e.g. are my casters full health? Is she at full stacks? etc.) If she ults you from range, drop your cage around yourself, because her Q can't go through your E (and try to hit your combo fast enough before she's able to W). If your full combo can kill her, don't be afraid to cage her first and full combo her if she doesn't have her flash - if she doesn't get stunned and uses W, just use your W Q auto combo to do tons of damage and get some AP."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"His auto range isn't really that long, but his empowered Shock Blast can hit you from across the lane, so stand behind casters and move sideways if the casters are dead. He's most vulnerable in his cannon form, because his To The Skies! or Power Slam or whatever stupid name that is gets stopped by your cage, plus he can't really do anything if he gets hit by your full combo. After 6, you can shove the lane into him while poking him, because your kill pressure spikes."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"",
+"Easy"
+],
+[
+"",
+"She can only Q you in lane unless you walk up and get hit by her W, so stand in the opposite direction of her and a bit far away from the casters so you won't get hit by them. Otherwise, this lane is a free farm and free kill lane. If you're looking for a kill with GLP, make sure you use GLP before cage so she gets caught even if she tries to shield herself for the movement speed."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"If you're not that good at sidestepping, try to at least stand on top of the casters because his Q deals more damage to targets that are alone. Besides his annoying Q, this lane should be a free farm lane - try to shove the lane in post-6 so you don't have to deal with sidestepping all the time. He's really immobile, so catching him in your cage is a free kill - just keep in mind that if you're walking away from his passive, you'll usually be in range for 2-3 of his Qs (3-5 if you get slowed), so make sure you're dodging. Rush Zhonya's or Banshees and take barrier to negate his passive - it deals a lot of damage later on."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"",
+"Dodge"
+],
+[
+"",
+"I think I've lost more LP dodging Kassadin than I have from actually losing games against him. This lane is super hard because even though Kassadin is supposedly a late game champion, he has a lot of kill pressure on you post-6. Don't even bother trying to cage him, his R is on a short enough cooldown that he's always able to escape unless it's the early game. Even though you hypothetically outscale him, his ability to dodge everything in your kit late game makes him super annoying to deal with. If he ults through your cage, your GLP might be able to slow him enough to catch him in your full combo. He'll probably mow through your team before you can mow down theirs - I would try to kill thei…"
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"",
+"Dodge"
+],
+[
+"",
+"Even if you can stand outside of her dagger damage range, if she jumps on them, you'll have no way of escaping quickly, especially if she bought gunblade. She can E right through your cage, so don't even bother trying to get a kill on her - chances are, she'll jump on you and combo you. The good thing is, early on, if she doesn't kill you immediately with while ulting, she'll be standing still for your full combo - taking barrier helps you achieve enough survivability to do this. Even then so, a good Katarina will ult and then once they see your combo incoming, they'll E onto you again to dodge it. Even if she doesn't kill you, she'll shove the wave and roam, so make sure you're warning your…"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"She's a monster late game, but you're better than her mid game, especially if you have GLP - you can usually kill her with your full combo fast enough that she can't react with her ult (unless she has mercs). The only thing that sucks is that whoever you try to combo, she can save with her ult, so try to make sure she's not close enough to the carries to ult them. During laning phase, she's super weak early game, so feel free to farm and maybe even pick up some kills by continuously poking her down and then getting a stun off."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Stand behind casters so he can't hit his Q nor get in range of you fast enough to hit you with his E. His kill pressure goes up post-6, so make sure you're keeping your distance and recognizing when his all-in can kill you if he tries to flash cheese you with his R (it's usually around half your health.) If you're at the point where you can kill him with your full combo, GLP him before you drop your cage so his E can't speed through it. During teamfights, cage around him when he ults so he'll end up faceplanting into your cage with his protobelt."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"His Q can go through all minions, so play super safe when it's up and keep moving. If he manages to hit it, run backwards ASAP - he can all in you super well. Be careful if he backs and you shove the wave in - his ult is hard for you to get out of. The good thing is, his E gets stopped by your cage. If he's stunned, don't immediately throw out your full combo - just throw GLP/Q/W, and if he gets demounted, then R - otherwise, just keep poking him down and rinse and repeat. I wouldn't recommend putting your cage down every time he hits a Q unless you can't break out of it in time - if so, make sure you E immediately - otherwise, he'll already have E'd into you and you'll be eating Vicious Str…"
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"Don't try to cage her if she already used W1, because she can just blink back. Instead, cage her after she uses W1 if your full combo is able to kill her. Early on, this lane is a bit difficult because she can poke you easily - make sure you run when you get Q'd by her to dodge her W or E. If she dashes into you, you can try to Q her and then W her original position to get a trade off (don't W her original position repeatedly, she'll eventually adapt and stop immediately returning.) Also, if she dashes into you, put your E around her original spot and then GLP her when she gets in front of you, that way you'll have her slowed and ripe for a full combo no matter where she is. Don't underestim…"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Her E can go through your cage, but she doesn't really have great all-in kill potential on you unless you get poked down or her jungler is there. I advise taking cleanse in this matchup to stop her ult. Shove the lane in post-6 and back off so she can't get her jungler to kill you. Make sure you alert your teammates that she's roaming. If you catch her in your cage but don't have her stunned, she'll try to E out - GLP her and Q her before so that even if she gets out, she'll still be slowed so you can catch up and hit the rest of your combo (keep in mind she can still turn around at this time with her full combo too)."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"He has good all-in kill potential on you early on, but once you get GLP, you can kill him easily before he kills you. If he dashes into you, do your full combo on him, as he'll probably be channeling his Q - and even though it's not that long of a cast time, it gives you a good sliver of time that prevents him from leaving the full combo entirely to the point where he still gets hit by everything. He also gets stopped and stunned by your E, so make sure you GLP him before you E so he gets stunned."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"You need to be continuously moving so that her E can't hit you - it has a super long range, you have to either walk in circles or be like way behind your casters. A good Lux can predict your movements really well, so make sure you adapt accordingly. If you're able to dodge her Q and E, you can usually cage her and do your full combo - her W won't be able to save herself once you have GLP. Taking Cleanse is better than Barrier in my opinion, because you can move out of her root + ult rather than soaking the ult damage but getting hit by her passive right after."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Super short range, you can poke him easily in lane and get some free AP. If you never get poked by him, he doesn't have good kill potential on you unless he's fed or you've been eating Qs, at which point his full combo with R will kill you. Your E won't stop his ult, but it's really obvious when he wants to ult if he starts walking towards you while inside of your cage - try to flash out if you can. Otherwise, you get a lot of good kill potential on him post-6."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Neither of you have good kill potential on each other, but he has better lockdown on you because he can ult you for his jungler whereas his shield negates your cage. Nonetheless, most Malzahars shove the lane in, which lets you free farm under tower. If your autoattacks can one shot his minions, then so can your Q, so you can pick up some free AP that way. Using GLP to get rid of his shield and then caging him catches him off-guard and ends up stunning him and nets you a free kill. He's just as short range as you are, so if he ults someone in a teamfight, you'll be in range to auto him and then full combo him."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"The main thing you need to watch out for in his kit is his E - if he hits it, he'll deal a lot of damage to you really quickly and you don't really have means of getting him off of you. When his E is down, you can punish him with your range advantage. If he ults you and you're not in a position where your full combo kills him immediately, slow him with GLP first, and after the slow finishes, put your cage around yourself so you maximize the time where he can't reach you (but if you have GLP at this point, you can probably kill him). Also, don't be afraid to fight back in his ult - of course, you can't auto-for-auto kill him, but remember he's not invincible - he just has a few extra stats - …"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"The only reason why she's medium is because her E is a giant cockblock for you as she can just walk through your cage without being stunned. I recommend Qing her before she does this to deal enough damage that the Q destroys the shield just as she walks out. Otherwise, she sucks in lane because you can just stand away and behind casters to dodge both her W and Q. Take cleanse to stop yourself from being locked down."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Stand aside from your casters because her E gets faster if it travels through minions and her Q deals more damage if it kills a minion. She's short enough range that she'll usually be in your E range most of the time, so it's easy kill setups for your jungler. If you GLP her before she uses her W, the GLP slow will still linger after her invisibility, so you can still see her - if you don't have GLP, put your cage around where she dissappeared so she still can't get away. Throwing your ult on a 50/50 is not a risk I would honestly take, so don't try to ult her unless you know which one it is. You can shove better than she can, and she doesn't really have means of escaping your cage besides b…"
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"He shoves the wave so fast early game that you'll usually lose a few minions as the wave crashes into the tower. He can also all-in you at like level 2, so be careful, especially if you got hit by his Q. At all stages at the game, you'll have to play super safe - don't even try to get plates unless he's dead or you know his ult is down so you won't get latched onto, because if you do, you're pretty much dead - your cage won't come down in time and will probably get spell shielded anyways. On the bright side, you can cage him and then GLP immediately as he instinctively will use his spell shield and then get stunned."
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"She has longer range than you and will poke you down a lot, so make sure you're moving a lot and unpredictably. Besides her poke, she doesn't have great all-in potential; her ult does meh damage early on. Don't try to chase her even with cage, her W can outspeed you. However, a GLP will slow her even with her W so you can cage her - she doesn't have great means of escaping your cage besides a meager movement speed bonus."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"His Q is super long range, but his W isn't. Keep moving sideways when you see him channeling and try to be unpredictable. His E can block your full combo, so don't use it unless you see him stunned - even then so, make sure your stun will actually long enough so that he will be hit by it - merc treads will usually buy him enough time. Otherwise, unless you play super aggressive, he doesn't have great kill potential on you unless he flashes on you for his jungler or you get poked down, so remember to play a bit back. Shove the waves and look for poke."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"Most Pyke mids play super aggressively early game, so play super safe - a fed Pyke mid is a nightmare. You outscale him hard, and since he can't build health, he's an easy target for your full combo. He can't E through your cage, but he can stealth inside of it and if you get close to him, he'll Q you into him - if he does this, just try to GLP and Q/W him - it's better than risking dying. Still, he has great kill potential on you from early to mid game, so remember to keep your distance. I actually recommend taking heal, because barrier doesn't shield through his ult, but a heal (even through ignite) will."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"Play behind casters, but keep in mind she can E through minions to quickly close the gap on you and snare you. She can't really dash through your cage, but a good Qiyana will instead use her stealth to avoid it, so try to look for kills when her Q or W are on CD or if she has a different element. She has great kill potential on you level 6, so keep your distance. If she dashes through a minion and roots you, try to cage yourself before she's able to ult and follow up. If she uses both her dash and W, use your GLP to slow her and then full combo - she's the most vulnerable in this stage without dashes."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"If you've ever watched one of Went's videos, you'd know that Electrocute Rumble kills you at like level 3 with an all-in, so watch out. He's melee, so you can pick up free AP by poking him if you stand behind casters without being scared of his taser. He also shoves the waves in fast, which helps you farm safely under tower. He can't really escape your cage besides his movement bonus, so you can GLP him. If he ever tases you at 6 and starts walking to you, cage around yourself so he even if he ults, he can't reach you with his Q."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"He's weak early game, but if you can't hit him with your cage late, he outscales you hard. Try to get some poke on him from early to mid game - he should be easy kills once you have GLP, especially because he can't escape from your cage even if he activates Phase Rush. Take teleport in this matchup because chances are, he'll also have it and you need to match his laning, split push, and roams. Since he builds RoA but no defenses, he's deceptively tanky; you'll need to throw in a few extra Q or W before your all-in can kill him in the mid-game."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"His Q is short range but his E isn't. Instead of walking backwards behind casters when he uses E, try to walk sideways because his E can probably still grab you because of how long range it is. Once his E is down, you have a lot of kill pressure on him, especially because he can't escape your cage. If he ults, throw your cage around him so he can't get close to you while also staying a bit back so you can't get E'd or get flashed on."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"If the Sylas is good, he'll constantly E onto you during laning phase and use his full combo on you, so if he walks past the melees, start walking backwards and don't be afraid to cage yourself, because he can't dash through your cage. When his E is down, you have good kill potential on him once you get GLP. Shove the lane in while also poking him down. Be careful if he steals your ult - if he has conqueror, his combo can probably kill you by using your ult as the finisher. Don't forget his W heals him a lot when he's low, so watch out if you're trying to finish him with your ult."
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Dodge sideways instead of backwards because her entire kit has long range. She doesn't have good kill potential on you pre-6 unless you keep getting poked down. She's an easy target for your full combo once you have GLP - once you throw your cage on her, GLP her to slow then walk sideways because most Syndras will instictively Q E you away, allowing you to dodge the stun while still having her slowed. Stay away if she has a lot of orbs on the ground so you can avoid getting E'd and then ulted."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Stand behind casters but keep in mind her Q does AoE so don't stand directly on top of them. Keep moving so she doesn't have opportunities to W you, because it does a surprisingly large amount of damage early on. She's immobile, so you'll have an easy time getting her stuck in your cage and hitting her with your GLP. Just like Syndra, if you cage her but she's not stunned, make sure you dodge her W preemptively and then full combo her instead of immediately going into full combo to avoid getting killed in return."
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"For an assassin, he's actually not that bad. His main way to close the gap is with his W to slow and then Q, but if you play behind casters and walk even further back when he walks past the melees, you'll never get hit by them. He doesn't have means of getting out of your cage besides his stealth with his ult (but obviously, your cage has a shorter cooldown). Remember that he can kill you at level 2 easily, so watch out for his powerspike. Also watch out for his roams, because he has the best mobility in the game - he'll probably shove the lane into you then roam."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"She has good kill potential on you early on because her W has a far range, so play back and make sure you're trading Qs when she autos. Her W can't go through your cage and she immediately gets stunned, so you have even better kill potential post-6. Play backwards at level 2, because just like Talon, she can cheese you with an E and a W. You'll outscale her faster and better - just make sure to not let her snowball early on."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"",
+"Easy"
+],
+[
+"",
+"There's really nothing he can do to you besides lock you down for your jungler with his gold card. Shove the lane in post-6 to pressure him from not ulting. Remember to ping his level 6 and ping him missing the moment he disappears from Fog of War. (tip: directly pinging \"danger\" on your ally's lane is more effective than pinging \"mia\" on your own lane - they notice it more if they're not paying attention). He can't escape your cage - the best he can do is frantically shuffle for a gold card, but you'll probably be able to unleash your full combo in time before he can even throw it."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"Stand next to your casters so even if he tries to use his Q on you, the minions will soak it, while also standing on their side so his W can only hit either you or the minions. Be careful for his E - it's about the same range as your E range, so try to bait it first if you want to drop a cage on him. If he ults you and you're in range, don't try to run, full combo him instead if you recognize it can kill him. He's immobile, so he can get caught in your cage easily - this lane is just a skillshot dodging simulator. Shove the lanes in so you don't have to deal with that garbage."
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"His E is super long range, so don't dodge by walking behind your casters, just try to dodge by walking sideways. If he walks up to Q poke you, Q him in return - your Q is longer range than him. Most Viktors will drop their W underneath you if they get caught in your cage - if your full combo can kill him, don't try to walk out of it; your full combo will be faster than the time it takes for his W to stun you. You outscale him faster and better."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"He can pool past your cage, but he's just as short range as you are. Try to GLP him just as he pools so he'll still get slowed and you can catch up to him for your combo. Make sure you're only trying to full combo him when you know his W is down or when you can stun him for long enough, because otherwise he'll just pool to dodge your ult. Also, watch out for his level 6 cheese - if you see him E when his crimson rush is stacking and starts walking to you, you need to start walking backwards ASAP so that even his flash can't catch up to you."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"He does a lot of damage and can quickly close the gap on you if you're standing on casters. Post-6, he has more kill potential on you. He can't E out of your cage, but he can stealth inside of it, so try to GLP him so you can still try to hit blind Ws and Qs. You outscale him hard, and if his full combo isn't enough to kill you but if he ults you and is on top of you, you can just full combo him point blank - I recommend barrier in this situation so you can have some more survivability to throw out your combo on him."
+]
+],
+"as": "Wukong"
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"A good Xerath will poke you into oblivion from far range while you won't ever be able to hit him back. Stand a good distance from your casters so his Q and W can't hit both of you. You need to GLP him first to catch up to him to get the cage drop on him - if you GLP and cage, dodge sideways to avoid his incoming E and then use your full combo. You need to shove the lanes in so you can avoid getting poked from a long range post-6. In this matchup, even under tower, you can still be poked, but it'll be free gank setups for your jungler."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"Yasuo can dash across the minions to close the gap quickly and then start beating you down. Once he's on you, whether through his E or R, it'll be hard to shake him off, especially because he can just dash back through more minions. Stand behind casters and Q him if he dashes through the first line of melee minions then walk backwards so you can deal some damage while still playing a bit safe. Autoattack him so you can take his shield down if you want to full combo him. He can't dash through your cage, but he can wind wall if he isn't stunned, so I would recommend only trying to full combo him if he gets stunned for a long enough time."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"",
+"Dodge"
+],
+[
+"",
+"I always ban Zed because he's so difficult to deal with. Even if you're standing at your casters, his shadow combo can still reach you there (and he'll probably reactivate and melee you). His shadow dash and ult can go right through your cage and he'll probably burst you before your W can even land on him. Just like Fizz, you need to watch out if he's level 5 because if he levels up, he will immediately learn his ult and all-in you. You need to play super far back to avoid him jumping on you and just try to use your Q and W to farm. You should rush Seekers and if he's still an issue, finish Zhonya's; otherwise, just go normal build path. Honestly, I do not have that many tips against him jus…"
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"",
+"Easy"
+],
+[
+"",
+"He shoves the lane in quickly early on, but it just allows you to farm up early. He has like zero kill pressure on you early if you stand aside casters, as his Q will immediately proc once it finds a target. His W can't go through your cage, so it's really easy to setup kills on him for yourself. He does start to do considerable damage mid game and late game, so watch out for his waveclear - but remember that you'll always be able to outscale him and deal more damage."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"",
+"Easy"
+],
+[
+"",
+"His ult negates a lot of your kill pressure, so only try to full combo him when he gets stunned. His main strategy will consist of shoving the lane in with double bombs. Stand a bit far from casters so you won't get stunned by his double bomb, and start moving away further if he walks near his melees. Otherwise, this is a free farm lane as you'll outscale him super hard. You can use GLP to slow him if he tries to speed himself up to escape your combo. If he's not stunned in your cage, don't try to walk up to him - he'll slow you and double bomb you. Instead, just Q and W from a distance while also moving side to side."
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"",
+"Hard"
+],
+[
+"",
+"Her range is considerably higher than yours and her ult allowing her to gain distance then move back makes it hard to land your stun on her. Move away from the casters because she'll always try to Q the casters and then quickly clean up the wave. Let her shove the wave in because she has great kill pressure when there are no minions in the way. If you get bubbled, throw the E as far as you can from yourself in her direction to make sure that she gets stunned if she tries to walk up or ult. If you find yourself close enough to her, your kill distance becomes better; if she ults, don't try to hit your cage when she's in the portal - instead, cage the original position then GLP her and then ful…"
+]
+]
+}
+]
+}
+}

@@ -1,0 +1,1188 @@
+{
+"champ": "Ahri",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/12RJckctaCLLzZBNJwxQPoRFU-65ZWd2P-C-kqVjBEtY/edit"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Aatrox hard wins lanes, try keeping the lane even and stalling to 6"
+],
+[
+"Important Items",
+"Morello's is necessary, Seeker's is conditional"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Ult sideways to escape W."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Will be massively behind and can still easily solo you. Dumb champion. Play to keep her from roaming."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"You don't, lol. Outplaying her = surviving an encounter"
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Anivia gets very hard to burst very quickly. She also stalls harder post-6. Call the jungler or play off her back timings"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Don't call jungler unless you can kill her through egg."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Use her weak waveclear to chip damage on her early. You generally cannot kill her but preventing her from entering fights is huge"
+],
+[
+"Important Items",
+"Early Banshee's or Merc Treads"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Use an ulti charge for when Charm ends to preemptively dodge/escape. Annie will probably try open with an R or W so dodging those is huge."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy-Med"
+],
+[
+"Matchup Information/Win Conditions",
+"Asol roams on you early levels but is weak to post-6 all ins. Tell your team to expect him to reach fights first early on"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Time Spirit Rush to dodge his Q or R."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"He just hardshoves all game. You have a good window around 6-13, try abuse that and don't give up too much mid when you roam."
+],
+[
+"Important Items",
+"Early MR or sustain helps"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"If Azir is dashing in, he's committing. R can be used at a 90 degree angle to his and it should move you out of the way before his wall arrives."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Matchup Information/Win Conditions",
+"Most Brands are very aggressive but will easily pop post-6."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Just don't dash straight into him lmao"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard-Impossible"
+],
+[
+"Matchup Information/Win Conditions",
+"You can burst her post-6. Try keep the wave from freezing on her side or you won't get to farm. Never run Glacial as Phase Rush + Cleanse means you're worse at burst, dps, and your little niche is useless vs. her."
+],
+[
+"Important Items",
+"Early boots are a must"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Most Cassiopeia players reactively ult, dashing into them and then immediately moving sideways/back will often cause them to whiff."
+],
+[
+"Side notes",
+"This is what Cassio vs. Ahri lane looks like"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"You cannot give up lane priority or he'll destroy you. Don't get too close to your backline as he wants to hit all 3 casters with his Q."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"If you can't outplay the Cho'Gath skillshots without advice you might need to drop mobile champions."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Corki hits surprisingly hard. Avoid extended trades."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"When he has package, he has 2 dashes. Do not try to interrupt the Package W."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard-Impossible"
+],
+[
+"Matchup Information/Win Conditions",
+"Diana wants to use her mana to avoid losing hp while she recklessly pushes. Don't give her prio. Post-6 she's you but better, luckily you do outscale so long as you're backlining properly."
+],
+[
+"Important Items",
+"Early Banshee's"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"If you interrupt her R, it goes on CD and she doesn't get to gapclose on you."
+],
+[
+"Side notes",
+"Volatile Matchup"
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Matchup Information/Win Conditions",
+"When Ekko wants to push he'll stand right in the middle of the wave. This is the perfect time to QW auto for Electrocute procs. You clear harder but it's a matchup you should poke out."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Position your dashes so that when you jump on him you're not sitting on his clone. Try ignite before he ults to cut his healing."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Matchup Information/Win Conditions",
+"Shove and leave him under tower."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Don't open up with skillshots on Ezreal unless you're out of vision. He'll burst you back if you aren't fed or don't land everything. Open up with RW auto (electro proc) to try bait his E."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Fizz has immense trade and kill pressure levels 4 -> 2 items. Trade ults if you have to but try not to die. You will outscale."
+],
+[
+"Important Items",
+"Stopwatch or Banshee's cut his potential burst significantly, buy depending on what other champions are in the game"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Not only does his E dodge skillshots, your autotarget fizzles out. Wait till he's used it to commit."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"You're both trying to afk shove each other so that you can roam on each other. Not much else to say, if you can poke him down do so."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Charm interrupts his taunt so don't try interrupt if he's on top of you. If you have ult up use that first, then Charm."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Gragas' casket is nearly impossible to dodge, so the plan is to push. Trading a little health early to force him to clear the early waves will save you a lot of trouble in the long run."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"If he's not in range and body slams, he's probably going for E flash. You're going to have to flash early."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"He just doesn't do anything but you're not allowed to do anything either. Match his shove and don't get too much rocket harass."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Heimerdinger can drop a turret to block Charm. Hold the charm unless you know he won't expect it."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Irelia is best utilized extremely aggressively. Freeze and look to break her tempo (dodge her skillshots)."
+],
+[
+"Important Items",
+"Seeker's and Morello are my go-to"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Irelia's dash speed makes it rarely worth trying to interrupt. Just focus on dodging E/R."
+],
+[
+"Side notes",
+"Volatile Matchup"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy-Med"
+],
+[
+"Matchup Information/Win Conditions",
+"Jayce is a powerhouse in the early game. His poke is strong as well as his all in potential. Play behind your minions and focus on matching his shove and outscaling him."
+],
+[
+"Important Items",
+"Must grab an early Seeker's, his burst damage is deceptively high"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Charm interrupts his very slow dash. Utilize that as early engages are often flash knockbacks for ganks"
+],
+[
+"Side notes",
+"op.gg Jayce. If it's his OTP ff15"
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy-Med"
+],
+[
+"Matchup Information/Win Conditions",
+"Again, play behind minions and match shove. You don't outscale Karma but you have points in the midgame where you can catch her or roam bottom."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"All ins vs. Karma = Ignite early. Her RW healing is a massive 20% missing."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Matchup Information/Win Conditions",
+"Try to maintain tempo in the early game. If Karthus eats poke, great. Otherwise just keep the lane pushed and roam."
+],
+[
+"Important Items",
+"You might think Banshee's is the play. You're wrong. It's stopwatch."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Do not go for kills on Karthus unless you'll be high hp afterward. You can stop his ulti when he's alive but not when he's dead. Also, 1 for 1s are better for him"
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Your advantage early on. You have the shove to keep him under tower while you roam, and the true damage on your Q means your poke/trades are better than most."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Same with Ezreal, when you want to all in force him to pop mobility early with RW. Lategame backline and hit him with a charm when tries to jump on you/AD."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Really cheesy champion, if she outplays you and gets ahead she runs away with the game."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Track whether she has jump and her dagger placement. Avoid getting too close to daggers and don't throw important skillshots (E in lane, Q/E in all in) while she has a dash and a target."
+],
+[
+"Side notes",
+"Volatile Matchup"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Try to shove and get tempo. He's hard to jump on and he 1v5s teamfights so if you can stall or kill him you're in good shape."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Kennen always wants a flank. Your best position in fights is sitting in his flank spots and killing him en route."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy-Med"
+],
+[
+"Matchup Information/Win Conditions",
+"Has to maintain the lead on you. If you play safe you'll reach a point your autotarget damage wins you 1v1s vs her"
+],
+[
+"Important Items",
+"This matchup is easy because you buy MR and ignore her. Don't skip resists."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Charm stops W so play outside minions. Also pay attention to the casters she last hits, she might be trying to clear them -> easy chain"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Lissandra has shorter ranges than you, so beating her requires proficiency in knowing your ranges and how to kite her."
+],
+[
+"Important Items",
+"Cleanse helps as well as any of the MR items"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Very similar to the Annie matchup, can't dive her or peel for her, so your best bet is to prevent her from entering fights."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"It's like Lucian ADC only squishier (usually takes ignite, has no support). Just chill till you can reliably pop then dumpster him."
+],
+[
+"Important Items",
+"Should be fine but if your laning is weak consider early Seeker's"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"All ins are in Lucian's favor and he heals off poke trades once he gets his Vamp. You should probably wait for jungler or massive misteps."
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Like Karma but with better survivability + scaling and worse waveclear. You're looking to hit 6 then roam."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Lulu R gives you health, so it goes right through ignite. It's rarely worth trying for solo kills."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Matchup Information/Win Conditions",
+"Another support midlaner, but much weaker in lane than the others. Once you hit level 6 you can look for solo kills, just don't get whittled down before then."
+],
+[
+"Important Items",
+"Buy Stopwatch/Zhonya's if it's also good against another champion's kit (Lux mid/Vi jg)"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Pushing, disappearing, and ambushing Lux en route or harassing her jungler is a very easy way to get fed and snowball."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Pre-6, try to make sure when you shove you hold your Q until he casts his voidling spawn. Post-6 do not stay in the lane for long or you will evenetually get ganked and killed."
+],
+[
+"Important Items",
+"Needing QSS that game or not is completely a coinflip, mainly for lanes jg camps him"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Most Malzahar players are extremely mechanically weak. Early aggression/heavy poke can remove them from the game."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Mordekaiser likes to push early on, try to poke him down and deny him a free lane."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"If Morde ults you, not only should you not die, he's taking a far more potent fighter out of teamfights (himself). Try force him to use it on you in fights."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Bland afk shove game. Maybe you'll kill her in lane, but you're mostly playing to outrotate her."
+],
+[
+"Important Items",
+"In absolute worst case scenario, grab a Banshee's"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Absolutely hold your charm until her spellshield ticks down. You have enough damage that if you try burn her she'll pop it early or she'll die in the process of saving it."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Neeko can be overwhelming in the laning phase. If you can get a push, great. Otherwise, look for jungler ganks since she's vulnerable to them. Forcing her flash is very good because it makes her initiations much harder to pull off."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Neeko will stand with the wave between you to land her snare. Sit on the side opposite your jungler for easy ganks."
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Orianna can outpush you, outpoke you, and outscale you. Play for the midgame, and don't be afraid to burnout push (expend a lot of mana to push and keep her on defensive so you can get early recall) to avoid being her bitch in lane."
+],
+[
+"Important Items",
+"Early boots"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Track her CDs. If she uses her shield, she cannot recall the ball for another ~10 seconds early on. If you're looking to all in, her shielding then throwing Q is your green light and the all in is substantially easier."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Pantheon simply has the numbers to force non-interaction in his lanes. Keep the lane frozen pre-6, try match his roams post-6, and you'll outscale hard."
+],
+[
+"Important Items",
+"Seeker's"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Pantheon E blocks all damage from the target if he's in front of them (that means a backswing of Q while you're in front of him will still do zero damage). You're going to have to dance around him in an all in if it's up."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Qiyana is just better, AD Fizz. You might try poke her down early on but past level 3 you'll want a freeze. Her autohit snare (flash EQ means jungler gets a free engage on you) is one of the scariest gank tools in the game."
+],
+[
+"Important Items",
+"Seeker's"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Qiyana shove isn't great so it's very easy to control waves."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"If Rumble starts Dshield it's impossible to push him out of lane. Try to just match his roams as Rumble players love shoving then roaming."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Rumble can set up towerdives easily. Those are generally the lanes he wants to gank so it's easy to predict where he's going."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Ryze will almost invariably burnout push early on. It's important you don't use too much mana trying to match him. Play for midgame roams."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Your push at rank 2 and 3 Qs is stronger than his push, Don't use too much mana until you hit this stride."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Matchup Information/Win Conditions",
+"If Swain gets a lead on you, you'll never get it back, but Swain is a no mobility, telegraphed ability champion. That just shouldn't happen."
+],
+[
+"Important Items",
+"Morello game"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Glacial is incredibly strong in this matchup because you keep him away from you and your entire team. Kite him out."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Sylas is very difficult to fight, and when he has his ultimate he will likely just kill you if you misstep. Try to just avoid contact in this matchup, and if you can poke him down you might get the early lead."
+],
+[
+"Important Items",
+"Morello is the only way you can kill him solo"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"When he gets below half health igniting will half the insane sustain he gets from his W."
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty",
+"Impossible"
+],
+[
+"Matchup Information/Win Conditions",
+"Syndra has a tool to counter everything you do. She beats you in extended trades, she's got the more consistent poke, you cannot burnout effectively against her, at level 6 she still has the potential to win all ins and her R->E makes it extremely difficult to dodge her stun. She also outscales. Look for misplay, her giving you the shove advantage, or jungle ganks."
+],
+[
+"Important Items",
+"Boots, MR, and schedule a visit w/ your therapist"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Her flash is more important than yours. If you have the opportunity to trade flashes, you should do so."
+],
+[
+"Side notes",
+"Volatile Matchup, this one is significantly easier in low elo due to Syndra players not mastering her aggressive capabilities."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"You should ideally contest Taliyah's push, as she's going to use any free time to harass your jungler and sidelanes as soon as she's 3 (much like Talon). She's very weak to getting jumped on as well, you just can't do it in a predictable pattern."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Your autotarget damage can take her off her wall or her passive. Try making sure she isn't mobile before committing your skillshots."
+],
+[
+"Side notes",
+"Throw another rock"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Early game you need to freeze to avoid dying for free. Past 6 you need to shove and match his roams. Remember Talon does a lot of damage if you eat his full combo, so don't try anything fancy if he has 2 stacks on you off his W."
+],
+[
+"Important Items",
+"Seeker's"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Talon needs 3 hits to proc his passive. Popping Zhonya's as he Q's and converges blades on you denies at least 2 of 5 hits and the easy passive proc. Charming Q will also deny the damage/passive stack."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy-Med"
+],
+[
+"Matchup Information/Win Conditions",
+"Tristana lanes are about afk pushing. That works just fine for you, as long as you avoid sitting next to low hp minions and don't eat free autos."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Due to Charm, Tristana cannot jump on you as easily as other midlaners. Hold the Charm until she's too far up in lane or jumps overaggressively."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Matchup Information/Win Conditions",
+"TF is stronger than you early and wants to use that to dictate the pace of the lane. Maintain a high mana pool and the wave on your side and pre-6 he should be a sitting duck. Post-6, you want to get a ward down in the lane to track TF and shove to keep him there."
+],
+[
+"Important Items",
+"Defensive items aren't necessary unless he's popping off, but Merc and Zhonya's are best vs. him"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"TF will generally always push early. Let him use that and then freeze around level 4 and call your jungler for easy kills. Also, you don't care for Banshee's vs. TF as his ultimate pops the shield."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy-Med"
+],
+[
+"Matchup Information/Win Conditions",
+"Due to high AD as well as an unmissable lv1 ability (E), Varus has a strong push you want to respect. Once he gets that push he'll try to chunk you out. Respect his poke damage and stall to 6 for easy kills."
+],
+[
+"Important Items",
+"Seeker's into Tear Lethality Varus"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Zhonya's is a top tier item into Varus as you'll be in stasis for the entirety of his ult duration."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Matchup Information/Win Conditions",
+"Veigar has bad waveclear early on, and getting a big wave into his tower can be a huge turning point for your lane. Shove, but make sure it's a big wave and not a 3-4 minion wave."
+],
+[
+"Important Items",
+"Banshee's lets you chase through the cage, Zhonya's blocks ulti but requires good reflexes"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"If you Charm him, expect him to dump his entire combo when he gets un-Charmed. Duck out of vision last second to avoid his ultimate cast completely."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Matchup Information/Win Conditions",
+"Vel'koz can shove harder than you early on but at the cost of very high CDs. If he uses his spells badly you have a large window where you can force him off the wave. Most importantly try avoid getting shoved under tower and eating too much damage."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Make sure you have E OR Ultimate up any time you approach him. He's a champion you can easily dodge with your ultimate but underestimaitng his ultimate damage will get you killed pretty easily."
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy-Med"
+],
+[
+"Matchup Information/Win Conditions",
+"Viktor uses undodgeable poke to scare you off the wave so he can maintain control and scale safely, just wait till you can reliably push then shove him in."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Viktor wins lanes by running you out of hp before he runs out of mana, but his E is mana inefficient and so is Q if he doesn't get AA proc. Don't let him get the AA procs and use your passive to stay healthy and you've got this."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Matchup Information/Win Conditions",
+"Vladimir has weak shove but strong trading potential. Get control of the wave and you can pick fights so that they're in your favor every time. Bad fights to pick are any where he has his empowered Q, as it heals off champions for an absurd amount."
+],
+[
+"Important Items",
+"Morello second"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Glacial is very strong into Vladimir, since you can continuously harass him from outside his range. Also, time your ignite to reduce the healing he'll get from his ultimate, empowered Q, or both."
+],
+[
+"Side notes",
+"Volatile Matchup"
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Xerath is a lot like Varus, he'll shove hard early and use that to try poke you down. If he uses a spell on you instead of the wave use that as an opportunity to hit the wave with a full Q to get the wave pushing back his direction. Sit behind the wave but not right on it so you don't get hit while he's clearing waves back. He's generally harder to deal with because his Q poke is harder to dodge/doesn't get reduced by minion hits."
+],
+[
+"Important Items",
+"Early boots"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"This matchup changes drastically when you get your ultimate vs. a skillshot mage w/ no mobility (you can dodge everything easily), but until you have it, and even when it's down it's a rough matchup. Burnout laning is probably your best bet."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard-Impossible"
+],
+[
+"Matchup Information/Win Conditions",
+"Yasuo has all the tools to be very aggressive in lane. The downside is that he's forced to be aggressive. Get your lane frozen and get the jungler for some easy pickups early because the champ is stupid hard to kill later. There's no point later where Yasuo should be burstable."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Yeah there's no easy way to outplay this champion. Every piece of his kit is designed to counter you. Even shooting skillshots at his dash location can be met with an easily buffered windwall that starts channeling while he's mid-dash. Have to out-macro and rely on team."
+],
+[
+"Side notes",
+"Volatile Matchup"
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Zed is weak the first 2 levels, and then strong until people start grouping. Your primary objective should be playing safe and matching Zed's pressure. Once you group up you outscale him."
+],
+[
+"Important Items",
+"Seeker's rush"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"When Zed ults, he appears exactly behind where he was when he cast the spell. Throw charm then. Zhonya's can also be used for 3 separate ways to mitigate Zed ulti. You can use it to avoid the mark entirely (before he lands), to avoid the damage (when he throws shurikens), or to avoid the pop."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Matchup Information/Win Conditions",
+"Ziggs wants to use his abilities to prevent you from shoving the waves back to him. Position to not eat his Q's and then moving up aggressively can nullify what he does in lane."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"See Cho'Gath + don't drag yourself through the minefields he drops. Getting good flanks over walls are a great way to make sure he has no room to zone you."
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Zilean has high mana costs, terrible last hitting, and relatively weak waveclear early on. Pushing into tower will deny him a lot of cs."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Try to save at least one ult charge (preferably 2) for when Zilean ults. Charges will allow you to follow him even if he speeds up and flashes away, and when his ult wears off you kill him."
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty",
+"Med-Hard"
+],
+[
+"Matchup Information/Win Conditions",
+"Against Zoe, you generally want to try keep the lane clear because if you're at tower you'll eat free hits and some of them can even be 100-0s. If you get Banshee's second you're allowed to be much more aggressive."
+],
+[
+"Important Items",
+"Banshee's, Mercs, or Cleanse are all fine (preferably not Cleanse, a summ Zoe can use)"
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"If Zoe is close to you when she uses her ultimate, aim your Charm at the portal she'll return to. You can force her to use it similarly to forcing Ezreal E"
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy-Med"
+],
+[
+"Matchup Information/Win Conditions",
+"Zyra poke is pretty easy to hit early on and she has no problem pushing you out of lane. Pushing until 6 is a safe option, and at 6 you can kill her."
+],
+[
+"Tips, Tricks, & Outplay Mechanics",
+"Pay attention to her plant spawns when you go for Charms so you don't hit the plants."
+]
+]
+}
+]
+}
+}

@@ -1,0 +1,1245 @@
+{
+"champ": "Aatrox",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1-FbMkeN8QyRHNPCz_Z0FDdrFqRwr7iellFuwwL1Q8gs/edit",
+"author": "Falconator9000",
+"updated": "2025"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"3"
+],
+[
+"Key Notes",
+"Be better"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Tricky to catch, Manage her W cd and try to predict movement, Hold e to dodge her e and its won"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"2"
+],
+[
+"Key Notes",
+"Bait his e and he cant fight you, To be fair i doubt he can fight you at all he just doesnt have the dps."
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Ambessa": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Relatively Difficult if she knows what to do, sweetspot too hard to hit so focus on avoiding hittting her w shield"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Runes",
+"4"
+],
+[
+"Build",
+"2"
+],
+[
+"Key Notes",
+"Catching her is an impossibility without Cyclo, play safe, dont get q + e'ed"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"trades are bad for you only if hit by e, so dodge and hit w otherwise just poke"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Free pickings, just q backwards to dodge her ult if you wanna big brain it"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Space his q's out with e and dont let him e you, ESPECIALLY if he has HoB its a free trade for him"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1 / 2 ->"
+],
+[
+"Key Notes",
+"Cyclo helps to dodge his q if your handless, otherwise space his e and prevent his 5 stacks"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Runes",
+"1, 3 if you feel goofy"
+],
+[
+"Build",
+"ANY"
+],
+[
+"Key Notes",
+"He's THAT easy"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Runes",
+"4"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"You basically lose all trades that are greater than 1 vital proc, so just erm dont!"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"He's easy but has insane gank setup so keep wards up and ready and dodge his combo ffs"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Dont get hit by barrel. that simple"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1/2"
+],
+[
+"Key Notes",
+"Dont go cyclo into phase pls, He will outscale so play for team lvl 13+"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"2"
+],
+[
+"Key Notes",
+"Cyclo helps stop his w ms bullshit, other than that care for his rage"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Fuck this unkillable tumour of a champ, dodge his q poke and farm. Dont greed to kill"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"2"
+],
+[
+"Key Notes",
+"She will outtrade you if that q sweetspot lands, she also outscales so play safe and smart"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Relatively Easy Farm Lane, Just dodge his e and respect turrets"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Runes",
+"2/3"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"any build works, try to outsustain her and dodge e or oneshot her when e is down"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"You just wont win this matchup, Dont push it. Ban, Dodge or you will be a tower hugger"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Dodge e and win"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Runes",
+"Any other than 3"
+],
+[
+"Build",
+"2"
+],
+[
+"Key Notes",
+"Really hard as a good jayce will perma space from you, try to q poke and farm safely without getting poked back"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Runes",
+"2/3"
+],
+[
+"Build",
+"1/3"
+],
+[
+"Key Notes",
+"W his w and dodge, make sure to keep distance from q and dont underestimate"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Just fight her, Dont be stupid and get kited, you need to end fast or she outscales"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"2"
+],
+[
+"Key Notes",
+"All in or play safe, dont let him poke you, similar to heimer lane"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Runes",
+"2/3"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Space kled out while poking him make sure he gets no full q connects off or he can combo you down with e easily"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"1/3"
+],
+[
+"Key Notes",
+"Dont bait yourself into fighting him, Just farm he cant do anything if you do nothing"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Runes",
+"2 / 3"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Space him properly, dodge q with e and care for rylais spike"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Runes",
+"2 / 4"
+],
+[
+"Build",
+"1 / 2 / 3"
+],
+[
+"Key Notes",
+"Dont let him farm at all, Monitor your wave state and play accordingly also dont use e to engage or he can just w and run you down"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Dodge q and space his ult for easy lane"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1 / 3"
+],
+[
+"Key Notes",
+"Like malph matchup but he cant kill you ever so just care for gank setup and poke him down"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"2"
+],
+[
+"Key Notes",
+"Cyclo him when he walks up, dump after his e and pray he doesnt burst you down"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"2"
+],
+[
+"Key Notes",
+"Dont do anything stupid and care for her q dmg"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Free lane, just w after she e's and q e her she cant run away, predict movement when q'ed too"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Dont extend trades go for short term and space out his w + e combo"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Just understand whenever she hits 6 and feels like it your dead, otherwise just dodge and try win"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Runes",
+"Utter Cancer"
+],
+[
+"Build",
+"Utter Cancer"
+],
+[
+"Key Notes",
+"Utter Cancer"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Just dont get kited Doinb 3000 cspm ryze style"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Q1 -> Q2 + E back and repeat until killable"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Runes",
+"Any"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Just understand your lane is free because you will need to get serpents for cncr Teamfights later"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Runes",
+"0"
+],
+[
+"Build",
+"0"
+],
+[
+"Key Notes",
+"Singed does not lane, he just exists and you cant deal with him without putting yourself behind"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Runes",
+"Any"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"The Bussy Ffs"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1 / 2 / 3"
+],
+[
+"Key Notes",
+"Dont get hit by q, that simple"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"1 / 4"
+],
+[
+"Key Notes",
+"Just poke him down until you have a lead and kill him on cd"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Trundle"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1 / 2"
+],
+[
+"Key Notes",
+"Cyclo helps but proper q spacing and this creature shouldnt touch you ever"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Runes",
+"Rumble But worse"
+],
+[
+"Build",
+"Rumble But worse"
+],
+[
+"Key Notes",
+"Rumble But worse"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Dodge e and win"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"just q poke and win"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Runes",
+"1"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"He cant really kill you just care for his w during combo to avoid missing dmg"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"2"
+],
+[
+"Key Notes",
+"Dont let him get ontop of you"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1"
+],
+[
+"Key Notes",
+"Very much just a cheese pick, space and dont bait yourself into all inning him"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1 / 3 / 4"
+],
+[
+"Key Notes",
+"Just dont get hit by q :)"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1 / 3 / 4"
+],
+[
+"Key Notes",
+"Champ is weak enough to be laned against these days, bait e and take short poke trades when his w is baited too."
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Runes",
+"Fuck this champ"
+],
+[
+"Build",
+"Fuck this champ"
+],
+[
+"Key Notes",
+"just understand you will be sidelaning him all game, FUCK THIS CHAMP"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Runes",
+"2 / 3"
+],
+[
+"Build",
+"1 / 2 / 3"
+],
+[
+"Key Notes",
+"He will outsustain you short term and esp if you get caught by q or e so just poke trade and play well"
+],
+[
+"Opinion on patch",
+"N/A"
+]
+],
+"as": "Zac Erknaite"
+}
+]
+}
+}

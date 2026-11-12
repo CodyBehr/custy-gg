@@ -1,0 +1,2026 @@
+{
+"champ": "Graves",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/16lAiU2YJE2FkxzvdaPP6O8ekO9XE0kFXAsqAqCzjEtg/edit",
+"author": "MiraiNChill",
+"updated": "2020"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"Fleet"
+],
+[
+"What to do",
+"With Aatrox you don't win levels 1-3 if in melee range and going for straight 1v1. Try to poke Aatrox down with Q bounces or if he walks in a wave hit him with the initial Q damage. Look to try and all in him levels 4 5 and 6 if you get it first. His 6 is stronger then yours. Look to go a build that goes cdr with ER/BC and either Zerkers or PD so that you can constantly have your E up to kite him out."
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec/fleet"
+],
+[
+"What to do",
+"With Ahri she lacks a lot of all in potential, with this being said all inning her on your level 2,3 or 4 is a good idea. Against Ahri you need to try and stay away from the wave because she needs to choose either to have wave advantage by clearing it with her q and w or have hp advantage by trying to hit you with her q w and e. If anything you will 100% outscale ahri and if in an even lane she should be unable to kill you but the same applies to you because once she hits six your kill potential drops due to her having the dashes."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"Fleet"
+],
+[
+"What to do",
+"This matchup differs heavily with it either being top lane or mid lane. If Akali is mid lane then the matchup is easy and if she is top then it is medium dif but can be easy. With Akali mid you want to force her near the four corners of the lane so that you can q bounce."
+],
+[
+"",
+"Fleet POM/OH"
+],
+[
+"",
+"Early/Mid Scaling"
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"fleet"
+],
+[
+"What to do",
+"Force her to choose to wave clear with her stun or to use it on you. If she chooses to wave clear then you punish by trading with her because no matter what you should beat her in a trade because that is her biggest damage early game. After level 6 try and get her low by hitting her with q and auto so that you can get her egg and one shot her in her egg. Don't get caught after her level 6 if you're even and she has elec, she'll more than likely one shot you or get you low enough to not be able to lane."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec/fleet"
+],
+[
+"What to do",
+"Annie has pretty much 0 kill pressure on you, you out shove her in lane and out damage her in trades when you can shove her out. Be careful fighting Annie though, she has some of the biggest AA range in the game and can harass you out somewhat."
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec/fleet"
+],
+[
+"What to do",
+"Asol will do just about 0 damage so as long as you're not dumb. You out do him in every case in lane. Dodging his stun is good but you do not have to in order to win the trade. Rushing a dirk is to dumpster him in trades and then tier 2 boots is to follow him in his roams since that is the only thing he will be good for since he has no kill potential."
+],
+[
+"",
+"Pta OH/Triumph/POM"
+],
+[
+"",
+"Early Scaling"
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Rune Page",
+"fleet"
+],
+[
+"What to do",
+"Azir is a hard matchup because of the fact that he can hard poke you out of lane and force you off the shove in lane. If the Azir does not poke you off all the cs I would advise you shove lane out and then roam with jungle or solo kill jungle yourself since you'll have ignite damage most the time."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec/fleet"
+],
+[
+"What to do",
+"Brand will only beat you if he's able to dwindle you down. If you rush a vamp scepter and heal the damage he deals in lane he will eventually have 0 mana and you will win lane because cs will be harder for him to get with no mana."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Rune Page",
+"pta/phase/fleet"
+],
+[
+"What to do",
+"Camille will only win trades against you in lane if she's able to hit her E on you, saving your E to dodge it will help you win pretty much all trades. when she does go for an E on you if you are able to do it fast enough, Q the wall and then E to dodge. If you are level 6 and she goes for it try to Q bounce on the wall and R her the to dodge the E since most times she will just wait for your R or Q to dodge with her ult."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"elec/fleet"
+],
+[
+"What to do",
+"You need vamp scepter to make through laning phase because she will poke you down so hard in lane. Early levels without her mana items she will just use all her mana and then you can just shove her under tower and force her to miss cs. YOUR ULT COUNTS AS A DASH FOR HER GROUNDING! When she hits level 6 her ult is a lot easier to dodge than you may think."
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"any/fleet"
+],
+[
+"What to do",
+"free lane, dodge knockup with e and just pta proc and demolish trades."
+],
+[
+"",
+"Elec Any Hunter sidestone"
+],
+[
+"",
+"Mid/Late Scaling"
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"fleet/elec"
+],
+[
+"What to do",
+"don't use your e to walk out of corkis grenade toss (Q)?, save it for when corki dashes on to you and just easy pta proc then walk him down. He doesn't have as much damage outright as you do but he can get easy kill potential due to his poke because he gets corrupting most time to get that mana back."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta/phase/fleet"
+],
+[
+"What to do",
+"going even in lane is all you need to do against darius, take pta if you want kill pressure but just know he can turn it on you very easily, phase rush for scale. go black cleaver build and once you get bc and sheen you can kill him fairly easily. Darius is very weak if he misses his pull. Pay attention to darius last hitting minions sometimes they may mess up a W last hit and it will go on cooldown, if this happens try to force a trade because you can kite him out since he can't slow you with the W. If Darius uses Q on the wave to match your shove try to harass him while he finishes the low HP minions from that."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Eay"
+],
+[
+"Rune Page",
+"elec/fleet"
+],
+[
+"What to do",
+"Diana will look to Q you along with the wave, force her to choose between the two. If Diana hits you with a Q and engages with her E, kite into the minion wave and force her to auto lose trades. Getting shove advantage and dwindling her down with Elec is good."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"pta/fleet"
+],
+[
+"What to do",
+"Mostly a free lane phase, Mundo will never be able to kill you pre 6. Shove waves and if he wants to trade with you make him do it in the wave. Kite away from him when he tries to trade with you in the wave he wants to hit you with E so badly which is melee."
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+],
+[
+"",
+"Phase Rush POM/Triumph"
+],
+[
+"",
+"All Game Scaling"
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec/fleet"
+],
+[
+"What to do",
+"force ekko to farm under tower by shoving 24/7 and farm enemy jungle. not many tips to fight ekko besides E away after her dashes to you because he will follow you if you do it during his E."
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta/fleet"
+],
+[
+"What to do",
+"A big tip against Fiora for any champ is that if you walk out of vision you can reset the vital if it's maybe to good of one, also if you are in her vision she sets a vital, good to know if she's maybe trying to brush cheese. Fiora will try and Q you at almost any decent vital and if she can even ones behind you. Kite around your wave since most times you'll be in it. Even though you have no hard CC try to dodge her W no matter what, she slows your attack speed and will beat you in trades if she can do that no matter what."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"add on discord and give tips"
+],
+[
+"What to do",
+"I perma ban Fizz mid so I'm not sure how to play against it, add my discord and give tips!"
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"pta/elec/flet"
+],
+[
+"What to do",
+"Fighting Galio is very easy because if he doesn't hit you with any one of his three abilities you will be able to punish him and win the trade 100%. He will look to poke you in lane with his Q. The Q is not super hard to dodge and force him to choose between shove or poke on you with it. Be careful if the Galio is playing up more than he should because that could mean jungler is around and he has great set up for a gank with taunt."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"fleet"
+],
+[
+"What to do",
+"GP is a shove lane, not much you can do against him since he has a lot of MS. Once you find yourself a little stronger than him force him off the wave to get grasp procs with Q's. Using your E to dodge his barrel is 100% suggested because that sets him up to passive auto you easily and then Q you. Stand in the wave to bait him to shove the wave into you with his barrels and ask your jungler to come top."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"fleet/pta"
+],
+[
+"What to do",
+"Garen is second easiest matchup to TF. Taking pta gives you edge on kill pressure and phase rush is to scale. If the Garen is agro allow him to shove the wave and freeze it on him since you will win trades with pta and kite no matter what. If he is not agro you can shove and pta proc him under tower while he goes for any minion, when looking to do this auto him while the tower is shooting at the minion so it doesn't shoot you."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta/fleet"
+],
+[
+"What to do",
+"With Gnar he will usually try to AA you a lot so try to drag him into your wave so he takes agro, after he does this you can AA e AA him and usually take a decent trade with him accounting minions"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"pta"
+],
+[
+"What to do",
+"Gragas has really good sustain and poke but at the expense of being very squishy given he doesn't go tank. Granted Gragas doesn't go tank you should have an autowin as you can statcheck him harder than he can to you."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Difficulty",
+"????"
+],
+[
+"Rune Page",
+"remake"
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"fleet"
+],
+[
+"What to do",
+"Not very much to sat about this matchup. Mainly try and focus on constantly trying to have him waste mana on turrets and eventually all in him down the lane"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"pta/fleet"
+],
+[
+"What to do",
+"Illaoi is very dependent on hitting her E, if she misses this E she really won't have any damage and she can't force you to trade. If she ults you just walk away if you can, she will burst you 100-0 or kill range."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium/Hard"
+],
+[
+"Rune Page",
+"pta/fleet/ff"
+],
+[
+"What to do",
+"idk bro this shit is so broken i don't even play against it i always ban it go next"
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"pta/fleet"
+],
+[
+"What to do",
+"With Jax his 6 is a bigger spike than a lot of tops in terms of dueling. When he ults he will beat you in any 1v1. Force Jax to engage with Q so that you can kite him out with your E and R if you need to."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"fleet top elec mid"
+],
+[
+"What to do",
+"Force yourself on to him. Try to early game kill his wave and force trades in your wave so that he auto loses. After Jayce switches forms he has around 6 seconds to switch back and abuse that and he wont do anything after his combo."
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"fleet"
+],
+[
+"What to do",
+"Force a duel in her face and you will win most the time. A lot of Karmas just spam abilties, she really needs a full rotation to function in a fight so abuse that."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+],
+[
+"What to do",
+"Be unpredictable and try to avoid the Q's. If you can get melee range of this guyyou win."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"fleet"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"any"
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"fleet"
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"pta/fleet"
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium/Hard"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"phase/pta"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec/pta"
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"elec/pta"
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty",
+"boosters, gg"
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy then Hard"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"elec/pta"
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy then Hard"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec mid pta top"
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+],
+"as": "Nunu & Willump"
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium then Free"
+],
+[
+"Rune Page",
+"elec mid pta top"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Rune Page",
+"pta for early fleet for scale"
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta/fleet"
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta/pr"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec mid pta top"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec mid pta top"
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"pta -"
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"wtf"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta/fleet"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta/pr"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy can be Hard"
+],
+[
+"Rune Page",
+"pta/pr"
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"You're jailed top lane"
+],
+[
+"Rune Page",
+"pta/pr"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy then Hard"
+],
+[
+"Rune Page",
+"elec mid pta top"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Hard"
+],
+[
+"Rune Page",
+"elec mid pta top"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium then easy"
+],
+[
+"Rune Page",
+"fleet/pta"
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"elec/pta"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"pta/pr"
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"EASIEST MATCHUP"
+],
+[
+"Rune Page",
+"ELEC"
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec mid pta top"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"pta/pr"
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Rune Page",
+"pta/fleet"
+]
+],
+"as": "Wukong"
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"HARDEST"
+],
+[
+"Rune Page",
+"elec mid pta top"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"elec mid pta top"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"pta"
+]
+]
+}
+],
+"Yuumi": [
+{
+"fields": [
+[
+"Difficulty",
+"????"
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Difficulty",
+"TROLL"
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy/Medium"
+],
+[
+"Rune Page",
+"elec"
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+]
+]
+}
+]
+}
+}

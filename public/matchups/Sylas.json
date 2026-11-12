@@ -1,0 +1,1387 @@
+{
+"champ": "Sylas",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/16lC9hutxugFT9eOFoVWKrKNpWuAhApshUSDgciphRWA/edit#gid=678553798",
+"author": "Rime",
+"rank": "GM NA",
+"updated": "2022-08"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"2"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"lane away from the minions so she cant Q you and the minions at the same time. If she misses charm go trade HARD. Her charm can cancel your E1 and E2. Charm CD is 12 seconds early game."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"7"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Both Viable (w)"
+],
+[
+"MATCHUP NOTES:",
+"play far back pre level 6. Akali is extremely strong level 1,2,3. Use sylas W when you use Akali R1 to stay on top of her with your Akali R2. Punish her when shroud is on cooldown."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"8"
+],
+[
+"Ult Tier",
+"C"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Her ult goes as long as you want it too until OOM, her ult is strong in 1v1 just weak because of the long cooldown early for you. If she doesnt have ignite you can kill level 5, dont be afraid to all in."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"7"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Rylais and Liandries both super good items with tibbers, prioritize these items. early merc treads. Her ult is S tier, take whenever you can."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"D"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"stay on top of him, Asol is weak vs people who stay within his circle. try to keep up in farm, buy pinks so your bot knows when he roams, and dont take his ult much its meh."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"C"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Play aggro, you can bully him hard in lane level 5-9. As you Azir ult him make sure you get an empowered AA off."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"5"
+],
+[
+"Ult Tier",
+"C"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"His ult is weak, dont take unless you have liandries. stay away from caster minions so that his E spread cant hit you. early merc treads"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"9"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Tricky to kill in a 1v1 especially when she finishes seraphs. If she misses Q pre level 6 you can go for a heavy trade/all in."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"5"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Liandry good with Corki R. Corki ult you get 7 missiles. Hug turret while he has pacakge it can 1 shot you. Play aggro, you smack him level 5-9."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"W"
+],
+[
+"MATCHUP NOTES:",
+"Dont trade pre-level 6, trades will be even but you will go OOM. Post level 9 you win the 1v1 very hard as long as you have her R, play aggro."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"SS"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Both Viable"
+],
+[
+"MATCHUP NOTES:",
+"If he hard shoves max Q, if not you can W max and try to snowball hard. MEJAIS GOOD WITH EKKO R! WHOEVER USES EKKO ULT FIRST LOSES. SS tier ult, take when you can. You can take his ult, recall, buy items, and Ekko R back to lane!"
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"C"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Both Viable (q)"
+],
+[
+"MATCHUP NOTES:",
+"only use fizz ult on him when his E is on cooldown. He can stop you from stealing his ult with his E, care. Start side laning (swap lanes with bot) as soon as you can to build a level advantage vs Fizz. Dont let him proc electrocute level 1-2 vs you, play back a bit."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"8"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Hard matchup, cant do much. Farm it out until Level 9 and look to outscale. You can take galio ult and sidelane with it."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"8"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Both Viable (q)"
+],
+[
+"MATCHUP NOTES:",
+"If hes maxing q you max q. if hes maxing e you max w. havent played this matchup much :c"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"7"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"his ult Q is really strong, you CAN duel him if you both have a super heimer turret. focus on keeping up in farm early and rush lost chapter."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"9"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"dont fight her unless you have ignite. she crushes you level 1 and she crushed you when she finishes botrk. keep up in farm and wait for ganks."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"9"
+],
+[
+"Ult Tier",
+"D"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Both Viable (q)"
+],
+[
+"MATCHUP NOTES:",
+"when he has tear catalyst and you have lost chapter you can smack him 1v1. When you both have 1 item you can smack him 1v1 or carry teamfights, play aggro mid game"
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"6"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"W"
+],
+[
+"MATCHUP NOTES:",
+"If she starts long sword she can kill you pre 6, care. Always save E for her ulti. You win the 1v1 when she doesnt have completed gunblade, look for 1v1's level 5-9."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"2"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"run armor stat rune, early merc treads = lost chapter. When you are both 6 you win the 1v1 hard. You outscale hard dont need to play super aggro early."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"1"
+],
+[
+"Ult Tier",
+"SS"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Malphite ult is good for engage but damage is lower then you would think. Use E1 then Malphite ult so you can E2 while they are knocked up. Combo is E1 > R > Q > E2+W"
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"D"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"You get 1 ult charge, BAD ULT. play aggro as soon as you have lost chapter. You win very hard from level 5 till when he finished 3 items."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"9"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"W"
+],
+[
+"MATCHUP NOTES:",
+"Max W vs leblanc because she will W onto you to proc her mark. Use Q when you think shes gonns jump on you so Q2 hits. Focus on sidestepping chain, she can 100-0 you"
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"10"
+],
+[
+"Ult Tier",
+"C"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Take her ult, hit her with an ability (passive doesnt count) then sleep her.You lose the 1v1 pretty hard early and late game, you win mid game."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"8"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"dont stand on top of minions. You can combo E2 + Neeko R. Build an early zhonyas its good with her ult. you win the matchup at all stages post level 5."
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"1"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Self casting lissandra ult is much better then using it on an enemy. Very sylas favored matchup you win hard post level 5."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"8"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Lucian ult is S tier in 1v1. Take his ult then use Lucian ult on him, yours will do more damage the AP ratio is better.. dont fight him early he is a lane bully. Hit level 9 with fully stacked seekers and you win."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"lane away from the minions so she cant E you and the minions at the same time. you can combo E2 with her ult ex. Hit E2 > Lux R as 1 animation."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"7"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Sylas Q one shots voidlings. Break shield with Q then take his ult + use it at the same time to catch him off guard, dont need to kill, just good trade. dont need QSS"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"5"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Boring lane, Her ult is very strong. Early Merc Treads > Zhonya is best with her ult."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"His Q heals for more then your W. Cancel his ult with your E2 then use Nunu ult. MAX Q so you can get turret plating when he roams, dont bother W maxing/fighting."
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"5"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"You are the Orianna ball when you take her ult. You can combo E2 > Ori R + W as 1 animation, just dont use Ori R until your sure E2 will hit. Play this lane far back her AA's hurt in lane. Early Corrupting + dark seal."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"10"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"You can build for early game ex. Dring + Seekers + Corrupting + Dark seal if he gets early kills. Dont max W vs panth, your Q outranges him and can nuke him since hes squishy. Take his ult whenever you want to sidelane so you can use it as a TP."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"3"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Easy matchup, just dont get hooked under turret. Build normally, dont need seekers. Try to combo E2 with Pyke ult if you can so they cant flash it. You get Pyke ult kill gold, take his ult whenever you can early-mid game. Late game his ult is meh, if they flash your Pyke R you dont have an ult late game."
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"6"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Both Viable (w)"
+],
+[
+"MATCHUP NOTES:",
+". She is extremely strong pre level 6, care for her 100-0ing you, giving up CS early is fine. if she rushes mobis max Q for waveclear."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"SS"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Doran Shield start. Liandries Second item its good with his R. He is one of the strongest mids in the game level 1,2,3, dont fight him and avoid early 2v2's if you can."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"5"
+],
+[
+"Ult Tier",
+"F"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Let him shove you in early-mid game. if hes under your turret you CAN solo kill. Play around early skirmishes (2v2s and 3v3s) early-mid game. He is weak in fights and is 0 mobility."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Build normal. Depends on enemy team comp, if they have a tank or if Sett goes cinderhulk his ult is really good. dont fight early smirmishes sett is extremely strong in early fights. If you hit level 9 and are both 0-0 you smash him 1v1."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"2"
+],
+[
+"Ult Tier",
+"SS"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Spirit Visage is great with Swain R. Landries > Zhonya > Visage is great if enemy team has mixed AD + AP dmg. Take whenever you can, and go crazy his ult it is one of the best in the game. LIMIT TEST the healing is insane."
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"5"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Corrupting + dark seal + fleet is ideal. You both scale really good but you are stronger mid game. Dont take her ult much, its weak because its base damage only because sylas has 0 spheres. Use E1 to bait out her E then engage with E2"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"6"
+],
+[
+"Ult Tier",
+"C"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"W"
+],
+[
+"MATCHUP NOTES:",
+"AA minions from the start do he doesnt hit 2 way before you. You can catch him off guard by starting E level 1 and W level 2. E1 > E2 > AA > AA > W > AA is early combo. If he wastes W on minions you can destroy him in a level 2 trade."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"8"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MATCHUP NOTES:",
+"Have to play super safe early. You can solo kill when you can take her ult. Until then dont die and try to farm as much as you can."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"1"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Easy matchup. He cant kill you in 1v1. Just max Q, play aggro whenever post level 6. Take his ult before he uses his so you can folllow his ult."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Early Merc treads. Veigar level 1 Q actually hurts so care. His ult is S tier in 1v1, you can definitely 1 shot him level 6."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"7"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"If he walks up to auto your turret and you have Rocketbelt you can 100-0 him. If he misses E go for a hard trade or solo kill. Early Rab cap 2nd or 3rd item is ideal"
+]
+]
+}
+],
+"Vex": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"9"
+],
+[
+"Ult Tier",
+"SS"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Basically just playing to survive laning phase and take her Ult for teamfights. If you are even in CS you are doing great."
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"3"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Easy matchup, He outscales you a bit. Just farm pre level 6 without trading heavy. His ult is very good, you use R button to control it. I recommend Rocketbelt to avoid getting kited. Use Q and Viktor R then hit him with E2 before Q2 explosion goes off for a clean 100-0 post level 6."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"I recommend ignite. If he uses empowered Q on minions go for HEAVY trade. Only build morello if you are the only AP on the team (if enemy team buys MR morello is a bad item). Level 9 you are both powerspike but you are stronger."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"3"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"If he overextends and you have Rocketbelt you can easily solo kill. Xerath is weak champ, you basicallyh beat him in 1v1 and teamfights at all stages post level 6."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"5"
+],
+[
+"Ult Tier",
+"B"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"W"
+],
+[
+"MATCHUP NOTES:",
+"Windwall can block your E2 and can block you from stealing ULTS. Always max W vs yasuo. You can Yasuo ult off of your on E2. Use Q to proc his shield then go for aggressive trades post level 3. He's one of the only champs you can solo kill pre level 6."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"7"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"W"
+],
+[
+"MATCHUP NOTES:",
+"If he has berserker greaves he can 1 shot you. If he uses E dont trade hard with him you will lose hard. If his E is on CD look to trade. Use Yone R then immediately use Q so Q2 hits. If he is permashoving hard you will need to put some points in or max Q.Alternator + Seekers is your powerspike. Go for heavy trades so your jungler will want to gank, yone sucks 1v2"
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"5"
+],
+[
+"Ult Tier",
+"C"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"W"
+],
+[
+"MATCHUP NOTES:",
+"If he is playing aggro Level E first and W level 2. if you can hit E2 on him level 2-3-4 you can outtrade him. If he has electrocute keep AAing him and go for longer trades. Combo is E1 > Zed ult him > E2 + W + AA + Ignite, You can 100-0 at level 7. He can use R to cancel you from stealing his ult so care."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"6"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Max Q, farm it out, take his ult when you can, its really strong and keep in mind it does mroe damage if they are in the center. His W cd is 20 seconds level 1, if its on CD go for a heavy trade/all in."
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"10"
+],
+[
+"Ult Tier",
+"F"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"TAKE CLEANSE OR TP, NEVER GO IGNITE. Very hard matchup. You can never jump on her when she has her E up, if you jump on her she will sleep you and nuke you. Play safe wait for ganks. Play around 2v2's"
+]
+]
+}
+]
+}
+}

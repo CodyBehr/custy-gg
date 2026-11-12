@@ -1,0 +1,214 @@
+{
+"champ": "Yone",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1ZdmeH4LLpgDcuI88l-0cX2sFdN9nSK12hfv0sCvqLts/edit"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"5"
+],
+[
+"Recommended runes + starting item",
+"Runes: LT, AL, Alacrity, LS../ Boots, Biscuits or Comic\nD.blade start"
+],
+[
+"Tips to win the matchup",
+"Skill matchup but one sided if one of the two falls to a gank. It's not that Yone favored as it was in the past (with old lethal tempo). You don't want stridebreaker since it doesn't give you a spike to keep matching the Aatrox scaling. Crit is just better in this sense. In early, poke with Q W and E in after he uses his Q3, of course you can trade spacing his Qs. If Aatrox decides to use W, probably he wants to commit REALLY hard and so expect eventually enemy jungler to be around. Not many things to say, is just skill matchup so abuse his cooldowns."
+],
+[
+"TLDR",
+"Aatrox Q is the most important ability to dodge"
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"6"
+],
+[
+"Recommended runes + starting item",
+"Runes: LT, AL, Alacrity, LS../ Second Wind and Overgrowth (or go Boots, Biscuits or Comic if you feel brave)\nD.shield start"
+],
+[
+"Tips to win the matchup",
+"Always try to bait out her charm before trying to all in her. You can also just straight up q3 into her and even if she charms you she’s knocked up so neither of you can do anything to each other. Her q and foxfire are generally pretty easy to dodge with good spacing. Post 6 you have almost zero kill pressure onto a good ahri in a 1v1, and with how easy it is for her to shove lanes, she will spend a large amount of time roaming. Try to take a few trades so she’s too low to roam and get fed off your teammates. Instead of looking to kill her I generally just look to have even cs, chip her down too low to roam, lifesteal back to full and then roam myself so that i get fed."
+],
+[
+"TLDR",
+"Try to bait her E before all-in. Post 6, try to also bait her R. With it, no kill pressure"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"10"
+],
+[
+"Recommended runes + starting item",
+"Runes: Fleet, AL, Alacrity, LS / Second Wind, Overgrowth\nD. shield start"
+],
+[
+"Tips to win the matchup",
+"Absolute nightmare. Never fight her 1v1 at any point in the game as her W shroud and burst is too much to handle. Farm safely, don't feed her and don't let her roam. Going even with her is better for Yone as he is more useful in teamfights"
+],
+[
+"TLDR",
+"Just don't fighet her at any point. Don't let her get fed and stop her roam."
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Recommended runes + starting item",
+"not enough information...will do later"
+],
+[
+"Tips to win the matchup",
+"not enough information...will do later"
+],
+[
+"TLDR",
+"not enough information...will do later"
+]
+]
+}
+],
+"Ambessa": [
+{
+"fields": [
+[
+"Difficulty",
+"5"
+],
+[
+"Recommended runes + starting item",
+"Runes: Fleet, AL, Alacrity, LS / Bone plating, Overgrowth\nD. blade start"
+],
+[
+"Tips to win the matchup",
+"Dodge her Q2 as it is safe poke with decent damage.\nAmbessa is skill reliant champ, so play around her CDs. You win long trades, so it’s a good idea to keep your E, q her at max range, when she goes in to you, tank her full combo trying to dodge her Q2 and after she has no more spells, E in and finish her."
+],
+[
+"TLDR",
+"Dodge Q2, go in for extended trades once she her skills are on CD."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"7"
+],
+[
+"Recommended runes + starting item",
+"Runes: Fleet, AL, Alacrity, LS / Second Wind, Overgrowth\nD. shield start"
+],
+[
+"Tips to win the matchup",
+"Early phase is fairly simple, just avoid walking up while she has stun available. Post 6 she becomes much more threatening with her ult. Has great gank setup so requires really keeping an eye on enemy jungle before engaging. Generally need to just avoid going near her with stun up."
+],
+[
+"TLDR",
+"Avoid her while her stun is up...especially after lvl 6"
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty",
+"2"
+],
+[
+"Recommended runes + starting item",
+"Runes: LT, AL, Alacrity, LS / Second Wind, Overgrowth\nD. shield start"
+],
+[
+"Tips to win the matchup",
+"Very easy matchup that becomes more difficult longer the game goes. Just pressure him non stop in lane as he has no kill pressure on to you and try to delay his item/stack spikes."
+],
+[
+"TLDR",
+"Kill, kill, kill on repeat"
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Difficulty",
+"7"
+],
+[
+"Recommended runes + starting item",
+"Runes: Fleet, AL, Alacrity, LS / Second Wind, Overgrowth\nD. shield start"
+],
+[
+"Tips to win the matchup",
+"burst is insane if you get hit by both q and e especially with electrocute buff and only times you can punish her is when her W is down which has a Little longer cooldown than yone E if you mange to dodge her abilities she quickly runs out of mana. if even at 2-3 items yone wins every time"
+],
+[
+"TLDR",
+"Try to go even in lane. Try to dodge her Q+E combo"
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty",
+"4"
+],
+[
+"Recommended runes + starting item",
+"Runes: Runes: LT, AL, Alacrity, LS / Second Wind, Overgrowth\nD. shield start"
+],
+[
+"Tips to win the matchup",
+"His main damage comes from soldiers, so get away from their range. Your E is pretty much the same CD as his, which lowers kill pressure. If you go all in and manage to stick to him, it is an easy win for you. Watchout for his shove under his turret after lvl 6."
+],
+[
+"TLDR",
+"All ins in your favour"
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"",
+"y"
+]
+]
+}
+]
+}
+}

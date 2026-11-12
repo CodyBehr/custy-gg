@@ -1,0 +1,1258 @@
+{
+"champ": "Swain",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/185liYLwYzGZUZsfQZZjdXxf7ESn-ZVD1KiGf5Zq4XSM/edit",
+"author": "Determination",
+"rank": "D2-Masters EUW",
+"updated": "2020-11"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"difficulty",
+"Very Hard"
+],
+[
+"tips",
+"You can poke him down pre-6 but if he hits full combo you lose lane. Ask jungler for a gank on level 3-5 since he is most likely a free kill then."
+],
+[
+"Rune Path",
+"Phase rush + resolve"
+],
+[
+"1 v 1 pottential",
+"No."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"You outrange her hard so just poke her with your aa's and outscale, dont do stupid shit since she is very snowbally"
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes, but carefull"
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Anivia on top is a lot less safer then mid, ask for ganks and she is free."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"difficulty",
+"Easy"
+],
+[
+"tips",
+"Most cho gath's play glacial now, so you NEED phase rush, but he is very easy to hit with your skill shots so farm your souls."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes, force on him."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"You still outrange him so if you are confident poke him with your autos, if not just farm and be carefull of his ghost."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Rather no."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"difficulty",
+"Easy"
+],
+[
+"tips",
+"You can't kill him and he can't kill you so just farm,and stack your souls, you outperform him in teamfights if your team has grevious wounds"
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Pre 6 - Yes."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"difficulty",
+"Easy"
+],
+[
+"tips",
+"Tank fiddle sticks can't kill you in lane, just poke him down and then all in."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"difficulty",
+"Very Hard"
+],
+[
+"tips",
+"Consider starting q, since most fiora's will try to jump on you level 1, and this way you can match a trade."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes, if poked or ahead"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"His q + grasp hit hard, start with corrupting potion so you can win trades. Also be quick with your e + w combo, if you do this fast enough he won't be able to remove the root before you hit W"
+],
+[
+"Rune Path",
+"Grasp + inspiration"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Don't ever melee him unless you are ahead, or sure you will kill him, he can burst you anytime with ignite + ult"
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Keep your e for his jump or megaform otherwise he will dodge it with his jump and poke the shit out of you."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"You have better poke and sustain, just don't let him burst you and stay before your minions so he can't bodyslam you"
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"With recent ghost buffs he can burst you down early on, try to survive cuz if he is ahead you get mega fucked."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"If he failed his E."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"He will push the shit out of you, so don't even contest waves, try to snipe him with your E exploding on his towers to poke and eventually all in him"
+],
+[
+"Rune Path",
+"Phase rush/Electro"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"Dodge her e at all cost, try to poke her under your own tower, ask jungler for help. She will perma push you so be ready for being dived"
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"No."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"difficulty",
+"VERY HARD"
+],
+[
+"tips",
+"My current ban, she wins at almost every stage of the game even if behind, try to cheese her with healing burst (potion, biscuit, time warp tonic + ult)"
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"NO!"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"Let him jump on you and then try to poke down when he is escaping, other than that just farm and try to find good teamfights, since he outscale you pretty hard."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Rather no."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Early seekers can help, don't let him land his range Q. You win trades if you hit your full combo. You also have much better level 6 spike which starts to fade on level 8 so look for a kill here."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Try to land your combo after her shield is down. You don't need to be ahead on this lane, you will outscale her."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Don't trade aa for her E, do your full combo or poke with aa's when her e is off. Ask jungle for help to bully her early since she outscale you pretty hard"
+],
+[
+"Rune Path",
+"Electro/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Only in early"
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"difficulty",
+"Easy"
+],
+[
+"tips",
+"You poke him out of existance and he doesn't get his red form points, a free lane and if you don't fall behind you outscale him in teamfights too"
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"If you don't play smart he can poke you down, he is also looking for teamfights but he spikes earlier so make sure to ping everytime he can tp"
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"Farm it out, poke with aa's. Don't let him crash 3 waves into your tower, you are very likely to get ganked then."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"If he misses his Q."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"difficulty",
+"Very Hard"
+],
+[
+"tips",
+"Uhh, adc top cringe, but if you hit your e after 6 you most likely win, so don't die."
+],
+[
+"Rune Path",
+"Phase rush/Electro"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"difficulty",
+"Very Easy"
+],
+[
+"tips",
+"He can't kill you unless you miss all your abbilities.... but every other time you just hard stomp him."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"difficulty",
+"Easy"
+],
+[
+"tips",
+"You outrange his root so you can freely poke him and eventually take a kill, but don't disrespect him, he hits hard if he manages to jump on you"
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"If you dodge his e you have free poke, always try to kite him, his ult kinda fucks you up and you need zhonya to survive it."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"difficulty",
+"Easy"
+],
+[
+"tips",
+"Harras him endlessly, you have high kill potential and he cannot really cheese kill you with his ult so don't let him stack and fuck him up"
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes, unless he is stacked"
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Ap neeko hits hard but if you survive to lvl 6 you can all in her but bait her clone first."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"If he hits his Q proc your phase rush asap and get the fuck out, he is going to run you down. You have high kill potential with your jungler tho"
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes if you can burst him"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"difficulty",
+"Easy"
+],
+[
+"tips",
+"Poke him and eventually all in, he can't really kill you unless you get hit by every q pre level 6."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"He hits hard, don't go into heavy trades unless he just used W. You outscale him. You can try to bait him to dive level 6 so he kills himself on your ult. If you manage to get a kill on lane it becomes very simple and easy."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+],
+[
+"",
+"Note:ealy seekers helps a lot"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"difficulty",
+"Easy"
+],
+[
+"tips",
+"Don't stay near walls and watch out for her passive + grasp proc, (her arm lights up if its ready). You outscale her hard so stay safe."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Even though you win trades (if you hit spells) she can easily kill you cuz most Quinn players take ignite. After level 6 spam MIA pings if you don't see her"
+],
+[
+"Rune Path",
+"Phase/Grasp/Electro"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"It's a hard lane, but if you manage to poke him and eventually kill you can make him useless forever. (don't try to 1 v 1 him in late, botrk and death's dance is too broken)"
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"You lose every pre 6 fight. If he is ad you can kill him level 6 if you land your combo BEFORE he jumps on you. If it's tank rengar he can't kill you but he will win extended fight so just farm it out."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"difficulty",
+"Very Hard"
+],
+[
+"tips",
+"She have a lot of dashes so its unlikely to hit her with your e, so just keep the distance and make her waste some of her q's just to get to you, this way you are reducing her damage output and possibly win a trade. Poke her with aa's very carefully cuz her full combo fucks you up"
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"This match up is cheesy as fuck, he wins level 1-2 hard, so don't try to poke him too much. Try to outrange him, his damage is too much for you to handle."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"To be honest this match up shifts between easy - very hard cuz a lot of depends on how good ryze is. He is outscalling you hard but laning phase is not easy either, he have enough damage to kill you pre 6 even, and he have movement speed to dodge your spells. So try to land some e + w and then all in him."
+],
+[
+"Rune Path",
+"Any"
+],
+[
+"1 v 1 pottential",
+"Yes"
+],
+[
+"",
+"Note:Consider going glacial to guarantee your combo, if you don't want take phase rush or whatever"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"difficulty",
+"Easy"
+],
+[
+"tips",
+"His E stuns you only when it have enemies on both sides keep that in mind. You outrange him pretty hard so bully him with aa's and your combo. Get used to his q cooldown, it's his only way to get to you. Care if he gets early advantage this lane becomes really hard."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"difficulty",
+"Easy"
+],
+[
+"tips",
+"You are safe he can't kill you unless you follow him into his big brain trap. You outscale him in teamfights so there is no need to going deep for him."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"If you get hit by his E you are fucked, you lose atleast half of your hp, try to keep distance from him and poke carefully. If it's safe make preassure on him so he can't ult, only your e and passive stop him from ulting."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"No"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"He is really hard to kill so focus on farming, you will outimpact him in teamfights."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"No"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"A good sion will trade with you every time he can, if you miss anything he wins. Otherwise noone dies on this lane and you look for teamfights"
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"difficulty",
+"?????"
+],
+[
+"tips",
+"Are you really playing blind pick and looking at this??????????????????????????????????????????????????"
+],
+[
+"Rune Path",
+"XD"
+],
+[
+"1 v 1 pottential",
+"XD"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"He steals your ult and make a better use of it because he is melee and conqueror, really not stonks. In lane stay behind minions so he cannot E onto you."
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Simple lane you hit your spells you kill him, you miss he rans you down."
+],
+[
+"Rune Path",
+"Phase rush/electro"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"On lane just don't get cheesed by his anus ripping pillar, and don't fight him when he has ult up, he fucks u up."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Rather no."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"difficulty",
+"Very Hard"
+],
+[
+"tips",
+"He have better sustain and can burst you down really quick. Poke him carefully and kite his ult for as long as you can."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Rather no."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Don't get hit by his E and you should be fine, you can beat him if he is low but be carefull if he gets grevious wounds."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"Consider taking ignite and try to find a kill before he scale. Look for some MR in your build, if enemy have enough ap damage take spirit visage"
+],
+[
+"Rune Path",
+"Electro/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes, unless its late"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"He gains his q back after you root him, so don't get cocky with the poke. Try to predict where his E will land and dodge it."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Even if he is getting only armor from passive he still hurts. Use your q when he dashes into you, and use your e+w combo when he is retreating"
+],
+[
+"Rune Path",
+"Phase rush/grasp"
+],
+[
+"1 v 1 pottential",
+"Yes"
+],
+[
+"",
+"Note:you need boneplating"
+]
+],
+"as": "Wukong"
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"difficulty",
+"Medium"
+],
+[
+"tips",
+"Your Q goes through his windwall. You hard win level 6 if you hit all your abilities."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"Yes"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"difficulty",
+"Very Hard"
+],
+[
+"tips",
+"Don't get trapped in his shit, and don't get hit by E otherwise you are fucked."
+],
+[
+"Rune Path",
+"Phase rush"
+],
+[
+"1 v 1 pottential",
+"No"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"difficulty",
+"Hard"
+],
+[
+"tips",
+"He will play super agro early on so play safe, you are much stronger since level 6. (no you are not idk champion is broken wait for nerfs)"
+],
+[
+"Rune Path",
+"Grasp/Phase rush"
+],
+[
+"1 v 1 pottential",
+"Grasp/Phase rush"
+]
+]
+}
+]
+}
+}

@@ -1,0 +1,2682 @@
+{
+"champ": "Darius",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1qI1uMttX-5puTDfTkl9Qj-bYg0szyrSvTxvZted5h4M/edit#gid=279616523",
+"author": "Qwacker",
+"rank": "Challenger NA",
+"updated": "2022-07"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, second wind if you struggle with the matchup, otherwise conditioning"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"his Q has a long CD early, so try to trade after his Q3 in the early levels if he lets you. in general if you can get on top of him with ghost you should win, just need to dodge some of his stuff with ghost movespeed, your pull makes him miss sweet spot on Q1/Q2 which should lead to favorable trades. rushing antiheal is a noob trap in this matchup, only get bramble after your first item"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, second wind if you struggle with the matchup, otherwise conditioning"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"used to think this matchup was fine but against good akali players it gets pretty hard, try to punish the long cooldowns of her W and E. If she goes ignite+tp then you will lose hard after 6 unless you smurf on her, so you should try to punish her lack of flash with your ghost+flash pre-6, by slowpushing the first few waves and then trying to ghost all-in on the bouncing wave. if ur a pussy build hexdrinker + hullbreaker rush and there's no way u lose"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity and second wind. some people like sorcery tree also so you can play with that"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"level 1 you can start W and if she walks up to you in the middle of the lane just auto-W into ghost her down, even if she has ignite+tp she should die in most cases as long as you aren't taking too many tower shots. After that if she ever hookshots on you when ur like 70%+ hp just ghost her down, she has no escape without hookshot and you will win, At level 6 the matchup gets even better for you since your ult is way better for you than hers is for her, the only thing you need to worry about is getting ganked, she has insane setup for ganks so be wary of where enemy jg/mid/sup are. Later if she walks up to melee you can ghost her down if you are good enough at canceling her hookshot with you…"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity, second wind, unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"haven't played this one in awhile but it's probably not very good of a matchup, go dshield and try to turtle first few levels, at lv 3 you can try to pull and if you hit it then ghost all-in. maybe try hexdrinker or hullbreaker in this matchup as they should perform well, in general just rush boots, probably merc treads"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity, second wind, unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"most chogaths will play super safe against darius, if you ever land pull then chase him and extend the trade, but only use ghost if you are close to your side of the lane/close to the middle, otherwise you can't kill him. only thing you have to worry about in this matchup is getting ganked but even then you can win most 1v2s against him if you can dodge his Q knockup"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, second wind, unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"build executioners early, not bramble vest it is troll in this matchup, now he can immune your first pull with his passive but he will at least take a lot of damage for it, don't get hit by too many cleavers and you still win the all-ins from full hp, just be wary if u get poked too much he may be able to win the all-in now. you should have perma prio at the very least even if you can't kill him so I still consider it a winning matchup, especially since mundo feeds into everything you want to do in late game teamfights (free stacks on him for passive buff)"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity, second wind or bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"if she uses Q for your vital then auto-W-Q, if she parries your Q in this combo then you can pull into ghost her down pre-6, otherwise you can try to keep trading autos and see if she will waste parry and then you can pull after. Don't use pull while she has parry up and she will eventually waste it and then you can pull for free after, the exception to this rule is if she is holding onto her parry for a very long time then you can pull into instant ult to guarantee she can't parry your ult. Match-up is more difficult if she takes ignite but even then it is winnable. just play around vitals especially the ult vitals, you should win unless she hits all 4 vitals on her ult. if you don't have a…"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, second wind"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"lv 1 don't skill your ability immediately, if he is respecting you and only going for Q's then skill Q and use it to farm at a distance while not hitting too many minions so you don't push unnecessarily. If you're doing this then play with the bushes to avoid poke. Some insane gp players will disrespect you however and try to walk up to you lv 1 with their passive in which case you should skill w and ghost them down like the degenerates they are. Afterwards try to pull him when he defends his barrels, you should be able to ghost him down if you ever land a pull and you are healthy"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, bone plating if you struggle with the matchup, otherwise conditioning"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"don't know how any darius players lose this matchup it is free as fuck even if he takes ignite, just start W and if he ever tries to even touch you anywhere thats not under his tower then auto-W into ghost him down, late game he is just free stacks/reset for you in teamfights, just peel him off your carries and get your passive buff up and running in the process"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity, second wind if you struggle with the matchup, otherwise conditioning, unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"pulling him out of his E is rather difficult but extremely effective in this matchup and should mean an instant kill, otherwise play back and avoid poke early levels, after lv 6 if you ever pull him in mini-form close to your side you can ghost him down even if he has hop. Fighting him in mega-gnar form is very difficult and should be avoided unless you know you can win for whatever reason, but usually you won't be able to win against his mega form"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"bone plating and unflinching"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"lv 1 is slightly losing but you can win if shes trolling. lvs 3-5 you hard win the extended trades and she really doesn't have a good way to avoid the extended trade so take advantage of this time, just don't fight if her wave is massive obviously. post 6 it becomes relatively even though your true damage on the ult does work. try not to take too many short trades cuz they aren't winning against her q"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity, bone plating if you struggle with the matchup, otherwise conditioning"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"if he takes ignite+ghost then this matchup is hard, he can ghost you down and win as early as level 2 if he has Q stacks, level 1 you can ghost him down so mostly just assert dominance level 1 and don't let him stack up his Q for free. Afterwards if he ever has Q stacks and ignite+ghost up then respect him a lot, you will outscale anyway by building tank so you can play safe. If he goes tp+ignite or tp+ghost then matchup is a lot easier and you should win most if not all all-ins"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity, second wind, and unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"play safe early, rush merc treads, after lv 6 if he ever wastes stun and u are 80%+ hp then ghost on him and you should win if you already have your merc treads. if ur turbo pussy then go hexdrinker + hullbreaker and u will guaranteed win"
+],
+[
+"early",
+"Lose"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, second wind"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"it's a dodgeball minigame, dodge her skillshots, especially her e, otherwise u should be winning early all-ins and therefore have perma priority. at 6 if she ults then you should back off in most cases, unless you have dodged her e already at that point and have health advantage/already have passive buff, etc. basically back off from her ult unless ur already really winning"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"level 1 start w and walk up to the wave, don't let her stack her passive (by using q on minions) and if she does go in with q then instantly auto-w into extended trade. most good irelias will start e level 1 and try to farm that way and wait until you crash the wave, once you crash you need to play carefully because on the bouncing wave (her slowpush) is really her only window to win the matchup. if you can freeze it really close to your tower this is good because she will have a hard time keeping her passive fully stacked, and if her passive stacks ever drop then punish her by trying for all-in or extended trade, if the enemy minion wave isn't too big"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"level 1 start q and walk up, q him but don't get so close to where he can stun you with e. at level 2 you have to go e, he will likely q-e onto you and this is where you use e, pull him to stun/disrupt then q him on that stun, this is a winning trade pattern for the early levels. gets a bit harder at 6 but mostly you want to win a couple of those trades using the pull into q trade pattern, then go for an all-in at some point once you've won a trade or two. you will get outscaled in the 1v1 later on but like the fiora matchup, you are really good into him in teamfights so play for those if you aren't ahead by mid-late game"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity, second wind, or you can go sorcery tree also though I don't like this personally in this matchup"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"Attempt pull when he auto's, walk behind him after pulls so that he cannot knock you away, if he doesn't have phase rush then go for ghost all-in after this. otherwise if he has phase rush its a bit harder, may still want to ghost just for lane prio by extending the trade"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity, second wind"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"a little annoying of a matchup, but she shouldn't ever have kill pressure on you through dshield and second wind healing, and you have potential all-in angles if you ever land a pull, so at worst it should be a comfortable scaling until late game teamfights or maybe u can come out ahead with some good pulls"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, celerity nimbus cloak"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"bush cheese lv 1, so start w and go into the furthest bush and just wait until she walks up to wave and go extended trade. rush boots and then your goal should be to dodge her q, doing this and with boots and with ghost you shouldn't have any issues closing the gap and then your all-in pressure is strong. if she has lethal tempo then try to do some light kiting as in, don't be in her auto range if ur auto is on cooldown(since she has more attack speed and this is really her only way to win). after 6 you can pull into instant ult to guarantee your ult damage even if she has ult up"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"just chill early with dshield and second wind, farm with q's, rush merc treads, once you get merc treads and level 6 you have good all-in threat anytime you land a pull, if you land a pull at this stage and you're on your side of the lane then just ghost even if he's like full hp, key thing is to get your w off before he gets out of range with his e and it should be a kill"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"pull into q combo is important for this matchup as he has an easy time getting on top of you with his e, otherwise just try your best to dodge his q's, whenever he dismounts and you have q up it's an opportunity to land a free q (he can't control his movement as he is dismounting). if you struggle with this matchup just go a pussy build like tabi wardens mail or something as you counter what he wants to do in teamfights (pull to disrupt him from his combo and then get free stacks on him)"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"don't have much experience in this matchup in recent times but just chill with dshield and second wind and go for ghost all-ins after level 3. might be a matchup to take sorcery tree so that you can keep up with her speed"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"free as fuck matchup just rush merc treads and if ur a pussy go hexdrinker and/or hullbreaker and she shouldn't have the damage. only thing to watch out for are jungle ganks but even then u should have insane 1v2 pressure"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, second wind unflinching, maybe consider sorcery"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"sack the first few levels hard as you can't really win, exception is if he is turbo disrespecting you level 1 like walking past your caster creeps to zone you then just ghost all-in and you should win if you land your q's, rush tabi (plated steelcaps) and after you have tabi you can probably ghost all-in anytime you land a pull and are reasonably healthy"
+],
+[
+"early",
+"Lose"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"against these tank matchups its pretty much always the same strategy, go dshield second wind and just tank their poke (malphite q in this example) if he ever walks up do some light trading like auto-w-q and maybe extend if his minion wave isn't too big, after pushing the first 3-4 waves then let the wave bounceback after it crashes into enemy tower and then try to freeze that bouncing wave on your side of the lane, at this point you should be level ~4 and can look for ghost all-ins. then just repeat this whole thing over and over again(slowpush into crash into bounce into freeze)"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"he can w your q to dodge it and then cut the trade short with his q, but in general he can never really win unless ur turbo trolling. just rely on w in this matchup until he uses his w then you can q, or you can pull into q instantly for a guaranteed q, though this is a big mana investment for not that much damage if he is building tank as usual. if you can't kill him just wait for mid-late game where you shit on tanks in teamfights. also do the same strategy as the malphite matchup directly above of slowpushing into a freeze"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity, second wind"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"level 1 you should still be winning even after durability patch if you start w, so I would honestly bush cheese and just run into the third bush with w start and wait until he shows up on wave and go on him. if he has ignite then maybe don't do this, i haven't tested this matchup with him having ignite after durability patch so it's hard to say. otherwise in general you should be hard winning levels 3-5 if you rely on your ghost movespeed to dodge his skillshots, but if you hit level 6 without any significant lead then that is his chance to win the matchup if he can land all of his skillshots in ult"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"bush cheese lv 1 and then just zone him off cs completely, he will probably resort to just e'ing the wave in which case you can just tank it, slowpush the wave into crash then bounce the wave back onto your side of the lane and freeze, then he shouldn't be able to walk up without getting ghost all-in'd at any point. buy swiftness boots later if enemy team comp permits as it makes his wither much worse. if you're taking too much damage from his e poke then on first reset buy dshield"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"same as kennen matchup, just chill early with dshield and second wind and farm with q's, rush merc treads, the difference is in this matchup if you land a pull after level 3 then you can ghost all-in, if you land a pull after merc treads + level 6 then you can ghost all-in, in general landing pull is hard since her range is insane but if you ever do land the pull then you pretty much just win"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity second wind"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"his all-ins are quite strong actually so watch out, at levels 2-3 you aren't winning unless you can kite out his autos. at level 6 it doesn't get much better, pretty much still the same, basically if you can kite out his autos then you will win but if he is just free hitting then he will win. getting a lead in this matchup is the hard part but your levels 3 and after should be relatively even, and by the nature of the matchup if you ever get a lead then you will just shit on him and he can't play the game. rush tabi"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Recommended Runes",
+"alacrity celerity nimbus cloak"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"haven't played this one since the olaf rework, but it should be pretty hard. his all in can beat yours and the short trades are probably pretty even too. if you do try to fight then try to space him out as much as you can with ghost + sorcery rune movespeed. otherwise a viable strategy would be to just play safe and get to teamfights relatively even, where your teamfight strategy will counter olaf's (u can get free stacks on him when he goes all-in and then pop off)"
+],
+[
+"early",
+"Lose"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"slowpush first 3-4 waves into crash and then let the wave bounceback and freeze, then you try to go for a solo kill with ghost. after 6 he actually has kill pressure on you, especially if he is taking spellbook and takes ignite (which is what you should do as ornn if you are against darius) so if he has spellbook ignite and level 6 then play relatively safe though you can still win if you dodge a few of his abilities especially his w"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity bone plating"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"haven't played this one in awhile, darius used to win level 1 and this should still be true so try to level 1 cheese, otherwise your trades should all be losing levels 2-5, after 6 you can win again just dont let him block your ult and ur good. if you struggle with the matchup go second wind + dshield and just turtle for mid-late where you can mess him up in teamfights (pull is pretty much instant death for pantheon in teamfights)"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"same wave strategy as every other tank matchup, slowpush first few waves with q start unless ur in low elo then u can try w start, let the wave bounce after crash and freeze on waves 6/7, and try to ghost all-in from there. u win at all stages of the game so don't worry if you can't kill her early. pull to cancel her ult windup"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Recommended Runes",
+"alacrity celerity nimbus cloak"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"hard matchup but play around the bushes for the first few levels and with q start to farm, from what i remember if you are level 3+ and nearly full hp (80%+) and land pull then you can ghost all-in, assuming enemy wave isn't too big. otherwise don't really try to fight if you don't have ghost unless its free"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"I probably have a skewed perspective on this matchup since I've played a lot of renekton recently, I actually think this matchup is renekton favored, but in pretty much any elo other than like GM+ darius probably should win. pressure hard lv 1 and 2 with w start, renekton cant do much then, but be wary after lv 3 because renekton's trades will get strong then. You'll almost always win the extended trades so try to extend them as long as you can, you lose the short trades. After 6 you should be relatively even but you outscale so just chill if you aren't confident"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"ur really playing for all-in in this matchup, should be super winning just walk with the wave lv 1 and when he jumps auto-w into extended trade, try to extend trades as much as u can in this matchup, ghosting for an extended trade can be worth since most rengars take ignite and cant tp back to lane or play the game if they get super chunked. if u struggle with the matchup get antiheal like bramble vest and it cuts a lot of his durability"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"you need to take early push in this matchup using your winning level 1, start w and if she ever walks up auto-w into extended trade. you may need to ghost to extend the trade cuz as soon as you are taking short trades u are gonna be losing this matchup. at like level 3-5 it becomes even or maybe even slightly favored for riven, but wave should be in a good spot at this point on your side of the lane if you bounced the wave correctly. past lv 6 I would consider the 1v1 even. if you struggle with the matchup just buy tabi and chill for mid-late game as you are good into riven in teamfights. also general tips just try to pull her out of third q or if she is trying to disengage the trade with e-…"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity second wind"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"all-ins are extremely favored in this matchup, you can try for lv 1 cheese with w start but otherwise just start q and chill for the first few levels until u hit 3. then if you land pull on your side of the lane you can probably ghost all-in and kill. at lv 6 rumble brings back the matchup a little bit since he actually gets some all-in pressure with his ult, but you should still be favored as long as you arent taking his full load. if you struggle with the matchup just chill and go hexdrinker and if ur a pussy go hullbreaker also and you cant lose"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"first few levels you'll have to chill, just farm with q and hide in bushes, rush merc treads and i would say post level 3 if u land pull on your side of the lane and are relatively healthy then u can try for ghost all-in, but it becomes much easier at 6. you can pull to cancel his ult, if you have it up and he's trying to escape. so post 6 you might want to begin the all-ins without pull, just ghosting and w'ing if he's walking close enough (like you're starting in a bush), then when he ults to try to get out you can pull to cancel"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"early trades are unfavored but u can win all-ins by spacing out his autos. by this i mean only walk into auto range whenever ur auto is up so that he can't spam his double hits on you. last i remember darius wins lv 1 if sett starts e so if thats the case pressure hard, otherwise if he starts w then u might need to chill cuz u will lose if u take a full grit w to the face. but u can still play relatively evenly lv 1 in this case. once he hits levels 2-3 trades are slightly unfavored like i said but lv 6 its more even. if you struggle just chill and wait for teamfights where he should give you free 5 stacks for buff"
+],
+[
+"early",
+"Lose"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity bone plating"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"basically unplayable matchup for shen, slowpush first few waves into crash and bounce the wave back into a freeze, on this freeze u should usually have the solo kill with ghost all-in. only thing you have to worry about is him dodging your q blade with his dash, if that happens don't full commit to all-in. after 6 watch out for his ults and don't perma freeze cuz u need to take plates if he ults away from lane"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Recommended Runes",
+"alacrity or tenacity, nimbus cloak celerity"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"unplayable for singed if you play this lane well, walk with your first minion wave lv 1 so that he can't proxy it, start w and if he ever walks within range just auto-w into extended trade. lv 2 take e and the trade patterns from now on look like this: walk up and auto-w, if he flings then pull. you might need to use w on your first auto and not use the auto reset if it means you can get the w slow off before he flings. that's the most important thing, if he is ever going to fling then you have to get w off otherwise he can actually win the trade. but if you get w off on him before he flings then you can pull him after and the trade is hard winning"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"another unplayable matchup for your opponent if you play well, just do the same as all the other tank matchups and slowpush the first few waves into crash and bounceback for a freeze, then ghost all-in on that freeze around lvs 3-4. otherwise youre pretty much winning the 1v1 at all stages of the game as long as u dont troll, and you get free stacks on him in teamfights"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"haven't played this one in awhile and swain has changed multiple times so honestly can't comment too much on the matchup, if you're struggling with the matchup go like hullbreaker and you probably want executioners as well at some point"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"should be a winning matchup, just extend the trades as much as you can cuz u win the extended trades hard but he wins short trades. try to get your w on him early because good sylas players will try this trade pattern where they w and then e out, if you get your w on him during this then u can pull after he dashes away and extend the trade into a winning trade. overall you hard win all-ins so try your best to get all-ins"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"should be fine matchup just don't get hit by too many of his q's and after 6 don't get eaten into his turret and he shouldn't be able to do much. anytime he walks up just auto-w-q into a few more autos and it should be winning, and you counter him just like any other tank in late game teamfights"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity second wind"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"no one has played this champ top in ages but if you struggle just go some armor items like tabi and maybe even hullbreaker if ur a pussy"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Win"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"start q and farm minions with it while staying around the bushes to limit poke. if he wards the bush just move into another one. rush merc treads and then post 6 if you land pull with merc treads and ghost up then u can all-in if ur relatively healthy (like 75%+) and somewhat on your side of the lane. after getting good at this matchup i've never struggled with it even against the best teemo 1tricks so i think its an easy matchup"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"you have to kite/space the shit out of him post 6, but pre 6 u should be pretty hard winning. just auto-w anytime he gets into range and he should have to dash out or lose the trade. if you can ever cancel his dash with your pull then ghost immediately for the all-in. if he dashes in like a maniac then pull for the stun into your q and ghost all-in which should be winning. you should probably rush tabi but then go mythic after. i recommended stride but triforce is fine too."
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"you need to respect his turbostrong lv 1, urgot has one of the best lv 1s in the entire game and you probably can't win if he takes ignite, which most urgots will probably take ignite if they are smart. the exception to this is if he misses his e and is sitting in ur minion wave, then you can try for the lv 1 all-in but make sure you extend the trade because his passive legs will win him the short trade. otherwise post 6 u just need to use ghost and flash to dodge his e and r and you should win"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Recommended Runes",
+"alacrity nimbus cloak celerity"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"hard ass matchup and i havent been able to beat genuinely good vayne tops consistently, you need to rush upgraded boots, go tabi or maybe even consider swifties if its good in the game. level 6 all in should be pretty favored for you if you are good at landing q's and your boots + sorcery runes + ghost should be able to close the distance. just try to land pull first before all-in at 6. u get turbo outscaled so try to get ahead at this point in the game and also you can probably kill her pre 6 with jungle ganks and ghost"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"same as the other ranged mage matchups, just farm early with q's and rush merc treads, after 6 if you land pull on your side of the lane you can ghost all-in for the kill. if you struggle with the matchup go hexdrinker and if you really need more oomph go hullbreaker and you shouldnt be able to lose"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Skill"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Recommended Runes",
+"alacrity nimbus cloak celerity"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Stride"
+],
+[
+"Notes",
+"vlad is different in that his early game is really weak compared to the other mages, you should get prio early and then bounce the wave back off the tower into a freeze, then try to pull into ghost all-in. he will pool but just chase him through it. one thing to keep in mind is to not walk up when he has his empowered (red) q, if you don't do this then its pretty much impossible to lose early. if you struggle with the matchup go hexdrinker hullbreaker and no way u lose"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"tenacity second wind unflinching"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"volibear is kinda a beast early, but you have winning lv 1 so if you can get minion advantage and push u should be able to 3 wave crash into cheater. then on the bounceback just let him crash, you won't be able to stop that slowpush, and play from that slowpush from there. lvs 3-5 i would say are even and at 6 he gets scary but also your kill pressure goes up. if you struggle with the matchup just play safe and wait for late game since he will give u free stacks in teamfights"
+],
+[
+"early",
+"Lose"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Win"
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Very Hard"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"this matchup is a bit weird in that it's dependent on how good the wukong is. good wukongs can push way more damage than bad wukongs, if the wukong player is good then you are in turbo danger zone at all times post 6. rush tabi. take w lv 1 and if he goes on you then kite him out with w slow and autos. the hard part is landing your q because he has 2 ways to dodge it (w and e) so usually you don't want to try to walk up and q him or else he will just dodge it and win the trade. so try to start trades with autos and w and then pull immediately into q so that its guaranteed to land from the pull stun. if he has wasted clone at this point, you landed q and he hasn't gotten too much damage on yo…"
+],
+[
+"early",
+"Skill"
+],
+[
+"mid",
+"Lose"
+],
+[
+"late",
+"Win"
+]
+],
+"as": "Wukong"
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity bone plating"
+],
+[
+"Start",
+"DBlade"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"you need to go for all-ins and not take too many free q's to the face, if you're bad at dodging then go dshield. otherwise extended trades with e and w slow are very winning and he has to be very careful for your ghost all-in. if he gets to 2-3 items even then he might start to win but if you're playing properly you should win early. if he's not interacting with you then slowpush the waves into a crash and then freeze on the bounceback"
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Lose"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Secondary",
+"Resolve"
+],
+[
+"Recommended Runes",
+"alacrity bone plating"
+],
+[
+"Start",
+"DShield"
+],
+[
+"Mythic",
+"Triforce"
+],
+[
+"Notes",
+"it's a dodgeball game with his e, just dodge as many of those as you can in lane and if he ever walks up pull into extended trade. post 6 gets kinda hard cuz maiden is op but you should have built a decent lead at this point and if you land q's you should still win the all-in."
+],
+[
+"early",
+"Win"
+],
+[
+"mid",
+"Skill"
+],
+[
+"late",
+"Win"
+]
+]
+}
+]
+}
+}

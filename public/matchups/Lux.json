@@ -1,0 +1,1022 @@
+{
+"champ": "Lux",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1rCZaLNI61ByB-mMbfx3BuAgHMpC99w14/edit",
+"author": "Yozu (credits Justin X)",
+"updated": "2020"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Ahri": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Support Lux",
+"Keystone"
+],
+[
+"",
+"Sub Rune"
+],
+[
+"",
+"Support Item"
+],
+[
+"",
+"Core Items"
+],
+[
+"",
+"Guideline for rune choice"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Keystone",
+"Glacial Augment"
+],
+[
+"Sub Rune",
+"Domination"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Support Lux",
+"Comet"
+],
+[
+"",
+"Inspiration"
+],
+[
+"",
+"Spell Thief's"
+],
+[
+"",
+"Athenes + Mobility boots"
+],
+[
+"",
+"E > W > Q ( Go Flash/Barrier and use potions as bait for instant heal)"
+],
+[
+"",
+"This is Yozu's most used runes for support (Patch 10.7)"
+]
+]
+},
+{
+"fields": [
+[
+"Keystone",
+"Spellbook"
+],
+[
+"Sub Rune",
+"Resolve"
+],
+[
+"First Item",
+"Ludens Echo"
+],
+[
+"Support Lux",
+"Guardian"
+],
+[
+"",
+"Domination"
+],
+[
+"",
+"Relic Shield"
+],
+[
+"",
+"Athenes + Redemption/Ardent"
+],
+[
+"",
+"Skill order for Guardian support : W > Q > E"
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+],
+[
+"Support Lux",
+"Lux Bottom Lane Carry"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+],
+[
+"Support Lux",
+"Keystone"
+],
+[
+"",
+"Sub Rune"
+],
+[
+"",
+"First Item OR"
+],
+[
+"",
+"Will update this for s11"
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Support Lux",
+"Comet"
+],
+[
+"",
+"Inspiration"
+],
+[
+"",
+"Hextech GLP"
+],
+[
+"",
+"Ludens Echo"
+]
+]
+},
+{
+"fields": [
+[
+"Keystone",
+"Glacial Augment"
+],
+[
+"Sub Rune",
+"Domination"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+],
+[
+"Support Lux",
+"He goes GLP most of the time but sometimes ludends(preference maybe)"
+],
+[
+"",
+"(OUTDATED)"
+]
+]
+},
+{
+"fields": [
+[
+"Keystone",
+"Spellbook"
+],
+[
+"Sub Rune",
+"Resolve"
+],
+[
+"First Item",
+"Ludens Echo"
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+],
+[
+"Support Lux",
+"Information From:"
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Keystone",
+"Spellbook"
+],
+[
+"Sub Rune",
+"Resolve"
+],
+[
+"First Item",
+"Ludens Echo"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Keystone",
+"Glacial Augment"
+],
+[
+"Sub Rune",
+"Domination"
+],
+[
+"First Item",
+"Hextech GLP"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Keystone",
+"Glacial Augment"
+],
+[
+"Sub Rune",
+"Domination"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Support Lux",
+"Yozu:"
+]
+]
+},
+{
+"fields": [
+[
+"Keystone",
+"Spellbook"
+],
+[
+"Sub Rune",
+"Resolve"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+},
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Keystone",
+"Aery"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Ludens Echo"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Keystone",
+"Spellbook"
+],
+[
+"Sub Rune",
+"Resolve"
+],
+[
+"First Item",
+"Ludens Echo"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Keystone",
+"Glacial Augment"
+],
+[
+"Sub Rune",
+"Domination"
+],
+[
+"First Item",
+"Hextech GLP"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Ludens Echo"
+],
+[
+"Tips",
+">>Click me<<"
+],
+[
+"Support Lux",
+"Genral Guideline for choices"
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+],
+[
+"Support Lux",
+"Electrocute"
+],
+[
+"",
+"The match up is fairly even"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Support Lux",
+"Glacial Augment"
+],
+[
+"",
+"The enemy has lots of moblity making it hard to hit Q"
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Support Lux",
+"Spellbook"
+],
+[
+"",
+"The matchup is pretty hard to win"
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+],
+[
+"Support Lux",
+"Comet"
+],
+[
+"",
+"The enemy out ranges you"
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Keystone",
+"Spellbook"
+],
+[
+"Sub Rune",
+"Resolve"
+],
+[
+"First Item",
+"Ludens Echo"
+],
+[
+"Tips",
+">>Click me<<"
+],
+[
+"Support Lux",
+"Aery"
+],
+[
+"",
+"Only take this Vs Kassadin"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Keystone",
+"Glacial Augment"
+],
+[
+"Sub Rune",
+"Domination"
+],
+[
+"First Item",
+"Hextech GLP"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Support Lux",
+"Hover over boxes with a small black triangle for more information"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Support Lux",
+"I'm not Yozu; just a fan of his sorry if any info is incorrect"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Support Lux",
+"Also yes i copied CuteMau :P"
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Keystone",
+"Spellbook"
+],
+[
+"Sub Rune",
+"Resolve"
+],
+[
+"First Item",
+"Ludens Echo"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Keystone",
+"Comet"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Ludens Echo"
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Keystone",
+"Comet"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Ludens Echo"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Keystone",
+"Glacial Augment"
+],
+[
+"Sub Rune",
+"Domination"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Keystone",
+"Spellbook"
+],
+[
+"Sub Rune",
+"Resolve"
+],
+[
+"First Item",
+"Ludens Echo"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Keystone",
+"Comet"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Ludens Echo"
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Keystone",
+"Electrocute"
+],
+[
+"Sub Rune",
+"Inspiration"
+],
+[
+"First Item",
+"Hextech GLP"
+],
+[
+"Tips",
+">>Click me<<"
+]
+]
+}
+]
+}
+}

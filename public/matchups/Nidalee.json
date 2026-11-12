@@ -1,0 +1,952 @@
+{
+"champ": "Nidalee",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1JBz8IdruYWFVXSgvk0eCTYjUHNs_uPrYA4egDcFdGsY/edit",
+"author": "Nidalee mains discord collab",
+"rank": "high elo (claimed)",
+"updated": "2021-04"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"special item or runes",
+"Morello"
+],
+[
+"tips n tricks",
+"Not a huge threat but he can kill you if you play poorly. You HAVE to predict his e's and flashes with his Q's. If he is Q3'ing nothing while you are low you better be ready to flash away. Respect him, his damage, and his healing, and you will probably win."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"tips n tricks",
+"Dodge his q, look to invade him early. You win duels the entire game, his only hope is stalling through aftershock for ally to show up"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"special item or runes",
+"Stopwatch rune/early zhonyas good to avoid her R engage"
+],
+[
+"tips n tricks",
+"You lose duels throughout most of the game, try to dodge her E with your cougar W and just spam ranged autos til she gives up whatever it is you're contesting. Don't burn abilities on her passive shield or it's doomed. She can't clear so steal stuff but be very careful"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"tips n tricks",
+"Easy matchup, just play it slow. Human Q him, then get in range to W but do NOT use it yet, most cho'gaths will Q on top of themselves when you do this. Play it slow, then W on top of him when the time is right. If he isn't super ahead you can get a cougar rotation off, transform to human, and then transform back to use your second W to dodge his second Q."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"special item or runes",
+"Consider Everfrost"
+],
+[
+"tips n tricks",
+"Similar to top lane darius, you kite him with red buff and try to finish with a combo. If he's on top of you, you can W inwards to dodge his Q outer ring and deny the heal. If he has ghost, kiting is hard but walls are your friend. Watch drake cheeses early."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"special item or runes",
+"Banshees can prevent her from hard bursting with two E's. Everfrost is also okay as mythic to keep her out of range or let you escape if she jumps you"
+],
+[
+"tips n tricks",
+"Her damage is mediocre pre-6, but you need to focus on dodging Q's if you want to fight. Post six her burst can be scary but she still takes some time to come online. She scales much better than you, though."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Morello for healing, liandry's also possible if team comp allows it. Everfrost can help you keep distance but not necessary"
+],
+[
+"tips n tricks",
+"Morello good, team comp may also allow a liandry's. dodge his first Q with your cougar W and try to keep a safe distance. His Q has lower cd than cougar W though so fancy feet will help. He falls SUPER low early so good lvl1 vision can net u a first blood, but after that you will struggle to find a good kill on him"
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Morello for healing"
+],
+[
+"tips n tricks",
+"His base dmg is higher than yours but you have damage more consistently available. Don't get baited by his R. Don't be afraid to jump in if it allows you to dodge the return portion of his Q as it may be the difference in you winning or losing"
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"-"
+],
+[
+"tips n tricks",
+"Have a plan for her cocoon, play it slow while it's up. Know where she can rappel to and don't waste cooldowns if she can rappel to stay on top of you. If cocoon is down, you can out burst her, just be careful of spiders blocking skillshots. Ward her early and you can take camps with ease"
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"special item or runes",
+"Zhonyas for anti-burst"
+],
+[
+"tips n tricks",
+"Horrid early game, invade her and keep her pre-6 as long as possible. She loses every duel early on, late game is a burst battle. Smart use of zhonyas late game is crucial here, buying MR won't help you survive a charm and banshees won't help you late game because the charm will still be cooked even if it blocks something (or she just smites it away)"
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Zhonyas for anti-burst, mercs decent for point-and-click"
+],
+[
+"tips n tricks",
+"Annoying champ. Grab a zhonyas / mercs if needed. Do NOT do something stupid while his fear is up, you WILL die. note that unlike most CCs you CANNOT buffer cougar Q through fears so trying to WQ him when he is low will not work if he presses Q while you are midair. Expect fights with Fiddle to take a while."
+],
+[
+"https://i.imgur.com/AmMqYRW.png",
+"Runes Continued:"
+],
+[
+"",
+"Conqueror may be better for some team comps, so try it when u need heavy skirmish/duel"
+],
+[
+"",
+"First rune stat (AP/AS/AH) is preference; try them all"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Consider zhonyas but not usually necessary"
+],
+[
+"tips n tricks",
+"Don't W in while his E is up, you'll just be killing yourself vs a good gragas. You can buffer your Q to kill a gragas while he E's towards you and your Q will go off before his E hits / while you are stunned. Try to be mindful of his W damage reduction and don't spend too much while he has it (you can usually wait it out given its short duration)"
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"tips n tricks",
+"Not a huge problem but you risk getting out dueled if you miss Q due to his E. Play it slow. YOU CAN EMPOWERED W WHILE NEARSIGHTED - USE IT TO YOUR ADVANTAGE IF YOU KNOW WHERE HE IS WHILE BLIND"
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Prioritize some MR. Rylais/Everfrost also OK"
+],
+[
+"tips n tricks",
+"No hard cc to lock you down, so she can have a hard time staying on you. Keep your distance and try to avoid fighting her a ton inside her W due to the additional MR she gets during it."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"special item or runes",
+"Zhonyas for anti-engage, consider going a duel-oriented / bruiser build"
+],
+[
+"tips n tricks",
+"He wins most duels, especially if he goes ignite. Take note of his rune (predator / phase / conq) and summ (ghost/flash/ignite) and play accordingly. You may need a duelist build (conq with things like Gunblade and/or Gauntlet) to have a good chance against him. His clear is very healthy so do not expect to find a nearly-dead hecarim for free early on"
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"tips n tricks",
+"Does nothing, just a pure annoyance. Hit him while he is charging up his passive on camps and he cannot take the camp. If you can get aggressive early you can screw his early game, however be wary of daisy post-6, she's terrifying"
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"tips n tricks",
+"Dodge his EQ, ranged auto, win duel. He doesn't do much but know that he will constantly oppress your laners. Counter with stealing all of his camps or try to play for an early countergank on a lane you think he'll go to as you'll probably win the 2v2"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Very hard"
+],
+[
+"special item or runes",
+"Rylais for kiting; prioritize void staff more than you would for other non-tanks due to his R giving MR. Everfrost can help as well"
+],
+[
+"tips n tricks",
+"Good luck. He runs you down and he does it well. Don't burn your W trying to get away from his E if he has Q. Don't use cougar Q while his dodge is up as it does not hit, however you can use E and W to soften him up (though they do reduced damage) for a hopeful execute after the E stun ends"
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Zhonyas for anti-ult"
+],
+[
+"tips n tricks",
+"His clear is INSANELY fast, but he is predictable and most karthus players go for a full clear rather than ever early ganking. You can try to invade him on his 5th-6th camps and get an early first blood if you play it well, otherwise abuse his lack of ganking ability by trying to play cross-map while he is farming"
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Zhonyas for blue kayn, morello for red kayn. Consider stopwatch rune."
+],
+[
+"tips n tricks",
+"Pick the appropriate items for the right form. Blue kayn has almost no counterplay, don't expect to out burst him if he is ahead. However you can zhonyas his ult damage though it does not stop his healing if rhaast."
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"Difficulty",
+"hard"
+],
+[
+"tips n tricks",
+"His base damage is MUCH higher than yours throughout the entire game. This is one of your hardest assassin v. assassin matchups, do NOT jump in on him unless a single cougar rotation will kill him or you are much higher hp/more fed. Get him to burn his E to get on top of you then use cougar abilities to re-gain the range you need. Abuse the fact you have true sight - it makes his R only give him passive reset and MS/ghosting"
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"tips n tricks",
+"Can be cheesed but you need fog of war to get the jump on them. Learn how kindred's marks work (see this pic for some info on kindred marks: https://i.imgur.com/GrLqhhW.png ) and play around them. Take them early if you do not feel you can contest, or cheese them at marks they want. Hope the RNG is in your favor for first scuttle. You should win most 2v2s early as Kindred is good at duels but not great at skirmishes"
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"tips n tricks",
+"Whoever hits Q wins. Going in on him is fine, especially if you feel confident you can dodge his Q after jumping in. If he gets on you, try to keep your distance but monitor his Q cooldown so you know when you need to dodge it again. IF HE Q1'S YOU AND YOUR COUGAR Q CAN KILL HIM YOU CAN LAND YOUR COUGAR Q BEFORE HIS Q2 DAMAGE HITS YOU. USE Q THEN BUFFER THE AUTO ATTACK AND YOU CAN AVOID DEATH"
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"tips n tricks",
+"She's super fast, hard to land a spear on, and has more ms than you if her passive is stacked - even if your own passive is on her. You can catch her from fog but if she knows a spear is coming it's a really hard fight as long as Lillia is using her mouse"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Zhonyas if your reaction time is good enough, banshees otherwise"
+],
+[
+"tips n tricks",
+"He can run you down but his clear is awful. You can invade him early, just be wary of E atk speed slow. Be mindful of fog of war R engages and maintain good vision."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Difficulty",
+"very hard"
+],
+[
+"special item or runes",
+"Everfrost can help"
+],
+[
+"tips n tricks",
+"You basically never win against him ever. His W duration is the same as your mark duration, so he will stall you out every time you jump in. Then, because your burst is negated, he can just run you down. 2v1 him, do whatever you have to do, but know that not much will save you from him at most points in the game. Lacking CC kinda does that to ya"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"special item or runes",
+"Banshees good to prevent his engage, everfrost is OK"
+],
+[
+"tips n tricks",
+"Can everfrost to maintain distance, especially if he ults you. His base dmg is insane because he's a BrUiSeR so be extremely wary if he's on top of you and make it your focus to get back to distance"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Banshees, mercs"
+],
+[
+"tips n tricks",
+"She has a tendency to dual-camp while clearing early, and doesn't take black shield at level 3, so you have a lot of opportunities to invade her on her clear. She's very fast at clearing though, and scales fairly well. The duel itself is pretty easy though given it's easy as nidalee to dodge her Q."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"special item or runes",
+"Zhonyas right before his fear hits, consider stopwatch rune too"
+],
+[
+"tips n tricks",
+"Don't get baited by his spellshield. Wait the duration out if you need, but you HAVE to burst him down and you cannot lose any of your abilities if you want to. Note that if he spellshields spear, you don't get a hunt."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Everfrost can help"
+],
+[
+"tips n tricks",
+"You can't really kill him, and you can't contest objectives and camps with him due to his Q. Try to cross-map him and take camps or ganks that he cannot contest because you'll lose skirmishes he is involved in more often than not. Play around his W and you can win, it's just difficult usually."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"tips n tricks",
+"You get run down, the only upside is he can be squishy. If you can dodge his Q he has a really hard time getting on top of you, but once he's on top of you you're basically dead"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"tips n tricks",
+"You don't get much out of jumping into him, maintain your distance and try to dodge the last tick of his W and you can win. You can catch him off guard with spears if he is building items, just know his damage is nutty so you won't get many opportunities to 1v1 him. He is much weaker in skirmishes where his slowness can get the better of him. Be very mindful of ult"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"tips n tricks",
+"Don't get baited by his shield, if you have to jump in just make sure you aren't blowing your load into 100% damage reduction - either hold it or move behind him if necessary. Besides that, he's not that bad besides point-and-click stun and way too much damage for someone with point and click CC and a 100% dr shield"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"tips n tricks",
+"As long as you aren't stupid and jump into a poppy W, she's easy for you to fight. Abuse her early and ranged auto her to death, she cannot kill you in one rotation so you have time to escape after her engage. She can be deceptively tanky thanks to W resists but play it smart"
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"tips n tricks",
+"She runs you down. She has more mobility, more base damage, actually has CC, and is all around just a better champion. Your primary method of beating her is shutting her down early game when her horrid clear is a huge liability"
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"tips n tricks",
+"He doesn't really do much besides be annoying, just don't get baited by his Q and E"
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"tips n tricks",
+"This matchup CAN be easy but you must play it well. Do not cougar W in for no reason. Your cougar Q out-ranges her knockup, so you CAN get cougar damage off but do NOT jump into her with W. Get your damage off and keep the appropriate distance. Force her to use E to close distance. However, she has much higher base damage than you and so unless you play perfectly you won't really win any fights."
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Very hard"
+],
+[
+"special item or runes",
+"Zhonya's active might not help a ton, but can still be useful if your reaction time is good. Bruiser build can work as well"
+],
+[
+"tips n tricks",
+"Arguably the hardest \"actually-winnable\" matchup for you. He out bursts the hell out of you and it's very hard to burst him thanks to his W. He can fall low in his clear early if he is not good, so you can abuse some rengars. You may need to go a tankier build so you can deal damage over time that is more difficult for him to heal with his W"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"special item or runes",
+"Consider zhonyas / rylais"
+],
+[
+"tips n tricks",
+"She can run you down, don't waste abilities on a hail mary if her shield and/or dashes are up. Play it slow and play it safe if you are dueling and you can win. Besides that, slow clear so take her camps"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Zhonyas / Banshees"
+],
+[
+"tips n tricks",
+"Can zhonyas his ult, or just banshees his E so it's hard for him to get on top of you. His base dmg is insane, but you can kite him fairly easily. Don't jump in on him unless you're confident"
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"easy"
+],
+[
+"tips n tricks",
+"Don't just jump into her, dodge her stuff with your cougar W and you win every time."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"tips n tricks",
+"Not that difficult.Turn towards him if you can to avoid some of his backstab damage on E, it can be the difference between him finishing you off or not. Early on, SMITE HIS BOX BECAUSE HE'S LITERALLY USELESS WITHOUT IT. Abuse true sight."
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"tips n tricks",
+"Abuse her early as her clear gets her low HP. If she is AP, just know your limits as her burst is nutty. If she is bruiser, you can do a quick cougar rotation but you cannot stay long. DRAKE VISION EARLY IS CRUCIAL, SHE WILL GO FOR THEM AND IS A FREE KILL"
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Consider Banshees as it negates literally his only form of engage unless you've jumped into him for some reason. Everfrost can also shut his engage down."
+],
+[
+"tips n tricks",
+"Annoying but doesn't do much really. Abuse your range advantage, if you can dodge his E he can't even damage you. However if he gets on you, you're pretty screwed"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"tips n tricks",
+"Don't waste Q if he has W active, otherwise easy matchup. His taunts are fairly predictable."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"medium"
+],
+[
+"tips n tricks",
+"His clear is one of the worst health-wise, jump him early and you can dumpster him due to his very long cooldowns he must use while clearing. Consider level 2 invading. Don't get baited by his heal if he is low HP but under turret or something"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Banshees"
+],
+[
+"tips n tricks",
+"You can't really burst him thanks to his E, do the damage you need but don't over-push it if he has his shield ready as it's an easy bait. Play it slow vs him and keep your distance, dodge his Q with W"
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"tips n tricks",
+"Don't jump through her rock field, but besides that this is an easy matchup. Bear her passive in mind when trying to aim spears as her move speed can fluctuate"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"tips n tricks",
+"Not that bad, you can't really jump into him but he can't really do anything to you as you can jump over his pillar. You get you pick the battles you fight with him. You outpace him besides that, this is only medium because you can't adequately jump into him."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"special item or runes",
+"Rylais / Everfrost"
+],
+[
+"tips n tricks",
+"You cannot jump into him ever. Keep him at arms distance. YOUR Q OUT-RANGES HIS STUN, ABUSE THIS AND Q-W AWAY FROM HIM FOR FREE DAMAGE (bonus points if you have gauntlet or rylais for a slow while you do it too). Once he is low you can go for a final spear into a last cougar combo - buffer your Q to avoid getting stunned and not being able to finish. Also, be wary of early bush cheeses - a good udyr that knows how to q3-auto-q you will basically instantly kill you, so check bushes with traps while clearing and moving forward through the jungle."
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"special item or runes",
+"Zhonyas for her ult, but you need to use it early because it's misleading"
+],
+[
+"tips n tricks",
+"She out duels the shit out of you, but don't worry. You can easily dodge her Q and try to poke her down. You will have a very hard time 1v1'ing her in general though so don't get cocky. EARLY DRAKE VISION IS CRUCIAL, SHE WILL GO FOR THEM ALMOST AS FREQUENTLY AS SHYVANA - FREE KILL IF YOU FIND HER"
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Bruiser build or everfrost"
+],
+[
+"tips n tricks",
+"Focus him first in fights. If it goes late, you may need to rely on picking him out with an assassination combo. Kiting him can be hard but in many situations is your only solution. He's similar to master yi but doesn't have a real gapclose until level 6. However, unlike master yi, he doesn't deal a ton of true damage so red smite is fantastic against him. If he can hit you with a stun without flashing then you're doing something wrong."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"special item or runes",
+"Rylais, Morello decent. Everfrost NOT recommended because it refunds his Q."
+],
+[
+"tips n tricks",
+"Super annoying. You know the drill - don't jump into him, but if you're feeling cheeky you can get a Q-W fade to do damage while maintaining distance. As with most Conq bruisers, he has an absurd amount of hidden healing, play around it and assume he will heal a ton during your burst rotation"
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"special item or runes",
+"Zhonyas for ult; Morello for healing"
+],
+[
+"tips n tricks",
+"Low play rate, usually not much to worry about here. You don't really get to duel him but you can steal his camps fairly easily as his aoe is bad early on. If you can dodge his ult you're golden, just avoid 1v1s and force skirmishes where he's weaker and can be bursted down past the point where he heals himself every auto; Morello may help if you're 1v1ing him often or if they have other sources of heals"
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"special item or runes",
+"Zhonyas for ult"
+],
+[
+"tips n tricks",
+"True sight for his invis, and zhonyas for his ult. Pretty simple, pretty easy"
+]
+],
+"as": "Wukong"
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Difficulty",
+"VERY HARD"
+],
+[
+"tips n tricks",
+"Good luck. You never beat him at any point in the game really unless he's super behind. One of the hardest matchups you'll see but is one of the only champs that falls off worse than you do and all he can really do is gank. Take his raptors early if he's being an idiot - just don't try to go to the same side of the jungle as him"
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"tips n tricks",
+"He has lots of damage, but try to dodge his E and you can win. you even have ample AOE for his passive. If you can't dodge his E it gets hard but play it smart and you will win both duels and skirmishes. Just don't blow your load into an aftershock and you can burst him down in two rotations usually. SMITE HIS BLOBS IN PASSIVE IF YOU ARE SHORT ON TIME"
+]
+]
+}
+]
+}
+}

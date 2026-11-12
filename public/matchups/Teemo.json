@@ -1,0 +1,3230 @@
+{
+"champ": "Teemo",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1hWSkqGfWbsUvKg9HXIsrZ10OSskRAWdJJmLcaqd_KfE/edit",
+"author": "iPav",
+"rank": "Masters NA",
+"updated": "2024"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Boots4pot, SwiftyBoots, Nash, Lian, Malig, Void, Dcap, BlackFT, Morel"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, Scor / 2ndw, Over / As, Ms, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Boots4pot, Swifty, Bork, Rage, Krak, Jaks, Mort, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, RubyC, NullMm, Boots, Lian, Merc, Nash or Wits, Malig, CryptB,Dcap, BlackFT"
+],
+[
+"On-Hit Runes",
+"PTA, Over, Blood, Last / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, BerserGreaves, NegC, Bork, Wits, Rageb, Term, Jak, Rook"
+],
+[
+"Experiences",
+"Kite! keep Gbelt during lane"
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, RubyC, NullMm, Boots, Lian, Merc, Nash or Wits, Malig, CryptB,Dcap, BlackFT"
+],
+[
+"On-Hit Runes",
+"PTA, Over, Blood, Last / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercTreads, NegC, Bork, Wits, Rageb, Term, Jak, Rook"
+],
+[
+"Experiences",
+"Survive her Tibber Spams. Gbelt during lane"
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, RubyC, NullMm, Boots, Lian, Merc, Nash or Wits, Malig, CryptB,Dcap, BlackFT"
+],
+[
+"On-Hit Runes",
+"PTA, Over, Blood, Last / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, BerserGreaves, NegC, Bork, Wits, Rageb, Term, Jak, Rook"
+],
+[
+"Experiences",
+"LVL 1 All In"
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malig, Void, Dcap, Morel, or ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Over, Blood, Last / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rage, Krak, Jak, Mort, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malig, Void, Dcap, Morel, or ShadF"
+],
+[
+"On-Hit Runes",
+"FF, Over, Alac, Last / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rage, Krak, Jak, Mort, Wits"
+],
+[
+"Experiences",
+"Watch out for enemy's JG gank"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"10/10 Hard"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dagger4pot, RapC, SwiftyB, Lian, Malig, Crypt, Dcap, Morel or ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Over, Blood, Last / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dagger, RapC, Swifty, Bork, Rage, Krak, Jak, Mort"
+],
+[
+"Experiences",
+"All in LvL1, If not, play safe till RapC"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"FF, AbsL, Alac, CutD / BP, OG or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, SwiftyBoots, Nash or Wits, Lian, Malig, Void, Dcap, Shadf"
+],
+[
+"On-Hit Runes",
+"FF, Overh, Bloodl, Cutd / 2ndW,OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, SwiftyBoots, Bork, Rage, Krak, Jak, Term, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Boots2pot, SwiftyBoots, Dring, Nash, Lian, Malig, Void, Dcap, Morel"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, GS / BP, OG / As, Dmg, Fhp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, SwiftyBoots, Bork, Rage, Krak, Jak, Mort, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"PTA , AbsL, Alac, CutD / BP, OG or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, RubyC, NullMm, Berserk, Lian, Nash or Wits, Dcap, Bansh, Void"
+],
+[
+"On-Hit Runes",
+"PTA or FF?, Trium, Alac, Lasts / BP, OG / As, Dmg, Fhp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, NegC, Berserk, Wits, Bork, Rageb, Term, Jak, Rook"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / Alacrity, CutD or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, SwiftyBoots, (Obliv), Nash, Lian, Malig, Void, Dcap, Morel"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, GS / 2ndW, OG / As, Dmg, Fhp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, SwiftyBoots, Bork, Rage, Krak, Jak, Mort, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB UltH/ As, Dmg, Shp or Fhp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Wits or Nash, Lian, Malig, Dcap, CryptB, Shadowf or Bansh"
+],
+[
+"On-Hit Runes",
+"FF, Overh, Bloodl, Lasts / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, SwiftyBoots, Wits, Bork, Rage, Krak, Jak, Mort"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Obliv, Nash, Lian, Malig, Void, Dcap, ZHG or Morel"
+],
+[
+"On-Hit Runes",
+"PR, ManaFB, Cele, Scorch / BP, OG / As, Dmg, Fhp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring or Cloth, PlatedSC, ExeC, Bork, Rageb, Kraks, Jak, MortalR"
+],
+[
+"Experiences",
+"Kite! Cloth Start if Fiora has Ignite, Dring otherwise."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA , AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp or Fhp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Ruby,NullMm, Merc, Wits or Nash, Lian, Malig, CryptB, Dcap, Bansh or ShadF"
+],
+[
+"On-Hit Runes",
+"FF, Overh, Bloodl, Lasts / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, NegtC, Berserk, Wits, Bork, Rage, Krak, Jak, Term"
+],
+[
+"Experiences",
+"Kite! Not so sure."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA , AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Ruby,NullMm, Merc, Wits or Nash, Lian, Malig, CryptB, Dcap, Bansh or ShadF"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercTreads, NegC, Bork, Wits, Rageb, Term, Jak, Rook"
+],
+[
+"Experiences",
+"Kite! Watch out for gank set-up."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"FF, AbsL, Alac, CutD / ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malig, Void, Dcap, ZHG or ShadF"
+],
+[
+"On-Hit Runes",
+"FF, OverH, BloodL. LastS / 2ndW, OverG / As/Dmg/Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rageb, Kraks, Term, Jaks, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimbus, Cele, GS / ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swiftys, (RubyC) Nash, Lian, Malig, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PR, Nimbus, Cele, GS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, (RubyC), Bork, Rageb, Kraks, Jak, Term, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA , AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swiftys, Nash, Lian, Malig, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, Over, Blood, Last / BP, OG / As, Dmg, Fhp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rage, Krak, Jak, Term, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"3~8/10 Hard"
+],
+[
+"AP Runes",
+"FF, AbsL, Alac, CutD / ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Ruby, NullMm, Swifty, Wits or Nash, Lian, Malig, CryptB, Dcap, Bansh or ShadF"
+],
+[
+"On-Hit Runes",
+"FF, OverH, BloodL, Coup / 2ndW, Over / As, Ms, Sres"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Ring, Swifty, Wits, Bork, Rageb, Term, Jak, Krak"
+],
+[
+"Experiences",
+"Kite & Watch for R spots."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimbus, Cele, GS / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, (Obliv), Wits or Nash, Lian, Malig, Void, Dcap, Banshee"
+],
+[
+"On-Hit Runes",
+"PR, Nimbus, Cele, GS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Ring, Swifty, Wits, Bork, Rageb, Term, Jak, Krak"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"?"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"On-Hit Runes",
+"?"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10 Hard"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Merc'sT, Wits or Nash, Lian, Malig, CryptB, Dcap, Bansh"
+],
+[
+"On-Hit Runes",
+"FF, OverH, BloodL, Lasts / 2ndW, Overg / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Boots4pot, MercT, Bork, Wits, Rageb, Term, Jak, Rook"
+],
+[
+"Experiences",
+"push as fast as possible."
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot or Boots4, Swiftys, Obliv, Nash, Lian, Malig, Void, Dcap, Morel or HG"
+],
+[
+"On-Hit Runes",
+"PTA, Abs, Alac, CutD / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring or Boots4, Swifty, ExeC, Bork, Rageb, Kraks, Jak, MortalR"
+],
+[
+"Experiences",
+"Avoid her E."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, (OblivO), Nash, Lian, Malig, Void, Dcap, ZHG or ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, (Exe) Bork, Rageb, Kraks, Jaks, Wits, MortalR"
+],
+[
+"Experiences",
+"Avoid her stun."
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"FF, AbsL, Alac, CutD / BP. OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malig, Void, Dcap, ZHG or ShadF"
+],
+[
+"On-Hit Runes",
+"FF, OH, Alac, LastS / 2ndW, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rageb, Kraks, Jaks, Wits, Term"
+],
+[
+"Experiences",
+"Avoid his E-Q combo"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malig, Void, HG, Dcap"
+],
+[
+"On-Hit Runes",
+"FF, OH, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rageb, Kraks, Jaks, Wits, Term"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10 Hard"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malig, Void, HG, Dcap"
+],
+[
+"On-Hit Runes",
+"FF, OH, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rageb, Kraks, Jaks, Wits, Term"
+],
+[
+"Experiences",
+"Play well."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite?, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Nash or Wits, Lian, Malig, Void, Bansh, Dcap"
+],
+[
+"On-Hit Runes",
+"FF, OH, Alac, Coup / 2ndW, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swiftys, (NegC) Bork, Rageb, Kraks, Jaks, Wits, Term"
+],
+[
+"Experiences",
+"Watch out for Gank set-up."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite?, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Nash or Wits, Lian, Malig, Void, Bansh, Dcap"
+],
+[
+"On-Hit Runes",
+"FF, OH, Alac, Coup / 2ndW, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swiftys, (NegC) Bork, Rageb, Kraks, Jaks, Wits, Term"
+],
+[
+"Experiences",
+"Go for Kill as much as possible."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Merc, Nash or Wits, Lian, Malig, Void, Bansh, Dcap"
+],
+[
+"On-Hit Runes",
+"FF or PTA, OH, Alac, Coup / 2ndW, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Berserk, (NegC) Bork, Rageb, Kraks, Jaks, Wits, Term"
+],
+[
+"Experiences",
+"Deny him."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Merc, Nash or Wits, Lian, Malig, Void, Bansh, Dcap"
+],
+[
+"On-Hit Runes",
+"FF or PTA, OH, Alac, Coup / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Berserk, (NegC) Bork, Rageb, Kraks, Jaks, Wits, Term"
+],
+[
+"Experiences",
+"Do not underestimate her pre 6."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Nash or Wits, Lian, Malig, Void, Bansh, Dcap"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, Lasts / 2ndW, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Berserk, (NegC) Bork, Rageb, Kraks, Jaks, Wits, Term"
+],
+[
+"Experiences",
+"Do not underestimate her pre 6."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Merc, Nash or Wits, Lian, Malig, Void, Bansh, Dcap"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, Lasts / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Merc, (NegC) Bork, Rageb, Kraks, Jaks, Wits, Term"
+],
+[
+"Experiences",
+"Watch out for Gank set-up."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Fhp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malig, Dcap, Void, HG, Morello or ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, CutD / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rageb, Krak, Term or MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"May going to need ignite, not sure test needed."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Fhp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malig, CryptB, Dcap, HG or ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rageb, Krak, Term, Jak, Randuin"
+],
+[
+"Experiences",
+"Watch out early lvl."
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp or Fhp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, MercT, Nash, Lian, Malig, CryptB, Dcap, Bansh or Qss"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, Bork, Rageb, Krak, Term or MortalR, Jak, QSS"
+],
+[
+"Experiences",
+"Play aggressive."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"GoU or FF, Dem, 2ndW, OG / ToB, Ulth / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, MercT, Wits or Nash, Lian, Malig, Void, Dcap, Banshee."
+],
+[
+"On-Hit Runes",
+"GoU, Demo, 2ndW, Overg / ToB, UltH / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, Wits, Bork, Rageb, Krak, Term, Jak, Rookern or keep wits"
+],
+[
+"Experiences",
+"Watch out lvl 6 all in & Gank set up."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Qss, Swifty, Wits or Nash, Lian, Malig, Dcap, CryptB"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, QSS, Swifty, Bork, Wits, Rageb, Term, Jak"
+],
+[
+"Experiences",
+"Qss by lvl 6."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost?, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, MercT, Wits or Nash, Lian, Malig, Dcap, Void, ShadF or Morello"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, CutD / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, Bork, Rageb, Krak, Term, Jak"
+],
+[
+"Experiences",
+"Care for Ganks."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"ignite?, F"
+],
+[
+"AP Items (In Order)",
+"Boots4pot?, Swifty, Nash, Lian, Malig, Void, Dcap, Bansh or ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Boots4pot, Swifty, Bork, Krak, Rageb, Term, Jak"
+],
+[
+"Experiences",
+"Play aggressive pre 6"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Wits or Nash, Lian, Malig, CryptB, Dcap, Bansh or QSS."
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / 2ndW, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, Bork, Rageb, MercS, Term, Jak"
+],
+[
+"Experiences",
+"Play aggressive."
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimbus, Cele, GS / ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, MercT, (OblivO) Wits or Nash, Lian, Malig, Void, Dcap, Morello or ShadF"
+],
+[
+"On-Hit Runes",
+"PR, Nimbus, Cele, GS / 2ndW, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, (Exe) Bork, Rageb, Krak, MortalR, Jak, MercS"
+],
+[
+"Experiences",
+"try obvlivian orb early game"
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, MercT, Wits or Nash, Lian, Malig, CryptB, Dcap, Bansh or BlackFT"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BoneP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, Bork, Rageb, Krak, MortalR, Jak, MercS"
+],
+[
+"Experiences",
+"Avoid her pokes"
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost?, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malig, CryptB, Dcap, HG or ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rageb, Krak, Term, Jak, QSS"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"PR, Nimbus, Cele, GS / BP, OG or ToB, UltH / As, MS, SlowR"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot or Boots4pot, Swifty, Nash, (OblivO) Lian, Malig, Void, Dcap, HG or Morello"
+],
+[
+"On-Hit Runes",
+"PR, Nimbus, Cele, GS / 2ndW, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring or Boots4pot, Swifty, Bork, Krak, Rageb, MortalR, Jak, WitsE"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Nash, Lian, Malig, Void, Dcap, ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, CutD / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Bork, RageB, Kraks, Term, Jak, Wits"
+],
+[
+"Experiences",
+"Care for Ganks."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10 Hard"
+],
+[
+"AP Runes",
+"GoU or FF, Dem, BP, OG / ToB, Ulth / As, Dmg, Fhp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"FF, Overh, Bloodl, Lasts / BP,OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rage, Krak, Jak, Term, Randuin or Wits"
+],
+[
+"Experiences",
+"Avoid his spears, Blind when he stuns. Care for gank"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF?, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Maligance, Void, Dcap, ShadF"
+],
+[
+"On-Hit Runes",
+"PTA or FF?, Trium, Alac, CutD / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rageb, Krak, Term, Jak, Wits"
+],
+[
+"Experiences",
+"Care for Ganks."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rageb, Krak, Term, Jak, Randuin or Wits"
+],
+[
+"Experiences",
+"Care for Ganks."
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rage, Krak, Jak, Term, Randuin or Wits"
+],
+[
+"Experiences",
+"Care for Ganks."
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, MercT, Nash, Lian, Maligance, Void, Dcap, QSS"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, Bork, Rageb, Krak, Term, Jak, MercS"
+],
+[
+"Experiences",
+"Care for Ganks."
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rage, Krak, Jak, Term, Randuin or Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rage, Krak, Jak, Term, Randuin or Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10 Hard"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA or GoU, Trium, Alac, Coup / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rage, Krak, Jak, Term, Randuin or Wits"
+],
+[
+"Experiences",
+"Don't be near to his bush jump range"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rage, Krak, Jak, Term, Randuin or Wits"
+],
+[
+"Experiences",
+"LvL 1 Matters the most."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"9/10 Hard"
+],
+[
+"AP Runes",
+"FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, WitsE, Lian, Malig, CryptB, HG, Banshee, Nash-(Wits)"
+],
+[
+"On-Hit Runes",
+"GoU, Demo, 2ndw, Overg / Tob, Ulth / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Wits, Bork, Rage, Jak, Term, Krak"
+],
+[
+"Experiences",
+"LvL 3~4 Becareful. just go even."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"9/10 Hard"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, MercT, WitsE, Lian, Dcap, Void, HG, Banshee, Nash-(Wits)"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, Lasts / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, Wits, Bork, Rageb, Term, Jak, Qss"
+],
+[
+"Experiences",
+"Play aggressive early game."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimbus, Cele, Gstrm / BP, OG / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Boots4pot, Qss, Dring, Swifty, Nash, Dcap, Void, HG, Lian"
+],
+[
+"On-Hit Runes",
+"PR, Nimbus, Cele, Gstrm / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Boots4pot, Qss, Swifty, Bork, Rageb, Krak, Term or MortalR, Jak, MercS"
+],
+[
+"Experiences",
+"QSS ASAP!"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"GoU, Demo, BP, Overg / Tob, Ulth / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Void, Dcap, HG, ShadowF"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, CutD / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, Bork, Rageb, Krak, Term, Jak, Qss"
+],
+[
+"Experiences",
+"Shen's strong in 1v1 early game."
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"1/10 Easy"
+],
+[
+"AP Runes",
+"PR, Nimbus, Cele, Gstrm / BP, OG / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Nash, Lian, Void, Dcap, Banshee, Morello"
+],
+[
+"On-Hit Runes",
+"PR, Nimbus, Cele, Gstrm / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Bork, Rageb, Krak, MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"FF, AbsL, Alac, Cutd / 2ndW, OG or ToB, UltH / As, MS, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Boots4pot, Swifty, Dring, Nash, Lian, Void, Hg, Dcap, Shad"
+],
+[
+"On-Hit Runes",
+"FF, Oheal, Alac, Cutd / 2ndW, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Bork, Rageb, Krak, LordD, Jak, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, WitsE, Lian, Dcap, Void, HG, Banshee, Nash-(Wits)"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, (Exe) Bork, Rageb, Krak, MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"play aggressively."
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"FF or PR, AbsL, Alac, CutD / ToB, UltH / As, MS, SR"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Ring or Boots, SWifty, Qss, Nash, Liand, Void, Dcap, morel or malig"
+]
+]
+}
+],
+"Smolder": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Nash, Lian, Dcap, Void, HG, ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty Bork, Rageb, Krak, Term, Jak, Wits"
+],
+[
+"Experiences",
+"New champ = New joke."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, WitsE, Lian, Dcap, Void, HG, Morello"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, (Exe) Bork, Rageb, Krak, MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"play aggressively."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, WitsE, Lian, Dcap, Void, HG, Banshee, Nash-(Wits)"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Berserk, (Exe) Bork, Rageb, Krak, MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"play aggressively."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG / AS, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Nash, Lian, Dcap, Void, Malig, ShadF"
+],
+[
+"On-Hit Runes",
+"PR, Nimbus, Cele, GS / Cond, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Bork, Rage, Krak, LordD, Jak, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, (ChainV), Bork, Rageb, Krak, Term, Jak, Randu"
+],
+[
+"Experiences",
+"Care for his lvl 2~3 all in, & 6 all in. & wall jumps."
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Nash, Lian, Dcap, Void, HG, Banshee"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, (Exe) Bork, Rageb, Krak, MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"Destroy."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Don't."
+],
+[
+"AP Runes",
+"just don't. ;("
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG / AS, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Nash, Lian, Void, Dcap, HG, ShadowF or Morello"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, GS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, (Exe) Bork, Rageb, Krak, MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG / AS, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, GS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, (Exe) Bork, Rageb, Krak, MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, MercT, Nash, Lian, Dcap, (QSS), Void, ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, (Exe) Bork, Rage, Krak, Jak, MortalR, QSS"
+],
+[
+"Experiences",
+"Play Aggressive Entire Lanephase."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG / AS, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Nash, Lian, Void, Dcap, Malig, Morel"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, GS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Bork, Rage, Krak, Term, Jak, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG / AS, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Void, Dcap, HG, ShadowF"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, GS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Bork, Rageb, Krak, Term, Jak, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, (Exe) Bork, Rageb, Krak, MortalR, Jak, Randu"
+],
+[
+"Experiences",
+"Play Aggressive Max."
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, (Exe) Bork, Rageb, Krak, MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, WitsE, Lian, Dcap, Void, HG, Banshee, Nash-(Wits)"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Bork, Rageb, Krak, Term, Jak, Wits"
+],
+[
+"Experiences",
+"Play Aggressive Max."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10 Okay"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Berserk, WitsE, Lian, Dcap, Void, HG, Morello"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Berserk, (Exe), Bork, Rageb, Krak, MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"Play Aggressive Max."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG / AS, MS, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Boots4pot, Swifty, Dring, Nash, Lian, Void, Dcap, HG, ShadowF or Morello"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, GS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Plated, (Exe), Bork, Rageb, Krak, MortalR, Jak, Wits"
+],
+[
+"Experiences",
+"Healcut, Kite!"
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG / AS, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Qss, Obliv, Swifty, Nash, Lian, Dcap, Void, HG, Morel"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, GS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Plated, Bork, Rageb, Krak, Term, Jak, Wits"
+],
+[
+"Experiences",
+"get QSS and HealCut"
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PTA, PoM, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, OverH, BloodL, LastS / BP, OG / As, Dmg, Fhp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, (ChainV), Bork, Rage, Krak, Jak, Mort, Warm"
+],
+[
+"Experiences",
+"Care LvL 6"
+]
+],
+"as": "Wukong"
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10 Hard"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, OverH, BloodL, LastS / BP, OG / As, Dmg, Fhp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, (ChainV), Bork, Rage, Krak, Jak, Mort, Warm"
+],
+[
+"Experiences",
+"Bait the Wall."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10 Hard"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, OverH, BloodL, LastS / BP, OG / As, Dmg, Fhp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, (ChainV), Bork, Rage, Krak, Jak, Mort, Warm"
+],
+[
+"Experiences",
+"Care LvL 6"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"8/10 Hard"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG / AS, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot or boots4pot, Swifty, Obli, Nashor, Liandry, Dcap, Voidstaff, HG, Morel"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, GS / 2ndW, OG / As, Ms, Sres"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Bork, Rage, Krak, Jak, Mort, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty",
+"7/10 Hard"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malignance, Void, Dcap, HG"
+],
+[
+"On-Hit Runes",
+"PTA, OverH, BloodL, LastS / BP, OG / As, Dmg, Fhp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, (ChainV), Bork, Rage, Krak, Jak, Term, Warm"
+],
+[
+"Experiences",
+"Care LvL 6"
+]
+]
+}
+]
+}
+}

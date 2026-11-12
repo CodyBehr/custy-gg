@@ -1,0 +1,1245 @@
+{
+"champ": "Illaoi",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1NpSmwaBysCBwwizHEiNcaHsn8yZz4ohXcruuFGFKKvk/edit#gid=802349865",
+"author": "DirtyMobs",
+"rank": "Challenger NA (rank 42 at writing)"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"CHAMPION",
+"Aatrox"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Walk near Aatrox to bait his Q, then dodge it. This gives you windows to CS"
+]
+],
+"as": "DirtyMobs vs Hashinshin's Aatrox"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Powerspike: Level 6, farm until then using standard laning technique"
+]
+],
+"as": "You must bait out Aatrox Q's"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Try to pull Aatrox spirit and burst him down in teamfights before he gets R reset"
+]
+],
+"as": "Dive setup onto Aatrox"
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"CHAMPION",
+"Annie"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+Bone plating+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"Do not let her poke you too much before level 3"
+]
+],
+"as": "Good Annie game"
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"CHAMPION",
+"Camille"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Her level 2 is very strong, she will wall jump, give up CS if needed, the lane will push into you be patient"
+]
+],
+"as": "Full Camille Game"
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Farm! You need to neutralize this lane and hope your team wins 4v4"
+]
+],
+"as": "Example of how to trade with Cass"
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"CHAMPION",
+"Cho Gath"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"Great matchup, but still practice wave management or you will int to jungle. Notice in the Romanium game I let him push, it leads to him being killed by my tentacle setup then ganked by jungler"
+]
+],
+"as": "Full Cho'gath (Romanium) Game"
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"CHAMPION",
+"Darius"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"You CANNOT auto attack minions first few waves, use your Q to get CS"
+]
+],
+"as": "Full Darius Game (Dragoonsmash)"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Careful with E's, if you throw it and are in a bad position, you will die"
+]
+],
+"as": "Use your ult to dodge Darius E!!!"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"If you hit E and he tries to rake you, ult to dodge it and W Darius to kill him"
+]
+],
+"as": "Darius Games Playlist"
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"CHAMPION",
+"Diana"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"You trade better at 3, but still focus on wave management so you don’t get jungle ganked"
+]
+],
+"as": "Full Diana Game"
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"CHAMPION",
+"Dr. Mundo"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"I usually don't build executioners until after Black Cleaver. His ult won't heal enough in an all-in, so he'll use it sitting far away, making executioners not useful"
+]
+],
+"as": "Full Dr. Mundo Game (only one I can find"
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"CHAMPION",
+"Fiora"
+],
+[
+"Manamune Candidate?",
+"DEPENDS ON TEAM COMP"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"Skill matchup focused around Fiora's W, throw your E when she is distracted, right as a minion in front of you dies, or she is extremely close leaving her no time to react"
+]
+],
+"as": "Full Fiora Game"
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"CHAMPION",
+"Garen"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"If he's building damage, the matchup becomes much easier/straight forward as your E+Ult combo should one-shot him. HOWEVER: Missing E can be an instant death if you are poorly positioned"
+]
+],
+"as": "Full Garen Game"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"A won fight is land E -> he runs up to silence you, cast ult right before it lands -> chase down with W's (make sure spirit dies if its almost dead)"
+]
+],
+"as": "BONUS CLIP great 1v2 vs Garen"
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"CHAMPION",
+"Gnar"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"Do not get in a prolonged trade vs Gnar if he is mini with no rage"
+]
+],
+"as": "Full Gnar Game vs Jayton"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Fight gnar when he is about to get mega, you WANT him to be mega it is much easier for Illaoi"
+]
+],
+"as": "Win fight by baiting Gnar R"
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"CHAMPION",
+"Hecarim"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Wave management! Be agro post level 6 as always, just your friendly reminder"
+]
+],
+"as": "Full Hecarim Game"
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"CHAMPION",
+"Heimerdinger"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"My strategy is to farm this lane out, hope your team wins 4v4 (coinflip!)"
+]
+],
+"as": "Full Heimerdinger Game (Heisendong!)"
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"CHAMPION",
+"Irelia"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Level 1 she will look to dash kill first 4 minions into a Q onto you, DON'T TRADE!"
+]
+],
+"as": "Full Irelia Game"
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"CHAMPION",
+"Jax"
+],
+[
+"Manamune Candidate?",
+"DEPENDS ON TEAM COMP"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Level 1 don't walk up to minions, he will stun and win trade"
+]
+],
+"as": "Full Jax Game"
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"CHAMPION",
+"Jayce"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"He will probably stand between you and the wave level 1, much skill :) Just get experience and wait for the lane to shove (it will)"
+]
+],
+"as": "Full Jayce Game (LCS Top Laner Solo)"
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"CHAMPION",
+"Kayle"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"Try to use brush and spacing to not let her proc her early E poke"
+]
+],
+"as": "Full Kayle Game"
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"CHAMPION",
+"Kennen"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"HARD matchup, aim to farm this lane, dodge worthy"
+]
+],
+"as": "Full Kennen Game"
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"CHAMPION",
+"Kled"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"Kled Q's early should be pretty obvious, bait them out before going for minions"
+]
+],
+"as": "Full Kled Game"
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"CHAMPION",
+"Lucian"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"DODGEEEEEE if you haven't yet today"
+]
+],
+"as": "Full Lucian Game"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Just farm, going even on farm is a win in this lane. If your jungler wants to gank, cool, but if your team wins rest of map you auto win"
+]
+],
+"as": "How to solo kill Lucian"
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"CHAMPION",
+"Malphite"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"Tanks - even though you can own them, focus on wave management! Don't get greedy or you'll die to an early jungle gank"
+]
+],
+"as": "Full Malphite Game"
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"CHAMPION",
+"Maokai"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"Tanks - even though you can own them, focus on wave management! Don't get greedy"
+]
+],
+"as": "Full Maokai Game"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"If you E at max range, Maokai shouldn't be able to dodge with W (his one counter play)"
+]
+],
+"as": "1v1 Kill Maokai"
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"CHAMPION",
+"Mordekaiser"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"BUY QSS BUY QSS BUY QSS BUY QSS BUY QSS BUY QSS BUY QSS BUY Q"
+]
+],
+"as": "Full Mordekaiser Game"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Can block his ult with your ult if needed, do not ult him before he ults you or you auto lose"
+]
+],
+"as": "Baiting Morde E and doging it"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Throw your E after you dodge his E, he'll crumble. Walk back to dodge his Q"
+]
+],
+"as": "HOW TO USE YOUR ULT TO DODGE MORDE ULT"
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"CHAMPION",
+"Nasus"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"Don't put a ton of tentacles that you cannot defend, he gets free Q stacks off them"
+]
+],
+"as": "Full Nasus Game"
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"CHAMPION",
+"Neeko"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"Dodge worthy if you play few games a day"
+]
+],
+"as": "Full Neeko Game"
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"CHAMPION",
+"Olaf"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Careful about walking up to minions for last hits, use your Q!"
+]
+],
+"as": "Full Olaf Game"
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"CHAMPION",
+"Ornn"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"Tanks - even though you can own them, focus on wave management! Don't get greedy"
+]
+],
+"as": "Full Ornn Game"
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"IF HE ULTS YOU, time your E when he lands, then ult for free kill"
+]
+],
+"as": "BONUS CLIP: Great 1v2 vs Pantheon"
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"CHAMPION",
+"Quinn"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"HARD matchup, aim to farm this lane, dodge worthy"
+]
+],
+"as": "Full Quinn Game"
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"CHAMPION",
+"Renekton"
+],
+[
+"Manamune Candidate?",
+"DEPENDS ON TEAM COMP"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"He is WAY stronger first few levels, bait his Q near minions to shove the wave towards you"
+]
+],
+"as": "Full Renekton Game"
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"CHAMPION",
+"Rengar"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Let him leap spam the wave to push it and get it under your turret"
+]
+],
+"as": "Full Rengar Game"
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"CHAMPION",
+"Riven"
+],
+[
+"Manamune Candidate?",
+"DEPENDS ON TEAM COMP"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Her level 1/2 are way stronger, sit back and use Q to CS"
+]
+],
+"as": "Full Riven Game"
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"CHAMPION",
+"Rumble"
+],
+[
+"Manamune Candidate?",
+"DEPENDS ON TEAM COMP"
+],
+[
+"Runes",
+"Grasp (Second wind value)"
+],
+[
+"DirtyMobs' Strategy",
+"It is important to dodge Rumble E's, they'll make his trades really strong"
+]
+],
+"as": "Full Rumble Game"
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"CHAMPION",
+"Ryze"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"If you play few games a day, this is a good dodge worthy matchup"
+]
+],
+"as": "Full Ryze Game"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Rush Merc Tread's to get out of roots and not be destroyed"
+]
+],
+"as": "Rare 1v1 kill on Ryze"
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"CHAMPION",
+"Sett"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Sett's early laning is VERY similar to Darius. Be careful of his Q+E combo, you will lose the trade. However, retreat to turret and land your E as he runs away to regen some health."
+]
+],
+"as": "Full Sett Game"
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"CHAMPION",
+"Shen"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"Respect Shen's early damage if he hits the taunt, focus wave management!"
+]
+],
+"as": "Full Shen Game"
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"CHAMPION",
+"Singed"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Grasp (Second wind value)"
+],
+[
+"DirtyMobs' Strategy",
+"If Singed proxies, just let him and farm under turret. He is a free kill for your jungler but chasing just loses you waves of exp and gold"
+]
+],
+"as": "Full Singed game"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Keep good spacing. Matchup became much easier in 9.13, spirit doesn't get deleted by poison"
+]
+],
+"as": "Important Spacing vs Singed"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"I like building heavy AD into Singed, this way when you land E and he runs on top of you, when you ult you kill him before he can run away"
+]
+],
+"as": "When 1v2ing, E the jungler, NOT Singed"
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"CHAMPION",
+"Sion"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"When he charges up his Q is a great time to throw your E"
+]
+],
+"as": "Full Sion Game (Revenge)"
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"CHAMPION",
+"Swain"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"Bait his E and dodge, the more of these you dodge the easier the lane will be"
+]
+],
+"as": "Full Swain Game"
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"CHAMPION",
+"Sylas"
+],
+[
+"Manamune Candidate?",
+"DEPENDS ON TEAM COMP"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"His trade patterns are NUTTY, be careful pre 6"
+]
+],
+"as": "Full Sylas Game (TSM Broken Blade)"
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"CHAMPION",
+"Tahm Kench"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"If you lose control of wave, he can easily lick you to death. BE CAREFUL and look for an opportunity to shove the lane in and fix it without dying"
+]
+],
+"as": "Full Tahm Kench Game"
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"CHAMPION",
+"Teemo"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"Blind now full stops your W, be careful to not waste a W during the blind. Early Merc treads are a good first buy for the movement speed and blind duration reduction"
+]
+],
+"as": "Full Teemo Game"
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"CHAMPION",
+"Urgot"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Almost always try to bait Urgot Q before you throw out your E. This reduces Urgot's ability to pressure you as you cast your E"
+]
+],
+"as": "Example Urgot game"
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"CHAMPION",
+"Vayne"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"Matchup is unplayable, dodge if you play few games a day and can afford to"
+]
+],
+"as": "Good Vayne Game"
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"CHAMPION",
+"Vladimir"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Fleet+second wind+ dorans shield"
+],
+[
+"DirtyMobs' Strategy",
+"Practice good spacing, don't let him empowered Q you, use YOUR Q and W for CS early on"
+]
+],
+"as": "Full Vladimir game"
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"CHAMPION",
+"Volibear"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"This matchup is easy IF you are disciplined on when you trade"
+]
+],
+"as": "Full Volibear game vs C9 Licorice"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"After 6, use your superior waveclear to push him under turret, poke with E's"
+]
+],
+"as": "You can DirtyDive Volibear too!"
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"CHAMPION",
+"Wukong"
+],
+[
+"Manamune Candidate?",
+"DEPENDS ON TEAM COMP"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"Wukong's will typically use their clone to dodge your E, try not to fall for it by waiting and pretending to E, then E the real Wukong once he shows himself"
+]
+],
+"as": "Full Wukong Game"
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"CHAMPION",
+"Yorick"
+],
+[
+"Manamune Candidate?",
+"NO"
+],
+[
+"Runes",
+"Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"Work HARD on baiting his E and dodging it, it is up every ~10 seconds"
+]
+],
+"as": "Full Yorick Game"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"You cannot fight if you have not first dodged his E, if you get hit, run away he will look to W and take all your health away"
+]
+],
+"as": "Example of baiting Yorick E"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"An all-in consists of dodging his E, landing your E and ulting. Preferrably near minions so his minions don't hit you"
+]
+],
+"as": "Example of a clean trade vs Yorick"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"If you do kill him AND he wasted ult, you can get a kill on your next ult before his is up. Also if he doesn't have ult or graves from Q yet you can be very aggressive on him"
+]
+],
+"as": "Full on 1v1 with ults vs Yorick"
+}
+]
+}
+}

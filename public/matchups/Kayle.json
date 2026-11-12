@@ -1,0 +1,4705 @@
+{
+"champ": "Kayle",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1xxu7pVNnshjdwiSmwZrs9K4rEwfhIQL3/edit",
+"author": "UJard",
+"rank": "High GM-low Challenger, Rank 1 Kayle OTP",
+"updated": "2026-09"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start\nRush Boots of Swiftness."
+],
+[
+"Tips Against the Matchup",
+"Bait out his Q on wave, if he misses you and hits the wave you get a window to punish as well as getting the wave to your side of the lane while he's low. If you win the trade you can look to crash on third wave, otherwise farm safely. Miss some CS if it means you staying healthy. Bait his Q cooldown by getting into Q + E Range so you can free farm."
+],
+[
+"",
+"Hey guys, currently editing\nsome things, so the layout might\nfeel wonky for some days"
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & Gathering Storm."
+],
+[
+"Starting Items",
+"Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Stand behind minions and bait her Q into the minion wave. Try and go in and out her Q range to bait it into the wave, if she pushes into you, you win the lane as it'll become a farm matchup under tower and you scale better. When under tower, try and bait her Q and her E going in and out of range so you can farm freely while they're on cooldown. Careful when she hits level 6 because she might all in."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/ Celerity & Gathering Storm"
+],
+[
+"Starting Items",
+"Doran's Ring"
+],
+[
+"Tips Against the Matchup",
+"You want to survive this lane as best as possible. Go in for a Q into E trade when you have your Fleet up as it's hard for her to deal with this poke. Never trade autoattacks with her and give up CS if it means she's going to all in you. Try to walk back and foward in her Q range to bait it as it has a high energy cost. Also very important to bait her Q into the minion wave so it continually pushes towards you. Can swap Doran's Blade for Doran's Shield if she has resolve tree."
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/ Celerity & Gathering Storm"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"Before level 6 you want to play this as any other ranged matchup, avoid him hitting you for free autoattacks. It's way better earlygame to give up CS in order to stay healthy. Avoid walls just like you would in the Camille matchup. He will roam a lot but you can't freely push unless you see him on the map because he might stealth to \"roam\" but be behind you and kill you. Be careful when he stealths. You win if he's ever in melee range, as well as 6 and onwards (with ult). After 11 you always beat him with passive stacked."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"3"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/ Celerity & Gathering Storm"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"Alistar actually has very nice base damage early on. Just stay under your minions because if he E+Q combos you, he's going to push the lane into you. He's very tanky with his ult so don't get baited into diving him Farm as much as possible and outscale him."
+]
+]
+}
+],
+"Ambessa": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start.\nRush T2 boots in this matchup. Try and rush Zerks."
+],
+[
+"Tips Against the Matchup",
+"Hard matchup, she wins if she's on top of you with abilities up. Try to bait her abilities by standing on top of wave, all are AOE ensuring that you don't get frozen on. If she ever uses her dashes to try to catch up to you, you can look to punish and trade back heavily or even kill. Becomes insanely hard after she gets Eclipse so be wary of trades and play from distance. Heavily outscale her."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"3"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"He's very resilient to auto attacks because of his W passive, because of this prioritize AP or AD instead of Attack Speed when building your first item (ie. blasting wand instead of recurved bow for AP) even with E max. He can stun lock you with Q + ult + Q so be VERY careful if about ganks. Have very good vision on the map and just turtle up; he can't deal with you post level 11."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Anivia is an absolute bully for Kayle early on. You really have to rush T2 boots ASAP to avoid her damage, as long as you can avoid her Q you're fine. It will also lower the Q stun on you. Be VERY careful because she will try to use her wall in order to hit her Q into you. Bait her Q when going for farm under tower and wait for a gank. You CAN'T win short trades against her early on."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Be aware of her passive (under her HP bar), if she has full stacks she can stun you. She can also stun you with a combo (throws Q and hits shield to get 2 stacks at the same time). Without her stun she's really not a champion but her burst is insane so you really need to be careful. You can take Barrier if in the midlane to survive her combo and run her down after she's on cooldown. Try and go for a short trade if she misses a CS with her Q as it puts it in a longer cooldown, especially if she has low stacks."
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Aphelios if going top will try to build a ton of lifesteal with Hullbreaker and be a splitpushing monster. He'll have conqueror, ravenous hunter, shieldbow, hullbreaker and then more healing items. Try and build an 800gold grevious wounds item if he's going for this build and if you're far behind, avoid splitting on the same lane he is. In the laning phase be careful with Calibrum (his light blue weapon), as he'll have a ton of range and poke you down. When engaging into him with or without a gank, be careful with Severum and Crescendum (red and white weapons) as he's an all-in monster with those."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/ Celerity & Gathering Storm"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"Simple scaling matchup, be wary of Q damage. You can stack passive on wave and look to punish if he ever Q's while too close. Can run you down if you're not careful after first item."
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"10"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Ring Start"
+],
+[
+"Tips Against the Matchup",
+"Dodge"
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Azir's poke is insane. Avoid the sand soldiers as much as possible, you can also walk in his summon sand soldier range to bait them out and just walk away. Try and survive till level 6 where it's easier for you to farm from range. He's going to roam a lot so try and push and take plates; most of the time it's not worth it to help your team unless you find a very good teleport opportunity. Dodge this matchup tbh."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"3"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"You can bait her W stun into the wave in order to make it push into you. Play under tower and wait till level 6. She doesn't have an ultimate unless she kills someone. Lvl 6 is when you start taking over the lane and you also outscale her."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"3"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Against brand rush T2 boots, it'll make it harder for him to hit his spells. There's not much to say about this matchup, just avoid his spells and bait them into the minion wave in order for him to push the wave. His waveclear is great but his roams really aren't so all you have to do is survive the lane. You can rush Wit's End into this matchup and it'll do great."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"1"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Ignite"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Resolve: w/Bone Plating and Unflinching."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"Camille is that matchup where she's going to bully you inmensely hard and if she gets help from her jungler it's going to be a hard game. Once you get level 6 (play safe untill that level), the matchup becomes a lot more manageable to a point where you can start bullying her and zoneing her off CS. Pay attention to the map and ping missing a TON because Camille is going to roam a ton in this matchup. Be careful level 1 because most of them start E into Kayles, so stand very far away from walls."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Bait her Qs into the minion wave, this will cause the wave to push into you. Notice if she has conqueror or phase rush; phase rush will be a lot harder for you if you're next to her tower because she can run you down, so be aware of this. If she doesn't hit Q and her W is on CD (long cd), you can try and go for all in because her E does no damage. The biggest problem with this matchup is that she'd pretty much stronger than you until you're level 16. Dodge this matchup."
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start"
+],
+[
+"Tips Against the Matchup",
+"You have to coinflip the game, or at least the laning phase. Play as safe as possible and NEVER trade against this guy. Cho'Gath's base damages are high and will chunk you while in the early game, Kayle has very lackluster damage and Cho's sustain is insane. Poking Cho Gath down is futile with Kayle, it's not happening. Play as safe as you can and farm up for mid game. The reason why you take PtA instead of Fleet in this matchup is so Cho doesn't ignore you and take plates for free."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Corki Scales. Hard. Not as much as you though. He'll be stronger than you levels 1-5 and you can start contesting him from level 6 onwards till he finishes his Muramana. Once he does, you'll won't really be able to 1v1 him anymore till level 16 but you're more useful in teamfights. In lane, bait his Q and E poke into the minion wave so he pushes into you and try and give up a lot of farm in order to stay healthy. You can add more points into W early on if you really need it. He'll roam a lot once he has his passive (siren sounds) so prepare to ping to team to back off when he does."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Walk with wave as it comes to lane, ward first bush and E him, if he auto's the ward or runs at you the wave will get pulled to your side of the lane ensuring you get all experience from the first 3 melees. Ghost if he ghosts, need Nimbus cloak in case he has it. Matchup becomes easier at lvl 6."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Ignite"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Ring"
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Cloth armour + 4 Health Potions Start"
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Fiddlesticks is played as a tank when in the toplane and as an AP caster when in midlane. If he's building tank, you just farm lane. He scales really badly when built tank BUT don't get baited into an all-in when built tank because he will heal for a lot with minions and make it impossible for you to kill him. When build either tank or AP try to avoid trading with him, just farm lane and you'll outscale every time. Be careful with fog of war because of his ult."
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Fiora matchup is very easy if you play it well, only way she wins is by forcing an all in when you're far away from your tower or by a tower dive level 3. Always slow push against her to make all-ining you harder with a big minion wave. AVOID HER AT ALL COSTS Levels 1-3 because if you're at even 70% health she'll dive you. You can bait her into procing her vitals on you so your minions focus her and the wave pushes towards you."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Ring"
+],
+[
+"Tips Against the Matchup",
+"If he has first strike just proc it with Q from afar using minions. Winning matchup after level 6, just be aware that he will likely have a gold lead on you with stronger items. Can match poke at 6 + blasting wand."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"2"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"This matchup is easy because Garen can't really get to you, he has lackluster movespeed and even then, you have your W and Q. Remember to use your Q after his Q so he doesn't remove the slow. The only way you die is if you're half HP and he flash + Qs so you can't ult and then he just comboes you down with E and R. Be extra careful when he was Stridebreaker because he'll be able to get to you then."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS."
+],
+[
+"Starting Items",
+"Doran's Ring"
+],
+[
+"Tips Against the Matchup",
+"A typical ranged matchup but you can start out-trading gnar at level 6. Don't go for risky cs and under tower, give up caster minions if it means you'll save up on HP. Don't be afraid to put some points into W for sustain. Be really careful with Gnar's range and his bounce, he can travel a ton of distance and get a lot of free Attack Speed to mow you down. At 6 You can go for short trades with PTA. Dblade helps you match his damage."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Ring\nCull is a great early buy in this matchup 1st back."
+],
+[
+"Tips Against the Matchup",
+"You never want to trade into Gragas untill like level 11; unless you're fed. Try and buy early boots as it helps out a lot on dodging his Qs and be aware on where he is on the map as he'll be roaming a lot. Spam fleet and PoM on him when possible to heal and put some points into W early. Farm and be patient, don't turn your brain off to engage as he's hard to kill and might bait you into tower or gank. Biggest issue with this matchup is once he completes his second back, he can start ignoring you and doing a lot of damage because of his AP so yeah, be careful."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"3"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Gwen doesn't have CC to lock you down and very little mobility. She'll most likely not have kill pressure on you unless you mess up or she's running ignite, so be careful. Try and bait her Q into the minion wave by getting somewhat close to her so she pushes into you and when she has her W around her, don't go in to trade as she'll kill you unless she's a free kill. She scales better than you if you're AD Kayle but not AP Kayle, so bear that in mind."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"You have to survive the lane, give up CS when being pressured and wait till level 6 to start trading with him. You only want short trades and when you're going in, you have to move from side to side as he's going to try and E you. Tell your jungler not to gank him early on because he will 1v2 you guys since you're very weak in the early game."
+]
+]
+}
+],
+"Hwei": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"10"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Your ultimate counters her ultimate insanely hard, especially for lategame teamfights. Always ult the champion she's ulting (unless he's useless). In the early game try and sustain as best as you can and dodge abilities by faking going into her range. Buy early boots against her. When you're level 6 try and bait her E, if she misses her you can win trades and all ins."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Ignite"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Resolve: w/Bone Plating and Unflinching."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"Hard matchup. Kayle is stronger level 1 and can look for prio, if you don't you won't be able to play the game until level 6. Lane bully that falls off, play prio level 1 then go full scaling and try to catch as much experience as possible, Kayle hard outscales."
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"1"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start"
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"2"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start"
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Ignite"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"10\n7 if they take LT or Conqueror."
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Bone Plating and Unflinching."
+],
+[
+"Starting Items",
+"- Doran's Blade.\nRush Tier 2 boots in this matchup"
+],
+[
+"Tips Against the Matchup",
+"If the Jax has Grasp, that means he knows the matchup (because he can only go for short trades), so bear in mind it's going to be a lot harder. Only go for very short trades against him when close to your tower. If you're away from it and he's freezing, try and ask for your jungler to help you push. You can't win all-ins. You'll be able to beat him level 6 if you outplay him or level 11+ on a realistic game. With T2 Boots rush, you're going to be able to kite his E before he stuns you with W + Q (while he is mid-air) if he Es on top of you (not pre-E)."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"10"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield."
+],
+[
+"Tips Against the Matchup",
+"He might try and zone you off level 1 but all you have to do is try and soak off exp and go for REALLY short trades. If you manage to short trade against him you'll win the earlygame as you'll out-sustain him. YOU HAVE TO LOOK at his First Strike cooldown and proc it using minions when it's up in order to win this matchup, otherwise he'll have a 300 gold lead at level 6."
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Avoiding his Qs is going to be very difficult as he has no cooldown on them. Try and stay under your minions as his Qs deal less damage and will push the wave into you. Rush T2 boots every time and try to survive till level 11 were you can all-in him. You can all in him before level 11 if he messes up."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"Stop Playing Normals"
+],
+[
+"Tips Against the Matchup",
+"Try and ult after she ults so you negate the damage and she doesn't. Also, go to ranked."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"Pay attention if he has Conqueror, Dark Harvest or First Strike. If he has Dark Harvest or First Strike he's going blue, if he's going conqueror he's going red. If he's going blue don't be afraid to try and trade levels 1-5 so gets red and then AFK farm levels 6+. If he's going red, just afk till level 6 and you'll be fine. Always try and sidestep to dodge his W. Be careful with his ult as he can proc it very fast and kill you if you're timing it with your ult."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Unflinching."
+],
+[
+"Starting Items",
+"Doran's Ring"
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Ring"
+],
+[
+"Tips Against the Matchup",
+"Simple but annoying matchup if he's good, play from distance poking him out catching as much cs as you can. Look to punish with PTA proc if he ever wastes his dashes. Nashor's > Rabadon's > Void Staff"
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Shield."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Ring Start"
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Cloth Armour + 4 Health Potions Start"
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"10"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Ring Start"
+],
+[
+"Tips Against the Matchup",
+"If he has comet the matchup becomes a little harder but there's a trick (https://www.youtube.com/watch?v=7MJ7JoeXO6c&t=33s&ab_channel=UJard) where you can dodge his comet by moving towards the opposite side of where you're moving as soon as he hits you with his Q, denying a lot of his poke. You want to try and free farm and be at more than 70% hp against him (especially if he's AP) because he can one shot you from a perma stun if you're not careful. Just free farm and scale."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack"
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Ring\nBuy Zerkers instead of Swifties."
+],
+[
+"Tips Against the Matchup",
+"Just farm and stall. If he engages into you run him down with Lethal Tempo. Be aware on how he's playing, if he never engages and out of no where he does, that means you're getting ganked. Other than that, your focus is on stalling and farming as much as you can as he really doesn't have kill pressure into you. That's why you're taking Cull, double scaling health and GS, because it's mostly a free farm lane where neither player can kill the other one unless they misplay. Pay attention to the map if the maokai is freezing as he has an amazing gank setup."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Mel": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield"
+]
+]
+}
+],
+"Milio": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"2"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start."
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Ignite"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"You win this matchup by baiting his E and his Q; walk into their range and bait them, don't get hit by them. Try and sidestep them always when you go into his ability Range. His E cooldown is about twice as long as his Q cooldown. Bait his Q into the minion wave so it pushes permanently into you. Once you're level 6, you can force long trades and all ins when he misses his E; he can't do anything. When under his ult, use our ult against one of his Qs."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"2"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start"
+],
+[
+"Tips Against the Matchup",
+"You start out-trading her at level 6 and you scale way better than her. Just let her push into you (even if it mean eating some free AAs so the wave focuses her) and wait till level 6."
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"3"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull\nRush boots of Swiftness."
+],
+[
+"Tips Against the Matchup",
+"Nasus matchup is very hard unless you know exactly how to counter him. You're stronger than him first two levels, so stack your passive and be very aggresive. There's times where the nasus doesn't respect you and you can get a free kill. After level 3, respect him till level 6. You NEED to rush swifites in this matchup so you can poke him down with the slow resist from them. lvls 6-10 it's a skill matchup but after level 11, you start winning easily. Trade ghost for ghost and he can't catch up to you. Rush Void staff 3rd after Rabadon's followed up by Verdant barrier (DO NOT COMPLETE BANSHEES UNTIL LAST ITEM) into Lich Bane. Nasus can't pop your Verdant without using W."
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"2"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"Nilah is not very good on Solo Lanes because she losses her benefit EXP Share to an ally and her ability to buff and share heals and shields. She doesn't have a ton of damage but her all-in is amazing with two dashes and a pseudo-diana ult. Be very careful because of this to not be far away from your tower and care if she freezes because her gank setups are so good. Bait her Q into you when next to minions in order to make her push into you and also when she has her Q buff and you're getting poked, make sure you're next to minions because she does AoE Damage with her Autos (like tiamat) and will help you push the wave into you."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9 if AD Neeko. 8 if AP Neeko."
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Normally top Neeko will go AD or any variant of AD On-hit. The matchup is extremely hard as you'll get poked out hard. If she's AP, it's more manageable but she'll scale a little bit better. Give up a ton of CS if it means staying healthy and against Neeko you don't want to stay close to your minions as her E will root you for a longer duration. Stay in a line of sight where she can't hit both the minions and you with her E at the same time."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield or Ring."
+],
+[
+"Tips Against the Matchup",
+"Try to avoid poke early, experience is more valuable. Trade a bit of your HP to catch minions under tower."
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Ring"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack"
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Difficult matchup. Don't walk into range level 2-3. Can win fight level 1 by outplaying it, but it's risky. Play to survive until 6 and then just look to scale, punish him being Melee if he ever W's you after 6."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack"
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield start."
+],
+[
+"Tips Against the Matchup",
+"She's going to try and pokle you down with her passive early on. ry to avoid her using her passive on you, just let her use it on minions. Avoid walls and if she's going to hit you with Q, bait her into using it on the minion wave in order for her to push into you. Farm as much as possible, you can outplay her lvl 6+ and kill her or always win lvl 11+ if you did fine."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Cloth Armour + 4 Health Potions Start"
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Cleanse"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Rell": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"1"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start"
+]
+]
+}
+],
+"Renata": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"Her E is her main poke ability and makes her trade very efficiently with an added shield; plays somewhat like a Viktor in that regard. Stay behind minions as her Q is a root that redirects you. She can CC you for a long time with her Q and Ult. If you kill her imagine she's a Sion, she'll come back from the dead to try and still kill you so just flee. Her poke is like Karma Q but goes thru minions so try and stay next to your minions so she at least pushes the wave into you."
+]
+],
+"as": "Renata Glasc"
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Bone Plating and Unflinching."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"Try and go in and out of his E range so you can bait it out and he uses it to push the wave into you. Also, if he really doesn't want to push, you can try and force him to trade under your minion wave so he uses his Q under your wave. Stay next to tower and be careful with your HP because renekton is a great diver, especially if he has a good diving jungler. If you're far behind, plated steelcaps mess renekton up hard."
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"LET RENGAR PUSH. If he pushes and you're close to our tower, he can't really abuse the bushes in the matchup and you can farm freely. Just let him push and afk till the minions are around your tower. Try and hold them outside so they don't bouce but only if you can (not too many minions or rengar can't be aggresive). Go for really short trades post 6 and just outscale."
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Bone Plating and Unflinching."
+],
+[
+"Starting Items",
+"Doran's Blade Start.\nTry and Rush T2 Boots ASAP"
+],
+[
+"Tips Against the Matchup",
+"Trade with your E when close to your tower to make her go low and don't get caught far from your tower because you WILL die. The reason why you're going t2 boots rush is because RIVEN'S Q IS TIED HER DAMAGE WITH HER MOBILITY. Meaning that since you have so much movespeed, she'll have to waste more than 1 Q catching you which makes her lose a ton of damage. Always slow push in this matchup."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Resolve: w/Bone Plating and Unflinching."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"2"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Cull Start."
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"2"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"3"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Ring"
+],
+[
+"Tips Against the Matchup",
+"You want to evade trading against Sion, even at level 6. He'll E you and Q you for half your HP and threathen an all in. Best thing you can do is bait out his E (by going in range next to a minion) so he misses it. He's gonna be a hard matchup to push under tower as he has his shield and his Q to tank and kill minions, so try creating a big minion wave."
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Smolder": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + ignite"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"3"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Doran's and Second wind are a MUST in this matchup. It makes the teemo matchup go from a 8 to a 4 in difficulty with any champion if you know what you're doing. His poison will proc both second wind and doran's shield multiple times so you'll be regening a TON of damage. Go for short trades ONLY (Q+E ´most of the time) since he'll blind you. These short trades are beneficial because you have a ton of sustain with items, runes and W and he doesn't. All in him when you know he's low enough that he can't win even with blind. Use your ult when he blinds you in all-ins since you AAs are useless anyways."
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"2"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start.\nRush Boots of Swiftness."
+],
+[
+"Tips Against the Matchup",
+"AFK this matchup, you can even take Cull and free farm if you want. DON'T try and trade against him, he'll out-trade you and has insane sustain so it's never worth it to trade 1v1. Start going for trades after level 6 if you're close to your tower. Especially don't try and poke him if the minion wave is close to his and he has ghost since he has good all-in potential. You'll mega outscale him so even staying even is a won lane."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start\nRush Boots of Swiftness."
+],
+[
+"Tips Against the Matchup",
+"He can activate phase rush with W, so be careful. If he freezes, ask for help as you can't stop his freeze. His ult cooldown is basically half as your own so if you used ults at the same time, you have to wait for yours and be very careful because he'll have his. I would honestly dodge the matchup, especially if playing Top lane Kayle."
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Cleanse"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start."
+],
+[
+"Tips Against the Matchup",
+"Careful if he has ghost as you don't and he'll run you down when close to your tower. Do NOT trade with him, just farm with cull and wait for lane to be over. Trading is futile as he has insane sustain and you can't ever all-in him because of his movespeed."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Urgot has the best lvl 1 in the game; yes, even better than Rengar's. He's so strong level 1 that he can beat most champs level 2 if he's still level 1. For that reason DON'T facecheck bushes level 1 and be very careful. You can start winning level 6 if you can poke him and dodge his E. Always rush T2 boots in this matchup as being able to kite and dodge Urgot is the key to winning."
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade."
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Vex": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Be VERY careful when she charges up her passive. You can see her passive being charged up with the bar under her health. When it's charged, she will fear you with any ability, since you're ranged, she's most likely use her Q or her E which are both dodgeable. After she's lvl 6, beware when she's on fog of war because she might jump on you and oneshot if she's fed."
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Viktor has become a very hard matchup since the introduction of first strike. Try and click on the character and check when frist strike is up and as soon as it's off cooldown you want to try and use minions to proc it before he does. His poke is insane so DON'T try and go for short trades, just turtle up and giveup cs; you'll eventually outscale."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport mid\nFlash + Ignite top"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Cull.\nRush Boots of Swiftness."
+],
+[
+"Tips Against the Matchup",
+"The matchup became a lot more bear-able ever since the toplane quest. Trust me when I tell you guys this, take exhaust and laugh. Use exhaust only when Volibear ults (when he's midair before he hits the ground), he won't do damage. Exhaust counters the bear so much it's pretty much a free farm lane unless you're misplaying. Exhaust also works to disengage after he hits you with Q."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Ignite"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull start."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Bone Plating and Unflinching."
+],
+[
+"Starting Items",
+"- Doran's Shield."
+]
+],
+"as": "Wukong"
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Cloth Armour + 4 Health Potions Start"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport mid\nFlash + Ignite top"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8 if midlane. 10 if toplane."
+],
+[
+"Summoner Spell",
+"Flash + Teleport mid\nFlash + Ignite top"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"Honestly just dodge. The mathcup is so atrocious it's not playable."
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"A good yorick will put some extra points into his W so you can't escape (as you'll need more AAs to escape). Try and play as safe as possible and when you're in W range and not close to your tower, DON'T USE YOUR E. Only use it to AA cancel into E the cage so you can escape. You can start trading against him at level 6."
+]
+]
+}
+],
+"Yuumi": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"1"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start"
+],
+[
+"Tips Against the Matchup",
+"Yuumi is actually insane in a solo lane levels 1-5 so DON'T underestimate her. She has the BEST short trades in the game and infinite mana and health sustain. DON'T go for short trades, you have to stall the game till level 6 and all in her with E max. She struggles heavily in all-ins because she can't abuse her passive and is the queen of short trades."
+]
+]
+}
+],
+"Zaahen": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"3"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start"
+],
+[
+"Tips Against the Matchup",
+"This is an insanely difficult matchup. Don't underestimate his damage, he hits like a truck even though he's a tank. He also has infinite sustain with his passive so it's never worth it to trade against him, especially earlygame. You can step on his blobs to make him avoid using his passive but don't put yourself on risk for it. He will try and cheese you using the bushes with his E so be very careful of fog of war. Try and turtle the whole game and NEVER trade."
+]
+]
+}
+],
+"Zeri": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start."
+],
+[
+"Tips Against the Matchup",
+"This is a skill matchup. Against a good Zed, he will trade his ult for your ult and then all in you when his second ult comes back as it was way lower cooldown than yours. Be VERY careful if your ult is on cooldown because of this. Use your ult as soon as he jumps on you with ult unless he's been expecting you to do that (mind games), then use ult a little afterwards. Bait his shurikens into you earlygame to hit your minions so it pushes into you."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Cleanse"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Ring"
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+]
+}
+}

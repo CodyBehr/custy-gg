@@ -1,0 +1,811 @@
+{
+"champ": "MonkeyKing",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1eIiYkjMSkD1fyj7aeQ8r4yhA0yN3qedZdAYy42cHqJI/edit",
+"author": "Pride Jia",
+"rank": "Masters NA",
+"updated": "2021-01"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"Wukong has a very good matchup into Aatrox, as he is able to close the gap extremely well and avoid getting hit by Q's. You should be looking to slow push early game and trade aggressively. Just hold onto your W while going for trades to dodge Q's. Post six you can straight up all in him. Grab an executioners early to further decrease his healing. As of season 11, Aatrox actually is a beast when he gets goredrinker, so if you don't get a lead before then he will be very difficult to deal with."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 6/10"
+],
+[
+"Tips",
+"Try to E on her early and bait her shroud and save your W after her shroud wears down. From there you can run her down. Try to trade with her when her energy is low, as nerfed akali has super high energy costs and cannot do much after using a single Q. Try to stay on top of her when you trade with her, as akali's strength comes from kiting people using her range, and E'ing on top of her and sticking onto her in melee range will make it more difficult for her to trade. At level six, it comes down to whether you can dodge her R2 or one of her Q's with your W. This lane is very snowbally, can go either way."
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 4/10"
+],
+[
+"Tips",
+"Careful of Camille's lvl 1-2, it is actually stronger than yours due to her double auto reset and her passive. Play the lane safe until level 3, where you can start to look for trades. Try to bait out her passive by walking up for Q and kiting her during her shield duration. Your W also blocks her E, so save it for that. Post six, you completely destroy her in an all in, so look to trade aggressively. Just make sure to not commit to an ulti until you see her use her hook shot, as you have no way of catching up back to her if she still has it up. Careful of her scaling, as if she makes it to 2 items while going even with you, she will outscale you in the 1v1, so look to get a lead on her earl…"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy-Hard, skill dependent on the Cassio 2/10-10/10"
+],
+[
+"Tips",
+"This matchup is actually extremely hard if the cassiopeia is extremely skilled. However, if it is a bad cassiopeia that fails to tether correctly, it is very easy to kill her. Try to bait her Q's by side stepping, and look to E on her when its down. At level six you usually it is easy to outplay the cassio by E'ing on top of her and W behind her to dodge her ulti. An early boots rush against her is actually very good. Saving W to dodge one of her Q's is also optimal."
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"Cho actually has very good lane sustain, so it is actually quite hard to kill him early. However he doesn't quite have the tools to kill you either. It is mostly a farm lane early. He is pretty slow so it is easy to set up ganks with your jungler. It is pretty easy to dodge his Q also with your W, but thats pretty much the only thing matchup specific here. However, if both of you are even, you do win the 1v1 once you grab sunderer, so you can look to run him down if he oversteps."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy-Medium 3/10"
+],
+[
+"Tips",
+"Levels 1-2 is really bad, he can just run you down with ghost if you get too close, so play the lane back until level 3. The key thing about playing against Darius is to take short trades against him where he cannot stack his passive. Try to save your E to dodge his outer Q and take a quick auto Q trade before running away with W. Once you whittle him down, it is very easy to all in him and kill him. At level six, you can just straight up all in him and win, this has been a pretty common reoccuring fact across most matchups so far, however this migiht change with future nerfs. Early boots buy is also helpful against Darius. If you still find yourself struggling and misplaying all ins vs dari…"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"Early executioners definitely key in this matchup. The champion is very weak early you can trade very aggressively. At level six, you also have a very strong all in advantage, try to chunk him a bit to 50%ish hp first before commting to an all in, as he can potentially heal all the damage back up if you all in him at full hp. Try your best to get a lead before level 11 as that is when the champion becomes unkillable if not shut down"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"Levels 1-3 all depend on where the vital spawns. If she gets a good vital, you will be forced to give up lvl 1 push. If you get a good vital, she is forced to extend far into your minion wave to get it, and from there you can get a favorable lvl 1 trade. It is improtant to block her parry with your W, because if you get hit by her W, the attack speed slow ensures that you lose the trade. If you are able to do that and get her parry off cd, she is a sitting duck and you can jump on her whenever you want. At level six, your all in is a lot stronger than hers, just make sure she does not get to hit you with a parry stun. At this point getting hit by parry attack speed slow is okay, as you can u…"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"Gangplank's lvl 1-2 is actually very strong, due to grasp procs and his passive true damage. D shield second wind is very helpful in surviving the first few levels against Gp. Give up wave lvl 1-2 and wait until level 3 to trade. Try to use your W to dodge his barrel damage. At level six, you hard win the all in, it is important to treat GP as a ranged champion. Avoid as much poke early, and wait until you have your cooldowns and the wave in a favorable spot to look for trades/all ins."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard 7/10"
+],
+[
+"Tips",
+"One of the few champions that actually end up stat checking you later, unless you catch him off guard and bait his W, it is very difficult to all in him. Whenever he has his W up, he can just run at you and trade with you for free, try to block his Q with your W, and auto him to bait out his W. When its on cooldown, then you can take an all in. Your best chance of killing him is before levels 9-10, if you don't get a lead then you will never beat him in the side lane again."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"Mini Gnar is very weak. Don't be afraid to trade aggressively while he is in mini form. Just make sure to stand behind minions when you are on CD so his Q's don't hit as hard. HIs hop cooldown is much higher than your E cd so be sure to take advantage of that. However, when his rage gets near mega form, it is very easy for him to surprise you and turn you around, as his ult will be up basically everytime he turns mega. Try to wait out his mega form or make sure you're fighting away from a wall. But overall, this lane should be easy for you. You beat him at all stages of the game as long as he isn't close to mega."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 6/10"
+],
+[
+"Tips",
+"People have actually discovered Phase rush gragas top to be a decent counter to wukong, it is actually very hard to trade against due to his E cancelling your E and his phase rush makes it so that he can just poke you and run before you can look for an extended fight. He will just continue to poke with Q and play safe with E, so if he plays properly, you will never be able to kill him. However if he does mess up and fail to E you away, you can actually stat check him at melee range if you manage to dodge some abilities with your W which is not difficult."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 5/10"
+],
+[
+"Tips",
+"Hecarim actually runs you down early if you aren't careful, as generally he will be taking 1-2 combat summs. Try to bait out his W, as this is his main trading tool, but the cd is super long so you can trade freely after it is down. At level six, Hecarim wins the all in if he has ignite and w up. You need to bait out one of those in ordder to win a fight."
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard 8/10"
+],
+[
+"Tips",
+"Very difficult for you to do anything against this guy, especially when he is sitting around three turrets. Your passive is also useless against him. Your best chance is to try to manipulate the wave out of where he set up his turrets, and look for trades when he walks up out of his turrets. Or after he takes a reset, you can set up a freeze and all in him before he sets up all his turrets. But overall, if he knows what he is doing, the lane will be rough and you probably won't be able to solo kill him. He is pretty inmobile however, and because he naturally pushes, it shouldn't be hard to set up ganks on him."
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 5/10"
+],
+[
+"Tips",
+"This matchup is completely skill based. You just have to dodge skillshots which in my experience is not very hard. Early levels you win trades very hard. Just keep in mind to try your best to dodge her E, you can do it with your W. An E auto W on the illaoi generally is easy to bait out her E onto your clone. But even if you get hit by the E, you still win trades as long as you dodge some tentacles. Post six dodging her E becomes even more important. The only way you lose post six is if you all in her when she hits you with both E and ult. If you bait out either E or ult, then you will win the all in. Early executioners will also help. You must play careful all game however, as even if you d…"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"Trade aggressively when she doesn't have passive stacks. E on her and auto her down when she walks up for minions. After a few levels, save your W to dodge her E. At level six, it doesn't matter whether she has passive stacks or not, you will win a full out all in. But if you ever mess up and fall behind, she will run you down. But that shouldn't happen, the lane is very easy for you. Just make sure you get a big enough lead to buy your first item before she buys bork."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 5/10"
+],
+[
+"Tips",
+"The only matchup where you actually start W level 1. It is important to dodge out his counterstrike with your W, in order to not lose trades. While counter strike is on cooldown, you will win trades. Just be aware that his counterstrike comes up 4 secondes before your W, so do not let him abuse this time window. Post six, you have all in advantage, just make sure you dodge counter strike with your W and to not use your Q on him when counterstrike is up, you need the armor shred to win the all in. Work on developing a lead early, as if he makes it to 2-3 items without getting shut down early, he will oustcale you in the sidelane"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 4/10"
+],
+[
+"Tips",
+"If Jayce takes phase rush, the lane will be slightly harder. If he takes anything else, the lane will be easy. Take Dshield and second wind. Do not trade levels 1-2 as he has more abilities than you and likely will be slowpushing a wave into you. At level 3, this is when you can start taking trades. Post six you win the all in hard, as he does not have a real ulti. Just make sure to avoid poke and stay healthy until you decide to take trades. There isn't a lot you can use W to block besides a max range EQ from the jayce, so feel free to just use it for damage in the all in."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"Haven't seen kalista top in a while, but the lane shouldn't be hard post level 3. Similar to the Jayce matchup, take Dshield second wind, chill until level 3, then look for trades. At level six, you blow her up in an all in. If you really want to, you can buy warden's mail to completely cuck her, but you probably do not need it."
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard 7/10"
+],
+[
+"Tips",
+"Very annoying matchup, she can escape any all in due to her ms shield, and her W. Unless you see her waste both abilities for fun, you can't ever kill her. Not even post six, her RW will heal up pretty much all the damage that you deal to her in an all in. Best bet is to heal up her harass with Dshield second wind and to wait for jungle ganks. As long as you don't take too much harass, she shouldn't have kill pressure on you either."
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"Trade aggressively early, she is very weak early game. Try to set up a freeze so you can run her down, otherwise she will safetly farm under the safety of her turret. You win all trades until level 11. If she does end up hitting level 11 with nashors while going even with you, you will never be able to side lane against her ever again. However that should not happen, it is pretty easy to at least kill or zone the kayle off xp and cs early."
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 6/10"
+],
+[
+"Tips",
+"A good kennen is actually very difficult to lane against. If you ever get tagged by a random Q or W mark, he can insta stun you if you jump on him. Do not bother rushing mercs, as the majority of kennen's stuns are 0.5 secs, so it doesn't really doing anything. Your best bet is to look for trades when he has no passive marks on you and to try and W to dodge his Q. But overall, if the kennen is good, you won't ever be able to kill him. However if the kennen is bad, the lane is very easy. If he does not kite well and use lightning rush properly, it is actually very easy to kill him. If you ever see him waste his lightning rush killing him is very free. Post six you do win a full out all in, bu…"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 4/10"
+],
+[
+"Tips",
+"Kled actually trades into Wukong decently in the first few levels. Both his E and Q reveal you in stealth, which can be very annoying. Avoid trading until you see him expend his W attacks on minions. If you ever dismount him, it is best to play back until you have your cooldowns back up, otherwise you could give him a chance of remounting. Post six you win all ins, as long as you don't die to him early, you should beat him side lane all game."
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 6/10"
+],
+[
+"Tips",
+"I rarely see this champion played top anymore, but she is actually very annoying to play against with her W and her constant shoving and poke. At level six it is also very hard to all in her when she has her ult and E to escape. Good thing is she doesn't have much kill pressure on you either. This lane is pretty much a farm lane."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 5/10"
+],
+[
+"Tips",
+"Lucian's lane phase is really strong early, its even hard to trade at level 3, if he kites well enough. Just like most matchups you hard win all in level six. You can cancel his ult with it as well. You can also take d shield early but in stead of second wind, I would actually take bone plating, as he generally looks to combo you with his passive instead of just poking and harassing. As long as you survive the first five levels, you should destroy him in all ins later on."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard 10/10"
+],
+[
+"Tips",
+"This is probably the worst matchup in the game for you. Attack speed slow, armor stacking, and magic damage both combine to spell the doom of wukong. Your best bet is to sustain up with dshield second wind against his Q harass if he does take comet. There's no point for you to trade against this guy, the only thing you can do is sit back and wait for ganks."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 6/10"
+],
+[
+"Tips",
+"Maokai actually trades decently into you, with his Q being able to cancel your E, and his sustain with his passive. Early levels it is best to relax and avoid trading unless you have a big minion wave. Post six you have all in advantage, but it is hard to 100-0 him, so it is best to wittle him down before going for an all in. If you still can't kill him then, if you make it to sunderer without falling behind, you will have an easy time sustaining and matching him sidelane."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard 9/10"
+],
+[
+"Tips",
+"Probably the second worst matchup in the game for you. He is killable very early levels 1-3, but after that he will win every trade against you. Post six you must avoid E at all costs, which actually isn't too hard to dodge you can literally just side step out of it (or W if you really are scared). If the lane goes even, you will never be able to win 1v1 against him. However Mordekaiser is a stat check champion, so if he does end up dying to you in the early levels or dying from a gank, you can actually 1v1 him if you have more gold/xp. If you do want a chance to beat him it is very crucial to set up a play with your jungler pre six, as post six if your jungler attempts to gank, he can just …"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 6/10"
+],
+[
+"Tips",
+"You must try your best to zone him off xp and cs pre level six, try to set up a freeze and punish him everytime he walks up for cs, because post six he will actually run you down if he managed to survive the first few levels. You must either freeze on him to set up ganks for your jungler to set him behind, or slow push huge waves into dives with your jungler. If left untouched, he will become a monster side lane."
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 1/10"
+],
+[
+"Tips",
+"Haven't seen this champion top lane in a while, but you should not have a problem against him. His laning has been nerfed pretty hard, you should win trades all game and continue to dunk on him post six with bork later. The only way I see you dying in this lane is if you get hooked under tower or if he sets up a jg gank with his ult.."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 4/10"
+],
+[
+"Tips",
+"Avoid standing behind minions early to not get rooted for an entire year and taking a buttload of damage. Also keep track of her autos, as she will most likely want to use her 3rd auto to poke you. Try to avoid poke early before you look for trades near your tower. At level six you win all in. Just like every ranged matchup, just avoid poke and look to all in while you are healthy."
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"If you do end up running into Eshyn in the top lane, he is going to look for grasp procs on you early and harass you, so just like every ranged matchup, you chill until level 3 to start looking for trades. Keep in mind nidalee passive does reveal you in stealth. At level six you win all ins. Still need to research more on this matchup as I do not face this matchup often, but it shouldn't be too different from most other ranged matchups"
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"Nocturne pushes you in first few levels. He is actually very strong 1v1, but you should still win all ins post six. Just keep in mind to W just as his fear expends so he does not get free auto attacks off on you. The timing will be a little weird at first but once you get it down, you should not lose any trades vs him. Make sure to ping missing whenever he is not in lane, as a lot of nocturne's look for roams with his ulti to get a lead."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"Play it safe until level 3, olaf can actually cheese you very early in the first two levels. Early executioners is also going to be very helpful in this matchup. Post level six, you win all ins, the only way you lose this lane is if you get cheesed early and set behind."
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"You win extended trades vs him, he is going to look to Q you and proc grasp for quick trades. Try to slow push early and trade heavily. Keep your W to dodge his brittle attack, as that is where his main damage comes from. At level six, you win all ins, you should look to use your second knockup to cancel his ult. If you still don't get a lead then, you will hard win side with sunderer, assuming you are either even or ahead."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"He is actually very strong early game and wins short trades vs you. Play the lane back levels 1-2, then look to trade level 3, you should use your W to dash behind him as he uses his E. If you still find yourself struggling, post six you win all ins hard, as he does not have a real combat ultimate. If you are really scared, you can take dshield second wind, but I recommend against it, as he is pretty abusable. He is more likely to roam a lot post six, so be sure to ping missing for your team."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard 8/10"
+],
+[
+"Tips",
+"One of the fewer hard matchups that Wukong struggles against. Poppy has a very strong early game and her W completely cucks you out of using your E and W. Avoid standing near walls, as she can straight up one shot you early if you do. At level six, you can try to all in, but she is most likely just going to push you away. Overall, it is very hard to trade against her, I would advise just farming it out until mid game. You do outscale her sidelane late in the game, but she will be smacking you for most of the game."
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 4/10"
+],
+[
+"Tips",
+"Quinn is hard to trade into, as long as she saves her vault, it is very hard for you to get into melee range of her. D shield second wind early will help you survive. Post six you hard win all ins. You can use your W after she vaults you to get into knockup range. She is most likely to roam a lot with her ult post six, so make sure to ping missing and shove her in with tiamat to punish her for roams."
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 5/10"
+],
+[
+"Tips",
+"Renekton is very weak levels 1-2. You must build up a slow push early and trade aggressively before he stacks up fury. It is advised to try and get a cheater recall in this matchup after slow pushing the first 3 waves. Post level 3, he is going to look for short trades where he dashes in, stuns you and Q, then dashes out. Try to tether him out of his E range and force him to either use his second dash to dash out, or to continue dashing in. Either way, he loses fury and you can just win the trade. Do not E onto him when he has 50+ fury and all his abilities up. Post six, his ultimate outperforms yours in a 1v1, so if you haven't got a lead then, you will most likely lose the all in. But whoe…"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 1/10"
+],
+[
+"Tips",
+"Rengar is a very easy matchup. You just stat check him the entire lane phase. You can even fight him lvl 1 in the bush with your passive. As long as you don't die to a gank, you should never lose 1v1 to a rengar."
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 5/10"
+],
+[
+"Tips",
+"This matchup is very skill dependent on the Riven player. A good riven can cancel your E damage and take short trades vs you. You win extended all ins but it is very easy for the riven to run away. Try to fight her whenever an ability is on cooldown. At level six, you win the all in if you dodge her 3rd Q or her R2 with your clone."
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 5/10"
+],
+[
+"Tips",
+"Rumble trades very well into Wukong early, as he can Q through the wave taking zero minion aggro. Your best bet is to try and look for a quick trade when his Q is about to expire. But overall, it is best to just farm until six when you can all in him."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 1/10"
+],
+[
+"Tips",
+"Ryze is very weak atm, this matchup is very free, you just E on him whenever, and he can't do anything about it. He has so little damage early and weak escape you should easily freeze on him and zone him off minions. At level six it becomes even easier. The only way I see you dying this lane is if you get ganked or misplay a dive."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 6/10"
+],
+[
+"Tips",
+"Sett's early game is actually very strong, he outtrades you early so you're gonna have to play back in the lane. Level six you have all in potential, but you cannot afford to tank the true damage from the W. Make sure to side step it or dodge it with W."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard 7/10"
+],
+[
+"Tips",
+"Shen is very hard to trade into. His Q auto attacks are very strong early and the extra range makes it easy for him to auto space you early. If you try to respond by E'ing on him, his W shield will negate all your damage. Also it is very hard to dodge his taunt. If he ever taunts you and pulls his sword through you, you're gonna get beat down. At level six, you do have all in potential, but it really is hard to kill him if he has taunt and W up. Overall, I suggest just farming it out and shoving waves with tiamat so he cannot ult to other lanes without losing a ton of minions."
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"You should never lose trades to Singed, just look to get quick E auto Q's off and backing off his poison. The main thing to keep in mind when playing against Singed is to not chase him in his poison. If he flips you, keep running in the direction he flipped you, in order to avoid the poison. At level six, your all in is stronger and you should just win any fight, as long as you don't fall behind early."
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"Another easy tank matchup. You can trade with him whenever you want. Just make sure to reposition out of his Q with your W, which is really easy to do. As long as you don't fall behind to a jungle gank, you outtrade him all lane."
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"If you're playing against Merthos, just roll over him. You win every trade. The only thing to be careful of is trading near his tower because he might ult you in so try to freeze the lane"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 1/10"
+],
+[
+"Tips",
+"Sylas has a very weak early game. Trade with him a lot early. Just be careful of his W, as he might surprise you with the healing from it. Early executioners is helpful in this matchup. At level six you hard win all ins, your ult isn't very good on him so unless he gets a crazy ultimate from your jungler, you should be completely fine."
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 3/10"
+],
+[
+"Tips",
+"Teemo can be annoying with early with his blind, similar to every ranged matchup, take dshield second wind and survive the lane until level 3. Keep in mind while trading, you should wait out the blind with your W stealth. Try to avoid harass and poke early and all in at level six. An early boots buy is very helpful in this matchup."
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 6/10"
+],
+[
+"Tips",
+"Similar to Renekton, it is important to look for trades when he is low on fury. You win extended trades against him, look to play aggressive pre six. Post six, it is very hard to kill Tryndamere unless you somehow bait out his ulti. Trynd also has a lot of sustain, so taking favorable trades is actually worse for you in the long run. Overall, you really need jungle pressure to kill the Tryndamere, it is very hard to consistently be able to solo kill him."
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"Pre level 9 Urgot is incredibly weak, feel free to trade very aggressively. The main thing you want to focus on while trading is reacting to his E with your W. Also try to fight him near the side of him that does not have legs up. At level six, your all in is stronger. It is very easy to chase him down, even if he has E up. The lane should be extremely free. However, if he somehow manages to survive and go even until level 13, he does beat you in the side lane. But you have such a big time window to get a lead before then that should never happen."
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"Similar to every ranged matchup, you take dshield second wind and chill until level 3. Her E cd is much longer than yours, so it is fairly easy to get on top of her. Just like every other ranged matchup, avoid as much poke as you can before you all in her at level 6. Eventually, at 3+ items she will outscale you, so get a lead before then."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"Early executioners helps in this matchup. Vlad pre cdr and level 9 is incredibly weak, trade extremely aggressively with him early. Try not to push the wave too close to his tower, as he will try to set up a freeze and farm safetly. Instead, try to set up a freeze on him yourself. Back off when he has empowered Q up, but other than that, you should always play very aggressively. If he does end up making it to 2-3 items however, he will outscale, so get a lead before then!"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard 8/10"
+],
+[
+"Tips",
+"One of the only matchups where you do not want to take an extended trade. If he gets multiple W's off, he actually wins extended all ins. Try to look for short 3-5s trades before he is able to get a W off. Try to wittle him down little by little until he is at the point where you can all in. Be careful of getting slow pushed in, as voli is excellent for setting up tower dives with his jungler. Overall, pretty hard matchup."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy 2/10"
+],
+[
+"Tips",
+"Should be an easy matchup. His wind wall is useless against you. You can just straight up run him down whenever you want. Post six you win as usual, just blow him up. However if he does end up surviving until 3 items, he will outscale in sidelane, so try to get a lead before then which shouldn't be hard."
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 4/10"
+],
+[
+"Tips",
+"Very weak early. Look to trade aggressively pre six. You can use your W to dodge his W or E, either will help you win the trade. At level six, he will start to perma push with his maiden, set up ganks with your jungler. Overall, the key to the matchup is to avoid either his W or E, otherwise his ghouls will run you down."
+]
+]
+}
+]
+}
+}

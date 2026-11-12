@@ -1,0 +1,927 @@
+{
+"champ": "Draven",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1-UQuTmk2NYVMc6XTNRWuUaKMFStLCPPp/edit",
+"author": "AfroTJ",
+"rank": "Challenger NA (Draven main)",
+"updated": "2025"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"1"
+],
+[
+"Annoying Scale",
+"3"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"Her trading auto pushes the wave which is beneficial for Draven as it is hard to bounce/freeze in normal circumstances. She also doesn't do enough damage early to actually be a threat to you. Free matchup but slightly annoying since she'll likely draw her jungler to the lane and post 6 she's much harder to kill/gank for your team."
+],
+[
+"",
+"Because bot lane has two champions, some of the ratings would be very different depending on the enemy team's pairing. For example, Kai'sa ADC with Sona support is completely free. Kai'sa ADC with Nautilus, Leona, or Alistar can actually make the matchup unideal for you.\nFor this reason, ratings are mostly independent of the support matchup. I will list notable matchup pairings that are hard in the notes section for each champ. I will use asterisks (*) to note this."
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"4"
+],
+[
+"Annoying Scale",
+"7"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"I wouldn't say this is a hard matchup but the champion is pretty annoying to play against. He has the Twitch/Rengar/Eve effect after he has some items, his swing can let him get out of situations easily, and he does a ton of damage for no reason. If you can knock him out of his E early when he is swinging towards you it is great. If he goes plated steelcaps the 1v1 vs him is a lot harder."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"5"
+],
+[
+"Annoying Scale",
+"10"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"You are generally going to be forced to do nothing this lane phase until 6, where you will then become a victim of Anivia pressing R > Wall > Q. The good news is that your E can cancel her ulti, her Q is fairly easy to dodge, and her passive (while annoying) makes it much more likely that your team will let you get the kill to cashout. You need to try to snowball hard enough to get Baron around/before 25 minutes, otherwise the game is likely to stall out."
+],
+[
+"",
+"Cleanse is not always needed, even vs champions like Ashe. I heavily value barrier as the survivability it gives is incredibly useful both offensively and defensively. If it was just Ashe/Varus Ult, or just Bard Q, I wouldn't go cleanse. Ashe/Varus + Leona? Cait + Lux? I start to consider it. How I judge it is \"how likely and how often will I be cc'd?\" and \"if hit by said cc, am I guaranteed to die?\" - If I get hit by Zoe (support) bubble and I have Lulu/Karma/Janna, I may not go cleanse because they will likely by Mikaels later and early in the game they can make sure I survive.\nYou'll just have to get a feel for when you should or should not have cleanse. I personally hate going cleanse un…"
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"6"
+],
+[
+"Annoying Scale",
+"5"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"Aphelios has a lot of windows where he can play into Draven safely. White/red at the start of game lets him trade, you'll get chipped/lose wave control vs blue, and he can get purple gun around level 3/4 gank timers. It's not completely unplayable, but it is a matchup you can easily lose from a bad trade or giving over an early kill. You do win in a straight up fist fight outside of him having Red/White guns, and he is immobile so there is a lot of opportunity to just run him down."
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"7"
+],
+[
+"Annoying Scale",
+"8"
+],
+[
+"Summoner Spell",
+"Consider Cleanse"
+],
+[
+"Advice/Tips/Matchup Notes",
+"Ashe is very good at neutralizing lane, and also very good at punishing you for overextending during trades. With good gank setup and her E, it is easy for you to be ganked and harder for your jungler to play around your lane. Pre-6 you can just run her down if you aren't poked out & their disengage isn't enough. Post-6 you still win, but it is less about the 1v1/2v2 at this point and more about the junglers. Try to avoid overextending for autos as you can get spaced pretty hard once slowed.\n*If she has a Seraphine, the matchup is even more annoying. Same things apply, but now it is harder to all in + Ashe auto/w & Seraphine E combo is a ton of CC that becomes very hard to dodge."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"1"
+],
+[
+"Annoying Scale",
+"4"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"Draven is commonly banned by Asol bot players and for good reason. He can not sit and channel Q on you because you outdamage him enough to just facetank it and win. Your E also will stop his Q channel and his E. You ideally want to be E'ing him out of his E, especially while trading. If he Q's, and you cancel with E, he can then use his E and start Q'ing again with more damage. He can also randomly roam mid off reset, so ping your midlaner for it."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"5"
+],
+[
+"Annoying Scale",
+"7"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"He's an immobile mage and Draven can go BT first, so the lane isn't too bad. The problem tends to start once he gets Rylai's. There's pretty much no dodging his Q if you're tagged by the slow, and the slow lasts so long that he can space you with ease. Rylai's is also cheap, so ideally you'd have enough of a lead at that point to already have BT completed. Also during lane, try to avoid his W>E poke on minions. He can't really hit W on you unless you're cc'd."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"7"
+],
+[
+"Annoying Scale",
+"8"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"This is one of the more common matchups you'll play. You can win this lane and a behind Cait is useless mid game, but it isn't favorable for you. You have to avoid being poked out of being able to all-in during lane phase. You also have to avoid running into her E as she can either E-Q-Auto and chunk you or go for E-W and try to double trap. If Cait gets to 3 items though the game is very hard. Buying Randuin's in the late game is a viable option as otherwise you will die in one auto."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"3"
+],
+[
+"Annoying Scale",
+"5"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"This is pretty free pre-6, and if you can consistently dodge Cass R on reaction it's still really favorable post-6. I just find the matchup a bit annoying since you can get locked down by W and I can't dodge Cass R on certain skins."
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"5"
+],
+[
+"Annoying Scale",
+"3"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"I would say this is a skill matchup. Corki can't out-auto you but the champion just does so much damage that you have to respect him. His build also gives him more health than ADCs usually have along with building plated steelcaps, so he is perfectly fine playing safe to try to neutralize the lane since he outscales you. You lose short trades but easily win all-ins when his E is down. You're able to follow his W and/or cancel it, just try not to run on the fire if possible."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"3"
+],
+[
+"Annoying Scale",
+"6"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"This matchup is a 3 because every Ezreal player is just awful. There is also a decent chance they're picking Ezreal to just do nothing and not feed the Draven. That being said, Ezreal does win level 1 vs you unless you have double axes/he misses every Q. The lethal tempo + his passive steroid is very strong early. If you go BT you should realistically never die during lane 2v2s. Be sure to punish him trying to E into range to proc his W - if you E him where he's landing you can turn and run him down."
+]
+]
+}
+],
+"Hwei": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"7"
+],
+[
+"Annoying Scale",
+"8"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"This is a \"build BT and do nothing\" lane. You can easily avoid his E, but it is very easy for lane to end up in a situation where you can't all-in, or he has enough items to constantly waveclear+poke. Normal mage bot things apply - squishy, immobile, can run them down/snowball."
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"3"
+],
+[
+"Annoying Scale",
+"5"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"If the Jhin rushes plated steelcaps (like he should) and has Fleet it can be hard to build a big lead. Other than that though, the match up is pretty free. You would need to be comfortable dodging his W aimed at your axe location - you can still catch it while avoiding the W. Be mindful of his Q bounces, and of the fact that good Jhin players will W right before you get hit by something else to CC you unexpectedly.\n*Xerath + Jhin is a highly annoying pairing. It becomes dodgeball simulator, and post-6 you technically can always just die if you're in their ulti range."
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"1"
+],
+[
+"Annoying Scale",
+"3"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"You can easily avoid her W, and sprint forward through her E a lot of the time, and you out-DPS her early game even with one axe. Try to build your lead beyond just a gold advantage for yourself - take dragons, invade enemy bot side jungle, have your support move to grubs.\nYou lost this matchup if you come out of lane phase without a significant lead. She's a 3 on the annoying scale because the champ does just randomly wipe fights and get back into the game due to her passive."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"3"
+],
+[
+"Annoying Scale",
+"4"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"You have auto range on her so you can contest minions constantly. Standing on your minions as well when contesting means her Q isn't getting isolated damage which makes the trade even more favorable. Her W poke also shouldn't land if you aren't cc'd as long as you're being mindful of it.\n* Matchup becomes a lot harder if she has a good support pairing like Nautilus/Leona/Alistar. With these champs, her passive can sget stacked fast and multiple times in a fight, making trades harder and all-ins scarier. From 3/4 to about 7/7."
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"1"
+],
+[
+"Annoying Scale",
+"3"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"I have not played vs this champion in over a year, but in the past you just out-DPS and kill her before she can build up enough rend stacks. If you do fall behind though you can be snowballed on."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"4"
+],
+[
+"Annoying Scale",
+"5"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"This matchup is good for you, but it can go sideways fast. I've had a lot of variance playing vs Karthus. If he's hitting Q's constantly and you are trading 1 for 1 or 2 for 2 and he has Dark Harvest, you need to try to get more one sided advantages. Trading 1 for 1 as Draven is generally good, but vs Karthus you have to be careful as his impact extends beyond bot lane very easily.\nOnce you have a lead there's nothing he can really do to stop you from killing him. He likely will resort to farming with Q at max range."
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"5"
+],
+[
+"Annoying Scale",
+"5"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"This matchup is different depending on what he goes. If he's AP w/ Comet, he'll just try to poke and waveclear. BT is a good option in this case.\nIf he's on-hit with Dusk & Dawn, you can run him down and kill him when his W is down, but the problem is getting chunked out hard enough to where you lose the all-in.\nEarly lane though the only thing to worry about is his W CD. If he stacks Lethal Tempo on your support first and then switches to focusing you with W you may lose the fight."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"4"
+],
+[
+"Annoying Scale",
+"6"
+],
+[
+"Summoner Spell",
+"Barrier\nConsider Exhaust"
+],
+[
+"Advice/Tips/Matchup Notes",
+"You lose this matchup if you take repeated short trades or lots of Q poke. You have more auto attack range and win extended trades, but you need enough health to do an extended trade without dying.\nLucian is usually played with very annoying pairings that make his output a bit insane, so he's a 6 on the annoying scale."
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"4"
+],
+[
+"Annoying Scale",
+"8"
+],
+[
+"Summoner Spell",
+"Barrier\nConsider Cleanse"
+],
+[
+"Advice/Tips/Matchup Notes",
+"Early on you can punish her for E'ing the wave and it is fairly easy to dodge her Q, but after she gets some items she's just going to try to clear the wave and poke you out. It is hard for you to really lose the lane; at worst you should just be forced to get sustain and go even.\n*Lux + poke support will make the matchup much harder as it is harder to outsustain 2 poke champs."
+]
+]
+}
+],
+"Mel": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"10"
+],
+[
+"Annoying Scale",
+"10"
+],
+[
+"Summoner Spell",
+"Dodge"
+],
+[
+"Advice/Tips/Matchup Notes",
+"She should have been banned. Very annoying and hard matchup to play. Her W just stops you from being able to do anything in lane if she has any reaction time, not to mention her E which will either hit you or force you to drop an axe. This champion also does an absurd amount of damage in extended fights, and late game you will end up exploding if you auto her and she W's.\nBuild BT and pray to Allah."
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"6"
+],
+[
+"Annoying Scale",
+"6"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"She can match your initial autos with Q+Auto and you'll be playing a weird minigame of \"trying to catch my axe but not walk into her Q bounce but also not giving all wave control permanently\" since her Q poke does hurt, but all-ins are incredibly free."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"9"
+],
+[
+"Annoying Scale",
+"10"
+],
+[
+"Summoner Spell",
+"Barrier"
+],
+[
+"Advice/Tips/Matchup Notes",
+"Poke her down level 1/2 and try to freeze/play for river on the wave bounce."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"7"
+],
+[
+"Annoying Scale",
+"8"
+],
+[
+"Summoner Spell",
+"Barrier\nConsider Cleanse"
+],
+[
+"Advice/Tips/Matchup Notes",
+"Neeko Q does way too much damage, and her E can be hard to avoid, so you'll likely go down in CS this matchup. All-inning her is hard as well between E, R, and her clone, but she is squishy and immobile."
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"7"
+],
+[
+"Annoying Scale",
+"7"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"7"
+],
+[
+"Annoying Scale",
+"10"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"5"
+],
+[
+"Annoying Scale",
+"8"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"3"
+],
+[
+"Annoying Scale",
+"3"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Smolder": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"5"
+],
+[
+"Annoying Scale",
+"5"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"2"
+],
+[
+"Annoying Scale",
+"10"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Zeri": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Difficulty Scale",
+"0"
+],
+[
+"Annoying Scale",
+"0"
+],
+[
+"Summoner Spell",
+"Barrier"
+]
+]
+}
+]
+}
+}

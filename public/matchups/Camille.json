@@ -1,0 +1,1100 @@
+{
+"champ": "Camille",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1hJ0fnc8T-RIWt4C1o6wSdBbC_HOZhTHK4vHucI3__Cw/edit",
+"author": "Kryze",
+"rank": "Challenger (EUNE, per community index)",
+"updated": "2023-12"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"This matchup can be a bit tricky if the Aatrox is good at comboing. Try to play around his cooldowns and trade\nwhen his q is on cd. Keep in mind that this only works early levels, when Aatrox reaches lvl7 his q is basically 0 cd\nso try to not E in unless you're going for an all in. Dodge his 3rd Q with R. Good spacing is very important in this mu"
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Lane is winnable but you are gonna have a hard time if the Akali is somewhat good.\nGo second wind and start Dorans shield for the sustain. You win all ins early since her Q has a high energy cost. If you're\neven at lvl6 she wins, be careful of all ins"
+],
+[
+"Outscale?",
+"Yes/No"
+],
+[
+"Recommended",
+"Grasp"
+],
+[
+"",
+"Will update this list fully soonish, there has been a lot of changes and some matchups has\nchanged since last time - Kryze 20Feb 2023\nUpdate in progress - Kryze 10Dec 2023"
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"You lose early but hard win after first item if you land E, play safe early with short trades only and dorans shield\nstart. If you can hit your E in lane phase the trade will almost always be won, but don't overextend it unless you\nhave kill potential. Be patient for your jungle and farm up meanwhile."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+],
+[
+"",
+"List made by\nKryze"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Trade with your passive. You will most likely not be able to kill him in lane, and he wont be able to kill you as long as\nyou dodge his Q and respect his R. Farm up in lane and you should slowly outscale, in late just spam Q2 on him."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Very hard"
+],
+[
+"Tips",
+"Hard matchup since he can ghost you down very easily through entire lane phase, be very careful with your E usage\nYou start losing hard at lvl6, if you're not ahead at that point you need to play really careful, especially if he has ghost.\nHis E can cancel your E if he times it correctly. Try to scale for 1 or 2 items, you outscale him in midgame/lategame,\nbut fights can still be hard. Extended trades = instalose"
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Chunk with Q2 and do short trades. Care to not use your E carelessly because he\ncan run you down if you're too far up. Farm up in lane and outscale him later on."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Whole matchup depends on her vital position and if she gets her W off on your E.\nTry to mindgame her with your E by E'ing the wall but not using the dash, she will 99% W it unless you're too far.\n2nd option is to stay close to a wall and do a fast E so she cant react to it, can end badly\nthough. In lane try to trade with passive and do short trades. Late is winnable if you play\nit slow by kiting and chunking her with Q2. IF SHE PARRYS YOUR E YOU INSTALOSE. (If the stun hits)\nIgnite/tp is very good in this matchup, but if you want to play safe you should go flash/tp."
+],
+[
+"Outscale?",
+"No/Yes if you\nplay it correctly."
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Dorans shield with second wind is your best friend here, start dorans shield and spam W on him.\nGrasp is probably the best option but if you wanna play aggressive conq might be a good.\nIf you get hit by too many barrels you will lose, you need to play around them and focus a lot on dodging them.\nGangplank is very weak early these days so try to punish him a lot and go in with E every opportunity you get."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp/Conq"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Your shield should make you win the trades early, try not to trade too hard when it's down.\nOnly chance he has of winning this matchup is if you don't respect his lvl6, especially if he's running ignite.\nYou win all short trades and you should win all ins once you have your sunderer."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"E wall > wait for his jump > dash on him. It's basically the entire matchup. Going Approach velocity is also good\nsince you can W then run at him forcing him to E or get chunked. His E has a really long cooldown that you can\npunish very hard. Only problem in this matchup his when he is mega form, or when he has tabi and can kite you.\nIf you miss E he has a lot of room to run you down so be careful, be smart with your E usage."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Decent matchup. He has perma push entire lane phase, lane is a bit annoying since it's very hard for you to\ntrade with him. But keep farming the minions you can and scale up, lane is winnable later on\nif you outplay him by dodging his stun by dodging or pressing R on him. Asking for jungle help is\nprobably best option in this matchup since at 6 he will just die on gank. I think Heimer top is not that good atm so\nshould't be too much of an issue."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Try to either dodge her E or R with your R. If she hits most of the E's you will just slowly\ndie and be forced to back a lot. If you dodge her E it's your turn to trade so feel free to insta E in and chunk her.\nLong story short: Dodge her E = win. No dodge = Lose."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"In most cases a pretty easy matchup, unless the Irelia is good. You win every 1v1 when there\nare no minions nearby as long as you dodge either her E or her R with your R because\nshe will not have full stacks. Respect her early all in when she has full stacks and just outscale\nher really hard after 2 items. Ignite/TP is good here and opens up a lot of kill potential.\nHonestly if Irelia is good this matchup can become very hard and very snowbally."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Very Hard"
+],
+[
+"Tips",
+"This matchup is really hard to explain since it's all about experience. It favours Jax a lot but\nits still winnable since early its lowkey skill matchup matchup. In lane try poke with Q and W (only short trades).\nSave E until he jumps on you to knock him back or when you have window for a good trade close to your turret.\n(Always be close to a wall in this matchup, since otherwise he can cancel your E with his stun.)Try to trade when\nyour passive is up. You need to play around his E or lane will be really really rough."
+],
+[
+"Outscale?",
+"No"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Go second wind and dorans shield if you want to play safe, dorans blade if you want to play\naggro. Lane is Jayce favoured early but once you get 1-2 items you should destroy him. If you're even at that point\nit should be free 1v1s. Don't take too much poke in lane, play with bushes or behind minions to avoid his Q poke."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp/PTA"
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Regarding K'santes current state (13.24) I think this matchup is a lot better than what it used to be. K'santes early is\nkinda weak atm so you should look to abuse and trade as much as possible. Trying to find him early in river/tribush\nat like 1:20 can be a big deal for lane, start E and jump on him and keep autoing until he runs away.\nYou can start either dorans shield or blade, both are good options. Blade is better to bully early but more risky since\nyou might end up doing some bad trades. Before 6 you can play as aggressive as you want, when he hits 6 you\nhave to respect and not use E carelessly. Once you get sunderer lane will become way easier, spam Q2 on him\nwhenever possible and be …"
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"PTA/Conq is really good here because you can bully her a lot early. Play really aggro and go in with\nE whenever you can. When she hits 6 you need to play carefully and make sure your E will hit or else you'll get\npoked a lot. Using W first and then E makes it impossible to dodge your E.\nOnly chance she wins this lane is if you let her freeze close to her turret. You should try to keep the wave in the\nmiddle of the lane or frozen close to your turret to deny her all xp. At 16 she is stronger unless you're very ahead\nand get the jump on her first."
+],
+[
+"Outscale?",
+"After 16 no,\nbut still yes"
+],
+[
+"Recommended",
+"PTA/Conq"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Similar to the jayce matchup, you hard outscale but lane can be rough if you let him poke you.\nSlowing him with W makes it very easy to hit E since he can't run away from it, try to chunk\nhim like that and you will slowly win the lane. Approach velocity is good here."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In general an easy matchup, you win 1v1 through all stages of the game if you play it correctly.\nEarly becomes really easy if you use your passive correctly and only trade when it's up.\nYou hard outscale him however lane can become rough if he gets an early kill since Kled relies a lot on snowballing\nOnce you get sunderer you should stomp him. (Sunderer will be removed in season 14 but I don't think matchup will\nchange, just go trinity instead)"
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Killable early but when he gets to lvl>5-6 it becomes really difficult since he's most likely stacking\narmor. He's also really hard to duel because of his insane base dmgs. Doing short trades with grasp is good, make\nuse of your passive whenever it's up and just farm up. Most Malphites will play very safe and make the lane a farm\nlane, don't worry too much about it since you'll destroy him once you have sunderer. Second wind and dorans\nshield is very nice to deny some of his q spam."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq"
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Honestly haven't seen a Maokai top since s9 so I can't say much, but just rush divine sunderer and oneshot him."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Killable very early (lvl2-3) and then he literally becomes an immortal god that will run you down if you ever dare to E\nhim. If he ults you, always save your R to dodge his Q to stall time for your escape with E, since you can\nvery rarely win a duel vs him. HOWEVER, if you are even at like 20 min and you got both your items\n(hydra, divine sunderer) you are very likely to win a duel vs him. It's all just about surviving lane, which is really\nhard. Just abuse your better early and try to snowball off that, grasp is probably superior here."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Try to poke him for EVERY minion he walks up to. If you let him do whatever he wants the lane will be\nreally hard very soon. In the early game you should be up in cs by quite a lot and you should get a\nlead from that. Lane becomes very hard at lvl9 though since if you do 1 mistake he will just run you\ndown and you can't really fight back if you're not ahead from early. In lategame he wont really be able\nto touch you since you got your E + W slow + Q ms. Just chunk him down with Q2"
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Play safe early and poke him with Q and W with the help of your passive. You should very rarely E onto\nhim since if you're too far up he will run you down most of the times. In general a pretty simple matchup\nsince he cant really touch you unless you walk up too far. Play fairly safe until you have your core items\nand almost always save your E to get out of his range once he walks on you."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Same as Malphite, insane base dmg and not really killable. Rush Divine sunderer and you should deal some serious\ndmg tho. You can E his pillar as well. Save R to dodge his R. Once you have 1-2 items it's kinda free, only issue is\nthat if the Ornn is good he can punish you a bit in lane and poke you."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Let him push into you early since you cant really afford to get chunked by his Q early (except if you have\nsecond wind + dorans shield). You HARD outscale him at 1 or 2 items, only issue is the early game but\nif you survive that its freelo."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"You basically dont have an E button in this matchup. Trade with Q2 and W and just try to farm up in lane.\nAs every other tank matchup you destroy her at 1 or 2 items by just abusing Q2. Don't stay close to walls\nto avoid losing 50% of your hp from her combo while shes building full tank."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Doran shield start and try to not get too poked early lvls, you hard win fights past lvl6 if\nyou manage to land your E on her. Dorans blade works too but its high risk high reward since you have higher kill\npressure, either way you outscale her pretty quickly and she should die when you have trinity and land your E on her."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"PTA/Conq"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Renekton matchup is very hard if he gets ahead in lane, usually its just short trades with q and\npoking with w. Almost always save ur E until he E's onto you. His empowered W destroys ur shield so\nyou need to play around that as well, for sure one of the hardest matchups. You can also do short trades with E > Q2\n> W > Run. But you need boots and some levels in Q to make sure he cant E onto you after that."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"All you need to do here is get boneplating in runes and play safe first 2 levels, then you should\ncompletely negate all his damage with passive and boneplating. Do short trades with Q-Q, W etc\nPlay with respect when he has 3-4 stacks. Honestly might be worth to go bramble vest here, I haven't tried it but\ndoesnt sound to bad. It delays your powerspikes a bit though, Try at own risk."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Skillmatchup, start dorans blade and just fight her lvl1 with your Q + boneplating + passive. You should\nwin straight up and can look for a kill lvl2. If it doesnt work just keep trading whenever your passive is\nup. Respect her cds and abuse her when they are down. Tip: Use the E similar to how you would vs\nGnar, E onto wall and let her use her shield dash then dash onto her."
+],
+[
+"Outscale?",
+"It's really even\nhere but I'd\nsay yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Annoying matchup but still pretty easy. Go in with E whenever your passive is up and just spam trade\nwith him, you should slowly but surely chunk him down. Care for his lvl6 because that's when he has\nkill potential on you."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Very easy"
+],
+[
+"Tips",
+"This matchup is so insanely free, go pta and just go ham lvl1 with E and repeat at lvl2 when\nyou have Q, first blood 99% of the time. There is no way he should be able to contest\nany minions past lvl3 if you manage the wave correctly and freeze it close to your turret.\nOnly way he has a chance in this lane is if the wave is frozen right to his turret."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"PTA/Conq"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Camille struggles hard early but once you get some items you just\nrun him down without any issues. He can never escape from you and you can always kite and play it very\nslow by slowly chunking him with Q2. Lane phase is the only hard part in this matchup. At 2 items you\nshould destroy him if you play around your Q2 correctly. Use your R to dodge his W. Fleet footwork\nmakes your kiting way easier but conq deals more dmg. I prefer fleet in this matchup."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"His extra range on autos whenever he Q's is quite annoying. Try to not let him get his blade to pass\nthrough you because then you will just get destroyed. Rush tiamat and hardpush every wave and roam\nto create pressure on the map. Save tp to match his ult or just say gl team and get those turret plates.\nHis base % dmg on Q is just absurd and makes it very hard to fight him, do short trades\nonly: E>AA>Q2>W"
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Constantly trade with him early and he wont be alive for long, your damage is way higher than his\nthrough all stages of the game and as long as you dont chase him early it's very free. You destroy him on\nsidelane at 2 items due to your Q2."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Can be difficult if Sion is good, after you get your 2 items it doesn't really matter though. I recommend dorans shield,\nsecond wind and just farm up. You can do trades when your passive is up just be careful of his E into\nfully charged Q"
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Skarner's current state (14.11) is just way too op for Camille to handle, his E cancels your E, he has infinite poke\nand you have very little window to trade with him. It is playable but you'll have to hope that Skarner is bad or just\ndo your best to farm up. Most players are not aware that Skarner's E has priority over Camille E so you could\ntry to use it to your advantage. Honestly the easiest way of dealing with Skarner right now is to ban him, his lane\npower is a bit too strong."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Just E onto him whenever you get the chance and chunk him until he dies. Only chance he has in lane\nis to stall for 6 and then he might be able to run you down while healing everything. But since the ult\nhas a 2 min cd you have a huge window to abuse him. Buy executioner and destroy him"
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Annoying matchup but dorans shield/second wind denies most of his dmg. Poke him with W and E\nonto him whenever your passive is up. If hes too far up you should be able to kill him. Wait his blind out\nbefore Qing"
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Grasp"
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"She cant really jump on you since you will just outdamage her early on and your passive blocks all of her\ndmg. 3 points into E then Q max, and just spam E and W on her and chunk her. At 6 she might be able\nto all in you with R so play smart and dont waste your E. ninja tabi is really broken here."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"PTA/Conq"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"If you do one single mistake he will run you down with ghost, if he doesnt have ghost the lane is free.\nAt 6 dont waste your E by poking if you think he can respond to it. Ninja tabi rush will make you survive\nthe lane but make it really hard to kill him since you lack damage. At 2 items just kite him and chunk with\nQ2, try to dodge W and hes really useless. Lane could be hard because he hard outsustains you with Q\nspam."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Fleet"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"As long as he doesnt hit you with his E you're completely fine. Your E cancels his E which makes it pretty\neasy to play around. If you have faker reactions you can easily dodge his R with your R as well. Later on\nplay it slow and chunk with Q2, dont let him free auto you with his machinegun."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Annoying lanebully and Vayne top players deserves no respect, go dorans shield if you want to be able to\nfarm or blade if you're feeling manly and feel that you can kill her early on. The gangplank route is fine\nhere (Comet 3 point into W) but I recommend just going 3 points into E and spamming it on her.\nIf you get on top of her shes forced to use her E and it has a longer cd than your E so abuse that small\nwindow you have."
+],
+[
+"Outscale?",
+"Usually no"
+],
+[
+"Recommended",
+"PTA/Comet/Conq"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Try to bait his pool similar to Fioras parry. If you land E on him when his pool is not up, hes pretty much\ndead. 3 points in E then Q max. Hexdrinker/other mr item is very effective. If you let him freeze and farm\nclose to his turret the lane is gonna be pretty hard."
+],
+[
+"Outscale?",
+"If you have\nmagic resist\nyou win,\nif not, he wins"
+],
+[
+"Recommended",
+"PTA/Conq"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Volibear is somewhat difficult to play against in lane, you can never E on him if his Q is up since\nhe can and he will oneshot you if he gets onto you. Play it slow and poke him with W and short trades\nonly. Try to always stay away from his range early on. ALMOST ALWAYS SAVE R TO DODGE HIS R.\nOnce you get sunderer hes kinda fucked. Hes strong later on as well but you should win\n1v1s if you play it slow and chunk him with Q2. In lane if he uses Q and runs at you try to W him and\nwait out his Q then E on him for a quick trade"
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"he will win extended trades early because of his passive so the only\noption is to do short trades with the help of your passive. He will try to 1v1 you lvl6 and can easily cancel\nyour E with his knockup if he knows how. Luckily you do outscale once you get trinity and hydra (as long\nas he is not miles ahead of you). Short trades in lane is key in this matchup. Another trick is to E a wall and\nhold it for a second or 2 because he will most likely use W preemptively. TIP: Lvl1: If he E's onto you\nDO NOT AUTO INSTANTLY, if you auto him before he autos you after E'ing you will get a magic shield\nfrom passive since his E deals magic damage. This only works in the first trade of the game."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq/Grasp"
+]
+],
+"as": "Wukong"
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"This matchup heavily depends on how good the Yasuo is. Do the same as you do vs Gnar. E -> wait for\nhis dash -> Dash on him and chunk him. His tornado is pretty easy to dodge with your R and if he doesnt\nhave minions to dash to hes completely doomed in a 1v1. Do short trades only, he wins extended fights\n99% of the time."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Tips",
+"Matchup is easy until he summons his ult, that shit makes it almost impossible to duel him and ur\nforced to just sit under turret and farm up. You should hard win early trades though with the help of your\npassive and q-q. Play aggro early and safer once he gets his ult. Early lifesteal is pretty good here, later\non you do the usual by spamming Q2 and chunking him whenever you can. Save your E to not get\ntrapped and doomed."
+],
+[
+"Outscale?",
+"Yes"
+],
+[
+"Recommended",
+"Conq"
+]
+]
+}
+]
+}
+}

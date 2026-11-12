@@ -1,0 +1,1882 @@
+{
+"champ": "Akali",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1FyIFuubDdYon0GsAhE9BmcIWtCUir-i-VJVyEr7XWQg/edit",
+"author": "Wahid3251",
+"rank": "Rank 20 EUW peak, Master-Challenger OTP"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q - Passive auto trade early while dodging Q's\n- Use passive MS to dodge his Q's\n- Abuse his high CDs after he uses his 3rd Q\n- Make use of all your Abilites / Passive to dodge his Abilites\n- Getting hit by his none empowered Q is fine\n- Short trades - All in if he uses his third Q and you have a lot of energy left as his Q will go on full CD giving you a large window to punish him in"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- let him land outer empowered Q's\n- All in him when he is 100% hp"
+],
+[
+"Note",
+"- His W grants true sight of you\n- Use E/R to dodge his empowered Q's\n- His early healing is not strong especially when you dodge his spells"
+],
+[
+"matchup specific runes",
+"- Conq\n- Second Wind\n- Last Stand"
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Level 1, you can trade Q for her W + Auto but try not to let her proc Elec with an extra auto( unless you can proc passive for this)\n- You can try to wiggle in lane and bait out her Q's so you can trade better if a window opens up\n- When your running towards ahri with passive with the intent of proccing it, you should shroud and then sidestep while invis, this can bait her E so you can\nactually win the trade without losing half your hp\n- Chunk her with a short trade before you go for a kill which should be done with an R1>E1 combo which lets u catchup to her after she tries to ult away"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Let her hit her charm for free\n- walk up early without energy, she will just auto + w + auto and proc elec chunking you\n- all in her when she has ult and you cant hard burst"
+],
+[
+"Note",
+"- her E can cancel your dashes which also cancels your damage from E2/R1/R2 if she does it right\n- she has more mobility than you most of the time, dont focus on trying to kill her unless she plays in a way which\nlets you, focus on roaming and skirmishes instead"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Dodge her Q, else she will do her burst combo Q+E+auto+Elec(if she has)\n- Focus mainly on roaming if shes playing passive with your sorc shoes/relentless and get fed that way (unless your jgler forces in lane)\n- u can W as her Q is about to hit and you cant dodge, letting u avoid her burst combo\n- once her ult is turned off, it goes on a 4 second CD with lvl 1 R and you can short trade/All in here"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Fight her in her ult,\n- let her get free E's while she has you slowed/stunned, it does bonus dmg\n- try forcing too hard on her early, she has egg so you most likely wont get a kill but you waste all your\nresources unless you know you can snowball"
+],
+[
+"Note",
+"- you can click on her to check if her passive is up or not, to decide if you should or shouldnt force"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Play safe early few level's, his kit is super strong and he can one shot you easily, especially level 2 when he gets E and can swing across half of\nthe lane and proc his PTA + Passive + Ignite\n- stand behind minions, he will try to throw his q through the minions to reach you but you can side step and dodge it, this forces the wave to push into you\n- play safe and give up cs early to maintain HP\n- he needs 3 hits to proc his shield, you can short trade before his shield procs if you dodge his Q during a trade and W to prevent him from getting\nanother auto attack started but make sure you dont force too hard so you can escape before he chases you down"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- walk up far in lane without W, he can swing and burst you really hard\n- throw E while he is swinging, unless you can predict where he will dash since he can redirect where\nhe swings off from\n- trade him without shroud while his passive is up unless you can afford to have a bit worse trade"
+],
+[
+"Note",
+"- His Ult pellets can be blocked by minions/monsters/towers(targetable) and your teammates, you can use them\nas a meat shield if you have to, to survive\n- his E dash can be cancelled by standing on top of him, even if you are invis in shroud"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- play safe early and look to get levels and cs, its hard to trade her since she outranges you very hard\n- u can E her Q (if she has stun ready) and dodge her W if she would be close enough to use it"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- walk up without shroud early, she has insane burst\n- facecheck bushes, annie players look to cheese a lot and are very strong at doing so\n- all in while she is high hp, chunk first since she builds a decent amount of hp and has a shield which\nleaves her pretty tanky"
+],
+[
+"Note",
+"- she can stack her passive very fast if she has minions to execute with her Q, keep this in mind\n- her R gets bonus MS and AS and focuses you if you kill her but shroud lets u hide from its autos\n- if she uses W while her Q is in animation/travelling to you, it consumes her passive, you can use this with the\nfirst tip i mentioned with this matchup to dodge her W and her stun"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- short trade but focus on dodging his Q\n- u can e as his Q is about to land, they wont expect u to throw it giving u a free E\n- holding E2 for his R is helpful, u can bait it out by using R2 if its ready, he knocks u back then u can E2 into him\n- you can wiggle and go inside of his star circle if he comes near which renders it useless"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- trade him long, his passive/w damage adds up to a lot"
+],
+[
+"Note",
+"- he can build up his Q size and cheese skirmishes\n- His R can cancel your E2/ ult dmg\n- he can roam incredibly fast, remember to ping this out to your teammates"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- level 1 you can walk up and bait him out to spawn a soldier then walk back, you can do this again but look to do so from an angle where he cant hit you\nwith both soldiers, during this you can Q him and proc TOB if u have ( the trade should be slightly in his favour but you heal up in the long run)\n- constantly wiggle to bait out his Q if you can but keep in mind of his massive q hitbox\n- he cant auto you in shroud with his soldiers so you can just W through them and hit him with a short trade but becareful of him chasing u down afterwards\n- you should look to R1>E1 him when your looking to kill so you can chase after him if ults you away, but if he holds it then you can bait it out with ur…"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- walk up without W, especially once he is 6 as he can easily combo you with a shuffle and ult into his\nteam if they are there\n- try diving him when his R is up unless you know what you are doing or can one shot him\n- walk up without paying attention, he can Q auto for easy poke"
+],
+[
+"Note",
+"- you can cancel his E dash by standing in front of him but be wary of his R\n- D shield + Second Wind should help nullify a majority of his poke but if your looking to trade to kill him, you will\nhave to give up a lot of CS"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive auto Trade her early\n- Her passive can either give an Armour or MR shield, if she gets an Armour shield then you can Q her to\ndo damage, if its magic then use R / Autos\n- Dodge her E with your own E / Use W if its too late to dodge so she cant abuse her attack speed\n- Avoid her outer W since that heals her and does extra damage to you + slows\n- At 6 you can all in her if she has no passive / wastes E"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Trying to short trade after she hit her E on you without shroud\n- get hit by w\n- Standing too close to a wall when her E is up"
+],
+[
+"Note",
+"- your W wont cancel her Q once it has begun casting\n- using passive is impossible in her ult unless you go to the edge then cast ability\n- her outer w heals her so avoid it as much as possible\n- if she is standing near a wall, she is prob looking to dash onto you, prepare your w/e to counter it"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Let her push into you but dont let the wave get under tower so u can all in\n- Avoid her Q's lol ( use passive MS / E / R )\n- Take short trades*\n- Faker sidestep her ult\n- Bait her W"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Get hit by anything\n- Trade without shroud if she lands Q"
+],
+[
+"Note",
+"- Constantly wiggle in lane to dodge her Q's\n- if u cant turn around in time to avoid her R then drop W to go invis and avoid damage from her E's\n- Honestly there is not much to say. Just dodge her shit."
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto Trade\n- Use Passive MS / E / R to Dodge his Q\n- At 6 you can all in him if he wastes Q/W and/or is 70%~ HP"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Trade when you are low\n- let him farm / scale for free"
+],
+[
+"Note",
+"- you can cast your spells through his silence if you buffer them in time"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- short trade early, try to dodge his Q if you can\n- abuse his long W(dash) CD if he wastes it\n- dodge every 3rd R from him, it does double damage which actually hurts unlike his normal ults\n- wiggle a lot, it can bait out his E which can u can just wait out or his ults which u can easily side step and dodge"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- let him free poke u early levels, you want to keep up your hp bar so u can trade and kill him once u have\na few levels\n- his E shreds ur armour/mr, dont let him stack it up on u for free as it could lead to a much worse trade"
+],
+[
+"Note",
+"- corki's often go hexdrinker early to nullify ur early game, keep ur eyes open for this and if this does happen to\nbe the case in ur game, focus on roaming over solo killing as its going to be hard to kill him"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- short trade her reactively, save ur spells for after she uses her dashes so you dont miss them\n- you can dodge her Q by walking into her and towards where her Q curves to\n- save R/E for when she ults you\n- if she has or will land her Q and is looking to E, you can E right before she gets into range and dodge her Q and prevent her E from resetting and or just\nlanding urself a free E"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- trade into her third W proc unless you know you can make the trade worth\n- Q instantly in trades, she can easily E behind you dodging your Q which fucks you up big time\n- let her land Q for free and walk into range unless you are baiting"
+],
+[
+"Note",
+"- she wins fights if she can dodge your E, hold it until you are sure you can land it\n- when she hits all her W spheres, she gets extra shield\n- her Q curves which makes it really easy to dodge it if you walk into her and to the side a bit"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Walk inside him when he uses his Q or use E/R to dodge his outer Q\n- Take Short Trades\n- Use shroud to wait out his Passive if he fully stacks it\n- Let him shove in and try to freeze near tower\n- if he wastes E / misses outer Q you can all in and kill"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Get hit by his E. Good Darius players will use his e cc to land his outer Q on you\nwinning him the trade\n- Taking long trades is bad because he wins and runs you down with Ghost + Nimbus Cloak\n- Fight him when he has 5 passive stacks"
+],
+[
+"Note",
+"- His inner Q only does 33% normal dmg and that is better to take than his outer Q\n- Make sure u stay out of his E range and keep in mind of his Ghost/Phage MS\n- You win short trades\n- Becareful of his cheese in the toplane bushes after leashing"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Lvl 1 Q auto Trade\n- Perma short trade against him until he is low enough\nto all in and kill with R ( or without thats even better lol )\n- Early oblivion orb is okay if u can snowball very hard against him\n- look to shove him in and roam since his q cd is very low and he can farm safely , unless your jungler is on your side of the map, then look to\nfreeze so your jungler can come and gank for free kills"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Tank his empowered AAs\n- fighting with low energy / w about to run out and e is on cd while you are pushed up"
+],
+[
+"Note",
+"- Pretty free matchup if you don't get hit by his cleavers. Just make sure\nto farm as much as possible and try to roam if he is hugging his tower.\n- similar to nasus, he outscales you at one point and then you cant fight him anymore, look to perma roam and\nhelp your team so they can take him down with you later on.\n- when he uses his ult, it costs his own hp. you can use this hp cost as part of your burst to one shot him\nin earlier levels before he heals"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q auto trade early but care for him using Q, the slow lets him win the trade if he plays it right\n- prevent him from proccing passive by using W to wait it out/space better\n- be patient with your E when he is going to E onto you, if you use it too early then he will blink over and win the trade\n- you can look to hold E when he has R so you can follow up and finish him off\n- use ignite when he is close to ulting, cuts down his healing a lot and lowers the chances of him escaping/turning the fight\n- prepare urself to dodge his W if he leaves vision for a split second"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- over trade, he gets to shove which leaves him with prio and more minions which means minions can\nfuck you up easily and he can leave lane first\n- use full combo early when he has ult, he will just R and heal it back up and ur left with nothing\n- stay near his Q when his E is up, he can blink onto you and his Q will connect on the way back"
+],
+[
+"Note",
+"- His passive gives him more MS than ur passive does so he can kite you easily, play patiently to make sure\nyou dont mess up and miss crucial spells\n- his R healing is based on the amount of damage hes taken over the last few seconds, if you slowly poke him\ndown his R wont heal him much when you finally all in and force it, even less when if u ignite him\n- he can proc his W stun with his R before he lands, keep this in mind so he doesnt cheese you"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q passive Auto trade early\n- use E when he W's to avoid his burst W proc\n- fight away from waves so he heals less from W\n- ward up properly to avoid surprise ults where he can one shot you\n- oblivion orb can do wonders early"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- take full W\n- stay in his R/W"
+],
+[
+"Note",
+"- mercs are good vs him\n- his W can reveal you in shroud\n- zhonyas also good to wait out his R/W damage mid late game"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q passive auto trade early\n- Pay attention to her vitals early\n- Wait for her to Q a minions or your vital then Q passive auto her\n- Take short trades\n- Bait out her W before comitting to an all in\n- When she ulted you try to hug a wall to block her from proccing her vitals if you have to or hide in shroud\n- Disengage if she ults and u are both full hp"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Trying to trade after getting hit by her W\n- Q her straight up, she will dodge with Q"
+],
+[
+"Note",
+"- Her Q can hit you in W ( Shroud )\n- Position yourself close to the turret so you can jump back to safety\n- Don't let her proc her vitals\n- When leaving her vision range your vital will spawn on the other side of u.\n- If Fiora misses Q, the cooldown is increased to 16 seconds at level 1 so fight her."
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- early levels, wait until he lands with his E before you Q/E, he can redirect which way he is hopping so you can easily miss which is really bad in this lane\n- there will be times when a fizz player randomly starts walking towards u so he can Q auto W then E out, you can read this move before he pulls it off and\ncast E so you can both dodge his Q/W combo and land a free E which lets u hard win this trade\n- u can W when he uses E and step back to bait/dodge his E then start off the trade with a Q + passive\n- when he wastes E, he is very vulnerable to trades, you can hard force on him if he missteps"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- get hit by his R, it reveals you and sets him up to drop his entire combo which is often enough to os you\n- walk near him without boneplating/W/E as he can and will just chunk you without anyhting u can do\n- waste too much energy on wave\n- trying to Q him with obvious movement when his E is up"
+],
+[
+"Note",
+"- His W gives him extra range and is an auto reset, he will win melee early trades if he takes W and you dont\nspace well to respect it"
+],
+[
+"matchup specific runes",
+"- Boneplating"
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- you can short trade early, with conq/d shield you should be able to beat him with autos and run him down so long as he doesnt have too many minions\n- wiggle a lot near your minions when he wants to cs them, he will either use his passive or Q to clear wave which opens up a window for you to potentially\ntrade/chunk him but keep urself ready to react to his E/W\n- when he uses all his abilities, he doesnt have anything left to do damage with except his autos which isnt much, you can run him down and hard trade to\nfuck him up so long as enemy jungler isnt around and hes far up in lane\n- u can dodge his initial Q dmg by walking into him(away from his explosion location"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- stay near him if he randomly starts to charge E, most likey means he is getting a gank from his team\n- letting his passive hit you for free, it has a very big hitbox so it might catch you off guard at first but the\nmore you play against him, you eventually learn the hitbox and can bait/avoid it with ease\n-"
+],
+[
+"Note",
+"- once you've broken his W shield, it only regenerates if he doesnt get damaged by an enemy champion in the\nlast 14(?) seconds, u can poke him to get stop him from getting it back if your looking to trade in the near future\n- His passive hitbox is massive\n- his E can cancel your E2/R1/R2 damage\n- early game with d shield conq, you have adaptive AD and so act as a weaker zed + he has low base armour\nwhich means you can just auto him down if he lets you with shitty positioning"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Start Doran's Shield\n- Trade heavily lvl 1 before he can stack grasp but dont trade too long he wins those\n- Dodge his barrels with E/R\n- Oneshottable at 6 if he goes sheen first\n- beware of his W heal when you want to execute and kill with your R"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Walking up without energy / reason\n- Being close to bushes, there might be a barrel inside\n- Getting poked for free - Walking up without energy / reason\n- Rushing Armguards useless unless AD Top / Jg / Mid\n( He has a lot of True/Magic DMG with passive / R and his e has armour pen )\n- Fight in his R"
+],
+[
+"Note",
+"- you can kill his barrel faster than he can blow it up with passive auto\n- His barrels last 20s and you can all in / trade when its is about to run out\n- he can only have up to 3 barrels at a time\n- his r can stack up to a lot of damage so avoid staying in it"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Lvl 1 Q auto trade\n- Always E when his Q is about to land, he will E right after and it will get wasted\nE back in once his E ends and chain Q Passive Auto him\n- If he doesnt E after his Q, you can auto a minion to consume your passive and E back in to get another\npassive and run away from his E dmg with your new passive MS then chain passive auto him to death\n- When trading stay in your minion wave since his E will deal less dmg\n- Wait out his shield before you Passive Auto if you are in shroud and you have time on passive/shroud"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Trading when he uses his shield (his W)\n- Going for even trades (he outsustains you until gunblade)"
+],
+[
+"Note",
+"- His Passive will heal him up if you dont poke him\n- Free matchup if you know how to play around his one dimensional kit lol.\n- Your winning condition is to not go for trades when he silenced you.\n- His R cannot be cancelled with W / Flashing out of range anymore"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- you can trade with Q Passive auto when he goes to CS\n- he is very squishy early so u can kill him if he walks up too far / messes up\n- Passive auto E after ulting him so he can follow after he E's over you\n- Wait for level 2/3 before all in'ing"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Fighting him in Mega Gnar unless you manage to dodge his spells\n- All inning him next to a minion wave or he will just escape"
+],
+[
+"Note",
+"- He has a short AA range so you can just walk up to him.\n- Free as soon as you get gunblade"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade early\n- Use E as he E/R so you can follow him after his CC is over\n- Respect his W\n- Sit behind minions if you dont want him to engage on you\n- At 6 you have perma kill pressure but he can escape\neasily if you miss E"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Trying to short trade when your E is down"
+],
+[
+"Note",
+"- Easy matchup but hard to kill without E"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade him before he can stack up his Q\n- Respect his healing\n- Don't waste your abilites to chase after him when he\nuses his E, he can easily turn on you if you do that."
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Lvl 1 All inning him when he has corrupting potions and ignite\n- Go for extended trades when his W is up and Q is fully stacked"
+],
+[
+"Note",
+"- His kit is pretty easy to outplay the problem is his sustain and his stats\nwhich make him quite tanky and hard to catch"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"honestly i have no fucking clue i havent laned vs a heim in 3 years"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade early\n- Perma dodge her abilites before / while trading\n- It is winnable at lvl 6 but get her down to 60-70% first\n- Run away if she lands E / Uses R unless you can kill her"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Trading after getting hit by her E"
+],
+[
+"Note",
+"- This matchup is basically a minigame of sidestepping. You get hit you lose"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q auto Trade when she Q's on first 3 minions but walk out of her q range if she can get a 4th stack early\n- Don't hesitate using your abilites to dodge her stun\n- She wins extended trades so position your wave close to your tower or avoid going for long trades\nwhen pushed in\n- Use Shroud to wait out her Marks if you get hit by E / R\n- Use E when she dashes on you with q, it will land 100% of the time since your E hitbox starts behind you,\nPassive Auto and E again for Extra Passive"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Trade after she hits her stun"
+],
+[
+"Note",
+"- She might start E to safe farm, u can zone her if that is the case\n- Akali favoured matchup but she wins if her passive gets stacked and she lands her stun or once she gets MR"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Lvl 1 you can save your level up and wait until you see how he plays, if he starts E then you can start Q to cs/poke and if he starts with Q to cheese you\nthen you can take E and use it to create distance and burst him with a quick passive E2 combo\n- Let him push into you and try to freeze\n- try to save your E for his E\n- if he ults early into a fight then back off and wait it out, it gives him a lot of stats and makes him a lot harder to fight"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Walk up early without defensive spells\n- walk up when his empowered auto from his ult is ready"
+],
+[
+"Note",
+"- He is only scary if he has his E up or ult activated"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Let him push to you but freeze near tower\n- Dodge his Q's\n- E when he engages on you with Q and Passive Auto Q trade him, let him E you away then use E2\n- E After Engaging on him with R / W after Engaging on him with R then go for Passive Auto > E\n- Abuse the short time window when he swaps from hammer to range form\n- Build cloth armour early if he starts going MR or is ahead early"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- take free poke"
+],
+[
+"Note",
+"- Jayce is really squishy before hexdrinker, u can kill him pre 6 if you land E\n- Don't hesitate and use your E to avoid his Q"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Play safe early and avoid getting all inned\n- use bushes / W ( Shroud ) to dodge her autos ( doesnt do damge if she loses vision )\n- All in at level 6 with R\n- keep wave on your side of the lane / Freeze"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Walk up early without W/E\n- Stand behind minions she can kill"
+],
+[
+"Note",
+"- She is very squishy early\n- Her autos will not hit you if she loses vision of you AKA Stealth or you go in bush that isnt warded\n- her Q will PIERCE minions that it kills and drag the E stacks along with it to the next target\n- Slows reduce her hop speed ( Gunblade / Cutlass OP vs her )"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- if you wiggle well in lane, you can trade q passive for her q + autos but care for her R+Q\n- you can wait out her shield when trading if your low on energy and you arent in lethal range\n- try to bait out her Q by walking near minions taht are low so she Q's them and u back off just in time to avoid damage\n- her W reveals you and her R+W heals but if you escape tether range before the second part snares you, she wont heal a second time\n- save ignite for when she is lower if she has ult so her R+W heals her for less"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- forcing trades when she has everything up unless you are sure you can dodge her spells\n- trying to force kills early without ignite and a lot of energy, she has a lot of healing/shields to bait you\n- letting her get free R+W when she is a bit low"
+],
+[
+"Note",
+"- her W reveals you while she has it connected to you and while it has you snared\n- her R+W healing is based on missing HP so when she is low and has R ready, dont get baited or let her use it\nfor free else it just makes killing her much harder\n- her early base damage is insanely high, respect it unless you are sure you can dodge or tank it"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- short trade early but play around his Q shield + W auto reset trades(try to use W to bait out his W and prevent him from proccing elec or just chunking you\n- if you are running conq, you can play very agressive early so long as you play around his Q shield by focusing on autoing him then picking up\npicking up and proccing passive/using E2/Q's(with conq you run D shield and ur adaptive stats turn to AD which he is very weak vs)\n- read up on how his E stacks work and look to trade when he is low on stacks since his E can make trading very awkward\n- when he uses ult early, there is a 5/4s window where you can look to trade without him being able to ult out, you can short trade and if he is ar…"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- let him get his auto + W combo off for free, the damage is surprisingly high early game\n- all inning when his R is up unless you can land E easily and one shot him\n- get too close when his ult is stacked, unless you can tank it and are looking to bait him\n- dont let him W if he is low on mana and his R is stacked unless you can E/R2 him to follow up after he\ntries to ult away"
+],
+[
+"Note",
+"- His W restores % missing mana which can let him get enough mana to ult again even if hes fully stacked his\nult later on in the game\n- his R costs increases the more often he uses it within a 12(?)s window from his last ult but it also does more\ndamage, you can use this info to decide if you want to trade him or avoid doing so.. etc\n- his Q shield blocks almost all of ur damage but in early game, you can play around this by just autoing him\nbefore picking up passive if possible\n- his E slow is massive, keep this in mind when you try to pick up your passive as it will be awkward which might\nleave you messing up movement and not picking up the passive"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- punish her weak early but play patiently as she can easily dodge your spells with her E then short trade and if she has Conq+AD, run you down the lane\n- hold your E until you are sure you can land it without her E'ing way or using her W ms to dodge it\n- E away from her when she ults or R if you are close and u cant land E cuz of minions in the way\n- if her E is up and she can dash onto something, try to hold your E2 if its an option"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- stand behind minions she might Q(usually to CS but can also be for trades) unless your baiting a trade u\ncan win, she can instantly E and short trade chunking you\n- stand in her R, it will melt you"
+],
+[
+"Note",
+"- her dagger hitbox is surprisingly big, keep this in mind\n- her R can be cast even if you are shroud, so long as you are in range"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Whenever she walks up you punish her\n- Use E when she ults to avoid her R Dmg\n- pay extra attention when throwing your spells at her, her hitbox can be deceptive because shes flying off the ground\n- later on in the game, try to save W/E until she ults else she can likely beat you in a 1v1"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Let her Scale\n- trading without W/E, especially when she has lethal tempo"
+],
+[
+"Note",
+"- with lethal tempo, she easily beats you especially if you dont have shroud/E ready to make distance between\nyourself and her in early game\n- her Q hitbox is deceptively big once it hits a unit, keep this in mind when your standing behind minions"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- You can trade him level 1 if he walks up close enough\n- At lvl 2/3/4 you can go for all in trades but are only worth if you get at least 50% of his hp\n- Decent Kennen players are not killable pre 6\n- Depending on his items you can one shot him at 6"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Go in when u have more than 1 stack of Kennen passive on you\n- Try to dive unless he is super low"
+],
+[
+"Note",
+"- His first stun is 1.5s but any after that is 0.5s\n- you can E him before you get stunned which lets you follow up"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade him level 1\n- if you are confident in your ability to wiggle well in lane and bait out + dodge his E/Q then do it a lot, if you do it well which you should be able to after\nsome practice then the lane becomes a lot easier as you can start to win trades and look to snowball\n- Let him shove in and play close to your turret unless you are confident in your sidesteps then you can play\nwhile pushed\n- You win every trade if he misses his Q\n- Save your CD's / Energy before fighting his mini form\n- you can look to E him after he uses his E's or when hes focusing on spacing to have the second part of his Q go off"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Taking his second Q damage / Hit by E\n- ( in mini-form ) Fighting without W when his W attack speed steroid is ready\n- walking up without a way to escape his Q unless you can tank it or and or kill him before he fucks u"
+],
+[
+"Note",
+"- Kleds win condition is him hitting his Q\n- Cutdown ( rune ) is insane vs him because of how his Health bars work\n- both his Q and his E reveals you\n- he cant move for a split second when he gets dismounted, you can use this small window to land E"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- short trade with Q /+/ normal auto her if she W's on you early game and maybe chase her down the lane and hit her with passive auto if she plays in a\nway that would let you do so but keep ur eyes open for her E which hard fucks you\n- when she W's on you instantly level 2/3, she likely has E leveled and is looking to chain you so try to dodge\n- when she uses W then E or Q afterwards, she cant mimic her W again but only return to her original W cast location, if she is in lethal range, you can\nlook to all in and kill her\n-"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- E instantly as she W's on you as she can and most likely will snap back instantly as her delay is way\nlower than ur E cast and travel time\n- E2 into her if she snaps back to her W/R and her chain is ready, she will just double chain and kill u\n- let her Q W u for free early game\n- let her land chain for free, she can combo this into double chain which is lethal if enemy jungler is\naround most of the time"
+],
+[
+"Note",
+"- both her chains reveal you for the duration of the tether itself and while you are rooted\n- her dash snap back delay is almost nonexistant"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Play safe early and avoid poke so you can all in him level 2/3/4\n- if he E's into you, Q/E and look to kill him with multiple passive procs and autos\n- R Behind him when he ults to avoid his damage, or E and wait out the R"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- walk up without shroud\n- take his ult damage for free, it does A LOTTA damage"
+],
+[
+"Note",
+"- If he has passive ready and kills a minion with his first auto, the second one can hit you\nand he can jump onto you with another passive proc which instantly procs pta, beware of this trade as it hurts"
+],
+[
+"matchup specific runes",
+"- Second Wind"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- you can trade her early but you have to wiggle really well in lane to be able to dodge her Q\n- hold your E2 if she throws her E unless she is going under tower/towards teammates then just E2 for the dmg instead of following her to ur death\n- you can W her R if you react fast enough leaving her team unable to burst you unless its AOE\n- should mostly look to play safe early and just farm up, its very hard to kill her especially after she gets lvl 6"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- try to force too hard when she has her ult up\n- stand too close to minions when she is looking to Q, the hitbox is deceptively big which you will realise"
+],
+[
+"Note",
+"- she can recast E slightly after the animation runs out so keep this in mind\n- Q hitbox is way bigger than the animation shows\n- tenacity is very helpful vs her"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"also havent seen this champ in forever so we leave it empty for now ig"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade early\n- Malphite players tend to instant E when you walk up to Q Passive auto so make sure to dodge with E\nthen re engage with E2\n- look to E him when he wants to Q you"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Go for AA trades when he hit his E (atk speed slow)\n- Tank his empowered AAs"
+],
+[
+"Note",
+"- His Q range is slightly bigger than your Q but u can try Q him while he is casting his Q\n- Malphite is a champion with mana issues ( so try to get him oom and out sustain his poke with\nDoran's Shield / Second wind ( only if you are not confident in beaing able to trade and kill him early )\n- If you cant kill him in lane then shove and look to roam into enemy jungle / mid and get kills that way"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- you can trade early but you have to tether well and proc his passive first before you hard force on him\n- stay away from minions that are about to die from his E unless you are fine with losing hp to it spreading\n- you can all in him when hes around 50/60% HP if you can one shot him but if he has R u have to be much faster/careful\n- dodge his Q, especially when you have his E on you since it resets it again\n- once it gets to mid/late game, wait until he uses it or build QSS if you are the only one he is looking to ult (most likely when you are very or the most fed)"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- fast combo when his passive is up, proc it first\n- force all in when his R is up unless you are sure you can kill before or after it finishes"
+],
+[
+"Note",
+"- his R can cancel your E2/R1/R2 so keep this in mind when trying to go for a kill\n- his E spread range is very big"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q passive auto Trade him early\n- You win trades easily against him so long as he doesnt dodge your Q/E with his W\n- Stay away from bush's as he wil have empowered E's in there which hurt and slow you\n- e after his w runs out or as he is about to q after w so u can follow up and trade\n- aim q carefully after he W's you"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- facecheck bushes early which he could have thrown an E in\n- spam E/Q after he uses his W on you since he would be looking to Q you aswell which would have your\nbuffered ability fly off to narnia\n- get baited by him when hes low and passive ready, his healing increases the lower he is"
+],
+[
+"Note",
+"- his Q slows massively which messes up your passive\n- Roam if and when you cant kill him anymore\n- his Q displacement can mess with your buffering"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade him early\n- Dodge his spells with either sidesteps or E/R\n- All in at 6 when he is around 70% HP"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Fighting him when his passive is procced\n- All inning him when his W is fully charged\n- doing long trades, he out damages you in the long run when you run out of energy\n- letting him land isolated Q's, these do over double damage"
+],
+[
+"Note",
+"- He beats you when his passive is procced and his W shield can be massive so dont get baited\n- This matchup is similar to Illaoi and a minigame of sidestepping. You win every trade if you manage to dodge well\nDon't let him proc his passive.Akali has a good kit to dodge spells even when it comes to close combat, use your\nPassive MS / E / R dashes to dodge his spells"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Freeze if possible\n- Proxyfarm if possible\n- Punish him every time he walks up with Q passive Autos\n- Early dives with jungler"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Trying to use AAs when withered. Only use spells to trade until it runs out or E/W to kite him out\n- Tank his E explode dmg unnecessarily\n- Fight him when his R is Active"
+],
+[
+"Note",
+"- This matchup is about abusing him before he outscales you. The moment you cannot\nfight him anymore you should go and group and try to force fights."
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- farm up first few levels\n- wiggle a lot to bait and dodge her E, especially if u are standing behind minions as the root duration gets extended which lets her land more Q pops\n- E when her R is about to land or R if you are close to her and you wont end up in more danger\n- every third auto has extra range and does bonus damage so when she is coming up to use it, step back a bit and wait until she uses it on a minion"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- stay in her Q, it will pop up to 2 times again depending on if you stay in it or if it kills unit"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- poke him with Q Passive Auto's when he goes to Q and push the wave, becareful of his massive aoe damage early tho\n- use W as his E is about to fear you as you can prevent him from damaging you during this CC but maximising the amount of shroud time u have left\n- try to bait out his W spell shield before you use E2/R2\n- wait out his W spell if you can early instead of proccing it since it gives him bonus attack speed which can hurt you in the few seconds afterwards"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Go fully Melee early, he can chunk you very fast and easily\n- get too close without W ( shroud )\n- force on him too hard/much if he gets hexdrinker early"
+],
+[
+"Note",
+"- his W ( spell shield ) will prevent your passive from forming\n- His E (tether) will NOT reveal you\n- if he lands his Q on you, it will Mark and create a trail that follows you that makes his trades against you a lot\nbetter for him\n- his Q gives him extra AD"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- wiggle a lot in lane to bait out and dodge her Q+W combo but remember that the range is very big and hitbox is decieving\n- if she throws her ball out, you can try to focus your burst then as her ball gives her both armour and MR but she loses this if her ball leaves her\n- try not to trade too much early until you get some levels\n- if you are able to, save your E until she uses R as this is the only time she has to stop for cast something, it also lets you follow up after her if her ult\ndisplaces you in a way that could help her escape"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- let her poke you for free\n- all inning early when shes high HP unless you know you have the damage (and if especially if she has\nphase rush and its not on CD)\n- letting her scale for free, try to get picks on sidelane if shes alone\n- get baited when she is low on mana, her spells are very cheap to use and she can have biscuits"
+],
+[
+"Note",
+"- her Q hitbox is larger than you'd expect\n- she loses MR/Armour when her ball isnt on her\n- ^ but her E CD isnt tied to her Q CD so she can instantly have the ball back on her\n- her R pulls u towards a fixed distance towards the centre"
+],
+[
+"matchup specific runes",
+"- Second wind"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive auto trades early but avoid / dodge his empowered Q poke as it hurts a lot\n- W/E his W so he cant get his 3 autos off from passive\n- early cloth armour if you are struggling\n- you can R over his E ( shield ) to start doing damage again or E to wait it out"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- get too close without W / E\n- stay in lane low, he can one shot with his execute Q"
+],
+[
+"Note",
+"- His E will block your R damage if you use it from behind him and end up infront of the shield\n- His Q can easily be sidestepped"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade unless she has shield or is about to pick it up unless it would let her E you into a wall\n- E can still grant Passive if you land but you wont be able to recast for 2 seconds or R\n- Have to kill her in early levels or she will become unkillable\n- Bait her Q before trades since it hurts a lot\n- E before her R hits so you can dash back to her"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Stand close to your own tower or walls\n- eat free passives"
+],
+[
+"Note",
+"- her passive auto can proc grasp and hurts a lot\n- Her W has a long CD and should be punished when she wastes it\n- you can dodge her E knock back if you predict it in time"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- try to chill until you have a few levels or atleast W\n- Q Passive auto trade early but becareful of his Axe's, make sure to dodge them\n- Dodge his Q's by baiting and sidestepping\n- Wait out his W shield when he gets low unless you can burst him through it\n- you can cancel his E if your W if you cast it very early\n- you can combine the last tip with buffering passive into W and cancel his E while getting your own passive off (but this might be buggy/inconsistant not sure)"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Fight him When his W is available without W/E\n- Fight him without W/E, he will run you down and outheal your damage since thats what olaf does\n- Get hit by Axes Early, the key to this matchup is DODGE AXES"
+],
+[
+"Note",
+"- He gets more Attack speed as he gets lower\n- When he gets to level 6 and levels his ultimate, he gains armour and magic resist, you can click on him and\nnotice this change if you are paying attention to it, if he doesnt gain it by some small chance it could mean he\nmisclicked and didnt level his R\n- you can cancel his E if you cast W early\n- his Q is AOE and can hit u in shroud Duh, wait for him to throw it in shroud then Q/E/R if you want before he can\npick his Axe up again"
+],
+[
+"matchup specific runes",
+"- Second wind"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto Trade early but look to dodge his Q while doing so\n- Cancel his empowered W with W but u have to cast it early or else his W hits you in invis or you can just E away until brittle wears off\n- You can R over His second R to dodge it\n- Dodge his Q's early\n- E his E"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Walking near him without W/E, especially once he gets 6 as his full combo with R can often kill you from\naround 60/70%HP\n- Standing next to a wall or his pillar without W/E"
+],
+[
+"Note",
+"- his brittle which he can proc 3x in a fight does very high % max hp damage\n- your E mark lasts longer than his brittle mark so you can wait it out\n- he can hide his E animation if he casts it during W so keep this in mind if there is terrain near you"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- the key to winning this lane is really good movement, not letting her chunk you for free while you poke her little by little until you can all in\n- Abuse her weak lvl 1 if she walks up but keep in mind that she can start W and dodge your Q making it awkward in early lane so be patient\n- wiggle and try to dodge her throwing Q's from range, staying behind minions doesnt help that much since her Q hitbox explodes and extends after it lands\non a unit, best to sidestep OR have your E ready to react to her trying to insta short combo you\n- get a cloth armour early if you fall behind or if she gets ahead and builds a dirk"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- walking near her without a good reason / defensive spells on cd\n- using E carefreely, she has many ways to dodge it and missing it leads to death often\n-"
+],
+[
+"Note",
+"- im not sure but there should be a small time frame where you can zhonya after her ult knocks you back/up to\nprevent damage\n- your E mark lasts longer than her Q invis so you can cast it if you spam it but you cant cast Q while she is\nin that invis"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Play Safe until level 2/3 and all in when she walks up too far\n- Dont take too much damage or early all in wont work\n- Her Q blinds you but you still get MS from passive while running at her but shroud so she cant E and slow/knock you\n- You can E before her E to follow her so she cant escape"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Poked hard early\n- E2 into her with shroud down or when shes low unless you are sure u can pop her"
+],
+[
+"Note",
+"- really strong early, play safe and give up cs to maintain HP"
+],
+[
+"matchup specific runes",
+"- Second wind"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- space in a way that forces her to use 1/2 Q's or her E to trade you, this way she loses enough damage from her combo for you to win trades, most\nrivens dont like not trading/fighting cuz of adhd brain so most of the time sitting back until she forces gets you results\n- Q Passive Auto trade early but dont let her get near you for multiple Q autos from her\n- if shes looking to trade, position in a place where you can E when she E's onto you, try to proc passive then E again\n- All in if she wastes her E, she is super squishy and easy to kill without it until she gets\n- avoid fighting her when she uses ult if you can unless you can kill her"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- walk up too close level 1 and let her q auto 3X\n- let her scale into midgame\n- most rivens rush hexdrinker which makes the game very hard, you shouldnt look to initiate trades\nvs her much until she gets way lower in HP AND you have ignite ready"
+],
+[
+"Note",
+"- she can cancel your autos with her 3rd Q / W\n- first few levels its riven favoured but from level 5-9/10~ you have a window to kill her and snowball, this is usually\nbefore she gets to complete hexdrinker which makes the lane much harder but not impossible, but once she has\nmaw completed then it becomes pointless in fighting her until you get more items like zhonya/void\n- explained earlier but her damage comes from her passive and Q auto resets, if she uses this then her dps\nautomatically goes down, and if she wastes E then you can chunk her easily"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade early\n- Avoid fighitng him in near your waves so he doesnt heal as much up from Q\n- His W can Hit you while you are in invis if you dont cast W fast enough\n- try and bait his Q by walking near and away from him, it his biggest trading tool\n- tabis is very good but armguards not, he has armour pen in E and can stack black cleaver fast\n- W ( Shroud immedietly ) when he jumps on you or E to prevent him from comboing and chunking you"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- get too close when he is full fury\n- let him get fury for free early levels\n- stay low undert tower, he can easily dive with how tanky he can be / with junglers"
+],
+[
+"Note",
+"- He gets more fury when he is low\n- A lot stronger when he has Red Bar ( fury )\n- dont let his HP bar bait you, his R+Q with fury can heal him up to 700 in a fight\n- you can rush tabis in this matchup very early and few long swords, this makes it so he cant one shot you with\nhis combo and you can run him down the lane with stacked conq + last stand damage allowing you to easily kill"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Play safe early, give up CS to not get chunked in lane\n- careful not to try and burst him since he can heal it all up with W\n- make good use of your passive for DPS\n- he will leap onto minions to CS, u can Q them when he does to get off a free passive auto\n- when he uses his 4th fury stack, you can bait him to jump on you and use E Passive Auto then E again for extra damage\n- can go oblivion orb early for healing reduction"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Dont walk up when he has full fury ( yellow bar )\n- use all of ur burst at once\n- take long trades without W when he uses his empowered Q, he gets a massive attack speed\nsteroid from it"
+],
+[
+"Note",
+"- you cant follow with your E if he gets invis from R, use it before its too late\n- his R can reveal you in shroud if you are the closest champ to him, u can hide behind your other teammates\nif they are close to go back invis\n- you can go armguards / tabis if you struggle"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade level 1\n- Punish him when he is overheated\n- At 6 oneshottable at 70% HP\n- play safe"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- trade him when his bar is orange, his abilities have bonus effects\n- stay in his Q/R the damage stacks up"
+],
+[
+"Note",
+"- Good Rumble players will give you a hard time, so you might want to start Doran's\nShield.\n- look to cs rather than trading since his W ( Shield ) has low CD"
+],
+[
+"matchup specific runes",
+"- Second wind"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Play safe early, let him push into you and avoid taking too much poke\n- look to Q Passive Auto trade lvl 4+ if he walks up too close to you\n- If he doesnt have phase rush or wastes it, u can just run him down the lane and kill him with passive auto's + q / e (with conq on top)\n- E when he is about to W, this way u can chase after him when he finishes his trade and kill him"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- let him chunk you level 1-5\n- let him scale\n- stand near minions that have his E mark"
+],
+[
+"Note",
+"- a good Ryze will slow push early not allowing you to all in lvl 2/3 since he would win with his massive minion\nwave, if that happens then just farm up and look to get a solo kill around level 6\n- his Q can spread to you even if you are invis\n- you can cancel his W if you shroud very early during his casting animation"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- play very safe lvl 1 as he can just run you down and chunk or even kill you and there is little to nothing you can do back to him due to his early power\n- Short trade until he uses W\n- W if his E is about to hit you with something behind him so he cant hit you with 4 Autos while you are stunned or E as he gets close to you\n- Bait out his E by standing at the edge of his hitbox if you are confident in your movement\n- you can hard trade or even kill if he wastes E/W on wave to shove"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- letting him land E\n- walking up level 1 without proper vision on him\n- going near him without W/E"
+],
+[
+"Note",
+"- Hard matchup due to his sustain and how he can just run you down, the key to this matchup is good spacing\nand patience to not let him chunk you for free and so you dont get baited by his W\n- you can R as soon as his ult ends, you still take his ult damage but you can get away before he E's you"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade after his shield goes down\n- E his E, he will start to play very far up when he wants to use it\n- You win extended trades once he uses his CDs\n- When he uses his W just wait it out if you have the time left on your shroud / Passive Auto"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Getting hit by his empowered Q\n- Trading close to his turret, he will taunt you"
+],
+[
+"Note",
+"- Always position yourself in a way he cannot proc his Q. He wins short trades if\nhe manages to engage first.\n- His Q is empowered when it passes through you, try to not get hit by it."
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto Trades Early\n- Try to freeze the wave in front of your tower*\n- Predict his flip and E in beforehand, Passive Auto then E again\n- you can use W to cancel his E\n- Respect his ult healing and don't chase after him"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Trade near tower if he can fling you\n- chase with low energy"
+],
+[
+"Note",
+"- When your wave stands close to your turret there's nothing he can do since he\nwould have to walk up into tower range to poison the minions*\n- Every time he walks up for a last hit you can punish him with a short Q Passive Auto trade"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade early but dont walk into his Q for free\n- If you destroy his shield, he cant pop it for damage\n- After getting hit by his E don't hesitate to jump away or he gets a guaranteed hit on his Q cuz of the slow + dmg reduction makes him hurt even more\n- Use Passive MS to sidestep his Q ( he might not expect the burst of MS and mistime his Q slam"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Walk up close to bushes without knowing where he is\n- staying too close to him without spells to escape/dodge his Q\n- E2ing into him as he can R and cc chain you which can lead to your death especially under tower"
+],
+[
+"Note",
+"- He will scale infinitely with HP, if you think your going to side a lot vs him then you can opt into demonic embrace\n- his Q resets to 2 seconds CD if it gets interrupted by CC, keep this in mind if you get a gank from your jungler\n- your Q can go off even if he stuns you with his R during E2 if you buffer it"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- you can cheese him and start E level 1 if he starts with his E but this is very coinflippy cuz if you miss E or it hits a minion instead of him, you lose a lot\nof HP and cs\n- Q Passive Auto trade early but beware of his level 1/2 engage with E\n- beware of his early healing and high dps\n- stand behind minions to avoid his second E but remember he can dash over minions to hit you\n- look to dodge his E with your own E then auto ( if u can ) before using E2"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- get too close and give him free W heals\n- try and fight him when he has your R and yours is on CD\n- walking up without being prepared to dodge or trade when his E is ready\n- taking his Q2 damage, it does a lot more damage than first Q but its easy to dodge"
+],
+[
+"Note",
+"- once he gets 2/3 CDR items he can use heal 2/3/4 times in a fight so becareful\n- his E can interrupt your E2/R1/R2 Dmg and dash if he predicts and it lands on you early in animation\n- when he steals your ult during early game, your ult will come up way before he can steal it again which you can\nkeep track of in your HUD bar, but he can steal your teammates ults so keep this in mind"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- short trade early\n- constantly wiggle into and out of his E range bait it out then dodge it, especially before trades\n- save your ignite for his ult if you can\n- stand inbetween your minions and trade him if you want him to push into you, his Q hits everything in the hitbox now instead of getting blocked"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- getting hit by his W, it has a surpisingly big hitbox so keep this in mind\n- letting him land E for free, it gives him a small heal and lets him set up for his whole combo which hurts\n- going for long trades when your energy are low /+/ ur abilities are on CD"
+],
+[
+"Note",
+"- his Q doesnt get blocked by minions anymore\n- he can only pull you with his own E root\n- he is a lot stronger in drawn out fights, especially once he hits lvl 9+ as his CDs become very low and his R\ncan last forever"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive auto short trades early\n- Constantly wiggle in lane to dodge his Q's\n- Avoid long trades as he will win those\n- stand behind minions to avoid his massive q slow that fucks up your trading with passives\n- If he gets 2+ stacks on his passive then use W/E to get away from him ASAP\n- his W has a long animation, you can E him during this time to dodge and or follow up after his W"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- let him land Q when your W/E is down, he can follow up easily with 3 autos and eat you\nwhich chunks you massively. can even force you to have to go base\n- letting him land Q also heals him"
+],
+[
+"Note",
+"- he has to auto 3x to be able to eat you but this becomes very easy for him when your W/E is on CD and he lands\nhis Q so play safe during this period\n- his E heals him for % of damage you do to him out of combat"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+],
+"as": "Tahm"
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- walk sideways and dodge her Q early game, and stay a bit further away from minions as its AOE now\n- when she throws her E minefield down, she will be looking to W so pay extra attention to the ground and to dodge it\n- wiggle near minions she wants to CS when she has Q circle on ground to bait it out so she loses poke/dps\n- if you want to E2 into her but she has E up or its in the way, you can Zhonya/Stopwatch to not take damage or get stunned but it puts you in risky position\n- you can R behind her if she uses Q early game to dodge the rest of her Q hits but after level 9/once she gets some CDR cuz her Q ends up with almost\nno cooldown"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- dashing through her E\n- walking near her early game without proper reason, she has a lot of burst and aoe + its hard to trade her\n- walking too close to minions when she has Q circle on the ground"
+],
+[
+"Note",
+"- her E can only stun you once and doesnt interrupt your E/R dashes/dmg\n- her E gets ready instantly, she doesnt need to wait for the animation for it to be able to stun/burst you\n- her W can cancel your dashes if it hits you after you initiate the dash\n- her empowered Q costs very low mana and leaves her Q on a lower than normal CD"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Play level 1 safe and dont take too much damage\n- All in level 2 if you land E or play safe til level 3 then all in\n- wait out his Q ( blind ) in your W ( Shroud )\n- E when he casts his Q since his Q has a cast time and it is easier to land e then"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- take free poke\n- walk over obvious shroom spots"
+],
+[
+"Note",
+"- His R AOE is huge, beware of this"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- play safe early but you can sneak in a trade here and there but make sure you dont commit too hard as she can easily burst you\n- when she E's you, you can W and wait out or prevent her from getting stacks, if timed or done well you can bait out/cancel autos which can swing the\ntrade heavily in your favour\n- save your E2 for after she ults you away if you can (you can use R2/Rocketbelt/Flash to make her panic and bait out her W/R)\n- take extra care when roaming to make sure its worth to do so as she can hard shove and take your plates with ease and efficiency"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- walking up early without W/E\n- letting her stack up her E for free\n- forcing hard on her when she has W/R up and you dont have a way to follow up or when she has bought\nhexdrinker and you dont have ignite or much damage left\n- stand near minions she is about to cs since her E deals AOE dmg to units she kills"
+],
+[
+"Note",
+"- when she uses E on tower, the explosion does damage to you and also has a big hitbox, make sure to dodge if\nyou dont want to take damage for free or use this to make her take tower agro\n- she cant turn stop her E from doing AOE when she is csing meaning she will almost always push into you"
+],
+[
+"matchup specific runes",
+"- Second wind"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- respect his level 1 with lethal tempo, you can walk up to cs but you have to wiggle well so you dont let him auto as much when he E's on you\n- short trade early but save your E for his E\n- look to let him push so you can freeze\n- use your passive ms/w invis/e dash to space well and make trades better for yourself(W to cancel autos or to reposition/E to make space after he E's)\n- Save W/E for when he R's"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Walking up without energy\n- Going for extended trades without W/E\n- using W/E early when you plan to go for the kill"
+],
+[
+"Note",
+"- if he hasnt crit on a minion in some time, he is likely to crit when he E's on you\n-"
+],
+[
+"matchup specific runes",
+"- boneplating"
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- short trade early but play around his W/stacked E\n- E when he is about to throw his W or as its about to land, they wont expect the E and might not try to dodge\n- you can E him and follow his R but look to where he ults and check if you should follow up or not\n- in teamfights, he can R to reveal you so focus on building zhonya and use that as your safety net\n- when he gets his R, constantly remind your team about his ult so he is les likely to get free roams/leads"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- letting him auto with stacked E for free\n- playing too agressive level 1 when he has E, the AS and dmg he gets leaves him stronger often\n- letting him roam for free"
+],
+[
+"Note",
+"- his R reveals you for the entire duration regardless of if he does or doesnt use the second part\n- they often build RFC giving them extra range to throw their stun card, pay attention to his build and if you see\nthis item then keep it in mind when your playing around him to not get caught off guard"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- play safe level 1 since most urgots start with E and one shot you\n- Use E to dodge his and wait out his shield if possible, if too late then W towards him so he cant dps u while your stunned\n- He will push into you because of how his passive works, freeze lane and run him down when he walks\nup too far"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Trading after getting hit by his dash or Q otherwise his machine gun will\ndestroy you without W"
+],
+[
+"Note",
+"- He wins if he lands E\n- You can QSS his R pull"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Play safe early and avoid poke so you can all in her later on\n- When she Q's and is about to auto you, you can cast w and make her auto a minion instead of you which resets her W\nstacks ( you have to time it properly and know her attack range really well )\n- after you engage on her with R, she will try to E you immedietly so make sure to throw your E out before she can, this lets\nyou chase her with easy and reduces her chances of escaping\n- W if she is about to E you near a wall so you are invis while you are stunned and she cannot DPS you"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- stand near walls without reason\n- let her proc her 3rd stack of W for free\n- blindly throw your spells out when she has ult, wait until she reveals herself then throw your Q/E/R\n- let her scale for free"
+],
+[
+"Note",
+"- vayne players will often greed to proc their 3rd W\n- if they get hexdrinker, save E/R1 til they are low if you can"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- wiggle constantly to bait/dodge his Q so a trading window opens up\n- short trade early but play around his stun so he cant hard chunk you\n- if he throws his cage around you but you are in no immediate danger from a gank or getting one shot, you can E him and get stunned by his cage but\nyou can follow up with E2 to chunk him\n- you can use W invis/ms to dodge his spells in his cage\n- zhonya his R if you can, especially during late game as this almost always one shots you"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- getting stunned early game, it almost always guarentees him landing his W which chunks you hard\nand makes laning much harder\n- staying in lane while you are in lethal range without defensive spells (500-650 depending on his items\nand if he has ignite and this only gets higher as the lane goes on)\n- letting him scale for free, get a lead with roaming or killing him but dont force too hard else you will just\nend up messing up and lose anyways"
+],
+[
+"Note",
+"- his R can be cancelled if you cast W really early but this is hard to pull off\n- his Q can hit 2 units and stops on the second one\n- if you Zhonya his R, it goes on full CD\n- you can Zhonya during E2 and dash through his cage if you have enough time"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- a lot of this lane comes down to mind games dodging his Q's so wiggle a lot and try and figure out his Qing patterns\n- get away from him when he ults by any means, the damage is rly high and he can easily kill you from 70%~ hp if he combos right in early\n- R over him if you can when he starts R if there isnt anyone around ganking him\n- you can hide behind minions to hide behind his Q but look out for his E since he can look to use your movement to land his E and combo with W/R"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- dont let him auto you if his passive mark is on you, his aa's will refresh the mark duration\n- dont stay in his R"
+],
+[
+"Note",
+"- his E can cancel your E/R dash/dmg\n- a lot of vel'koz's take heal/barrier so keep this in mind when your looking for kills on him"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- short trade in lane but wiggle a lot to dodge his Q\n- when walking towards him, you can try to predict his W as he will try to hit u with it and short combo\n- short trade before all inning but look to see if he has hex/mr before commiting\n- if you are stronger than him, you can look to hold your E2 in fights so you can follow up after he ults out"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- dont E2 into him if he has W up or is holding it, especially if hes further up the lane since he can run you\ndown with dps unless you know you can escape out/kill him"
+],
+[
+"Note",
+"- if you have E1 on him and he goes into invis, you cant recast your E2\n-"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- can short trade early but should focus on maintaining hp mostly\n- his W stuns after 3 ticks (1.5 seconds) you should look to E/R out of it before it stuns you or W if he has Q up / other things can damage you\n- you can use his Q cast times to gap close and short trade him\n- use your spells when he is casting Q\n- short trades are fine early if he gets close enough for you to combo, his trade does more damage but you heal up with second wind d shield\n- try baiting his Q before going for short trades"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- stay in his W with no safety net\n- take his second E for no reason, staying\n- losing too much hp to cs"
+],
+[
+"Note",
+"- his R speed depends on how close it is to him\n- his Q can be cancelled if you cast W at the right time forcing him to stand still for a micro second letting you\nclose some distance\n- his E is near impossible to dodge but it still can be done, will just have to bait from rly far and predict it"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive auto early but make sure he still pushes into you\n- let him push to you but freeze near tower\n- dont let him get empowered Q's (keep in mind of his q burst ms and his E extending his red bar when avoiding it)\n- he is really vulnerable when his W, especially when you have ignite\n- your passive Auto / R can hit him in his W if you cast it / hit it before his w goes off entirely"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- take even trades, his healing lets him win in the long run\n- let him scale, he will just steamroll over your team\n- commit when his W/emp Q is coming up"
+],
+[
+"Note",
+"- He hard outscales you but u win early if you trade smart\n- his Q heals him extra when he is lower\n- his R Mark makes everything do bonus damage so keep this in mind"
+],
+[
+"matchup specific runes",
+"- Second wind"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trades but care of his second W doing bonus dmg/healing shifting trades into favour\n- Short Trades only\n- E before he gets close enough to start his Q else your E wont dash\n- W his Q but beware it will still stun you, but he cant see you to auto / W\n- if you cast W at the right time, it can cancel his W\n- try to position in a way and use shroud to avoid getting hit by his second W, Q from far away or waiting out the mark/disengaging"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Let him land E\n- Let him W twice\n- Extended trades without W\n- get baitd by him being low, his R/W makes him pretty tanky if you dont kill him fast enough"
+],
+[
+"Note",
+"- his passive hits you constantly but does low damage which refreshes doran's shield healing and makes it\nvery good against him\n- his w has low cooldown and if he hits you with it twice then he heals and does bonus damage on second proc\n- His E does a lot of damage early and slows you while giving him a shield, he has a little animation which lets you\nknow when its about to land, look out for this.\n- your W wont cancel his Q once the animation starts"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive Auto trade early but dont let him Q before you have your passive auto ready\n- E while he is about to Q, if you do it too late then the E wont land since his Q takes him really far behind you\n- wait out his E in shroud\n- Avoid his R at all costs since it does about 250-300 damage and heals up same amount\n- you can rush oblivion orb early to cuck his healing"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- let him Q you for free\n- fight him when you are low, he has insane AS / Healing vs you\n- waste your damage on him while he E activated"
+],
+[
+"Note",
+"- His ult reveals you in shroud if he lands it\n- His healing is trippled while he is low\n- Attack speed is 2X - 3X when you are below 50% / 33% HP"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Play safe until level 2 ( he will E onto you and auto you down the lane )\n- Use your E when he E's, Passive Auto then E again\n- Get an early oracles lense early if you want\n- your Passive Auto will stop if he goes into W, press S and wait for him to reapear before consuming it"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- walking up too far level 1"
+],
+[
+"Note",
+"- His R can cancel your Passive Auto / E / R\n- You can get Passive from his clone"
+],
+[
+"matchup specific runes",
+"- Boneplating\n- unflinching"
+]
+],
+"as": "Wukong"
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"matchup specific runes",
+"- Second wind"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Avoid his Q's\n- Q him when he goes to CS with his Q then auto him\n- E when he E's onto you, Passive auto then E when he E's away\n- Short trades early\n- At 6 you basically oneshot him if he doesnt have windwall"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Go for extended trades in early levels\n- Wasting all your energy carelessly while pushing\n- Walking up without W/E"
+],
+[
+"Note",
+"- a Good yasuo is hard to beat since he will W the right spells and short trade you without you being able to react"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Auto trade early\n- bait his q by getting into his q range then sidestepping, once his uses it then Q and look to passive auto him\n- his w has a small delay before he gets his shield, q him as he w's then go into shroud / E him and wait out the shield then re-engage\n- look out for his E - Q3 ( nado ) combo, it has a lot of range and can burst you down with ult cc chain\n- E/W his Q3 ( nado ) / R"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Fight him without W"
+],
+[
+"Note",
+"- he will ALWAYS return to his E ghost\n- he can one shot you from 60/70% hp with nado + R + ignite if your not careful"
+],
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"WHAT YOU SHOULD DO",
+"- Q Passive auto trade early\n- Avoid his dust thing that he throws, it makes his ghouls attack you which can hit you in shroud for some reason\n- becareful to spawn the shroud inside of the cage if he does catch you in it else he will freely DPS you"
+],
+[
+"AVOID DOING / LOOK OUT FOR",
+"- Fight him without E, his cage will fuck you up big time since you cant use your passive for\ndamage\n- Fight him with his ult around unless you can kill him easily\n- Fight without W as he has more RAW DPS with his R and ghouls"
+],
+[
+"Note",
+"- His ghouls can attack you in invis\n- Your Q doesnt one shot his minions, beware and avoid fighting him unless you are sure you can win trade/escape"
+],
+[
+"matchup specific runes",
+"- Second wind"
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"matchup specific runes",
+"- Second wind"
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"matchup specific runes",
+"- Second wind\n- Unflinching"
+]
+]
+}
+]
+}
+}

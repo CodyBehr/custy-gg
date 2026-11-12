@@ -1,0 +1,1700 @@
+{
+"champ": "Pantheon",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1HLzype7Y7ebco6bErmos4FNEEqhBMGZHVUEqESY54Xs/edit",
+"author": "Broclaw, Sleepless, Torse",
+"rank": "Master EUW",
+"updated": "2024-06"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"W his 2nd Q and E the 3rd Q. If he hits W walk sideways. Match his Steelcaps rush"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Maw"
+],
+[
+"Tips",
+"E her E2. Bait her W and all-in pre 6. Hard to 1v1 after 6. Can rush Hexdrinker"
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Youmuu's"
+],
+[
+"Tips",
+"Respect lvl1-2. Remove Bone Plating before all-in. E his third auto which procs PTA. Can rush Steelcaps*"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"E her Q2 and/or her E engage. W to dodge outer part of her W. Don't trade when her passive shield is up"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"All in if you can reach her pre 6 or wait for ganks. You can't W in her pool. Can rush Mercs*"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Play very aggro and try to punish him early with ignite. Rush T1 boots or Mercs* to dodge his Q consistently"
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Respect his lvl1. Save W for his Q and try to E his R if possible after 6. Match his Steelcaps rush"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Hide behind wave or dodge Q. Go for canister after W. A bit squishy early so try to abuse. Can rush Executioner's"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Chainsword"
+],
+[
+"Tips",
+"Bait her W or use it in melee range. Reset bad vitals by retreating. Try to hug wall when she ults"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Try not to leash. All-in, fight will be close. E his barrels. Rush Steelcaps if you fall behind*"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"E his Q engage. Perma poke him and space well. Scorch delays his passive by a bit"
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Avoid fighting mega Gnar and engage mini Gnar when his bar is low. Can rush Steelcaps*"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DShield / DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Uninteractive lane, farm and play for roams/scaling. Try to poke him if you can, don't W if he has E"
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Quick trades and disengage. E his Q or predict E his point-blank R after 6. Can rush Steelcaps*"
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Play aggresive, she is squishy early. E her max stacked Q or her 3rd R cast"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Stay under tower and try to survive / farm unless he wastes stun and you can all in. Rush Mercs*"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Cleaver"
+],
+[
+"Tips",
+"Dodge her E and go in if she misses it. Disengage if she uses R post 6. Can rush Steelcaps*"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Try not to leash. Poke when she farms with Q. Be wary of her insta stack and her lvl1 all in. Can rush Steelcaps*"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Keystone",
+"Conq"
+],
+[
+"Secondary",
+"Sorcery / Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"W (not empowered!) his E and walk out of range or E if you can't. Keep poking with Q"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Dodge Q poke and engage ranged stance for big trade / all-in. Rush Steelcaps if you fall behind*"
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Farm/roam lane unless you get a gank, don't get baited 1v1. Rush Mercs and consider Serpent's*"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade / LS Refill"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Don't all-in a PTA Kayle lvl1. All-in her and try to freeze after lvl3. E her R"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DShield"
+],
+[
+"Rush item",
+"Eclipse or Youmuu's"
+],
+[
+"Tips",
+"Dodge Q poke. All in after 3 but respect his all in after 6. Can rush Mercs*"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Wait out or E his W. Almost dismount him, wait for CDs, then dismount with Q and finish him"
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Cleaver"
+],
+[
+"Tips",
+"Your Q outranges his Q. Try to dodge his 3rd Q. Don't get baited into getting ulted under tower"
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade / LS Refill"
+],
+[
+"Rush item",
+"Eclipse or Youmuu's"
+],
+[
+"Tips",
+"All in her after lvl3"
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Youmuu's"
+],
+[
+"Tips",
+"Not meta anymore. Respect lvl1-2, all-in lvl 3. Can rush Steelcaps*"
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Youmuu's"
+],
+[
+"Tips",
+"Farm/roam lane unless you get a gank, don't get baited 1v1. Rush Mercs and consider Serpent's*"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Keystone",
+"Conq"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Cleaver"
+],
+[
+"Tips",
+"Try to abuse early, especially if he has Grasp. If he plays well just try to farm / roam"
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Cleaver"
+],
+[
+"Tips",
+"Abuse early before he gets tanky. Don't get baited under his tower"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Maw"
+],
+[
+"Tips",
+"Don't get isolated Qed. If you engage, dodge E or back off. Can rush Mercs* or Hexdrinker vs double AP topside"
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Not meta anymore. You beat her early. Try to dodge her 2nd Q and E her combo. Can rush Steelcaps*"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Slow push into a dive or freeze after the wave bounces back. Don't try to 1v1 after 6 and Sheen"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Ravenous"
+],
+[
+"Tips",
+"Don't get ran down lvl1. Poke him and all in with ignite pre 6. Hydra if you want to match his wave clear & sustain"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Keystone",
+"Conq"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Try to abuse early, dodge his skills and don't get brittle autod. E his headbutt or his R2. Harder after 6"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Keystone",
+"Conq"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Cleaver"
+],
+[
+"Tips",
+"Don't blindly W, she can block it. Don't stand close to walls. E her Q2 or her E engage"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Youmuu's"
+],
+[
+"Tips",
+"Try to bait her E or wait for ganks. Can rush Steelcaps*"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"You can beat him pre 6 but gets harder after. Try to predict his empowered W and E if you can"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Stay away from bushes. Try to poke him when he farms and E if he leaps on to you. Can rush Executioner's."
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Go aggro early and space well, don't be afraid. E her Q3 engage. Respect her all in lvl1 and after 6"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Maw"
+],
+[
+"Tips",
+"Dodge his Es or stand behind minions. Poke without facetanking his Q. Can rush Mercs* or Hexdrinker"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade / LS Refill"
+],
+[
+"Rush item",
+"Eclipse or Youmuu's"
+],
+[
+"Tips",
+"He's short ranged. Engage after 3 and run him down"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Respect his lvl1-2. Poke him and space well. E his W or sidestep it. Match his Steelcaps rush"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Keystone",
+"Conq"
+],
+[
+"Secondary",
+"Sorcery / Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Poke and space well so he doesn't Q auto in return. Don't use Emp W if his W is up. Can also take Demolish"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Walk with your wave lvl 1 so he can't proxy the wave and fight him whenever you can. Don't chase Singed!"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Cleaver"
+],
+[
+"Tips",
+"Abuse him early. It's better to E or walk out of his Q than get your W cancelled by it"
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Keystone",
+"Conq"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Cleaver"
+],
+[
+"Tips",
+"Try to dodge his Q as much as you can. Not much hope in this matchup so maybe try to roam"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Chainsword"
+],
+[
+"Tips",
+"Not meta anymore, rush Executioner's"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade / LS Refill"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Play aggro and all-in him with ignite when he is low. E his E2 (chain) engage"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Keystone",
+"Conq"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Poke him from behind your minions. Consider Mercs rush and Serpent's*"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Keystone",
+"Conq"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Youmuu's"
+],
+[
+"Tips",
+"Respect lvl 1-2. Try to all in after 3. Get Sweeper at 6. Consider Mercs rush*. Umbral Glaive also an option"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / Phase Rush**"
+],
+[
+"Secondary",
+"Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Poke and space well. Stun him and retreat if he tries to run you down. Can rush Steelcaps*"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Try not to leash so you don't get ran down lvl1. Beware his fury and try to get a lead pre 6. Can rush Steelcaps*"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Respect lvl1 cheese. Space well and poke with edge of Q. If he hits E you're in trouble. Can rush Steelcaps*"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Edge of Night"
+],
+[
+"Tips",
+"Respect her lvl 1-2. Bait her E and all-in after 3. Stay away from walls. Can rush Steelcaps*"
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Not meta anymore. Farm lane unless you get a gank or he misplays. Can rush Mercs*"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Keystone",
+"PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Abuse him early. His W CD is extremely long. Dont get empowered Qd or punish him if he goes for it"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"E his EQ combo. Don't let him use W twice. Poke and don't engage unless he is super low. Care after 6"
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Chainsword"
+],
+[
+"Tips",
+"Rush Executioner's. Poke and space well. Don't get baited if he has barrier. All in with ignite if he is 30% or lower."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (BP)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Respect lvl1-2. Try to poke and get a lead pre 6. Can rush Steelcaps*"
+]
+],
+"as": "Wukong"
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Not so strong lvl1-2 anymore without Lethal Tempo. After lvl3 you win easily. Proc his passive and all in him"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse"
+],
+[
+"Tips",
+"Not so strong lvl1-2 anymore without Lethal Tempo. After lvl3 you win easily. E behind you if he hits R"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Try to get a lead pre 6. Dodge his E and only engage when it's down. Don't 1v1 after 6 and roam after 14 minutes"
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Keystone",
+"Conq"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Cleaver or Chainsword"
+],
+[
+"Tips",
+"Rush Executioner's"
+]
+]
+}
+]
+}
+}

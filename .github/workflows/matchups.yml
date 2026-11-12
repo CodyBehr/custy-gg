@@ -1,0 +1,35 @@
+# Pulls the expert matchup sheets listed in scripts/matchups/sheets.json into public/matchups/
+# (the "Expert notes" card in the matchup guide and champ select helper).
+# Weekly is plenty: most sheets change a few times a year. A sheet its author deletes or stops
+# sharing is dropped from public/matchups on the next run.
+name: Pull expert matchup notes
+
+on:
+  schedule:
+    - cron: "23 9 * * 3"   # Wednesdays, 4:23 am New York (EST) — patches land on Wednesdays
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: benchmarks   # shares the repo with the benchmark builder; don't push at the same time
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull sheets
+        run: python3 scripts/matchups/pull.py
+      - name: Commit
+        run: |
+          git config user.name "custy.gg matchup notes"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A public/matchups
+          git diff --cached --quiet && echo "Nothing new" && exit 0
+          git commit -m "Expert matchup notes: $(ls public/matchups | wc -l) files"
+          git pull --rebase -X theirs origin main
+          git push origin HEAD:main

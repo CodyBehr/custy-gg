@@ -1,0 +1,1516 @@
+{
+"champ": "Udyr",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/14VsnRgsCgeczvgM6SaNU41N0vT8ZPVRNVrHLKPmYmZk/edit#gid=297966832",
+"author": "MetaSolaray",
+"rank": "Masters/GM NA",
+"updated": "old"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Amumu": [
+{
+"fields": [
+[
+"Diffculty",
+"3"
+],
+[
+"Playstyles",
+"Bear Bruiser\nAp Tank"
+],
+[
+"Quick Tips",
+"- Look to invade early, Amumu has poor escapes (Q Max)\n- He favors AoE camps, force him to farm blue side whenever possible as Gromp is slow.\n- Punish his early game lvl 1-5"
+],
+[
+"Detailed Tips & How to Play",
+"Look to invade with either a buff > Buff > Invade or a 3-4 camp clear into their other side. Amumu's ability to get out of Udyr's invades is subpar. If he has no camp to Q to he has to flash over the wall. Keep Amumu from free farming to level 6 and his ability to gank early will be weak, force objectives due to Amumu being unable to solo objectives easily."
+],
+[
+"Avoid",
+"High Health builds with no magic resist will get shredded by Amumu's W & Passive. Don't play passively and let the game scale without doing objectives as Amumu's teamfighting even with Teamfighting builds is very potent."
+],
+[
+"What to do when Behind",
+"Peel by standing away from your carries, avoid Amumu Q to engage on to your team as he can use flash from his Q to ult your carries. Avoid Auto base builds and instead focus on items like Locket of the Iron Solari to counter AOE damage burst."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Diffculty",
+"2"
+],
+[
+"Playstyles",
+"Aftershock > Percision"
+],
+[
+"Quick Tips",
+"- Brand has high CD's, punish with invades and wait for him to cast.\n- He can easily clear objectives with passive, force objectives and keep them warded.\n- High MR builds and rush Wits Ends are best to beat him."
+],
+[
+"Detailed Tips & How to Play",
+"Brand's clear has high cooldowns, catching him doing a camp will leave him little to peel you off. Look to flash over his stun if necessary as till Ryali's this is his only CC on you. Brand can easily duo any objective easily so avoid leaving Dragon & Herald up due to his damage. If the game runs late avoid high health and secure items like adaptive helm and wits end to stack MR without overstacking in HP."
+],
+[
+"Avoid",
+"High health builds with no MR will be burned by Brand passive, going Steraks directly after cinderhulk will leave you vulnerable to his combo damage. If your team comp is subpar to teamfight consider spilt push builds."
+],
+[
+"What to do when Behind",
+"Build support items that have high MR, locket with adaptive helm are great items to secure. If you start coming back add a wits end if you want some threat of your own."
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Conqueror or Aftershock"
+],
+[
+"Quick Tips",
+"- Camille's will almost always go for red > lvl 2 ganks. Ward for this and warn teammates.\n- Camille's farm clear is subpar, steal blue camps and clear effectively.\n- Get through early game and outscale her."
+],
+[
+"Detailed Tips & How to Play",
+"Camille Jungle will often NEED to go for early ganks, eard in pixel brush on their red side if unsafe to move up further or in the area near the raptors. Warn your teammates of the lvl 2 and encourage wards to catch her attempting one. If the matchup allows countergank and kill Camille once she goes in as her tool to get out is very subpar. If she doesn't commit to early ganks simply powerfarm over her and keep good vision to contain her. You win counterganks if you don't eat her stun. Outscale her with good rotations through your jungle"
+],
+[
+"Avoid",
+"Don't lose sight of Camille as her ability to snowball entirely depends on her getting kills. Giving her momentum of the game will allow her to get past her terrible farm clear if she secures enough early game kills."
+],
+[
+"What to do when Behind",
+"Build bulky items and focus on farm, as your clear especially with cinderhulk is very effective. Avoid damage as Camille with a lead can one shot you easily. Bulk will do well"
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Diffculty",
+"2"
+],
+[
+"Playstyles",
+"Aftershock or PTA"
+],
+[
+"Quick Tips",
+"- Darius starts W Q, invade him when he's level 2 will give you an insane advantage.\n- Darius has no escapes, abuse this when you have red buff.\n- Avoid counterganking Darius if he has E, he can easily burst you down."
+],
+[
+"Detailed Tips & How to Play",
+"Darius jungle has subpar sustain compared to Udyr you can abuse this by catching him with his cooldowns in the jungle when possible. Look to solo objectives due to his poor map rotation and superior vision will easily keep him contained due to his inability to clear walls. However you'll want to avoid counterganking Darius if he hasn't used his E, as the slow & pull combo will keep you down for an enemy laner to finish the job and Darius can easily output a lot of damage as well. Aftershock is best when the enemy team comp isn't one you can snowball off, while PTA allows you to snowball harder if the comp allows it. If you're not ahead avoid going BOTRK and instead go Steraks into wits end."
+],
+[
+"Avoid",
+"Do not go for counterganks as Darius's subpar early can easily snowball into a teamwiping ult in the mid game. Losing out on vision will allow Darius to overcome his subpar map mobility. Objectives need to be forced before Darius can get his ultimate and set up early game skirmishes."
+],
+[
+"What to do when Behind",
+"Build cinderhulk and black cleaver if your team has a carry with AD damage, Black cleaver and your rune can soften Darius to allow carries to shred his defenses more easily. You can easily powerfarm against Darius due to his subpar clear speed."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Diffculty",
+"2"
+],
+[
+"Playstyles",
+"Conqueror or Aftershock"
+],
+[
+"Quick Tips",
+"- Diana is only mobile with a camp/minion to jump to.\n- Diana's ult gets stronger the more champs inside.\n- Diana has no CC pre 6, contest scuttles/objectives to gain a lead."
+],
+[
+"Detailed Tips & How to Play",
+"Diana's debut as a jungler remains a thing of the past, her ability to clear fast is matched only by her subpar early game ganks. Contest objectives and make sure to bring waterwalking/nimbus cloak as she lacks any mobility without something to jump to. She is a weaker version of Elise due to her burst only being when she lands her Q into E. Aftershock will allow you to ignore her engage and kill her with raw damage while Conqueror will allow you to outsustain her with a wits end. If her team is mainly MR you can build spirit visage next instead of Steraks Gage. Once she gets her ultimate avoid clustering as her ultimate gains strength for each enemy champ inside of it."
+],
+[
+"Avoid",
+"Clustering up together into the ult is a surefire way to allow her to burst your squishies. Don't give her a free Q > E into an R on your backline during the mid game teamfights and create some distance between you and your squishies."
+],
+[
+"What to do when Behind",
+"If you've built wits end start falling back into a farm pattern and look for your strongest carry. If the enemy comp allows it go Knights vow into more AD heavy teams and locket into more assassin/AP burst heavy teams. This will give your carry much needed bulk to survive her all in."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Diffculty",
+"6"
+],
+[
+"Playstyles",
+"Aftershock or Conqueror"
+],
+[
+"Quick Tips",
+"- Ekko is highly slippery, and his third hit on a champion will give him a speed boost. Remember this when considering committing to attempting to run him down.\n- Ekko's W has a long cast window, watch for the animation and attempt to redirect the fights. Ekko has to pre-plan where to land it for his AoE Stun and shield.\n- Ekko's ultimate can easily burst your team, do not overcommit as this ultimate restores plenty of his health and can absolutely burst you and your allies."
+],
+[
+"Detailed Tips & How to Play",
+"Ekko has fallen out of the meta from most games in the jungle, but is still a tougher matchup then most for Udyr to handle. If possible and especially for Aggressive Udyr's look for an early invade to punish Ekko as his early clear and safety without all three of his abilities is abysmal. The best time to catch Ekko is during one of his buff clears, if he's started on one, set up and wait for him to start using his abilities on the next. Once his E and W are down he's an easy secure for you. If you're unable to invade, instead look for the counter gank. Once he's casted his E he will attempt to aim for the stun, if you can stun him as he's attempting to get into range he'll be unable to foll…"
+],
+[
+"Avoid",
+"Builds that rely on autoing the same target will be weaker against Ekko due to both his lack of health builds but also due to his slipperiness not allowing you to sit on top of him to deal damage. Once Ekko has casteled his E keep an eye for the area of effect, while his shield is bad being stunned on top of it is worst. Trying to chase down an Ekko is like chasing a singed as his ability to steal your movement speed and E over walls makes him a hard to pin down champion. The worst thing however you can do is group on your teammates to tempt a well landed Ekko stun, into him comboing your allies and staying to fight in that same place. If four seconds pass he can ult for the high burst poten…"
+],
+[
+"What to do when Behind",
+"Try to build up MR items if the enemy comp allows it and focus on peeling off Ekko from getting his shield, most of his tankiness comes from his AP ratio shield and his ultimate healing him. Consider a bramble if no one else will get one as his E counts as an auto attack but the best option is for your ADC to grab a Grevious and only as a last resort to deal with his ultimate healing. Remember, the longer you delay him from ulting the worst position you can control where he'll end up once he does."
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Diffculty",
+"6"
+],
+[
+"Playstyles",
+"Aftershock (Unflinching)"
+],
+[
+"Quick Tips",
+"- Elise will look for towerdives & 3-camp ganks. Ward and warn teammates\n- Elise falls behind if she can't get ganks, make sure to farm to outscale her.\n- Elise WILL fall off regardless, bulk up and teamfight"
+],
+[
+"Detailed Tips & How to Play",
+"This is a matchup where unflinching is king, Elise is an early game focused AP jungler and can easily burst Udyr out. With unflinching you shrug off her cacoon if you can't avoid it and then aftershock will absorb all of her damage. Once she's committed with Rappel she's stuck in that fight so run her down and look for counterganks when possible. Catching her in the jungle requires she has no plant or camps to hop to so burn plants when possible to limit her options. You can flash over her cacoon and stun her if you have the damage to burst her down when she's low. If she appears top force objectives as Elise has poor rotations due to no kit % movement speed. Early objectives will give your …"
+],
+[
+"Avoid",
+"Ignoring her tower diving potential, if an ally is low under at ower rotate to let them back as Elise can take a towershot, dodge a 2nd with rapel and then secure an overwhelming advantage with this. If you take aggressive runes and ignore unflinching avoid 1v1 when you're at or around 60% HP as she can easily look for an all in."
+],
+[
+"What to do when Behind",
+"Elise will fall behind eventually so buy control wards in avenues near jungle entrences on her side if possible and in the river if you can't wonder to far from your own camps. You have faster clears and if possible look to solo an objective if she's elsewhere. Concede if you need to as once the game hits mid-game her ability to kill targets falls off."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Aftershock (Unflinching)"
+],
+[
+"Quick Tips",
+"- Unflinching allows you to run down Evelyn all early game.\n- Counter her at scuttle, invade when possible.\n- During mid-late control ward flanks to avoid her picking your carries."
+],
+[
+"Detailed Tips & How to Play",
+"Evelyn is one of the easiest matchups for Unflinching to overpower. With the slow resistance her non-charm CC is eaisly pushed thorugh and if you get charmed you ignore the duration. You need to punish Evelyn's weak early and prevent her from getting any scaling if possible as she'll easily fall apart before six. Once her level 6 comes online you can still zone her with proper control wards to spot her rotating to lanes. Her ganks without tenacity can be rather strong so avoid trying to fight her as her burst is pretty strong. Look to get an objective snowball going and build up your bulk as you'll be able to eat her engagements and if she can't slip past you to your carries you'll have an e…"
+],
+[
+"Avoid",
+"Don't force critical objectives if Evelyn is on the map and has her ultimate, her ability to flash in and ult + smite can easily outsmite you no matter what you do. Evelyn if left alone can easily powerfarm to 6 and her ganks pre-6 can give her an early start if you're not applying pressure early. Don't go for squishy builds as Evelyn will simply pick you off or ignore you to go for a real threat in the mid-late game."
+],
+[
+"What to do when Behind",
+"Any bulky build will provide you plentiful amounts of bulk to survive Evelyn's kill window in her charm. Remember her ult only amps damage when you're low and is not an execution ult like Pyke's. Build bulkier resistance items and high health so you can peel for carries and grab controls to watch your flank."
+]
+],
+"as": "Evelyn"
+}
+],
+"Fiddlesticks": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Aftershock (Unflinching)"
+],
+[
+"Quick Tips",
+"- Only stun him when he's in his Drain, if he completes drain he gets 60% CDR on it.\n- Fiddlesticks fear is either applied from fog of war from spell or a point and click. Unflinching pushes through both.\n- His wards gain sweeping at level 9, his ult can AoE fear if he's not spotted."
+],
+[
+"Detailed Tips & How to Play",
+"Fiddlesticks was one of the easiest matchups pre his buffs but you still stand a solid chance in this matchup. He will often attempt to clear like Karthus, look for early invades to throw off his AOE clearing by invading the buff opposite of where he started. Fiddlesticks will often try to do mulitple camps at once with his W when buffs are up so look to stop this and shut down his clears. His early ganks are trivial especially if you make sure to hold your stun for his W which causes his damage to fall off a cliff. His objective soloing is also pretty weak so make sure to priotize early objectives whenver possible. Once he hits six he'll look to start making powerful ult ganks, if he's runn…"
+],
+[
+"Avoid",
+"Do not group up especially around objective time once Fiddlesticks hits 6, one aoe fear can easily determine the teamfight. Squishy builds while can snowball harder on early game Fiddlesticks will be forced to spilt push come the mid/late game. Wasting your stun before Fiddle has begun to drain will allow him to get a 2nd drain off quickly which can easily surprise you with it's ending burst."
+],
+[
+"What to do when Behind",
+"Locket of the Iron Solari is a superb item to buy for your teammates along with an adaptive helm to help you survive his AOE ult in. As one of the easisest champions to cancel his drain your job is to prevent him from draining with Bountiful Harvest during his ult."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Diffculty",
+"1"
+],
+[
+"Playstyles",
+"Conqueror or PTA"
+],
+[
+"Quick Tips",
+"- His clear has high cooldowns, let him start a camp then run in on him.\n- Terrible early game ganks & objectives, countergank whenever possible.\n- Force objectives with good warding."
+],
+[
+"Detailed Tips & How to Play",
+"Garen is the user-friendly champion but his high cooldowns make him jungle unfriendly. Even with his recent buffs to the jungle clear his high cooldowns means his clears are highly punished from monsters and being Udyr hopefully from you as well. Look to invade him after level three as he has to use his high cooldown fighting abilities to clear camps at all which allows you to absolutely rush him down. Going for offensive runes you can build up a steady lead which can transition into scuttles due to Garen's lack of hard CC to weaken the camp then dragons due to Garen being poor to solo them. Force early objectives with good warding and keep Garen pinned to his jungle with vision as he's like…"
+],
+[
+"Avoid",
+"Garen can start to build up a lead if allowed to especially if he's running Predator, as teamfights build up his R is naturally powerful in bursting even tanky characters into oblivion so don't allow yourself to build full squishy. When fighting Garen do NOT start the fight witn your stun if his Q is up, instead make sure you are in Tiger as he silences you, this prevents you from having no damage optimozation in the fight."
+],
+[
+"What to do when Behind",
+"Black Cleaver is your friend should you fall behind, this will shred Garen's natural armor gains and allow your backline to shred him, from there consider items that provide slows like Randuin's if the enemy has crit or even Righetous Glory. As long as you can stack CC on Garen he can't get through your backline and if you're not a threat him ulting you is far better then other laners."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Diffculty",
+"1?"
+],
+[
+"Playstyles",
+"Aftershock (Unflinching)"
+],
+[
+"Quick Tips",
+"- Invade him early to slow down his clear\n- Fight him in Mega Gnar, he's much slower and forced to fight you in melee.\n- Force scuttles as his clear for it is extremely slow."
+],
+[
+"Detailed Tips & How to Play",
+"Gnar is rarely seen and for good reason, subpar ganks and clears means you can just powerfarm and outscale this champion with superior base stats. Invade only to set him behind on his tempo as his ability to disengage Udyr in mini form is pretty strong. The main thing you're aiming to do is not let him gank a lane with Mega as a properly set up team member can chain CC into a kill."
+],
+[
+"Avoid",
+"Gnar is a teamfighting monster, avoid standing near walls once he's level 6 and near Mega Gnar. Avoid invades when he's mini gnar as he'll be able to kite you with red buff and hop over walls and camps easily with his E."
+],
+[
+"What to do when Behind",
+"Look to force objectives when he's pressuring other lanes as his ability to do dragons by himself is rather subpar. Defensive tools to reduce his % damage is advised while you're bulking up and look to stun him when he leaps in so he can't easily combo your team with a CC train."
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Diffculty",
+"8"
+],
+[
+"Playstyles",
+"Aftershock (Unflinching)"
+],
+[
+"Quick Tips",
+"- Dodge his E when possible to increase it's CD.\n- Objectives are his weak point, secure them before teamfights occur where he's stronger.\n- Invade or gank after 3 camps if Gragas is going Predator to deny his early back reset."
+],
+[
+"Detailed Tips & How to Play",
+"Gragas is a rough matchup due to his knockback into a slow into another and stronger knockback. Most gragas players will go for a 3 camp clear into predator boot back, this can be abused by going for his alternate buff and stealing it while he's resetting then use that side of the map to punish him. Gragas's ability to sustain through the jungle isn't as strong as Udyr's and you'll avoid him getting off good early ganks. His counterganks are powerful so try to force skimirshies between only you two whenever possible. Once level six occurs make sure to alternate your movements so you can possibly have him R you in the wrong direction as you'll often be eating his ultimate. Look to stun him as…"
+],
+[
+"Avoid",
+"Gragas is a nightmare for an equally skilled Udyr due to his early game pressure, avoid ganks especially if he's nearby to counter with a predator boot rush E into the gank. If he has priority concede objectives like scuttle to him as his ability to lockdown Udyr from allies and dish out pain is pretty heavy. Don't attempt to go for damage builds as Gragas like Udyr can itemize for both damage and tankiness and his tankiness actually increases with the more AP he gains during his W's buff window with raw damage reduction. Once he's level six, save flashes to reposition quickly during his ultimate as he can easily disengage you from your flash engages."
+],
+[
+"What to do when Behind",
+"Cinderhulk into black cleaver is good if you're slightly behind to expose Gragas for your ADC, if you have no strong AD carries then instead itemize for raw bulk so Gragas can't easily access your backline. Look for objective play and remember that his E stops on first target hit, make sure it's you instead of a squishy carry."
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Diffculty",
+"7"
+],
+[
+"Playstyles",
+"Press the Attack"
+],
+[
+"Quick Tips",
+"- Do not invade Graves outside of the river especially if he has Phase Rush & Red.\n- Ward your red buff if you're starting blue and vice versa, Graves loves to Red into your camp.\n- Never engage in long trades, go for short trades and bully him early."
+],
+[
+"Detailed Tips & How to Play",
+"Graves is one of the most meta defining junglers due to his great early damage, insane tankiness and his ability to bully even Udyr at level two. Graves most common start is to start red, and if he feels comfortable go to your secondary buff so make sure to ward the entrence around your second buff if possible or directly on it if you're unsure of stepping to far ahead. This will allow you to spot out Graves pathing and either farm up if he is or counter him with allies while he invades. From there look to contest scuttle after he dashes in by using the fog of war and bushes, with waterwalking if you get on top of him you can easily first blood him and maintain your momentum on him. You need…"
+],
+[
+"Avoid",
+"Do not invade Graves early game, especially when he has Red buff in his own jungle. With phase rush he'll easily be able to kite the fight out and wear you down by hopping over walls and using the smokescreen to gain distance. Going for warrior enchant into graves can easily lead him to gaining a lead on your teammates then building death dance and using his true grit to completely negate your damage in fights as the game goes on. Extended duels should also be avoided as True Grit grants him 160 bonus armor. Avoid % physical damage items and instead focus on exposing his softer MR resistances."
+],
+[
+"What to do when Behind",
+"Unless your ADC is also behind try to get black cleaver as this item will be needed to shred through all the bonus armor Graves relies on in the mid to late game. From there items like Randuin's can reduce his crit itemization and nullify his armor penetration he buys throughout the game. From there remember his auto attacks can be blocked from hitting your carries if you're positioned inbetween them and Graves and can even save their lives. Knights Vow is a great support item to help you reposition if you don't have a tank support to help out."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Conqueror, PTA, Aftershock"
+],
+[
+"Quick Tips",
+"- Hecarim's early game brawls is weak, even with ignite you can beat him if you don't eat a fully charged E.\n- Hecarim's who take ghost & ignite over flash can be abused if you take flash in this matchup. Catch them clearing a camp while E is on cooldown.\n- Hecarim gets stronger the brawl extends due to spamming Q's, fight when his E is down during counterganks."
+],
+[
+"Detailed Tips & How to Play",
+"Hecarim's main drive is his mobility, luckily for Udyr once the pony express stops at us we can outstat this champion. Look to catch Hecarim's who use their E to start Scuttles and win the brawl there with waterwalking. If they don't have flash you can often secure first blood on him and continue working on your single target & raptor clears till you have Cinderhulk to speed up Krugs. While a warrior/triforce build works against Hecarim cinderhulk provides an easier transition. Damage build Udyr's should focus on shoving Hecarim down before teamfights begins as often possible then move to spilt while bulkier Udyr's simply turn on Hecarim when he R's into your teammates. If he falls behind hi…"
+],
+[
+"Avoid",
+"Don't force 2v2 or 3v3's with Hecarim nearby as this champion can easily ghost into the fight and knock you into his teammates with heavy burst. HIs damage output with Q spams can easily shred through your early game defenses if let alone and Hecarim's that take ignite or ghost have a lot of burst. As the game extends don't wonder to deep in the enemy jungle if you're super squishy as HEcarim's ability to flank even over vision is second to none, so make sure to put your wards deeper where Hecarim would begin his E charge instead of normal shallow vision. Spilting when this champion has a lead or you're falling behind is a sure fire way to get your teammates killed or you caught out with his…"
+],
+[
+"What to do when Behind",
+"Randuin's Omen if the enemy ADC has crit is a great way to slow him, items that provide slows will reduce his attack speed and thus his damage to your carries whenever possible. Try to stun him AFTER his ultimate as if he is charging to you he can simply hit his ultimate to become unstoppable and put it on cooldown against him. Hecarim's mid-game goal is to one shot a carry in the backline, if he can't do this then he'll easily be dispatched after his engage so items like Knights vow or Locket to increase their bulk is a great comeback tool."
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Diffculty",
+"6"
+],
+[
+"Playstyles",
+"Aftershock (Unflinching)"
+],
+[
+"Quick Tips",
+"- Ivern melts to Udyr's base stats, catch him attempting to do scuttle or his first camp rotations.\n- Steal camps Ivern has marked, he has to use his first smite to secure his buff so you can easily force him to fall behind by stealing marked camps.\n- Ivern can never solo objectives, if he appears top take dragons."
+],
+[
+"Detailed Tips & How to Play",
+"Ivern is an odd matchup due to how this champion works with his marking of jungle camps. Ivern will often use his smites to steal one or two camps so make sure you have your jungle entrences warded so he can't sneak in and grab buffs from you. On the first clear, pressure his secondary buff as his first smite charge is used on the first camp to get level 2 before he starts charging other camps. If you're playing aggressive udyr look to steal these marked camps as this will slow down his XP gain and keep him in the jungle. As the game goes on, Ivern can recover if he has someone especially a bruiser to costantly throw shields on abuse with his E. Forcing him to defend himself is optiomal and …"
+],
+[
+"Avoid",
+"Ivern excels in counterganks and 2v2's with his Q allowing melee champions to have a dash and the shield burst for damage and slow. During teamfights if you can't get onto the Ivern don't force yourself through as his constant CC will keep you pinned to the ground even with tenacity stacking. Keep clean rotations to avoid falling behind on CS and XP as Ivern can sneak into your camps with mobi boots and secure your buffs quickly."
+],
+[
+"What to do when Behind",
+"Ward all your jungle and delay your sweeper to keep Ivern from snagging your camps with smites. From there focus on building up your bulk so you can stun and kill Daisy and prevent whoever Ivern is attempting to enhance from getting to the backline. Getting objectives if you can sneak them is a great way to delay the teamfighting snowball from the enemy team."
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Diffculty",
+"7"
+],
+[
+"Playstyles",
+"Aftershock or Conqueror"
+],
+[
+"Quick Tips",
+"- Flash is mandatory in this matchup, he can easily lock you down with his ultimate.\n- Dodge J4's knockup is a free win for you, you will always win if you avoid that combo.\n- J4's like level's 2, ward up for this and watch his early game tempo"
+],
+[
+"Detailed Tips & How to Play",
+"J4 is an early game monster and a hard matchup come mid game due to his ult locking us wherever he desires. His bulk however relies on how many champions are hit by his Golden Aegis so if you gain a lead you can absolutely rush a blade of the ruined king after cinderhulk into him. Jarvan's tend to go for early ganks either a level 2 or a 3 camp clear into a gank. Ward near the raptor camp and the river entrence to protect your mid laner while warning your side lane to put up vision. If you spot him heading to blue side warn the other side lane with information. Counterganking J4 is ill advised so instead build up a tempo with good clear and look to fight for scuttle where you have more room …"
+],
+[
+"Avoid",
+"Don't look for ganks while J4 is hovering, if a laner has CC you will get locked down then knocked up with high % damage burst. J4 has armor pen and % current health damage so make sure you follow cinder with tabi or warrior with some armor to absorb it. Once ultimates are on the board choose your battles carefully and keep flash for objective fights so you can flash out of J4 combo and/or his ultimate. Don't stack on top of your allies as this will result in a Q>E>R and trap mulitple possibly dashless champions in a small area for an enemy team to collaspe on"
+],
+[
+"What to do when Behind",
+"Black cleaver is the name of the game if you bfall behind as J4's bulk is base stats and health. After that you'll want to focus on good clear rotations as you'll need the base stats to be inside J4's ult. Look for items that provide utilty to your carries and as before avoid being on top of carries but be close enough you can stun J4 before he attempts to dive in. EVen a fraction of a second delay can get your carries out in time."
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Aftershock or Conqueror"
+],
+[
+"Quick Tips",
+"- Jax's stun does more damage per AA dodged, avoid hitting him during counterstrike.\n- Either he goes in or he can escape, abuse his Q's cooldown to win fights.\n- You can eat the stun and then return your own, do this with W stance up into E while you're stunned for best results."
+],
+[
+"Detailed Tips & How to Play",
+"Jax is turning point of a good Udyr and a learning one. His early game is weak in the jungle, especially if you're able to catch him with his counterstrike down. The main thing you need to focus is eating the stun without wasting your bear stun on it, rush towards him with an active E and most Jax's will instantly throw up counterstrike. From there try to get out of range if possible to force him to use his Q, once you've eaten the stun stun him back and you'll win the trade. As long as you don't eat his counterstrike during a counter gank you have the tempo in the early game to fight him and win every trade. Look to contest on scuttle and see if he'll waste stun on the scuttle, same with ca…"
+],
+[
+"Avoid",
+"Never stun him as an opening, hold your auto attacks till he's stunned you first so you can avoid accidently wasting your stun. Every auto applied to him while he has counterstrike up amps it's damage to double and is why Jax feels so powerful when you're inexperieneced. Avoid any fights where allies are constantly AAing him with counterstrike up and don't stack on allies so he has to choose who to stun. Avoid hyper squishy builds as once he gets his ultimate he'll gain free armor and more if he chooses to go warrior > triforce/BOTRK to stat check you to death. When his ult is up, try to disengage if possible and fight him between ultimates."
+],
+[
+"What to do when Behind",
+"Cinderhulk into cleaver is great if you aren't terribly behind, from there you'll want to transition into bramble then an MR item to nullify his on hit magic damage. Make sure to keep your stuns for after his stun so tenacity in your runes is superb for ninja tabi to dull out his AA based damage patterns. Jax's engages are either Q into a stun or flash Q into a stun so have wards to deny him flanks then you can begin looking to counter him on engagements. You have faster clears so make sure to look for clean jungle rotations which if done properly can even lead to an XP lead while behind."
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Diffculty",
+"3/8"
+],
+[
+"Playstyles",
+"Press the Attack or Aftershock"
+],
+[
+"Quick Tips",
+"- Karthus will attempt to full clear his jungle, look for a 2-3 camp invade into his secondary camps. With his low MS and health you can easily first blood him\n- Karthus can't solo objectives, do objectives when possible and avoid early teamfights.\n- Delay his XP as often as possible, don't let up the pressure."
+],
+[
+"Detailed Tips & How to Play",
+"Karthus's strength is entirely reliant on how skilled he is at hitting Q's, the amount of damage he can dish out is terrifying in the early game and his jungle clear speed is as well. You need to start pushing pressure before scuttles spawn as Karthus's clear is rather unhealthy to priotize speed. A blue gromp wolves into his red waiting in ambush will give you a refresh on blue and delay him doing his high XP Krug camp. THis will throw off his tempo letting you secure both scuttles then invade him once more. If you can delay his XP farming on his side Karthus may be tempted to invade yours to regain tempo, this can lead to him throwing even more kills to your team. Once he hits six his glob…"
+],
+[
+"Avoid",
+"Do not fight Karthus when he has a direct line of sight on you as this will have a wall placed between you and them which not only slows you but also reduces your magic resist by 15%. Karthus with enough distance can outdps Udyr and even if he dies can likely kill you on the way out. Avoid teamfights where the enemy team is balled together as you'll have a hard time to get into their team comp and Karthus will melt most builds. Don't try to outfarm Karthus, he will outscale you AND outfarm you in every matchup, you need to play aggressively."
+],
+[
+"What to do when Behind",
+"Sadly being behind Karthus is a pain wall of trouble, shift your build into wits end if you have a chance to but just bulk up as much as you can and try to play for your allies. Karthus with a lead on Udyr is a rough matchup, so you'll be in a rough line overall so try to farm what you can and play to any win con your team has."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Press the Attack, Conqueror, Aftershock"
+],
+[
+"Quick Tips",
+"- Shadow Assassin's tend to run Elec or DH, look for early fights in the river to punish him.\n- Try to save your E for when Kayn attempts to walk through walls, stunning him out of the wall will leave him vulnerable especially if the wall isn't thin enough for Q\n- Dodge the W and you'll win every fight, contest him at scuttles."
+],
+[
+"Detailed Tips & How to Play",
+"The weakest form for Udyr to contest and sadly the rarest one to see. Shadow Assasin Kayn is an easy matchup due to his focus on killing squishy targets. If playing aggressively look to catch him at scuttles as his Q & E make him hard to pin down in his own jungle. However if you catch him at his 2nd buff his high E cooldown can be punished early to great effect. Look to try to get both scuttles to build up a lead then force objectives. If you have struggling lane matchups especially ones like Darius try to avoid being caught out in a gank with Kayn on the map. If he lands his W on you you won't be leaving that fight any time soon and may even die from it. Avoid standing near walls when braw…"
+],
+[
+"Avoid",
+"Don't stand near a wall if Kayn's Q is up, with it's low CD he can easily dish out a lot of surprising damage and hop into the wall to wait for cooldowns away from your tiger dots. Kayn can easily counter jungle you early while avoiding you by using walls and his shadow step so make sure to keep wards up to track his position and avoid falling behind to a powerfarm playstyle. Once he's gained his form don't stand to close to allies as Kayn's AoE can chunk you down while he aims for carries. Don't waste your stun unless you have follow up damage to burst him down with allies or yourself."
+],
+[
+"What to do when Behind",
+"Armor purchases take the focus point here so you can reduce Kayn's passive damage from scaling on you and the rate he absorbs orbs fo rhis trasnformation. Once he has shadow assassin your job becomes the peel for the carry role, stand near walls to prevent him from traversing in flanks and stun him as soon as possible. While he can re-enter the walls in a short time being stuck behind enemy lines leaves him vulnerable. IF he ults a target, try to predict where he'll exit so you can slap another stun on him."
+]
+],
+"as": "Kayn (SA)"
+},
+{
+"fields": [
+[
+"Diffculty",
+"7"
+],
+[
+"Playstyles",
+"Press the Attack, Conqueror, Aftershock"
+],
+[
+"Quick Tips",
+"- Rhaast will gladly fight you for form, go for quick trades to burst him down and only commit if you can kill him fast.\n- Pre-form kayn does more damage if he can hit both parts of his Q, either run through or run away so you don't hit both parts.\n- Rhaast is a sustain nightmare, do not stack health."
+],
+[
+"Detailed Tips & How to Play",
+"Rhaast is the most common form of Kayn you'll see due to playing a melee matchup. If he has Conqueror this is the form he'll go for crazy amounts of sustain. Early game you'll want to play aggressively in the river, avoid standing next to walls and try to catch him at Scuttle or clearing his secondary buff if you need to play aggressive. Kayn's W is extremely powerful for counterganks but he is in turn weak to your counters if this ability is on cooldown. If he ults you, walk towards allies and away from walls and attempt to guess where he'll pop out so you can stun him. Once he forms into Rhaast things get more tough, avoid builds that stack health as his ultimate and Q not only do % damage…"
+],
+[
+"Avoid",
+"Don't take slower fights against Rhaast in the early game where he can stack orbs on you and your allies, the longer you can deny his form the better. Avoid ganking lanes he can counter with a strong W because a small lead in the early will allow him to form faster and scale quickly against Udyr. His teamfighting is stronger then yours so try to stun him before his ult and afterwards so make sure to avoid being a health tank for him to drain off of. During teamfights don't stack on teammates since Rhaast has cleaver and plenty of AoE for him to lock in."
+],
+[
+"What to do when Behind",
+"Build high armor low hp items like thornmail and tabi to bulk up early game against Rhaast, try to get a cleaver to reduce his tanky options and then focus on peeling your backline. Rhaast has subpar access to your backline but will tear up your frontline so use long range allies to poke him down and avoid being in melee range of him since he can ult you for a free health recharge without ever autoing you."
+]
+],
+"as": "Kayn (Rhaast)"
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"Diffculty",
+"4 / 9"
+],
+[
+"Playstyles",
+"Press the Attack or Aftershock"
+],
+[
+"Quick Tips",
+"- Kha'zix can easily bully Udyr early due to isolation, stay near allies/minions whenever possible.\n- Kha'zix's 6 allows him to win 1v1's in the jungle, avoid him till mid game.\n- Kha without kills will fall off, if you get bulky enough you can outlast and outdamage him in the mid to late game."
+],
+[
+"Detailed Tips & How to Play",
+"Kha'zix's early game damage due to isolation and short cooldowns is one of the nastiest matchups you can find. However in lower elos you can punish him doing camps as he wastes cooldowns and especially in the River from a bush ambush. Look for a chance to set Kha'zix behind pre 6 before he can obtain evolutions but be careful of going in deep ganks. Once you've left your minions an enemy Kha countergank can easily lead to isolation damage tearing you a new one. Kha'zix's evolutions each have a different purpose, if he goes Q first avoid jungle fights with him as he will win those every time with his ultimate. If he goes W, use minions to counter the AoE slow and fight in allies, if he goes E…"
+],
+[
+"Avoid",
+"Do not fight Kha'zix in your jungle post 6 as most will go Q evolve first and will easily outrade you with Q into R into Q and his unseen passive. Invades only if you know you were unseen so you can ambush Kha'zix on a camp. Doing dragons is risky unless you're postiive Kha'zix is not nearby due to his isolation passive. Respect Kha'zix's early game damage and pick your skimrishes with him only if your allies will be there first. 2v2 kha'zix can easily out damage Udyr and an allie unless you can CC lock the target."
+],
+[
+"What to do when Behind",
+"Build support udyr items, knights vow, locket, and just farm up and build up for the mid to late game. Even if Kha'zix gets a huge lead early as long as you bulk up and provide utlity to your carries you have a chance to punish him and kill him when he attemps an engage. As you bulk up you can start itemizing for damage items like cleaver, steraks and wits end to still provide more bulk and have some threa tof your own."
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Diffculty",
+"8"
+],
+[
+"Playstyles",
+"Aftershock (Unflinching)"
+],
+[
+"Quick Tips",
+"- Kindred will mark you, avoid giving her a kill to delay her mark.\n- First mark is usually a 50/50 gambit, contest if possible but remember lane priority.\n- Kindred wins if she starts the fight, ambush her in bushes to win in early duels."
+],
+[
+"Detailed Tips & How to Play",
+"Kindred's strength is in her slow and her ability to easily hop walls while applying pressure with red buff. Unflinching is critical to push through with slow resistance for Kindred's early game in keeping Udyr away with red buff, so avoid fighting kindred around walls where she can disengage you easily. Often times you'll want to ward for the scuttle you're set up with either a 4-5 camp clear so you can arrive before scuttle spawns to get a ward in her jungle. From there if she doesn't go to contest it you can take the scuttle or if she does hide in the bush and allow her to start the scuttle and ambush her with her cooldowns on her abilities. You'll need to deny her marks as long as possib…"
+],
+[
+"Avoid",
+"Concede the jungle if Kindred has red and is attempting to catch you, you'll often lose out if she begins the engage and even if she loses it she can Q over walls while still poking at your health. If she spots you, till you've gained some kind of edge avoid engaging her directly. Keep vision over areas she can wall hop over so you can catch her before she attempts to move forward. As your death is highly valued for Kindred try your best to avoid giving her first blood when possible, while denying her first mark is great the rest are easier if you keep good rotations of your own jungle. Avoid squishy builds as they won't scale into mid-late game with Kindred able to get an R on her allies to…"
+],
+[
+"What to do when Behind",
+"Cinderhulk will be your friend in buying time to farm up into a mid game build. Items like Randuin's omen will curb her attack speed while you build Ninja Tabi and supportive items for other carries. If you're able to build up a lead back in, avoid sterak's gage and instead get cleaver for the CDR and armor pen to assist allies throuhgout the game."
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Conqueror, PTA, Aftershock"
+],
+[
+"Quick Tips",
+"- Lee Sin's Q is % damage on 2nd activation, avoid fighting when you're low on health.\n- Lee's Ult is a root on activation, stun him when he attempts to set up his kick then reposition around him.\n- Lee's W has a higher cooldown when used on wards, once he's used it to get in wait till he Q's and you can run him down."
+],
+[
+"Detailed Tips & How to Play",
+"Lee Sin is an easier matchup for Udyr but can quickly get out of hand if he's allowed to start a momentum. Your clear is more effective then Lee Sin's, but many Lee's will look for 3 camp ganks due to their need to influence the early game. Lee Sin's slow from tempest and his need to auto for energy means for him to gain the most value from his secondary abiliites he needs to fight you in melee range. If your laners allow, look to instead force Lee Sin to play defensively by invading his jungle as he's clearing camps. If you're unsure then fight over scuttles and keep him in vision. Early game wards have extremely high cooldowns, if you can force him to burn them to get away from you his gan…"
+],
+[
+"Avoid",
+"Lee Sin can easily start a harsh snowball if he's given a gold advantage, don't take bad fights early game in an attempt to set him behind. Proper camp rotation and farming will give you an XP lead and you'll outscale Lee Sin eventually as you bulk up during teamfights. His ability to survive in a teamfight is based solely on his mobility, so make sure to stay near allies just enough so you can stun him on his ult kick setups. Lee Sin's mobility early game can easily allow him to get good counterganks, if you're attempting one make sure to ward to watch for Lee Sin as he can quickly turn a towerdive into a shielded turn around kill."
+],
+[
+"What to do when Behind",
+"Lee Sin's scaling in teamfights depends on health of the target he kicked, however his ability to kick you relies on positioning so make sure to get armor healthy items and be ready to stun him whenever he Q's, Flash's or ward hops near your team. This will catch Lee SIn off guard allowing your team to reposition and kill him. From there your job is to farm up and provide a healthy wall between Lee Sin's who snowball who often will rush damage pure items and fall off during the late mid game."
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Diffculty",
+"2>9"
+],
+[
+"Playstyles",
+"PTA"
+],
+[
+"Quick Tips",
+"- Save your stun for Yi's W, use Q and W during his alpha strike to buy time.\n- Pressure and invade Yi, you overrun him hard early game.\n- Farming his jungle is more important then powerfarming your own."
+],
+[
+"Detailed Tips & How to Play",
+"Master Yi is one of the easiest matchups, but if allowed to free farm can easily become a huge problem for Udyr. You'll want to play for the early game and close out this game by 20 minutes, look for red into invades, or blue gromp red into his side jungle. You'll want to try to save your stun for his W as the amount of time he can stall with meditation can easily allow his allies to rotate. However if you can burst him down with an E threat, many Yi's will try to escape and with no way out just make sure to have Nimbus clock to follow behind them. Whenever possible try to find Yi in his jungle and pick fights, even if he has ignite you win with PTA in every brawl and can easily set him terr…"
+],
+[
+"Avoid",
+"Playing passively or playing to scale, Yi can easily crush solo que teams by catching one person out of position and using his conqueror and resets to run through your entire team. Avoid hp heavy builds even if you fall behind because his true damage, conqueror, and bloodrazor will shred through you in no time preventing you from helping your allies. You need to seek fights and seek to end the game quickly when against this champion."
+],
+[
+"What to do when Behind",
+"This is one of the few matchups you MUST almost always build damage, if possible try to farm what you can and punish Yi if he gets overzealous in a dive. A single shutdown can give you the stats you need to resume punishing Yi once more. Communicate with your teammates to help you secure objectives and combo your CC on him to put him down. If your teammates are able to burst Yi without you, then and only then do you build defensives to buy them time and focus on stunning Yi ASAP to lay down the pain on him. PTA is a great fallback so try to apply it to him so your teammages can burst him harder."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Conqueror"
+],
+[
+"Quick Tips",
+"- Pre-6 he's at his weakest so look to punish it with invades.\n- Dodge his Q, the slows being constantly reapplied will keep you in place and eating % health.\n- Once he has his ultimate, try to only stun him when he has his W off to avoid his inherent tenacity."
+],
+[
+"Detailed Tips & How to Play",
+"Mundo's early game is abysmal and his need to use HP to clear means he's extremely vulnerable if you catch him clearing camps. His passive regens over time so look to catch him early and try to get a ward in his red side. Mundo's will either attempt a full clear or do a 3 camp clear into a back and finish off the rest. You can sneak his buff during his reset time then wait for him in a bush to pressure him early. His ganks early game are weak against laners, but strong to counter Udyr if he can land his cleavers due to the constant slows holding you in place. When Mundo is involved go for who you can attack be it mundo or the laner as trying to run at someone while eating cleavers is a sure …"
+],
+[
+"Avoid",
+"High HP builds will be torn apart by the % damage Mundo has, do not underestimate his damage even early game if he can get on top of you. Once he gets his ultimate avoid extended brawls especially if you don't have grevious as Udyr's damage pattern is over time and Mundo is rapidly healing over your face during that time."
+],
+[
+"What to do when Behind",
+"Mundo is a juggernaut who can run right through your team, the only way you can constantly zone him is with Frozen mallet which is a good counter to a champion with high inherent tenacity. From there you'll want to stack raw defensive and a wits end if you're able to is a great follow up as well. If you're extremely behind then use knights vow and time to peel him off."
+]
+],
+"as": "Mundo"
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Diffculty",
+"6"
+],
+[
+"Playstyles",
+"Aftershock or PTA"
+],
+[
+"Quick Tips",
+"- Nid's highest damage is from his spear, dodge it.\n- Her traps can be destoreyd with sweeper, grab it early to avoid being marked.\n- Nidalee has poor scaling, so don't lose out on farm to outscale her."
+],
+[
+"Detailed Tips & How to Play",
+"NIdalee is a rough matchup if the NIdalee has an idea how to kite Udyr, but in lower elos you can run PTA with Celerity, Waterwalking, or nimbus cloak and simply run her over. Pick fights in the river as Nidalee's jump has a very short range and under pressure she can even mess it up and jump into a wall leading to a flashless first blood. The best place to ambush nidalee will often be at scuttle once she leaps onto the camp in cougar form as she can't instantly transform back. If she's the only threat you can rush wits end first otherwise stick to your standard core. As the game progresses Nidalee's ability to kill will begin to fall off, if needed eat spears if they'd land on a carry inste…"
+],
+[
+"Avoid",
+"Fighting Nidalee in a straight one v one when she has red buff is a sure fire way to get kited. She can use bushes for her passive movement speed and then wait to land a critical spear. Avoid ganking with lower then 70% HP if nidalee is nearby as a single spear can cost you your early buffs and throw your entire momentum. Don't run in a straight line backwards, try to change directions to force her to guess where you're going. Squishy builds are very vulnerable to Nidalee if she isn't behind as a trap will mark you for her execution damage in cougar form."
+],
+[
+"What to do when Behind",
+"A few bulky items can allow you to absorb spears so NIdalee can't get a good burst combo on your allies. WHen she pounces in stun her instantly to deny her any additional damage and allow follow up CC to hit her. A locket is a great way to aid your allies should she have leapt on them."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"PTA, Conqueror, Aftershock"
+],
+[
+"Quick Tips",
+"- Tiger Dot pierces his spell shield, surprise Nocturne's by activating tiger into his spellhield.\n- Avoid triggering his spell shield with bear, if he throws it up either tiger or eat the fear then reengage.\n- Nocturne's Q gives him plenty of ad, dodge the trail then fight him."
+],
+[
+"Detailed Tips & How to Play",
+"Nocturne is a matchup that determines your game knowledge more then anything. Nocturne can easily outstat Udyr if he's on his trail and gains his increased Attack speed from spell shielding but will easily lose out on damage. Take Aftershock if you need to tank into his team, Conqueror if there's frontline and Press the attack if you just need to shut him down. Nocturne is a champion you can countergank if he throws out his Q or E on another target besides you, bait out his spell shield with an E, and activate Tiger while he's fearing you so you can surprise him as your damage goes right through it. If he's engaging you directly and has hit you with Q, instead bait the spell shield and then …"
+],
+[
+"Avoid",
+"If Nocturne has hit you with his Q, try to disengage if possible and wait out as much of the duration as possible. When he drops his spellshield avoid trying to auto him with bear when he hasn't used it as if he blocks your stun he'll heavily out damage you and you'll have no recourse to defend yourself with. Blindly invading into his jungle without proper vision will lead to a bush fear and Q combo which can easily chunk you down low enough to open you up to his allies."
+],
+[
+"What to do when Behind",
+"Build defensive items before backtracking for Black Cleaver over steraks, Nocturne will eventually need to some armor from GA and possibly tabi to survive his all in. Save your tiger dot for his ultimate as his spell shield will last the entire duration of his ultimate or he'll activate it once he lands for a counter, piercing him with even a weak tiger dot is vital. Once he drops the spell shield stun him and focus on preventing him from killing your carries if possible."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"PTA, Conqueror, Aftershock"
+],
+[
+"Quick Tips",
+"- Nunu's root occurs if he hits multiple snowballs, it's a skillshot so you can hide behind minions to delay this damage build up.\n- Post 6, do not stun Nunu till he has activated his ultimate. Cancelling this ability will make him highly vulnerable.\n- Skilled Nunu's know how to curve their giant snowball, run at a 45 degree angle TOWARDS him so he curves around you."
+],
+[
+"Detailed Tips & How to Play",
+"Nunu is a difficult matchup due to his high gank pressure, in these games you want to make sure you get your raptor ward off so you can avoid his early pressure. If he is on the blue team make sure to have your bot side ward tri bush early to avoid a level 2 cheese which can easily wipe them out. If Nunu goes for early ganks, especially if you're tiger invade Nunu to apply pressure. Most Nunus tend to go aftershock, if you can avoid being hit by his giant snowball he'll have to wait the long duration of his Snowball Barrage (E) to obtain the aftershock defenses allowing you a wide window to punish him. During the pre-6 you'll want to try to either invade him when he goes for an early 2-3 gan…"
+],
+[
+"Avoid",
+"Do. Not. Try. To. 50/50. An. Objective. Against. Nunu. If Nunu is alive only force Barons/Dragons that he is completely zoned from, if this is not the case Nunu has a wider window to steal it from you and turn the game around. Avoid builds that rely on bursting as Nunu's will often build up straight bulk. Nunu's Snowball ignores slows and increases in speed and size the longer it rolls, do not act like your'e in the movies and run directly away. Nunu's jungle clear often will attempt to lead into counterjungles if you fall behind and attempting to chase this titan when you've stunned him can easily lead to him just snowballing away. If you aren't sure of his Snowball's cooldown avoid chasing…"
+],
+[
+"What to do when Behind",
+"Cinderhulk into supportive items are a great way for Udyr to still farm up and provide utility. Nunu does not build damage as he gets strong but instead focuses on supportive items like Knights Vow to support an ally. This you can counter in turn and instead become his friend by eating his snowballs. Remember his W and E can all be blocked, the W by eating the snowball on purpose while his E is a lined skillshot that applies a slow. As most of his damage comes from this in a slight range you'll prevent him from stacking CC on your weaker allies while eating the root."
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Diffculty",
+"7"
+],
+[
+"Playstyles",
+"Press the Attack"
+],
+[
+"Quick Tips",
+"- Olaf beats you if you attempt to double dot via Conqueror. Stun and Tiger always\n- Olaf's axes refresh if he hits you and can constantly reapply the slow if he catches you.\n- Olaf's clear is vulnerable if you catch him between camps. He relies on red & scuttle to heal him back up."
+],
+[
+"Detailed Tips & How to Play",
+"Olaf is one of the hardest meta matchups in Season 10 due to his great combo with last stand, Conqueror & his kit to sustain at very low health. He is one of the few champions who actually can outdamage Udyr's double dot and outsustain it catching many Udyr players unaware, so our job instead becomes to ambush him during his weaker clear points. If you cant' invade due to priority then instead look for ambush points to set him behind on his first objective clear. Catching him into face checks or even forcing an early brawl where you can stun and expose him with press the attack can allow teammates to burst him for you. If you're forced into a direct one v one, stun, tiger dot apply PTA and t…"
+],
+[
+"Avoid",
+"Do not double dot Olaf as his ability to survive through Conqueror and his W will leave you exposed due to low attack speed and no CC to stall out his conqueror stacking. Going warrior into olaf can easily lead to a thrown early lead if he catches you out due to his axe throws. If you cannot win the fight, don't attempt to bait it as a single axe throw can lead into mulitple others and he will run you down eventually or force your summoners. Don't look for counter invades once Olaf has hit six as he can easily turn on you if he's healthy with his ultimate and lock you down for his ally to turn on you as well."
+],
+[
+"What to do when Behind",
+"Cinderhulk into Black Cleaver will be your best aid tool for Olaf to expose him for allies, afterwards you'll want to build higher HP item to ignore his true damage and a bramble to reduce his healing. Olaf is a champ you can only peel via damage so tonly avoid black cleaver if you're so behind that knights vow is more in your price range."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Press the Attack or Conqueror"
+],
+[
+"Quick Tips",
+"- Rammus's clear is extremely weak and his base stats are lower then the average tank out of defenssive curl. Punish this.\n- Rammus slows himself in W which can allow you to reposition so he can't attempt to escape with Q. CD's don't start till he's out of W, punish this.\n- Rammus's Q is a channel, CC that stops channels stops Powerball (Think Soraka E)"
+],
+[
+"Detailed Tips & How to Play",
+"A tank jungler who you can absolutely abuse to heaven and back and who requires you to play aggressively into. Rammus's early clears are subpar with him having to use his E and W at the start of each camp and Q between them to keep up tempo. By abusing these cooldowns you can set Rammus heavily back from getting reasonable amount of tankiness from his abilities. Lead in with a turtle shield into a stun when you can and try to be taunted in Tiger stance so you can cleave through his defenses. If you catch him with his W already active and it runs off he's surprisingly squishy and will easily melt to you. Try to deny him Scuttle if you lane prio as well and force him to farm blue side over his…"
+],
+[
+"Avoid",
+"Do not let Rammus play safely in his jungle as once he hits six he can easily start looking for good trades. Avoid him finding you in the jungle especially if an ally of his is mia as they can easily lock you down long enough to run you down during the taunt duration. Do not invade if you have bad lane prio such as Kassadin or Vlad as Rammus can stall you out long enough with his cooldowns for an ally to rotate on you and take you out. Falling behind in Rammus will result in very poor mid game teamfights."
+],
+[
+"What to do when Behind",
+"You'll still want black clever to shred this armor stacking monster as much as possible, especially if your teammates are all AD which is often the case when he's being picked. From there grab an MR item such as spirit visage or adaptive helm then itemize support items to aid your allies in the frontline. If your team is entirely AD you can also go phoenix builds to throw him off early game."
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Diffculty",
+"6"
+],
+[
+"Playstyles",
+"Aftershock"
+],
+[
+"Quick Tips",
+"- Rek'sai's damage pattern relies on Q, stun her as she's knocking you up.\n- Rek'sai relies on Tremor sense to know if she's safe, when invading or sneaking dragon stand still.\n- Try to dot her before she can ult, as her damage is delayed you can save lives by bursting her before she can go down."
+],
+[
+"Detailed Tips & How to Play",
+"Rek'sai's tempo is one that really puts Udyr in the 2010 feeling with her various gank routes and powerful gank routes. Look to ward and warn your allies of her three camp clear by warding near her blue buff and seeing where she's pathing. If she paths to krugs to raptors you can counter jungle her where if she goes directly to blue she's looking for an early gank. Ping this information to your allies and then try to see the win conditions that you can go for counterganks or not. Rek'sai's damage is entirely eaten up by Aftershock as long as you lead with a stun on her before she knocks you up. Since she can't wait on her Q's she'll barely scratch you once you land and dish out the damage in…"
+],
+[
+"Avoid",
+"Squishy builds are Rek'sai's happy place as she can knock you up then dish out heavy damage followed by a high burst of true damage and likely kill you in the early game to start stacking AD and repeating this process. Moving around while doing objectives can result in Rek'sai seeing you off in the distance due to the strength of Tremor Sense so make as little movements as possible when doing camps, objectives and standing in bushes to ambush. Do not countergank lanes that have high turn around power such as Pantheon as they can turn on you and burst you through aftershock."
+],
+[
+"What to do when Behind",
+"Itemizing from Cinderhulk into defensive armor & hp items will allow you to survive Rek'sais burst with ninja tabi and avoid feeding her more gold. From there you'll want to only have a single armor item and itemize for the rest of the team as this alone will be sufficent. When you gain some footing consider a black cleaver if your teammates don't have one to soften Rek'sai for your teammates."
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Aftershock or Conqueror"
+],
+[
+"Quick Tips",
+"- Rengar gets one ferocity when leaping from bush with 0, try to avoid that.\n- Rengar near bushes is one of the strongest champions in the game, try to fight away from them.\n- Rengar is strongest when counterganking, but vulnerable with low ferocity if he's not near a bush to grant him the 4th he needs for empowered."
+],
+[
+"Detailed Tips & How to Play",
+"Rengar is a snowball skilled base matchup that punishes your slightest mistep from the brush. While most champions you want to ambush when they walk into a bush with Rengar you want to ambush when he's on a camp/scuttle and then try to keep him from reentering a nearby bush. If you're forced to fight near one, make sure to ward it if possible to avoid losing sight of him and wasting critical moments attacking nothing. Rengar's passive grants him increased % bonus ad per unique trophey he's gathered so stalling this out is important. Rengar's ganks on the side lanes are at his strongest, while ganking mid be careful of any enemies attempting to run torwards a bush where a waiting Rengar may b…"
+],
+[
+"Avoid",
+"Never fight Rengar in bushes, as he'll often stall out between his abilities and just regain a free stack of his passive after using an empowered ability. His ability to jump and retreat can easily wear down your defenses. If going for a bot or top gank make SURE you know if Rengar is nearby as the additional three bushes he can leap from means he can easily turn a 3v2 gank into a 2v3 in his favor by directly jumping on you and CC rooting you with Bola strikes back to back."
+],
+[
+"What to do when Behind",
+"Build defensive items and use control wards to watch your flank for his ultimate. Since his ultimate marks whoever is closest try to figure out where he is by watching who is marked and look to be standing in his way and stunning him mid-leap. If he's forced to clense your stun he'll have less damage to go for a one shot."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Conqueror"
+],
+[
+"Quick Tips",
+"- Sejuani's passive requires 4 AA's from melee or 2 and her Full W. Dodge the W.\n- Sejuani gains most of her armor off her Q charge, dodge this and damage her will weaken her aftershock due to losing out on passive.\n- Sejuani has a short window to hit you after using her E on you, stunning her as she stuns you or using the Fog of war can cause the stun to expire."
+],
+[
+"Detailed Tips & How to Play",
+"Sejuani has an early weak but surprisingly has a lot of damage and CC to control Udyr if you're not careful of her potential. Sejuani is strongest with allied melee champions such as top lane often finds so be careful when attempting to countergank her there. Sejuani's W stops her from auto attacking so try to stun her and run sideways or even through her to avoid the second lash of her W where the damage and slow is held. If you can dodge both parts of her W she'll have to auto you for her E, allowing you plenty of time to turn the damage around on her. Her frost armor makes her powerful till she's recieved damage, so feel free to proc it off a bear stun and focusing on avoiding her W befor…"
+],
+[
+"Avoid",
+"Sejuani wins in brawls especially if she's with a melee top or support due to the % damage she can dish out and the lock down on Udyr. If she's accompanied by an ally with high early burst such as Qiyana, Leblance or Ekko be careful in picking nearby fights. Sejuani requires some time to take down so pay attention to your lane prior. Avoid overextending in ganks for a kill if you're unsure of where Sejauni is espeically post six where she can Q & R to lock you down. WIth a melee ally she can stun you, proc her passive then use her ultimate again to stun you once more."
+],
+[
+"What to do when Behind",
+"Get black cleaver if you fall behind first to offer armor shred for your allies, wits end is a selfish buy but is fine if you're only slightly behind but avoid BOTRK if your allies have the damage to take her out. Focus on buying MR items to nullify her % damage so you're not melted by her passive and her mid laner if they're AP. Itemize defensive items for the enemy team and focus on eating her ultimate for your allies as it only stuns the first target it hits."
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Conqueror"
+],
+[
+"Quick Tips",
+"- Sett's E only stuns if a target is on both sides. You can stand on the same side as allied champs and only be slowed.\n- Sett's Shield has a high cooldown early game, if you're not stunned use E and simply run through him while he uses it on you.\n- Sett's Q is only MS at the start and only towards enemy champions, back off and force him to use E to engage."
+],
+[
+"Detailed Tips & How to Play",
+"Sett being a 2020 champion is one of the easier matchups for Udyr in the early game. His biggest threat is his AA reset with his Q resulting in 4 auto attacks and his shield, both which can be played around easily. Force Sett to start engagements with his E if he'st rying to trade, avoiding putting something like scuttle opposite of yourself for E stun. Sett's ganks are particularly weak especially if he's not running phase rush or predator, and if he is you can easily counter and run him down with conqueror. Blade of the ruined king is far stronger in your hands if he can't get auto attack resets on you due to your 100% AS speed bonus from tiger stance and passive. Early game get a healthy …"
+],
+[
+"Avoid",
+"Don't stand on the other side of an enemy unit or jungle camp and Sett when possible, the one sec stun will almost always secure a W stun. High health builds are simply powerful R engages for Sett to use against your teammates, so even if you fall behind rely on resistances instead of HP for your bulk and CDR to spam your shield. Try to avoid engaging on Sett till he's used his Q to avoid eating his 4 auto attack combo."
+],
+[
+"What to do when Behind",
+"A bramble vest will do wonders to reduce his healing from BOTRK or Conqueror if he goes down that route and reduce his damage combos. While he does have true damage in his kit you can avoid this by dodging the stun and then running through him or eating the physical resistance. Do not build health instead, get items like Iceborn Gauntlet, Thornmail, and Knights Vow to have psuedo tankiness via shield spamming and healing off ally damage. This will prevent Sett from using you as an engage and slamming down with your health onto your allies."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Aftershock"
+],
+[
+"Quick Tips",
+"- Ap Shaco's rely on their boxes, smite the box and he'll be exposed and you'll gain your unflinching.\n- Both forms of Shaco have no way out if you countergank as they come out of Q, run them down.\n- Your stun ring is unique, try to stun shaco before he can ult. Whichever still has a ring is the real one."
+],
+[
+"Detailed Tips & How to Play",
+"Shaco is another knowledge based matchup, if you attempt to go PTA or Conqueror he will simply run you down with his damage. Aftershock allows you to absorb his front loaded damage then simply outstat him to death. Shaco is much harder to acknowledge where he's starting as he can go leashless so try to set up wards to spot his early ganks. If your clear allows try to answer by smiting his box if you have a charge saved and focus shaco down exclusively. Since Shaco relies on Q for mobility and often goes ignite this can easily start a snowball lead for you. For AP Shaco's grab sweeper on your first back at the latest as you'll need to stun and hit the boxes fast to avoid being feared. AD Shac…"
+],
+[
+"Avoid",
+"Into AP Shaco avoid chasing him if you dont' have sweeper up, you can easily walk yourself into a minefield of boxes. As his boxes do AoE damage they can quickly add up when you activate several boxes in a row. AP Shaco's clone does high burst damage when killed, so only try to kill it when you're the only one near and you have aftershock up to absorb the damage. AD shaco's job is to kill squishies, avoid leaving their side so you can smite boxes and use sweeper to reveal his movements. Keep your movements up so he has to work to get his backstab bonus damage."
+],
+[
+"What to do when Behind",
+"Shaco can easily lock down your jungle if you're not careful, use control wards to watch your entrences and sweeper to check for boxes as you farm up back into the game. You'll need your base stats to recover then start building defenisvely depending on shaco (Randuin's is good against AD, Adaptive against AP) then building supportive items if you're that far behind to aid in getting carried."
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Conqueror"
+],
+[
+"Quick Tips",
+"- AP Shyvana is useless pre 6, put pressure on her laners to abuse this.\n- AD Shyvana will often go for early dragons, ward up dragons to catch them and force flash/free kill.\n- Shyvana's rely on their ultimate for raw stats/damage. Back off and don't let them maintain fury."
+],
+[
+"Detailed Tips & How to Play",
+"Shyvana is sadly in a strange state where her AP is the most common state of Shyvana. However both forms struggle with damage output to match Udyr early, meaning when possible invade this champion or countergank her when she exposes her neck to try to build a lead. Your main goal for AP Shyvana is to delay her level 6 powerspike where it really shines by forcing a dragon as soon as possible to deny her bonus stats. From there pressure her on scuttles and in her jungle to avoid her powerfarming her camps on respawn cycles. You can also choose to just powergank her laners as she has very poor counterganks to answer Udyr as long as you dont' overextend into a brawl. Once she hits six, AP will b…"
+],
+[
+"Avoid",
+"Don't play passively into Ap Shyvana as her level 6 powerspike can easily start snowballing her Dark Harvest stacks giving her a scary amount of burst. Both Ap Shyvana and AD can easily do dragon if left alone and gain bonus stats making them tankier if done."
+],
+[
+"What to do when Behind",
+"While you can't outfarm Shyvana with Cinderhulk you can certaintly keep up to the best of your ability. Build up your base stats and try to answer any ganks she performs by providing CC and your raw stats if you're not to far behind. If you can secure a dragon or two do so to delay soul arriving on the map and play to the win con on your team. You will eventually be able to catch up to Shyvana's raw damage with base stats and items such as wits end and tankier MR items."
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Diffculty",
+"3"
+],
+[
+"Playstyles",
+"Conqueror or Aftershock"
+],
+[
+"Quick Tips",
+"- Skarner's passive pillars grant +30 gold if there's 2 or more on them, great to snag early with teammates.\n- Skarner's Q lowers on CD if he's autoing, once he's used his Q keep him from autoing as much as possible.\n- Skarner's E lowers on CC, if you've been marked avoid being auto'd till the venom wears off to keep him out of passive."
+],
+[
+"Detailed Tips & How to Play",
+"Skarner is in a sad state in the current meta with a subpar early game, similar to other level 6 champions you'll want to pressure early his team while denying him scuttles and camps whenever the time allows. By giving your team a lead you can rotate with them to deny spires and then objectives to begin your team snowball. Skarner's six is where he begins to start becoming a threat, if you're not running Aftershock then try to avoid fighting brawls near enemy laners as his surpression can easily drag you behind allied help. Build bulky so even if you get ulted it's simply impossible to kill you anyways, but should you opt for damage or you have a high bounty grab a QSS to nullify this champi…"
+],
+[
+"Avoid",
+"Invading while his spire is active is a surefire way to get outstatted, try to take this first when invading as it'll give you vision, gold and force him to have to secure this first to fight you. Once he hits six, don't get ulted, especially if you don't have aftershock to stun him as you get ulted for bulk. Squishier builds need to pay the QSS tax to avoid becoming free kills during the mid game as you're a front line champion. If you attempt to spilt push you must also pay this tax."
+],
+[
+"What to do when Behind",
+"Skarner struggles the same way Udyr does, good wards will catch him out from invading, ganking, and forcing objectives. From there build bulky as he lacks any % damage to shred through you and relies on allies for most of his damage off his ultimate. Buying QSS when behind is a waste as your raw bulk will waste cooldowns on you if he's chosing to ult you instead of a win con on your team."
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Conqueror"
+],
+[
+"Quick Tips",
+"- Sylas can't steal your ultimate, so don't be afraid to fight him post 6 if he hasn't stolen one already.\n- Sylas gains insane healing when he's low, try to burst him between his cooldowns to avoid him sustaining.\n- A lot of his burst comes from his E chains, avoid this and the secondary burst on his Q will highly negate his damge."
+],
+[
+"Detailed Tips & How to Play",
+"Sylas, finally someone can suffer with a terrible ult with us. Early game Sylas jungle has poor mobility and can easily be punished in his jungle camps or at Scuttle, but be warned that if he lands his stun he can easily burst you with allies behind him. In a straight one v one you'll want to open with stun into tiger stancing and orb walking and attempting to avoid his abilities secondary damage source. This will allow you to simply outstat him with raw tiger dots to gain an early lead. During ganks however Sylas's mobility can easily lock you down with an ally and burst you down so try to avoid skimishes early till you bulk up or get your merc trends. Sylas's level strength relies entirely…"
+],
+[
+"Avoid",
+"Early game you'll want to avoid brawls with mulitple champions especially if Sylas gets the first rotation, if he lands his E he can put out a surprising amount of burst and hit with both portions of his Q which applies a slow that only makes you stuck on fighting whomever is nearby. If Sylas gets some kills off allies be wary of his burst and sustain as he can heal for massive amounts of his HP when he's low. Once he obtains his R, make sure to note whose ult he has stolen as some ults such as Malphite's can combo very powerfully on a champion who is already building AP."
+],
+[
+"What to do when Behind",
+"The only benefit you bring against Sylas in teamfights is that you can stand in front of your teammates and make him misclick you and steal phoenix stance instead. Bulk up with MR and if your teammates refuse to buy grevious buy it yourself as it's necessary to weaken him to allies. Build MR so you can eat his engage for allies and then stun him to hold him down."
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Diffculty",
+"11"
+],
+[
+"Playstyles",
+"PTA or Glacial Augment or Phase Rush"
+],
+[
+"Quick Tips",
+"- Trundle's R steals your stats, avoid buying stats that weakens your allies damage if possible.\n- Trundle's Q applies a slow and lowers your AD, do not take long trades against him.\n- Trundle is squishy if caught out especially pre-six. Work with allies to shut him down."
+],
+[
+"Detailed Tips & How to Play",
+"Trundle is the hardest matchup for udyr and if you're not confident this is the matchup to dodge. His ultimate denies bulkier builds while his Q makes him win almost every single 1v1 in the jungle. Ward defensively at your secondary buff so he can't invade you with a 3 camp invade and if possible set up wards with allies to figure out where he is. Trundle's pillar can place you on a bad gank so only go for ganks trundle is not nearby as even with Phase rush you need to auto someone to get the slow resistance. During the early game your best bet is to catch Trundle with a facecheck and punish him with a quick PTA or phase rush trade and disengage while he attempts to pillar you. If you have a…"
+],
+[
+"Avoid",
+"Do not run Aftershock as Trundle can wait till you proc Aftershock before ulting. His ult is applied against the resistances at the time he uses it which means you'd lose 40% of your aftershock enhanced defenses in total even when you don't have aftershock armor. (For example if you have 100 armor and aftershock gave you +100 more trundle would steal 80 armor leaving you with only 20 armor after 4 seconds.) Do not invade Trundle as skilled Trundles can pin udyr against a wall with no way out easily. Building high HP & resistance builds will simply be a free buff for Trundle in teamfights, if forced to just look for spilt pushing if necessary. If you aren't confident in your allies, just avoi…"
+],
+[
+"What to do when Behind",
+"Bend your knees, turn your head around and kiss your rear goodbye. On a serious note look to powerfarm your jungle as with cinderhulk you have easier access to the bami effect should the early game go poorly. For PTA udyr drop building damage, get black cleaver at most and peel Trundle from your backline. Cryo Phoenix can instead skip cinderhulk and focus on rushing Twin shadows using that to gank lanes from afar and lowering their exposure to the champion."
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Conqueror or Aftershock"
+],
+[
+"Quick Tips",
+"- If he has PTA, you win extended trades so try to fight those.\n- He'll try to solo objectives ward it up and burn his flash early so when he blast cones over the wall you can trap him with teammates.\n- He's still Udyr, likely he'll go squishy so bulk up and teamfight with your allies."
+],
+[
+"Detailed Tips & How to Play",
+"Most Udyr's you'll meet will often go for squisher builds and play for hyper aggression. Taking the slow and tactical approach will give you time to powerfarm early with wards covering you during your clear. Many Udyr's fail to use their passive well and will take unnecessary damage early, with proper stance dancing you'll take little damage and be able to push through regardless. In the Udyr vs. Udyr matchup all you have to do to win is simply scale up with a bulkier build then assist your team into the snowball. Warrior > Triforce Udyr's will only control the map as long as they're the highest leveled player in the game and even then up till 20 minutes. Once you can teamfight deathball jus…"
+],
+[
+"Avoid",
+"Respect the style of build the Udyr is going, a quick history search can reveal if he's aggressive. If you're building bulky you'll have a weaker early and if you build damage avoid fights if he has team prio. THis matchup is entirely team dependent."
+],
+[
+"What to do when Behind",
+"Build support Udyr and just hope you have the better coinflip. This matchup can only happen in Blind Que so just have fun."
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Diffculty",
+"6"
+],
+[
+"Playstyles",
+"Conqueror or Aftershock"
+],
+[
+"Quick Tips",
+"- Vi relies on hitting her Q to set up her combo, dodge this and crush her.\n- Vi does % damage every 3 auto's. Stun, auto and back off if you can control the engage.\n- Vi's ult is unstoppable only stun her when the animation is over."
+],
+[
+"Detailed Tips & How to Play",
+"Vi's are a rare treat but deserve respect with the same OTP history as Udyr has. With Vi you'll want to pick fights with her if you're running Aftershock early or avoid fights till you've gotten some base stats with Conqueror. Pre-six you outrade her as long as you don't eat a fully charged Q, and with Aftershock you can eat that and then simply stun her for your resistance burst. Her coutner gank power relies entirely on landing Q, so good vision will keep her from landing them freely as she has to self slow to power it up. Once she hits six however her ability to punish your backline is unstoppable so avoid using your stun when she ults till after the animation has completed. With the prop…"
+],
+[
+"Avoid",
+"Squishy builds will be ult targets for Vi and removing you will leave your back line exposed. If you get hp make sure to get tabi's at the least to have some armor to deal with her % physical damage as high HP only builds will simply be burned by her kit damage. Do not go into unwarded areas if Vi is missing as a bush fully charged Q can easily burst you down and an ally of her's will finish you off. This matchup is entirely dependent on who starts the snowball first."
+],
+[
+"What to do when Behind",
+"Build armor to reduce her threat to you, afterwards build knights vow or locket to give your squishy a chance to survive her burst. If they survive her engage and her teammates you can bait her into her own death from there and then work front to back line on her team."
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Conqueror or Aftershock"
+],
+[
+"Quick Tips",
+"- Volibear's shield applies a slow when it procs, once you see the animation back off to wait out the duration of the shield and the slow it applies.\n- Volibear is UNSTOPPABLE during his ult animation, but your stun will still go on cooldown when he procs it. Avoid stunning him during this window.\n- Volibear's DPS comes from his Maul (W) applying a second time on the same target. If you cannot kill him between maulings do not fight him.\n- Volibear's Q RESETS it's cooldown if he's hard CC'd during it."
+],
+[
+"Detailed Tips & How to Play",
+"Volibear is actually a matchup that can go either way, while Volibear especially who run PTA can easily burst Udyr your ability to shred this champion cannot be underestimated. His desired combo is to lead into a Q, proc his PTA then Maul you for high burst damage. As Aftershock Udyr you can easily eat this opening combo to shred him with your higher DPS. Your raw kit bonus AS is higher then his even with his fully stacked passive, abuse this by stacking monkey's agility for 30% and using Tiger's to shred through him. Once he starts his charge, move to avoid his shield granting ability and if he successfuly obtains the shield continue to attempt to disengage till the shield has worn off befo…"
+],
+[
+"Avoid",
+"Volibear smashes pure squish builds especially as he can lead a stun and then drop the 2 second delayed E onto you. Volibear wins extended trades due to his sustain from his W and his AoE on his relentless storm passive and this damage can add up. Avoid stacking with your allies as his ultimate both is a powerful AoE and can cancel towers. Do not let allies who are low post six not have your support as his towerdiving potential can easily tilt your solo que teammates."
+],
+[
+"What to do when Behind",
+"Armor items are going to be your friend, Volibear's frenzy scales with his bonus health and he rarely stacks armor so make sure to bulk up on your defenses. His W applies a wounded to you for eight seconds where a second W on you will apply the bonus damage and heal. Deny Volibear from getting his shield and peel him from allies, if you force him to dps you instead your allies can be spared. If you start to gain a lead back, a black cleaver will aid your allies in shredding through his health heavy build. Knights Vow and Zeke's Convergence are amazing items to both lower his DPS and slow him from getting to your allies. Remember that SLOWS do not reset his Q's cooldown and if he cannot reach…"
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Conqueror or Aftershock"
+],
+[
+"Quick Tips",
+"- You can cancel Warwick's ult with a well timed stun even if he's ulting you.\n- Warwick's E has flat damage reduction, stun him then back off till the CC has gone off.\n- Warwick's blood hunt makes him faster to low health targets, make sure to stay healty in your own jungle."
+],
+[
+"Detailed Tips & How to Play",
+"Warwick is a skill matchup that favors Udyr in most elo's if you have proper matchup knowledge. In early brawls open with a stun on Warwick when he attempts to use primal howl then back off. Once the fear has been applied even if you eat it you can outdamage him by turning around then and there. Warwick's early damage and sustain is matched by few but can be abused if you use your first stun during his howl then saving your last stun as he drops below 25% HP. As his healing magnifies on his own HP you'll need to ensure he can't try to outsustain you via his passive and Q's. Objectives come down to which team has priority and who abuses the jungler appearing top during jungle so make sure to …"
+],
+[
+"Avoid",
+"Do not attack Warwick with his primal howl up, at miminal it'll have 35% damage reduction, add a red smite to the mix and you'll be tickling him to death. Get a form of grevious wounds before you look to trade in the mid game with him as he can play the sustain game."
+],
+[
+"What to do when Behind",
+"Get bramble vest to reduce his auto based healing and Q healing and then build up bulky to provide a frontline to your allies. His R stops at the first target hit, if it needs to be you so be it."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Conqueror or Aftershock"
+],
+[
+"Quick Tips",
+"- Wukong's stunned before they clone will keep the stun circle, use it to realize who is who.\n- Sweeper can reveal him when he goes invis, use this to follow him and keep the fight going.\n- Wukong stacks armor off his passive, avoid trades that go on to long."
+],
+[
+"Detailed Tips & How to Play",
+"Wukong has gotten some nerfs but he's still a terror if allowed into the teamfighting phase with a lead. His jungle clear is healthy so instead look to punish him between camps or during a scuttle engage if possible. His ganks lack any CC so try to watch and see if he uses his invis to perform the gank. Without his clone you can easily outdamage him and flash to him if he attempts to get away. Your main concern is when he hits level six as his knockups must be absorbed during any trade. Try your hardest to not be stuck between his clone and the real Wukong by using sweeper and taking the fight away from the Clone's R range. This will greatly reduce his damage and his ability to bring his Q o…"
+],
+[
+"Avoid",
+"Do not stand on top of his clone and try to outtrade him, he gets lower CD on his Q based off autoattacks between himself and his clone and if he uses his nimbus strike the clone gains the attack speed as well. Once he gains his ultimate avoid standing on top of your allies as his AoE ult applying % damage on top of his clone can easily expose a team to follow up team CC."
+],
+[
+"What to do when Behind",
+"Armor items and black cleaver will be your go to for this monkey king. Priotize your defenses as you need to survive his ultimate long enough to stun him and apply a tiger dot for black cleaver to even be useful to your teammates. Sweeper can help your teammates see where he goes after he applies his decoy."
+]
+],
+"as": "Wukong"
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Aftershock, Conqueror, PTA"
+],
+[
+"Quick Tips",
+"- Xin Zhao will almost always go for lvl 2 ganks, ward and farm up.\n- Xin zhao's early damage comes from AA resets and his W, dodge the W and win the trade.\n- Xin Zhao falls off, build bulky and make his engages entirely useless."
+],
+[
+"Detailed Tips & How to Play",
+"Xin Zhao is an early game focused jungler of a time long missed. When against this champion focus on working with allies to ward around his red buff so he can't get off his infamous level two ganks, if he wastes time trying to do one over a ward focus on farming and counterjungling him as this will put him terribly behind especially if you steal his blue and deny him yours. LIke udyr he starts machete and losing out on blue means he'll quickly run out of mana. Proper farming rotations will give you an XP lead early which you can then look to counter his ganks as he's an all in champion if the lane matchup allows it. If not, then instead focus on farming quickly for the early game to get into…"
+],
+[
+"Avoid",
+"Do not try to counter his level two, his is stronger for a reason and he can easily turn on you instead with his ally. Avoid trying to countergank Xin Zhao if his laner is responding better and/or has better early game commitment such as a Kassadin vs a Orianna for example. This is a matchup you win with patience even with Conqueror or PTA as your rune of choice."
+],
+[
+"What to do when Behind",
+"Build defensive items and stun Xin zhao when he attempts to engage on you then simply walk away. If he can't knock you up with his Q auto attacks and loses out on the CD his damage and cooldowns go down with it. Stun him after he has thrown out his Q."
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Diffculty",
+"7"
+],
+[
+"Playstyles",
+"Aftershock or Conqueror"
+],
+[
+"Quick Tips",
+"- Zac's Q is a lot of his early game damage and lockdown, use a minion or monster to absorb it if you can't dodge it early.\n- Zac levels his E first, if he engages with it you can counter him and kill him before it comes off CD.\n- If he's low, save smite for his blobs as they count as minions meaning you can oblierate one quickly."
+],
+[
+"Detailed Tips & How to Play",
+"Zac is one of the few tank junglers who actually is quite threatening thanks to the buff of bami cinder working well with his trade patterns. His % damage and tankiness is a rough trade if he counterganks any of your ganks so make sure to keep vision control deep in his jungle to catch this off. Invading him is risky as you'll need to catch him between E cooldowns, if you're not sure save your stun till he attempts to E away to cancel the channel part of the ability.Even if you dodge the E his Q can be applied on a minion, monster or allied champ then he can auto you to pull you both together in CC and slows. If you're standing NEXT to your target you'll take extra damage and be slowed again…"
+],
+[
+"Avoid",
+"Do not stand next to a target Zac can Q then auto you and vice versa, the extra damage from this on top of eating W's will quickly wear down your health bar giving Zac scary amount of damage. Standing on top of allies should be avoided at all costs as he can land on top of you with E, Q both of you for the high damage, ult both of you all while using constant W's for % max health damage."
+],
+[
+"What to do when Behind",
+"Build Black Cleaver for allied damage and begin stacking MR items, Zac unforunately is a great engage for allies so try to stun him just as he lands to try to stall out his Q or ultimate from being used as long as possible."
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+]
+}
+}

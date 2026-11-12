@@ -1,0 +1,5055 @@
+{
+"champ": "Renekton",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1MKaw_PGFrKitMyqfE4fl6QxHK-cidspg/edit",
+"author": "Twevor",
+"updated": "2025?"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"Q > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Boots > Death's Dance"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Fight him at level 1 — stay close to his Q1 and Q2 to reduce damage, and dodge the sweetspot on Q3. After level 2, every time he uses Q2 to poke, blow your damage then leave before his Q3."
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Tiamat > Mercury's Thread > Stridebreaker > Youmuu's or Shojin if behind"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"If she miss her E just go for a trade, with 2 trades with Eletrocute pre 6 you can kill her. After 6 if you waste her R you win"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"Q > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's or Shojin if behind"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Trade health with her, you have more sustain in your kit. Use Q while she's in her smoke and W when she try to hit you with Q. Don't let her use her buffed AA"
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Cancel his E dash with W, don't need to be empowered. After steelcaps you just win."
+]
+]
+}
+],
+"Alistar": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Black Cleaver > Eclipse or Shojin if they have 2+ FIGHTERS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Don't waste your fury with W, do short trades early and do not get hit by his E. Be careful playing next to his tower, he can insec you to it and CC chain you in there."
+]
+]
+}
+],
+"Ambessa": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Don't get hit by her Q2. Don't hit while her counter still active, if you can break her shield with Empowered W. Just play around Eclipse passive and you're good."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Black Cleaver > Eclipse or Shojin if they have 2+ FIGHTERS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Don't waste your fury with W, you need to stay healty to stay fighting him over time."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Unflinching\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Malmortius > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Be careful when using E2 to dash, hold it until she uses the wall. If she tries to poke with Q, do a short trade. Try canceling her R with W, it doesn't need to be empowered."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Mercury's Thread > Malmortius"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Try to get some advantage until level 5. After 6 just wait for ganks."
+]
+]
+}
+],
+"Aphelios": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps if behind > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"He doesn't have any escape, just remember PURPLE GUN = Stun / WHITE GUN = Danger"
+]
+]
+}
+],
+"Ashe": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Youmuu's > Mercury's Thread if they have 2+ HARD CC or Plated Steelcaps > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"She will hold her R to your engage, if she use R to start it means you are getting ganked"
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Mercury's Thread if his jungler is AP > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"He can be very tanky after his 2-3 item, but still imobille, try to cancel his W with your W."
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Hexdrinker > Mercury's Thread if her jungler is AP > Malmortius if her jungler is AP > Eclipse"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"She's one of your worst matchups, work to perma freeze and wait for ganks. Go for proxy when she tries to freeze you."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Stridebreaker > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"It's a farm matchup, he can't kill you, but he can be very annoying because of his dash and R, try to get lead and wait for ganks."
+]
+]
+}
+],
+"Bard": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"It's like any other ranged matchup: control lane brushes, don't be poked till death in early levels, proxy if you can, bla bla bla bla... He doesn't have any kill pressure against you. Just be careful with ganks, his portal can make them very creative."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"Q > W"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Plated Steelcaps > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"You cand bait her E with fake W or fast E1+Q+AA+E2, don't waste damage and cooldowns while she is casting it. Don't let her push and get Voidgrubs and Herald, that's your max priority."
+]
+]
+}
+],
+"Blitzcrank": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Youmuu's or Serylda if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Be careful when pushing the wave around his tower, that's the only time he can be a problem. If you get hooked at that point, you're almost certain to die."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Malmortius > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"His E can bouncy between the wave and you, be careful to not get poked till death. If he tries to freeze just proxy, but don't overextend, he have a good clear wave to go after you."
+]
+]
+}
+],
+"Braum": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Youmuu's or Serylda if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Be aware about ganks, his passive can make them sucessful almost every time. Otherwise he doesn't should be able to kill you."
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Bramble if behind > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Be careful level 1. This lane you need to play around her E, it has the same cooldown as your E and W , don't waste your combo while she's casting it. She's stronger than you till level 3. Don't dive unless you waste her E."
+]
+]
+}
+],
+"Caitlyn": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Stridebreaker > Youmuu's"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"She is very annoying because of her high range, you will only catch her using EE. If you notice your jungler making clear to top side just wait for him to kill her, don't risk youself. If she don't get early lead she is -1 for her team"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's or Shojin if behind"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Don't trade lvl 1 if she starts with Q. Whenever she uses her W, dash and combo her. If she try to run with E1, wait till connect to a wall and use you W, you will cancel her dash. Your lvl 6 is stronger, but be careful with enemy jungler, she have one of the best gank setup"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Unflinching\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Malmortius > Youmuu's"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Use your E1+Q+E2 combo to bait her W, her cooldown is higher than yours. And be especially careful with her R"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse or BORK if he's rushing HP > Black Cleaver"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Dodge his Q with E1 if needed, and be careful with trades till lvl 3, after he get some armor you can use you empowered E2, but he outscale you, so if you dont get the lead you are cooked"
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Stridebreaker > Youmuu's"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"His W dash has a longer cooldown than your entire kit, bait this skill and then you can go for all win."
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Bone Plating > Unflinching\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Use R to all win as soon as he hit 50-65% of HP. If he use his Q to poke just go with E1 and do a short trade always finishing with W+E2, unless you are going for all win. Don't EVER fight in his turn, and don't let him get 5 stacks on you."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's or Malmortius if they have another strong mage"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"She can't one shot you, if this happen it's time to FF. If she misses her E it's free kill."
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nHaste AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Eclipse"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In early levels, avoid to get hit by his Q and play for level 3. Always break his passive before diving. Only use ignite to counter his R or secure kiill. Pretty annoying lane because he can farm and poke with Q"
+]
+]
+}
+],
+"Draven": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Plated Steelcaps > Youmuu's"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"He can be really oppressive in lane. If he uses his E to poke or farm, go all win. If you can make him miss his axe reset mid-fight, you'll win easily."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"He is hard to kill after 6, you need to get an early lead. After 6, don't bother to dive, just take tower and then you go for a kill"
+]
+]
+}
+],
+"Elise": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Don't waste all your combo if she have W, just wait her come back and then you kill her."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"She doesn't have enough damage to one shot you or push the lane, just work in 2 waves and dive her. Her R is the only escape she has, but it's strong enough to stop your dive."
+]
+]
+}
+],
+"Ezreal": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps > Stridebreaker > Youmuu's"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"If she's with Conqueror and not running ignite you win level 1 all win. In early levels just walk back if you get any bad vitals. Hold your W ultil she uses her W or bait with fake W."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's or Malmortius if they have another strong mage"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Whenever he haste his E do a short trade. He isn't strong enough to be a threat even after 6"
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse or Black Cleaver if he's rushing ARMOR > Shojin or finish Black Cleaver"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Control lane brushes, do not get poked till death, try to avoid his Barrel damage but dont waste your W into his Barrel. And don't get hit by his passive."
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Bone Plating > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Keep your fury high and keep waves near your tower, if he tries to break the freeze with his skills you can easily kill him. Wait for his W to wear off to use Q and W. Dont bother to use W while he's spinning unless you are going to kill him. After Eclipse your main combo to poke must be Q+AA, this will make sure his silence doesnt affect you so much and Eclipe shiled will block most of his damage."
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Stridebreaker > Black Cleaver"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Don't trade when he's in mega form, don't get behind him to deny his double jump"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nHaste AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Mercury's Thread if even or behind > Eclipse > Mercury's Thread > BORK or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"If he start E then you go for E start. Start trades with E only when he's E is down. Match his E with your W so you won't get poked by free"
+]
+]
+}
+],
+"Graves": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Plated Steelcaps > Youmuu's or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > BORK or Shojin if behind"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Be careful, until level 3 she win easily. Sidestep her Q or dodge with E. You have time to trade whenever she uses her Q. After level 6, everytime she is -70% HP and you have ignite, you can all win."
+]
+]
+}
+],
+"Hecarim": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Malmortius"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"If he use his E to poke, just go for a short trade. If you want to start the short trade, be sure to dodge his stun with E2. You don't have much to do, just don't die and wait for ganks"
+]
+]
+}
+],
+"Hwei": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Mercury's Thread > Youmuu's"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"If he waste his E just trade, if he is lower than 70% HP it's a free kill"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Pickaxe > Executioner > Black Cleaver if she goes ARMOR or Eclipse if she goes AD (but you need both)"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Level 1-2 you can abuse your PTA spyke, if she start W you start with W. Everytime she miss her E you NEED to trade, use E2 if needed. If you go first with E1 insta sidewalk to dodge her E then you can use your skills. Dont try to fight her after laning phase. Let your teammates deal with her and just hold the lanes if she is splitpushing."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Bone Plating > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Your level 1 is stronger than hers until she's stacked her passive, so try to get Prio and Bouncy. NEVER fight her while she's stacked. Don't waste skills while she's casting her W, and don't use your W while her W is still active unless you're using it as bait. The only time you can use your W before her W is when she's casting her E - they never expect it, but you'll get hit, so use it wisely."
+]
+]
+}
+],
+"Ivern": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > Mercury's Thread > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Janna": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"JarvanIV": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"Q > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Bone Plating > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Plated Steelcaps > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In this matchup you will play around his E. Respect his level 1 if he has E, start with E if needed. NEVER trade in his bouncy. You can only trade after he use his E, or you can bait with fake W."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Stridebreaker if losing or Eclipse if winning > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Jhin": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > BORK or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Jinx": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Black Cleaver > Shojin or BORK if they have 2+ HP stackers"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Don't use your W while he's casting his W."
+]
+]
+}
+],
+"Kaisa": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Kalista": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's > Serylda if she goes TANK"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Youmuu's"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nInspiration: Triple Tonic > Cosmic Insight\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Respect her level 1 if she's running Lethal Tempo or PTA . Crash the second wave to create a bounce and look to set up a perma freeze. She’s fast enough to outrun you, so don’t be afraid to use E2 to gap close. Bait her R with fake W. Your R comes back faster than hers, so don’t hesitate to use it early to build a lead."
+]
+]
+}
+],
+"Kayn": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > BORK or Black Cleaver if they have +1 TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Tiamat > Mercury's Thread if he goes AP or Plated Steelcaps if he goes AD > Stridebreaker > Eclipse"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Khazix": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Kindred": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps if behind > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > BORK or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"KogMaw": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Malmortius"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"LeeSin": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > BORK or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Leona": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Black Cleaver > Shojin"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Mercury's Thread if her jungler is AP > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Stridebreaker > Youmuu's"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Lulu": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"Q > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Black Cleaver > Shojin"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Trade in early levels, try to get ahead before his first reset otherwise he will just stack armor and beat your ass."
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Unflinching\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Mercury's Thread > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Don't stand near to minions when they are dying, otherwise his E gonna bouncy into you. Use his pets to dash over him."
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Mercury's Thread > Black Cleaver"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"MasterYi": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > Q"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Plated Steelcaps > BORK or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Do short trades before you have some items, if you got any lead you win an extended trade. Ignite his W to cut his heal or cancel with your W. This matchup near impossible to master after first item"
+]
+]
+}
+],
+"Mel": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Milio": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"MissFortune": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"You'll easily win before 6 if you keep short trading. Don't use your E1 to poke, let him pull you in with his E, and if you use your E to finish the trade. Hold your empowered W to break his shield or use it to dash in with E. After 6, don't use your R before his R."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Unflinching\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Mercury's Thread > Eclipse > Stridebreaker"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Naafiri": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"If she have a good reaction, every time you use your E1 to start she will become untargetable with her W, so you will use E2 to gap close again and get the kill."
+]
+]
+}
+],
+"Nami": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Start the trade with E1+AA every time she use her W to poke, then dodge her Q with E2 and get the sushi"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Unflinching\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Eclipse > Serylda"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Annoying wave management lane, slow push wave 1 and fast push wave 2 to get bouncy, then freeze him forever. If you can, dive him with your jungler and make him loose his turn"
+]
+]
+}
+],
+"Nautilus": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK if he rushes HP or Black Cleaver if he rushes ARMOR (But you need both)"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Just hold your empowered W to break his shield, and be careful diving him, he has a ton of CC"
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Mercury's Thread > Youmuu's"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Nidalee": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nnspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > BORK or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Don't have any secrets, just use your combo, then go away before his fear stuns you."
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Unflinching\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Eclipse if he's AP or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Try to get all the plates, ignore him if necessary he isn't a threat to you. If you try to dive him, hold your empowered W to break his R shield"
+]
+],
+"as": "Nunu & Willump"
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Bone Plating > Unflinching\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Plated Steelcaps > BORK or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Punish him after he misses his Q. Break his W shield with empowered W, if you do the trade is won. After 6 be careful with your all win because of his R"
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Malmortius > Eclipse"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"Q > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse or Black Cleaver if he's rushing ARMOR > Shojin or finish Black Cleaver"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Use your E1 to dodge his W passive — most of his damage comes from that. He usually starts Bramble Vest, so don’t waste fury using Empowered W. After level 6, use W to cancel his R2."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Don't trade when he's stacked. Use E2 to get behind his shield. You can bait his shield by activating W and not attacking him. If he's good, you'll always be stunned whenever you use E in the early levels."
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > BORK or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Level 1 just bait her Q's than poke with your's. Abuse her W cooldown (you have an entire rotation before it come back)"
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Dont try to match her roams, just push wave and get plates. You can stun her during her E, if you do you can do a short trade or all win with R."
+]
+]
+}
+],
+"Rakan": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Youmuu's or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"You can cancel his W with your W. He doesn't have damage and clear wave to be a threat. Just be careful with ganks, he can engage easily with his kit. At some point you will get bored on killing him, so focus on getting plates, he can't stop you."
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"Q > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Black Cleaver > Mercury's Thread > BORK"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"After his bramble he becomes unstoppable, try to get some advantage before his first B. After, focus on farm until you finish Black Cleaver. Don't waste fury on W, focus on Q and E."
+]
+]
+}
+],
+"RekSai": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > BORK or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Rell": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Eclipse or Serylda if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"She can't really kill you otherwise than ganks, she only have tons of CC, just focus on getting plates and calls your jungler to do every top side objective."
+]
+]
+}
+],
+"Renata": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Youmuu's > Mercury's Thread > BORK or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+],
+"as": "Renata Glasc"
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Bone Plating > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Let him start the trades with his E, then stun him and go away with your E. If you start the trade finish your combo with emporered W and leave with E2"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Bone Plating > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Hexdrinker or Malmortius if they have 3+ AP > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"If he start E, then you can abuse his lack of wave clear to get prio and level 2 first. After he use his Q, you have 10s to play"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Second Wind > Revitalize\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Mercury's Thread if they have a lot of CC > Stridebreaker > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Samira": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Eclipse > Stridebreaker"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK if she rushes HP or Black Cleaver if she rushes ARMOR (But you need both)"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Senna": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Seraphine": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > Mercury's Thread > BORK"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Bone Plating > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Eclipse > BORK or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Stay safe until level 3, unless you go for EW, but never all win level 1. Use your R to timming his R, it has the same cooldown. Don't say behind him after 6, if you do he will use his R to run away."
+]
+]
+}
+],
+"Shaco": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Don't chase him, just do your combos then leave. It's just a free lane, dont have much to say"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Black Cleaver"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Every time he try to use his E into you, activate you W even if it's not empowered, his taunt will make sure you don't miss. Don't try to match his roams, just push wave and get plates."
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Bone Plating > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Eclipse or Black Cleaver if she's TANK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"Q > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Boots of Swiftness> Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > BORK > Black Cleaver"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Just poke him with Q, if he waste his W go for a trade. Like any other tank matchup you must focus on empowered Q to outsustain him. You need to get lane priority and maintain him under your control, his TP and R are good ways to roaming and coming back to lane."
+]
+]
+}
+],
+"Sivir": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Black Cleaver"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Smolder": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Cancel his dash with W. Wait for ganks, it's an annoying lane, you don't have much to do"
+]
+]
+}
+],
+"Sona": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Soraka": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Biscuit > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > BORK > Youmuu's or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Unflinching\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Tiamat > Mercury's Thread if her jungler is AP > Stridebreaker > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nHaste AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Black Cleaver"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Tiamat > Mercury's Thread if her jungler is AP > Stridebreaker > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Taric": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK or Black Cleaver if he rushes ARMOR > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Domination: Electrocute > Sudden Impact > Sixth Sense > Ultimate Hunter\nResolve: Second Wind > Unflinching\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Tiamat > Mercury's Threads if his jungler is AP > Stridebreaker > Youmuu's"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Thresh": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Serylda or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Tristana": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Stridebreaker > Youmuu's"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Bone Plating > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Plated Steelcaps > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"His level 1 is stronger than yours, try to get prio, but if you can't just run until level 2. Just be aware of his bone plating"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Tiamat > Mercury's Threads if he's going AP or Plated Steelcaps if he's going AD > Stridebreaker > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Twitch": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Stridebreaker > Eclipse"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Bone Plating > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps if behind > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps > Stridebreaker > Eclipse"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Mercury's Thread or Hexdrinker if they have 3+ AP > Youmuu's"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Mercury's Thread or Hexdrinker if they have 3+ AP > Youmuu's"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Vex": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Mercury's Thread if her jungler is AP > Youmuu's"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Vi": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > BORK or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"She doesn't have much to do, like Gragas matchup you can match her Q with W to make trades more easier to land your combo."
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Eclipse > BORK or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Mercury's Thread or Malmortius if they have 3+ AP > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Stridebreaker > Executioner > Eclipse"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse if he's AP or BORK if TANK / HP > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Your level 1 is stronger than him. Use you E to dodge his E, its the highest damage in his kit in early stages. Brake his E shield with empowered W. Dont do a long trade because he heals more than you."
+]
+]
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Executioner if losing > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"Dont trade AA early levels. Don't try to burst him if he usese his E, use your E to disengage if needed. If you can hold your empowered W to his barrier. After Executioner your win easily the trades, just dont overtrade."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 1+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+],
+"as": "Wukong"
+}
+],
+"Xayah": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Plated Steelcaps if behind > Youmuuy > BORK"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Stridebreaker > Eclipse"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"XinZhao": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK or Eclipse if losing > Shojin or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's or Shojin if behind or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Youmuu's or Shojin if behind or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Warden's Mail if behind > Eclipse > BORK or Black Cleaver if they have 2+ TANKS"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Yunara": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Only respect her if she goes with Press the Attack. any other rune you just obliterate her. Wait for her to waste her Q and go for a short trade, hold your W until she uses her E"
+]
+]
+}
+],
+"Yuumi": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nInspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > BORK or Black Cleaver if he rushes ARMOR > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Eclipse > Shojin"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Zeri": [
+{
+"fields": [
+[
+"Spell",
+"Ignite"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Plated Steelcaps if behind > Stridebreaker > Youmuu's"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Youmuu's > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > 3 points Q > W > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Blade > Youmuu's > Boots of Swiftness > BORK"
+],
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Stridebreaker > Eclipse"
+],
+[
+"Difficulty",
+"Skill Matchup"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+],
+"Zyra": [
+{
+"fields": [
+[
+"Spell",
+"TP"
+],
+[
+"Skill Order",
+"E start > Q > E"
+],
+[
+"Runes",
+"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
+],
+[
+"Items",
+"Doran Shield > Eclipse > Malmortius"
+],
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"In progress"
+]
+]
+}
+]
+}
+}

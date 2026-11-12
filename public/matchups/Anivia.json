@@ -1,0 +1,642 @@
+{
+"champ": "Anivia",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1PHVPkfcmqm1I49LG4eoGIPnoVS_f6ftYlb5r2LS6aUc/edit",
+"rank": "Gold (per community index)",
+"updated": "2020"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Ahri": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Don't get charmed, match her push, ward. If her R is down, all in while standing on the wave."
+],
+[
+"Important ability cooldowns",
+"E: 12 R: 180"
+],
+[
+"Can kill you in egg?",
+"To do"
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Play around her E and Stun. Abuse range. Ward. Early MR can be valuable."
+],
+[
+"Important ability cooldowns",
+"E: 14 R: 120"
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Make a wish because he is being played, abuse range, respect low cooldowns."
+],
+[
+"Important ability cooldowns",
+"Q: 11 R: 110"
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Stand as far as you can, all in if he uses his dash, careful of ganks post 6."
+],
+[
+"Important ability cooldowns",
+"E: 19 R: 120"
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Don't stand in the wave, never stop moving"
+],
+[
+"Important ability cooldowns",
+"Q: 8 R: 105"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Short matchup goals",
+"If she wants to chase, wall her off. If she misses her W, you can try to all in (face backwards when waiting for cooldowns). Dont waste your Q, if you do, dont get in her Q range."
+],
+[
+"Important ability cooldowns",
+"W: 24 R: 120"
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Short matchup goals",
+"If he uses his dash, he's fucking dead. Your wave clear post 6 is hard for him to match."
+],
+[
+"Important ability cooldowns",
+"W: 20"
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Don't let her push AND poke with Q. You win pre 6 if she takes minion agro. Respect her damage post 6. Trading near to your turret is optimal."
+],
+[
+"Important ability cooldowns",
+"E: 22 R: 100"
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Do not waste your Q unless it's free. Dont stand on the wave. If he goes out of vision, respect his W and mindgame with movement."
+],
+[
+"Important ability cooldowns",
+"R: 110"
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Oh no, oh fuck, oh shit. Autoattack that fucker pre 6. Do not waste your Q unless it's free. DONT LET HIM FREEZE POST 6. Play near your turret, if he ults you from long range wall him off so that he"
+],
+[
+"Important ability cooldowns",
+"E: 16-12 R: 100"
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Short matchup goals",
+"You're not playing against Galio, you're playing against his jungler. Don't stand in the wave and poke him as much as you can. Use wards (and pings) properly, and only trade when you know where his"
+],
+[
+"Important ability cooldowns",
+"W: 16 R: 200"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Farm as much as you can, wait for the wave to bounce and get a decent recall off. Post 6 you push harder than him, a blue buff would be hardly appreciated."
+],
+[
+"Important ability cooldowns",
+"E: 12 R: 100"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Don't recklessly push, or she might freeze on you. Always beware of your low hp minions, play around those (as well as her passive). Only use Q if it's waranteed (E.G point blank), or if her Q is on cooldown."
+],
+[
+"Important ability cooldowns",
+"Q (When missed): 12-8 R: 140"
+]
+]
+}
+],
+"Karthus": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Try to dodge his q's. He is Super immobile and doesn't have a stun, so try to match his wave clear pre 6, and all in post 6."
+],
+[
+"Important ability cooldowns",
+"R: 200"
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Uhhhh... Y-you didn't dodge? Uhmmm... Focus your spells on the wave and autoattack him like a motherfucker, poke him under turret, call for a gank. Once he reaches lvl 6 write \"/ff\" in chat. (Don't use your"
+],
+[
+"Important ability cooldowns",
+"Q: 11"
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Short matchup goals",
+"This would be a decent matchup if botlane didn't exist. Fuck her up pre 6, respect her daggers if she's above 50%. Once she hits 6, always have either Q or wall to interrupt her ult. Ward like a motherfucker"
+],
+[
+"Important ability cooldowns",
+"Q: 11"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Utilize your early prio to ward, and try to help your jungler. Call for a gank. Post 6 you can all in, waste her ult, reset and all in again. Try to find fights before she spikes. Her autoattack range is shorter than most Anivia´s abilities."
+],
+[
+"Important ability cooldowns",
+"R: 100"
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Try not to push hard, as she is great at setting up ganks. Try not to be in range for her W, if you are, be prepared to Q as soon as her animation starts. Stand in the wave to dodge her chain. If she wastes"
+],
+[
+"Important ability cooldowns",
+"W: 18-10 R: 60"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Always beware of her jungler. Abuse range as much as you can. You can bully her quite hard pre 6. Post 6, she CANNOT waste her E. If she does, all in, tethering just outside of her ult range."
+],
+[
+"Important ability cooldowns",
+"Q: 8-4 E: 24 R: 120"
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Motherfucker. Stand as far as you can, dont let him hit you for free, make him dash forward and THEN look to Q him. You can interrupt his ult with Q and W. Armor boots work great."
+],
+[
+"Important ability cooldowns",
+"E:20 (+reduced by autos) R: 110"
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Did she come all the way to the midlane? Ok, if she misses her binding she's fucked. Watch out for the enemy jungler elobooster."
+],
+[
+"Important ability cooldowns",
+"Q: 11 R: 80"
+]
+]
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Using Q on the first wave and autoattacking him down is good. Then you can either Q his voidlings (afk lane) or look to trade hp. This matchup is super boring to play against and Malzahar is"
+],
+[
+"Important ability cooldowns",
+"Q: 6 R: 140"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Don't stand on the wave. Break her shield before using Q. You can all in post 6, but dodging her q and tethering is key."
+],
+[
+"Important ability cooldowns",
+"Q: 10 E: 26 R: 120"
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Don't stand in the wave, trade when her Q or E is down. If she wastes her invisibility you could all in post 6, while dodging damage."
+],
+[
+"Important ability cooldowns",
+"W: 20 E:12 R: 90"
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Abuse autoattacks, Try to bait his shield and break it with your E. If you place your wall right before his fear goes off he has to path around it before dealing damage, which is nice. Don't let him freeze post 6."
+],
+[
+"Important ability cooldowns",
+"W: 20 R: 150"
+]
+]
+}
+],
+"Nunu": [
+{
+"fields": [
+[
+"Short matchup goals",
+"xD"
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Play around the ball (behind it if you can, reading her movement/intentions). Orianna players tend to get cocky and overaggressive, so be ready to punish them. Post 6, her only way to cancel"
+],
+[
+"Important ability cooldowns",
+"E: 9 R: 110"
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Early seekers is great. Pre 6 try to harass her without making yourself vulnerable (by building a wave, or having a previous hp advantage). Abuse Anivia's auto range. Don't stand next to walls and"
+],
+[
+"Important ability cooldowns",
+"W: 7 R: 120"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Short matchup goals",
+"You win 1v1 by abusing range and his lack of mobility. Don't let him proc phase rush, don't take extended trades unless it's a great situation. Post 6 you shit on him by tethering him from your ult's max"
+],
+[
+"Important ability cooldowns",
+"W: 13 R: 210"
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Dont get hit by his E, don't get baited to go melee range. Abuse range."
+],
+[
+"Important ability cooldowns",
+"E:10 R: 120"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Pre 6 abuse range and autoattack. Remember his E is both his dash and stun (both things we hate), so you should definely hard trade when it's on cooldown. If he takes your ult, cancel it (ideally with your wall)"
+],
+[
+"Important ability cooldowns",
+"E: 14"
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Pre 6 try to dodge her Q's, and beware of balls on the ground. She is EXTREMELY vulnerable when her E is down, so punish her, play aggresive. Post 6 try to bait out her E and maybe all in.2v2s are extremely hard."
+],
+[
+"Important ability cooldowns",
+"E: 18 R: 120"
+]
+]
+}
+],
+"Taliyah": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Try to match her push. If she uses her knockup, you can trade safely. Post 6 you can try to all in. USE WARDS."
+],
+[
+"Important ability cooldowns",
+"W: 16 R: 180"
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Try to harass him with autoattacks. he can be quite predictable in lane. Stand on the side of the lane, and don't get in range of his dash. Always beware of your jungler's position, and ping him and your other teammates at"
+],
+[
+"Important ability cooldowns",
+"W: 9 R: 100"
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Always beware of his jungler. Match his push and don't get poked by wild cards or red card. If he wastes his W post 6, you can easily all in. Wards are really important."
+],
+[
+"Important ability cooldowns",
+"W: 8 R: 180"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Again, care for his jungler. Besides that, this is a pretty chill matchup, where you can kinda bully him early on. Post 6, with good movement, you can all in."
+],
+[
+"Important ability cooldowns",
+"E: 18 R: 120"
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Short matchup goals",
+"This can be a nightmare matchup, but highly depends on the enemy level of play. Push the wave with Q lvl 1, this way he has to focus on the wave and can't poke since the beggining. If he misses his E he is"
+],
+[
+"Important ability cooldowns",
+"E: 16 R: 120"
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Viktor's kit naturally counters Anivia's (E high range, W to block all ins, R cancels Anivia's R). Pre 6 Anivia is in control, but she loses control as the game progresses.Try to call for ganks. Anivia is decent"
+],
+[
+"Important ability cooldowns",
+"W: 17 R: 120"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Early on, Vladimir is fairly weak. Abuse range and always play around his Q. Pushing the first wave with Q can be good. Post 6, you can all in if you're close to your turret, but never do it if he's full hp. Ignite"
+],
+[
+"Important ability cooldowns",
+"W: 28 R: 150"
+]
+]
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Difficult matchup. Skillshot dodging minigame. Pushing first wave with Q is good. Don't stand on the wave if you don't want to get harassed under turret. A good xerath player will never be close to you,"
+],
+[
+"Important ability cooldowns",
+"E: 13"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Annoying piece of shit. Try to keep the wave in the middle/on your side of the lane. SUPER GANKABLE. Mind game his windwall by changing your Q patterns. Try to bait it by autoattacking and Eing."
+],
+[
+"Important ability cooldowns",
+"W:30 R: 80"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Abuse range and autoattacks.If Yone uses his e to dodge your Q, remember it has a 22 second cooldown, so abuse him during this window. He is super gankable. Don't overextend, if you are close"
+],
+[
+"Important ability cooldowns",
+"E: 22 R: 120"
+]
+]
+}
+],
+"Zed": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Used to be an easy matchup with ROA. Abuse him as hard as you can before lvl 3. He is most vulnerable when his shadow is down. Do not use Q unless shadow is down. If he tries to combo you, always try to dodge"
+],
+[
+"Important ability cooldowns",
+"W: 20 R: 120"
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Stand on the side of the wave and try to pressure him by threatening to Q. He will probably focus the wave, so try to keep up with his push. If he wastes his W, all in, specially post 6."
+],
+[
+"Important ability cooldowns",
+"W: 20"
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Dont stand on top of the wave, but don't stand in front of her either (she can E you) . Respect her passive items/spells and trade accordingly, don't get anxious. Post 6, try to bait her E, if she misses, you can easily all in."
+],
+[
+"Important ability cooldowns",
+"E: 20"
+]
+]
+}
+]
+}
+}

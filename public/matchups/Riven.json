@@ -1,0 +1,1665 @@
+{
+"champ": "Riven",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1JT2zJyhWEhD1f01CrJGHXUkHAGIy1dwLDZZ5PjLIsPs/edit",
+"author": "Oskar + Chalseu",
+"updated": "2024"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Riven favoured. Really easy to bully early game, since you will always be able to get prio, aatrox can never hit q on you without his E or W. If aatrox uses E-Q aggressively you can punish since he will max e 2nd and does not build a lot of AH early. His biggest goal in a trade is to hit Q3 since for each Q it ramps up how much damage it deals, really important to dodge."
+],
+[
+"Cooldowns",
+"Passive (22-10) Based on level\nQ 14 / 12 / 10 / 8 / 6\nW 20 / 18 / 16 / 14 / 12\nE 9 / 8 / 7 / 6 /5\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"ONLY HARD IF TABI RUSH, PRIO LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Early levels piss easy because his Q cooldown is mega long. If he rushes tabi it's hard to kill so you just play for prio farm camps and plates. Perma Q dance his sweetspots."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Easy to cheese level 1, she has insanely low armor stats in the early game so you win trades relatively easy. Her E and W also have really high cooldowns so play your trades around them. Be respective of her level 6 as it is also strong, however yours is better."
+],
+[
+"Cooldowns",
+"Q 1.5\nW 20\nE 16 / 14.5 / 13 / 11.5 / 10\nR 100 / 80 / 60"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 1, WIN LVL 6, SWEEPER FIRST RECALL"
+],
+[
+"Comments+Notes (Chals)",
+"If Akali plays perfectly it's actually challenging, used to be a Riven counter in high elo. Most Akalis are dogshit and she is mega squishy now so you just blow her up. Red trinket tech hack OP"
+]
+]
+}
+],
+"Akshan": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Riven favoured. Start Dorans shield, both ignite and teleport are good here, I like teleport better. This matchup is only hard in the sense that the entire idea is that you need to live untill 6. So try your best to not get punished too hard early. Dropping some CS is completely fine. It is very possible to kill him pre6 if you're able to cancel his E, which is really consistent. You simply have to stand in the trajectory of it to stop it."
+],
+[
+"Cooldowns",
+"Passive 16 / 12 / 8 / 4 Based on level\nQ 8 / 7.25 / 6.5 / 5.75 / 5\nW 18 / 14 / 10 / 6 / 2\nE 18 / 16.5 / 15 / 13.5 / 12\nR 100 / 85 / 70"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 6"
+]
+]
+}
+],
+"Aurora": [
+{
+"fields": [
+[
+"Difficulty",
+"Very hard"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Will update, as I have not faced a single one yet, but seems incredibly unplayable"
+],
+[
+"Cooldowns",
+"Q 8 / 7.5 / 7 / 6.5 / 6\nW 22 / 21 / 20 / 19 / 18\nE 15 / 14 / 13 / 12 / 11\nR 140 / 120 / 100"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Riven favoured. Play to get rid off boneplating and passive shield (18s CD) as wave crashes lvl 1. Off that you can always get prio, super easy to flash onto most camille players off level 2 timer as well since they often dont run flash. Your early game is a lot stronger than camille since you will always build flat damage contrary to rushing sheen. Your level 6 is far stronger than hers as well due to having a real combat ultimate. Note that you always want to W-R2 so she can't dodge your R2 with her R. Matchup is only hard from Triforce spike"
+],
+[
+"Cooldowns",
+"Passive 18 / 14 / 10 Based on level\nQ 9 / 8 / 7 / 6 / 5\nW 17 / 15.5 / 14 / 12.5 / 11\nE 16 / 15 / 14 / 13 / 12\nR 140 / 115 / 90"
+],
+[
+"Notes (Oskar)",
+"PRIO LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Just play around her shit and you kinda win all the time, Never DO W>R2, if she has tenacity runes she can ult to dodge it. Only Q3>R2 (if she has ult)"
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Hard and punishing matchup. If you fall behind it is extremely hard to get back. Main idea here is to play for lvl1 cheese, as well as making sure that you save your E for dodging her Q. Remember that she is a ranged champ, so she will likely perma push into you, especially if you try baiting our her Q. You can also play to outsustain her mana in the early game."
+],
+[
+"Cooldowns",
+"Q 3.5\nW 24 / 22 / 20 / 18 / 16\nE 0.75\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"Cheese LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Very Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Almost impossible for Cho to hit abilities onto you, respect his passive sustain and therefore try to generate leads in the lane by freezing more. If you are able to zone him off the first 3 minions worth of exp its pretty much gg. 2/3 wave crash is the most optimal here since he has crazy sustain if you dont put him in a position where he has to step up"
+],
+[
+"Cooldowns",
+"Q 6\nW 13 / 12 / 11 / 10 / 9\nE 8 / 7 / 6 / 5 / 4\nR 80 / 70 / 60"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Never see ChoGath anymore these days he must be so trash lmao, if he's good he can be annoying with Silence but you'll never see him max it"
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Riven favoured. Only play to get prio lvl 1, respect that he can ghost you down if you overextend with Q on cd. Your level 6 is by far stronger than his so it is one of the best things to play for. The one trade you want to spam in this lane is ideally W - AA - EQ out. You can use Q before W, however it makes the chance of him landing W or E onto you a lot higher. Very consistent to trade with him when he is going for last hits. Remember to NEVER Q3 in as Darius will always hold E to cancel your Q3."
+],
+[
+"Cooldowns",
+"Q 9 / 8 / 7 / 6 / 5\nW 5\nE 24 / 21.5 / 19 / 16.5 / 14\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"ONLY HARD IF TABI RUSH, PRIO LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"You die if you int your cooldowns"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Play for cheese and throughout the early game you simply want to deny as many minions as possible... Overall easy to kill despite buying a lot of items as well as he focuses very heavily on building a lot of HP contrary to armor."
+],
+[
+"Cooldowns",
+"Q 4\nW 17 / 16.5 / 16 / 15.5 / 15\nE 9 / 8.25 / 7.5 / 6.75 / 6\nR 120"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Piss easy"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Riven favoured. You should ALWAYS get prio level 1. Whoever engages a trade level 1 will ALWAYS lose it, so play close to your minions and punish her if she dashes in. Get her W on CD, it has a long cooldown.. Do this consistently by Q3(q extend) in into dodging it with your E (Only do this pre 6 on HER SIDE of the lane). Your level 6 is stronger by far, so try making sure her W is on cd if she is not low enough to all in with it being up."
+],
+[
+"Cooldowns",
+"Q 13 / 11.25 / 9.5 / 7.75 / 6\nW 24 / 22 / 20 / 18 / 16\nE 11 / 10 / 9 / 8 / 7\nR 110 / 90 / 70"
+],
+[
+"Notes (Oskar)",
+"PRIO/WIN LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"1 parry isn't enough for 2 hard CC. Punish if she dashes on you. Skill testing but Riven favored"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Respect that GP can cheese you level 1 with barrel start and win, but if not you can try play for level 1, matchup is pretty much free for you if he does not build armor pre 6 as he has to be incredibly good at spacing barrels or faking them in order to poke you low enough. Much like Jayce noone can really play this champ below GM so it is really easy to punish once you hit 6. Matchup also became a lot easier now that you can track the amount of barrels he has under his healthbar."
+],
+[
+"Cooldowns",
+"Passive 15\nQ 4.5\nW 22/20/18/16/14\nE 18 / 17 / 16 / 15 / 14\nR 170 / 150 / 130"
+],
+[
+"Notes (Oskar)",
+"CHEESE LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Play for prio level 1, garen will not be able to contest you to get it anyways. Ideally you do not have to use too much of your HP to do it as garen will regen all of it up by the time you crash it most likely. Play to freeze on him and punish him with short trades. A BIG tip is to utilize that garen will ALWAYS try to Q you when you Q3 him, BUT your Q cooldown is lower than his by 3 seconds(no AH) if you Q EXTEND. So you can easily generate a room to trade with him if you Q3 into blocking his Q with your E which you can easily react to, to then short trade with him utilizing the trade window you have. Your level 6 is by far stronger, so it is much like fiora.. Ideally try make sure his W is…"
+],
+[
+"Cooldowns",
+"Passive 8 seconds out of combat\nQ 8\nW 23 / 21 / 19 / 17 / 15\nE 9\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"PRIO LVL 1, WIN LVL 6, CAN GO LONG+REFILL DONT NEED 3 POT"
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Respect his mega and play for cheese level 1 / go even till level 6 as you spike harder than him if he doesnt have mega. Matchup becomes hard once he gets triforce because it makes it way too easy for him to space you. Between level 6 and triforce you have a lot of room to kill him."
+],
+[
+"Cooldowns",
+"Q 20 / 17.5 / 15 / 12.5 / 10 (40% refund if he catches it)\nE 22 / 19.5 / 17 / 14.5 / 12\nR 90 / 60 / 30"
+],
+[
+"Notes (Oskar)",
+"CHEESE LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Gragas": [
+{
+"fields": [
+[
+"Difficulty",
+"Very Hard / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"I recommend starting Dorans shield. Gragas is incredibly unfair to play vs as Riven, he has two main weaknesses; you're able to kill him early if he loses too much hp contesting minions in the early game, and you buying mercs as it reduces his e (STUN). If you're not able to kill him before he gets enough AH it is really hard for you to ever do anything in this matchup.. But you do outscale him in terms of other aspects of the game later on. Best idea in this matchup is to proxy and ignore him as much as possible after your 2nd~ back, if gragas is good you simply wont be able to play the game."
+],
+[
+"Cooldowns",
+"Passive 12 / 10 / 8 / 6 Based on level\nQ 10 / 9 / 8 / 7 / 6\nW 5\nE 14 / 13.5 / 13 / 12.5 / 12 (40% reduction if he hits)\nR 100 / 85 / 70"
+],
+[
+"Notes (Oskar)",
+"LVL 1, WIN LVL 6, BUY MERCS"
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Gwen's damage numbers are really low so you can easily kill her in the early game as she struggles to output enough damage, also doesnt run flash usually so much like camille you're often able to flash on her with lvl 2 timer. Respect the resistances she gets from her W and try all in when it is on cd, spam short trades when she doesnt have max stacks on Q and look to punish her off using E-Q."
+],
+[
+"Cooldowns",
+"Q 6.5/5.75/5/4.25/3.5\nW 22 / 21 / 20 / 19 / 18\nE 13 / 12.5 / 12 / 11.5 / 11\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"PRIO LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"You perma kill her she's too squishy"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Not too much to do in this matchup, go dshield with tp and try to kill him at 6 by flashing his E / hope to get ganked.. ( he has to push to exist, so hes always very gankable)"
+],
+[
+"Cooldowns",
+"Q 1 ( 20 recharge time)\nW 11 / 10 / 9 / 8 / 7\nE 11\nR 100 / 85 / 70"
+],
+[
+"Notes (Oskar)",
+"LVL 6"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Punish her weak early, force her to waste E so you can make a play. Freezing is op here cause her E obviously doesnt travel through minions. Despite popular belief, she got buffed really hard with the new map - the reason I say this is due to the fact that she gets to spawn a crazy amount of tentacles in a small proximity, if the wave was to be pushed into you, or into her. Avoid putting the wave too close to terrain as it then becomes insanely hard to play.. Good usage and knowledge of proxying helps a lot in this matchup."
+],
+[
+"Cooldowns",
+"Passive (20-7.25) Based on level\nQ 10 / 9 / 8 / 7 / 6\nW 4\nE 16 / 15 / 14 / 13 / 12\nR 120 / 95 / 70"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Dodge all her shit and Q dance, it's like Illaoi plays the game in slowmo kekw"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Keep your E to dodge her E or dodge it reactively with Q and theres not a lot she can do, she cannot play if you simply punish her with W on every minion she jumps on. Only a threat once she has BOTRK."
+],
+[
+"Cooldowns",
+"Q 11 / 10 / 9 / 8 / 7\nW 20 / 18 / 16 / 14 / 12\nE 16 / 15 / 14 / 13 / 12\nR 125 / 105 / 85"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"You outdamage her she only wins if you int the wave"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Play for prio lvl 1, W Start is viable. Jax is really weak vs riven as he is forced to use E a lot for pressure which you can easily get out of, due to being able to simply E-W whenever he decides to jump on you with Q. Important to remember that he becomes insanely tanky with R and E so play around those cooldowns. Issue with jax currently in this matchup is that since 13.20 (Jax VGU) riven can no longer cancel his W so it makes trades a lot harder, but the main idea is still the same in terms of trading."
+],
+[
+"Cooldowns",
+"Q 8 / 7.5 / 7 / 6.5 / 6\nW 7 / 6 / 5 / 4 / 3\nE 15 / 13.5 / 12 / 10.5 / 9\nR 100 / 90 / 80"
+],
+[
+"Notes (Oskar)",
+"PRIO LVL 1, WIN LVL 6 / In my opinion this champ is really overtuned atm and I recommend just banning it / despite nerf in 14.2"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Very Hard / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Level 1 cheese viable if no phase rush, or if you're able to catch him off guard facechecking you in brush. Your Level 6 is a lot stronger since you have a combat ultimate, so play to kill him off that if you have enough damage with what you've had to give up early game. If not it is important to remember that flat AD is not really important in this matchup as he will not be able to survive all ins, so rather prioritze tier 2 boots earlier if you can get a lead early."
+],
+[
+"Cooldowns",
+"Q 16 / 14 / 12 / 10 / 8 / 6\nW 10\nE 20 / 18 / 16 / 14 / 12 / 10\nR 6"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, RISKY CHEESE LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Play to survive lane and become op in side lane."
+]
+]
+}
+],
+"KSante": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Really important to try cheese/zone lvl 1 from first 3 minions, his W has a decent long cd and its really the only way he can stop you from making a trade as he will try to cancel your 3rd Q or to just try insecing you into the tower lol. Super easy early game, with good spacing he cannot play early. Becomes a threat once he has tabis + iceborn gauntlet. **14.19 notes REMEMBER that his ULT Q slows again now, he can only cast W in 1 DIRECTION, his W cd is 10s lower(LOL!!!!!), his shield is mega buffed, his E CD is reduced by 5 seconds flat in his ULT form, his ULT W is his burst dmg (you have to dodge it), his E dash speed to allies is also buffed hard(almost as fast as ur wind slash, wp phre…"
+],
+[
+"Cooldowns",
+"Q 3.5-2 Based on bonus resistances (0-120)\nW 14 / 13 / 12 / 11 / 10\nE 10 / 9.5 / 9 / 8.5 / 8\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Karma": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Matchup sucks in the sense that you do not really have any kill pressure on her, unless she messes up. I recommend going Dorans shield + Teleport, as it is the most consistent. You can definitely try to go a more aggressive setup with ignite, to try and kill her more. But, the risk-reward is not worth it imo. Ravenous rush is good. You have a decent amount of kill pressure @ 6, but if she just rushes ionian and spaces normally then the chance of you killing her solo is close to zero. Play to perma proxy / roam / scale. You omega outscale."
+],
+[
+"Cooldowns",
+"Passive - reduces remaining R cd by 4 seconds for each enemy hit by Karma Q or W\nQ 9 / 8 / 7 / 6 / 5\nW 12\nE 10 / 9.5 / 9 / 8.5 / 8\nR 40 / 38 / 36 / 34"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, RISKY CHEESE LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"The most important thing in this matchup is to establish your lead early on.. Cheesing her lvl1 is really good, as well as playing around her fleet cooldown. This matchup becomes a bit hard when she gets swifties, as she has insane movespeed, so it really depends on how well the Kayle is able to space more than anything. Her W also costs a shitton of mana, so she has really poor sustain long term (if you're able to play off her fleet). Snowballing is pretty easy in this matchup as Kayle has insanely low basestats (armor/hp), also really high ult CD early lvls."
+],
+[
+"Cooldowns",
+"Q 12 / 11 / 10 / 9 / 8\nW 15\nE 8 / 7.5 / 7 / 6.5 / 6\nR 160 / 120 / 80"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Very Hard / Farm"
+],
+[
+"Runes",
+"Conqueror + Resolve *Second wind"
+],
+[
+"Comments (Oskar)",
+"Go dshield and get the minions you can, pray that ur jungler wants to play for you at all since you still have really good gank setup despite it being kennen, can only kill if she doesnt know how to use w passive or E correctly. Or just lock in ornn lol"
+],
+[
+"Cooldowns",
+"Q 7 / 6.25 / 5.5 / 4.75 / 4\nW 13 / 11.25 / 9.5 / 7.75 / 6\nE 10 / 9 / 8 / 7 / 6\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, RISKY CHEESE LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"You can play for kill early since you win level 1 really hard, however it is better for you to simply play to go even in the early game as you outscale him really hard.. if he ever misses Q post 6 you can easily play for all ins.. remember to play around his W cooldown as well so he doesnt get the horse or w.e it is back lol"
+],
+[
+"Cooldowns",
+"Q 11 / 10 / 9 / 8 / 7\nW 11 / 9.5 / 8 / 6.5 / 5\nE 13 / 12 / 11 / 10 / 9\nR 140 / 125 / 110"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Dodge his Q at all costs, wait for him to waste W on creeps"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Hard matchup since it punishes you incredibly hard if you ever fall behind / and he spikes very early into the game due to tabis. Matchup is very playable still, as you can punish him incredibly hard level 1, and level 6. Trading is hard when he gets a lot of points into w / e. A good way of trading into Malphite is using your E as an engage, this is due to him typically using E as soon as he sees you dash in regardless. Try using AA -> E-W out or just E->AA-W-Q ->AA for trades, if he ever presses E there is no point in trying to get in an auto attack (cause his E gives cripple to the enemy (atk spd reduction))."
+],
+[
+"Cooldowns",
+"Q 8\nW 10 / 9.5 / 9 / 8.5 / 8\nE 7\nR 130 / 105 / 80"
+],
+[
+"Notes (Oskar)",
+"WIN LVL1, WIN LVL6 PLAY TO GO EVEN/SCALE"
+],
+[
+"Comments+Notes (Chals)",
+"Just focus on farm not worth trying to kill"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Play for prio lvl 1, he will win the extended trade due to his passive but you push the wave way harder, morde only really deals damage if he hits e and or isolated Q. Both are pretty much impossible to hit vs riven so its a walk in the park.."
+],
+[
+"Cooldowns",
+"Q 9 / 7.75 / 6.5 / 5.25 / 4\nW 12 / 11 / 10 / 9 / 8\nE 18 / 16 / 14 / 12 / 10\nR 140 / 120 / 100"
+],
+[
+"Notes (Oskar)",
+"PRIO LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Dodge all his shit"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"He should never be able to get many minions early as you can simply freeze unless he goes e max and shoves you in. Even then he will lose a lot and you can still punish him hard. Becomes a threat on 6, or with a lot of armor."
+],
+[
+"Cooldowns",
+"Q 7.5 / 6.5 / 5.5 / 4.5 / 3.5\nW 15 / 14 / 13 / 12 / 11\nE 12\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"He is not a champion pre 6, if he walks up he dies. If he doesn't walk up he loses all the gold. He can only win if you int the wave"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"You can win level 1 MOST of the time. It becomes significantly harder if he goes anything other than ghost+flash, however you can easily punish him if he throws axes too far, and his ult is kind of useless vs riven since it requires him to auto you in order to upkeep, really hard and unforgiving matchup, but with enough practise it is really playable."
+],
+[
+"Cooldowns",
+"Q 9, reduced to 2.5 unless the cooldown has already elapsed\nW 16 / 15 / 14 / 13 / 12\nE 11 / 10 / 9 / 8 / 7\nR 100 / 90 / 80"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Abuse him level 1 he is incredibly weak. Freezing is really OP since he can only farm with Q then, his only real damage threat is his W so avoid staying in for the last tick so you do not take the extra damage from the passive. Once he gets enough armor you dont have much of a reason to look to kill him so simply play to scale."
+],
+[
+"Cooldowns",
+"Q 9 / 8.5 / 8 / 7.5 / 7\nW 12 / 11.5 / 11 / 10.5 / 10\nE 16 / 15 / 14 / 13 / 12\nR 140 / 120 / 100"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"His W only applies the mark if you get hit by the last tick, so you can dodge it by dashing into him. You can beat him early levels but it gets boring af once he shops for armor, becomes farm lane"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Can cheese him if he facechecks you, if not let him have prio and wait till you have level 3, as you are then able to play for small trades. With proper spacing it is very possible to win this matchup, you spike so much harder at 6 so it is a great powerspike to play for."
+],
+[
+"Cooldowns",
+"Q 11 / 10.25 / 9.5 / 8.75 / 8\nW 13 / 12 / 11 / 10 / 9\nE 22 / 21 / 20 / 19 / 18\nR 180 / 165 / 150"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, RISKY CHEESE LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"I like to chill level 1 vs him, E his spears, then you outscale anyway"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Very Hard / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Try cheese level 1 and see if you are able to get a kill before your first reset. This is very often possible since a lot of people first time counterpick it from my experience. If not just play off ganks and scale as well as you can. One thing to note is that poppy's W-ground will only last for 2 seconds, so you should always try to proc it with your Q if you have already used it as each of your Q's will last for 2.66s, really bad to use your E to proc it in those scenarios as well since it can cause your Q to go on full cooldown."
+],
+[
+"Cooldowns",
+"P 13 / 10 / 7 Based on level\nQ 8 / 7 / 6 / 5 / 4\nW 20 / 18 / 16 / 14 / 12\nE 14 / 13 / 12 / 11 / 10\nR 140 / 120 / 100"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, WIN LVL 1"
+],
+[
+"Comments+Notes (Chals)",
+"Thank god this champion isn't played much"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Runes",
+"Conqueror + Resolve *SECOND WIND"
+],
+[
+"Comments (Oskar)",
+"Go dshield and get the minions you can early, stall untill level 6 and utilize that you can outrun her with ghost if she uses her E too aggressively on your side of the lane. Really hard lane if you're weaksided."
+],
+[
+"Cooldowns",
+"Q 11 / 10.5 / 10 / 9.5 / 9\nW 50 / 45 / 40 / 35 / 30\nE 12 / 11 / 10 / 9 / 8\nR 12"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, WIN LVL 6, DSHIELD, FLASH+GHOST"
+],
+[
+"Comments+Notes (Chals)",
+"Chill until 6 then perma one shot her, abuse ghost tech"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Very Hard"
+],
+[
+"Runes",
+"Conqueror + Resolve (Bone Plating + Shield Bash)"
+],
+[
+"Comments (Oskar)",
+"Matchup is sort of playable now in my opinion. The matchup is really hard if enemy has a good combo like elise/nidalee jgl, if not you can play the matchup just fine. Play for lvl1 as you win it hard, respect that if you put him below 50% hp he will get fury quicker. I recommend going dorans blade first item and rushing eclipse, Play for small trading windows and only trade when you have a wave with you. Your 6 is stronger if played correctly, in the sense that you have to play off his cds, his w and e have really high cd early making it possible to set up all ins if he ever decides to use them. Typically something you can do is that you can bait bad trades to set up your all in @ 6 with put…"
+],
+[
+"Cooldowns",
+"Q 7\nW 16 / 14 / 12 / 10 / 8\nE 16 / 15 / 14 / 13 / 12\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"PRIO LVL 1, WIN LVL1, WIN LVL6, DBLADE"
+],
+[
+"Comments+Notes (Chals)",
+"If you don't permaban Renekton, only chance is to contest level 1 so he loses plenty of HP to get fury. Don't put him below 50% HP because it makes him get 50% more fury, so trade until he's just above 50%."
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Respect that you will lose extended trades level 1, but you are still able to play off prio if he is not able to play for 4-stack. In general this matchup just comes down to your ability to put the wave in a position where it makes Rengar think its risky to jump to the wave / just hard for him to get to the brush to begin with. Also note his W cd, and respect his healing from double W (literally mitigates 100% of dmg) If you get ahead, he literally cannot play."
+],
+[
+"Cooldowns",
+"Q 6 / 5.5 / 5 / 4.5 / 4\nW 16 / 14.5 / 13 / 11.5 / 10\nE 10\nR 110 / 100 / 90"
+],
+[
+"Notes (Oskar)",
+"TRY PRIO LVL1, WIN LVL6"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Farm"
+],
+[
+"Runes",
+"Conqueror + Resolve *SECOND WIND"
+],
+[
+"Comments (Oskar)",
+"Go dshield, his q has insane range so he will try use it whenever you go for minions try go even untill you have hexdrinker and ult. Look for all in when he has 70 rage or more as he cannot really use many spells when it is that high."
+],
+[
+"Cooldowns",
+"Q 10 / 9 / 8 / 7 / 6\nW 6\nE 6\nR 130 / 105 / 80"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, DSHIELD START, LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Idk how new Rumble is"
+]
+]
+}
+],
+"Sett": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Play to get his bone plating away lvl 1 and you remove a bunch of pressure, will also reveal what spell he starts. From level 3 just bait out his E+boneplating doing W - AA - EQ out and you will win.. The matchup is very alike the Darius matchup. His E and W just has really high CDs so its really easy to set up your all in... Can be a bit scary @ tabis + botrk"
+],
+[
+"Cooldowns",
+"Q 9 / 8 / 7 / 6 / 5\nW 18 / 16.5 / 15 / 13.5 / 10\nE 16 / 14.5 / 13 / 11.5 / 10\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Really easy to trade versus, you pretty much dont lose at a single point in the lane. Respect his level 1 cheese if he has some weird s9 xpetu pta ignite setup..."
+],
+[
+"Cooldowns",
+"Passive 10\nQ 8 / 7.25 / 6.5 / 5.75 / 5\nW 18 / 16.5 / 15 / 13.5 / 12\nE 18 / 16 / 14 / 12 / 10\nR 200 / 180 / 160"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"If Shen beats you then it's clear proof you need to review your mechanics"
+]
+]
+}
+],
+"Shyvana": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Needs too many items to work, super straight foward.."
+],
+[
+"Cooldowns",
+"Q 8 / 7.5 / 7 / 6.5 / 6\nW 12\nE 12 / 11 / 10 / 9 / 8"
+],
+[
+"Notes (Oskar)",
+"PRIO/WIN LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"This champion exists ?"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Just play super aggro early, he can never play if you zone him off early minions. Just cover level 1 so he doesnt proxy."
+],
+[
+"Cooldowns",
+"W 17 / 16 / 15 / 14 / 13\nE 10 / 9.5 / 9 / 8.5 / 8\nR 120 / 110 / 100"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Play super aggro early, zone off first 3 minions of exp. Set up a freeze as early as you can and play off that. Try avoid killing him in the cases where he can get all of the minions in the early game. Killing him on a freeze is worth so much more. Only really becomes annoying in the later stages."
+],
+[
+"Cooldowns",
+"Q 10 / 9 / 8 / 7 / 6\nW 15 / 14 / 13 / 12 / 11\nE 12 / 11 / 10 / 9 / 8\nR 140 / 100 / 60"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Yeah this is kinda chill but he's annoying if he goes hull (pls remove hullbreaker riot)"
+]
+]
+}
+],
+"Skarner": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Skarner favoured, but its a pretty simple matchup as you simply want to ignore him and scale to your best ability. I recommend going default runes with Dorans Shield start + Teleport. You have to give up prio level 1, as he is just simply stronger.. Before you have 6 / Eclipse there is really not a lot of things to do. The biggest noobtrap to fall into in this matchup is to not make him push into you (he already does this with the AOE on his abilities), the only way to kill him is by running him down through the lane in a way so that he cannot utilize his E very well. Remember that Skarner can Q extend like Riven. Note that playing for all-ins on BC is very consistent due to the fact that sk…"
+],
+[
+"Cooldowns",
+"Q 13 / 11.5 / 10 / 8.5 / 7\nW 10 / 9 / 8 / 7 / 6\nE 20 / 19 / 18 / 17 / 16\nR 120 / 105 / 90"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, WIN LVL 6, WIN ON 1ST ITEM"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Sylas can never survive laning phase versus Riven as you simply have too much burst and should practically autowin any trade.. Zone him off the wave level 1 and play off that lead."
+],
+[
+"Cooldowns",
+"Q 11 / 10 / 9 / 8 / 7\nW 12 / 10.5 / 9 / 7.5 / 6\nE 13 / 12 / 11 / 10 / 9\nR 80 / 55 / 30"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"You hardwin level 1. You outscale really hard so play for your own spikes and if you dodge his Q the champ is relatively useless."
+],
+[
+"Cooldowns",
+"Q 7 / 6.5 / 6 / 5.5 / 5\nW 21 / 20 / 19 / 18 / 17\nE 3\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, WIN LVL 1"
+],
+[
+"Comments+Notes (Chals)",
+"Dodge his Qs to deny tons of dmg + healing"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Play for level 6, teemo can only survive if he builds any HP or armor early. Possible to go cleanse over ignite as well in lower elos and play for kills earlier."
+],
+[
+"Cooldowns",
+"Q 7\nW 14\nR 30 / 25 / 20"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, WIN LVL 6, SWEEPER FIRST RECALL"
+]
+]
+}
+],
+"Trundle": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Play safe early and just spam short trades he has a really hard time to be able to punish you. Play untill he is below a damage threshhold that you can burst with ignite at level 6. He probably has lethal tempo so just respect that he can potentially run you down with that and botrk if you mess up."
+],
+[
+"Cooldowns",
+"Q 3.5\nW 16 / 15 / 14 / 13 / 12\nE 24 / 22 / 20 / 16\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"PLAY TO GO EVEN/SCALE, ONLY HARD IF TABI RUSH, WIN LVL 6,"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"I prefer the setup with ghost+ignite or flash+ghost as you are able to trade with him a lot harder early and you still have a good amount of pressure. REMEMBER that if he gives you prio for free lvl1 ALWAYS take it, so you can play off bounce to trade with him easier. Your ghost is to trade with his ghost so he doesnt run you down / you can do it vs him. Therefore it isnt bad to build tabis. From level 6 you're able to set up solokills easily as he builds 0 armor.13.17 +50 range buff makes it a lot harder to play now but still doable"
+],
+[
+"Cooldowns",
+"Q 12\nW 14\nE 12 / 11 / 10 / 9 / 8, reduced by 0.75 per crit on minions / 1.5 on champs\nR 120 / 100 / 80"
+],
+[
+"Notes (Oskar)",
+"PLAY FOR LVL1, DBLADE, WIN LVL 6, GHOST+IGNITE/GHOST+FLASH"
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"Very hard"
+],
+[
+"Runes",
+"Conqueror + Resolve *SECOND WIND"
+],
+[
+"Comments (Oskar)",
+"lol, dhsield + tp into afk farm or dodge :DDDDDDDD"
+],
+[
+"Cooldowns",
+"Q 6 / 5.75 / 5.5 / 5.25 / 5\nW 6\nR 180 / 150 / 120"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"You win level 1 very hard.. Play for that and utilize the lead you get from that to snowball further if possible. Really important to respect that his goal is always to run you down, much like darius, so be cautious with your cooldowns on his side of the lane. Short trades are nice for you in general, but he has good sustain. Your goal in the matchup is to abuse your early strength as much as possible till he gets too much armor for you to kill.. Much like Malphite in that sense. Respect that he can use W + Empowered W giving him absurd shields (like 300 shield rank 1 W!!!) + healing which makes it easy to underestimate how much damage you actually need.."
+],
+[
+"Cooldowns",
+"Passive 50 / 40 / 30 / 20 Based on level\nQ 6\nW 6\nE 6\nR 6"
+],
+[
+"Notes (Oskar)",
+"PLAY FOR LVL1, WIN LVL 6"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Dont ever engage with E, let him have prio and get the minions you can. You outscale very hard, but you have a lot of kill pressure from level 6, it is really easy to set up as he HAS TO hit his E in order to ever win it which you can simply E away from or flash it if it looks like he will use flash. Depending on player pattern it is typically pretty easy to bait out his E by using Q towards him into EQ back. Only becomes scary once he gets cleaver + lvl 9 as he will prolly 1 rotation you if you mess up."
+],
+[
+"Cooldowns",
+"Passive 30 / 20 / 10 / 5 / 2.5 based on level\nQ 10 / 9.5 / 9 / 8.5 / 8\nW 12 / 9 / 6 / 3 / toggle\nE 16 / 15.5 / 15 / 14.5 / 14\nR 100 / 85 / 70"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Whoever initiates the trade loses it, you can try to bait his E. If he blows E you can trade and win. Otherwise it's farm lane and you will just outscale this trash champ"
+]
+]
+}
+],
+"Varus": [
+{
+"fields": [
+[
+"Difficulty",
+"Very hard"
+],
+[
+"Runes",
+"Conqueror + Resolve *SECOND WIND"
+],
+[
+"Comments (Oskar)",
+"Well it sucks that you lost the 50-50 coinflip and got blueside ig lol.. play to scale / play off ganks / try to proxy / roam or something.. good dodge angle :)"
+],
+[
+"Cooldowns",
+"Q 16 / 15 / 14 / 13 / 12\nE 18 / 16 / 14 / 12 / 10\nR 100 / 80 / 60"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Somewhat playable after 14.5 nerfs + stormrazor removal. Edge of Night rush is really good into her as it renders her E completely useless. Personally I would go dorans shield start and try my best to sustain the lane, and play off ganks. This lane becomes incredibly snowbally for you if you get ahead. It is very easy for you to set up ganks as you can always land your W on her. Respect that she can run you down level 1 by spacing you with fleet / ghost.. Sweeper really good here."
+],
+[
+"Cooldowns",
+"Q 6 / 5 / 4 / 3 / 2\nE 20 / 18 / 16 / 14 / 12\nR 100 / 85 / 70"
+],
+[
+"Notes (Oskar)",
+"Win on EON, early sweeper good"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Pretty much the same matchup as Kayle. Zone him level 1 from the first 3 minions, Long sword 3 pots is the best starting item as he has a LOT of sustain. Remember that his W cd lvl 1 is 28s, so if you are able to get it out you can set up all-ins off that. Only beocmes hard if you ever fall behind. Diving him lvl 3 is super good as he often tends to not run teleport."
+],
+[
+"Cooldowns",
+"Q 9 / 7.9 / 6.8 / 5.7 / 4.6\nW 28 / 25 / 22 / 19 / 16\nE 13 / 11 / 9 / 7 / 5\nR 120"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"You win level 1, rarely ever see this champ but just make sure to not extend the trade too hard as he will be able to proc w again as well as get more passive stacks, use E-W to cancel his Q. This champ only really works toplane if enemy jungle is something like elise that can perma dive you.."
+],
+[
+"Cooldowns",
+"Q 14 / 13 / 12 / 11 / 10\nW 5\nE 12\nR 160 / 135 / 110"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 1, WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"heal cut is kinda nice"
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Even / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Wukong favoured. But you can outplay him level 1 if you play correctly. This is done by Q-Extending into getting his boneplating into all-inning. In the early game this matchup should be very similar to Camille / Olaf, as spacing is insanely important, as well as playing around their CDs. Remember that you do not want to take a trade where he gets to utilize his E attack speed and or normal passive. Wukongs main passive grants him armor and regen (up to 30 armor lvl1 XD) This lasts for 5 seconds, which his E attack speed also does. Wukongs main strength in the matchup is shown at level 6, since he hardwins any all-in at that point. When he gets level 6 the matchup becomes very similar to the…"
+],
+[
+"Cooldowns",
+"Q 8 / 7.5 / 7 / 6.5 / 6\nW 22 / 20 / 18 / 16 / 14\nE 10 / 9.25 / 8.5 / 7.75 / 7\nR 130 / 110 / 90"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 1"
+]
+],
+"as": "Wukong"
+}
+],
+"Warwick": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Matchup depends a lot on how good you're at spacing and how well you're able to control the waves. Never Q3 into Warwick as he will always cancel the CC with his Q, play to set up waves for your jungler, and play off ganks more than anything. The threshhold of %hp where you can kill Warwick throughout the game changes a lot depending on his items.. But you really do have to respect the fact that he has crazy sustain even in early levels without R. You outscale very hard, so it is not important to get ahead in lane."
+],
+[
+"Cooldowns",
+"Q 6\nW 100 / 85 / 70 / 55 / 40\nE 15 / 14 / 13 / 12 / 11\nR 110 / 90 / 70"
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Play off the fact that your short trades are infinetely better. You can cancel his Q with both your W and Q3, so it is really easy to play for poke till hes low enough for you to all in. Utilize bushes as it makes it really hard for him to ever run you down or punish you at all in lane. Your level 6 is far superior to his."
+],
+[
+"Cooldowns",
+"Q 4-1.33, based on bonus atk spd\nW 25 / 23 / 21 / 19 / 17\nE 0.5 / 0.4 / 0.3 / 0.2 / 0.1\nR 70 / 50 / 30"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 6"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Skill"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Similar to Yasuo with being able to cancel the Qs but you cannot utilize brushes to run away from him, so play a bit more safe, spam short trades and dont let him run you down with lethal tempo and E. His r should be completely useless vs you as he can only hit it if he hits his own Q3."
+],
+[
+"Cooldowns",
+"Q 4-1.33, based on bonus atk spd\nW 14-6, based on bonus atk spd\nE 22 / 19 / 16 / 13 / 10\nR 120 / 90 / 60"
+],
+[
+"Notes (Oskar)",
+"WIN LVL 6"
+],
+[
+"Comments+Notes (Chals)",
+"Same as Yasuo but he's actually a champion in top lane. Still mega squishy, I like to rush dirk vs him"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Super easy early game, zone him from first 3 minions of exp, and just play to ensure that he doesnt get to spawn his ghouls. Much like urgot it is a champion that literally has 1 ability so as long as he doesnt hit E on you he will never be able to contest you throughout the laning phase."
+],
+[
+"Cooldowns",
+"Q 7 / 6.25 / 5.5 / 4.75 / 4\nW 20 / 18 / 16 / 14 / 12\nE 12 / 11 / 10 / 9 / 8\nR 160 / 130 / 100"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+]
+]
+}
+],
+"Zac": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy / Farm"
+],
+[
+"Runes",
+"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
+],
+[
+"Comments (Oskar)",
+"Pretty simple matchup, you win level 1 very hard (Make sure to Q extend as your passive AA should onehit his blobs iirc ) Rush Black Cleaver, and he is free for the most part of the game. The only thing you want to be vary of is having ignite up when trying to kill him, as he heals a lot from 6 and its very hard for you to avoid him picking up blobs in his R.. Zac has one good trading pattern versus riven which relies upon him hitting Q, into E-W.. If you ever see him using Q on a minion make sure to wait untill it runs out. Matchup can be a bit cringe as he can proxy to hold multiple waves, stacking them up so it pushes into him, but I rarely see them doing this regardless."
+],
+[
+"Cooldowns",
+"Passive 300\nQ 14 / 12.5 / 11 / 9.5 / 8\nW 5\nE 22 / 19 / 16 / 13 / 10\nR 120 / 105 / 90"
+],
+[
+"Notes (Oskar)",
+"ZONE LVL 1, WIN LVL 6"
+]
+]
+}
+]
+}
+}

@@ -218,6 +218,8 @@ details.allnums { margin-top:22px; } details.allnums summary { cursor:pointer; c
 @media (max-width: 900px) { .grid2, .grid2 + .grid2, .hero, .duo { grid-template-columns: 1fr; } .dgrid { grid-template-columns: 1fr; grid-template-areas: "radar" "curve" "deaths" "map" "games" "pool"; } .score { grid-template-columns: 1fr 60px 60px; } .score .track, .score .n { display:none; } }
 .legend { display:flex; gap:16px; font-size:12px; color:var(--mute); margin-top:6px; }
 .legend i { display:inline-block; width:12px; height:8px; border-radius:2px; margin-right:5px; vertical-align:middle; }
+.xn dl { margin:6px 0 0; } .xn dt { color:var(--mute); font-size:12px; margin-top:8px; } .xn dd { margin:2px 0 0; line-height:1.45; white-space:pre-line; }
+.xn .as { font-size:12px; color:var(--mute); margin-top:10px; font-weight:600; } .xn .src { margin-top:10px; font-size:12px; color:var(--mute); } .xn .old { display:inline-block; font-size:11px; padding:1px 6px; border-radius:6px; border:1px solid var(--line-soft); margin-left:6px; }
 </style>
 </head>
 <body>
@@ -1998,6 +2000,37 @@ function levelBars(ls, mark = {}) {
 }
 
 // A short game plan from the expert numbers: the lane against this opponent, or the jungle's first minutes.
+// Expert notes: matchup sheets written by one-tricks (scripts/matchups), credited and linked back.
+const NOTES = { index: null, champ: {} };
+function loadNotes(champ, redraw) {
+  if (!NOTES.index) { NOTES.index = {}; api("/api/notes/index").then(d => { NOTES.index = d && !d.missing ? d : {}; redraw(); }).catch(() => {}); return; }
+  const m = NOTES.index[champ];
+  if (m?.quality === "sheet" && NOTES.champ[champ] === undefined) {
+    NOTES.champ[champ] = null;
+    api(`/api/notes/${champ}`).then(d => { NOTES.champ[champ] = d && !d.missing ? d : false; redraw(); }).catch(() => { NOTES.champ[champ] = false; });
+  }
+}
+function expertNotes(champ, opp, redraw) {
+  loadNotes(champ, redraw);
+  const m = NOTES.index?.[champ];
+  if (!m || !m.url) return "";
+  const site = (m.url.match(/\/\/(?:www\.)?([^/]+)/) || [])[1] || "";
+  const who = m.author ? esc(m.author) + (m.rank && m.rank !== "?" ? ` (${esc(m.rank)})` : "") : esc(site);
+  const upd = String(m.updated || "").replace(/\?/g, "").trim(), yr = +(upd.match(/20\d\d/) || [0])[0];
+  const old = yr && yr < 2025 ? `<span class="old" title="Written for an older patch. Items and runes may have changed; the lane advice usually still holds.">Lane tips only</span>` : "";
+  const src = (label) => `<div class="src">From ${who}${upd ? ` · updated ${esc(upd)}` : ""}${old} · <a href="${esc(m.url)}" target="_blank">${label}</a></div>`;
+  if (m.quality !== "sheet") {
+    return `<div class="card xn"><div class="ctitle">Expert guide</div><div class="sub">A written ${esc(csName(champ))} guide${m.quality === "guide" ? "" : " with notes for each matchup"} on ${esc(site.includes("docs.google") ? "Google Sheets" : site)}. We can't show it here, but it's one click away.</div>${src("Open the guide")}</div>`;
+  }
+  const d = NOTES.champ[champ];
+  if (!d) return d === null ? `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">Loading…</div></div>` : "";
+  if (!opp) return `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">${who} wrote notes for ${Object.keys(d.rows).length} opponents. Pick an opponent to see them.</div>${src("Open the full sheet")}</div>`;
+  const rows = d.rows[opp];
+  if (!rows) return `<div class="card xn"><div class="ctitle">Expert notes</div><div class="sub">${who}'s sheet has nothing on ${esc(csName(opp))}.</div>${src("Open the full sheet")}</div>`;
+  const body = rows.map(e => `${e.as ? `<div class="as">${esc(e.as)}</div>` : ""}<dl>${e.fields.map(([k, v]) => `${k ? `<dt>${esc(k)}</dt>` : ""}<dd>${esc(v)}</dd>`).join("")}</dl>`).join("");
+  return `<div class="card xn"><div class="ctitle">Expert notes vs ${esc(csName(opp))}</div>${body}${src("Open the full sheet")}</div>`;
+}
+
 function gamePlan(B, champ, role, opp) {
   if (!B) return "";
   const S = B.setup || {}, M = opp ? B.matchups?.[opp] : null, L = [], name = csName(opp || ""), me = csName(champ);
@@ -2135,6 +2168,7 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
   const parts = [];
   const live = C.live !== false && !C.page;
   parts.push(gamePlan(B, st.champion, st.role, C.opp));
+  parts.push(expertNotes(st.champion, C.opp, () => C === MU ? drawMatchups(false) : drawChampSelect(C, head, bodyId)));
   if (!live && !C.page) parts.unshift(`<div class="note">${C.phase === "InProgress" ? "In game." : "Champ select is over."} Showing your last pick so you can check the build and skill order. This window switches to your next champ select by itself.</div>`);
   // Runes
   const rec = vs?.rec || S?.rec;

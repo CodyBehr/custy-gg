@@ -1,0 +1,2067 @@
+{
+"champ": "Sett",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1pF2wbqRxHz00vQolCQ_z896kH5TDuLYFPryPDDSCKxg/edit"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nUnflinching\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Aatrox is an AD bruiser who has a ton of damage early game, like you- however, he's relatively squishy and this weakness is made up for by his healing power. He relies on landing his Q's as they're his main source of damage. Casting his first Q will allow for 2 more recasts, and each recast is closer to Aatrox's person. Your primary goal in lane is to dodge his Q's. He will outdamage you and win trades if he lands them. Use your E preferably on his Q-2 to help dodge it as it's the hardest one to dodge, and then disengage so he doesn't land his Q3, which does the most damage. After he uses his Q-3, he has no major damage output besides his basic attacks, meaning you should harass him, zone hi…"
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nSecond Wind\nUnflinching\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"behind: W-Q-E\nelse: Q-W-E"
+],
+[
+"Items",
+"Stride titanic steraks fon chempunk"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Akali's goal in lane is to use her Q (her kunai) activate her passive by running around (there's a circle around where she landed that ability), and then auto you with her empowered auto (since she completed her passive), using this short burst combo to slowly wittle you down. In this case, use your W before she hits her empowered auto, or if you want to continue to fight, use your E to pull her when she uses her shroud as it'll reveal her if you hit her. Level 1, you win the trade very hard. Zone her from wave like you would a Nasus, make her back off to miss XP when first 3 minions die. After Level 1 throughout the early game, Akali's energy costs are VERY high. At rank 1, her Q costs 130 …"
+]
+]
+}
+],
+"Camille": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nUnflinching\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"behind: W-Q-E\nelse: Q-W-E"
+],
+[
+"Items",
+"Gore/stride steraks titanic thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Camille is an item dependent AD bruiser. You must make an early lead and keep that lead or you will suffer the entire game. Levels 1-2 you HARD win trades. Camille will try to use her W (cone slow) to heal herself and disengage. Try your best to avoid this otherwise it gets really difficult to score a kill. Slow push the wave and harass her hard when she walks up to CS, and make sure the wave hits her turret at level 3 so it bounces back. After level 3, your main goal should be to try to make a short trade to bait out her Q, disengage, and then when she uses the recast, make another short trade. This way, your trades will always be positive. You NEED to capitalize on your early power since y…"
+]
+]
+}
+],
+"Chogath": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nUnflinching\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nGoredrinker\nTitanic Hydra\nWits End\nOR Deaths Dance\nBlack Cleaver"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Cho'Gath's win condititon surrounds him poking you down so he can walk up to wave and farm for late game, where he wants to team fight since he's excellent at soaking damage. So, if you dodge his Q's (rupture circle) and you counter his gameplan pretty hard. Be moving, and when you hear him stomp, you can back up out of his range and drain his mana. Like this, he will not be able to walk up to CS, and heavy harass him if he does. Level 1 you will hard win trades so force them. Get the level lead by pushing, and capitalize on your lvl 2 power spike. Your gameplan should be to freeze when he has health and shove when he's low on health or mana. This way, he has to over extend and you can force…"
+]
+]
+}
+],
+"Darius": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nShield Bash\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E\nConsider getting W lvl 2, and Q lvl 3."
+],
+[
+"Items",
+"Gore/stride steraks titanic thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"This matchup is dependent on the first few levels. Both of you are lane bullies that have near-identical goals. Pre-3, you win short trades until he gets his hook, which he will use to force longer trades. Very long trades are bad for you; his passive gives him a lot of AD and huge ture damage burns when he reaches 5 stacks on you. Starting E, harass him if he walks up for CS, land a few AA's, and back off. Don't be careless and don't extend yourself or play dangerously. Avoid pushing lane early game EXCEPT to get the level 2 advantage, and do what you can to make a freeze without taking too much harass. Getting ganked is really bad in this lane. General trading tips: (1) Use your E to pull …"
+]
+]
+}
+],
+"DrMundo": [
+{
+"fields": [
+[
+"Difficulty",
+"Difficult"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available.\nHydra is far too expensive to buy unless you are leading by a lot."
+],
+[
+"Abilities",
+"Q-W-E\nConsider getting E at level 4; start Q, level W, level Q, then level E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nGoredrinker\nExecutioner's Calling\nWit's End\nChempunk Chainsword\nBlack Cleaver"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"This sucks. He's immune to your CC. So you have little leverage early aside from autos. He just disengages so really it's up to him when he wants to trade unless you get a gank. You outdamage him, however, as long as you are even. Level 1, cheese to land as many autos as you can. Lvl 2 advant probably useless since you can't force a trade, but try anyways. Short trades like these will end up winning you the lane as long as you can make them positive. Dodge cleavers to the best of your ability, it's hard, but it will hurt if you don't. (If you can't dodge them, start Doran's Shield instead). I recommend cheater recalling so you can get some ledge on Mundo. His wave clear is suboptimal so you …"
+]
+]
+}
+],
+"Fiora": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"behind: W-Q-E\nelse: Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nGoredrinker\nDeath's Dance\nTitanic Hydra\nChempunk Chainsword\nOR Black Cleaver"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Fiora relies on landing her vitals, and if she lands them, she will get a burst of MS and healing. This makes her trades generally very positive and therefore she's a strong duelist. She wins Level 1 trades BUT NO Fiora will start Riposte(W) level 1, meaning if you land a E-stun, you can make a positive trade with 2 follow up autos and get the Level 2 advantage on the 7th minion (avoid trading until your E is back up!). Beyond this, you need to build antiheal early otherwise she will win trades. Trading trips: (1) Reposition yourself such that it's difficult for her to proc vitals. If you hug the wall the direction her vital is, she literally cannot proc it. (2) She can parry your ultimate O…"
+]
+]
+}
+],
+"Gangplank": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nSecond Wind\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Gangplank has a strong early game and good scaling through items, but his items are very expensive, which is why you see many Gankplanks just farming lanes. You have better extended trades but there's almost no shot he's going to walk up and fight you with autos; he'll proc his passive, which is a burn on his next auto & grants him MS and disengage and poke you down with his bullets. Use your E when he attempts this disengage and pull off your classic 2-AA + Q trade. Level 1 you win so force a trade and get the Level 2 advant, force another trade, slow push into his turret and let the wave reset then just continue to force trades till he's below half health, then shove and force him to make …"
+]
+]
+}
+],
+"Garen": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nShield Bash\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E\nConsider getting W lvl 2, and Q lvl 3."
+],
+[
+"Items",
+"Gore/stride steraks titanic thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Garen's combo is pretty uniform. He uses his Q, which grants him MS and a silence on his next attack to engage, and when that lands, he uses his E, spinning his sword around for damage, then his R to execute low health enemies. You can outplay him, but you have to keep an eye out for his Q, which is a hard counter to you due to its silence. You win Level 1 no matter what he starts with, so force a trade here, push the wave for lvl 2 advantage and trade again. In trades, time your W well so it can absorb a good amount of damage like his ult. Your E will not cancel Garen's E if you can stun him, so be aware of that-- his E does a lot of damage. You can use your E just as he lands Q (not after)…"
+]
+]
+}
+],
+"Gnar": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nSecond Wind\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"if struggling: W-Q-E\nelse: Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Shield + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nStridebreaker\nDeath's Dance\nTitanic Hydra\nChempunk Chainsword\nOR Black Cleaver"
+],
+[
+"Boots",
+"Merc Treads\nOR Swifties"
+],
+[
+"Matchup Notes",
+"Gnar's only wincon in lane is to poke you down with his boomerang and his W (3rd hit) and then all-in you when you're ~60% health with Mega. He CANNOT 100-0 you as Mega unless he is insanely ahead. He has good kiting that's a big threat to Sett, but his attack range is a mere 400 [THIS SCALES]! As Sett, punish him whenever he misses a boomerang (or uses it on minions) by using your Q. If he does not use his E to hop away, you should back off but zone him from the wave or bait him into thinking it's ok to farm minions. Why? His E has a 22 second cooldown and is his only escape aside from Flash! Always pay attention to the transformation bar below his health bar. Be cautious while he's Mega- y…"
+]
+]
+}
+],
+"Gwen": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nShield Bash\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nForce of Nature\nBlack Cleaver\nOR Thornmail"
+],
+[
+"Matchup Notes",
+"Gwen is an AP Fighter. Her passive gives her % health on-hit, her Q snips several times (her auto attacks grant more snips), her W grants her defenses and makes her untargetabble to outside champs, her E is a quick dash that grants her on-hit damage and temporary range, and her ult fires several needles which can be recast 2 times if she hits enemies. Lots to know. You generally win trades with Gwen, especially Level 1 trades. Cheese her. Get the level 2 advantage. Gwen likes to build omnivamp, which will make her dueling strong. Don't underestimate her. Don't stand in the middle of her snips; it deals true damage. If she uses her W, back out + wait since her defenses are retardedly high. Sh…"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nSecond Wind\nRevitalize\nStats:\nAttack Speed\nMagic Resist\nMagic Resist"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"W-Q-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Shield + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nForce of Nature\nBlack Cleaver\nOR Thornmail"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"This matchup is a stalemate. Heimerdinger can set up to 3 turrets with his Q, burst enemies with missiles with his W, and disable enemies with his E grenade. His ultimate gives him an empowered ability: a bigger turret, more missiles, or a bouncing grande. Due to his turrets, he naturally will be shoving the wave. This is pretty good for you since it means he can't freeze and you can safely farm under tower. Keep in mind that whenever the wave clears under your tower, the wave resets- I advise against walking up. I also advise against getting Jungler help when either of you are low. Heimerdinger is excellent at 1v2ing since his damage output is really high. Your main goal in this matchup is …"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nShield Bash\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nThornmail\nBlack Cleaver"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"This matchup is entirely reliant on dodging Tentacles. They're pretty much Illaoi's ONLY source of damage, which will also heal her when they hit. You NEED to stay behind minions or else Illaoi can use her Spirit Grab(E) to stack up Conqueror, zoning you from wave and spawning more of her tentacles. Kill Tentacles whenever Illaoi is distracted. If she tries to E you and there's no nearby tentacles and she has no ult, you can also just try to fight her. Back off when she ults, she pumps out insane damage. If you have your W and R, you need to activate your R first to get out of all the tentacles and then use your W, which is a guaranteed hit if she's jumping at you with her W. You win Level 1…"
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Irelia will outduel you whenever she has 4 stacks passive. This is achieved by landing an ability (on minions or champions) or attacking a non-champion. In the first wave, she will likely try to get it by using her dash on 4-5 low health minions (so her dash cooldown resets) and then will try to trade with you - back off if she achieves this. She can maintain these 4 stacks by continuing to Q minions when they are low, which will continue to zone you off the wave. You NEED to respect this unless there is a clear advantage for you, this is why most people lose to Irelia- they underestimate her once and then she will snowball. Level 1, you need to harass and try to zone her off the first 3 min…"
+]
+]
+}
+],
+"Jax": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Abilities",
+"W-Q-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Shield + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nThornmail\nBlack Cleaver\nOR Spirit Visage"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"There are a few issues with what you can do in this matchup: (1) He can leap out of a trade / disengage (2) He outscales (3) He can dodge your auto attacks (aka your main source of damage). This is why this lane requires frequent trades, bait out his abilities with the first trade (simply walk up with Q) and then a few seconds later, use your E for another engage. This matchup is all about playing around his cooldowns since they counter you hard. Jax will also outscale you, which is why I advise playing aggro early and trying to secure a lead, even if its a CS lead for yourself. Try to get the Level 2 advantage, force a trade, and/or cheater recall (slow push first 2 waves, and shove 3rd int…"
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"behind: W-Q-E\nelse: Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Jayce is going to be strongest mid game, but late game, you will be without a doubt stronger. Early game he has pretty good harass and decent all-ins, but your dueling is better. However, he has a disengage, which is annoying, but these cooldowns are really long. You should look to abuse him whenever he uses an ability on a minion. Also look to abuse him when he walks up for last hits, as if you do this every time, you will be chunking him down considering his long cooldowns. Getting Lvl 2 advant might be nice, but it's not something to stress about since again, you don't really need a lead to win this matchup. When he gets Lethality, he will also be dealing 20-30% of your health with just h…"
+]
+]
+}
+],
+"Kayle": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nStridebreaker\nTitanic Hydra\nWit's End\nChempunk Chainsword\nOR Black Cleaver"
+],
+[
+"Boots",
+"Merc Treads\nOR Swifties"
+],
+[
+"Matchup Notes",
+"Kayle will outscale you hard. You NEED to do EVERYTHING to secure a lead before she gets 6, because after that, it's downhill for her (as in easy). At Level 6, she becomes a ranged champion who you'll have difficulty reaching, so you need to harass the hell out of her in the early game. Ask your Jungler for help, and set the wave up accordingly. I recommend slow pushing while zoning Kayle off the wave, securing a Level advantage, and diving her when you get Lvl 6. Use your Level 1 power to completely zone her off the wave, last hit the minions, get the Lvl 2 advant, force a trade (blow off her flash) and you can pretty much just shove the wave into her tower and poke with your W since she'll…"
+]
+]
+}
+],
+"Kennen": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nSecond Wind\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"if struggling: W-Q-E\nelse: Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Shield + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nForce of Nature\nBlack Cleaver\nOR Thornmail"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"In the laning phase, Kennen will use his Q (shuriken) to poke you down, his E (becomes lightning) to kite you, and his W (attacks enemies hit by recent abilities) as a way to activate his 3-ability micro-stun. You should expect to get heavy harassed in this lane, but your goal should be to bait him into engaging on you. Use your Q to run at him, and when he activates his E and comes on to you, use your E to stun him and force an extended trade. If you have your Ultimate, quickly walk around to dunk him towards your side of the map. If you do not follow this strategy, you will get harassed hard since you will have wasted your E and he will simply use his E to run out. Attempt to use your Ulti…"
+]
+]
+}
+],
+"Kled": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nShield Bash\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Kled's goal is to use his Bear Trap + Auto Attack Frenzy (W) combo to make effective trades while mounted, using his lizard to joust for either an engage or disengage. While not mounted, he looks to last hit minions or trade in order to get his lizard back. This makes your trading with him pretty bad, since he will also outsustain you pretty hard. He also has excellent roaming, which you should save your Teleport for. Running the Tank build should allow you to keep yourself healthy in lane, and look for trades while he has his W down. He may also use his Q on minions, so try forcing a trade when he does this as well. Your level 1 is better, but it's not necessary to force a trade here. Getti…"
+]
+]
+}
+],
+"Lillia": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nFrc of Nature OR Spirit Vis\nBlack Cleaver\nOR Thornmail"
+],
+[
+"Boots",
+"Merc Treads\nOR Swifties"
+],
+[
+"Matchup Notes",
+"Lillia relies on using her Q's (circle damage) to dish out true damage and kite you out and use her W (small jump) to burst you down in close-range, and poking you with her E (seed). She'll often want short trades, especially when she doesn't have stacks of MS from ability hits, and like this she will try to use her passive burn to wittle you down. Despite this matchup seeming poke-intensive and harass-heavy, it actually isn't for a few reasons; (1) Lillia's auto range is REALLY low. This forces her to get near minions or use her Q to farm, of which her Q range is not much bigger. (2) Lillia's W (burst jump) can be interrupted by your E and ultimate. (3) Rushing Stridebreaker will allow you …"
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nGoredrinker\nOR Stridebreaker\nTitanic Hydra\nWit's End / Death's Dance\nBlack Cleaver"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Malphite relies on just getting through the early game with whatever he has so he can excel in team fights mid-to-late game. His biggest weaknesses are a weak early game (especially if not running Grasp) and terrible wave clear. This means you will have total prio over Top lane, even if somewhat behind. In the laning phase, he aims to use his Q(shard/slow) on low minions to kill them, or on you to stack Manaflow Band if he has that (click him and in top left corner there will be an icon if he does). If he's running Grasp, he'll be looking to make very brief trades-- Q to get to you, W for a bigger auto and the Grasp proc, and E to lower your AS. As Sett, you want to make these trades extende…"
+]
+]
+}
+],
+"Maokai": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nGoredrinker\nOR Stridebreaker\nTitanic Hydra\nWit's End / Death's Dance\nBlack Cleaver"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"The biggest problem in this matchup is you have extremely limited Kill Agency of Maokai, since his passive grants him periodic heals which are pretty crazy. He's also quite tanky, making it difficult to make plays, and his Q (smash) is a disengage which will prevent you from getting great trades. Maokai's goal is to make it past early game so he can group, and he will try to do this by using the two methods above; sustain and disengage. What's wrose is that his wave clear isn't that bad and he responds so well to when his jungler ganks (he actually will attract them since he sets up such good ganks). Main goal in lane is to harass Maokai when he walks up to CS, and avoid using your W until h…"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nShield Bash\nRevitalize\nStats:\nAttack Speed\nMagic Resist\nMagic Resist"
+],
+[
+"Build Notes",
+"If you struggle in this lane, run Lethal Tempo.\nTeamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nGoredrinker\nWit's End\nTitanic Hydra\nBlack Cleaver\nOR Chempnk Chainsword"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Mordekaiser is almost completely reliant on landing his Q in order to win trades with you. His Q is his main source of damage, and will deal extra damage while isolated. You need to do everything to dodge his Q's and if you do, play extremely aggressively. Pay attention to his passive, which can end up eating your health if you try trading with him too dangerously in it. It activates when he lands 3 autos or attacks on a champion. Level 1, you want to force a short trade so you can make him back off so you get Level 2 advantage. You can cheater recall (slow push waves 1-2, hard push wave 3 and reset) to get a lead if you don't think you play well into Morde. If he walks up to Auto the wave, …"
+]
+]
+}
+],
+"Nasus": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"If you struggle in this lane, run Lethal Tempo."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride bork titanic steraks thornmail"
+],
+[
+"Boots",
+"Swifties"
+],
+[
+"Matchup Notes",
+"Nasus's gameplan relies on him using his Q (empowered auto) on low health minions to permanently increase his future Q's damage, becoming a monster late game. He will E (zone) to poke early, and W (slow) you when he goes for an all-in or his jungler is coming (expect to be ganked!). Nasus's greatest weakness is his early game, in which you win trades insanely hard. This means you have to hard harass him when he walks up for CS, zoning him from wave, especially when your cannon is about to die as that will give him 12 stacks! If Nasus walks up to CS, he can auto them and heal himself from his Passive, which gives him life steal - DO NOT LET HIM! Dying to Nasus is fatal, so don't overextend wi…"
+]
+]
+}
+],
+"Olaf": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Abilities",
+"behind: W-Q-E\nelse: Q-W-E\nConsider getting W lvl 2, and Q lvl 3."
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Shield + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nThornmail\nBlack Cleaver"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"OK, this matchup is just tough. Olaf does everything you do, but better. He outduels you, has better wave clear, and is a better team fighter in most cases-- until late game or unless your team is ahead. You heavily rely on an early lead, which generally involves Olaf making a mistake, and you need to snowball that. He WILL win Level 1 trades, so you need to see if you can get a minion advantage in the first wave so you hit Level 2 first, and force a trade then (level Q in this case, if you do not hit Level 2 first, get W). Level 3, you can force a short trade which you engage with your E stun, and hopefully snowball this. Beyond this, ask for Jungler's help. If you fall behind, dodge his Q …"
+]
+]
+}
+],
+"Ornn": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nGoredrinker\nTitanic Hydra\nWits End\nOR Deaths Dance\nBlack Cleaver"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Ornn's gameplan is to pretty simply make it to late where he can upgrade his teammates' Mythics and engage teamfights using his powerful Ultimate. Due to Ornn's tankiness, you have limited Kill Pressure, even late. This is because combined with his E (charge), he can also escape trades he doesn't want to participate in. His W makes him unstoppable and that's a HARD counter to you. OK, aside from complaining, there are good things about this matchup- - you have almost complete lane priority, even if you die once or twice. Next, you will outtrade him in almost every scenario. Third, you can counter his gameplay through the following: (1) You can interrupt Ornn's charge (E) with your E. (2) You…"
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Pantheon's gameplan is to use his great early and mid game to either end the game mid game or create an enormous lead for himself to thrive in the late game. This mainly is a result of his TERRIBLE late game since his lead is metaphorically aflame, meaning he loses his lead as the game goes on. Late game, he's really only good for picks, and if he's running AD then he can engage on a high priority target, if he's running tank, then he basically just peels. In short, he wants a snowball early. You will win extended trades with Pantheon, but he will win short trades. If he has an item advantage, you should also be expected to get harassed with his spears- try to dodge them. When he jumps on yo…"
+]
+]
+}
+],
+"Poppy": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nGoredrinker\nTitanic Hydra\nWits End\nOR Deaths Dance\nBlack Cleaver"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Poppy's all about locking down or taking out high priority targets who are mispositioned. Her laning phase plan will be to keep her Grasp up, so when you engage on her, she will simply proc it and run off, and when you're close to a wall, she'll run you into the wall, stun you, and chunk you, and this damage may surprise you. Note that she has NO major damage source after this! Extend the trade as much as you can, you win it hard if you can! Similarily, you can also bait Poppy by standing directly next to a wall as once she engages, she has no escape besides her ultimate. Note you should really only do this if you're positive you'll win because she is very likely to get a good chunk through …"
+]
+]
+}
+],
+"Quinn": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nSecond Wind\nRevitalize\nStats:\nAttack Speed\nArmor\nArmor"
+],
+[
+"Abilities",
+"W-Q-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Shield + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nThornmail\nBlack Cleaver\nOR Spirit Visage"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Quinn is a ranged harass top laner who, quite really, you will hate playing against. Her early game plan is to harass you hard with autos and her passive, which will deal bonus damage (gold circle forms on you). If you get too close for her liking, she'll vault and create a gap. However, to vault, she has to fly to you first- meaning you have an opportunity to use your E to cancel her dashing back! The timing is tricky, however, as you cannot cast it in the micro-cc/displacement, and there is a cast time. Other than this, if she uses her Vault offensively, you can punish her heavily by all-in if you have Flash (Flash-E combo), she's squishy so you'll melt her. You can also bait out her Vault…"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nShield Bash\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Renekton, like you, is a lane bully. He has high damage, lots of healing, reliable CC, and decent mobility. His trading pattern will be to engage using his E-dash, stun using an empowered W auto, auto once more and Q to chunk, and recast his E to disengage. He will receive empowered abilities when his Fury bar (where mana is) is red. Look to play around this. He has to consume his Fury when red on his next ability, and he's very likely to be using his cleave on minions. Look to engage when he does so! Running HoB and making good trades will force him to back off and not allow him to use the trade pattern I described above. This will completely counter his playstyle. You win Level 1 and Level…"
+]
+]
+}
+],
+"Rengar": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available.\nGet Death's Dance after Titanic Hydra if ahead."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Rengar has a GOOD early game. If he plays right and takes short trades, he will have a better early game than you. Rengar's goal is to pretty much cheese you from brush and continuously jump from the brush to farm minions. This makes him a pain to deal with. There are a few notes (1) With HoB, your short trades are almost even (may be lower if you're fighting him in brush). (2) Your extended trades are better. Unless you fight him in brush. (3) Your wave clear is better. (4) Rengar is much weaker while not fighting near/in brushes. You need to take advantage of the 4th note as much as possible. When he uses his jump onto a minion, E him in and force a short burst trade with HoB (use your Q a…"
+]
+]
+}
+],
+"Riven": [
+{
+"fields": [
+[
+"Difficulty",
+"Difficult"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nThornmail\nBlack Cleaver"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Riven is a mobile champion that has disables embedded in her kit to make trades as positive for her as possible. She has 3 casts on her Q (which will propel her forward), the third Q knocking up enemies, a stun on her W, and a mini-dash on her E. Her ult gives her bonus AD and an execute ability. She may out trade you as she'll only engage on what she wants and she'll disengage on what she doesn't want. Furthermore, experienced players will consistently cancel your autos. Try shoving her into tower and get some help from your jungler to possibly dive her (care of her W, the AOE stun) so you can keep a lead and you'll have late game. You need to try to do your best to let this happen because …"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nFrc of Nature OR Spirit Vis\nBlack Cleaver\nOR Thornmail"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Rumble's damage output is pretty stupid. Almost as good as yours. He'll use his missiles to slow you and keep you in his fire and use his W to shield himself to keep trades positive. When his resource bar is yellow/orange, he'll also do more damage with his abilities, and when it's max, he can't cast abilities but he will deal bonus damage on autos. Now that you know what Rumble does, let's talk about what you can do in this matchup. You win Level 1 trades SO hard if Rumble doesn't stay out of your range. You want to zone him COMPLETELY off the minion wave. Same thing with Level 2. Get yourself the first 3 minions and then walk up to deny him the experience. He doesn't respect you? Get that …"
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nSecond Wind\nRevitalize\nStats:\nAttack Speed\nMagic Resist\nMagic Resist"
+],
+[
+"Abilities",
+"W-Q-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Shield + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nFrc of Nature OR Spirit Vis\nBlack Cleaver\nOR Thornmail"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Ryze is a late game mage who struggles with mana throughout the early game. This is what you NEED to abuse. His damage is insignificant in the early game as long as you don't get rooted under his turret. MAKE him waste his mana on you by consistently threatening engages with your Q, and E if he gets in range. Abuse his W cooldown and make plays with Flash after wittling him down with W as he tries to combo you. He is really squishy so you will be doing tons of damage in engages! Beyond this, Ryze is relatively mobile when he activates his passive/PR meaning he'll do his combo and run out. You want to also keep track of his Flash timer as you can just Flash-E to score a kill with your ult. Be…"
+]
+]
+}
+],
+"Shen": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nSpirit Visage\nBlack Cleaver"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Shen is a really easy matchup to get a lead on since his wave clear is bad (unless/until he gets Tiamat) and he can't trade well unless he plays around his Grasp (if he runs that). If he's not running Grasp, you have a pretty free lane. Now, a good Shen will play it safe, use their taunt to disengage. This calls for you to just shove, buy Tiamat. BUT DONT BE UNDER TOWER OR HE CAN TAUNT YOU! The great part of this matchup is that you have total priority with the right trading skills. You want to bait out his abilities. Here's how we react to certain situations: For his Q(sword), use your E to stun him so he can't get damage on you thorugh autos until after the stun. For his W(Zone), use your …"
+]
+]
+}
+],
+"Singed": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nFrc of Nature OR Spirit Vis\nBlack Cleaver\nOR Thornmail"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Singed relies on his poison which he creates behind him by walking as his main source of damage, with the only issue being that he's pretty mobile as he gets a burst of move speed whenever he reaches an enemy and can furthermore fling them, making him a nuisance to deal with. His early game is really weak. He probably won't fight you, but you will win any fight until he gets his tank items. This means you should try to abuse him early game if he walks even close to the minion wave, but do not chase him in his poison. After the very early game it gets tricky if Singed goes behind your Outer turret to farm your minions. This makes your lane state permanently shoved into your turret until Singe…"
+]
+]
+}
+],
+"Sion": [
+{
+"fields": [
+[
+"Difficulty",
+"free food"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"This is a seriously easy matchup. Sion's main damage output is his Q, which is a channel to a smash with his hammer and immobilizes if he channels long enough. What's just stupid about this matchup is WHEN HE Q's, YOUR E CAN CANCEL IT. Yeah so the entire matchup is one-sided. He can't get any damage on you. I advise cheesing Level 1 because of how hard you win. Then zone him completely off wave and keep him so behind. By Level 6, if you have not scored a kill yet, look to shove the wave and dive. You should definitely try to establish a lead in the early game since it's not that hard with your insane trading. You may find yourself getting camped, but be patient and save your E unless Sion is…"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nGoredrinker\nOR Stridebreaker\nTitanic Hydra\nWit's End\nChempunk Chainsword"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Sylas is an AP bruiser who is really mobile. His Q lashes out chains in an X and then deals a burst of damage where they intersect, his W is a short range dash to an enemy that bursts and heals, scaling on missing health. His E is a dash, which can then be recast to pull himself to an enemy and stunning them. His passive makes his next basic attack deal AOE damage and his ult steals a copy of an enemy's ultimate. Since Sylas is AP (ability reliant), you will heavy win this matchup Level 1. Similar to Nasus, you should completely zone him from the wave for the first few levels, and try to crash the wave at Level 3 (Cheater recall). This is because at Level 3 he is most strong, since he unlock…"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Difficult"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Abilities",
+"behind: W-Q-E\nelse: Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nBlack Cleaver\nANY Defensive Item"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Tahm Kench is a really difficult matchup because he's SO tanky and hard to deal with. His autos deal a lot of damage and stack his passive. When the fish symbol reaches max stacks, he can stun you. His Q is a slow that heals him if he hits you, his W is a blink that knocks up champions, his E is a shield equal to the amount of gray health he has, and his ult allows him to eat an ally. At max fish stacks, he can stun you with his Q and eat you with his ult. His damage output Level 1 is similar to yours, so no point in trying to make a play. Stay behind minions and get a minion advantage to get the level 2 advantage, then force a trade. You'll win this. Do your best to avoid Tahm's Q since it …"
+]
+]
+}
+],
+"Teemo": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nSecond Wind\nRevitalize\nStats:\nAttack Speed\nMagic Resist\nMagic Resist"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"W-Q-E\nget W lvl 2, and Q lvl 3."
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Shield + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nStridebreaker\nWit's End\nTitanic Hydra\nChempunk Chainsword\nOR Black Cleaver"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"This is a really difficult and tilting matchup to play. Teemo will harass you with autos and his burn, and when you attempt to engage, he'll also blind you, making you miss your autos. This is terrible!! :( But we can counter this. Here are my trading tips (1) Use your W shield if you're low to shield his burn. (2) Run at Teemo with your Q, wait for him to blind you, use your E to stun him, and then after the blind, use your Q. Use your W while he runs. (3) Keep in mind he can easily just Flash out or use his W (gives him speed), so you want to try to be consistent with these engages to make sure he loses from Flashing. Aside from this, Level 1, play careful & look out if he's sitting invisi…"
+]
+]
+}
+],
+"Tryndamere": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"W-Q-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"This season is much nicer against Tryndamere as Sett. You win extended trades BUT once he gets full fury (red resource bar), he will match your damage, and can run you down with ignite. Your goal in this matchup is to abuse your better dueling power before 6 to establish a lead while avoiding giving him any lead whatsoever. This is because Tryndamere snowballs really well. In the early game, you should look to make trades since Tryndamere will almost always want to make early trades and will likely underestimate you. Look to cheese. I advise comboing your E-W to make the W sweet spot impossible to miss, as it will be the deciding factor in trades if he's at max fury. If you made a good chees…"
+]
+]
+}
+],
+"Urgot": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Split Pushing path available.\nIf you struggle into Urgot, rush Plated Steelcaps!"
+],
+[
+"Abilities",
+"Q-W-E\nget W lvl 2, and Q lvl 3."
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Urgot, like you, is a heavy lane bully who does tons of damage. He has a small poke (Q), a DPS ability (gives 3 atks/s [a lot], W), a shield/stun/dash (E), plus an execute (R). The biggest mistake players make against Urgot is underestimating his Level 1. If he lands his E, he will chunk you hard and may even kill you. You do NOT win Level 1. You will NOT win until after Lvl 3. Do NOT cheese. As you can imagine, you want to let the wave push to you so you're safe- avoid extending yourself. Then, when the wave is under your turret, you will get Level 3 very slightly before Urgot in which you will have an opportunity for a great trade. Beyond this, you will have pretty even dueling until you g…"
+]
+]
+}
+],
+"Vayne": [
+{
+"fields": [
+[
+"Difficulty",
+"Difficult"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nSecond Wind\nRevitalize\nStats:\nAttack Speed\nArmor\nArmor"
+],
+[
+"Abilities",
+"W-Q-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Shield + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nThornmail\nBlack Cleaver\nOR Spirit Visage"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Vayne is a massive conundrum for you. She is a Ranged champion who can bully you early [with autos], has self peel [Q tumble & E knockback], shreds tanks [3 autos], and outscales you massively. What more can one ask for? Despite all of this, if you get close to her, you have a MUCH better damage output than her- actually throughout the entire game if you are able to consolidate a lead early. So how do we do that? Cheese! Not only at Level 1 (but especially at level 1), but throughout the entire game. Get Sweepers after laning phase! Beyond cheesing, you need to play Laning Phase relatively safe. You have an opportunity to make an engage Level 2 with a Q to gap close and E. Vayne is probably …"
+]
+]
+}
+],
+"Viego": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"W-Q-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Viego is a good duelist. You need every ledge you can get on a duel against him. When he kills someone, he can become them for a few seconds and ult for free (no CD) post-6. His AAs deal % current health and his Q is a thrust that applies on-hit effects. Whenever he strikes an enemy with an ability he autos them twice and his W is a stun, his E is a camoflauge shroud. His ult is a blink that deals % missing health. Ok, now that's a loaded kit. Much more loaded than yours, so understand that this matchup is pretty close! (1) Your Lvl 1 is stronger. Force trades and cheese. Your Lvl 2 is even. Your Lvl 3 is weaker. (2) Since you're stronger Lvl 1 capitalize on your Lvl 2 power spike (3) Viego …"
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nSecond Wind\nRevitalize\nStats:\nAttack Speed\nMagic Resist\nMagic Resist"
+],
+[
+"Abilities",
+"W-Q-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Shield + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nFrc of Nature OR Spirit Vis\nBlack Cleaver\nOR Thornmail"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"The issue in this matchup is that Vladimir outscales you and his early game is safe. This gives you two options (1) Tiamat shove (2) Freeze the wave and play around Vlad's cooldowns. The first is extremely implicit. Buy a Tiamat your first back and outshove the wave, funneling as much gold into yourself and creating a huge snowball for you. You don't need to worry at all about taking poke since you can continuously shove the wave and back whenever you want. The issue is that, as stated, Vladimir will outscale and will get his farm, exactly what he wants. This playstyle will keep you ahead of Vlad, but this will not stop him from obliterating your team late. This means you need to end the gam…"
+]
+]
+}
+],
+"Volibear": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Teamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"behind: Plated Steelcaps\nelse: Merc Treads"
+],
+[
+"Matchup Notes",
+"Volibear is a difficult matchup because of how safe of a pick he is. He's a good duelist (W applies mark that can be attacked again w/ ability for a heal), soaks damage with his natural tankiness (and E shield), sets up great dives (ult makes him big and disrupts turrets), disables high priority targets (Q grants bonus MS and stun on next attack), and scales well into the late game. What is he missing? He lacks proper mobility and hence he gets kited fairly easy, and his wave clear is not great by any means. Now, his dueling is not better than yours but he might surprise you with his sustain. One of the most important things is that you cannot duel him in elongated trades (over 4-5 seconds) …"
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"W-Q-E"
+],
+[
+"Items",
+"Gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"Wukong's playstyle/trading pattern involves him dashing in with his E, cloning with his W, baiting you into damaging them, then surprising you with a burst of damage with an empowered auto Q. And then he can also knock up. Twice. With his ult. Point understood, he's a toxic champion. This matchup involves you simply NOT giving him a lead and scoring a kill when he makes a mistake. Sounds boring, right? Well, yeah. Your fun is someone else's boredom, so the fun you get from the rest of your games is going to be hitting you back in this matchup. Since Wukong relies on a snowball, you should be looking to freeze but also pinging your jungler OFF your lane. It's a WASTE for them to gank you due …"
+]
+],
+"as": "Wukong"
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Get Death's Dance after Titanic Hydra if ahead."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"You win this matchup so hard. Yasuo, if you don't know, uses his Q's (thrusts) and then creates a tornado if he lands two of them. He's able to wind wall and dash through minions with his W and E respectively. His windwall, however, does NOT block your W! You win almost all trades. Level 1 you outdamage him hard, force trades and zone him off the wave, especially as your first 3 minions die, walk up to make him not be in the XP range. This will give you a LARGE window to make a trade with the Level 2 advantage. Practically win lane within the first 3 minutes. Next, we run an early Tiamat so we can blow off his shield when he walks up to minions. At the very least-- you need to continue to zo…"
+]
+]
+}
+],
+"Yone": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Get Death's Dance after Titanic Hydra if ahead."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"As with Yasuo, you win this matchup pretty hard. It's a bit more difficult because Yone in general has better ability to outplay you with a shield (W), two dashes (3rd cast of Q/sword thrust and E), and a broken dash (so broken I had to put it separate from the other dashes; a long range dash that stuns and collapses enemies hit). Now that you know what Yone does, let's talk about what you can do to make him cry: (1) You win Lvls 1-5 hard. Lvl 6+ he has opportunity to outplay you in an even lane (or if he has a lead). (2) Due you your advantage, look to cheese him and take completely lane priority. Get Levels 2 and 3 advantage and make use of them! Slow push in the early game and since he is…"
+]
+]
+}
+],
+"Yorick": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Abilities",
+"W-Q-E"
+],
+[
+"Items",
+"stride/gore titanic steraks thornmail dd"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Yorick is the split pushing king. He's mid-late game, has good dueling then, and good wave clear. He uses his Q (empowered auto) on low minions to create graves, then can summon these chipmunks which push the wave and can aggro to you by him casting his W (cage) or his E (damage cone). Your job is to abuse Grasp and sustain yourself in lane so you can stay in lane longer than him. Whenever your Grasp is up, walk up for a trade since Yorick's extremely immobile and can't really do much into you. His chipmunks will help keep your Grasp up, making it such a good rune in this matchup. The main thing here is not losing lane by building safe enough since Yorick when he is ahead and you are behind …"
+]
+]
+}
+]
+}
+}

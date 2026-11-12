@@ -624,14 +624,15 @@ def _page():
         return f.read()
 
 
-def benchmark(cfg, name):
-    """High-elo numbers for one champion and role, from the site (refreshed every few hours)."""
+def benchmark(cfg, name, folder="benchmarks"):
+    """High-elo numbers (or expert matchup notes) from the site, cached for 30 minutes."""
+    name = folder + "/" + name
     hit = _bench.get(name)
     if hit and time.time() - hit[0] < (600 if hit[1].get("missing") else 1800):
         return hit[1]
     data = {"missing": True}
     try:
-        url = cfg["site_url"].rstrip("/") + "/benchmarks/%s.json" % name
+        url = cfg["site_url"].rstrip("/") + "/%s.json" % name
         req = urllib.request.Request(url, headers={"User-Agent": "custy-collector/" + core.VERSION})
         with urllib.request.urlopen(req, timeout=15) as r:
             data = json.loads(r.read())
@@ -700,6 +701,9 @@ def make_handler(cfg, token):
             m = re.match(r"^/api/benchmark/([A-Za-z]+-(?:TOP|JUNGLE|MID|BOT|SUPPORT))$", url.path)
             if m:
                 return self._send(200, benchmark(cfg, m.group(1)))
+            m = re.match(r"^/api/notes/([A-Za-z]+|index)$", url.path)   # expert matchup sheets
+            if m:
+                return self._send(200, benchmark(cfg, m.group(1), "matchups"))
             if url.path == "/api/replay":
                 with _lock:
                     return self._send(200, dict(_replay))
@@ -755,8 +759,9 @@ def make_handler(cfg, token):
             if url.path == "/api/open":
                 # Links (YouTube) open in the user's default browser, not in this Edge app window.
                 link = parse_qs(url.query).get("url", [""])[0]
-                if not re.match(r"^https://(www\.)?youtube\.com/", link):
-                    return self._send(400, {"error": "not allowed"})
+                guides = {m.get("url") for m in benchmark(cfg, "index", "matchups").values() if isinstance(m, dict)}
+                if not (re.match(r"^https://(www\.)?youtube\.com/", link) or link in guides):
+                    return self._send(400, {"error": "not allowed"})   # only YouTube and the expert guides we list
                 import webbrowser
                 webbrowser.open(link)
                 return self._send(200, {"ok": True})

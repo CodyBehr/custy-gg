@@ -1,0 +1,739 @@
+{
+"champ": "Zed",
+"source": {
+"quality": "sheet",
+"url": "https://docs.google.com/spreadsheets/d/1oOdoxOECGxrH5glVCORRSvGnfdehMhhnSfJBcpXX0rk/edit"
+},
+"fetched": "2026-11-11",
+"rows": {
+"Aatrox": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"If you outplay him and get some kills early (solo or with jungle help), the game becomes a lot easier. Build an executioners early and save your ignite for all-ins."
+]
+]
+}
+],
+"Ahri": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Don't get hit by her charm in lane. During all ins, try to save your W before ulting her so you can chase her down when she ults."
+]
+]
+}
+],
+"Akali": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Annoying matchup but winnable if you trade properly. Key to this lane is to poke her without taking too much damage yourself so you win the all in."
+]
+]
+}
+],
+"Anivia": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"A good Anivia is pretty much impossible to kill. The fact that she shoves faster than you after 6 makes roaming tricky too. Look to make her back early (most Anivias will take TP) and look for roam timings."
+]
+]
+}
+],
+"Annie": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Hard matchup, consider building hexdrinker. Dodging her stun with your ult is necessary if you want to win."
+]
+]
+}
+],
+"AurelionSol": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Asols will look to shove early. Try to manage your wave so your jungler can gank while he is trying to shove. Poke him with your combo while he is trying to shove and look to all in."
+]
+]
+}
+],
+"Azir": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Just play safe until level 3-4. Having potion/HP advantage on him once you both get close to level 6 is essential since he will be low on mana by then as well. The fast combo works well against Azir in all ins so he doesn't ult you away before your damage lands."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Pretty easy matchup, just don't get hit by too much spells and outsustain him. If he wastes Q for any reason, immediately all in."
+]
+]
+}
+],
+"Cassiopeia": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Better player wins this matchup tbh"
+]
+]
+}
+],
+"Corki": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Don't lose too much HP early and slowly poke him down until you can all in. Matchup does become a little more tricky if he takes exhaust."
+]
+]
+}
+],
+"Diana": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Not as hard of a matchup as most people think. Always take conqueror against Diana. Your poke is better than hers so slowly poke her down while dodging her Q and don't take long melee trades (her shield beats your damage every time). You have to dodge her ult explosion with your ult - if you do you will win the all in every time."
+]
+]
+}
+],
+"Ekko": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Another shove happy champ. Poke him down whenever possible and ignite him before he activates R as it reduces the healing he receives. Saving W before using ult helps you chase him down after he Rs."
+]
+]
+}
+],
+"Fizz": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Probably one of Zed's hardest matchups if the Fizz builds and plays properly. Harass him early as your early damage beats his. You can dodge his fish damage if you ult him while the fish is attached to you (good Fizz players will E you so you can't though). Overall hard matchup that you have to build hexdrinker in."
+]
+]
+}
+],
+"Galio": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Poke him with WEQ constantly and look for an all in. Without aftershock active he's actually surprisingly squishy early. Use your lane advantage to get other lanes ahead (be mindful of Galio's R timings but his ult cooldown is much longer than yours)"
+]
+]
+}
+],
+"Heimerdinger": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Just a farm matchup lol. If the Heim is good he'll stun you immediately out of your ult. Shove constantly and look for roams."
+]
+]
+}
+],
+"Irelia": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Don't fight her with her passive fully stacked and don't get hit by her E. Thats it."
+]
+]
+}
+],
+"Jayce": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Play back and conserve your potions/HP until you poke him down enough for an all in."
+]
+]
+}
+],
+"Kassadin": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"One of Zed's easiest matchups, if you're a good Zed you will make Kassadin's life a living hell."
+]
+]
+}
+],
+"Katarina": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"90% of Katarinas (from my experience) will look for an all-in at level 2-3. If you don't die to her early, your superior poke will outsustain her. Build hexdrinker. Follow her roams if she goes missing."
+]
+]
+}
+],
+"Leblanc": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"You lose hard levels 1-2. Don't even try to trade until level 3. Always stay just out of range of her W. After that, use your combo to poke her down (if you're safe from ganks). A trick I use alot in this matchup is to full combo her, then walk up so she tries to trade back. The moment she W's on you, reactivate your W so you dodge the distortion and that's 50% of her damage gone. Rush hexdrinker and this lane is heavily Zed favored, idc what anyone says lol"
+]
+]
+}
+],
+"Lissandra": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"If the Liss is good, you should never be able to solo kill her unless you bait out her ult while your jungler is ganking. This matchup is about whoever plays the better macro and skirmishes. I personally take cleanse against her."
+]
+]
+}
+],
+"Lucian": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Similar to a Leblanc lane. Play safe in the early levels and don't lose too much HP then all in at 6. Definitely harder if he takes exhaust but most degenerate lucian players will take ignite"
+]
+]
+}
+],
+"Lux": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Dodge or make her waste her Q and there's your all in."
+]
+]
+}
+],
+"Malphite": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"You have to poke him in lane without taking too much Q damage from him. Stand far behind your minion wave and farm with Q until your full combo is up again. Dodging his R with your R or flashing it wins you the lane."
+]
+],
+"as": "AP Malphite"
+},
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Self explanatory. Impossible to kill, you have to roam."
+]
+],
+"as": "Tank Malphite"
+}
+],
+"Malzahar": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Break his shield before trades/all ins. During all ins, throw your Qs out immediately as you land from your R. Most Malzahars will R you as soon as you come out of your ult. Annoying matchup but you beat him in my opinion."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Don't take too much damage, poke him down, and look for an all in."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Take cleanse and she can't stop you from killing her with your full combo until she has stopwatch/zhonyas."
+]
+]
+}
+],
+"Neeko": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"A combination of the Lux and Diana matchups. Dodge her R with your R and bait out her root."
+]
+]
+}
+],
+"Nocturne": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Nocturne has permanent prio on you and better roaming. This lane is really hard if the Nocturne plays it properly. Always look to move while you're in lane."
+]
+]
+}
+],
+"Orianna": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Annoying matchup, just have to poke her the best you can and look for roam timings. It's really hard to kill her since she will take barrier/exhaust and build seekers."
+]
+]
+}
+],
+"Pantheon": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"W'ing behind him after you ult lets you bypass his E damage blocking. Don't ever Q into his shield during all ins."
+]
+]
+}
+],
+"Pyke": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Always shove the wave into the tower during early game and look for roams. Your level 6 is better than his level 6 but will your bot lane listen to your pings that's the real question"
+]
+]
+}
+],
+"Qiyana": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Haven't played this matchup too much because I never see Qiyanas but it seemed like a skill matchup every time I played it. Pretty much just don't get stunned under tower if you're all-inning her"
+]
+]
+}
+],
+"Renekton": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Wait for ganks/look for roams. Poke him with Qs. You lose all melee trades"
+]
+]
+}
+],
+"Rumble": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Take conqueror. Wait for ganks and poke him the best you can. Hard matchup but he is killable if you all in with enough space."
+]
+]
+}
+],
+"Ryze": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"You will abuse him early if you play the lane correctly. He can't buy an early seekers until after his tear. If you kill him before he buys seekers the lane becomes hell for him."
+]
+]
+}
+],
+"Swain": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Better player wins"
+]
+]
+}
+],
+"Sylas": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Like the Diana matchup, this matchup really isn't as hard as people think. Take conqueror. Watch Zed99's video on the Zed vs. Sylas matchup"
+]
+]
+}
+],
+"Syndra": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Similar to the Leblanc matchup. She will try to harass you early so just sit back and farm with Qs until you can start poking her with your combo. She's a free all in if her stun is down so try to bait it out or dodge it."
+]
+]
+}
+],
+"Talon": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Whoever gets the first kill in this lane wins lol. Don't ever let him proc his passive on you and you'll win all trades"
+]
+]
+}
+],
+"TwistedFate": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"People think the TF matchup is easy but if the TF is good this lane is actually pretty hard. You need to look for early kills on him so you have a lead. Ping your sidelanes constantly and always be ready to move."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Easy matchup, without his cage he's free kills for Zed"
+]
+]
+}
+],
+"Velkoz": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Dodge his skills and you win. If you get on him for an all in he's pretty defenseless."
+]
+]
+}
+],
+"Viktor": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Better player wins. It's ok to get hit by his Q in lane, just not the empowered auto after. Sit back and farm while poking him."
+]
+]
+}
+],
+"Vladimir": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Skill matchup. Don't ult him when his pool is up. An all-in technique I found to work against Vlad is to WEQ auto ignite combo him before he uses pool. He will then pool to not die to you. After he comes out of his pool, ult him."
+]
+]
+}
+],
+"MonkeyKing": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"Cancer"
+]
+],
+"as": "Wukong"
+}
+],
+"Xerath": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Just dodge as much as you can and look for roams. If the Xerath is good you will almost never have a chance to kill him as he sits a screen away from you."
+]
+]
+}
+],
+"Yasuo": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Tips",
+"If Yasuo takes exhaust you lose at all stages of the game lmao. Max E. Stand far back in the lane when he's level 2. You don't out-trade him ever in lane if he's good. Your best opportunity to win the lane is at level 6 but if he took exhaust always play around it by dumping your damage before or after his exhaust."
+]
+]
+}
+],
+"Ziggs": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Dodge and poke and all-in"
+]
+]
+}
+],
+"Zilean": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Dodge and poke and roam"
+]
+]
+}
+],
+"Zoe": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Honestly I've experimented with taking cleanse against her as you can just always all in even if she has her E up. Dump your full combo onto the location she ulted from."
+]
+]
+}
+]
+}
+}
