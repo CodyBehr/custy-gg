@@ -222,6 +222,8 @@ details.allnums { margin-top:22px; } details.allnums summary { cursor:pointer; c
 .xn .as { font-size:12px; color:var(--mute); margin-top:10px; font-weight:600; } .xn .src { margin-top:10px; font-size:12px; color:var(--mute); } .xn .old { display:inline-block; font-size:11px; padding:1px 6px; border-radius:6px; border:1px solid var(--line-soft); margin-left:6px; }
 .vtabs { display:flex; gap:6px; flex-wrap:wrap; margin:6px 0 10px; } .vtabs button { padding:5px 10px; border-radius:8px; border:1px solid var(--line); background:transparent; color:var(--text); font-size:13px; cursor:pointer; }
 .vtabs button.on { border-color:var(--gold); background:rgba(200,170,110,.12); } .vtabs small { color:var(--mute); font-size:11px; margin-left:4px; }
+.moment.flash { animation: kdflash 1.4s ease-out; } @keyframes kdflash { 0% { background: rgba(200,170,110,.28); } 100% { background: transparent; } }
+.gmap .legend { justify-content:center; }
 </style>
 </head>
 <body>
@@ -1276,10 +1278,13 @@ function render(A, B, moments, s, label, well = []) {
       </div>`).join("") : `<div class="empty" style="padding:10px 0">Nothing stood out: your lane gold never slipped 400+ below ${B?.expert ? "the experts' range" : B ? "your usual" : "your opponent"}, no early deaths, and your timings were on pace.</div>`}
     </div>
     <h2>All your kills and deaths (${myKills.length} kills · ${A.deaths.length} deaths)</h2>
+    ${gameMap(A, myKills)}
     <div class="card">${kd.length ? kd.map(x => x.kill ? killRow(A, x.kill, myKills.indexOf(x.kill)) : deathRow(A, x.death)).join("") : `<div class="empty" style="padding:10px 0">No kills or deaths this game.</div>`}</div>
     </div>
     <p class="sub" style="margin-top:22px">Compared with ${B ? esc(label) : "nothing yet"}. It only says where to look; watching the replay is how you see why.</p>`;
   document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
+  document.querySelectorAll("[data-kd]").forEach(c => c.onclick = () => { const el = $(c.dataset.kd); if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "center" }); el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); });
   markExpired(document, A.g.gameId);
   // What the caption bar over the replay shows for this game.
   const plain = (h) => { const d = document.createElement("div"); d.innerHTML = h || ""; return d.textContent.replace(/\s+/g, " ").trim(); };
@@ -1358,12 +1363,31 @@ function pingCard(A) {
     <div class="d">Higher ranks ping a lot more, mostly "on my way", "enemy missing" and "get back": they say what they're about to do. Numbers under each rank are its average for a game this long.</div></div>`;
 }
 
+// This game's kills, deaths and assists on the map. Tap a dot to jump to it in the list below.
+function gameMap(A, myKills) {
+  const S = 300, px = v => v / 14870 * S, py = v => S - v / 14980 * S, me = A.me.participantId;
+  const assists = A.events.filter(e => e.type === "CHAMPION_KILL" && e.killerId !== me && (e.assistingParticipantIds || []).includes(me) && e.position);
+  const deaths = A.deaths.filter(d => d.e.position), kills = myKills.filter(k => k.position);
+  if (!deaths.length && !kills.length && !assists.length) return "";
+  const dot = (x, y, r, fill, op, title, target, label) => `<g${target ? ` data-kd="${target}" style="cursor:pointer"` : ""}><circle cx="${px(x)}" cy="${py(y)}" r="${r}" fill="${fill}" fill-opacity="${op}" stroke="#0a1020" stroke-width="1.2"><title>${title}</title></circle>${label ? `<text x="${px(x)}" y="${py(y) + 3}" text-anchor="middle" font-size="8" font-weight="700" fill="#0a1020" pointer-events="none">${label}</text>` : ""}</g>`;
+  const zones = {}; for (const d of deaths) { const a = area(d.e.position.x, d.e.position.y); zones[a] = (zones[a] || 0) + 1; }
+  const top = Object.entries(zones).sort((a, b) => b[1] - a[1])[0];
+  return `<div class="card gmap"><svg viewBox="0 0 ${S} ${S}" width="100%" style="border-radius:8px;background:#0a1020;max-width:440px;display:block;margin:0 auto">
+      <image href="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/map/map11.png" width="${S}" height="${S}" opacity=".5"/>
+      ${assists.map(e => dot(e.position.x, e.position.y, 3.5, "#9aa6b8", .55, `Assist on ${esc(A.champOf(e.victimId))} · ${clock(e.timestamp / 1000)}`)).join("")}
+      ${kills.map((k, i) => dot(k.position.x, k.position.y, 6.5, "var(--green, #4ade80)", .9, `Kill ${i + 1}: ${esc(A.champOf(k.victimId))} · ${clock(k.timestamp / 1000)}`, `kd-k${myKills.indexOf(k)}`, myKills.indexOf(k) + 1)).join("")}
+      ${deaths.map(d => { const n = A.deaths.indexOf(d); return dot(d.e.position.x, d.e.position.y, 6.5, "var(--red)", .9, `Death ${n + 1} · ${clock(d.t)}${d.t < 840 ? " (before 14:00)" : ""}`, `kd-d${n}`, n + 1); }).join("")}
+    </svg>
+    <div class="legend"><span><i style="background:var(--green, #4ade80);border-radius:50%;width:9px;height:9px"></i>kills</span><span><i style="background:var(--red);border-radius:50%;width:9px;height:9px"></i>deaths</span><span><i style="background:#9aa6b8;border-radius:50%;width:7px;height:7px;opacity:.7"></i>assists</span></div>
+    <div class="sub" style="margin-top:6px">Numbers match the list below; tap a dot to jump to it.${top && deaths.length >= 3 && top[1] / deaths.length >= .4 ? ` ${top[1]} of your ${deaths.length} deaths were in ${esc(top[0])}.` : ""}</div></div>`;
+}
+
 function killRow(A, k, n) {
   const t = k.timestamp / 1000, helpers = (k.assistingParticipantIds || []).map(A.champOf);
   const where = area(k.position?.x, k.position?.y), lane = A.opp && k.victimId === A.opp.participantId;
   const notes = [helpers.length ? `with ${esc(helpers.join(", "))}` : `<b>solo kill</b>${lane ? " on your lane opponent" : ""}`];
   if (k.shutdownBounty > 0) notes.push(`${k.shutdownBounty} gold shutdown`);
-  return `<div class="moment">
+  return `<div class="moment" id="kd-k${n}">
     <div class="when">${clock(t)}<small class="kd">kill ${n + 1}</small></div>
     <div class="what"><div class="part"><b>You killed ${esc(A.champOf(k.victimId))}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
       <div class="cmp">${notes.join(" · ")}</div>${fightPanel(A, A.fightOf(k))}</div></div>
@@ -1384,7 +1408,7 @@ function deathRow(A, d) {
   if (A.diff) { const m2 = Math.min(A.minutes, m + 2); notes.push(`lane gold ${signed(A.diff[m])} → ${signed(A.diff[m2])} two minutes later`); }
   const lead = A.deaths.filter(x => x.t < d.t).length, worth = worthIt(A, d);
   if (worth) notes.unshift(`<b class="kd">Worth it:</b> ${worth.why}`);
-  return `<div class="moment${worth ? " worth" : ""}">
+  return `<div class="moment${worth ? " worth" : ""}" id="kd-d${lead}">
     <div class="when">${worth ? `<span class="badge ok">Worth it</span>` : ""}${clock(d.t)}<small style="color:var(--red-ink)">death ${lead + 1}</small></div>
     <div class="what"><div class="part"><b>${killers.length ? esc(killers.join(" + ")) : "Executed"}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
       ${notes.length ? `<div class="cmp">${notes.join(" · ")}</div>` : ""}${fightPanel(A, A.fightOf(e))}</div></div>
