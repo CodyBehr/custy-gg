@@ -5,8 +5,14 @@ import { Champ, Empty, Form, GameRow, Img, WinRate, ago, ratio, kdaTone } from "
 
 export const dynamic = "force-dynamic";
 
-export default async function Standings() {
+const MIN_GAMES = 5;
+type Props = { searchParams: Promise<{ min?: string }> };
+
+export default async function Standings({ searchParams }: Props) {
   const [d, s] = await Promise.all([getDataset(), getStatic()]);
+  const regularsOnly = (await searchParams).min === String(MIN_GAMES);
+  const ladder = regularsOnly ? d.players.filter((p) => p.games >= MIN_GAMES) : d.players;
+  const hidden = d.players.length - d.players.filter((p) => p.games >= MIN_GAMES).length;
   if (!d.matches.length) {
     return (
       <>
@@ -31,6 +37,18 @@ export default async function Standings() {
         </div>
       </div>
 
+      {hidden ? (
+        <div className="filter-row">
+          <Link href={regularsOnly ? "/" : `/?min=${MIN_GAMES}`} scroll={false} className={`toggle${regularsOnly ? " on" : ""}`} role="switch" aria-checked={regularsOnly}>
+            <span className="knob" aria-hidden="true" />
+            {MIN_GAMES}+ games only
+          </Link>
+          <span className="sub">
+            {regularsOnly ? `Showing ${ladder.length} of ${d.players.length} players. Ranks are among these.` : `${hidden} of ${d.players.length} players have fewer than ${MIN_GAMES} games.`}
+          </span>
+        </div>
+      ) : null}
+
       <div className="panel ladder" role="table" aria-label="Standings">
         <div className="rung ladder-head" role="row">
           <span role="columnheader" style={{ textAlign: "right" }}>Rank</span>
@@ -41,7 +59,7 @@ export default async function Standings() {
           <span role="columnheader">Last 10</span>
           <span role="columnheader">Most played</span>
         </div>
-        {d.players.map((p, i) => {
+        {ladder.map((p, i) => {
           const change = p.ratingHistory.at(-1)?.rating! - (p.ratingHistory.at(-2)?.rating ?? START_RATING);
           return (
             <Link key={p.puuid} href={`/players/${encodeURIComponent(p.puuid)}`} className={`rung${i === 0 ? " first" : ""}`} role="row">

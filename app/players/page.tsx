@@ -10,7 +10,8 @@ import { PlayerSearch } from "@/components/player-search";
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Players" };
 
-type Props = { searchParams: Promise<{ q?: string; sort?: string }> };
+type Props = { searchParams: Promise<{ q?: string; sort?: string; min?: string }> };
+const MIN_GAMES = 5;
 
 const kdaOf = (p: PlayerSummary) => (p.deaths === 0 ? p.kills + p.assists : (p.kills + p.assists) / p.deaths);
 const SORTS: Record<string, { label: string; value: (p: PlayerSummary) => number }> = {
@@ -31,7 +32,8 @@ function mainRole(p: PlayerSummary): Role {
 }
 
 export default async function Players({ searchParams }: Props) {
-  const { q = "", sort = "rating" } = await searchParams;
+  const { q = "", sort = "rating", min } = await searchParams;
+  const regularsOnly = min === String(MIN_GAMES);
   const [d, s] = await Promise.all([getDataset(), getStatic()]);
   const options = d.players.map((p) => ({ puuid: p.puuid, label: `${p.name}#${p.tag}` }));
   const query = q.trim();
@@ -47,9 +49,15 @@ export default async function Players({ searchParams }: Props) {
     if (list.length === 1) redirect(`/players/${encodeURIComponent(list[0].puuid)}`);
   }
   const sorter = SORTS[sort] ?? SORTS.rating;
-  if (!query) list = [...list].sort((a, b) => sorter.value(b) - sorter.value(a));
-  const rankOf = new Map(d.players.map((p, i) => [p.puuid, i + 1]));
-  const sortLink = (key: string) => `/players?sort=${key}`;
+  const hidden = d.players.filter((p) => p.games < MIN_GAMES).length;
+  if (!query) {
+    if (regularsOnly) list = list.filter((p) => p.games >= MIN_GAMES);
+    list = [...list].sort((a, b) => sorter.value(b) - sorter.value(a));
+  }
+  const ranked = regularsOnly && !query ? d.players.filter((p) => p.games >= MIN_GAMES) : d.players;
+  const rankOf = new Map(ranked.map((p, i) => [p.puuid, i + 1]));
+  const sortKey = sort in SORTS ? sort : "rating";
+  const sortLink = (key: string) => `/players?sort=${key}${regularsOnly ? `&min=${MIN_GAMES}` : ""}`;
 
   return (
     <>
@@ -68,6 +76,18 @@ export default async function Players({ searchParams }: Props) {
           {list.length ? `${list.length} players match “${query}”.` : `Nobody matches “${query}”. Check the spelling, or they may not have played a tracked game yet.`}
           {" "}<Link href="/players" className="win-t">Show everyone</Link>
         </p>
+      ) : null}
+
+      {!query && hidden ? (
+        <div className="filter-row">
+          <Link href={regularsOnly ? `/players?sort=${sortKey}` : `/players?sort=${sortKey}&min=${MIN_GAMES}`} scroll={false} className={`toggle${regularsOnly ? " on" : ""}`} role="switch" aria-checked={regularsOnly}>
+            <span className="knob" aria-hidden="true" />
+            {MIN_GAMES}+ games only
+          </Link>
+          <span className="sub">
+            {regularsOnly ? `Showing ${list.length} of ${d.players.length} players. Ranks are among these.` : `${hidden} of ${d.players.length} players have fewer than ${MIN_GAMES} games.`}
+          </span>
+        </div>
       ) : null}
 
       {list.length ? (

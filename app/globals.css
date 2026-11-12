@@ -618,3 +618,14 @@ a.cl:hover { background: var(--deck-2); }
 .t.early tr.side-blue td:first-child { box-shadow: inset 3px 0 0 var(--blue); }
 .t.early tr.side-red td:first-child { box-shadow: inset 3px 0 0 var(--red); }
 @media (max-width: 860px) { .tl-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* "5+ games only" switch on Standings and Players */
+.filter-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 0 0 14px; }
+.toggle { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; color: var(--mute); padding: 6px 2px; }
+.toggle:hover, .toggle.on { color: var(--ink); }
+.toggle .knob { position: relative; width: 36px; height: 20px; border-radius: 10px; background: var(--line); transition: background 0.15s; flex: none; }
+.toggle .knob::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform 0.15s; }
+.toggle.on .knob { background: var(--blue); }
+.toggle.on .knob::after { transform: translateX(16px); }
+.toggle:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { .toggle .knob, .toggle .knob::after { transition: none; } }
