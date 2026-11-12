@@ -117,6 +117,8 @@ def row(m, tl, me):
     r["back_buys"] = [[round(x["t"]), x["items"]] for x in backs[:6]]
     if pos == "JUNGLE":
         r["jg"] = jungle(m, tl, me)
+    if oid:
+        r.update(by_level(tl, pid, oid))
     return r
 
 
@@ -173,6 +175,14 @@ def aggregate(rows, source, built):
     out["levels"] = level_races(rows)
     out["setup"] = setup(rows)
     out["matchups"] = matchups(rows)
+    out["by_level"] = level_summary(rows)
+    by = defaultdict(list)
+    for r in rows:
+        if r.get("opp") and r.get("lane_fights") is not None:
+            by[r["opp"]].append(r)
+    for o, rs in by.items():   # per opponent, only with plenty of lane fights
+        if len(rs) >= 15 and o in out["matchups"]:
+            out["matchups"][o]["by_level"] = level_summary(rs, min_fights=8)
     if rows and rows[0].get("role") == "JUNGLE":
         out["jungle"] = jungle_summary(rows)
     return out
@@ -262,6 +272,52 @@ def jungle_summary(rows):
         "enemy_camps": med([j["enemy_camps"] for j in js if j.get("enemy_camps") is not None]),
         "objs14": {k: round(S.mean(j["objs14"].get(k, 0) for j in js), 2) for k in ("DRAGON", "HORDE", "RIFTHERALD")},
     }
+
+
+def by_level(tl, pid, oid):
+    """Lane fighting by level, before 14:00: damage each side did to champions in each minute (keyed by this
+    player's level at the end of it), and every fight with the lane opponent: this player's level then, +1 a kill
+    or assist on the opponent, -1 a death with the opponent in on it."""
+    fr = tl["frames"]
+    ev = [e for f in fr for e in f["events"]]
+    dmg = {}
+    for k in range(1, min(len(fr), 15)):
+        a, b = fr[k - 1]["participantFrames"], fr[k]["participantFrames"]
+        d = lambda i: (b[str(i)].get("damageStats") or {}).get("totalDamageDoneToChampions", 0) - (a[str(i)].get("damageStats") or {}).get("totalDamageDoneToChampions", 0)
+        lv = b[str(pid)]["level"]
+        x = dmg.setdefault(str(lv), [0, 0, 0])
+        x[0] += d(pid); x[1] += d(oid); x[2] += 1
+    ups = sorted((e["timestamp"], e["level"]) for e in ev if e["type"] == "LEVEL_UP" and e.get("participantId") == pid)
+    level_at = lambda t: max([L for tt, L in ups if tt <= t] or [1])
+    fights = []
+    for e in ev:
+        if e["type"] != "CHAMPION_KILL" or e["timestamp"] >= 840000:
+            continue
+        helpers = e.get("assistingParticipantIds") or []
+        if e.get("victimId") == oid and (e.get("killerId") == pid or pid in helpers):
+            fights.append([level_at(e["timestamp"]), 1])
+        elif e.get("victimId") == pid and (e.get("killerId") == oid or oid in helpers):
+            fights.append([level_at(e["timestamp"]), -1])
+    return {"lv_dmg": dmg, "lane_fights": fights}
+
+
+def level_summary(rows, min_fights=12):
+    """Per level 1-11: lane kills and deaths against the lane opponent, and median damage per minute each way."""
+    out = {}
+    for lv in range(1, 12):
+        k = d = 0
+        mine, theirs = [], []
+        for r in rows:
+            for L, res in r.get("lane_fights") or []:
+                if L == lv:
+                    k += res > 0; d += res < 0
+            x = (r.get("lv_dmg") or {}).get(str(lv))
+            if x and x[2]:
+                mine.append(x[0] / x[2]); theirs.append(x[1] / x[2])
+        if k + d >= min_fights or len(mine) >= 20:
+            out[str(lv)] = {"kills": k, "deaths": d, "dmg": round(S.median(mine)) if mine else None,
+                            "opp_dmg": round(S.median(theirs)) if theirs else None, "n": len(mine)}
+    return out
 
 
 def matchups(rows, min_games=8):

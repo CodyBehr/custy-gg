@@ -5,6 +5,8 @@
 name: Build expert benchmarks
 
 on:
+  schedule:
+    - cron: "47 3 * * *"   # every night, 10:47 pm New York (EST): keeps the expert data fresh and picks up new stats
   workflow_dispatch:
     inputs:
       minutes:
@@ -13,6 +15,10 @@ on:
 
 permissions:
   contents: write
+
+concurrency:
+  group: benchmarks   # a new run waits for the one in progress instead of overlapping it
+  cancel-in-progress: false
 
 jobs:
   pull:

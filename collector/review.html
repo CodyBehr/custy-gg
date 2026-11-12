@@ -72,6 +72,10 @@ svg text { fill:var(--mute); font-size:11px; }
 .well-card .w { display:flex; gap:10px; padding:7px 0; } .well-card .w i { color:var(--green); font-style:normal; font-weight:700; }
 .well-card .w b { display:block; } .well-card .w span { color:var(--mute); font-size:13px; }
 .warn { color:var(--amber-ink) !important; }
+.lvb { display:grid; gap:4px; margin:8px 0; } .lvb .lr { display:grid; grid-template-columns:42px 1fr 70px; gap:8px; align-items:center; font-size:12.5px; }
+.lvb .lr span { color:var(--mute); } .lvb .bar { display:flex; height:12px; border-radius:4px; overflow:hidden; background:var(--line-soft); }
+.lvb .bar .w { background:var(--green); } .lvb .bar .l { background:var(--red); opacity:.85; } .lvb .lr small { text-align:right; }
+.lvb .lr em { grid-column:2 / -1; font-style:normal; font-size:11.5px; color:var(--gold); margin-top:-2px; } .lvb .lr.mk span { color:var(--gold); font-weight:700; }
 .mu .roles { display:flex; gap:6px; margin:14px 0 6px; } .mu .roles button { padding:6px 14px; border-radius:99px; }
 .mu .roles button.on, .mu .mt.on { background:var(--gold-wash); border-color:var(--gold); color:var(--ink); }
 .mu .pick { margin-top:14px; } .mu .ph { display:flex; gap:10px; align-items:center; margin-bottom:6px; }
@@ -565,7 +569,7 @@ function fromExperts(b) {
   const med = k => b.timings?.[k]?.[1] ?? null;
   return { expert: true, n: b.games, diff: band(b.minutes.gdiff), gold: band(b.minutes.gold), cs: band(b.minutes.cs),
     firstBack: med("first_back"), firstBackGold: med("first_back_gold"), firstItem: med("legendary1"),
-    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14"), items: b.items || [], paths: b.paths || [], orders: b.orders || [], levels: b.levels || {} };
+    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14"), items: b.items || [], paths: b.paths || [], orders: b.orders || [], levels: b.levels || {}, by_level: b.by_level, matchups: b.matchups || {} };
 }
 const WHO = (B) => B?.expert ? "Experts" : "Your usual";
 
@@ -1115,6 +1119,28 @@ async function openGame(id) {
   render(A, B, moments, s, B ? label : null, wentWell(A, B, hist));
 }
 
+// Your fights with your lane opponent before 14:00, by your level, next to how experts on this champion do at those levels.
+function laneFightCard(A, B) {
+  if (!A.opp || A.role === "JUNGLE") return "";
+  const ls = levelStrength(B, DD.champ[A.opp.championId]?.id); if (!ls?.rows.length) return "";
+  const me = A.me.participantId, op = A.opp.participantId;
+  const ups = A.events.filter(e => e.type === "LEVEL_UP" && e.participantId === me).map(e => [e.timestamp, e.level]);
+  const lvAt = (t) => ups.filter(([tt]) => tt <= t).reduce((a, [, L]) => Math.max(a, L), 1);
+  const mine = A.kills.filter(k => k.timestamp < 840000).map(k => {
+    const h = k.assistingParticipantIds || [];
+    if (k.victimId === op && (k.killerId === me || h.includes(me))) return { lv: lvAt(k.timestamp), won: true, t: k.timestamp / 1000 };
+    if (k.victimId === me && (k.killerId === op || h.includes(op))) return { lv: lvAt(k.timestamp), won: false, t: k.timestamp / 1000 };
+    return null;
+  }).filter(Boolean);
+  if (!mine.length) return "";
+  const mark = {};
+  for (const f of mine) mark[f.lv] = (mark[f.lv] ? mark[f.lv] + ", " : "you: ") + (f.won ? "won" : "lost") + " " + clock(f.t);
+  const bad = mine.filter(f => !f.won && ls.rows.find(r => r.lv === f.lv)?.tag === "weak");
+  const good = mine.filter(f => f.won && ls.rows.find(r => r.lv === f.lv)?.tag === "strong");
+  return `<div class="card" style="grid-column:1 / -1"><div class="k">Lane fights with ${esc(champName(A.opp.championId))} by level</div>
+    ${levelBars(ls, mark)}
+    <div class="d">${bad.length ? `You lost a fight at level ${[...new Set(bad.map(f => f.lv))].join(", ")}, where experts on ${esc(champName(A.me.championId))} usually lose too: a level to avoid fighting at. ` : ""}${good.length ? `You won at level ${[...new Set(good.map(f => f.lv))].join(", ")}, one of their strong levels. ` : ""}Bars: green kills, red deaths for experts${ls.vs ? " in this matchup" : ""}.</div></div>`;
+}
 // Who reached levels 2, 3 and 6 first, and whether that's normal: how often experts on this champion get there first.
 function levelCard(A, B) {
   const oppName = A.opp ? champName(A.opp.championId) : "opponent";
@@ -1185,6 +1211,7 @@ function render(A, B, moments, s, label, well = []) {
       ${timingCard("CS at 10:00", cs10, B?.cs?.[10]?.p50, v => Math.round(v), false)}
       ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
       ${levelCard(A, B)}
+      ${laneFightCard(A, B)}
       ${pingCard(A)}
     </div>
     ${A.role === "JUNGLE" ? jungleCard(A, B) : ""}
@@ -1938,6 +1965,38 @@ async function startChampSelect() {
   await tick(); setInterval(tick, 2000);
 }
 
+// Levels where experts win or lose their lane fights (kills vs deaths with the lane opponent before 14:00).
+// Uses the matchup when a level has 10+ fights there, else the champion overall. Returns {strong, weak, rows, vs}.
+function levelStrength(B, opp) {
+  const all = B?.by_level, mu = opp ? B?.matchups?.[opp]?.by_level : null;
+  if (!all) return null;
+  const rows = [];
+  for (let lv = 1; lv <= 11; lv++) {
+    const m = mu?.[lv], a = all[lv], src = m && m.kills + m.deaths >= 10 ? m : a;
+    if (!src || src.kills + src.deaths < 10) continue;
+    rows.push({ lv, k: src.kills, d: src.deaths, share: src.kills / (src.kills + src.deaths), dmg: src.dmg, odmg: src.opp_dmg, vs: src === m });
+  }
+  const span = (list) => {   // "3" or "5–7"
+    const out = []; let a = null, b = null;
+    for (const r of list) { if (b !== null && r.lv === b + 1) b = r.lv; else { if (a !== null) out.push(a === b ? `${a}` : `${a}–${b}`); a = b = r.lv; } }
+    if (a !== null) out.push(a === b ? `${a}` : `${a}–${b}`);
+    return out.length > 1 ? out.slice(0, -1).join(", ") + " and " + out[out.length - 1] : out.join("");
+  };
+  // Strong or weak compared with how this champion does overall, so a champion that wins most lanes
+  // doesn't get "strong at every level".
+  const tk = rows.reduce((a, r) => a + r.k, 0), td = rows.reduce((a, r) => a + r.d, 0), avg = tk / Math.max(1, tk + td);
+  const hi = Math.max(.55, avg + .07), lo = Math.min(.45, avg - .07);
+  for (const r of rows) r.tag = r.share >= hi ? "strong" : r.share <= lo ? "weak" : "";
+  return { rows, avg, strong: span(rows.filter(r => r.tag === "strong")), weak: span(rows.filter(r => r.tag === "weak")), vs: rows.some(r => r.vs) };
+}
+
+function levelBars(ls, mark = {}) {
+  const max = Math.max(...ls.rows.map(r => r.k + r.d));
+  return `<div class="lvb">${ls.rows.map(r => `<div class="lr${mark[r.lv] ? " mk" : ""}"><span>Lv ${r.lv}</span>
+    <div class="bar"><i class="w" style="width:${r.k / max * 100}%"></i><i class="l" style="width:${r.d / max * 100}%"></i></div>
+    <small class="${r.tag === "strong" ? "good" : r.tag === "weak" ? "warn" : ""}">${Math.round(r.share * 100)}% won</small>${mark[r.lv] ? `<em>${mark[r.lv]}</em>` : ""}</div>`).join("")}</div>`;
+}
+
 // A short game plan from the expert numbers: the lane against this opponent, or the jungle's first minutes.
 function gamePlan(B, champ, role, opp) {
   if (!B) return "";
@@ -1990,6 +2049,10 @@ function gamePlan(B, champ, role, opp) {
         L.push(`<b>Power window:</b> experts${vsWho} pull ahead most from ${up.m}:00 to ${up.m + 3}:00 (${g(up.d)} gold)${sp ? `, right after finishing ${esc(itemName(sp[1]))} (~${clock(sp[0])})` : ""}. Look for trades then.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
       }
       if (down && down.d <= -150) L.push(`<b>Careful</b> from ${down.m}:00 to ${down.m + 3}:00: experts usually lose ${Math.round(-down.d)} gold of lead${vsWho} there. Play safe and farm.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
+    }
+    const ls = levelStrength(B, opp);
+    if (ls && (ls.strong || ls.weak)) {
+      L.push(`<b>By level</b>${ls.vs ? ` vs ${esc(name)}` : ""}: ${ls.strong ? `experts win most of their lane fights at level${/[–and]/.test(ls.strong) ? "s" : ""} <b>${ls.strong}</b>` : ""}${ls.strong && ls.weak ? "; " : ""}${ls.weak ? `they lose most at level${/[–and]/.test(ls.weak) ? "s" : ""} <b>${ls.weak}</b>, so avoid fights there` : ""}.`);
     }
     const fb = M?.first_back ?? B.timings?.first_back?.[1], back = S.backs?.[0];
     if (fb) L.push(`First back around <b>${clock(fb)}</b>${back?.items?.length ? `, usually for ${back.items.slice(0, 2).map(([id]) => esc(itemName(id))).join(" and ")}` : ""}.`);
@@ -2077,6 +2140,10 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
   const sp = (vs?.spells?.[0]) || S?.spells?.[0];
   if (sp) parts.push(`<div class="card css"><div class="ctitle">Summoner spells</div><div class="sp">${sp[0].map(spellIcon).join("")}<span>${Math.round(sp[1] * 100)}% of expert games${vs?.spells?.[0] ? ` vs ${esc(csName(C.opp))}` : ""}</span></div>
     ${live ? `<button id="csSpells">Set these spells</button>` : ""}</div>`);
+  // Lane fights by level
+  const ls = levelStrength(B, C.opp);
+  if (ls?.rows.length) parts.push(`<div class="card csl"><div class="ctitle">Lane fights by level${ls.vs ? ` vs ${esc(csName(C.opp))}` : ""}</div>${levelBars(ls)}
+    <div class="sub">Kills and deaths against the lane opponent before 14:00, by the expert's level at the time${ls.vs ? " (this matchup where there are 10+ fights at a level, otherwise all matchups)" : ", all matchups"}.</div></div>`);
   // Skills
   if (S?.skills) {
     const k = S.skills, L = (s) => "QWER"[s - 1];
