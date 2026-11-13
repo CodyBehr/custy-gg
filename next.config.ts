@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/collector/windows": ["./collector-dist/custy-collector.exe"],
     "/api/collector/version": ["./collector-dist/custy-collector.exe"],
+    "/api/coach/windows": ["./collector-dist/custy-coach.exe"],
+    "/api/coach/version": ["./collector-dist/custy-coach.exe"],
   },
 };
 

@@ -34,11 +34,16 @@ import time
 import urllib.error
 import urllib.request
 
-VERSION = "1.11.0"
+VERSION = "1.12.0"
+try:
+    from edition import EDITION   # "custy" (custom game tracker) or "coach" (game review); see edition.py
+except ImportError:
+    EDITION = "custy"
+COACH = EDITION == "coach"
 FROZEN = bool(getattr(sys, "frozen", False))
 if FROZEN:
-    # Packaged app: keep config, state and log in the user's app-data folder.
-    HERE = os.path.join(os.environ.get("LOCALAPPDATA") or os.path.expanduser("~"), "custy-collector")
+    # Packaged app: keep config, state and log in the user's app-data folder (one folder per app).
+    HERE = os.path.join(os.environ.get("LOCALAPPDATA") or os.path.expanduser("~"), "custy-coach" if COACH else "custy-collector")
     os.makedirs(HERE, exist_ok=True)
 else:
     HERE = os.path.dirname(os.path.abspath(__file__))
@@ -565,7 +570,12 @@ def main():
         # Used by the build: proves the packaged app starts and can read attached settings.
         out = sys.argv[sys.argv.index("--selftest") + 1]
         with open(out, "w", encoding="utf-8") as f:
-            json.dump({"version": VERSION, "frozen": FROZEN, "config": embedded_config()}, f)
+            try:
+                import zstandard  # noqa: F401  (the coach build reads replays with it)
+                zst = True
+            except ImportError:
+                zst = False
+            json.dump({"version": VERSION, "frozen": FROZEN, "edition": EDITION, "zstandard": zst, "config": embedded_config()}, f)
         return
     if FROZEN and platform.system() == "Windows" and "--test" not in args:
         import windows_app  # installs, updates or removes the app; returns True to keep running here
@@ -585,6 +595,11 @@ def main():
         review.serve_forever(cfg)
         return
 
+    if COACH and FROZEN and platform.system() == "Windows":
+        log.info("custy coach %s started", VERSION)
+        import windows_app
+        windows_app.run_with_tray(cfg, None)
+        return
     log.info("custy.gg collector %s started, uploading to %s", VERSION, cfg["site_url"])
     if FROZEN and platform.system() == "Windows":
         import windows_app

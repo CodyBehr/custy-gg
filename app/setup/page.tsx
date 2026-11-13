@@ -27,6 +27,9 @@ export default async function Setup() {
             finished custom games from the League client and uploads them. Only one person per game needs it, but the
             more of you run it, the fewer games get missed.
           </p>
+          <p className="muted">
+            Looking for game reviews of your ranked games? That&apos;s a separate app now: <a href="/coach">custy coach</a>.
+          </p>
         </div>
       </div>
 

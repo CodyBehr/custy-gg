@@ -12,6 +12,9 @@ on:
       - "collector/review.html"
       - "collector/icon.ico"
       - "collector/replay_trades.py"
+      - "collector/champselect.py"
+      - "collector/overlay.py"
+      - "collector/edition.py"
       - "collector/assets/**"
       - "collector/version_info.txt"
       - ".github/workflows/build-collector.yml"
@@ -48,10 +51,27 @@ jobs:
       - name: Build custy-collector.exe
         run: >
           pyinstaller --onefile --noconsole --name custy-collector
-          --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;." --add-data "collector/assets;assets"
+          --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;."
           --version-file collector/version_info.txt
-          --paths collector --hidden-import windows_app --hidden-import review --hidden-import overlay --hidden-import champselect --hidden-import replay_trades --hidden-import zstandard --hidden-import tkinter --hidden-import pystray._win32
+          --paths collector --hidden-import windows_app --hidden-import edition --hidden-import tkinter --hidden-import pystray._win32
           collector/custy_collector.py
+
+      # custy coach: the game review app (same code, built as its own app; see collector/edition.py)
+      - name: Build custy-coach.exe
+        shell: bash
+        run: |
+          printf 'EDITION = "coach"\n' > collector/edition.py
+          sed -e "s/'FileDescription', 'custy.gg collector'/'FileDescription', 'custy coach'/" \
+              -e "s/'ProductName', 'custy.gg collector'/'ProductName', 'custy coach'/" \
+              -e "s/custy-collector/custy-coach/g" \
+              -e "s/Uploads League of Legends custom games to custy.gg./Reviews your League of Legends games./" \
+              collector/version_info.txt > collector/version_info_coach.txt
+          pyinstaller --onefile --noconsole --name custy-coach \
+            --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;." --add-data "collector/assets;assets" \
+            --version-file collector/version_info_coach.txt \
+            --paths collector --hidden-import windows_app --hidden-import edition --hidden-import review --hidden-import overlay \
+            --hidden-import champselect --hidden-import replay_trades --hidden-import zstandard --hidden-import tkinter --hidden-import pystray._win32 \
+            collector/custy_collector.py
 
       - name: Check the app starts and reads attached settings
         shell: bash
@@ -65,6 +85,13 @@ jobs:
           grep -q '"site_url": "https://example.test"' selftest.json
           V=$(sed -n 's/^VERSION = "\([0-9.]*\)".*/\1/p' collector/custy_collector.py)
           grep -q "\"version\": \"$V\"" selftest.json
+          cp dist/custy-coach.exe selftest-coach.exe
+          printf '\n#CUSTY-CONFIG#{"site_url":"https://example.test","ingest_key":"abc"}#END-CUSTY-CONFIG#' >> selftest-coach.exe
+          ./selftest-coach.exe --selftest selftest-coach.json
+          for i in $(seq 1 30); do [ -s selftest-coach.json ] && break; sleep 1; done
+          cat selftest-coach.json
+          grep -q '"edition": "coach"' selftest-coach.json
+          grep -q '"zstandard": true' selftest-coach.json
 
       - name: Commit the app
         shell: bash
@@ -76,6 +103,7 @@ jobs:
           git reset --hard origin/main
           mkdir -p collector-dist
           cp dist/custy-collector.exe collector-dist/custy-collector.exe
-          git add collector-dist/custy-collector.exe
-          git commit -m "Build custy-collector.exe from ${GITHUB_SHA::7}" || exit 0
+          cp dist/custy-coach.exe collector-dist/custy-coach.exe
+          git add collector-dist/custy-collector.exe collector-dist/custy-coach.exe
+          git commit -m "Build custy-collector.exe and custy-coach.exe from ${GITHUB_SHA::7}" || exit 0
           git push origin HEAD:main

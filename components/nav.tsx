@@ -11,6 +11,7 @@ const LINKS = [
   { href: "/champions", label: "Champions" },
   { href: "/records", label: "Records" },
   { href: "/setup", label: "Add your games" },
+  { href: "/coach", label: "Coach" },
 ];
 
 export function Nav() {

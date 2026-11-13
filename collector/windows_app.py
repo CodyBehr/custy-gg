@@ -20,7 +20,9 @@ import winreg
 
 core = sys.modules["__main__"]  # custy_collector, which imported us
 
-APP = "custy-collector"
+COACH = getattr(core, "COACH", False)
+APP = "custy-coach" if COACH else "custy-collector"
+NAME = "custy coach" if COACH else "custy.gg collector"
 INSTALL_EXE = os.path.join(core.HERE, APP + ".exe")
 RUN_KEY = r"Software\Microsoft\Windows\CurrentVersion\Run"
 NO_WINDOW = 0x08000000
@@ -123,6 +125,18 @@ def uninstall():
     shutil.rmtree(core.HERE, ignore_errors=True)
 
 
+def _migrate_review_cache():
+    """First coach install: bring over the games, trades and page key the collector's review saved (before 1.12)."""
+    old = os.path.join(os.path.dirname(core.HERE), "custy-collector")
+    for name in ("review-cache", "review-key.txt"):
+        src, dst = os.path.join(old, name), os.path.join(core.HERE, name)
+        if os.path.exists(src) and not os.path.exists(dst):
+            try:
+                (shutil.copytree if os.path.isdir(src) else shutil.copy2)(src, dst)
+            except OSError:
+                pass
+
+
 def status_line(cfg):
     """One or two sentences about whether League and the site are reachable."""
     lines = []
@@ -163,22 +177,29 @@ def open_review():
     if url:
         review.open_window(url)
     else:
-        message("Couldn't start custy.gg game review. Try again in a few seconds.", MB_OK | MB_ICONERROR)
+        message("Couldn't start custy coach. Try again in a few seconds.", MB_OK | MB_ICONERROR)
 
 
-REVIEW_SHORTCUT = os.path.join(os.environ.get("APPDATA", ""), r"Microsoft\Windows\Start Menu\Programs",
-                               "custy.gg game review.lnk")
+START_MENU = os.path.join(os.environ.get("APPDATA", ""), r"Microsoft\Windows\Start Menu\Programs")
+REVIEW_SHORTCUT = os.path.join(START_MENU, "custy coach.lnk" if COACH else "custy.gg game review.lnk")
+OLD_REVIEW_SHORTCUT = os.path.join(START_MENU, "custy.gg game review.lnk")   # made by the collector before 1.12
 
 
 def make_review_shortcut():
-    """Start menu entry that opens the game review window."""
+    """Start menu entry that opens the game review window (custy coach only; the collector removes its old one)."""
+    if not COACH:
+        try:
+            os.remove(OLD_REVIEW_SHORTCUT)
+        except OSError:
+            pass
+        return
     if os.path.exists(REVIEW_SHORTCUT) or not os.path.exists(INSTALL_EXE):
         return
     lnk, exe = REVIEW_SHORTCUT.replace("'", "''"), INSTALL_EXE.replace("'", "''")
     powershell(
         "$s = (New-Object -ComObject WScript.Shell).CreateShortcut('%s'); "
         "$s.TargetPath = '%s'; $s.Arguments = '--review'; $s.IconLocation = '%s,0'; "
-        "$s.Description = 'Review your recent League games'; $s.Save()" % (lnk, exe, exe))
+        "$s.Description = 'custy coach: review your recent League games'; $s.Save()" % (lnk, exe, exe))
 
 
 def handle_launch(args):
@@ -186,12 +207,17 @@ def handle_launch(args):
     me = sys.executable
 
     if "--review" in args:
-        open_review()
+        if COACH:
+            open_review()
+        else:   # an old Start menu shortcut: game review is its own app now
+            cfg = core.embedded_config(INSTALL_EXE if os.path.exists(INSTALL_EXE) else me) or {}
+            import webbrowser
+            webbrowser.open((cfg.get("site_url") or "https://custy-gg.vercel.app").rstrip("/") + "/coach")
         return False
 
     if "--uninstall" in args:
         uninstall()
-        message("custy.gg collector has been removed from this PC.")
+        message(f"{NAME} has been removed from this PC.")
         return False
 
     if same_path(me, INSTALL_EXE):
@@ -210,32 +236,44 @@ def handle_launch(args):
             pass
         return False
     if not cfg:
-        message("This copy of the collector isn't linked to a site.\n\n"
-                "Download it again from your custy.gg site's \"Add your games\" page.", MB_OK | MB_ICONERROR)
+        message(f"This copy of {NAME} isn't linked to a site.\n\n"
+                "Download it again from your custy.gg site.", MB_OK | MB_ICONERROR)
         return False
 
     if os.path.exists(INSTALL_EXE):
         choice = message(
-            "custy.gg collector is already installed on this PC.\n\n"
+            f"{NAME} is already installed on this PC.\n\n"
             "Yes: update it with this download\n"
             "No: remove it from this PC\n"
             "Cancel: leave it as it is",
             MB_YESNOCANCEL | MB_ICONQUESTION)
         if choice == IDNO:
             uninstall()
-            message("custy.gg collector has been removed from this PC.")
+            message(f"{NAME} has been removed from this PC.")
             return False
         if choice != IDYES:
             return False
 
+    if COACH:
+        _migrate_review_cache()
     try:
         install(me)
     except Exception as e:
-        message(f"Couldn't install the collector: {e}\n\nClose any copy that's running and try again.",
+        message(f"Couldn't install {NAME}: {e}\n\nClose any copy that's running and try again.",
                 MB_OK | MB_ICONERROR)
         return False
 
     site = cfg.get("site_url", "your custy.gg site").rstrip("/")
+    if COACH:
+        message(
+            "custy coach is installed and running.\n\n"
+            "It reviews your ranked and normal games: moments to watch, a breakdown against high-elo players, "
+            "lane trades from your replays, and a champ select helper. It starts with Windows; look for its icon "
+            "next to the clock (it may be under the ^ arrow) and click it to open your reviews. It's also in the "
+            "Start menu as \"custy coach\".\n\n"
+            "You can delete this download now. To remove the app later, run the download again and choose No.")
+        open_review()
+        return False
     message(
         "custy.gg collector is installed and running.\n\n"
         "It runs in the background and starts with Windows, so there's nothing to keep open. "
@@ -308,7 +346,7 @@ def check_for_update(cfg):
     site = cfg["site_url"].rstrip("/")
     try:
         with urllib.request.urlopen(urllib.request.Request(
-                site + "/api/collector/version", headers={"User-Agent": "custy-collector/" + core.VERSION}), timeout=20) as r:
+                site + ("/api/coach/version" if COACH else "/api/collector/version"), headers={"User-Agent": "custy-collector/" + core.VERSION}), timeout=20) as r:
             latest = json.loads(r.read() or b"{}").get("version", "")
     except Exception as e:
         core.log.info("Update check failed: %s", e)
@@ -319,7 +357,7 @@ def check_for_update(cfg):
     tmp = UPDATE_EXE + ".part"
     try:
         with urllib.request.urlopen(urllib.request.Request(
-                site + "/api/collector/windows", headers={"User-Agent": "custy-collector/" + core.VERSION}), timeout=180) as r, \
+                site + ("/api/coach/windows" if COACH else "/api/collector/windows"), headers={"User-Agent": "custy-collector/" + core.VERSION}), timeout=180) as r, \
                 open(tmp, "wb") as f:
             shutil.copyfileobj(r, f)
         with open(tmp, "rb") as f:
@@ -380,7 +418,7 @@ def run_with_tray(cfg, start_collector):
     from PIL import Image
 
     stop = threading.Event()
-    worker = threading.Thread(target=start_collector, args=(stop,), name="collector", daemon=True)
+    worker = threading.Thread(target=start_collector, args=(stop,), name="collector", daemon=True) if start_collector else None
     status = core.STATUS
     site = cfg["site_url"].rstrip("/")
 
@@ -403,6 +441,8 @@ def run_with_tray(cfg, start_collector):
     if "champ_select_helper" in _read_json(SETTINGS, {}):
         cfg["champ_select_helper"] = bool(_read_json(SETTINGS, {})["champ_select_helper"])
     try:
+        if not COACH:
+            raise RuntimeError("game review lives in custy coach")
         import review
         review_url["url"] = review.start(cfg)
         threading.Thread(target=review.keep_cache_fresh, args=(cfg, stop), name="review-cache", daemon=True).start()
@@ -410,7 +450,8 @@ def run_with_tray(cfg, start_collector):
         threading.Thread(target=champselect.watch, args=(cfg, stop, lambda: review.open_small(review_url["url"] + "&champselect=1")),
                          name="champ-select", daemon=True).start()
     except Exception as e:
-        core.log.warning("Game review page didn't start: %s", e)
+        if COACH:
+            core.log.warning("Game review page didn't start: %s", e)
 
     def open_review_window(icon, item):
         if review_url["url"]:
@@ -448,10 +489,25 @@ def run_with_tray(cfg, start_collector):
         icon.visible = False
         icon.stop()
 
-    menu = pystray.Menu(
+    def open_coach_page(icon, item):
+        webbrowser.open(site + "/coach")
+
+    if COACH:
+        menu = pystray.Menu(
+            pystray.MenuItem("Open custy coach", open_review_window, default=True),
+            pystray.MenuItem("Champ select helper", toggle_champ_select, checked=lambda item: cfg.get("champ_select_helper", True)),
+            pystray.Menu.SEPARATOR,
+            pystray.MenuItem("Start with Windows", toggle_autostart, checked=lambda item: autostart_enabled()),
+            pystray.MenuItem("Update automatically", toggle_updates, checked=lambda item: auto_update_on()),
+            pystray.MenuItem("Open log", open_log),
+            pystray.MenuItem("Version " + core.VERSION, None, enabled=False),
+            pystray.Menu.SEPARATOR,
+            pystray.MenuItem("Quit", quit_app),
+        )
+    else:
+      menu = pystray.Menu(
         pystray.MenuItem("Open custy.gg", open_site, default=True),
-        pystray.MenuItem("Review my games (test)", open_review_window),
-        pystray.MenuItem("Champ select helper", toggle_champ_select, checked=lambda item: cfg.get("champ_select_helper", True)),
+        pystray.MenuItem("Game review: get custy coach", open_coach_page),
         pystray.Menu.SEPARATOR,
         pystray.MenuItem(status_text, None, enabled=False),
         pystray.MenuItem(uploads_text, None, enabled=False),
@@ -464,7 +520,7 @@ def run_with_tray(cfg, start_collector):
         pystray.Menu.SEPARATOR,
         pystray.MenuItem("Quit", quit_app),
     )
-    icon = pystray.Icon(APP, image, "custy.gg collector", menu)
+    icon = pystray.Icon(APP, image, NAME, menu)
 
     def on_upload(n):
         icon.title = f"custy.gg collector: {n} new game{'s' if n != 1 else ''} uploaded {_ago(time.time())}"
@@ -491,18 +547,27 @@ def run_with_tray(cfg, start_collector):
     def setup(icon):
         icon.visible = True
         threading.Thread(target=make_review_shortcut, name="shortcut", daemon=True).start()
-        worker.start()
+        if worker:
+            worker.start()
         threading.Thread(target=updater, name="updater", daemon=True).start()
         done = _read_json(UPDATED_FLAG, None)
         if done:
             try:
                 os.remove(UPDATED_FLAG)
-                icon.notify(f"Updated to version {done.get('version', core.VERSION)}", "custy.gg collector")
+                icon.notify(f"Updated to version {done.get('version', core.VERSION)}", NAME)
+            except Exception:
+                pass
+        if not COACH and not _read_json(SETTINGS, {}).get("coach_notice"):
+            # One-time: game review moved out of this app.
+            st = _read_json(SETTINGS, {}); st["coach_notice"] = True; _write_json(SETTINGS, st)
+            try:
+                icon.notify("Game review moved to its own app, custy coach. Get it from the tray menu or " + site + "/coach",
+                            NAME)
             except Exception:
                 pass
         # Refresh the hover text so it says what the app is doing.
         while not stop.is_set():
-            icon.title = f"custy.gg collector: {status['state'].lower()}"
+            icon.title = "custy coach" if COACH else f"custy.gg collector: {status['state'].lower()}"
             try:
                 icon.update_menu()
             except Exception:
@@ -511,4 +576,5 @@ def run_with_tray(cfg, start_collector):
 
     icon.run(setup=setup)
     stop.set()
-    worker.join(timeout=5)
+    if worker:
+        worker.join(timeout=5)
