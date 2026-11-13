@@ -1,0 +1,18 @@
+# Lists a player's recent games by Riot ID. Run by hand.
+name: Recent games (list)
+on:
+  workflow_dispatch:
+    inputs:
+      riot_id:
+        description: "Riot ID (Name#TAG)"
+        required: true
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+          RID: ${{ inputs.riot_id }}
+        run: python3 scripts/research/recent_games.py "$RID" 12
