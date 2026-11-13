@@ -133,6 +133,7 @@ def decode(path, until=900.0):
     version, stats, chunks = read_rofl(path)
     skins = [p.get("SKIN") for p in stats]
     hits, casts, levels = [], [], []
+    vision = {k: [] for k in range(10)}   # times each champion stepped into the other team's vision
     tracks = {}
     for body in chunks:
         for t, netid, param, pl in _blocks(body):
@@ -155,6 +156,8 @@ def decode(path, until=900.0):
                     casts.append((t, k, slot))
             elif netid == 12 and param in CHAMPS:         # level up
                 levels.append((t, CHAMPS.index(param)))
+            elif netid == 1027 and param in CHAMPS:       # stepped into the other team's vision
+                vision[CHAMPS.index(param)].append(t)
             elif netid == 871:                            # movement orders: several units per record
                 b = bytes(pl)
                 # Each entry ends [unit id 4][3f][waypoint count]; just before it: speed (4), then for one waypoint
@@ -175,7 +178,7 @@ def decode(path, until=900.0):
                     tracks.setdefault(key, []).append((round(t + 0.19, 2), round(x), round(z)))
     for key in list(tracks):
         tracks[key] = _clean(sorted(tracks[key]))
-    return dict(version=version, stats=stats, hits=hits, casts=casts, levels=levels, tracks=tracks)
+    return dict(version=version, stats=stats, hits=hits, casts=casts, levels=levels, tracks=tracks, vision=vision)
 
 
 # --------------------------------------------------------------------------

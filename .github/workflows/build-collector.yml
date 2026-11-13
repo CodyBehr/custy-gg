@@ -12,6 +12,7 @@ on:
       - "collector/review.html"
       - "collector/icon.ico"
       - "collector/replay_trades.py"
+      - "collector/replay_deaths.py"
       - "collector/champselect.py"
       - "collector/overlay.py"
       - "collector/edition.py"
@@ -70,7 +71,7 @@ jobs:
             --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;." --add-data "collector/assets;assets" \
             --version-file collector/version_info_coach.txt \
             --paths collector --hidden-import windows_app --hidden-import edition --hidden-import review --hidden-import overlay \
-            --hidden-import champselect --hidden-import replay_trades --hidden-import zstandard --hidden-import tkinter --hidden-import pystray._win32 \
+            --hidden-import champselect --hidden-import replay_trades --hidden-import replay_deaths --hidden-import zstandard --hidden-import tkinter --hidden-import pystray._win32 \
             collector/custy_collector.py
 
       - name: Check the app starts and reads attached settings

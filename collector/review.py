@@ -420,6 +420,79 @@ def trades_for(cfg, game_id):
     return out
 
 
+DEATHS_VERSION = 2
+
+
+def deaths_for(cfg, game_id):
+    """Gank and caught-out checks for your deaths in one of your games, from its replay (cached)."""
+    import replay_trades as RT
+    import replay_deaths as RD
+    data = _read_cache(game_id)
+    if not data or not data.get("timeline"):
+        return {"error": "This game isn't saved yet."}
+    game = data["game"]
+    d = os.path.join(CACHE_DIR, "deaths")
+    os.makedirs(d, exist_ok=True)
+    cpath = os.path.join(d, "%s.json" % int(game_id))
+    try:
+        with open(cpath, "r", encoding="utf-8") as f:
+            hit = json.load(f)
+        if hit.get("v") == DEATHS_VERSION:
+            return hit
+    except (OSError, ValueError):
+        pass
+    if RT.zstandard is None:
+        return {"error": "Reading replays needs the zstandard package: pip install zstandard"}
+    path = _rofl_path(cfg, game)
+    if not path:
+        st = _trades_dl.get(str(game_id)) or {}
+        return {"missing": True, "download": st.get("state"), "message": st.get("message", ""),
+                "patch": ".".join(str(game.get("gameVersion") or "").split(".")[:2])}
+    me, _opp, idents = _lane_pair(data)
+    if not me:
+        return {"error": "Couldn't find you in this game."}
+    try:
+        _v, stats, _c = RT.read_rofl(path)
+    except Exception as e:
+        core.log.info("Deaths: couldn't read %s: %s", path, e)
+        return {"error": "Couldn't read this game's replay file."}
+    slots = {}
+    for p in game.get("participants") or []:
+        pl = idents.get(p["participantId"], {})
+        k = RT.slot_of(stats, puuid=pl.get("puuid"), name=pl.get("gameName"))
+        if k is not None:
+            slots[p["participantId"]] = k
+    if me["participantId"] not in slots or len(slots) < 10:
+        return {"error": "The replay's players don't match this game."}
+    rl = roles(game)
+    conv = {"TOP": "TOP", "JUNGLE": "JUNGLE", "MID": "MIDDLE", "BOT": "BOTTOM", "SUPPORT": "UTILITY"}
+    rmap = {slots[pid]: conv.get(r, "") for pid, r in rl.items() if pid in slots}
+    kills, towers = [], []
+    for f in data["timeline"].get("frames") or []:
+        for e in f.get("events") or []:
+            if e.get("type") == "CHAMPION_KILL" and e.get("victimId") in slots:
+                pos = e.get("position") or {}
+                kills.append({"t": e["timestamp"] / 1000.0, "victim": slots[e["victimId"]], "killer": slots.get(e.get("killerId"), -1),
+                              "assists": [slots[a] for a in e.get("assistingParticipantIds") or [] if a in slots],
+                              "x": pos.get("x", 0), "z": pos.get("y", 0)})
+            elif e.get("type") == "BUILDING_KILL" and e.get("buildingType") == "TOWER_BUILDING":
+                pos = e.get("position") or {}
+                towers.append((e["timestamp"] / 1000.0, pos.get("x", 0), pos.get("y", 0)))
+    try:
+        out = {"deaths": RD.death_reviews(path, slots[me["participantId"]], rmap, kills, towers)}
+    except Exception as e:
+        core.log.exception("Deaths: decoding %s failed", path)
+        return {"error": "Couldn't decode this replay: %s" % e}
+    out["champs"] = [[p.get("SKIN"), int(p.get("TEAM") or 0)] for p in stats]
+    out["v"] = DEATHS_VERSION
+    try:
+        with open(cpath, "w", encoding="utf-8") as f:
+            json.dump(out, f)
+    except OSError:
+        pass
+    return out
+
+
 def _download_for_trades(cfg, game_id):
     """Asks League to download this game's replay (no playback), so its trades can be read."""
     st = _trades_dl[str(game_id)] = {"state": "working", "message": "Downloading the replay...", "at": time.time()}
@@ -1055,6 +1128,13 @@ def make_handler(cfg, token):
                 if fill_from_riot(data):
                     _write_cache(m.group(1), data)
                 return self._send(200, dict(data, roles=roles(data["game"])))
+            m = re.match(r"^/api/deaths/(\d+)$", url.path)
+            if m:
+                try:
+                    return self._send(200, deaths_for(cfg, m.group(1)))
+                except Exception as e:
+                    core.log.exception("Deaths for %s failed", m.group(1))
+                    return self._send(200, {"error": "Couldn't check deaths: %s" % e})
             m = re.match(r"^/api/trades/(\d+)$", url.path)
             if m:
                 try:
