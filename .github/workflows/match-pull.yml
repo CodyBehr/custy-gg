@@ -1,0 +1,26 @@
+# Fetch specific games (match + timeline) by id, run by hand. Comes back as an artifact; the Riot key stays here.
+name: Match pull (specific games)
+
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: "Match ids, space separated (NA1_123 NA1_456)"
+        required: true
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull
+        env:
+          RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+          IDS: ${{ inputs.ids }}
+        run: python3 scripts/research/pull_matches.py --out matches $IDS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: matches
+          path: matches/
+          retention-days: 7
