@@ -229,6 +229,8 @@ def jungle(m, tl, me):
     j = {"jcs": [pf(k, pid)["jungleMinionsKilled"] for k in range(0, min(len(fr), 15))]}
     # first clear speed: when jungle CS first reaches 24 (a full clear), interpolated between minute frames
     j["cs24"] = cs_at(j["jcs"], 24)
+    # exact second they hit level 4 (Riot logs LEVEL_UP events with timestamps): the precise end of a full clear
+    j["lv4"] = next((round(e["timestamp"] / 1000) for e in ev if e["type"] == "LEVEL_UP" and e.get("participantId") == pid and e.get("level") == 4), None)
     p2 = pos(2)
     j["start"] = "top" if p2["y"] - p2["x"] > 0 else "bot"   # which side of the map they were on at 2:00
     j["where"] = {}
@@ -289,6 +291,7 @@ def jungle_summary(rows):
         "n": n,
         "jcs": [med([j["jcs"][k] for j in js if len(j["jcs"]) > k]) for k in range(15)],
         "cs24": qs([c for c in (j.get("cs24") or cs_at(j["jcs"], 24) for j in js) if c]),
+        "lv4": qs([j["lv4"] for j in js if j.get("lv4")]),
         "lane_before_clear": round(sum(1 for j in js if j.get("lane_before_clear", bool(j.get("first_lane") and (cs_at(j["jcs"], 24) or 1e9) > j["first_lane"][0] * 60))) / n, 2),
         "start_top": round(sum(1 for j in js if j["start"] == "top") / n, 2),
         "where": {a: round(S.mean(j["where"].get(a, 0) for j in js), 2) for a in areas},
