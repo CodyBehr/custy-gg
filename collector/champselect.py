@@ -171,7 +171,8 @@ def set_item_set(cfg, body):
 
 
 def watch(cfg, stop, open_page):
-    """Opens the helper window once per champ select (if the setting is on)."""
+    """Opens the review window (it switches to the matchup guide by itself) once per champ select, unless one is
+    already open: an open page polls /api/champselect and follows the client on its own."""
     while not stop.is_set():
         stop.wait(3)
         if not cfg.get("champ_select_helper", True):

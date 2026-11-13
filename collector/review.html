@@ -351,6 +351,10 @@ body.viewing [data-watch], body.viewing #ov { display:none !important; }
 #v-trades .stage .zm{position:absolute;left:10px;top:10px;display:flex;gap:4px}
 #v-trades .stage .zm button{font-size:12px;padding:3px 9px}
 #v-trades .stage .maplegend{position:absolute;left:12px;bottom:10px;font-size:11.5px;color:#c8d4e2;text-shadow:0 1px 2px #000;pointer-events:none}
+.cslive { margin:8px 0 12px; } .cslive .echs { display:flex; gap:6px; align-items:center; margin-top:8px; flex-wrap:wrap; }
+.cslive .ech { padding:0; border:2px solid transparent; border-radius:8px; background:none; cursor:pointer; } .cslive .ech.on { border-color:var(--red); }
+.cslive .ech img { width:34px; height:34px; border-radius:6px; display:block; } .cslive #csBack { margin-left:8px; }
+.cspicks { margin:6px 0 12px; } .cspicks > summary { cursor:pointer; color:var(--mute); font-size:13px; margin-bottom:6px; }
 </style>
 </head>
 <body>
@@ -1290,6 +1294,7 @@ function renderList(openFirst) {
   $("homerow").onclick = () => openHome(true);
   $("murow").onclick = () => openMatchups();
   if (STATE.current === "home") openHome();
+  else if (STATE.current === "matchups") $("murow")?.classList.add("on");
   else if (openFirst && shown.length && !shown.some(g => g.id == STATE.current)) openGame(shown[0].id);
 }
 
@@ -2516,39 +2521,6 @@ const spellIcon = (id) => DD.spells?.[id] ? `<img src="https://ddragon.leagueofl
 const champImg = (alias) => `<img src="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/champion/${alias}.png" alt="">`;
 const csName = (alias) => Object.values(DD.champ).find(c => c.id === alias)?.name || alias;
 
-async function startChampSelect() {
-  document.title = "custy.gg · champ select";
-  document.body.className = "cs";
-  document.body.innerHTML = `<div id="csHead"></div><div id="csBody"><div class="empty">Reading champ select…</div></div><div id="toast" class="toast"></div>`;
-  await loadDD(); await loadCsData();
-  const tick = async () => {
-    let st; try { st = await api("/api/champselect"); } catch (e) { $("csBody").innerHTML = `<div class="empty">${esc(e.message)}</div>`; return; }
-    if (st.phase !== "ChampSelect") {
-      // After champ select the last pick stays up, so you can tab out mid-game to check the build and skills.
-      if (CS.st?.champion) {
-        if (CS.live !== false) { CS.live = false; CS.key = ""; }
-        CS.phase = st.phase;
-        const key = "off" + st.phase;
-        if (CS.offKey !== key) { CS.offKey = key; drawChampSelect(); }
-        return;
-      }
-      $("csHead").innerHTML = "";
-      $("csBody").innerHTML = `<div class="empty">${st.error ? esc(st.error) : "Not in champ select right now. This window updates by itself when you're in one."}</div>`;
-      return;
-    }
-    if (CS.live === false) { CS.champ = null; CS.key = ""; CS.offKey = ""; }   // a new champ select
-    CS.live = true;
-    CS.st = st;
-    if (st.champion && (st.champion !== CS.champ || st.role !== CS.role)) {
-      CS.champ = st.champion; CS.role = st.role; CS.picked = null;
-      CS.B = st.role ? await api(`/api/benchmark/${st.champion}-${st.role}`).catch(() => null) : null;
-    }
-    CS.opp = CS.picked || st.opponent;
-    const key = JSON.stringify([st.champion, st.role, CS.opp, st.enemies, !!CS.B, st.spells]);
-    if (key !== CS.key) { CS.key = key; drawChampSelect(); }
-  };
-  await tick(); setInterval(tick, 2000);
-}
 
 // Levels where experts win or lose their lane fights (kills vs deaths with the lane opponent before 14:00).
 // Uses the matchup when a level has 10+ fights there, else the champion overall. Returns {strong, weak, rows, vs}.
@@ -2741,14 +2713,28 @@ async function drawMatchups(reload = true) {
     ${MU.champ && B ? `<div class="muhead">${champImg(MU.champ)}<b>${esc(csName(MU.champ))}</b><span>${esc(ROLE_NAME[MU.role])}</span>${MU.opp ? `<i>vs</i>${champImg(MU.opp)}<b>${esc(csName(MU.opp))}</b>` : `<span class="sub">against everyone · ${B.games} expert games</span>`}</div>
       <div id="muBody" class="mugrid"></div>` : MU.champ ? `<div class="empty">No expert data for ${esc(csName(MU.champ))} ${esc(ROLE_NAME[MU.role])} yet.</div>` : `<div class="empty">Pick a champion.</div>`}
   </section>`;
+  const cs = MU.cs && MU.cs.champion === MU.champ ? MU.cs : null;   // in champ select on this champion: use the client's state
+  if (MU.cs) $("view").querySelector("h1").insertAdjacentHTML("afterend", `<div class="note cslive"><b>Champ select</b> · filled in from your client${MU.cs.champion ? `: ${esc(csName(MU.cs.champion))}${MU.cs.role ? " " + esc(ROLE_NAME[MU.cs.role] || "") : ""}${MU.cs.locked ? "" : " (hovering)"}` : ". Hover or pick a champion."}
+    ${MU.cs.enemies?.length ? `<div class="echs">Enemy picks: ${MU.cs.enemies.map(e => `<button class="ech${e.champion === MU.opp ? " on" : ""}" data-csopp="${esc(e.champion)}" title="${esc(csName(e.champion))}${e.role ? " (probably " + esc(ROLE_NAME[e.role] || e.role) + ")" : ""}">${champImg(e.champion)}</button>`).join("")}</div>` : ""}
+    ${cs ? "" : MU.cs.champion ? `<button id="csBack">Back to ${esc(csName(MU.cs.champion))}</button>` : ""}</div>`);
+  if (cs) {   // in champ select the plan is what matters: tuck the champion grids away
+    const picks = [...$("view").querySelectorAll(".mu .pick")];
+    if (picks.length) {
+      const d = document.createElement("details"); d.className = "cspicks"; if (MU.gridOpen) d.open = true;
+      d.innerHTML = `<summary>Change champion or opponent</summary>`; picks[0].before(d); picks.forEach(x => d.append(x));
+      d.ontoggle = () => { MU.gridOpen = d.open; };
+    }
+  }
   if (MU.champ && B) {
-    MU.st = { champion: MU.champ, championId: +Object.values(DD.champ).find(c => c.id === MU.champ)?.key || 0, role: MU.role, enemies: [], assigned: true, locked: true, spells: [] };
+    MU.st = cs ? { ...cs } : { champion: MU.champ, championId: +Object.values(DD.champ).find(c => c.id === MU.champ)?.key || 0, role: MU.role, enemies: [], assigned: true, locked: true, spells: [] };
     drawChampSelect(MU, "muHeadUnused", "muBody");
   }
   document.querySelectorAll("[data-role]").forEach(b => b.onclick = () => { MU.role = b.dataset.role; MU.opp = null; drawMatchups(); });
   document.querySelectorAll("[data-mc]").forEach(b => b.onclick = () => { MU.champ = b.dataset.mc; MU.opp = null; drawMatchups(); window.scrollTo(0, 0); });
   document.querySelectorAll("[data-mo]").forEach(b => b.onclick = () => { MU.opp = b.dataset.mo; drawMatchups(false); });
   if ($("muClear")) $("muClear").onclick = () => { MU.opp = null; drawMatchups(false); };
+  document.querySelectorAll("[data-csopp]").forEach(b => b.onclick = () => { MU.opp = b.dataset.csopp; drawMatchups(false); });
+  if ($("csBack")) $("csBack").onclick = () => { MU.champ = MU.cs.champion; MU.role = MU.cs.role || MU.role; MU.opp = MU.cs.opponent || null; drawMatchups(); };
   const search = (id, key) => { const el = $(id); if (!el) return; el.oninput = () => { MU[key] = el.value; clearTimeout(MU.t); MU.t = setTimeout(() => { drawMatchups(false); const e2 = $(id); e2.focus(); e2.setSelectionRange(e2.value.length, e2.value.length); }, 150); }; };
   search("muQ", "q"); search("muO", "oq");
 }
@@ -2764,7 +2750,7 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
   if (!C.page) $(head).innerHTML = `<div class="me">${champImg(st.champion)}<div><b>${esc(csName(st.champion))}</b><small>${esc(ROLE_NAME[st.role] || "role unknown")}${st.assigned ? "" : " (guessed)"}${st.locked ? "" : " · hovering"}</small></div></div>
     <div class="vs"><small>Lane opponent${C.picked ? "" : " (best guess, tap to change)"}:</small><div class="echs">${enemies || `<span class="sub">Enemy picks will show here.</span>`}</div></div>`;
   const parts = [];
-  const live = C.live !== false && !C.page;
+  const live = C === MU ? !!(MU.cs && MU.cs.champion === st.champion) : (C.live !== false && !C.page);
   parts.push(gamePlan(B, st.champion, st.role, C.opp));
   parts.push(expertNotes(st.champion, C.opp, () => C === MU ? drawMatchups(false) : drawChampSelect(C, head, bodyId)));
   if (!live && !C.page) parts.unshift(`<div class="note">${C.phase === "InProgress" ? "In game." : "Champ select is over."} Showing your last pick so you can check the build and skill order. This window switches to your next champ select by itself.</div>`);
@@ -2837,8 +2823,32 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
   };
 }
 
-if (new URLSearchParams(location.search).get("champselect")) startChampSelect();
-else loadDD().then(loadCsData).then(loadList).catch(e => { $("list").innerHTML = `<div class="note">Couldn't load: ${esc(e.message)}</div>`; });
+// Champ select: the matchup guide fills itself in from the League client (your pick, role, enemy picks and the
+// likely lane opponent), with buttons to set the runes, spells and item set. It opens itself once per champ
+// select; after that it follows your client but leaves alone anything you changed by hand.
+const CSL = { game: null, champ: null, opp: null };
+async function csPoll() {
+  let st; try { st = await api("/api/champselect"); } catch (e) { return; }
+  if (st.phase !== "ChampSelect") {
+    if (MU.cs) { MU.cs = null; if (STATE.current === "matchups") drawMatchups(false); }
+    return;
+  }
+  const first = CSL.game !== st.gameId;
+  if (first) { CSL.game = st.gameId; CSL.champ = null; CSL.opp = null; }
+  const prev = MU.cs; MU.cs = st;
+  let reload = false;
+  if (st.champion && st.champion !== CSL.champ) {   // you hovered or picked a different champion
+    CSL.champ = st.champion; MU.champ = st.champion; MU.role = st.role || MU.role; MU.q = ""; MU.oq = ""; reload = true;
+    MU.opp = st.opponent || null; CSL.opp = st.opponent || null;
+  } else if (st.opponent && st.opponent !== CSL.opp) {   // the lane opponent became clearer
+    if (MU.opp === CSL.opp) MU.opp = st.opponent;
+    CSL.opp = st.opponent;
+  }
+  if (first && STATE.current !== "matchups") return openMatchups();
+  if (STATE.current === "matchups" && (reload || JSON.stringify(prev) !== JSON.stringify(st))) drawMatchups(reload);
+}
+loadDD().then(loadCsData).then(loadList).then(() => { csPoll(); setInterval(csPoll, 2500); })
+  .catch(e => { $("list").innerHTML = `<div class="note">Couldn't load: ${esc(e.message)}</div>`; });
 
 // Notice when the app updated (or restarted) under an open page, and offer a reload.
 (() => {

@@ -447,7 +447,7 @@ def run_with_tray(cfg, start_collector):
         review_url["url"] = review.start(cfg)
         threading.Thread(target=review.keep_cache_fresh, args=(cfg, stop), name="review-cache", daemon=True).start()
         import champselect
-        threading.Thread(target=champselect.watch, args=(cfg, stop, lambda: review.open_small(review_url["url"] + "&champselect=1")),
+        threading.Thread(target=champselect.watch, args=(cfg, stop, lambda: review.open_window(review_url["url"] + "&champselect=1")),
                          name="champ-select", daemon=True).start()
     except Exception as e:
         if COACH:
@@ -495,7 +495,7 @@ def run_with_tray(cfg, start_collector):
     if COACH:
         menu = pystray.Menu(
             pystray.MenuItem("Open custy coach", open_review_window, default=True),
-            pystray.MenuItem("Champ select helper", toggle_champ_select, checked=lambda item: cfg.get("champ_select_helper", True)),
+            pystray.MenuItem("Open matchup guide in champ select", toggle_champ_select, checked=lambda item: cfg.get("champ_select_helper", True)),
             pystray.Menu.SEPARATOR,
             pystray.MenuItem("Start with Windows", toggle_autostart, checked=lambda item: autostart_enabled()),
             pystray.MenuItem("Update automatically", toggle_updates, checked=lambda item: auto_update_on()),
