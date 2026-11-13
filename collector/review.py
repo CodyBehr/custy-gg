@@ -295,6 +295,167 @@ def fill_from_riot(data):
     return True
 
 
+# --------------------------------------------------------------------------
+# Lane trades, decoded from the game's replay file (replay_trades.py)
+# --------------------------------------------------------------------------
+
+TRADES_DIR = os.path.join(CACHE_DIR, "trades")
+TRADES_VERSION = 1          # bump when the trade data changes shape, so old results are rebuilt
+_replay_dir_cache = {}
+_trades_dl = {}             # game id -> {"state", "message", "at"}
+
+
+def replay_dir(cfg):
+    """Where League saves replays: the client's setting, else the usual Documents folders."""
+    hit = _replay_dir_cache.get("dir")
+    if hit and os.path.isdir(hit):
+        return hit
+    try:
+        lcu = _lcu(cfg)
+        p = lcu.get("/lol-replays/v1/rofls/path") if lcu else None
+        if isinstance(p, str) and os.path.isdir(p):
+            _replay_dir_cache["dir"] = p
+            return p
+    except Exception:
+        pass
+    home = os.path.expanduser("~")
+    for d in (os.path.join(home, "Documents", "League of Legends", "Replays"),
+              os.path.join(home, "OneDrive", "Documents", "League of Legends", "Replays")):
+        if os.path.isdir(d):
+            _replay_dir_cache["dir"] = d
+            return d
+    return None
+
+
+def _rofl_path(cfg, game):
+    d = replay_dir(cfg)
+    if not d:
+        return None
+    name = "%s-%s.rofl" % (game.get("platformId") or "NA1", game.get("gameId"))
+    p = os.path.join(d, name)
+    return p if os.path.exists(p) else None
+
+
+def _lane_pair(data):
+    """(my participant, my lane opponent) in the client's numbering."""
+    game = data.get("game") or {}
+    idents = {i.get("participantId"): (i.get("player") or {}) for i in game.get("participantIdentities") or []}
+    me = next((p for p in game.get("participants") or [] if idents.get(p["participantId"], {}).get("puuid") == data.get("me")), None)
+    if not me:
+        return None, None, idents
+    rl = roles(game)
+    opp = next((p for p in game["participants"] if _num(p.get("teamId")) != _num(me.get("teamId"))
+                and rl.get(p["participantId"]) == rl.get(me["participantId"])), None)
+    return me, opp, idents
+
+
+def trades_for(cfg, game_id):
+    """The lane trades for one of your games, decoded from its replay (cached). Returns a dict for the page."""
+    import replay_trades as RT
+    data = _read_cache(game_id)
+    if not data or not data.get("timeline"):
+        return {"error": "This game isn't saved yet."}
+    game = data["game"]
+    os.makedirs(TRADES_DIR, exist_ok=True)
+    cpath = os.path.join(TRADES_DIR, "%s.json" % int(game_id))
+    try:
+        with open(cpath, "r", encoding="utf-8") as f:
+            hit = json.load(f)
+        if hit.get("v") == TRADES_VERSION:
+            return hit
+    except (OSError, ValueError):
+        pass
+    if RT.zstandard is None:
+        return {"error": "Reading replays needs the zstandard package: pip install zstandard"}
+    path = _rofl_path(cfg, game)
+    if not path:
+        st = _trades_dl.get(str(game_id)) or {}
+        return {"missing": True, "download": st.get("state"), "message": st.get("message", ""),
+                "patch": ".".join(str(game.get("gameVersion") or "").split(".")[:2])}
+    me, opp, idents = _lane_pair(data)
+    if not me or not opp:
+        return {"error": "Couldn't tell who your lane opponent was in this game."}
+    try:
+        _v, stats, _c = RT.read_rofl(path)
+    except Exception as e:
+        core.log.info("Trades: couldn't read %s: %s", path, e)
+        return {"error": "Couldn't read this game's replay file."}
+    def slot(p):
+        pl = idents.get(p["participantId"], {})
+        return RT.slot_of(stats, puuid=pl.get("puuid"), name=pl.get("gameName"))
+    i, j = slot(me), slot(opp)
+    if i is None or j is None:
+        return {"error": "The replay's players don't match this game."}
+    frames = []
+    for f in data["timeline"].get("frames") or []:
+        pf = f.get("participantFrames") or {}
+        a, b = (pf.get(str(me["participantId"])) or {}).get("st"), (pf.get(str(opp["participantId"])) or {}).get("st")
+        frames.append({"t": (f.get("timestamp") or 0) / 1000.0,
+                       "me": [a[0], a[1]] if a and a[0] is not None and a[1] else None,
+                       "opp": [b[0], b[1]] if b and b[0] is not None and b[1] else None})
+    kills = {"me": [], "opp": []}
+    for f in data["timeline"].get("frames") or []:
+        for e in f.get("events") or []:
+            if e.get("type") == "CHAMPION_KILL":
+                if e.get("victimId") == me["participantId"]:
+                    kills["me"].append(e["timestamp"] / 1000.0)
+                elif e.get("victimId") == opp["participantId"]:
+                    kills["opp"].append(e["timestamp"] / 1000.0)
+    if not any(fr["me"] for fr in frames):
+        return {"error": "Still waiting for this game's health data from the site. Try again in a minute."}
+    try:
+        out = RT.lane_trades(path, i, j, frames, kills)
+    except Exception as e:
+        core.log.exception("Trades: decoding %s failed", path)
+        return {"error": "Couldn't decode this replay: %s" % e}
+    if out.get("unsupported"):
+        return {"error": "Trades can't be read from patch %s replays yet." % out["unsupported"]}
+    out["v"] = TRADES_VERSION
+    out["role"] = roles(game).get(me["participantId"], "")
+    try:
+        with open(cpath, "w", encoding="utf-8") as f:
+            json.dump(out, f)
+    except OSError:
+        pass
+    return out
+
+
+def _download_for_trades(cfg, game_id):
+    """Asks League to download this game's replay (no playback), so its trades can be read."""
+    st = _trades_dl[str(game_id)] = {"state": "working", "message": "Downloading the replay...", "at": time.time()}
+    try:
+        lcu = _lcu(cfg)
+        if lcu is None:
+            st.update(state="error", message="Open League first: it downloads the replay.")
+            return
+        meta = _replay_meta(lcu, game_id)
+        if meta.get("state") in ("incompatible", "unsupported"):
+            st.update(state="error", message="This replay is from an older patch, so League can't download it.")
+            return
+        if meta.get("state") != "watch":
+            try:
+                _lcu_post(lcu, "/lol-replays/v1/rofls/%s/download" % game_id, {"componentType": "replay-button_match-history"})
+            except urllib.error.HTTPError as e:
+                core.log.info("Trades: replay download request HTTP %s", e.code)
+            for _ in range(120):
+                time.sleep(1)
+                meta = _replay_meta(lcu, game_id)
+                if meta.get("state") == "watch":
+                    break
+                if meta.get("state") in ("incompatible", "unsupported", "lost", "missingOrExpired", "error"):
+                    st.update(state="error", message="League couldn't get this replay (%s)." % meta.get("state"))
+                    return
+                if meta.get("downloadProgress"):
+                    st["message"] = "Downloading the replay... %s%%" % meta["downloadProgress"]
+            else:
+                st.update(state="error", message="The download didn't finish. Try again in a minute.")
+                return
+        st.update(state="done", message="Downloaded.")
+    except Exception as e:
+        core.log.info("Trades: download failed: %s", e)
+        st.update(state="error", message="The download failed: %s" % e)
+
+
 def _lcu(cfg):
     creds = core.find_client(cfg)
     return core.LeagueClient(*creds) if creds else None
@@ -843,6 +1004,18 @@ def make_handler(cfg, token):
                 if host not in ("127.0.0.1", "localhost") or parse_qs(url.query).get("k", [""])[0] != token:
                     return self._send(403, b"Open this from the custy.gg app.", "text/plain")
                 return self._send(200, _page(), "text/html; charset=utf-8")
+            m = re.match(r"^/assets/(sr-map\.jpg|sr-mini\.jpg|minion-blue\.png|minion-red\.png)$", url.path)
+            if m:   # map art for the trades playback (public images; no key needed)
+                host = (self.headers.get("Host") or "").split(":")[0]
+                if host not in ("127.0.0.1", "localhost"):
+                    return self._send(403, b"forbidden", "text/plain")
+                base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+                try:
+                    with open(os.path.join(base, "assets", m.group(1)), "rb") as f:
+                        body = f.read()
+                except OSError:
+                    return self._send(404, b"missing", "text/plain")
+                return self._send(200, body, "image/jpeg" if m.group(1).endswith(".jpg") else "image/png")
             if url.path == "/api/ping":
                 return self._send(200, {"ok": True})
             if not self._allowed():
@@ -882,6 +1055,13 @@ def make_handler(cfg, token):
                 if fill_from_riot(data):
                     _write_cache(m.group(1), data)
                 return self._send(200, dict(data, roles=roles(data["game"])))
+            m = re.match(r"^/api/trades/(\d+)$", url.path)
+            if m:
+                try:
+                    return self._send(200, trades_for(cfg, m.group(1)))
+                except Exception as e:
+                    core.log.exception("Trades for %s failed", m.group(1))
+                    return self._send(200, {"error": "Couldn't build trades: %s" % e})
             m = re.match(r"^/api/benchmark/([A-Za-z]+-(?:TOP|JUNGLE|MID|BOT|SUPPORT))$", url.path)
             if m:
                 return self._send(200, benchmark(cfg, m.group(1)))
@@ -925,6 +1105,12 @@ def make_handler(cfg, token):
                     return self._send(409, {"error": "A replay is already being opened."})
                 _status("working", "Opening the replay...", game=m.group(1))
                 threading.Thread(target=_open_replay, args=(cfg, m.group(1), t), daemon=True).start()
+                return self._send(202, {"ok": True})
+            m = re.match(r"^/api/trades/(\d+)/download$", url.path)
+            if m:
+                st = _trades_dl.get(m.group(1)) or {}
+                if st.get("state") != "working" or time.time() - st.get("at", 0) > 200:
+                    threading.Thread(target=_download_for_trades, args=(cfg, m.group(1)), daemon=True).start()
                 return self._send(202, {"ok": True})
             m = re.match(r"^/api/overlay/(\d+)$", url.path)
             if m:

@@ -245,6 +245,112 @@ details.fight .fpl .pop img { width:26px; height:26px; border-radius:4px; border
 body.viewing [data-watch], body.viewing #ov { display:none !important; }
 #lookup { display:flex; gap:6px; margin-left:auto; margin-right:8px; } #lookup input { background:#0d1526; border:1px solid var(--line); color:var(--text); border-radius:8px; padding:6px 10px; width:210px; font-size:13px; }
 #lookup button { padding:6px 12px; } .note.viewing { border-color:var(--gold); } .note.viewing button { margin-left:8px; }
+/* Lane trades */
+@keyframes lt-rise{0%{opacity:0;transform:translateY(6px)}15%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}@keyframes lt-pulse{0%{transform:scale(1.6)}100%{transform:scale(1)}}
+#v-trades .card{background:var(--deck);border:1px solid var(--line-soft);border-radius:14px;padding:16px 18px;margin-bottom:16px}
+#v-trades .card h2{margin:0 0 4px;font-size:16px}
+#v-trades .card .sub{color:var(--mute);font-size:13px}
+#v-trades .vs{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+#v-trades .ic{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:16px}
+#v-trades .ic.me{background:var(--blue-wash);color:var(--blue-ink);border:1px solid var(--blue)}
+#v-trades .ic.op{background:var(--red-wash);color:var(--red-ink);border:1px solid var(--red)}
+#v-trades .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+#v-trades .stat{background:var(--deck-2);border-radius:10px;padding:10px 12px}
+#v-trades .stat b{display:block;font-size:20px}
+#v-trades .stat span{color:var(--mute);font-size:12px}
+#v-trades .good{color:var(--green-ink)}
+#v-trades .bad{color:var(--red-ink)}
+#v-trades .meh{color:var(--mute)}
+#v-trades .insights li{margin:4px 0}
+#v-trades .insights{margin:8px 0 0;padding-left:18px}
+#v-trades .strip{position:relative;height:64px;margin:14px 6px 22px;border-bottom:1px solid var(--line)}
+#v-trades .dot{position:absolute;bottom:0;transform:translateX(-50%);border-radius:4px 4px 0 0;cursor:pointer;min-width:6px;opacity:.9}
+#v-trades .dot:hover,#v-trades .dot.sel{opacity:1;outline:2px solid var(--gold)}
+#v-trades .tick{position:absolute;bottom:-20px;transform:translateX(-50%);color:var(--faint);font-size:11px}
+#v-trades .legend{display:flex;gap:14px;color:var(--mute);font-size:12px;flex-wrap:wrap}
+#v-trades .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+#v-trades table{width:100%;border-collapse:collapse;font-size:13px}
+#v-trades th{text-align:left;color:var(--mute);font-weight:500;font-size:12px;padding:6px 8px;border-bottom:1px solid var(--line)}
+#v-trades td{padding:8px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+#v-trades tr.row{cursor:pointer}
+#v-trades tr.row:hover td{background:var(--deck-2)}
+#v-trades tr.row.sel td{background:var(--gold-wash)}
+#v-trades .pill{display:inline-block;padding:1px 8px;border-radius:20px;font-size:12px;font-weight:600}
+#v-trades .pill.won{background:var(--green-wash);color:var(--green-ink)}
+#v-trades .pill.lost{background:var(--red-wash);color:var(--red-ink)}
+#v-trades .pill.even{background:var(--line-soft);color:var(--mute)}
+#v-trades .lv{font-size:12px;color:var(--mute)}
+#v-trades .lv.down{color:var(--red-ink)}
+#v-trades .lv.up{color:var(--green-ink)}
+#v-trades .hp{width:150px}
+#v-trades .bar{height:7px;border-radius:4px;background:#0a1020;position:relative;overflow:hidden;margin:3px 0}
+#v-trades .bar .now{position:absolute;left:0;top:0;bottom:0}
+#v-trades .bar .lost{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(45deg,#ffffff55 0 3px,#ffffff22 3px 6px)}
+#v-trades .bar.me .now{background:var(--blue)}
+#v-trades .bar.op .now{background:var(--red)}
+#v-trades .hp small{color:var(--mute);font-size:11px}
+#v-trades .seq{display:flex;flex-wrap:wrap;gap:3px;max-width:260px}
+#v-trades .k{font-size:11px;font-weight:700;padding:0 5px;border-radius:4px}
+#v-trades .k.you{background:var(--blue-wash);color:var(--blue-ink)}
+#v-trades .k.them{background:var(--red-wash);color:var(--red-ink)}
+#v-trades .flag{font-size:11px;color:var(--gold);margin-left:4px}
+#v-trades .why{color:var(--mute);font-size:12px;margin-top:3px}
+#v-trades .note{color:var(--faint);font-size:12px;margin-top:10px}
+#v-trades .filters{display:flex;gap:6px;margin:6px 0 10px;flex-wrap:wrap}
+#v-trades .filters button{background:var(--deck-2);border:1px solid var(--line);color:var(--ink);border-radius:20px;padding:3px 10px;font-size:12px;cursor:pointer}
+#v-trades .filters button.on{background:var(--blue);border-color:var(--blue);color:#06101f;font-weight:600}
+#v-trades .pbrow td{background:#0f1729!important;padding:14px 16px 16px}
+#v-trades .pb{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+#v-trades .fighter{background:var(--deck);border:1px solid var(--line-soft);border-radius:12px;padding:12px 14px;position:relative;min-height:118px}
+#v-trades .fighter.me{border-color:#2b4c80}
+#v-trades .fighter.op{border-color:#6b2a37}
+#v-trades .fighter h3{margin:0 0 6px;font-size:14px;display:flex;justify-content:space-between}
+#v-trades .fighter h3 small{color:var(--mute);font-weight:400}
+#v-trades .big{height:16px;border-radius:6px;background:#0a1020;position:relative;overflow:hidden}
+#v-trades .big .ghost{position:absolute;left:0;top:0;bottom:0;background:#ffffff40;transition:width .6s ease-out .25s}
+#v-trades .big .cur{position:absolute;left:0;top:0;bottom:0;transition:width .12s linear}
+#v-trades .me .big .cur{background:linear-gradient(90deg,#3d86e8,#6fb2ff)}
+#v-trades .op .big .cur{background:linear-gradient(90deg,#d8485a,#ff7e8c)}
+#v-trades .hpnum{font-size:13px;margin-top:4px;color:var(--mute)}
+#v-trades .hpnum b{color:var(--ink)}
+#v-trades .pops{position:absolute;right:12px;top:40px;display:flex;flex-direction:column;align-items:flex-end;gap:2px;pointer-events:none}
+#v-trades .pop{font-weight:700;font-size:13px;animation:lt-rise 1.1s ease-out forwards}
+#v-trades .pop.lane{color:#fff}
+#v-trades .pop.champ{color:var(--gold)}
+#v-trades .pop.other{color:var(--mute);font-weight:500;font-size:12px}
+#v-trades .cast{display:flex;gap:4px;margin-top:8px;min-height:24px;flex-wrap:wrap}
+#v-trades .castk{width:24px;height:24px;border-radius:6px;display:grid;place-items:center;font-weight:800;font-size:12px;animation:lt-pulse .5s ease-out}
+#v-trades .me .castk{background:var(--blue);color:#06101f}
+#v-trades .op .castk{background:var(--red);color:#1a0509}
+#v-trades .castk.old{opacity:.35;animation:none}
+#v-trades .castk{position:relative;overflow:hidden;padding:0}
+#v-trades .castk img{width:100%;height:100%;display:block}
+#v-trades .castk i{position:absolute;right:0;bottom:0;font-style:normal;font-size:9px;line-height:1;background:#000c;color:#fff;padding:1px 2px;border-top-left-radius:3px}
+#v-trades .castk{width:28px;height:28px}
+#v-trades .dead{position:absolute;inset:0;border-radius:12px;background:rgba(10,12,20,.72);display:none;place-items:center;font-weight:800;letter-spacing:2px;color:var(--red-ink)}
+#v-trades .fighter.isdead .dead{display:grid}
+#v-trades .ctl{display:flex;align-items:center;gap:10px;margin-top:12px}
+#v-trades .ctl button{background:var(--deck-2);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer;font:inherit;font-size:13px}
+#v-trades .ctl button.on{border-color:var(--gold);color:var(--gold)}
+#v-trades .ctl .clock{font-variant-numeric:tabular-nums;color:var(--mute);font-size:13px;min-width:92px}
+#v-trades .scrub{position:relative;flex:1;height:34px;background:var(--deck);border-radius:8px;cursor:pointer;border:1px solid var(--line-soft)}
+#v-trades .scrub .head{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--gold)}
+#v-trades .mk{position:absolute;transform:translateX(-50%)}
+#v-trades .mk.cy{top:3px;font-size:9px;font-weight:800;color:var(--blue-ink)}
+#v-trades .mk.ct{bottom:3px;font-size:9px;font-weight:800;color:var(--red-ink)}
+#v-trades .mk.hy{top:14px;width:2px;height:6px;background:var(--red)}
+#v-trades .mk.ht{top:14px;width:2px;height:6px;background:var(--blue)}
+#v-trades .mk.ho{top:15px;width:1px;height:4px;background:var(--faint)}
+#v-trades .mk.dd{top:9px;font-size:13px}
+#v-trades .pblegend{color:var(--faint);font-size:11px;margin-top:6px}
+#v-trades .pbwrap{display:flex;flex-direction:column;gap:14px}
+#v-trades .pbwrap .pb{grid-template-columns:1fr 1fr}
+#v-trades .stage{position:relative;width:100%}
+#v-trades .stage canvas.main{width:100%;height:auto;display:block;background:#101820;border:1px solid #26313f;border-radius:10px}
+#v-trades .stage canvas.mini{position:absolute;right:10px;bottom:10px;width:150px;height:150px;border:1px solid #3a4a5c;border-radius:6px;background:#0d141c}
+#v-trades .stage .zm{position:absolute;left:10px;top:10px;display:flex;gap:4px}
+#v-trades .stage .zm button{font-size:12px;padding:3px 9px}
+#v-trades .stage .maplegend{position:absolute;left:12px;bottom:10px;font-size:11.5px;color:#c8d4e2;text-shadow:0 1px 2px #000;pointer-events:none}
 </style>
 </head>
 <body>
@@ -1354,8 +1460,9 @@ function render(A, B, moments, s, label, well = []) {
       <div class="sub">${res} · ${esc(s.queue)} · ${esc(ROLE_NAME[A.role] || "role unknown")} · ${A.me.stats.kills}/${A.me.stats.deaths}/${A.me.stats.assists} · ${clock(A.g.gameDuration)} · ${new Date(A.g.gameCreation).toLocaleString()}</div></div></div>
     <a class="btn yt" target="_blank" href="https://www.youtube.com/results?search_query=${encodeURIComponent("Domisumreplay " + champName(A.me.championId) + (opp ? " vs " + opp : ""))}">▶ High-elo ${esc(champName(A.me.championId))}${opp ? " vs " + esc(opp) : ""} games on YouTube</a>
     ${banner}
-    <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">Breakdown</button></div>
+    <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">Breakdown</button>${STATE.as ? "" : `<button data-tab="trades">Lane trades</button>`}</div>
     <div id="v-experts" hidden><div class="empty">Loading expert data...</div></div>
+    <div id="v-trades" hidden></div>
     <div id="v-moments">
     <h2>What went well</h2>
     <div class="card well-card">${well.length ? well.map(w => `<div class="w"><i>✓</i><div><b>${esc(w.title)}</b><span>${esc(w.text)}</span></div></div>`).join("")
@@ -1410,11 +1517,289 @@ function render(A, B, moments, s, label, well = []) {
     STATE.tab = t;
     tabs.forEach(b => b.classList.toggle("on", b.dataset.tab === t));
     $("v-moments").hidden = t !== "moments"; $("v-experts").hidden = t !== "experts";
+    if ($("v-trades")) { $("v-trades").hidden = t !== "trades"; if (t === "trades") loadTrades(A); }
   };
   tabs.forEach(b => b.onclick = () => show(b.dataset.tab));
-  show(STATE.tab || "moments");
+  show(STATE.tab === "trades" && STATE.as ? "moments" : (STATE.tab || "moments"));
   loadExperts(A);
 }
+
+
+// Lane trades tab: asks the app to read this game's replay file (downloading it first if needed).
+async function loadTrades(A, again) {
+  const el = $("v-trades"), id = A.g.gameId;
+  if (!again && el.dataset.game === String(id) && el.dataset.state === "ok") return;
+  el.dataset.game = String(id); el.dataset.state = "loading";
+  if (!again) el.innerHTML = `<div class="card"><div class="empty">Reading your replay file...</div></div>`;
+  let r;
+  try { r = await api("/api/trades/" + id); } catch (e) { el.innerHTML = `<div class="card"><div class="empty">${esc(e.message)}</div></div>`; return; }
+  if (el.dataset.game !== String(id)) return;
+  if (r.missing) {
+    const cur = r.patch && currentPatch() && r.patch !== currentPatch();
+    el.innerHTML = `<div class="card"><h2 style="margin-top:0">Lane trades need this game's replay</h2>
+      <div class="sub" style="margin-bottom:10px">Every trade with your lane opponent comes from the replay file: damage each way, who started it, HP going in, and a playback on the map. The replay isn't on this computer yet.</div>
+      ${cur ? `<div class="sub">This game is from patch ${esc(r.patch)}; League can only download replays from the current patch (${esc(currentPatch())}).</div>`
+        : `<button class="primary" id="ltDl" ${r.download === "working" ? "disabled" : ""}>${r.download === "working" ? esc(r.message || "Downloading...") : "Download the replay"}</button>
+           ${r.download === "error" ? `<div class="sub" style="margin-top:8px;color:var(--red-ink)">${esc(r.message)}</div>` : ""}`}</div>`;
+    const b = $("ltDl");
+    if (b) b.onclick = async () => { b.disabled = true; b.textContent = "Downloading..."; try { await api(`/api/trades/${id}/download`, { method: "POST" }); } catch (e) {} setTimeout(() => loadTrades(A, true), 2000); };
+    if (r.download === "working") setTimeout(() => loadTrades(A, true), 2000);
+    return;
+  }
+  if (r.error) { el.innerHTML = `<div class="card"><div class="empty">${esc(r.error)}</div></div>`; return; }
+  el.dataset.state = "ok";
+  await LT.show(el, r);
+}
+
+// ---------------------------------------------------------------- Lane trades (decoded from the game's replay file)
+const LT = (() => {
+const MINIONS={blue:{src:"/assets/minion-blue.png",w:130,h:120,u:0.857},red:{src:"/assets/minion-red.png",w:140,h:124,u:0.857}};
+const SPELLS={};          // champion id -> {Q,W,E,R: icon url}
+const CHAMP_ICON=(id)=>`https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/champion/${id}.png`;
+async function loadSpells(ids){
+  for(const id of ids){ if(SPELLS[id]||!DD.v) continue;
+    try{const j=await (await fetch(`https://ddragon.leagueoflegends.com/cdn/${DD.v}/data/en_US/champion/${id}.json`)).json();
+      const c=Object.values(j.data)[0]; SPELLS[id]={};"QWER".split("").forEach((k,n)=>SPELLS[id][k]=`https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/spell/${c.spells[n].image.full}`)}catch(e){}}
+}
+// Replay names (SKIN) -> Data Dragon ids (same except letter case)
+function ddId(name){const l=String(name).toLowerCase();for(const c of Object.values(DD.champ)) if(c.id.toLowerCase()===l) return c.id; return name;}
+
+const NICE={MissFortune:"Miss Fortune",DrMundo:"Dr. Mundo",MonkeyKing:"Wukong",KSante:"K'Sante",Khazix:"Kha'Zix",Chogath:"Cho'Gath",Velkoz:"Vel'Koz",KogMaw:"Kog'Maw",LeeSin:"Lee Sin",JarvanIV:"Jarvan IV",TahmKench:"Tahm Kench",MasterYi:"Master Yi",XinZhao:"Xin Zhao",TwistedFate:"Twisted Fate",AurelionSol:"Aurelion Sol",RenataGlasc:"Renata Glasc"};
+const nm=s=>{for(const c of Object.values(DD.champ)) if(c.id===s) return c.name; return NICE[s]||s}, clk=t=>`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,"0")}`;
+function judge(tr){
+  const meL=tr.took/tr.hpMe[1], opL=tr.dealt/tr.hpOpp[1];
+  if(tr.died.includes("you")&&tr.died.includes("them")) return ["even","Traded kills"];
+  if(tr.died.includes("you")) return ["lost","You died"];
+  if(tr.died.includes("them")) return ["won","You got the kill"];
+  if(opL-meL>0.04 && opL>1.25*meL) return ["won","Won"];
+  if(meL-opL>0.04 && meL>1.25*opL) return ["lost","Lost"];
+  return ["even","Even"];
+}
+function why(tr,v){
+  const out=[], dl=tr.lv[0]-tr.lv[1], meL=tr.took/tr.hpMe[1], opL=tr.dealt/tr.hpOpp[1];
+  const mySeq=tr.seq.filter(s=>s.w==="you").map(s=>s.k), thSeq=tr.seq.filter(s=>s.w==="them").map(s=>s.k);
+  if(v==="lost"||v==="even"){
+    if(dl<0) out.push(`You fought a level down (${tr.lv[0]} vs ${tr.lv[1]}).`);
+    if(tr.first==="them"&&tr.dealt===0) out.push("They poked you and you didn't hit back.");
+    else if(tr.first==="them"&&!mySeq.length) out.push("They started it and you answered with autos only.");
+    if(tr.gank>100) out.push(`Someone else joined: ${tr.gank} extra damage on the two of you.`);
+    if(tr.first==="you"&&v==="lost"&&mySeq.length) out.push(`You went in (${mySeq.join(" → ")}) and they out-traded you.`);
+  } else {
+    if(dl>0) out.push(`You used your level lead (${tr.lv[0]} vs ${tr.lv[1]}).`);
+    if(tr.first==="you"&&mySeq.length) out.push(`You started it with ${mySeq.join(" → ")}.`);
+    if(tr.first==="them"&&tr.dealt>tr.took) out.push("They started it and you punished.");
+  }
+  if(tr.died.length&&v!=="won"&&!out.length) out.push("The fight ended in a death.");
+  return out.join(" ");
+}
+
+let PB=null;
+function openPB(tr,cell){
+  if(PB&&PB.raf) cancelAnimationFrame(PB.raf);
+  const g=GAME, p=tr.pb, L=p.len;
+  cell.innerHTML=`<div class="pbwrap"><div class="stage"><canvas class="main" width="960" height="560"></canvas><canvas class="mini" width="300" height="300"></canvas><div class="zm"><button data-z="3000">Close</button><button data-z="4800" class="on">Lane</button><button data-z="8000">Wide</button></div><div class="maplegend"><span style="color:#4aa3ff">●</span> your team &nbsp;<span style="color:#ff5a5a">●</span> enemy &nbsp;· lines = hits · ability icons pop when cast · from your replay file</div></div><div class="pb">
+    <div class="fighter me" id="fMe"><h3>${esc(nm(g.me))} <small>you · lvl ${tr.lv[0]}</small></h3><div class="big"><div class="ghost"></div><div class="cur"></div></div>
+      <div class="hpnum"></div><div class="cast"></div><div class="pops"></div><div class="dead">DIED</div></div>
+    <div class="fighter op" id="fOp"><h3>${esc(nm(g.opp))} <small>lvl ${tr.lv[1]}</small></h3><div class="big"><div class="ghost"></div><div class="cur"></div></div>
+      <div class="hpnum"></div><div class="cast"></div><div class="pops"></div><div class="dead">KILLED</div></div></div></div>
+    <div class="ctl"><button id="pbPlay">❚❚ Pause</button><button data-sp="0.5">0.5×</button><button data-sp="1" class="on">1×</button><button data-sp="0.25">0.25×</button><button id="pbRe">↺</button>
+      <div class="scrub" id="pbScrub">${p.ev.map(e=>{const x=(e[0]/L*100).toFixed(2);
+        if(e[1]==="c") return `<span class="mk ${e[2]==="you"?"cy":"ct"}" style="left:${x}%">${e[3]}</span>`;
+        if(e[1]==="d") return `<span class="mk dd" style="left:${x}%">☠</span>`;
+        return `<span class="mk ${e[3]==="other"?"ho":(e[2]==="you"?"hy":"ht")}" style="left:${x}%"></span>`}).join("")}<div class="head"></div></div>
+      <span class="clock"></span></div>
+    <div class="pblegend">Top letters: your abilities · bottom letters: theirs · red ticks: damage you took · blue ticks: damage you dealt · grey: minions/towers · gold numbers: damage from other champions (gank)</div>`;
+  const F={you:cell.querySelector("#fMe"),them:cell.querySelector("#fOp")}, MX={you:tr.hpMe[1],them:tr.hpOpp[1]};
+  const st={t:0,speed:1,playing:true,last:null,idx:0,hp:{you:p.start[0],them:p.start[1]},dead:{you:false,them:false},casts:{you:[],them:[]}};
+  PB={st};
+
+
+  // ---------- top-down map (canvas, Data Dragon map + champion icons) ----------
+  const CV=cell.querySelector("canvas.main"), cx=CV.getContext("2d"), MV=cell.querySelector("canvas.mini"), mx=MV.getContext("2d");
+  const MB={x0:0,x1:14900,z0:0,z1:14900};   // map stitched from top-down replay captures: 1px = 3.64 units
+  const champs=g.champs, MI=g.mi, OI=g.oi, P=p.pos||{}, myTeam=champs[MI][1];
+  const IMG=window.__img||(window.__img={}); const img=src=>{if(!IMG[src]){const i=new Image();i.src=src;i.onload=()=>{if(!st.playing)draw()};IMG[src]=i}return IMG[src]};
+  const map=img("/assets/sr-map.jpg"), mini=img("/assets/sr-mini.jpg");
+  const posAt=(k,t)=>{const L=P[k];if(!L||!L.length)return null;let a=0,b=L.length-1;
+    if(t<=L[0][0])return {x:L[0][1],z:L[0][2],stale:L[0][0]-t}; if(t>=L[b][0])return {x:L[b][1],z:L[b][2],stale:t-L[b][0]};
+    while(b-a>1){const m=(a+b)>>1;if(L[m][0]<=t)a=m;else b=m}
+    const A=L[a],B=L[b],gap=B[0]-A[0];
+    if(gap>6||Math.hypot(B[1]-A[1],B[2]-A[2])/gap>700)return {x:A[1],z:A[2],stale:t-A[0]};   // long gap or recall/death: hold, don't glide
+    const f=(t-A[0])/gap;return {x:A[1]+(B[1]-A[1])*f,z:A[2]+(B[2]-A[2])*f,stale:0}};
+  const minAt=(L,t)=>{if(t<L[0][0]-0.3||t>L[L.length-1][0]+2.5)return null;let j=0;while(j<L.length-1&&L[j+1][0]<=t)j++;
+    const A=L[j],B=L[Math.min(j+1,L.length-1)];if(B[0]<=A[0]||t<A[0])return {x:A[1],z:A[2]};const f=Math.min(1,(t-A[0])/(B[0]-A[0]));return {x:A[1]+(B[1]-A[1])*f,z:A[2]+(B[2]-A[2])*f}};
+  let VIEW=4800;
+  // camera follows the two laners (their midpoint, averaged over ±1.5s so it doesn't jitter)
+  const focus=t=>{let sx=0,sz=0,n=0;for(let s=-1.5;s<=1.5;s+=0.5)for(const k of [MI,OI]){const q=posAt(k,t+s);if(q&&q.stale<4){sx+=q.x;sz+=q.z;n++}}
+    if(n){const c=[sx/n,sz/n];const me=posAt(MI,t);if(me&&Math.hypot(me.x-c[0],me.z-c[1])>VIEW*.4)return [me.x,me.z];return c}return p.c};
+  const crop=t=>{const c=focus(t),w=VIEW,h=VIEW*CV.height/CV.width,cl=(v,half)=>Math.max(half,Math.min(14900-half,v));const x=cl(c[0],w/2),z=cl(c[1],h/2);return {x0:x-w/2,x1:x+w/2,z0:z-h/2,z1:z+h/2}};   // keep the view on the map
+  const toMain=(C,x,z)=>[(x-C.x0)/(C.x1-C.x0)*CV.width,(1-(z-C.z0)/(C.z1-C.z0))*CV.height];
+  const toMini=(x,z)=>[(x-MB.x0)/(MB.x1-MB.x0)*MV.width,(1-(z-MB.z0)/(MB.z1-MB.z0))*MV.height];
+  const teamCol=k=>champs[k][1]===myTeam?"#4aa3ff":"#ff5a5a";
+  function icon(ctx,xy,k,r,label,alpha){const [px,py]=xy;ctx.save();ctx.globalAlpha=alpha;
+    ctx.beginPath();ctx.arc(px,py,r,0,7);ctx.save();ctx.clip();const im=img(CHAMP_ICON(champs[k][0]));
+    if(im.complete&&im.naturalWidth)ctx.drawImage(im,px-r,py-r,2*r,2*r);else{ctx.fillStyle=teamCol(k);ctx.fill()}ctx.restore();
+    ctx.beginPath();ctx.arc(px,py,r,0,7);ctx.lineWidth=r>12?3.5:2;ctx.strokeStyle=k==MI?"#ffd479":teamCol(k);ctx.stroke();
+    if(label){ctx.font="600 13px system-ui";ctx.textAlign="center";ctx.lineWidth=3;ctx.strokeStyle="rgba(0,0,0,.8)";
+      const tx=k==MI?"You":champs[k][0];ctx.strokeText(tx,px,py+r+16);ctx.fillStyle="#fff";ctx.fillText(tx,px,py+r+16)}
+    ctx.restore()}
+  function hpBar(xy,w,r){const [px,py]=xy,f=Math.max(0,st.hp[w]/MX[w]);cx.fillStyle="rgba(0,0,0,.75)";cx.fillRect(px-r-2,py-r-14,2*r+4,8);
+    cx.fillStyle=f>.5?"#5fd16f":f>.25?"#e8c15a":"#ff5a5a";cx.fillRect(px-r,py-r-12,2*r*f,4)}
+  function mapDraw(t){
+    const C=crop(t),W=CV.width,H=CV.height; cx.clearRect(0,0,W,H);
+    if(map.complete&&map.naturalWidth){const iw=map.naturalWidth,ih=map.naturalHeight,sx=(C.x0-MB.x0)/(MB.x1-MB.x0)*iw,sy=(1-(C.z1-MB.z0)/(MB.z1-MB.z0))*ih,
+      sw=(C.x1-C.x0)/(MB.x1-MB.x0)*iw,sh=(C.z1-C.z0)/(MB.z1-MB.z0)*ih;cx.imageSmoothingQuality="high";cx.drawImage(map,sx,sy,sw,sh,0,0,W,H)}
+    else{cx.fillStyle="#16202b";cx.fillRect(0,0,W,H)}
+    const scale=W/(C.x1-C.x0), R=Math.max(15,Math.min(24,65*scale*3.2));
+    // minions: real top-down models captured from a replay, turned to face where they're walking
+    for(const m of (p.mins||[])){const q=minAt(m.p,t);if(!q)continue;const [px,py]=toMain(C,q.x,q.z);
+      const sp=MINIONS[m.tm===100?"blue":"red"], im=img(sp.src), q0=minAt(m.p,t-0.4)||q;
+      let ang=Math.atan2(-(q.z-q0.z),q.x-q0.x); if(Math.hypot(q.x-q0.x,q.z-q0.z)<15) ang=m.tm===100?-Math.PI/4:3*Math.PI/4;
+      const rot=ang-(m.tm===100?-Math.PI/4:3*Math.PI/4), w=sp.w*sp.u*scale, hh=sp.h*sp.u*scale;
+      if(im.complete&&im.naturalWidth){cx.save();cx.translate(px,py);cx.rotate(rot);cx.drawImage(im,-w/2,-hh/2,w,hh);cx.restore()}
+      else{cx.beginPath();cx.arc(px,py,4,0,7);cx.fillStyle=m.tm===myTeam?"#4aa3ff":"#ff5a5a";cx.fill()}
+      cx.beginPath();cx.arc(px,py+hh*.42,2.5,0,7);cx.fillStyle=m.tm===myTeam?"#4aa3ff":"#ff5a5a";cx.fill()}
+    const order=Object.keys(P).map(Number).filter(k=>k!==MI&&k!==OI).concat([OI,MI]);
+    for(const k of order){const q=posAt(k,t);if(!q)continue;const main=(k===MI||k===OI);
+      cx.beginPath();let first=true;for(let s=3;s>=0;s-=0.25){const r=posAt(k,t-s);if(!r)continue;const [a,b]=toMain(C,r.x,r.z);first?cx.moveTo(a,b):cx.lineTo(a,b);first=false}
+      cx.strokeStyle=champs[k][1]===myTeam?"rgba(74,163,255,.5)":"rgba(255,90,90,.5)";cx.lineWidth=main?3:2;cx.stroke();
+      const w=k==MI?"you":k==OI?"them":null, dead=w&&st.dead[w];
+      const al=dead?.3:q.stale>4?Math.max(.35,1-q.stale/25):1, xy=toMain(C,q.x,q.z);
+      const spr=MODELS&&SPR&&SPR[champs[k][0]];
+      if(spr){const im=img(spr.src), q0=posAt(k,t-0.35);
+        if(q0&&Math.hypot(q.x-q0.x,q.z-q0.z)>20) HEAD[k]=Math.atan2(-(q.z-q0.z),q.x-q0.x);
+        const rot=(HEAD[k]??-spr.head*Math.PI/180)+spr.head*Math.PI/180, sw=spr.w*spr.u*scale*1.6, sh=spr.h*spr.u*scale*1.6, rr=Math.max(10,Math.min(sw,sh)*.42);
+        cx.save();cx.globalAlpha=al;cx.beginPath();cx.ellipse(xy[0],xy[1],rr,rr*.9,0,0,7);cx.fillStyle=(k==MI?"rgba(255,212,121,.25)":champs[k][1]===myTeam?"rgba(74,163,255,.25)":"rgba(255,90,90,.25)");cx.fill();
+        cx.lineWidth=2.5;cx.strokeStyle=k==MI?"#ffd479":teamCol(k);cx.stroke();
+        if(im.complete&&im.naturalWidth){cx.translate(xy[0],xy[1]);cx.rotate(rot);cx.drawImage(im,-sw/2,-sh/2,sw,sh);cx.setTransform(1,0,0,1,0,0)}
+        cx.font="600 13px system-ui";cx.textAlign="center";cx.lineWidth=3;cx.strokeStyle="rgba(0,0,0,.8)";const tx=k==MI?"You":champs[k][0];
+        cx.strokeText(tx,xy[0],xy[1]+rr+16);cx.fillStyle="#fff";cx.fillText(tx,xy[0],xy[1]+rr+16);cx.restore();
+        if(main&&!dead) hpBar(xy,w,rr)}
+      else{ icon(cx,xy,k,main?R:R*.8,true,al); if(main&&!dead) hpBar(xy,w,main?R:R*.8)}}
+    // hits (lines), casts (labels), damage pops: drawn from recent events so scrubbing works
+    const stack={};
+    for(const e of [...p.ev].reverse()){const a=t-e[0];if(a<0||a>1.4)continue;if(e[1]==='h'&&a>1)continue;
+      if(e[1]==="h"){const tgt=e[2]==="you"?MI:OI,b=posAt(tgt,e[0]);if(!b)continue;const [bx,by]=toMain(C,b.x,b.z);
+        if(e[5]>=0&&e[5]!==tgt&&a<.4){const s=posAt(e[5],e[0]);if(s){const [sx,sy]=toMain(C,s.x,s.z);cx.save();cx.globalAlpha=1-a/.4;
+          cx.strokeStyle=e[5]===MI?"#ffd479":champs[e[5]][1]===myTeam?"#7cc0ff":"#ff7a7a";cx.lineWidth=Math.min(7,2+e[4]/60);cx.lineCap="round";
+          cx.beginPath();cx.moveTo(sx,sy);cx.lineTo(bx,by);cx.stroke();cx.restore()}}
+        if(e[4]>=15&&a<.9){cx.save();cx.globalAlpha=1-a/.9;cx.font="800 15px system-ui";cx.textAlign="left";cx.lineWidth=3;cx.strokeStyle="#000";
+          const tx="−"+e[4],yy=by-R-18-a*22;cx.strokeText(tx,bx+R*.6,yy);cx.fillStyle=e[3]==="other"?"#cfd6de":e[2]==="you"?"#ff6b6b":"#ffd36b";cx.fillText(tx,bx+R*.6,yy);cx.restore()}}
+      else if(e[1]==="c"&&a<1.4){const k=e[2]==="you"?MI:OI,b=posAt(k,t);if(!b)continue;const [bx,by]=toMain(C,b.x,b.z);
+        const slot=stack[k]=(stack[k]||0)+1, S=30, ix=bx-R-10-S-(slot-1)*(S+4), iy=by-S/2;
+        cx.save();cx.globalAlpha=a<1?1:1-(a-1)/.4;
+        if(a<.5){cx.beginPath();cx.arc(bx,by,R+5+a*22,0,7);cx.strokeStyle=k===MI?"#ffd479":"#ff7a7a";cx.lineWidth=3;cx.globalAlpha*=1-a/.5;cx.stroke();cx.globalAlpha=a<1?1:1-(a-1)/.4}
+        const ic=SPELLS[champs[k][0]]&&img(SPELLS[champs[k][0]][e[3]]), pop=a<.15?1+(.15-a)*2.5:1, s=S*pop;
+        cx.fillStyle="#000";cx.fillRect(ix+S/2-s/2-2,iy+S/2-s/2-2,s+4,s+4);
+        if(ic&&ic.complete&&ic.naturalWidth)cx.drawImage(ic,ix+S/2-s/2,iy+S/2-s/2,s,s);
+        cx.strokeStyle=k===MI?"#ffd479":"#ff7a7a";cx.lineWidth=2;cx.strokeRect(ix+S/2-s/2,iy+S/2-s/2,s,s);
+        cx.font="800 11px system-ui";cx.textAlign="center";cx.fillStyle="#000";cx.fillRect(ix+S-11,iy+S-10,12,12);cx.fillStyle="#fff";cx.fillText(e[3],ix+S-5,iy+S);
+        cx.restore()}}
+    // minimap inset: whole map, all 10 champions, view box
+    mx.clearRect(0,0,MV.width,MV.height); if(mini.complete&&mini.naturalWidth)mx.drawImage(mini,0,0,MV.width,MV.height);
+    const [r0x,r0y]=toMini(C.x0,C.z1),[r1x,r1y]=toMini(C.x1,C.z0);mx.strokeStyle="rgba(255,255,255,.85)";mx.lineWidth=2;mx.strokeRect(r0x,r0y,r1x-r0x,r1y-r0y);
+    for(const k of order){const q=posAt(k,t);if(q)icon(mx,toMini(q.x,q.z),k,k===MI||k===OI?13:10,false,q.stale>4?.5:1)}
+  }
+  function mapReset(){}
+  const SPR=null, HEAD={}, MODELS=false;
+  function mapEvent(){}
+  cell.querySelectorAll("[data-z]").forEach(b=>b.onclick=()=>{VIEW=+b.dataset.z;cell.querySelectorAll("[data-z]").forEach(x=>x.classList.toggle("on",x===b));draw()});
+  function reset(){if(typeof mapReset==="function")mapReset();st.idx=0;st.hp={you:p.start[0],them:p.start[1]};st.dead={you:false,them:false};st.casts={you:[],them:[]};
+    for(const w of ["you","them"]){F[w].querySelector(".pops").innerHTML="";F[w].classList.remove("isdead")}}
+  function applyUpTo(t,anim){
+    while(st.idx<p.ev.length&&p.ev[st.idx][0]<=t){const e=p.ev[st.idx++];
+      if(e[1]==="h"){st.hp[e[2]]=Math.max(0,st.hp[e[2]]-e[4]);
+        if(anim&&e[4]>=4){const d=document.createElement("div");d.className="pop "+e[3];d.textContent="−"+e[4];const box=F[e[2]].querySelector(".pops");box.prepend(d);setTimeout(()=>d.remove(),1100)}}
+      else if(e[1]==="c"){st.casts[e[2]].push(e[3])}
+      if(anim) mapEvent(e,e[0]);
+      else if(e[1]==="d"){st.dead[e[2]]=true;st.hp[e[2]]=0}}
+  }
+  function draw(){
+    for(const w of ["you","them"]){const pct=Math.max(0,st.hp[w]/MX[w]*100);
+      F[w].querySelector(".cur").style.width=pct+"%";F[w].querySelector(".ghost").style.width=pct+"%";
+      F[w].querySelector(".hpnum").innerHTML=`<b>${Math.round(st.hp[w])}</b> / ${MX[w]} HP · ${Math.round(pct)}%`;
+      const c=st.casts[w], cn=g.champs[w==="you"?g.mi:g.oi][0];F[w].querySelector(".cast").innerHTML=c.map((k,ix)=>`<span class="castk ${ix<c.length-1?"old":""}" title="${k}">${SPELLS[cn]?`<img src="${SPELLS[cn][k]}" alt="${k}"><i>${k}</i>`:k}</span>`).join("");
+      F[w].classList.toggle("isdead",st.dead[w])}
+    mapDraw(st.t);
+    cell.querySelector(".head").style.left=(st.t/L*100)+"%";
+    cell.querySelector(".clock").textContent=`${clk(p.w0+st.t)} · ${(st.t).toFixed(1)}s`;
+  }
+  function seek(t){st.t=Math.max(0,Math.min(L,t));reset();applyUpTo(st.t,false);draw()}
+  function frame(ts){ if(!st.playing){st.last=null;return}
+    if(st.last!=null){st.t+=(ts-st.last)/1000*st.speed}
+    st.last=ts; if(st.t>=L){st.t=L;st.playing=false;cell.querySelector("#pbPlay").textContent="▶ Play"}
+    applyUpTo(st.t,true);draw(); if(st.playing) PB.raf=requestAnimationFrame(frame)}
+  cell.querySelector("#pbPlay").onclick=()=>{if(st.t>=L) seek(0);st.playing=!st.playing;cell.querySelector("#pbPlay").textContent=st.playing?"❚❚ Pause":"▶ Play";if(st.playing){st.last=null;PB.raf=requestAnimationFrame(frame)}};
+  cell.querySelector("#pbRe").onclick=()=>{seek(0);if(!st.playing){st.playing=true;cell.querySelector("#pbPlay").textContent="❚❚ Pause"};st.last=null;PB.raf=requestAnimationFrame(frame)};
+  cell.querySelectorAll("[data-sp]").forEach(b=>b.onclick=()=>{st.speed=+b.dataset.sp;cell.querySelectorAll("[data-sp]").forEach(x=>x.classList.toggle("on",x===b))});
+  const sc=cell.querySelector("#pbScrub");sc.onclick=ev=>{const r=sc.getBoundingClientRect();seek((ev.clientX-r.left)/r.width*L)};
+  seek(0);PB.raf=requestAnimationFrame(frame);
+}
+
+let sel=-1, filt="all", ROOT=null, GAME=null;
+function render(){
+  const g=GAME, T=g.trades.map(tr=>{const [v,label]=judge(tr);return {...tr,v,label,why:why(tr,v)}});
+  const won=T.filter(t=>t.v==="won").length, lost=T.filter(t=>t.v==="lost").length;
+  const net=T.reduce((a,t)=>a+t.dealt-t.took,0);
+  const mineStart=T.filter(t=>t.first==="you"), theirStart=T.filter(t=>t.first==="them");
+  const rate=a=>a.length?`${a.filter(t=>t.v==="won").length}/${a.length}`:"–";
+  const down=T.filter(t=>t.lv[0]<t.lv[1]), downLost=down.filter(t=>t.v==="lost").length;
+  const poked=T.filter(t=>t.first==="them"&&t.dealt===0);
+  const worst=[...T].sort((a,b)=>(b.took/b.hpMe[1]-b.dealt/b.hpOpp[1])-(a.took/a.hpMe[1]-a.dealt/a.hpOpp[1]))[0];
+  const ins=[];
+  ins.push(`You won <b>${rate(mineStart)}</b> trades you started and <b>${rate(theirStart)}</b> trades ${esc(nm(g.opp))} started.`);
+  if(down.length) ins.push(`You traded <b>${down.length}</b> times while a level down and lost <b>${downLost}</b> of them.`);
+  if(poked.length>=3) ins.push(`${esc(nm(g.opp))} poked you <b>${poked.length}</b> times without taking damage back (${poked.reduce((a,t)=>a+t.took,0)} damage total). Consider standing further back or punishing their cooldowns.`);
+  if(worst&&worst.v==="lost") ins.push(`Worst trade: <b>${clk(worst.t0)}</b>, you lost ${Math.round(worst.took/worst.hpMe[1]*100)}% HP for ${Math.round(worst.dealt/worst.hpOpp[1]*100)}% of theirs.`);
+  const span=[90,840], X=t=>(t-span[0])/(span[1]-span[0])*100;
+  const maxd=Math.max(...T.map(t=>t.dealt+t.took),1);
+  const color=v=>v==="won"?"var(--green)":v==="lost"?"var(--red)":"var(--faint)";
+  const rows=T.map((t,i)=>({t,i})).filter(({t})=>filt==="all"||t.v===filt);
+  ROOT.innerHTML=`
+  <div class="card">
+    <div class="vs"><div class="ic me">${esc(nm(g.me)[0])}</div><div><h2>${esc(nm(g.me))} <span class="meh">vs</span> ${esc(nm(g.opp))}</h2>
+      <div class="sub">Every trade with your lane opponent, 1:30–14:00, decoded hit by hit from your replay file.</div></div><div class="ic op" style="margin-left:auto">${esc(nm(g.opp)[0])}</div></div>
+    <div class="stats">
+      <div class="stat"><b>${T.length}</b><span>trades</span></div>
+      <div class="stat"><b class="good">${won}</b><span>won</span></div>
+      <div class="stat"><b class="bad">${lost}</b><span>lost</span></div>
+      <div class="stat"><b class="${net>=0?"good":"bad"}">${net>=0?"+":""}${net}</b><span>net damage in trades</span></div>
+      <div class="stat"><b>${rate(mineStart)}</b><span>won when you started</span></div>
+    </div>
+    <ul class="insights">${ins.map(s=>`<li>${s}</li>`).join("")}</ul>
+  </div>
+  <div class="card"><h2>Trades over time</h2><div class="sub">Each bar is one trade; height = total damage exchanged. Click one to jump to it and play it.</div>
+    <div class="strip">${T.map((t,i)=>`<div class="dot ${i===sel?"sel":""}" data-i="${i}" title="${clk(t.t0)} · ${t.label}" style="left:${X(t.t0)}%;height:${8+52*(t.dealt+t.took)/maxd}px;width:${Math.max(6,(t.t1-t.t0)/7.5)}px;background:${color(t.v)}"></div>`).join("")}
+      ${[2,4,6,8,10,12,14].map(m=>`<div class="tick" style="left:${X(m*60)}%">${m}:00</div>`).join("")}</div>
+    <div class="legend"><span><i style="background:var(--green)"></i>won</span><span><i style="background:var(--red)"></i>lost</span><span><i style="background:var(--faint)"></i>even</span></div></div>
+  <div class="card"><h2>Every trade</h2>
+    <div class="filters">${["all","lost","won","even"].map(f=>`<button class="${filt===f?"on":""}" data-f="${f}">${f==="all"?"All":f[0].toUpperCase()+f.slice(1)}</button>`).join("")}</div>
+    <table><thead><tr><th>Time</th><th>Result</th><th>Levels</th><th>Your HP</th><th>Their HP</th><th>Abilities</th></tr></thead><tbody>
+    ${rows.map(({t,i})=>{const dl=t.lv[0]-t.lv[1];
+      const hb=(cls,hp,mx,loss,dead)=>{const a=Math.min(100,hp/mx*100), l=dead?a:Math.min(a,loss/mx*100);return `<div class="bar ${cls}"><div class="now" style="width:${a-l}%"></div><div class="lost" style="left:${a-l}%;width:${l}%"></div></div><small>−${loss} (${Math.round(loss/mx*100)}%)</small>`};
+      return `<tr class="row ${i===sel?"sel":""}" data-i="${i}" id="tr${i}"><td>${clk(t.t0)}<div class="lv">${t.first==="you"?"you started":"they started"}</div></td>
+      <td><span class="pill ${t.v}">${t.label}</span>${t.gank>100?`<span class="flag">+gank</span>`:""}<div class="why">${esc(t.why)}</div></td>
+      <td><span class="lv ${dl<0?"down":dl>0?"up":""}">${t.lv[0]} vs ${t.lv[1]}</span></td>
+      <td class="hp">${hb("me",t.hpMe[0],t.hpMe[1],t.took,t.died.includes("you"))}${t.died.includes("you")?'<small class="bad"> · died</small>':""}</td><td class="hp">${hb("op",t.hpOpp[0],t.hpOpp[1],t.dealt,t.died.includes("them"))}${t.died.includes("them")?'<small class="good"> · killed</small>':""}</td>
+      <td><div class="seq">${t.seq.map(s=>`<span class="k ${s.w}">${s.k}</span>`).join("")||'<span class="meh">autos only</span>'}</div><div class="lv" style="margin-top:4px">${i===sel?"▾ playing":"▸ click to play"}</div></td></tr>${i===sel?`<tr class="pbrow"><td colspan="6" id="pbcell"></td></tr>`:""}`}).join("")}
+    </tbody></table>
+    <div class="note">Damage is decoded hit-by-hit from the replay file and matches Riot's official damage totals (r = 1.00 across 230 players). HP going in is estimated from Riot's per-minute HP minus the damage taken since, so it can run low when you healed or regenerated in between. Abilities: blue = you, red = them, in the order they were cast.</div>
+  </div>`;
+  ROOT.querySelectorAll(".dot").forEach(d=>d.onclick=()=>{sel=+d.dataset.i;filt="all";render();document.getElementById("tr"+sel)?.scrollIntoView({behavior:"smooth",block:"center"})});
+  ROOT.querySelectorAll("tr.row").forEach(r=>r.onclick=()=>{sel=(sel===+r.dataset.i)?-1:+r.dataset.i;render();if(sel>=0)document.getElementById("tr"+sel)?.scrollIntoView({behavior:"smooth",block:"start"})});
+  const pc=ROOT.querySelector("#pbcell"); if(pc&&sel>=0) openPB(T[sel],pc);
+  ROOT.querySelectorAll(".filters button").forEach(b=>b.onclick=()=>{filt=b.dataset.f;render()});
+}
+
+async function show(root, g){
+  ROOT=root; sel=-1; filt="all";
+  g.champs=g.champs.map(([n,t])=>[ddId(n),t]); g.me=g.champs[g.mi][0]; g.opp=g.champs[g.oi][0]; GAME=g;
+  await loadSpells([g.me,g.opp]);
+  if(!g.trades.length){root.innerHTML=`<div class="card"><div class="empty">No trades with your lane opponent between 1:30 and 14:00.</div></div>`;return}
+  render();
+}
+return { show };
+})();
 
 // "Going in": players, levels and gold on each side of the fight a kill or death was part of.
 // "Going in" shows compact chips (hover for items) unless the player switched on "Show all items". Remembered per browser.

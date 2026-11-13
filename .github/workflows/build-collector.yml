@@ -11,6 +11,8 @@ on:
       - "collector/review.py"
       - "collector/review.html"
       - "collector/icon.ico"
+      - "collector/replay_trades.py"
+      - "collector/assets/**"
       - "collector/version_info.txt"
       - ".github/workflows/build-collector.yml"
   workflow_dispatch:
@@ -33,7 +35,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install PyInstaller and tray libraries
-        run: pip install pyinstaller==6.11.1 pystray==0.19.5 pillow==11.0.0
+        run: pip install pyinstaller==6.11.1 pystray==0.19.5 pillow==11.0.0 zstandard==0.23.0
 
       - name: Stamp the version from custy_collector.py into the file details
         shell: bash
@@ -46,9 +48,9 @@ jobs:
       - name: Build custy-collector.exe
         run: >
           pyinstaller --onefile --noconsole --name custy-collector
-          --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;."
+          --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;." --add-data "collector/assets;assets"
           --version-file collector/version_info.txt
-          --paths collector --hidden-import windows_app --hidden-import review --hidden-import overlay --hidden-import champselect --hidden-import tkinter --hidden-import pystray._win32
+          --paths collector --hidden-import windows_app --hidden-import review --hidden-import overlay --hidden-import champselect --hidden-import replay_trades --hidden-import zstandard --hidden-import tkinter --hidden-import pystray._win32
           collector/custy_collector.py
 
       - name: Check the app starts and reads attached settings
