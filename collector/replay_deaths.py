@@ -242,6 +242,7 @@ def death_reviews(path, me, roles, kills, towers_dead, d=None):
              "missing": [names[k] for k in missing], "wave": wave, "route": route, "lane": lane}
         r["text"] = _verdict(r, roles.get(me, ""))
         r["map"] = _snapshot(tracks, me, involved, who, T, my)
+        r["pb"] = _playback(d, me, involved, who, T, seen, kills, enemies)
         out.append(r)
     return out
 
@@ -360,6 +361,60 @@ def _verdict(r, my_role):
     if adv:
         lines.append(adv)
     return lines
+
+
+def _playback(d, me, involved, who, T, seen, kills, enemies):
+    """Everything the page needs to play the lead-up back: all 10 champions, minions near you, hits on you,
+    casts, deaths, and when each enemy was visible to your team. Times are seconds from the window start."""
+    seen_at = [w["lastSeen"] for w in who if w.get("lastSeen") is not None]
+    w0 = min(T - 30, max(T - 90, min(seen_at) - 3)) if seen_at else T - 30
+    w0 = max(0.0, w0); w1 = T + 3
+    rel = lambda t: round(t - w0, 2)
+
+    def seg(L, step=0.2):
+        out, last = [], -9
+        for t, x, z in L or []:
+            if w0 - 4 <= t <= w1 + 2 and (t - last >= step or t > w1):
+                out.append([rel(t), round(x), round(z)]); last = t
+        return out
+    pos = {str(k): seg(d["tracks"].get(k)) for k in range(10)}
+    # enemy visibility to your team, as [start, end] stretches
+    vis = {}
+    for k in enemies:
+        iv, cur, t = [], None, w0
+        while t <= w1:
+            if seen(k, t):
+                if cur is None: cur = [rel(t), rel(t)]
+                else: cur[1] = rel(t)
+            elif cur is not None:
+                iv.append(cur); cur = None
+            t += 0.5
+        if cur is not None: iv.append(cur)
+        vis[str(k)] = iv
+    ev = []
+    for t, tg, a, v in d["hits"]:
+        if w0 <= t <= w1 and v > 0.5 and (tg == me or (a == me and tg is not None and tg < 10)):
+            ev.append([rel(t), "h", tg, -1 if a is None else a, round(v)])
+    near = set([me] + list(involved))
+    for t, k, L in d["casts"]:
+        if w0 <= t <= w1 and k in near:
+            ev.append([rel(t), "c", k, L])
+    for x in kills:
+        if w0 <= x["t"] <= w1:
+            ev.append([rel(x["t"]), "d", x["victim"]])
+    ev.sort(key=lambda e: e[0])
+    # minions that came near your path
+    mine = [(x, z) for t, x, z in pos[str(me)]]
+    mins = []
+    for key, L in d["tracks"].items():
+        if isinstance(key, int) and key < 10:
+            continue
+        sg = seg(L, 0.4)
+        if len(sg) >= 2 and any(math.hypot(x - a, z - b) < 1800 for t, x, z in sg[::3] for a, b in mine[::10]):
+            x0, z0 = L[0][1], L[0][2]
+            mins.append({"tm": 100 if math.hypot(x0 - 1500, z0 - 1500) < math.hypot(x0 - 13300, z0 - 13300) else 200, "p": sg})
+    return {"w0": round(w0, 2), "len": round(w1 - w0, 2), "death": rel(T), "pos": pos, "vis": vis, "ev": ev,
+            "mins": mins[:80], "involved": list(involved)}
 
 
 def _snapshot(tracks, me, involved, who, T, my):

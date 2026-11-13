@@ -420,7 +420,7 @@ def trades_for(cfg, game_id):
     return out
 
 
-DEATHS_VERSION = 2
+DEATHS_VERSION = 3
 
 
 def deaths_for(cfg, game_id):

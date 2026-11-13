@@ -358,6 +358,25 @@ body.viewing [data-watch], body.viewing #ov { display:none !important; }
 .gk { display:grid; grid-template-columns:320px 1fr; gap:16px; align-items:start; } .gk canvas { width:100%; border-radius:10px; border:1px solid var(--line); }
 .gk.gank { border-color:#6b4d1d; } .gk .gt b { display:block; margin:6px 0 4px; } .gk .gt ul { margin:4px 0 8px; padding-left:18px; color:var(--ink); } .gk .gt li { margin:3px 0; }
 .gk .adv { background:var(--gold-wash); border-radius:8px; padding:8px 10px; margin:6px 0 10px; color:#ffe2a8; }
+.gk .gkbtns { display:flex; gap:8px; flex-wrap:wrap; } .gk .gkbtns button:not(.primary) { background:var(--deck-2); border:1px solid var(--line); color:var(--ink); border-radius:8px; padding:6px 12px; cursor:pointer; font:inherit; }
+.gkpb { grid-column:1 / -1; margin-top:4px; }
+.gkpb .stage { position:relative; } .gkpb canvas.main { width:100%; height:auto; display:block; background:#101820; border:1px solid #26313f; border-radius:10px; }
+.gkpb canvas.mini { position:absolute; right:10px; bottom:10px; width:150px; height:150px; border:1px solid #3a4a5c; border-radius:6px; background:#0d141c; }
+.gkpb .zm, .gkpb .fog { position:absolute; top:10px; display:flex; gap:4px; } .gkpb .zm { left:10px; } .gkpb .fog { right:10px; }
+.gkpb .zm button, .gkpb .fog button, .gkpb .ctl button { background:var(--deck-2); border:1px solid var(--line); color:var(--ink); border-radius:8px; padding:3px 10px; cursor:pointer; font:inherit; font-size:12.5px; }
+.gkpb button.on { border-color:var(--gold); color:var(--gold); }
+.gkpb .maplegend { position:absolute; left:12px; bottom:10px; font-size:11.5px; color:#c8d4e2; text-shadow:0 1px 2px #000; pointer-events:none; }
+.gkpb .chips { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+.gkpb .chip { display:flex; align-items:center; gap:6px; background:var(--deck); border:1px solid var(--line); border-radius:999px; padding:3px 10px 3px 3px; font-size:13px; }
+.gkpb .chip img { width:24px; height:24px; border-radius:50%; filter:grayscale(1); opacity:.7; } .gkpb .chip i { font-style:normal; color:var(--mute); }
+.gkpb .chip.on { border-color:#a33c3c; } .gkpb .chip.on img { filter:none; opacity:1; } .gkpb .chip.on i { color:#ff8a8a; font-weight:700; }
+.gkpb .ctl { display:flex; align-items:center; gap:8px; margin-top:10px; } .gkpb .ctl .clock { font-variant-numeric:tabular-nums; color:var(--mute); font-size:13px; min-width:44px; }
+.gkpb .scrub { position:relative; flex:1; height:36px; background:var(--deck); border-radius:8px; cursor:pointer; border:1px solid var(--line-soft); touch-action:none; }
+.gkpb .scrub .head { position:absolute; top:-3px; bottom:-3px; width:2px; background:var(--gold); }
+.gkpb .scrub .vb { position:absolute; height:4px; background:#e05050; border-radius:2px; opacity:.85; }
+.gkpb .mk { position:absolute; transform:translateX(-50%); } .gkpb .mk.cy { bottom:2px; font-size:9px; font-weight:800; color:var(--blue-ink); }
+.gkpb .mk.hy { bottom:14px; width:2px; height:6px; background:var(--red); } .gkpb .mk.dd { top:9px; font-size:13px; }
+.gkpb .pblegend { font-size:12px; color:var(--mute); margin-top:6px; }
 @media (max-width:760px) { .gk { grid-template-columns:1fr; } }
 </style>
 </head>
@@ -1558,8 +1577,10 @@ async function loadGanks(A, again) {
     <div class="gt"><div class="badge ${d.kind === "gank" ? "" : "ok"}">${d.kind === "gank" ? "Gank" : "Caught out"} · ${clock(d.t)}</div>
       <b>${esc(d.text[0])}</b><ul>${d.text.slice(1, -1).map(t => `<li>${esc(t)}</li>`).join("")}</ul>
       <div class="adv">${esc(d.text[d.text.length - 1])}</div>
-      <button class="primary" data-watch="${Math.max(0, Math.round(Math.min(...d.who.map(w => w.appear), d.t) - 12))}">Watch in my replay</button></div></div>`).join("");
+      <div class="gkbtns">${d.pb ? `<button class="primary" data-gkplay="${i}">▶ Play it back</button>` : ""}<button class="${d.pb ? "" : "primary"}" data-watch="${Math.max(0, Math.round(Math.min(...d.who.map(w => w.appear), d.t) - 12))}">Watch in my replay</button></div></div>
+    <div class="gkpb" id="gkpb${i}" hidden></div></div>`).join("");
   el.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
+  el.querySelectorAll("[data-gkplay]").forEach(b => b.onclick = () => DPB.open($("gkpb" + b.dataset.gkplay), r.deaths[+b.dataset.gkplay], r.champs, b));
   if (!GK.img) { GK.img = new Image(); GK.img.src = "/assets/sr-map.jpg"; }
   const drawAll = () => r.deaths.forEach((d, i) => gankMap($("gkm" + i), d, r.champs));
   if (GK.img.complete) drawAll(); else GK.img.onload = drawAll;
@@ -1592,6 +1613,144 @@ function gankMap(cv, d, champs) {
   }
   c.font = "900 20px system-ui"; c.fillStyle = "#ff6b6b"; c.textAlign = "center"; c.fillText("✕", sx(d.pos[0]), sy(d.pos[1]) + 7); c.textAlign = "left";
 }
+
+
+// Death playback: the lead-up to a death on the real map, with what your team could see of the enemies.
+const DPB = (() => {
+let cur = null;
+const IMG = window.__img || (window.__img = {});
+function img(src, redraw) { if (!IMG[src]) { const i = new Image(); i.src = src; IMG[src] = i; } if (redraw && !IMG[src].complete) IMG[src].addEventListener("load", redraw, { once: true }); return IMG[src]; }
+const clk = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+async function open(box, d, champs0, btn) {
+  if (cur && cur.box === box && !box.hidden) { stop(); box.hidden = true; btn.textContent = "▶ Play it back"; return; }
+  if (cur) { stop(); cur.box.hidden = true; if (cur.btn) cur.btn.textContent = "▶ Play it back"; }
+  const p = d.pb, L = p.len, me = d.map.me, myTeam = me < 5 ? 100 : 200;
+  const champs = champs0.map(([n, t]) => [LT.ddId(n), t || (champs0.indexOf(n) < 5 ? 100 : 200)]);
+  const team = k => (k < 5 ? 100 : 200), ally = k => team(k) === myTeam, inv = p.involved;
+  box.hidden = false; btn.textContent = "■ Close playback";
+  box.innerHTML = `<div class="stage"><canvas class="main" width="960" height="600"></canvas><canvas class="mini" width="300" height="300"></canvas>
+    <div class="zm"><button data-z="3500">Close</button><button data-z="6000" class="on">Area</button><button data-z="10000">Wide</button></div>
+    <div class="fog"><button data-fog="1" class="on">What your team saw</button><button data-fog="0">Everything</button></div>
+    <div class="maplegend"><span style="color:#4aa3ff">●</span> your team &nbsp;<span style="color:#ff5a5a">●</span> enemy &nbsp;· faded ? = where your team last saw them</div></div>
+    <div class="chips">${inv.map(k => `<span class="chip" data-k="${k}"><img src="${LT.CHAMP_ICON(champs[k][0])}"><b>${esc(LT.nm(champs[k][0]))}</b><i></i></span>`).join("")}</div>
+    <div class="ctl"><button class="pl">❚❚ Pause</button>${[1, 2, 4].map(v => `<button data-sp="${v}">${v}×</button>`).join("")}<button class="re">↺</button>
+      <div class="scrub">${inv.map((k, n) => (p.vis[k] || []).map(([a, b]) => `<span class="vb" style="left:${a / L * 100}%;width:${Math.max(.4, (b - a + .5) / L * 100)}%;top:${4 + n * 5}px" title="${esc(LT.nm(champs[k][0]))} in sight"></span>`).join("")).join("")}
+        ${p.ev.filter(e => e[1] === "c" && e[2] === me).map(e => `<span class="mk cy" style="left:${e[0] / L * 100}%">${e[3]}</span>`).join("")}
+        ${p.ev.filter(e => e[1] === "h" && e[2] === me && e[3] >= 0 && e[3] < 10).map(e => `<span class="mk hy" style="left:${e[0] / L * 100}%"></span>`).join("")}
+        <span class="mk dd" style="left:${p.death / L * 100}%">☠</span><div class="head"></div></div><span class="clock"></span></div>
+    <div class="pblegend">Red bars on the timeline: when each enemy who killed you was in your team's sight · red ticks: champion damage on you · letters: your abilities</div>`;
+  const st = { t: 0, speed: L > 40 ? 2 : 1, playing: false, last: null, fog: true, view: 6000 };
+  cur = { box, btn, st };
+  let ready = false;
+  const CV = box.querySelector("canvas.main"), cx = CV.getContext("2d"), MV = box.querySelector("canvas.mini"), mx = MV.getContext("2d");
+  const map = img("/assets/sr-map.jpg", () => ready && draw()), mini = img("/assets/sr-mini.jpg", () => ready && draw());
+  await LT.loadSpells([...new Set([me, ...inv].map(k => champs[k][0]))]);
+  const P = p.pos;
+  const posAt = (k, t) => { const Lk = P[k]; if (!Lk || !Lk.length) return null; let a = 0, b = Lk.length - 1;
+    if (t <= Lk[0][0]) return { x: Lk[0][1], z: Lk[0][2], stale: Lk[0][0] - t }; if (t >= Lk[b][0]) return { x: Lk[b][1], z: Lk[b][2], stale: t - Lk[b][0] };
+    while (b - a > 1) { const m = (a + b) >> 1; if (Lk[m][0] <= t) a = m; else b = m; }
+    const A = Lk[a], B = Lk[b], gap = B[0] - A[0];
+    if (gap > 6 || Math.hypot(B[1] - A[1], B[2] - A[2]) / gap > 900) return { x: A[1], z: A[2], stale: t - A[0] };
+    const f = (t - A[0]) / gap; return { x: A[1] + (B[1] - A[1]) * f, z: A[2] + (B[2] - A[2]) * f, stale: 0 }; };
+  const minAt = (Lm, t) => { if (t < Lm[0][0] - 0.3 || t > Lm[Lm.length - 1][0] + 2.5) return null; let j = 0; while (j < Lm.length - 1 && Lm[j + 1][0] <= t) j++;
+    const A = Lm[j], B = Lm[Math.min(j + 1, Lm.length - 1)]; if (B[0] <= A[0] || t < A[0]) return { x: A[1], z: A[2] }; const f = Math.min(1, (t - A[0]) / (B[0] - A[0])); return { x: A[1] + (B[1] - A[1]) * f, z: A[2] + (B[2] - A[2]) * f }; };
+  // visibility: allies always; enemies only inside their in-sight stretches
+  const visible = (k, t) => ally(k) || (p.vis[k] || []).some(([a, b]) => t >= a && t <= b + 0.5);
+  const lastSeen = (k, t) => { let best = null; for (const [a, b] of p.vis[k] || []) { if (a > t) break; best = Math.min(b, t); } return best; };
+  const pin = k => { const w = d.who.find(w => w.slot === k); return w && w.lastXZ && w.lastSeen != null ? { x: w.lastXZ[0], z: w.lastXZ[1], at: w.lastSeen - p.w0 } : null; };
+  const deadAt = k => p.ev.find(e => e[1] === "d" && e[2] === k);
+  const focus = t => { let sx = 0, sz = 0, n = 0; for (let s = -2; s <= 2; s += 0.5) { const q = posAt(me, Math.min(t + s, p.death)); if (q) { sx += q.x; sz += q.z; n++; } } return n ? [sx / n, sz / n] : d.pos; };
+  const crop = t => { const c = focus(t), w = st.view, h = st.view * CV.height / CV.width, cl = (v, half) => Math.max(half, Math.min(14900 - half, v)); const x = cl(c[0], w / 2), z = cl(c[1], h / 2); return { x0: x - w / 2, x1: x + w / 2, z0: z - h / 2, z1: z + h / 2 }; };
+  const toMain = (C, x, z) => [(x - C.x0) / (C.x1 - C.x0) * CV.width, (1 - (z - C.z0) / (C.z1 - C.z0)) * CV.height];
+  const toMini = (x, z) => [x / 14900 * MV.width, (1 - z / 14900) * MV.height];
+  const col = k => (k === me ? "#ffd479" : ally(k) ? "#4aa3ff" : "#ff5a5a");
+  function icon(ctx, xy, k, r, o = {}) {
+    const [px, py] = xy; ctx.save(); ctx.globalAlpha = o.alpha ?? 1;
+    ctx.beginPath(); ctx.arc(px, py, r, 0, 7); ctx.save(); ctx.clip(); const im = img(LT.CHAMP_ICON(champs[k][0]), () => { if (ready && !st.playing) draw(); });
+    if (im.complete && im.naturalWidth) { if (o.gray) ctx.filter = "grayscale(1)"; ctx.drawImage(im, px - r, py - r, 2 * r, 2 * r); ctx.filter = "none"; } else { ctx.fillStyle = col(k); ctx.fill(); }
+    ctx.restore(); ctx.beginPath(); ctx.arc(px, py, r, 0, 7); ctx.lineWidth = r > 12 ? 3 : 2; ctx.strokeStyle = col(k); if (o.dash) ctx.setLineDash([5, 4]); ctx.stroke(); ctx.setLineDash([]);
+    if (o.q) { ctx.font = `900 ${Math.round(r * 1.1)}px system-ui`; ctx.textAlign = "center"; ctx.fillStyle = "#fff"; ctx.strokeStyle = "#000"; ctx.lineWidth = 3; ctx.strokeText("?", px, py + r * .4); ctx.fillText("?", px, py + r * .4); }
+    if (o.label) { ctx.globalAlpha = Math.max(.75, o.alpha ?? 1); ctx.font = "600 13px system-ui"; ctx.textAlign = "center"; ctx.lineWidth = 3; ctx.strokeStyle = "rgba(0,0,0,.85)"; ctx.strokeText(o.label, px, py + r + 16); ctx.fillStyle = "#fff"; ctx.fillText(o.label, px, py + r + 16); }
+    if (o.x) { ctx.globalAlpha = 1; ctx.font = `900 ${Math.round(r * 1.6)}px system-ui`; ctx.textAlign = "center"; ctx.fillStyle = "#ff4d4d"; ctx.strokeStyle = "#000"; ctx.lineWidth = 3; ctx.strokeText("✕", px, py + r * .55); ctx.fillText("✕", px, py + r * .55); }
+    ctx.restore();
+  }
+  function draw() {
+    const t = st.t, C = crop(t), W = CV.width, H = CV.height; cx.clearRect(0, 0, W, H);
+    if (map.complete && map.naturalWidth) { const iw = map.naturalWidth, ih = map.naturalHeight; cx.imageSmoothingQuality = "high";
+      cx.drawImage(map, C.x0 / 14900 * iw, (1 - C.z1 / 14900) * ih, (C.x1 - C.x0) / 14900 * iw, (C.z1 - C.z0) / 14900 * ih, 0, 0, W, H); }
+    else { cx.fillStyle = "#16202b"; cx.fillRect(0, 0, W, H); }
+    const scale = W / (C.x1 - C.x0), R = Math.max(13, Math.min(22, 65 * scale * 3.2));
+    for (const m of p.mins) { const q = minAt(m.p, t); if (!q) continue; const [px, py] = toMain(C, q.x, q.z);
+      const sp = LT.MINIONS[m.tm === 100 ? "blue" : "red"], im = img(sp.src), q0 = minAt(m.p, t - 0.4) || q, base = m.tm === 100 ? -Math.PI / 4 : 3 * Math.PI / 4;
+      let ang = Math.atan2(-(q.z - q0.z), q.x - q0.x); if (Math.hypot(q.x - q0.x, q.z - q0.z) < 15) ang = base;
+      const w = sp.w * sp.u * scale, hh = sp.h * sp.u * scale;
+      if (im.complete && im.naturalWidth) { cx.save(); cx.translate(px, py); cx.rotate(ang - base); cx.drawImage(im, -w / 2, -hh / 2, w, hh); cx.restore(); }
+      cx.beginPath(); cx.arc(px, py + hh * .42, 2.5, 0, 7); cx.fillStyle = m.tm === myTeam ? "#4aa3ff" : "#ff5a5a"; cx.fill(); }
+    const order = [...Array(10).keys()].filter(k => k !== me && !inv.includes(k)).concat(inv, [me]);
+    const drawn = {};
+    for (const k of order) {
+      const q = posAt(k, t); if (!q) continue;
+      const dead = (e => e && t >= e[0] && t < e[0] + 12)(deadAt(k));
+      const vis = visible(k, t), key = k === me ? "You" : LT.nm(champs[k][0]), big = k === me || inv.includes(k), r = big ? R : R * .8;
+      if (!vis && st.fog) {   // your team's view: show where they were last seen, not where they are
+        const ls = lastSeen(k, t), pp = ls != null ? posAt(k, ls) : pin(k);
+        if (pp) { const ago = t - (ls != null ? ls : pp.at); drawn[k] = toMain(C, pp.x, pp.z);
+          icon(cx, drawn[k], k, r * .9, { alpha: .45, gray: true, q: true, dash: true, label: big ? `${key} · ${Math.round(ago)}s ago` : null }); }
+        continue;
+      }
+      // trail
+      cx.beginPath(); let first = true; for (let s = 3; s >= 0; s -= 0.25) { if (st.fog && !visible(k, t - s)) { first = true; continue; } const rr = posAt(k, t - s); if (!rr) continue; const [a, b] = toMain(C, rr.x, rr.z); first ? cx.moveTo(a, b) : cx.lineTo(a, b); first = false; }
+      cx.strokeStyle = ally(k) ? "rgba(74,163,255,.5)" : "rgba(255,90,90,.55)"; cx.lineWidth = big ? 3 : 2; cx.stroke();
+      drawn[k] = toMain(C, q.x, q.z);
+      icon(cx, drawn[k], k, r, { alpha: dead ? .5 : vis ? 1 : .55, dash: !vis, label: key + (!vis ? " (unseen)" : ""), x: dead });
+    }
+    // hits on you / by you, damage numbers, ability icons
+    const stack = {};
+    for (const e of p.ev) { const a = t - e[0]; if (a < 0 || a > 1.4) continue;
+      if (e[1] === "h" && a < .9) { const tg = e[2], src = e[3], b = drawn[tg]; if (!b) continue;
+        if (src >= 0 && src < 10 && drawn[src] && a < .4 && (!st.fog || visible(src, e[0]))) { const s = drawn[src]; cx.save(); cx.globalAlpha = 1 - a / .4;
+          cx.strokeStyle = src === me ? "#ffd479" : ally(src) ? "#7cc0ff" : "#ff7a7a"; cx.lineWidth = Math.min(7, 2 + e[4] / 60); cx.lineCap = "round"; cx.beginPath(); cx.moveTo(s[0], s[1]); cx.lineTo(b[0], b[1]); cx.stroke(); cx.restore(); }
+        if (e[4] >= 15) { cx.save(); cx.globalAlpha = 1 - a / .9; cx.font = "800 15px system-ui"; cx.textAlign = "left"; cx.lineWidth = 3; cx.strokeStyle = "#000";
+          const tx = "−" + e[4], yy = b[1] - R - 18 - a * 22; cx.strokeText(tx, b[0] + R * .6, yy); cx.fillStyle = tg === me ? "#ff6b6b" : "#ffd36b"; cx.fillText(tx, b[0] + R * .6, yy); cx.restore(); } }
+      else if (e[1] === "c") { const k = e[2], b = drawn[k]; if (!b || (st.fog && !visible(k, e[0]))) continue;
+        const slot = stack[k] = (stack[k] || 0) + 1, S = 28, ix = b[0] - R - 10 - S - (slot - 1) * (S + 4), iy = b[1] - S / 2;
+        cx.save(); cx.globalAlpha = a < 1 ? 1 : 1 - (a - 1) / .4;
+        const ic = LT.SPELLS[champs[k][0]] && img(LT.SPELLS[champs[k][0]][e[3]]), s = S * (a < .15 ? 1 + (.15 - a) * 2.5 : 1);
+        cx.fillStyle = "#000"; cx.fillRect(ix + S / 2 - s / 2 - 2, iy + S / 2 - s / 2 - 2, s + 4, s + 4);
+        if (ic && ic.complete && ic.naturalWidth) cx.drawImage(ic, ix + S / 2 - s / 2, iy + S / 2 - s / 2, s, s);
+        cx.strokeStyle = col(k); cx.lineWidth = 2; cx.strokeRect(ix + S / 2 - s / 2, iy + S / 2 - s / 2, s, s);
+        cx.font = "800 11px system-ui"; cx.textAlign = "center"; cx.fillStyle = "#000"; cx.fillRect(ix + S - 11, iy + S - 10, 12, 12); cx.fillStyle = "#fff"; cx.fillText(e[3], ix + S - 5, iy + S); cx.restore(); } }
+    // minimap
+    mx.clearRect(0, 0, MV.width, MV.height); if (mini.complete && mini.naturalWidth) mx.drawImage(mini, 0, 0, MV.width, MV.height);
+    const [r0x, r0y] = toMini(C.x0, C.z1), [r1x, r1y] = toMini(C.x1, C.z0); mx.strokeStyle = "rgba(255,255,255,.85)"; mx.lineWidth = 2; mx.strokeRect(r0x, r0y, r1x - r0x, r1y - r0y);
+    for (const k of order) { let q = posAt(k, t), o = {}; if (!q) continue;
+      if (!visible(k, t)) { if (st.fog) { const ls = lastSeen(k, t), pp = ls != null ? posAt(k, ls) : pin(k); if (!pp) continue; q = pp; o = { alpha: .45, gray: true, dash: true }; } else o = { alpha: .55, dash: true }; }
+      icon(mx, toMini(q.x, q.z), k, k === me || inv.includes(k) ? 13 : 10, o); }
+    // chips: in sight or how long unseen
+    box.querySelectorAll(".chip").forEach(c => { const k = +c.dataset.k, v = visible(k, t), ls = lastSeen(k, t), pp = pin(k);
+      c.classList.toggle("on", v); c.querySelector("i").textContent = v ? "in sight" : ls != null ? `unseen ${Math.round(t - ls)}s` : pp ? `unseen ${Math.round(t - pp.at)}s` : "not seen"; });
+    box.querySelector(".head").style.left = (t / L * 100) + "%";
+    box.querySelector(".clock").textContent = clk(p.w0 + t);
+  }
+  function stop() { st.playing = false; if (st.raf) cancelAnimationFrame(st.raf); }
+  function frame(ts) { if (!st.playing || box.hidden) { st.last = null; return; }
+    if (st.last != null) st.t += (ts - st.last) / 1000 * st.speed; st.last = ts;
+    if (st.t >= L) { st.t = L; st.playing = false; box.querySelector(".pl").textContent = "▶ Play"; }
+    draw(); if (st.playing) st.raf = requestAnimationFrame(frame); }
+  const play = on => { st.playing = on; box.querySelector(".pl").textContent = on ? "❚❚ Pause" : "▶ Play"; if (on) { st.last = null; st.raf = requestAnimationFrame(frame); } };
+  box.querySelector(".pl").onclick = () => { if (st.t >= L) st.t = 0; play(!st.playing); };
+  box.querySelector(".re").onclick = () => { st.t = 0; play(true); };
+  const spd = () => box.querySelectorAll("[data-sp]").forEach(b => b.classList.toggle("on", +b.dataset.sp === st.speed)); spd();
+  box.querySelectorAll("[data-sp]").forEach(b => b.onclick = () => { st.speed = +b.dataset.sp; spd(); });
+  box.querySelectorAll("[data-z]").forEach(b => b.onclick = () => { st.view = +b.dataset.z; box.querySelectorAll("[data-z]").forEach(x => x.classList.toggle("on", x === b)); draw(); });
+  box.querySelectorAll("[data-fog]").forEach(b => b.onclick = () => { st.fog = b.dataset.fog === "1"; box.querySelectorAll("[data-fog]").forEach(x => x.classList.toggle("on", x === b)); draw(); });
+  const sc = box.querySelector(".scrub"); let drag = false;
+  const seek = ev => { const rc = sc.getBoundingClientRect(); st.t = Math.max(0, Math.min(L, (ev.clientX - rc.left) / rc.width * L)); draw(); };
+  sc.onpointerdown = ev => { drag = true; sc.setPointerCapture(ev.pointerId); seek(ev); }; sc.onpointermove = ev => { if (drag) seek(ev); }; sc.onpointerup = () => drag = false;
+  ready = true; draw(); play(true);
+}
+return { open, stop: () => cur && (cur.st.playing = false) };
+})();
 
 // Lane trades tab: asks the app to read this game's replay file (downloading it first if needed).
 async function loadTrades(A, again) {
@@ -1866,7 +2025,7 @@ async function show(root, g){
   if(!g.trades.length){root.innerHTML=`<div class="card"><div class="empty">No trades with your lane opponent between 1:30 and 14:00.</div></div>`;return}
   render();
 }
-return { show };
+return { show, MINIONS, SPELLS, CHAMP_ICON, loadSpells, ddId, nm };
 })();
 
 // "Going in": players, levels and gold on each side of the fight a kill or death was part of.
