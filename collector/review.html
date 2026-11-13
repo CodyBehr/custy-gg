@@ -240,6 +240,8 @@ details.fight .fpl .pop img { width:26px; height:26px; border-radius:4px; border
 .fight .fpl .its { display:flex; gap:3px; flex-wrap:wrap; } .fight .fpl .its img { width:22px; height:22px; border-radius:4px; opacity:.6; border:1px solid var(--line); }
 .fight .fpl .its img.done { opacity:1; border-color:var(--gold); width:26px; height:26px; } .fight .fpl .g { color:var(--mute); font-size:12px; margin-left:auto; } .fight .fpl .g em { color:var(--amber-ink); font-style:normal; }
 #updbar { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:50; background:#1b2a44; border:1px solid var(--gold); color:var(--text); padding:10px 14px; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,.5); display:flex; gap:12px; align-items:center; font-size:14px; }
+.card.trade { grid-column:1 / -1; } .trade svg { max-height:190px; }
+.trade .finds { margin:8px 0 0; padding-left:18px; } .trade .finds li { margin:4px 0; line-height:1.45; }
 </style>
 </head>
 <body>
@@ -269,7 +271,7 @@ async function loadDD() {
   try {
     DD.v = (await (await fetch("https://ddragon.leagueoflegends.com/api/versions.json")).json())[0];
     const ch = await (await fetch(`https://ddragon.leagueoflegends.com/cdn/${DD.v}/data/en_US/champion.json`)).json();
-    for (const c of Object.values(ch.data)) DD.champ[c.key] = { name: c.name, id: c.id };
+    for (const c of Object.values(ch.data)) DD.champ[c.key] = { name: c.name, id: c.id, partype: c.partype };
     const it = await (await fetch(`https://ddragon.leagueoflegends.com/cdn/${DD.v}/data/en_US/item.json`)).json();
     DD.items = it.data;
   } catch (e) { console.warn("Data Dragon unavailable", e); }
@@ -586,6 +588,7 @@ function analyse(data) {
     [0, 1, 2, 3, 4, 5].reduce((a, n) => a + STAT(p.stats?.["item" + n], k), 0) >= 80).length;
   return {
     g, me, opp, enemyJg, role, frames, events, kills, champOf, pf, races, fights, fightOf, hasItems, pings, roles: data.roles || {},
+    casts: data.casts ? data.casts[String(me.participantId)] || null : null,
     minutes: frames.length - 1,
     myGold, oppGold, diff, myCs,
     oppCs: opp ? cs(opp.participantId) : null,
@@ -638,7 +641,7 @@ function fromExperts(b) {
   const med = k => b.timings?.[k]?.[1] ?? null;
   return { expert: true, n: b.games, diff: band(b.minutes.gdiff), gold: band(b.minutes.gold), cs: band(b.minutes.cs),
     firstBack: med("first_back"), firstBackGold: med("first_back_gold"), firstItem: med("legendary1"),
-    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14"), items: b.items || [], paths: b.paths || [], orders: b.orders || [], levels: b.levels || {}, by_level: b.by_level, matchups: b.matchups || {} };
+    lvl6Gap: med("lvl6_gap"), deaths14: med("deaths_14"), items: b.items || [], paths: b.paths || [], orders: b.orders || [], levels: b.levels || {}, by_level: b.by_level, matchups: b.matchups || {}, trade: b.trade || null };
 }
 const WHO = (B) => B?.expert ? "Experts" : "Your usual";
 
@@ -1189,6 +1192,64 @@ async function openGame(id) {
 }
 
 // Your fights with your lane opponent before 14:00, by your level, next to how experts on this champion do at those levels.
+// ---- Trading in lane (minutes 1-14): damage each side dealt to champions per minute, damage you took, and
+// health / resource at each minute mark. Ranked and normal games only (the site fills this in from Riot).
+// Ability casts are whole-game totals (Riot has no per-minute casts), so they only back up the lane numbers.
+function tradeCard(A, B) {
+  if (!A.opp || A.role === "JUNGLE") return "";
+  const me = A.me.participantId, op = A.opp.participantId, N = Math.min(14, A.minutes);
+  const st = (k, p) => A.pf(A.frames[k], p)?.st;
+  if (!st(1, me) || !st(1, op) || N < 4) return "";
+  const per = (p, i) => Array.from({ length: N }, (_, k) => { const a = st(k, p), b = st(k + 1, p); return a && b ? Math.max(0, b[i] - a[i]) : null; });
+  const ratio = (p, i, j) => Array.from({ length: N }, (_, k) => { const b = st(k + 1, p); return b && b[j] ? b[i] / b[j] : null; });
+  const dealt = per(me, 4), odealt = per(op, 4), taken = per(me, 5), hp = ratio(me, 0, 1), ohp = ratio(op, 0, 1), mp = ratio(me, 2, 3);
+  const T = B?.expert ? B.trade : null, sum = (a, i0, i1) => a.slice(i0, i1).reduce((x, v) => x + (v || 0), 0);
+  const part = DD.champ[A.me.championId]?.partype, res = part === "Mana" ? "mana" : part === "Energy" ? "energy" : null;
+  const opName = esc(champName(A.opp.championId)), P = (x) => Math.round(x * 100) + "%";
+  const finds = [];
+  // 1) minutes where you clearly lost the trade
+  const lost = [];
+  for (let k = 1; k < N; k++) if (odealt[k] != null && dealt[k] != null && odealt[k] - dealt[k] >= 200 && hp[k] != null && ohp[k] != null && hp[k] < ohp[k] - .15) lost.push(k);
+  if (lost.length) finds.push(`<b>Lost trades:</b> ${lost.slice(0, 3).map(k => `${k}:00–${k + 1}:00 (${opName} dealt ${Math.round(odealt[k])}, you ${Math.round(dealt[k])}; you ended at ${P(hp[k])} HP vs ${P(ohp[k])})`).join("; ")}.`);
+  // 2) vs experts in the early lane (minutes 2-6)
+  const cpm = A.casts ? A.casts.slice(0, 4).reduce((a, x) => a + x, 0) / (A.g.gameDuration / 60) : null;
+  const castNote = cpm == null || !T?.cpm_total_q ? "" : cpm > T.cpm_total_q[2] ? "high" : cpm < T.cpm_total_q[0] ? "low" : "";
+  if (T?.dealt && T?.taken) {
+    const i0 = 2, i1 = Math.min(7, N), myT = sum(taken, i0, i1), exT = sum(T.taken, i0, i1), myD = sum(dealt, i0, i1), exD = sum(T.dealt, i0, i1);
+    if (exT && myT > exT * 1.35 && myD <= exD) {
+      let line = `<b>Minutes ${i0}–${i1}:</b> you took ${P(myT / exT - 1)} more damage than experts on ${esc(champName(A.me.championId))} but dealt ${myD < exD * .8 ? "less" : "about the same"}.`;
+      if (castNote === "high") line += ` You also cast more abilities than most experts (${cpm.toFixed(1)} a minute over the game, experts ${T.cpm_total_q[1]}): spells are going out without winning the trade back. Save one for when ${opName} walks up to last-hit.`;
+      else if (castNote === "low") line += ` And you cast fewer abilities than most experts (${cpm.toFixed(1)} a minute, experts ${T.cpm_total_q[1]}): you're taking free damage. Use abilities to last-hit from safety and trade back when ${opName} uses theirs.`;
+      else line += ` Look at what you're getting hit by: stand behind your minions and trade back when ${opName}'s cooldowns are down.`;
+      finds.push(line);
+    } else if (exD && myD < exD * .55 && myT <= exT * 1.1) {
+      finds.push(`<b>Minutes ${i0}–${i1}:</b> you dealt about half the damage experts do here${castNote === "low" ? `, and cast fewer abilities than most of them` : ""}. Lane was quiet; look for trades at your strong levels instead of only farming.`);
+    } else if (exD && myD >= exD && myT <= exT) {
+      finds.push(`<span class="good"><b>Minutes ${i0}–${i1}:</b> you dealt as much as experts and took less. Good trading.</span>`);
+    }
+  }
+  // 3) resource management
+  if (res && T?.low_mp != null) {
+    const marks = mp.slice(1).filter(x => x != null), low = marks.filter(x => x < .2).length;
+    if (marks.length >= 5 && low / marks.length >= Math.max(.3, T.low_mp * 2))
+      finds.push(`<b>${res === "mana" ? "Mana" : "Energy"}:</b> under 20% at ${low} of ${marks.length} minute marks (experts: ${P(T.low_mp)} of the time). Running dry means you can't trade back or clear a wave; save ${res} for trades and last hits you can't get otherwise.`);
+  }
+  // chart: bars = damage to champions each minute (you, them), lines = health at the minute mark
+  const W = 560, H = 150, pad = 26, cw = (W - pad * 2) / N, top = Math.max(1, ...dealt, ...odealt, ...(T?.dealt || []).slice(0, N).map(x => x || 0));
+  const y = (v) => H - 22 - (v / top) * (H - 40), yh = (r) => H - 22 - r * (H - 40);
+  const bars = Array.from({ length: N }, (_, k) => {
+    const x = pad + k * cw; const b = (v, dx, c) => v ? `<rect x="${x + dx}" y="${y(v)}" width="${cw * .32}" height="${H - 22 - y(v)}" fill="${c}" rx="1.5"><title>${k}:00–${k + 1}:00: ${Math.round(v)}</title></rect>` : "";
+    const ex = T?.dealt?.[k] ? `<line x1="${x + cw * .1}" x2="${x + cw * .44}" y1="${y(T.dealt[k])}" y2="${y(T.dealt[k])}" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="2 2"><title>experts ${Math.round(T.dealt[k])}</title></line>` : "";
+    return b(dealt[k], cw * .1, "var(--gold)") + b(odealt[k], cw * .46, "var(--red)") + ex + `<text x="${x + cw / 2}" y="${H - 8}" text-anchor="middle" font-size="10" fill="#7d8aa0">${k + 1}</text>`;
+  }).join("");
+  const line = (arr, c, dash) => `<polyline fill="none" stroke="${c}" stroke-width="1.6"${dash ? ` stroke-dasharray="4 3"` : ""} points="${arr.map((r, k) => r == null ? "" : `${pad + k * cw + cw / 2},${yh(r)}`).filter(Boolean).join(" ")}"/>`;
+  return `<div class="card trade"><div class="ctitle">Trading in lane vs ${opName}</div>
+    <svg viewBox="0 0 ${W} ${H}" width="100%">${bars}${line(hp, "var(--gold)")}${line(ohp, "var(--red)", true)}</svg>
+    <div class="legend"><span><i style="background:var(--gold)"></i>your damage to champions</span><span><i style="background:var(--red)"></i>${opName}'s</span>${T?.dealt ? `<span><i style="background:#cbd5e1"></i>experts (dashed)</span>` : ""}<span>lines: health at each minute mark (yours solid)</span></div>
+    ${finds.length ? `<ul class="finds">${finds.map(f => `<li>${f}</li>`).join("")}</ul>` : `<div class="sub">No trading problems stood out.</div>`}
+    <div class="sub">Damage is counted per minute; health and ${res || "resource"} are one snapshot each minute, so a trade followed by a back can look like nothing happened.${T?.dealt ? "" : " Expert comparison arrives with the next expert data update."} Ability casts are for the whole game (Riot doesn't record when each cast happened).</div></div>`;
+}
+
 function laneFightCard(A, B) {
   if (!A.opp || A.role === "JUNGLE") return "";
   const ls = levelStrength(B, DD.champ[A.opp.championId]?.id); if (!ls?.rows.length) return "";
@@ -1281,6 +1342,7 @@ function render(A, B, moments, s, label, well = []) {
       ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
       ${levelCard(A, B)}
       ${laneFightCard(A, B)}
+      ${tradeCard(A, B)}
       ${pingCard(A)}
     </div>
     ${A.role === "JUNGLE" ? jungleCard(A, B) : ""}
