@@ -4,7 +4,7 @@ KEY = os.environ["RIOT_API_KEY"]
 def get(url):
     for _ in range(4):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers={"X-Riot-Token": KEY}), timeout=30) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers={"X-Riot-Token": KEY, "User-Agent": "custy.gg research"}), timeout=30) as r:
                 return json.loads(r.read())
         except urllib.error.HTTPError as e:
             if e.code == 429: time.sleep(int(e.headers.get("Retry-After") or 5)); continue
