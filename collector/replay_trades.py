@@ -30,6 +30,9 @@ ATK = [0x0F, 0xCF, 0x56, 0x86, 0x83, 0xD8, 0x36, 0xD5, 0x8C, 0x7D]   # damage re
 TGT = [0x13, 0x35, 0x63, 0x0D, 0xE3, 0x6C, 0x05, 0x2F, 0x95, 0xF5]   # damage record: target slot codes
 BASE = {0xF9: 2.0, 0x76: 8.0, 0xB2: 32.0, 0x90: 128.0, 0x29: 512.0}
 CAST_MARK = bytes.fromhex("b4a4b4b4")
+# Waypoint count byte (cipher) of a movement entry -> where its start position sits, counted back from the entry's end:
+# 1 waypoint: right after speed; 2-5: after one delta-flags byte; 6+: after two (checked against camera tracks).
+WP_COUNT = {0x2C: 11, 0x1B: 12, 0x26: 12, 0xBB: 12, 0x24: 12, 0x70: 13, 0xE7: 13, 0x1E: 13, 0x3B: 13, 0xF4: 13, 0xB4: 13, 0xE2: 13}
 POS_IDS = {0x9E: 0, 0xAC: 1, 0x8C: 2, 0xE6: 3, 0x8A: 4, 0x0B: 5, 0x36: 6, 0xBD: 7, 0x8F: 8, 0x57: 9}
 # Patch 16.22 tables, fitted from replays against Riot's match data (see project notes).
 T871 = bytes.fromhex('d8f76fc3304fabd7d9a460b38652329fca5af2df01c143181a5bbf04f1c4031b771988050a78083a6769d09702aacc1c3f2094e2e739b42498817f0f22b81600fae421a92fa06a54a383de0bcf92e93672758e1f4d2dd2b7c863ac7e85a6a7e88a31654238c7c22791a534ffbbebbe350c296b28d33d46e1742a967bf84815504b2bd4eaf911705d4982b27db0253eb644e09e8cfd337a1d9087addba856aeed5fbd5c713740e661e5c5f6efaf641310c96c470714f36e0d4a518f0662b54e76dcce6d553b4cda80d173cde3fe93d5591e9d23d645fc9add3ca289ba997cb9268b9c17f0fb41b10e66539becee95f58409c0c65e125768bc8df42ea12ccb5879')   # movement record byte substitution, cipher -> plain
@@ -105,6 +108,26 @@ def _v16(h, l):
     return v - 65536 if v >= 32768 else v
 
 
+def _clean(L):
+    """Drops duplicate samples and lone spikes (a sample far off the line between its close neighbours)."""
+    out = []
+    for p in L:
+        if out and abs(p[0] - out[-1][0]) < 0.02 and abs(p[1] - out[-1][1]) + abs(p[2] - out[-1][2]) < 30:
+            continue
+        out.append(p)
+    keep = [out[0]] if out else []
+    for k in range(1, len(out) - 1):
+        a, p, b = keep[-1], out[k], out[k + 1]
+        if b[0] - a[0] < 1.2 and b[0] > a[0]:
+            f = (p[0] - a[0]) / (b[0] - a[0])
+            if math.hypot(p[1] - (a[1] + (b[1] - a[1]) * f), p[2] - (a[2] + (b[2] - a[2]) * f)) > 250:
+                continue
+        keep.append(p)
+    if len(out) > 1:
+        keep.append(out[-1])
+    return keep
+
+
 def decode(path, until=900.0):
     """One pass over the replay: hits on champions, casts, level-ups and positions up to `until` seconds."""
     version, stats, chunks = read_rofl(path)
@@ -132,16 +155,26 @@ def decode(path, until=900.0):
                     casts.append((t, k, slot))
             elif netid == 12 and param in CHAMPS:         # level up
                 levels.append((t, CHAMPS.index(param)))
-            elif netid == 871:                            # movement order (single-waypoint entries)
+            elif netid == 871:                            # movement orders: several units per record
                 b = bytes(pl)
-                if len(b) < 18 or b[-1] != 0x2C or b[-6] != 0xA5:
-                    continue
-                x = _v16(b[-12], b[-11]) * 2 + 7358
-                z = _v16(b[-14], b[-13]) * 2 + 7412
-                if not (-500 < x < 15500 and -500 < z < 15500):
-                    continue
-                key = POS_IDS[b[-3]] if (b[-4] == 0x3F and b[-5] == 0x3F and b[-3] in POS_IDS) else (b[-5] << 16 | b[-4] << 8 | b[-3])
-                tracks.setdefault(key, []).append((round(t + 0.19, 2), round(x), round(z)))
+                # Each entry ends [unit id 4][3f][waypoint count]; just before it: speed (4), then for one waypoint
+                # the start position (4), for 2+ a delta-flags byte and then the start position. Entries are stored
+                # back to front, so the position is read backwards from the end of each entry.
+                for i in range(len(b) - 6, 9, -1):
+                    if b[i] != 0xA5 or b[i + 1] != 0x3F or b[i + 4] != 0x3F or b[i + 5] not in WP_COUNT:
+                        continue
+                    e = i + 6
+                    o = e - WP_COUNT[b[i + 5]]                  # x low byte of the start position
+                    if o - 3 < 0:
+                        continue
+                    x = _v16(b[o - 1], b[o]) * 2 + 7358
+                    z = _v16(b[o - 3], b[o - 2]) * 2 + 7412
+                    if not (-500 < x < 15500 and -500 < z < 15500):
+                        continue
+                    key = POS_IDS[b[i + 3]] if (b[i + 2] == 0x3F and b[i + 3] in POS_IDS) else (b[i + 1] << 16 | b[i + 2] << 8 | b[i + 3])
+                    tracks.setdefault(key, []).append((round(t + 0.19, 2), round(x), round(z)))
+    for key in list(tracks):
+        tracks[key] = _clean(sorted(tracks[key]))
     return dict(version=version, stats=stats, hits=hits, casts=casts, levels=levels, tracks=tracks)
 
 
