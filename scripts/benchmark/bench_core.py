@@ -193,11 +193,19 @@ def aggregate(rows, source, built):
     return out
 
 
+# Jungle camps (both sides). Raptors sit on the mid-lane diagonal and gromp inside the top/bot lane strips, so a
+# jungler clearing them was being counted as "in a lane". Anything this close to a camp is jungle.
+CAMPS = [(3800, 7900), (2100, 8400), (3800, 6500), (6950, 5450), (7770, 4050), (8400, 2700),
+         (11000, 6900), (12700, 6400), (11000, 8300), (7850, 9450), (7100, 10850), (6400, 12250)]
+
+
 def area(p):
     """Rough map area of a position: top/mid/bot lane, own or enemy jungle is decided by the caller."""
     x, y = p["x"], p["y"]
     if x < 3600 and y < 3600 or x > 11200 and y > 11200:
         return "base"
+    if any((x - cx) ** 2 + (y - cy) ** 2 < 1000 ** 2 for cx, cy in CAMPS):
+        return "jungle"
     if x < 2400 or y > 12400:
         return "top"
     if y < 2400 or x > 12400:
@@ -241,7 +249,8 @@ def jungle(m, tl, me):
         j["where"][a] = j["where"].get(a, 0) + 1
     j["first_lane"] = next(([k, area(pos(k))] for k in range(2, min(len(fr), 15)) if area(pos(k)) in ("top", "mid", "bot")), None)
     # did they show up in a lane (gank/cover) before finishing the clear?
-    j["lane_before_clear"] = bool(j["first_lane"] and (j["cs24"] is None or j["first_lane"][0] * 60 < j["cs24"]))
+    clear = j["lv4"] or j["cs24"]   # exact level-4 time when there is one
+    j["lane_before_clear"] = bool(j["first_lane"] and (clear is None or j["first_lane"][0] * 60 < clear))
     gank = {}
     for e in ev:
         if e["type"] != "CHAMPION_KILL" or e["timestamp"] > 840000:
