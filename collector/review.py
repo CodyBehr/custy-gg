@@ -369,6 +369,138 @@ def list_games(me_puuid=None):
 
 
 # --------------------------------------------------------------------------
+# Viewing another player: their recent games from Riot (through the site), kept apart from your own
+# --------------------------------------------------------------------------
+
+OTHERS_DIR = os.path.join(CACHE_DIR, "others")
+_LANE = {"TOP": ("TOP", "SOLO"), "JUNGLE": ("JUNGLE", "NONE"), "MIDDLE": ("MIDDLE", "SOLO"),
+         "BOTTOM": ("BOTTOM", "DUO_CARRY"), "UTILITY": ("BOTTOM", "DUO_SUPPORT")}
+_VIEW_QUEUES = (400, 420, 430, 440, 490)   # Summoner's Rift normals and ranked
+
+
+def riot_to_client(match, timeline, puuid):
+    """A Riot API match + timeline in the League client's shape (what the review page reads), with the extras
+    the site normally fills in (items, skills, armor, trading stats, casts, pings) already in place."""
+    m, tl = match["info"], timeline["info"]
+    parts, idents = [], []
+    for p in m["participants"]:
+        lane, role = _LANE.get(p.get("teamPosition"), ("NONE", "NONE"))
+        st = {k: p.get(k) for k in ("win", "kills", "deaths", "assists", "totalMinionsKilled", "neutralMinionsKilled", "goldEarned")}
+        st.update({"item%d" % i: p.get("item%d" % i) for i in range(7)})
+        sty = (p.get("perks") or {}).get("styles") or []
+        if len(sty) >= 2:
+            sel = [x["perk"] for x in sty[0]["selections"]] + [x["perk"] for x in sty[1]["selections"]]
+            st.update({"perk%d" % i: v for i, v in enumerate(sel)}, perkPrimaryStyle=sty[0]["style"], perkSubStyle=sty[1]["style"])
+            sp = p["perks"].get("statPerks") or {}
+            st.update(statPerk0=sp.get("offense"), statPerk1=sp.get("flex"), statPerk2=sp.get("defense"))
+        parts.append({"participantId": p["participantId"], "teamId": p["teamId"], "championId": p["championId"],
+                      "spell1Id": p.get("summoner1Id"), "spell2Id": p.get("summoner2Id"), "stats": st,
+                      "timeline": {"lane": lane, "role": role}})
+        idents.append({"participantId": p["participantId"], "player": {"puuid": p["puuid"], "gameName": p.get("riotIdGameName"),
+                                                                       "tagLine": p.get("riotIdTagline")}})
+    game = {"gameId": m["gameId"], "platformId": m.get("platformId"), "gameCreation": m["gameCreation"],
+            "gameDuration": m["gameDuration"], "queueId": m["queueId"], "mapId": m.get("mapId", 11), "gameMode": m.get("gameMode", "CLASSIC"),
+            "gameType": "MATCHED_GAME", "gameVersion": m["gameVersion"], "participants": parts, "participantIdentities": idents}
+    frames = []
+    for f in tl["frames"]:
+        pfs = {}
+        for k, v in f["participantFrames"].items():
+            c, d = v.get("championStats") or {}, v.get("damageStats") or {}
+            x = {f2: v.get(f2) for f2 in FRAME_FIELDS if f2 in v}
+            x["armor"] = c.get("armor")
+            x["st"] = [c.get("health"), c.get("healthMax"), c.get("power"), c.get("powerMax"),
+                       d.get("totalDamageDoneToChampions"), d.get("totalDamageTaken")]
+            pfs[k] = x
+        frames.append({"timestamp": f["timestamp"], "participantFrames": pfs, "events": f.get("events") or []})
+    by_pid = {p["participantId"]: p for p in m["participants"]}
+    casts = {str(i): [p.get(k, 0) for k in ("spell1Casts", "spell2Casts", "spell3Casts", "spell4Casts", "summoner1Casts", "summoner2Casts")]
+             for i, p in by_pid.items()}
+    pings = {str(i): {k: v for k, v in p.items() if k.endswith("Pings") and isinstance(v, int)} for i, p in by_pid.items()}
+    data = {"game": game, "timeline": {"frames": frames}, "me": puuid, "casts": casts, "pings": pings,
+            "viewing": True, "fillTried3": time.time()}
+    data["summary"] = _summarize(game, puuid)
+    return data
+
+
+def _site_get(path, timeout=30):
+    url = _cfg["site_url"].rstrip("/") + path
+    req = urllib.request.Request(url, headers={"Authorization": "Bearer " + _cfg.get("ingest_key", ""),
+                                               "User-Agent": "custy-collector/" + core.VERSION})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return json.loads(r.read())
+    except urllib.error.HTTPError as e:
+        try:
+            msg = json.loads(e.read()).get("error")
+        except Exception:
+            msg = None
+        raise RuntimeError(msg or "The site answered %s" % e.code)
+
+
+def _others_dir(puuid):
+    d = os.path.join(OTHERS_DIR, re.sub(r"[^A-Za-z0-9_-]", "", puuid)[:24])
+    os.makedirs(d, exist_ok=True)
+    return d
+
+
+def lookup_player(riot_id, platform="NA1", limit=12):
+    """Finds a player by Riot ID and loads their recent Summoner's Rift games. Returns (who, games)."""
+    q = urllib.parse.urlencode({"riotId": riot_id, "platform": platform})
+    who = _site_get("/api/review/lookup?" + q)
+    d = _others_dir(who["puuid"])
+    json.dump({k: who.get(k) for k in ("puuid", "gameName", "tagLine")}, open(os.path.join(d, "_who.json"), "w"))
+    got = 0
+    for mid in who.get("ids") or []:
+        if got >= limit:
+            break
+        path = os.path.join(d, "%s.json" % mid.split("_")[-1])
+        if os.path.exists(path):
+            got += 1
+            continue
+        try:
+            raw = _site_get("/api/review/lookup?match=" + mid)
+        except Exception as e:
+            core.log.info("Lookup: couldn't load %s: %s", mid, e)
+            continue
+        if raw["match"]["info"].get("queueId") not in _VIEW_QUEUES or raw["match"]["info"].get("gameDuration", 0) < 600:
+            continue
+        data = riot_to_client(raw["match"], raw["timeline"], who["puuid"])
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f)
+        got += 1
+    return {k: who.get(k) for k in ("puuid", "gameName", "tagLine")}, list_others(who["puuid"])
+
+
+def list_others(puuid):
+    d = _others_dir(puuid)
+    out = []
+    for n in os.listdir(d):
+        if n.endswith(".json") and not n.startswith("_"):
+            try:
+                data = json.load(open(os.path.join(d, n), encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+            if data.get("summary"):
+                out.append(dict(data["summary"], hasTimeline=True))
+    out.sort(key=lambda x: x.get("created") or 0, reverse=True)
+    return out
+
+
+def read_other(puuid, game_id):
+    try:
+        return json.load(open(os.path.join(_others_dir(puuid), "%d.json" % int(game_id)), encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+
+
+def who_other(puuid):
+    try:
+        return json.load(open(os.path.join(_others_dir(puuid), "_who.json")))
+    except (OSError, ValueError):
+        return {"puuid": puuid}
+
+
+# --------------------------------------------------------------------------
 # Replays: download, start, and jump to a time
 # --------------------------------------------------------------------------
 
@@ -691,6 +823,17 @@ def make_handler(cfg, token):
                 return self._send(403, {"error": "forbidden"})
             if url.path == "/api/app-version":      # lets an open page notice that the app updated
                 return self._send(200, {"version": core.VERSION})
+            if url.path == "/api/lookup":           # view another player's recent games
+                q = parse_qs(url.query)
+                try:
+                    who, games = lookup_player((q.get("riotId") or [""])[0], (q.get("platform") or ["NA1"])[0])
+                except Exception as e:
+                    return self._send(400, {"error": str(e)})
+                return self._send(200, {"me": who, "games": games, "viewing": True, "patch": _client_patch(cfg), "replayApi": False})
+            if url.path == "/api/games" and parse_qs(url.query).get("as"):
+                pu = parse_qs(url.query)["as"][0]
+                return self._send(200, {"me": who_other(pu), "games": list_others(pu), "viewing": True,
+                                        "patch": _client_patch(cfg), "replayApi": False})
             if url.path == "/api/games":
                 me, err = refresh(cfg)
                 if me:
@@ -700,6 +843,11 @@ def make_handler(cfg, token):
                 return self._send(200, {"me": me, "note": err, "games": games, "patch": _client_patch(cfg),
                                         "replayApi": replay_api_enabled(cfg)})
             m = re.match(r"^/api/game/(\d+)$", url.path)
+            if m and parse_qs(url.query).get("as"):
+                data = read_other(parse_qs(url.query)["as"][0], m.group(1))
+                if not data:
+                    return self._send(404, {"error": "game not found"})
+                return self._send(200, dict(data, roles=roles(data["game"])))
             if m:
                 me = me_cache["me"] or {}
                 data = _read_cache(m.group(1)) or fetch_game(_lcu(cfg), m.group(1), me.get("puuid"))

@@ -242,10 +242,13 @@ details.fight .fpl .pop img { width:26px; height:26px; border-radius:4px; border
 #updbar { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:50; background:#1b2a44; border:1px solid var(--gold); color:var(--text); padding:10px 14px; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,.5); display:flex; gap:12px; align-items:center; font-size:14px; }
 .card.trade { grid-column:1 / -1; } .trade svg { max-height:190px; }
 .trade .finds { margin:8px 0 0; padding-left:18px; } .trade .finds li { margin:4px 0; line-height:1.45; }
+body.viewing [data-watch], body.viewing #ov { display:none !important; }
+#lookup { display:flex; gap:6px; margin-left:auto; margin-right:8px; } #lookup input { background:#0d1526; border:1px solid var(--line); color:var(--text); border-radius:8px; padding:6px 10px; width:210px; font-size:13px; }
+#lookup button { padding:6px 12px; } .note.viewing { border-color:var(--gold); } .note.viewing button { margin-left:8px; }
 </style>
 </head>
 <body>
-<header><b>custy<span>.gg</span> game review</b><span class="tag">test</span><span class="who" id="who"></span><button id="refresh" title="Look for new games">↻ Refresh</button></header>
+<header><b>custy<span>.gg</span> game review</b><span class="tag">test</span><span class="who" id="who"></span><form id="lookup" title="See any player's recent ranked and normal games"><input id="lookupId" placeholder="Look up a player: Name#TAG" autocomplete="off"><button>View</button></form><button id="refresh" title="Look for new games">↻ Refresh</button></header>
 <main>
   <aside id="list"><div class="note">Reading your games from League...</div></aside>
   <section id="view"><div class="empty">Pick a game on the left.</div></section>
@@ -1102,32 +1105,51 @@ const patchOf = (v) => String(v || "").split(".").slice(0, 2).join(".");
 const currentPatch = () => STATE.patch || patchOf(STATE.games[0]?.version);
 const replayExpired = (id) => { const g = STATE.games.find(g => g.id == id), now = currentPatch(); return !!(g?.version && now && patchOf(g.version) !== now); };
 // A failed read isn't remembered, so opening the game again retries it.
-const getGame = (id) => cacheGame[id] ??= api("/api/game/" + id).catch(e => { delete cacheGame[id]; throw e; });
+const asQ = () => STATE.as ? "?as=" + encodeURIComponent(STATE.as) : "";
+const getGame = (id) => cacheGame[(STATE.as || "") + ":" + id] ??= api("/api/game/" + id + asQ()).catch(e => { delete cacheGame[(STATE.as || "") + ":" + id]; throw e; });
 
 async function loadList() {
   const btn = $("refresh"); btn.disabled = true; btn.textContent = "Refreshing...";
   let r;
-  try { r = await api("/api/games"); } finally { btn.disabled = false; btn.textContent = "↻ Refresh"; }
-  const before = new Set(STATE.games.map(g => g.id));
+  try { r = await api("/api/games" + asQ()); } finally { btn.disabled = false; btn.textContent = "↻ Refresh"; }
+  const before = new Set(r.viewing ? [] : STATE.games.map(g => g.id));
   const fresh = STATE.games.length ? r.games.filter(g => !before.has(g.id)) : [];
   STATE = { ...STATE, games: r.games, me: r.me, replayApi: r.replayApi, patch: r.patch || STATE.patch };
+  document.body.classList.toggle("viewing", !!STATE.as);
+  if (r.viewing) { STATE.current = STATE.current && r.games.some(g => g.id == STATE.current) ? STATE.current : null; }
   try { STATE.queue = localStorage.getItem("custy-review-queue") || "all"; } catch (e) {}
   $("who").textContent = r.me?.gameName ? `${r.me.gameName}#${r.me.tagLine}` : "";
-  const note = r.note ? `<div class="note">${esc(r.note)}</div>` : "";
+  const note = (STATE.as ? `<div class="note viewing">Viewing <b>${esc(r.me?.gameName || "another player")}#${esc(r.me?.tagLine || "")}</b>: their last ${r.games.length} ranked and normal games, compared with the same experts as yours. Replays aren't available for other players. <button id="backMine">Back to my games</button></div>` : "")
+    + (r.note ? `<div class="note">${esc(r.note)}</div>` : "");
+  if (!r.games.length && STATE.as) { $("list").innerHTML = note + `<div class="note">No recent ranked or normal Summoner's Rift games for this player.</div>`; bindBack(); return; }
   if (!r.games.length) {
     $("list").innerHTML = note + `<div class="note">No ranked or normal Summoner's Rift games found yet. Play one with the app running, then reopen this.</div>`;
     return;
   }
   STATE.note = note;
   if (fresh.length) STATE.current = null;   // a new game came in: open it
-  renderList(true);
+  renderList(true); bindBack();
   if (!fresh.length && STATE.games.length && lastRefreshClicked) toast("No new games yet. League can take a minute or two after a game to add it to your history.");
   lastRefreshClicked = false;
 }
+function bindBack() { const b = $("backMine"); if (b) b.onclick = () => { STATE.as = null; STATE.current = null; $("lookupId").value = ""; loadList().catch(e => toast(e.message)); }; }
+$("lookup").onsubmit = async (ev) => {
+  ev.preventDefault();
+  const id = $("lookupId").value.trim();
+  if (!/^.+#.+$/.test(id)) return toast("Type a Riot ID like Name#TAG");
+  const b = $("lookup").querySelector("button"); b.disabled = true; b.textContent = "Loading…";
+  toast("Loading their recent games from Riot. This takes about 20 seconds the first time.");
+  try {
+    const r = await api("/api/lookup?riotId=" + encodeURIComponent(id));
+    STATE.as = r.me.puuid; STATE.current = null;
+    await loadList();
+  } catch (e) { toast(e.message || "Couldn't find that player"); }
+  finally { b.disabled = false; b.textContent = "View"; }
+};
 let lastRefreshClicked = false, lastLoad = Date.now();
 $("refresh").onclick = () => { lastRefreshClicked = true; lastLoad = Date.now(); loadList().catch(e => toast(e.message)); };
 // Also look for new games when you come back to this window, and every 2 minutes while it's open.
-const autoRefresh = () => { if (Date.now() - lastLoad > 30000) { lastLoad = Date.now(); loadList().catch(() => {}); } };
+const autoRefresh = () => { if (!STATE.as && Date.now() - lastLoad > 30000) { lastLoad = Date.now(); loadList().catch(() => {}); } };
 window.addEventListener("focus", autoRefresh);
 setInterval(() => { if (!document.hidden) autoRefresh(); }, 120000);
 
