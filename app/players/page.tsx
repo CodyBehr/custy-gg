@@ -33,7 +33,7 @@ function mainRole(p: PlayerSummary): Role {
 
 export default async function Players({ searchParams }: Props) {
   const { q = "", sort = "rating", min } = await searchParams;
-  const regularsOnly = min === String(MIN_GAMES);
+  const regularsOnly = min !== "0"; // on unless switched off (?min=0)
   const [d, s] = await Promise.all([getDataset(), getStatic()]);
   const options = d.players.map((p) => ({ puuid: p.puuid, label: `${p.name}#${p.tag}` }));
   const query = q.trim();
@@ -57,7 +57,7 @@ export default async function Players({ searchParams }: Props) {
   const ranked = regularsOnly && !query ? d.players.filter((p) => p.games >= MIN_GAMES) : d.players;
   const rankOf = new Map(ranked.map((p, i) => [p.puuid, i + 1]));
   const sortKey = sort in SORTS ? sort : "rating";
-  const sortLink = (key: string) => `/players?sort=${key}${regularsOnly ? `&min=${MIN_GAMES}` : ""}`;
+  const sortLink = (key: string) => `/players?sort=${key}${regularsOnly ? "" : "&min=0"}`;
 
   return (
     <>
@@ -80,7 +80,7 @@ export default async function Players({ searchParams }: Props) {
 
       {!query && hidden ? (
         <div className="filter-row">
-          <Link href={regularsOnly ? `/players?sort=${sortKey}` : `/players?sort=${sortKey}&min=${MIN_GAMES}`} scroll={false} className={`toggle${regularsOnly ? " on" : ""}`} role="switch" aria-checked={regularsOnly}>
+          <Link href={regularsOnly ? `/players?sort=${sortKey}&min=0` : `/players?sort=${sortKey}`} scroll={false} className={`toggle${regularsOnly ? " on" : ""}`} role="switch" aria-checked={regularsOnly}>
             <span className="knob" aria-hidden="true" />
             {MIN_GAMES}+ games only
           </Link>

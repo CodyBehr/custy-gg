@@ -10,7 +10,7 @@ type Props = { searchParams: Promise<{ min?: string }> };
 
 export default async function Standings({ searchParams }: Props) {
   const [d, s] = await Promise.all([getDataset(), getStatic()]);
-  const regularsOnly = (await searchParams).min === String(MIN_GAMES);
+  const regularsOnly = (await searchParams).min !== "0"; // on unless switched off (?min=0)
   const ladder = regularsOnly ? d.players.filter((p) => p.games >= MIN_GAMES) : d.players;
   const hidden = d.players.length - d.players.filter((p) => p.games >= MIN_GAMES).length;
   if (!d.matches.length) {
@@ -39,7 +39,7 @@ export default async function Standings({ searchParams }: Props) {
 
       {hidden ? (
         <div className="filter-row">
-          <Link href={regularsOnly ? "/" : `/?min=${MIN_GAMES}`} scroll={false} className={`toggle${regularsOnly ? " on" : ""}`} role="switch" aria-checked={regularsOnly}>
+          <Link href={regularsOnly ? "/?min=0" : "/"} scroll={false} className={`toggle${regularsOnly ? " on" : ""}`} role="switch" aria-checked={regularsOnly}>
             <span className="knob" aria-hidden="true" />
             {MIN_GAMES}+ games only
           </Link>
