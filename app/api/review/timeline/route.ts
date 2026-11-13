@@ -55,6 +55,9 @@ export async function GET(req: Request) {
   // Ping counts per player come from the match itself (one more request; skipped if it fails).
   let pings: Record<string, Record<string, number>> | null = null;
   let casts: Record<string, number[]> | null = null;   // [Q, W, E, R, summoner 1, summoner 2] for the whole game
+  // The API's puuids are encrypted for our key and don't match the League client's, so the collector
+  // matches players by champion and team instead: puuid -> [championId, teamId, participantId].
+  let who: Record<string, [number, number, number]> | null = null;
   try {
     const mr = await fetch(`https://${route}.api.riotgames.com/lol/match/v5/matches/${platform}_${gameId}`, {
       headers: { "X-Riot-Token": key, "User-Agent": "custy.gg" },
@@ -64,9 +67,10 @@ export async function GET(req: Request) {
       const m = await mr.json();
       pings = Object.fromEntries((m?.info?.participants ?? []).map((p: any) => [p.puuid,
         Object.fromEntries(Object.entries(p).filter(([k, v]) => k.endsWith("Pings") && typeof v === "number"))]));
+      who = Object.fromEntries((m?.info?.participants ?? []).map((p: any) => [p.puuid, [p.championId, p.teamId, p.participantId]]));
       casts = Object.fromEntries((m?.info?.participants ?? []).map((p: any) => [p.puuid,
         [p.spell1Casts, p.spell2Casts, p.spell3Casts, p.spell4Casts, p.summoner1Casts, p.summoner2Casts].map((x: any) => x ?? 0)]));
     }
   } catch {}
-  return NextResponse.json({ participants, frames, pings, casts }, { headers: { "Cache-Control": "private, max-age=86400" } });
+  return NextResponse.json({ participants, frames, pings, casts, who }, { headers: { "Cache-Control": "private, max-age=86400" } });
 }

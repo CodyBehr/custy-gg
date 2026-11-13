@@ -227,7 +227,7 @@ def fill_from_riot(data):
         return False
     need_events, need_armor = not _has_purchases(tl), not _has_armor(tl)
     need_levels = not any(e.get("type") == "LEVEL_UP" for f in tl.get("frames") or [] for e in f.get("events") or [])
-    need_pings = "pings" not in data
+    need_pings = not data.get("pings") or not data.get("casts")   # empty when puuids failed to match (before 1.10.22)
     # trading data: health, resource and damage totals per minute ("st") + cast counts; not in the client's timeline
     need_stats = not any("st" in pf for f in (tl.get("frames") or [])[1:3] for pf in (f.get("participantFrames") or {}).values())
     if not need_events and not need_armor and not need_levels and not need_pings and not need_stats:
@@ -245,8 +245,21 @@ def fill_from_riot(data):
     except Exception as e:
         core.log.info("Review: couldn't get item data for %s from the site: %s", game.get("gameId"), e)
         return True   # remember when we tried
-    # Riot's participant numbers -> the client's, matched by player
+    # Riot's participant numbers -> the client's. Riot's API encrypts puuids for the site's key, so they never
+    # match the client's; match by champion and team (unique in a Summoner's Rift game), then by number.
+    by_champ = {(_num(p.get("championId")), _num(p.get("teamId"))): p.get("participantId") for p in game.get("participants") or []}
+    client_pids = {p.get("participantId") for p in game.get("participants") or []}
+    who = extra.get("who") or {}
     by_puuid = {(i.get("player") or {}).get("puuid"): i.get("participantId") for i in game.get("participantIdentities") or []}
+    for pu, w in who.items():
+        pid = by_champ.get((_num(w[0]), _num(w[1])))
+        if pid is None and w[2] in client_pids:
+            pid = w[2]
+        if pid is not None:
+            by_puuid[pu] = pid
+    for p in extra.get("participants") or []:   # older site without "who": Riot and the client number players the same way
+        if p["puuid"] not in by_puuid and p["participantId"] in client_pids:
+            by_puuid[p["puuid"]] = p["participantId"]
     pid_map = {p["participantId"]: by_puuid.get(p["puuid"], p["participantId"]) for p in extra.get("participants") or []}
     frames = tl.get("frames") or []
     added = 0
