@@ -45,9 +45,16 @@ export async function GET(req: Request) {
     events: (f.events ?? []).filter((e: any) => KEEP.has(e.type)),
     // Armor per participant: the client's timeline doesn't have champion stats.
     armor: Object.fromEntries(Object.values(f.participantFrames ?? {}).map((pf: any) => [pf.participantId, pf.championStats?.armor ?? null])),
+    // For trading: [health, max health, resource, max resource, damage dealt to champions, damage taken] (running totals).
+    stats: Object.fromEntries(Object.values(f.participantFrames ?? {}).map((pf: any) => {
+      const c = pf.championStats ?? {}, d = pf.damageStats ?? {};
+      return [pf.participantId, [c.health ?? null, c.healthMax ?? null, c.power ?? null, c.powerMax ?? null,
+        d.totalDamageDoneToChampions ?? null, d.totalDamageTaken ?? null]];
+    })),
   }));
   // Ping counts per player come from the match itself (one more request; skipped if it fails).
   let pings: Record<string, Record<string, number>> | null = null;
+  let casts: Record<string, number[]> | null = null;   // [Q, W, E, R, summoner 1, summoner 2] for the whole game
   try {
     const mr = await fetch(`https://${route}.api.riotgames.com/lol/match/v5/matches/${platform}_${gameId}`, {
       headers: { "X-Riot-Token": key, "User-Agent": "custy.gg" },
@@ -57,7 +64,9 @@ export async function GET(req: Request) {
       const m = await mr.json();
       pings = Object.fromEntries((m?.info?.participants ?? []).map((p: any) => [p.puuid,
         Object.fromEntries(Object.entries(p).filter(([k, v]) => k.endsWith("Pings") && typeof v === "number"))]));
+      casts = Object.fromEntries((m?.info?.participants ?? []).map((p: any) => [p.puuid,
+        [p.spell1Casts, p.spell2Casts, p.spell3Casts, p.spell4Casts, p.summoner1Casts, p.summoner2Casts].map((x: any) => x ?? 0)]));
     }
   } catch {}
-  return NextResponse.json({ participants, frames, pings }, { headers: { "Cache-Control": "private, max-age=86400" } });
+  return NextResponse.json({ participants, frames, pings, casts }, { headers: { "Cache-Control": "private, max-age=86400" } });
 }

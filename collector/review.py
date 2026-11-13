@@ -54,7 +54,7 @@ BOOTS = {1001, 2422, 3005, 3006, 3008, 3009, 3010, 3013, 3020, 3047, 3111, 3117,
          3171, 3172, 3173, 3174, 3175, 3176}
 KEEP_EVENTS = {"CHAMPION_KILL", "ELITE_MONSTER_KILL", "BUILDING_KILL", "ITEM_PURCHASED", "ITEM_UNDO",
                "ITEM_SOLD", "SKILL_LEVEL_UP", "LEVEL_UP", "TURRET_PLATE_DESTROYED"}
-FRAME_FIELDS = ("totalGold", "currentGold", "minionsKilled", "jungleMinionsKilled", "level", "xp", "position")
+FRAME_FIELDS = ("totalGold", "currentGold", "minionsKilled", "jungleMinionsKilled", "level", "xp", "position", "armor", "st")
 
 _lock = threading.Lock()
 _bench = {}   # name -> (fetched_at, data or None)
@@ -228,12 +228,14 @@ def fill_from_riot(data):
     need_events, need_armor = not _has_purchases(tl), not _has_armor(tl)
     need_levels = not any(e.get("type") == "LEVEL_UP" for f in tl.get("frames") or [] for e in f.get("events") or [])
     need_pings = "pings" not in data
-    if not need_events and not need_armor and not need_levels and not need_pings:
+    # trading data: health, resource and damage totals per minute ("st") + cast counts; not in the client's timeline
+    need_stats = not any("st" in pf for f in (tl.get("frames") or [])[1:3] for pf in (f.get("participantFrames") or {}).values())
+    if not need_events and not need_armor and not need_levels and not need_pings and not need_stats:
         return False
-    # "fillTried2": attempts made before the site had its Riot key don't count.
-    if time.time() - float(data.get("fillTried2") or 0) < 600:
+    # "fillTried3": attempts made before the site sent trading data don't count.
+    if time.time() - float(data.get("fillTried3") or 0) < 600:
         return False
-    data["fillTried2"] = time.time()
+    data["fillTried3"] = time.time()
     url = "%s/api/review/timeline?platform=%s&gameId=%s" % (_cfg["site_url"].rstrip("/"), game.get("platformId") or "NA1", game.get("gameId"))
     req = urllib.request.Request(url, headers={"Authorization": "Bearer " + _cfg.get("ingest_key", ""),
                                                "User-Agent": "custy-collector/" + core.VERSION})
@@ -250,8 +252,14 @@ def fill_from_riot(data):
     added = 0
     if extra.get("pings"):   # ping counts per player, keyed by the client's participant numbers
         data["pings"] = {str(pid): extra["pings"][pu] for pu, pid in by_puuid.items() if pu in extra["pings"]}
+    if extra.get("casts"):   # [Q, W, E, R, summoner 1, summoner 2] casts over the whole game, by client participant number
+        data["casts"] = {str(pid): extra["casts"][pu] for pu, pid in by_puuid.items() if pu in extra["casts"]}
     for i, f in enumerate(extra.get("frames") or []):
         if i < len(frames):
+            for pid, st in (f.get("stats") or {}).items():
+                pf = (frames[i].get("participantFrames") or {}).get(str(pid_map.get(int(pid), int(pid))))
+                if pf is not None and st and st[0] is not None:
+                    pf["st"] = st
             for pid, armor in (f.get("armor") or {}).items():
                 pf = (frames[i].get("participantFrames") or {}).get(str(pid_map.get(int(pid), int(pid))))
                 if pf is not None and armor is not None:

@@ -119,6 +119,9 @@ def row(m, tl, me):
         r["jg"] = jungle(m, tl, me)
     if oid:
         r.update(by_level(tl, pid, oid))
+        r["trade"] = trading(tl, pid, oid)
+    dur_min = max(1, m["gameDuration"] / 60)
+    r["cpm"] = [round(me.get(k, 0) / dur_min, 2) for k in ("spell1Casts", "spell2Casts", "spell3Casts", "spell4Casts")]
     return r
 
 
@@ -177,6 +180,7 @@ def aggregate(rows, source, built):
     out["setup"] = setup(rows)
     out["matchups"] = matchups(rows)
     out["by_level"] = level_summary(rows)
+    out["trade"] = trade_summary(rows)
     by = defaultdict(list)
     for r in rows:
         if r.get("opp") and r.get("lane_fights") is not None:
@@ -296,6 +300,51 @@ def jungle_summary(rows):
         "enemy_camps": med([j["enemy_camps"] for j in js if j.get("enemy_camps") is not None]),
         "objs14": {k: round(S.mean(j["objs14"].get(k, 0) for j in js), 2) for k in ("DRAGON", "HORDE", "RIFTHERALD")},
     }
+
+
+def trading(tl, pid, oid):
+    """Lane trading, minutes 1-14: damage each side dealt to champions in each minute, damage this player took
+    (from everything), and health / resource as a share of max at each minute mark (one snapshot a minute)."""
+    fr = tl["frames"][:15]
+    out = {"dealt": [], "odealt": [], "taken": [], "hp": [], "ohp": [], "mp": []}
+    def st(f, i):
+        x = f["participantFrames"][str(i)]
+        return x.get("championStats") or {}, x.get("damageStats") or {}
+    for k in range(1, len(fr)):
+        (ca, da), (cb, db) = st(fr[k - 1], pid), st(fr[k], pid)
+        (_, oa), (oc, ob) = st(fr[k - 1], oid), st(fr[k], oid)
+        out["dealt"].append(db.get("totalDamageDoneToChampions", 0) - da.get("totalDamageDoneToChampions", 0))
+        out["odealt"].append(ob.get("totalDamageDoneToChampions", 0) - oa.get("totalDamageDoneToChampions", 0))
+        out["taken"].append(db.get("totalDamageTaken", 0) - da.get("totalDamageTaken", 0))
+        pct = lambda a, b: round(a / b, 2) if b else None
+        out["hp"].append(pct(cb.get("health", 0), cb.get("healthMax", 0)))
+        out["ohp"].append(pct(oc.get("health", 0), oc.get("healthMax", 0)))
+        out["mp"].append(pct(cb.get("power", 0), cb.get("powerMax", 0)))
+    return out
+
+
+def _med(v):
+    return round(S.median(v), 2) if v else None
+
+
+def trade_summary(rows):
+    """Per-minute medians (minutes 1-14) of the trading numbers, plus how often experts sit under 20% resource
+    at a minute mark (2-14) and ability casts per minute over the game."""
+    ts = [r["trade"] for r in rows if r.get("trade")]
+    if len(ts) < 10:
+        return None
+    col = lambda key, k: [t[key][k] for t in ts if len(t[key]) > k and t[key][k] is not None]
+    out = {key: [_med(col(key, k)) if col(key, k) else None for k in range(14)] for key in ("dealt", "odealt", "taken", "hp", "ohp", "mp")}
+    # quartiles for damage dealt/taken, to say "more than most experts" honestly
+    for key in ("dealt", "taken"):
+        out[key + "_q"] = [qs(col(key, k)) for k in range(14)]
+    lows = [sum(1 for x in t["mp"][1:] if x is not None and x < 0.2) / max(1, sum(1 for x in t["mp"][1:] if x is not None)) for t in ts if any(x is not None for x in t["mp"][1:])]
+    out["low_mp"] = round(S.mean(lows), 3) if lows else None
+    cp = [r["cpm"] for r in rows if r.get("cpm")]
+    out["cpm"] = [_med([c[i] for c in cp]) for i in range(4)] if len(cp) >= 10 else None
+    out["cpm_total_q"] = qs([sum(c) for c in cp]) if len(cp) >= 10 else None
+    out["n"] = len(ts)
+    return out
 
 
 def by_level(tl, pid, oid):
