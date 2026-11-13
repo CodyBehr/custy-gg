@@ -462,6 +462,13 @@ def lookup_player(riot_id, platform="NA1", limit=12):
     who = _site_get("/api/review/lookup?" + q)
     d = _others_dir(who["puuid"])
     json.dump({k: who.get(k) for k in ("puuid", "gameName", "tagLine")}, open(os.path.join(d, "_who.json"), "w"))
+    # Games that aren't reviewable (ARAM, remakes...) are remembered so a second lookup doesn't spend
+    # Riot requests on them again: the site's key allows 100 requests per 2 minutes, 2 per game.
+    skip_path = os.path.join(d, "_skip.json")
+    try:
+        skip = set(json.load(open(skip_path)))
+    except (OSError, ValueError):
+        skip = set()
     got = 0
     for mid in who.get("ids") or []:
         if got >= limit:
@@ -470,12 +477,18 @@ def lookup_player(riot_id, platform="NA1", limit=12):
         if os.path.exists(path):
             got += 1
             continue
+        if mid in skip:
+            continue
         try:
             raw = _site_get("/api/review/lookup?match=" + mid)
         except Exception as e:
             core.log.info("Lookup: couldn't load %s: %s", mid, e)
+            if "request limit" in str(e):
+                break   # rate limited: show what loaded so far; the rest load on the next lookup
             continue
         if raw["match"]["info"].get("queueId") not in _VIEW_QUEUES or raw["match"]["info"].get("gameDuration", 0) < 600:
+            skip.add(mid)
+            json.dump(sorted(skip), open(skip_path, "w"))
             continue
         data = riot_to_client(raw["match"], raw["timeline"], who["puuid"])
         with open(path, "w", encoding="utf-8") as f:

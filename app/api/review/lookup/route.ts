@@ -54,6 +54,9 @@ export async function GET(req: Request) {
     return NextResponse.json({ puuid: acc.puuid, gameName: acc.gameName, tagLine: acc.tagLine, ids });
   } catch (e: any) {
     const s = e?.status === 404 ? 404 : e?.status === 429 ? 429 : 502;
-    return NextResponse.json({ error: s === 404 ? "Player or game not found" : e?.message || "Riot API error" }, { status: s });
+    const msg = s === 404 ? "Player or game not found"
+      : s === 429 ? "Riot's request limit for the site is used up for the moment (100 requests per 2 minutes). Try again in a minute or two."
+      : e?.message || "Riot API error";
+    return NextResponse.json({ error: msg, rateLimited: s === 429 }, { status: s });
   }
 }
