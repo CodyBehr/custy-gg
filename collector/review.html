@@ -118,10 +118,14 @@ body.cs .card { margin-top:10px; padding:12px; } body.cs .card button { margin-t
 .csr .rcol img { width:30px; height:30px; } .csr .rcol img.ks { width:44px; height:44px; } .csr .rcol img.st { width:22px; height:22px; opacity:.8; }
 .csr .shards { align-items:flex-start; gap:6px; font-size:12px; color:var(--mute); padding-top:26px; }
 .css .sp { display:flex; gap:6px; align-items:center; } .css .sp img { width:34px; height:34px; border-radius:6px; } .css .sp span { color:var(--mute); margin-left:6px; }
-.csk .lv18 { display:grid; grid-template-columns:repeat(9, 1fr); gap:3px; margin:6px 0; }
-.csk .lv18 span { text-align:center; border-radius:5px; padding:2px 0; font-weight:700; background:var(--line-soft); }
-.csk .lv18 span i { display:block; font-style:normal; font-weight:400; font-size:10px; color:var(--faint); }
-.csk .lv18 .s1 { color:#7fb8ff; } .csk .lv18 .s2 { color:#8be8c6; } .csk .lv18 .s3 { color:#f0c98a; } .csk .lv18 .s4 { color:#ff8fa0; }
+.ski { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:5px; background:var(--line-soft) center/cover no-repeat; border:1px solid var(--line); vertical-align:-7px; position:relative; font-weight:700; font-size:12px; }
+.ski em { font-style:normal; } .ski.img em { position:absolute; right:-3px; bottom:-4px; font-size:9px; line-height:1; padding:1px 2px; border-radius:3px; background:#0b1220; color:#fff; border:1px solid var(--line); }
+.skgt { margin:0 5px; color:var(--mute); }
+.sktwrap { overflow-x:auto; margin:10px 0 6px; } .sktwrap .lbl { margin-bottom:4px; }
+.skt { border-collapse:separate; border-spacing:3px; } .skt thead th { font-size:11px; font-weight:600; color:var(--mute); text-align:center; padding:0 0 2px; }
+.skt tbody th { padding-right:6px; } .skt tbody th .ski { width:28px; height:28px; vertical-align:middle; }
+.skt td { width:30px; min-width:26px; height:28px; border-radius:5px; border:1px solid var(--line); text-align:center; font-size:12px; font-weight:700; color:#fff; }
+.skt td.on { background:#1f6fd0; border-color:#3d8ef0; } .skt tr.r4 td.on { background:#b8862f; border-color:#e0ad52; }
 .csb .row { display:grid; grid-template-columns:96px 1fr; gap:8px; align-items:center; padding:4px 0; }
 .csb .row small { color:var(--mute); } .csb .ics { display:flex; gap:3px; flex-wrap:wrap; }
 .csb .ics img { width:30px; height:30px; border-radius:5px; border:1px solid var(--line); } .csb .core img { border-color:var(--gold); }
@@ -554,12 +558,15 @@ function setupCard(A, B) {
   }
   if (spells) lines.push(spOk ? `<span class="good">Same summoner spells as most experts.</span>` : `Spells: you took ${mySp.map(spellIcon).join("")} · most experts take ${spells[0].map(spellIcon).join("")} (${Math.round(spells[1] * 100)}%).`);
   const SK = myV?.skills || S.skills;
-  if (SK && myOrder) lines.push(myOrder.slice(0, 1) === SK.order.slice(0, 1) ? `<span class="good">Maxed ${myOrder[0]} first, like ${P(SK.rate)} of experts${myV && V.length > 1 ? ` on this setup` : ""}.</span>`
-    : `You maxed <b>${myOrder.slice(0, 3).split("").join(" › ")}</b>; ${P(SK.rate)} of experts${myV && V.length > 1 ? ` on this setup` : ""} max <b>${SK.order.slice(0, 3).split("").join(" › ")}</b>.`);
+  const myAlias = DD.champ[A.me.championId]?.id;
+  if (SK && myOrder) lines.push(myOrder.slice(0, 1) === SK.order.slice(0, 1) ? `<span class="good">Maxed ${skIcon(myAlias, myOrder[0])} first, like ${P(SK.rate)} of experts${myV && V.length > 1 ? ` on this setup` : ""}.</span>`
+    : `You maxed ${skSeq(myAlias, myOrder.slice(0, 3))}; ${P(SK.rate)} of experts${myV && V.length > 1 ? ` on this setup` : ""} max ${skSeq(myAlias, SK.order.slice(0, 3))}.`);
+  const skTables = (mySkills.length ? skTable(myAlias, mySkills, "Your skill order") : "") + (SK?.typical?.length ? skTable(myAlias, SK.typical, `Experts' usual skill order${SK.order ? `: max ${skSeq(myAlias, SK.order.slice(0, 3))}` : ""}`) : "");
   return `<h2>Runes, spells and skills</h2><div class="card setup">
     ${mine ? `<div class="lbl">Yours</div>${page(mine, rec.page)}` : ""}
     <div class="lbl">${myV?.rec && V.length > 1 ? `Experts who took ${ksName(myV.keystone)} (${myV.n} games)` : `Experts${vs?.rec ? ` vs ${esc(champName(A.opp.championId))} (${vs.n} games)` : ` on ${esc(champName(A.me.championId))}`}`}</div>${page(rec.page, mine)}
     <div class="notes">${lines.map(l => `<div>${l}</div>`).join("")}</div>
+    ${skTables}
     <div class="sub">Gold rings mark runes you share. The expert page is the most common pick in each slot.</div></div>`;
 }
 // Your build back by back, like the item timelines on stats sites: what you bought at each back, with the time.
@@ -2864,6 +2871,28 @@ async function loadCsData() {
 }
 const runeIcon = (id, big) => DD.runes?.[id] ? `<img class="${big ? "ks" : ""}" src="https://ddragon.leagueoflegends.com/cdn/img/${DD.runes[id].icon}" title="${esc(DD.runes[id].name)}" alt="">` : "";
 const styleIcon = (id) => DD.styles?.[id] ? `<img class="st" src="https://ddragon.leagueoflegends.com/cdn/img/${DD.styles[id].icon}" title="${esc(DD.styles[id].name)}" alt="">` : "";
+
+// Skill order, shown the same way everywhere: a Q/W/E/R by level table with the champion's own ability icons.
+// Icons load from Riot's Data Dragon per champion; skFill() swaps them in for anything on the page.
+const SK_ICONS = {}, skWait = {};
+const skIcon = (alias, L) => `<span class="ski" data-ch="${esc(alias || "")}" data-k="${L}" title="${L}"><em>${L}</em></span>`;
+const skSeq = (alias, letters) => [...letters].map(L => skIcon(alias, L)).join(`<span class="skgt">›</span>`);
+function skTable(alias, seq, label) {   // seq: skill slots 1-4 in the order they were levelled
+  const n = Math.max(18, seq.length);
+  return `<div class="sktwrap">${label ? `<div class="lbl">${label}</div>` : ""}<table class="skt"><thead><tr><th></th>${Array.from({ length: 18 }, (_, i) => `<th>${i + 1}</th>`).join("")}</tr></thead>
+    <tbody>${[1, 2, 3, 4].map(slot => `<tr class="r${slot}"><th>${skIcon(alias, "QWER"[slot - 1])}</th>${Array.from({ length: 18 }, (_, i) => `<td class="${seq[i] === slot ? "on" : ""}">${seq[i] === slot ? i + 1 : ""}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+async function skLoad(alias) {
+  if (SK_ICONS[alias]) return SK_ICONS[alias];
+  return skWait[alias] ??= (async () => { try { await loadDD(); const j = await (await fetch(`https://ddragon.leagueoflegends.com/cdn/${DD.v}/data/en_US/champion/${alias}.json`)).json(), c = Object.values(j.data)[0];
+    SK_ICONS[alias] = Object.fromEntries("QWER".split("").map((k, i) => [k, { src: `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/spell/${c.spells[i].image.full}`, name: c.spells[i].name }])); } catch (e) { SK_ICONS[alias] = {}; }
+    return SK_ICONS[alias]; })();
+}
+function skFill() {
+  document.querySelectorAll(".ski[data-ch]:not(.ok)").forEach(async el => { const a = el.dataset.ch; if (!a) return; el.classList.add("ok");
+    const ic = (await skLoad(a))[el.dataset.k]; if (!ic) return; el.style.backgroundImage = `url(${ic.src})`; el.classList.add("img"); el.title = `${el.dataset.k}: ${ic.name}`; });
+}
+new MutationObserver(() => { clearTimeout(skFill.t); skFill.t = setTimeout(skFill, 60); }).observe(document.documentElement, { childList: true, subtree: true });
 const spellIcon = (id) => DD.spells?.[id] ? `<img src="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/spell/${DD.spells[id].id}.png" title="${esc(DD.spells[id].name)}" alt="">` : "";
 const champImg = (alias) => `<img src="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/champion/${alias}.png" alt="">`;
 const csName = (alias) => Object.values(DD.champ).find(c => c.id === alias)?.name || alias;
@@ -2962,7 +2991,7 @@ function gamePlan(B, champ, role, opp) {
     if (lv != null) L.push(lv >= .55 ? `<b>First waves:</b> experts reach level 2 first in ${pct(lv)}${M ? " of these games" : ""}. Push the first two waves and look to trade when you hit 2.`
       : lv <= .35 ? `<b>First waves:</b> experts usually let ${esc(name || "them")} hit level 2 first (only ${pct(lv)} get there first). Don't fight their level 2; last-hit safely and trade back at 3.`
       : `<b>First waves:</b> level 2 is a race here (experts first in ${pct(lv)}).`);
-    if (S.skills?.typical?.length >= 3) L.push(`Skills: start <b>${S.skills.typical.slice(0, 3).map(x => "QWER"[x - 1]).join(" › ")}</b>, max ${S.skills.order.slice(0, 3).split("").join(" › ")}.`);
+    if (S.skills?.typical?.length >= 3) L.push(`Skills: start ${skSeq(champ, S.skills.typical.slice(0, 3).map(x => "QWER"[x - 1]).join(""))}, max ${skSeq(champ, S.skills.order.slice(0, 3))}.`);
     if (M) {
       L.push(M.gd10 >= 150 ? `<b>A lane experts win:</b> ${g(M.gd10)} gold and ${g(M.csd10)} CS at 10:00 on average. Play forward.`
         : M.gd10 <= -150 ? `<b>A lane experts lose a little:</b> ${g(M.gd10)} gold and ${g(M.csd10)} CS at 10:00. Give up some CS if you have to and play for later.`
@@ -3129,9 +3158,9 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
     <div class="sub">Kills and deaths against the lane opponent before 14:00, by the expert's level at the time${ls.vs ? " (this matchup where there are 10+ fights at a level, otherwise all matchups)" : ", all matchups"}.</div></div>`);
   // Skills
   if (cur?.skills || S?.skills) {
-    const k = cur?.skills || S.skills, L = (s) => "QWER"[s - 1];
-    parts.push(`<div class="card csk"><div class="ctitle">Skill order: max ${k.order.slice(0, 3).split("").join(" › ")}</div>
-      <div class="lv18">${k.typical.map((s, i) => `<span class="s${s}"><i>${i + 1}</i>${L(s)}</span>`).join("")}</div>
+    const k = cur?.skills || S.skills;
+    parts.push(`<div class="card csk"><div class="ctitle">Skill order: max ${skSeq(st.champion, k.order.slice(0, 3))}</div>
+      ${skTable(st.champion, k.typical)}
       <div class="sub">${Math.round(k.rate * 100)}% of experts max in this order.</div></div>`);
   }
   // Build: one tab per build experts commonly go (by first item)
