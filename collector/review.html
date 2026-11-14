@@ -2097,7 +2097,24 @@ function worthIt(A, d) {
 // Pings: this game against what players at each rank average for this role (from 750 ranked games, Nov 2026).
 const PING_RANKS = ["Bronze", "Silver", "Gold", "Emerald", "Master+"];
 const PING_PM = { TOP: [.43, .46, .52, .54, .72], JUNGLE: [.71, .87, .92, 1.41, 1.82], MID: [.56, .62, .70, .88, 1.09], BOT: [.37, .46, .49, .56, .86], SUPPORT: [.44, .51, .61, .83, 1.08] };
-const PING_KINDS = [["onMyWayPings", "On my way"], ["enemyMissingPings", "Enemy missing"], ["getBackPings", "Get back"], ["enemyVisionPings", "Enemy vision"], ["assistMePings", "Assist me"], ["allInPings", "All in"], ["pushPings", "Push"], ["needVisionPings", "Need vision"]];
+// Riot sends about 14 ping counts. Group them all so the groups always add up to the total.
+const PING_GROUPS = [
+  ["Plays", { onMyWayPings: "On my way", allInPings: "All in", pushPings: "Push", assistMePings: "Assist me", holdPings: "Hold" }],
+  ["Warnings", { enemyMissingPings: "Enemy missing", getBackPings: "Get back", retreatPings: "Retreat", dangerPings: "Caution" }],
+  ["Vision", { enemyVisionPings: "Enemy vision", needVisionPings: "Need vision", visionClearedPings: "Vision cleared" }],
+  ["General", { basicPings: "Basic ping", commandPings: "Info / timer" }],
+];
+function pingGroups(pings) {
+  const known = new Set(PING_GROUPS.flatMap(g => Object.keys(g[1])));
+  const rows = PING_GROUPS.map(([name, kinds]) => {
+    const parts = Object.entries(kinds).map(([k, n]) => [n, +pings[k] || 0]);
+    return { name, n: parts.reduce((a, p) => a + p[1], 0), parts };
+  });
+  const other = Object.entries(pings).filter(([k]) => !known.has(k)).map(([k, v]) => [k.replace(/Pings$/, "").replace(/([A-Z])/g, " $1").toLowerCase(), +v || 0]);
+  const on = other.reduce((a, p) => a + p[1], 0);
+  if (on) rows.push({ name: "Other", n: on, parts: other });
+  return rows;
+}
 function pingCard(A) {
   if (!A.pings) return "";
   const total = Object.values(A.pings).reduce((a, v) => a + (+v || 0), 0), pm = total / (A.g.gameDuration / 60);
@@ -2106,8 +2123,8 @@ function pingCard(A) {
   return `<div class="card pings" style="grid-column:1 / -1"><div class="k">Pings: telling your team what you're doing</div>
     <div class="prow"><b class="${at >= 4 ? "good" : at <= 1 ? "warn" : ""}">${total}</b><span>this game (${pm.toFixed(2)} a minute), ${like} for ${esc(ROLE_NAME[A.role] || "your role")}</span></div>
     <div class="ladder">${PING_RANKS.map((r, i) => `<span class="${i < at ? "on" : ""}">${r}<i>${Math.round(ladder[i] * A.g.gameDuration / 60)}</i></span>`).join("")}</div>
-    <div class="kinds">${PING_KINDS.map(([k, n]) => `<span class="${A.pings[k] ? "" : "zero"}">${n} <b>${A.pings[k] || 0}</b></span>`).join("")}</div>
-    <div class="d">Higher ranks ping a lot more, mostly "on my way", "enemy missing" and "get back": they say what they're about to do. Numbers under each rank are its average for a game this long.</div></div>`;
+    <div class="kinds">${pingGroups(A.pings).map(g => `<span class="${g.n ? "" : "zero"}" title="${esc(g.parts.filter(p => p[1]).map(p => `${p[0]} ${p[1]}`).join(", ") || "None this game")}">${g.name} <b>${g.n}</b></span>`).join("")}</div>
+    <div class="d">Higher ranks ping a lot more, mostly plays ("on my way") and warnings ("enemy missing", "get back"): they say what they're about to do. Hover a group to see what's in it. Numbers under each rank are its average for a game this long.</div></div>`;
 }
 
 // This game's kills, deaths and assists on the map. Tap a dot to jump to it in the list below.
