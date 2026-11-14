@@ -1240,8 +1240,8 @@ function chart(A, B, moments) {
 
 // ---------------------------------------------------------------- Page
 let STATE = { games: [], me: null, replayApi: null, current: "home", queue: "all" };
-const QUEUE_FILTERS = [["all", "All"], ["solo", "Solo/Duo"], ["flex", "Flex"], ["other", "Normals & other"]];
-const queueGroup = (q) => q === "Ranked Solo/Duo" ? "solo" : q === "Ranked Flex" ? "flex" : "other";
+const QUEUE_FILTERS = [["all", "All"], ["solo", "Solo/Duo"], ["flex", "Flex"], ["other", "Normals & other"], ["custom", "Customs"]];
+const queueGroup = (q) => q === "Ranked Solo/Duo" ? "solo" : q === "Ranked Flex" ? "flex" : q === "Custom" ? "custom" : "other";
 const cacheGame = {};
 // League can only play replays from the patch it's on. If the client can't say, go by your newest game.
 const patchOf = (v) => String(v || "").split(".").slice(0, 2).join(".");

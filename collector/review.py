@@ -2,7 +2,7 @@
 Game review (test version).
 
 A small page, served only to this computer, that reviews your recent
-Summoner's Rift games (ranked, normals, quickplay; not customs): your lane gold
+Summoner's Rift games (ranked, normals, quickplay and full 5v5 customs): your lane gold
 difference by minute, the moments it slipped, your back, item and level 6
 timings, and a button that opens your replay at that moment.
 
@@ -39,7 +39,7 @@ HISTORY_DEPTH = 100        # how far back to look in the client's match history
 REPLAY_API = "https://127.0.0.1:2999"
 SR_MAP = 11
 
-QUEUES = {420: "Ranked Solo/Duo", 440: "Ranked Flex", 400: "Normal Draft", 430: "Normal Blind",
+QUEUES = {0: "Custom", 420: "Ranked Solo/Duo", 440: "Ranked Flex", 400: "Normal Draft", 430: "Normal Blind",
           490: "Quickplay", 480: "Swiftplay", 700: "Clash"}
 
 # The role quest slot (stats.roleBoundItem) names each player's role. Same table as lib/normalize.ts.
@@ -104,7 +104,11 @@ def roles(game):
 
 def _is_reviewable(summary):
     if summary.get("gameType") == "CUSTOM_GAME":
-        return False
+        # Customs count when they're a full 5v5. The history list only names you, so the count is checked
+        # once the whole game has been read.
+        n = len(summary.get("participants") or [])
+        if n > 1 and n != 10:
+            return False
     m = summary.get("mapId")
     return m in (None, SR_MAP) and str(summary.get("gameMode") or "CLASSIC") == "CLASSIC"
 
@@ -224,6 +228,8 @@ def fill_from_riot(data):
     Asks the site, which gets them from Riot's match API, and merges them in. Returns True if it changed anything."""
     tl, game = data.get("timeline"), data.get("game") or {}
     if not tl or not _cfg.get("site_url"):
+        return False
+    if game.get("gameType") == "CUSTOM_GAME":   # Riot's match API doesn't have custom games
         return False
     need_events, need_armor = not _has_purchases(tl), not _has_armor(tl)
     need_levels = not any(e.get("type") == "LEVEL_UP" for f in tl.get("frames") or [] for e in f.get("events") or [])
