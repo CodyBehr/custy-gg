@@ -4,24 +4,37 @@
 <meta charset="utf-8">
 <title>custy coach</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<script>try { document.documentElement.dataset.theme = localStorage.getItem("custy-theme") === "light" ? "light" : "dark"; } catch (e) {}</script>
 <style>
 :root {
-  --night:#0d1424; --deck:#141d31; --deck-2:#1a2540; --line:#253150; --line-soft:#1d2843;
-  --ink:#e6ebf5; --mute:#8f9ab4; --faint:#5d6987;
-  --blue:#4f9dff; --blue-ink:#9cc8ff; --blue-wash:rgba(79,157,255,.11);
-  --red:#f2596b; --red-ink:#ff9aa6; --red-wash:rgba(242,89,107,.1);
-  --gold:#e3b866; --gold-wash:rgba(227,184,102,.12);
-  --green:#4fd1a1; --green-ink:#8be8c6; --green-wash:rgba(79,209,161,.1); --amber-ink:#f0c98a;
+  --night:#3f4553; --deck:#4d5464; --deck-2:#596073; --line:#6b7286; --line-soft:#5c6375;
+  --ink:#f4f3ef; --mute:#e0e2e8; --faint:#bcc0cb;
+  --blue:#6ea0ff; --blue-ink:#a9c1ff; --blue-wash:rgba(110,160,255,.18);
+  --red:#ff6b78; --red-ink:#ffa3a8; --red-wash:rgba(255,107,120,.18);
+  --gold:#f3c34b; --gold-wash:rgba(243,195,75,.16);
+  --green:#5fdca4; --green-ink:#9df0c8; --green-wash:rgba(95,220,164,.16); --amber-ink:#ffd58a;
+  --chip:#4d5464; --btn:#f4f3ef; --btnfg:#23262e; --block:#23262e; --htrack:#687083; --hme:rgba(243,195,75,.22); --tier:#f3c34b;
   color-scheme: dark;
 }
+html[data-theme=light] {
+  --night:#eceef3; --deck:#fff; --deck-2:#f1f3f7; --line:#cfd4df; --line-soft:#e1e4ec;
+  --ink:#11131c; --mute:#434859; --faint:#6a7083;
+  --blue:#2457e6; --blue-ink:#1d48c9; --blue-wash:rgba(36,87,230,.10);
+  --red:#cf3340; --red-ink:#a8222e; --red-wash:rgba(185,43,55,.10);
+  --gold:#b98510; --gold-wash:rgba(243,195,75,.22);
+  --green:#12976a; --green-ink:#0c7550; --green-wash:rgba(18,151,106,.10); --amber-ink:#8f6208;
+  --chip:#dfe2ea; --btn:#11131c; --btnfg:#fff; --block:#11131c; --htrack:#d5d9e3; --hme:#fbf0cf;
+  color-scheme: light;
+}
 * { box-sizing: border-box; }
-body { margin:0; background:var(--night); color:var(--ink); font:15px/1.5 "Segoe UI", system-ui, sans-serif; }
+body { margin:0; background:var(--night); color:var(--ink); font:15px/1.5 Inter, "Segoe UI", system-ui, sans-serif; }
 header { display:flex; align-items:baseline; gap:12px; padding:14px 22px; border-bottom:1px solid var(--line-soft); }
 header b { font-size:18px; letter-spacing:.3px; } header b span { color:var(--gold); }
 header .tag { font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--night); background:var(--gold); padding:1px 7px; border-radius:4px; }
 header button { margin-left:4px; }
 header .who { margin-left:auto; color:var(--mute); font-size:13px; }
-main { display:grid; grid-template-columns: 300px 1fr; min-height: calc(100vh - 54px); }
+main { display:block; min-height: calc(100vh - 80px); }
 aside { border-right:1px solid var(--line-soft); overflow-y:auto; max-height: calc(100vh - 54px); }
 .filter { display:flex; gap:6px; padding:10px 14px; border-bottom:1px solid var(--line-soft); flex-wrap:wrap; }
 .filter button { padding:3px 10px; border-radius:20px; font-size:12px; }
@@ -255,7 +268,7 @@ details.fight .fpl .pop img { width:26px; height:26px; border-radius:4px; border
 .card.trade { grid-column:1 / -1; } .trade svg { max-height:190px; }
 .trade .finds { margin:8px 0 0; padding-left:18px; } .trade .finds li { margin:4px 0; line-height:1.45; }
 body.viewing [data-watch], body.viewing #ov { display:none !important; }
-#lookup { display:flex; gap:6px; margin-left:auto; margin-right:8px; } #lookup input { background:#0d1526; border:1px solid var(--line); color:var(--text); border-radius:8px; padding:6px 10px; width:210px; font-size:13px; }
+#lookup { display:flex; gap:6px; margin-left:auto; margin-right:8px; } #lookup input { width:230px; }
 #lookup button { padding:6px 12px; } .note.viewing { border-color:var(--gold); } .note.viewing button { margin-left:8px; }
 /* Lane trades */
 @keyframes lt-rise{0%{opacity:0;transform:translateY(6px)}15%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}@keyframes lt-pulse{0%{transform:scale(1.6)}100%{transform:scale(1)}}
@@ -392,13 +405,99 @@ body.viewing [data-watch], body.viewing #ov { display:none !important; }
 .gkpb .mk.pg { top:1px; font-size:10px; font-weight:800; line-height:1; }
 .gkpb .pblegend { font-size:12px; color:var(--mute); margin-top:6px; }
 @media (max-width:760px) { .gk { grid-template-columns:1fr; } }
+html[data-theme=light] button.primary, html[data-theme=light] .seg button.on, html[data-theme=light] .filter button.on { color:#fff; }
+/* ---- Home (overview) and the app shell: dark slate by default, light optional ---- */
+.topbar { max-width:1344px; margin:0 auto; display:flex; align-items:center; gap:14px; padding:16px 32px; flex-wrap:wrap; border:0; }
+.topbar .brand { font:700 19px "Space Grotesk",Inter,sans-serif; letter-spacing:-.02em; } .topbar .brand span { color:var(--gold); }
+.toptabs { display:flex; gap:4px; background:var(--chip); border-radius:999px; padding:4px; }
+.toptabs button { border:0; border-radius:999px; min-height:38px; padding:0 16px; background:none; color:var(--mute); font-size:14px; font-weight:600; margin:0; }
+.toptabs button.on { background:var(--btn); color:var(--btnfg); }
+.topbar .who { margin-left:0; font-size:13.5px; }
+.topbar form { margin-left:auto; display:flex; gap:6px; } .topbar input { background:var(--deck); border:0; border-radius:999px; color:var(--ink); padding:0 16px; min-height:40px; width:230px; font:inherit; font-size:14px; }
+.topbar input::placeholder { color:var(--mute); }
+.topbar form button, .topbar > button { border:0; border-radius:999px; min-height:40px; padding:0 16px; background:var(--chip); color:var(--ink); font-size:14px; font-weight:600; margin:0; }
+#list, #rk, #crumb { max-width:1344px; margin:0 auto; padding:0 32px; }
+#list .note { background:var(--deck); border-radius:14px; padding:12px 16px; color:var(--mute); font-size:14px; margin-bottom:10px; }
+#crumb button { border:0; border-radius:999px; min-height:40px; padding:0 16px; background:var(--chip); color:var(--ink); font-size:14px; font-weight:600; margin-top:6px; }
+#view { max-width:1344px; margin:0 auto; padding:8px 32px 48px; } #view.wide { max-width:1560px; }
+.h-rk { background:var(--tier); color:#14151a; border-radius:24px; padding:16px 24px 16px 16px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.h-disc { width:72px; height:72px; border-radius:50%; background:#14151a; display:flex; align-items:center; justify-content:center; flex:none; } .h-disc img { width:56px; height:56px; object-fit:contain; }
+.h-vr { width:1px; align-self:stretch; background:rgba(17,19,28,.22); }
+.h-qs { display:flex; gap:6px; flex-wrap:wrap; margin-left:auto; }
+.h-q { border:0; border-radius:999px; min-height:44px; background:rgba(20,21,26,.12); color:#14151a; display:flex; align-items:center; gap:8px; padding:0 16px 0 8px; font-size:14px; font-weight:600; } .h-q img { width:28px; height:28px; object-fit:contain; }
+.h-q.on { background:#14151a; color:var(--tier); } .h-q:hover { border:0; }
+.hv { font-size:15px; line-height:1.5; font-variant-numeric:tabular-nums; }
+.hv .h-hd, .h-rk .h-hd { font-family:"Space Grotesk",Inter,"Segoe UI",sans-serif; letter-spacing:-.02em; }
+.h-eye { font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; }
+.h-mute { color:var(--mute); } .h-sm { font-size:13.5px; }
+.h-r { display:flex; align-items:center; gap:12px; } .h-sp { margin-left:auto; text-align:right; }
+.h-read { display:grid; grid-template-columns:minmax(0,7fr) minmax(0,4fr); gap:40px; padding-top:32px; align-items:start; }
+.h-read h1 { font:700 50px/1.03 "Space Grotesk",Inter,sans-serif; letter-spacing:-.02em; margin:12px 0 0; text-wrap:balance; }
+.h-pair { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr)); gap:32px; margin-top:32px; }
+.h-bigN { font:700 64px/.95 "Space Grotesk",Inter,sans-serif; letter-spacing:-.04em; }
+.h-track { position:relative; height:10px; border-radius:5px; background:var(--htrack); } .h-track i { position:absolute; left:0; top:0; bottom:0; border-radius:5px; } .h-track b { position:absolute; top:-6px; bottom:-6px; width:3px; background:var(--ink); border-radius:2px; }
+.h-tile { background:var(--deck); border-radius:24px; padding:24px; }
+.h-cta { background:var(--block); color:#fff; border-radius:24px; padding:20px 24px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:40px; }
+.h-cta img { width:36px; height:36px; border-radius:10px; }
+.h-gold, .h-gold:hover { border:0; border-radius:999px; min-height:44px; padding:0 20px; background:#f3c34b; color:#14151a; font-size:15px; font-weight:700; }
+.h-pill, .h-pill:hover { border:0; border-radius:999px; min-height:44px; padding:0 20px; background:var(--btn); color:var(--btnfg); font-size:15px; font-weight:600; }
+.h-sec { display:flex; align-items:end; gap:16px; margin:44px 0 16px; flex-wrap:wrap; } .h-sec h2 { font:700 28px "Space Grotesk",Inter,sans-serif; letter-spacing:-.02em; margin:0; color:var(--ink); text-transform:none; }
+.h-tiles { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr)); gap:12px; } .h-tiles .h-tile { border-radius:20px; padding:16px; cursor:pointer; }
+.h-tiles img { width:48px; height:48px; border-radius:14px; }
+.h-seg { display:flex; gap:4px; margin-left:auto; flex-wrap:wrap; } .h-seg button { border:0; border-radius:999px; min-height:40px; padding:0 14px; background:none; color:var(--mute); font-size:14px; font-weight:600; }
+.h-seg button.on { background:var(--btn); color:var(--btnfg); }
+.h-m { display:grid; grid-template-columns:56px minmax(150px,1.3fr) 118px 96px minmax(0,1fr) 110px 44px; gap:16px; align-items:center; background:#b92b37; color:#fff; border-radius:20px; padding:12px; margin-bottom:8px; cursor:pointer; }
+.h-m.w { background:#2152dc; } .h-m.open { border-radius:20px 20px 0 0; margin-bottom:0; } .h-m .h-mute { color:rgba(255,255,255,.93); }
+.h-m .h-champ { width:44px; height:44px; border-radius:12px; }
+.h-res { width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center; font:700 24px "Space Grotesk",sans-serif; background:rgba(0,0,0,.24); }
+.h-lp { font:700 19px "Space Grotesk",sans-serif; text-align:right; } .h-lp small { display:block; font:400 13px Inter,sans-serif; color:rgba(255,255,255,.93); }
+.h-teams { display:grid; grid-template-columns:repeat(5,20px); gap:3px; justify-content:end; } .h-teams img { width:20px; height:20px; border-radius:5px; display:block; }
+.h-chev, .h-chev:hover { border:0; padding:0; width:44px; min-height:44px; background:none; color:#fff; font-size:14px; }
+.h-det { background:var(--deck); border-radius:0 0 20px 20px; padding:16px; margin-bottom:8px; display:grid; grid-template-columns:minmax(0,1fr) 270px; gap:16px; }
+.h-team { border-radius:14px; padding:12px 14px 8px; background:rgba(33,82,220,.42); } .h-team.l { background:rgba(185,43,55,.42); }
+html[data-theme=light] .h-team { background:rgba(33,82,220,.13); } html[data-theme=light] .h-team.l { background:rgba(185,43,55,.13); }
+.h-team h3 { margin:0; font:700 12.5px Inter,sans-serif; letter-spacing:.08em; text-transform:uppercase; color:var(--blue-ink); } .h-team.l h3 { color:var(--red-ink); }
+.h-team table { border-collapse:collapse; width:100%; font-size:14px; table-layout:fixed; margin-top:6px; }
+.h-team th { color:var(--mute); font-weight:700; text-align:right; font-size:11.5px; text-transform:uppercase; letter-spacing:.07em; padding:0 8px 6px; }
+.h-team th:first-child { text-align:left; padding-left:6px; } .h-team th:nth-child(2) { width:118px; text-align:left; } .h-team th:nth-child(3) { width:128px; } .h-team th:nth-child(4) { width:140px; } .h-team th:nth-child(5) { width:64px; } .h-team th:nth-child(6) { width:52px; }
+.h-team td { padding:6px 8px; text-align:right; white-space:nowrap; border:0; } .h-team td:first-child { text-align:left; padding-left:6px; overflow:hidden; text-overflow:ellipsis; } .h-team td:nth-child(2) { text-align:left; }
+.h-team td img { width:26px; height:26px; border-radius:7px; vertical-align:-8px; margin-right:8px; }
+.h-team tr.me td { background:var(--hme); } .h-team tr.me td:first-child { border-radius:8px 0 0 8px; box-shadow:inset 3px 0 0 #f3c34b; } .h-team tr.me td:last-child { border-radius:0 8px 8px 0; }
+.h-dmg { display:inline-block; height:6px; border-radius:3px; vertical-align:middle; margin-right:8px; }
+.h-rank { display:inline-block; min-width:44px; text-align:center; font:700 11.5px "Space Grotesk",Inter,sans-serif; letter-spacing:.05em; padding:3px 8px; border-radius:7px; background:rgba(8,9,12,.4); color:var(--ink); }
+html[data-theme=light] .h-rank { background:var(--chip); }
+.h-rank.mvp, html[data-theme=light] .h-rank.mvp { background:#8d5cf6; color:#fff; box-shadow:0 0 10px -2px #8d5cf6; } .h-rank.ace, html[data-theme=light] .h-rank.ace { background:#2f8fe6; color:#fff; box-shadow:0 0 10px -2px #2f8fe6; }
+.h-kr { font-weight:700; } .h-k0 { color:var(--mute); } .h-k1 { color:#6fe6a8; } .h-k2 { color:#8fcbff; } .h-k3 { color:#d0b0ff; } .h-k4 { color:#ffb454; }
+html[data-theme=light] .h-k1 { color:#12976a; } html[data-theme=light] .h-k2 { color:#1f6fe0; } html[data-theme=light] .h-k3 { color:#8540e6; } html[data-theme=light] .h-k4 { color:#d9730b; }
+.h-m .h-kr { display:inline-block; margin-top:3px; padding:1px 8px; border-radius:6px; background:rgba(8,9,12,.6); font-size:13px; }
+.h-m .h-k0, html[data-theme=light] .h-m .h-k0 { color:#e3e5ea; } html[data-theme=light] .h-m .h-k1 { color:#6fe6a8; } html[data-theme=light] .h-m .h-k2 { color:#8fcbff; } html[data-theme=light] .h-m .h-k3 { color:#d0b0ff; } html[data-theme=light] .h-m .h-k4 { color:#ffb454; }
+.h-find { background:var(--block); color:#fff; border-radius:20px; padding:20px; display:flex; flex-direction:column; gap:14px; align-self:start; }
+.h-find ul { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px; font-size:14px; color:#fff; } .h-find li { padding-left:14px; position:relative; }
+.h-find li::before { content:""; position:absolute; left:0; top:8px; width:5px; height:5px; border-radius:50%; background:#f3c34b; }
+.h-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:7px; }
+.h-tag { --c:#cfd3dc; display:inline-flex; align-items:center; gap:6px; font:700 10.5px "Space Grotesk",Inter,sans-serif; letter-spacing:.09em; text-transform:uppercase; padding:4px 10px 4px 8px; border-radius:7px; background:rgba(8,9,12,.66); color:var(--c); box-shadow:inset 0 0 0 1px var(--c),0 0 12px -3px var(--c); white-space:nowrap; }
+.h-tag::before { content:""; width:7px; height:7px; flex:none; transform:rotate(45deg); border-radius:1.5px; background:var(--c); box-shadow:0 0 8px var(--c); }
+.h-t-uncommon { --c:#62e392; } .h-t-rare { --c:#70c4ff; } .h-t-epic { --c:#c9a4ff; background:rgba(38,16,78,.82); }
+.h-t-legendary { color:#2b1600; background:linear-gradient(110deg,#ff8a1f 0%,#ffc94d 40%,#fff4c9 50%,#ffc94d 60%,#ff8a1f 100%); background-size:250% 100%; box-shadow:0 0 0 1px #ffe08a,0 0 16px rgba(255,170,50,.75); animation:hsheen 2.8s linear infinite; }
+.h-t-legendary::before { background:#2b1600; box-shadow:none; }
+@keyframes hsheen { from { background-position:200% 0; } to { background-position:-50% 0; } }
+@media (prefers-reduced-motion:reduce) { .h-t-legendary { animation:none; } }
+.h-leg { display:flex; gap:16px; font-size:12.5px; color:var(--mute); flex-wrap:wrap; }
+.h-note { background:var(--deck); border-radius:20px; padding:20px; color:var(--mute); }
+@media (max-width:900px) { .h-read, .h-det { grid-template-columns:minmax(0,1fr); } .h-m { grid-template-columns:56px 1fr; } .h-teams { justify-content:start; } .h-seg, .h-qs, .topbar form { margin-left:0; } .h-read h1 { font-size:36px; } #view, #list, #rk, #crumb, .topbar { padding-left:16px; padding-right:16px; } }
 </style>
 </head>
 <body>
-<header><b>custy <span>coach</span></b><span class="tag">test</span><span class="who" id="who"></span><form id="lookup" title="See any player's recent ranked and normal games"><input id="lookupId" placeholder="Look up a player: Name#TAG" autocomplete="off"><button>View</button></form><button id="refresh" title="Look for new games">↻ Refresh</button></header>
+<header class="topbar"><div class="brand">custy <span>coach</span></div><span class="tag">test</span>
+  <div class="toptabs" id="toptabs"><button data-nav="home">Overview</button><button data-nav="experts">You vs experts</button><button data-nav="matchups">Matchup guide</button></div>
+  <span class="who" id="who"></span>
+  <form id="lookup" title="See any player's recent ranked and normal games"><input id="lookupId" placeholder="Look up a player: Name#TAG" autocomplete="off"><button>View</button></form>
+  <button id="refresh" title="Look for new games">↻ Refresh</button><button id="themeBtn" title="Switch between dark and light">Light mode</button></header>
 <main>
-  <aside id="list"><div class="note">Reading your games from League...</div></aside>
-  <section id="view"><div class="empty">Pick a game on the left.</div></section>
+  <div id="list"><div class="note">Reading your games from League...</div></div>
+  <div id="rk"></div>
+  <div id="crumb"></div>
+  <section id="view"></section>
 </main>
 <div class="toast" id="toast"></div>
 <script>
@@ -1314,7 +1413,6 @@ async function loadList() {
     return;
   }
   STATE.note = note;
-  if (fresh.length) STATE.current = null;   // a new game came in: open it
   renderList(true); bindBack();
   if (!fresh.length && STATE.games.length && lastRefreshClicked) toast("No new games yet. League can take a minute or two after a game to add it to your history.");
   lastRefreshClicked = false;
@@ -1340,37 +1438,18 @@ const autoRefresh = () => { if (!STATE.as && Date.now() - lastLoad > 30000) { la
 window.addEventListener("focus", autoRefresh);
 setInterval(() => { if (!document.hidden) autoRefresh(); }, 120000);
 
-function renderList(openFirst) {
-  const shown = STATE.games.filter(g => STATE.queue === "all" || queueGroup(g.queue) === STATE.queue);
-  const filter = `<div class="filter">${QUEUE_FILTERS.map(([k, label]) =>
-    `<button data-q="${k}" class="${STATE.queue === k ? "on" : ""}">${label}</button>`).join("")}</div>`;
-  const home = `<div class="homerow${STATE.current === "home" ? " on" : ""}" id="homerow"><b>Overview</b><small>How you play across your recent games</small></div>
-    <div class="homerow${STATE.current === "matchups" ? " on" : ""}" id="murow"><b>Matchup guide</b><small>Pick a champion and an opponent</small></div>`;
-  $("list").innerHTML = filter + STATE.note + home + (shown.length ? shown.map(g => `
-    <div class="game ${g.win ? "w" : "l"}${g.id == STATE.current ? " on" : ""}" data-id="${g.id}">
-      <img src="${champIcon(g.champion)}" alt="">
-      <div class="t">${esc(champName(g.champion))}${g.opponent ? ` <span class="sub">vs ${esc(champName(g.opponent))}</span>` : ""}
-        <small>${esc(g.queue)} · ${esc(ROLE_NAME[g.role] || "?")} · ${new Date(g.created).toLocaleDateString(undefined, { month: "short", day: "numeric" })}${replayExpired(g.id) ? ` · <span title="This game is from patch ${esc(patchOf(g.version))}. League can only play replays from the current patch.">replay expired</span>` : ""}</small></div>
-      <div class="kda">${g.kills}/${g.deaths}/${g.assists}<small>${Math.round(g.duration / 60)}m</small>${lpChip(g)}</div>
-    </div>`).join("") : `<div class="note">No games in this queue yet.</div>`);
-  document.querySelectorAll(".game").forEach(el => el.onclick = () => openGame(el.dataset.id));
-  document.querySelectorAll(".filter button").forEach(b => b.onclick = () => {
-    STATE.queue = b.dataset.q;
-    try { localStorage.setItem("custy-review-queue", STATE.queue); } catch (e) {}
-    renderList(true);
-  });
-  $("homerow").onclick = () => openHome(true);
-  $("murow").onclick = () => openMatchups();
-  if (STATE.current === "home") openHome();
-  else if (STATE.current === "matchups") $("murow")?.classList.add("on");
-  else if (openFirst && shown.length && !shown.some(g => g.id == STATE.current)) openGame(shown[0].id);
+function renderList() {
+  $("list").innerHTML = STATE.note || "";
+  drawRank();
+  if (STATE.current == null) STATE.current = "home";
+  if (STATE.current === "home") openOverview();
+  else if (STATE.current === "experts") openHome();
+  navState();
 }
 
 async function openGame(id) {
-  document.querySelectorAll(".game").forEach(el => el.classList.toggle("on", el.dataset.id == id));
-  $("homerow")?.classList.remove("on");
   $("view").classList.remove("wide");
-  STATE.current = id;
+  STATE.current = id; navState(); window.scrollTo({ top: 0 });
   $("view").innerHTML = `<div class="empty">Reading the game...</div>`;
   const s = STATE.games.find(g => g.id == id);
   let A;
@@ -2522,27 +2601,182 @@ function champTable() {
       <td><b>${r.kda === Infinity ? "Perfect" : r.kda.toFixed(2)}</b> <span class="sub">${r.k.toFixed(1)} / ${r.d.toFixed(1)} / ${r.a.toFixed(1)}</span></td>
       <td>${r.cs.toFixed(1)}</td><td>${Math.round(r.len)}m</td></tr>`).join("")}</tbody></table></div>`;
 }
+// ---------------------------------------------------------------- App shell: tabs, theme, rank strip
+function setTheme(m) {
+  document.documentElement.dataset.theme = m; $("themeBtn").textContent = m === "light" ? "Dark mode" : "Light mode";
+  try { localStorage.setItem("custy-theme", m); } catch (e) {}
+}
+$("themeBtn").onclick = () => setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light");
+$("themeBtn").textContent = document.documentElement.dataset.theme === "light" ? "Dark mode" : "Light mode";
+function navState() {
+  const c = STATE.current, inGame = c != null && !["home", "experts", "matchups"].includes(c);
+  document.querySelectorAll("#toptabs [data-nav]").forEach(b => b.classList.toggle("on", b.dataset.nav === c || (inGame && b.dataset.nav === "home")));
+  $("crumb").innerHTML = inGame ? `<button id="backHome">← Back to matches</button>` : "";
+  if ($("backHome")) $("backHome").onclick = () => openOverview(true);
+  $("rk").hidden = c === "matchups";
+}
+document.querySelectorAll("#toptabs [data-nav]").forEach(b => b.onclick = () => b.dataset.nav === "home" ? openOverview(true) : b.dataset.nav === "experts" ? openHome(true) : openMatchups());
+const TIER_STRIP = { IRON: "#a9adb6", BRONZE: "#cf9566", SILVER: "#cfd8e2", GOLD: "#f3c34b", PLATINUM: "#5fd9cf", EMERALD: "#4fd6a3", DIAMOND: "#8fb6ff", MASTER: "#cf9bff", GRANDMASTER: "#ff8f8f", CHALLENGER: "#ffd77a" };
+const shortQueue = (q) => q.replace(/^Ranked /, "");
+function drawRank() {
+  const el = $("rk"), R = STATE.rank;
+  const qs = R && !STATE.as ? Object.entries(R).filter(([, r]) => r.tier || (r.wins || 0) + (r.losses || 0)) : [];
+  if (!qs.length) { el.innerHTML = ""; return; }
+  if (!qs.some(([q]) => q === STATE.rankQ)) STATE.rankQ = qs[0][0];
+  const [q, r] = qs.find(([q]) => q === STATE.rankQ), n = (r.wins || 0) + (r.losses || 0);
+  const tracked = STATE.games.filter(g => g.queue === q && g.lp && g.lp.delta != null && (!g.lp.over || g.lp.last)).slice(0, 12).reverse();
+  const count = tracked.reduce((a, g) => a + (g.lp.over || 1), 0), net = tracked.reduce((a, g) => a + g.lp.delta, 0);
+  let trend = `<div class="h-sm" style="font-weight:600;max-width:240px">LP per game shows here from your next ${esc(shortQueue(q))} game on.</div>`;
+  if (tracked.length) {
+    const pts = [0]; tracked.forEach(g => pts.push(pts.at(-1) + g.lp.delta));
+    const w = 240, h = 56, lo = Math.min(...pts) - 6, hi = Math.max(...pts) + 6, X = i => 6 + i * (w - 12) / (pts.length - 1), Y = v => h - 8 - (v - lo) / (hi - lo) * (h - 16);
+    trend = `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="LP change over your last ${count} tracked games" style="max-width:100%"><polyline points="${pts.map((v, i) => X(i).toFixed(1) + "," + Y(v).toFixed(1)).join(" ")}" fill="none" stroke="#14151a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${X(pts.length - 1)}" cy="${Y(pts.at(-1))}" r="5.5" fill="#14151a"/></svg>
+      <div><div class="h-hd" style="font-size:22px;font-weight:700;line-height:1.1">${signed(net)} LP</div><div class="h-sm" style="font-weight:600">last ${count} tracked game${count === 1 ? "" : "s"}</div></div>`;
+  }
+  const em = (x) => x.tier ? `<img src="/assets/rank-${x.tier.toLowerCase()}.png" alt="" onerror="this.remove()">` : "";
+  el.innerHTML = `<div class="h-rk" style="--tier:${TIER_STRIP[r.tier] || "#cfd3dc"}"><div class="h-disc">${em(r)}</div>
+    <div><div class="h-eye">${esc(q)}</div><div class="h-r" style="align-items:baseline;gap:10px"><span class="h-hd" style="font-size:32px;font-weight:700;line-height:1.1">${esc(rankName(r))}</span>${r.tier ? `<span class="h-hd" style="font-size:22px;font-weight:700">${r.lp} LP</span>` : ""}</div>
+      <div class="h-sm" style="font-weight:600">${n ? `${r.wins}W ${r.losses}L · ${Math.round(100 * r.wins / n)}% this season` : "No games this season"}</div></div>
+    <div class="h-vr"></div><div class="h-r" style="gap:16px">${trend}</div>
+    ${qs.length > 1 ? `<div class="h-qs">${qs.map(([k, x]) => `<button class="h-q${k === q ? " on" : ""}" data-rq="${esc(k)}">${em(x)}${esc(shortQueue(k))}${k === q ? "" : " · " + esc(rankName(x))}</button>`).join("")}</div>` : ""}</div>`;
+  el.querySelectorAll("[data-rq]").forEach(b => b.onclick = () => { STATE.rankQ = b.dataset.rq; drawRank(); });
+}
+
+// ---------------------------------------------------------------- Overview: the quick-glance home page
+const HV = { key: "", shown: 8, open: null, rowsKey: "", rowsP: null };
+const HV_TAG = { "First blood": "common", "Double kill": "uncommon", "Triple kill": "rare", "ACE": "rare", "Quadra kill": "epic", "MVP": "epic", "Unstoppable": "epic", "Penta kill": "legendary" };
+const HEAD_GOOD = { deaths14: "You stay alive early", deaths: "You rarely die", cs10: "You out-farm experts early", gold15: "You're ahead on gold by 15:00", xpd10: "You out-level your lane", gd15: "You win lane", item1: "Your first item comes fast", back: "You time your first back well", lvl6: "You hit level 6 first" };
+const HEAD_BAD = { deaths14: "You die too often before 14:00", deaths: "You die too often", cs10: "You fall behind on CS early", gold15: "You're behind on gold at 15:00", xpd10: "You fall behind on XP in lane", gd15: "You lose lane", item1: "Your first item comes late", back: "Your first back comes late", lvl6: "Your lane opponent hits level 6 first" };
+const hkr = (k, d, a) => { const v = d ? (k + a) / d : 99, c = v >= 5 ? 4 : v >= 4 ? 3 : v >= 3 ? 2 : v >= 2 ? 1 : 0; return `<span class="h-kr h-k${c}">${d ? v.toFixed(2) : "Perfect"} KDA</span>`; };
+const hAgo = (ms) => { const m = (Date.now() - ms) / 60000; return m < 60 ? `${Math.max(1, Math.round(m))} min ago` : m < 1440 ? `${Math.round(m / 60)} hour${Math.round(m / 60) === 1 ? "" : "s"} ago` : m < 2880 ? "Yesterday" : m < 43200 ? `${Math.round(m / 1440)} days ago` : new Date(ms).toLocaleDateString(undefined, { month: "short", day: "numeric" }); };
+const hvList = () => STATE.games.filter(g => STATE.queue === "all" || queueGroup(g.queue) === STATE.queue);
+// The last 20 games with a timeline, analysed and paired with expert data. Shared by both tabs.
+function homeRows() {
+  const shown = hvList().filter(g => g.hasTimeline).slice(0, 20), key = (STATE.as || "") + ":" + shown.map(g => g.id).join(",");
+  if (key === HV.rowsKey && HV.rowsP) return HV.rowsP;
+  HV.rowsKey = key;
+  return HV.rowsP = (async () => {
+    const loaded = await Promise.all(shown.map(g => getGame(g.id).then(analyse).then(A => A && { g, A }).catch(() => null)));
+    const rows = loaded.filter(Boolean).reverse();
+    const names = [...new Set(rows.map(r => DD.champ[r.A.me.championId]?.id && r.A.role ? DD.champ[r.A.me.championId].id + "-" + r.A.role : null).filter(Boolean))];
+    const bench = Object.fromEntries(await Promise.all(names.map(async n => [n, await getBench(n)])));
+    for (const r of rows) { const b = bench[(DD.champ[r.A.me.championId]?.id || "") + "-" + r.A.role]; r.B = b && !b.missing ? b : null; }
+    return rows;
+  })();
+}
+function hvBlock(eye, col, st) {
+  const fill = Math.max(6, Math.min(100, 50 + st.z * 30));
+  return `<div><div class="h-eye" style="color:var(${col})">${eye}</div><div class="h-hd" style="font-size:20px;font-weight:700;margin-top:6px">${esc(st.m.label)}</div>
+    <div class="h-r" style="align-items:baseline;gap:10px;margin-top:14px"><span class="h-bigN" style="color:var(${col})">${st.m.fmt(st.you)}</span><span class="h-mute">you</span><span class="h-sp h-mute">experts <b style="color:var(--ink);font-size:18px">${st.m.fmt(st.exp)}</b></span></div>
+    <div class="h-track" style="margin-top:14px" title="Right of the marker is better than experts"><i style="width:${fill}%;background:var(${col})"></i><b style="left:50%"></b></div>
+    <div class="h-mute h-sm" style="margin-top:12px">${trendText(st.trend)} over your last ${st.n} games · marker = experts</div></div>`;
+}
+function hvRead(rows) {
+  const stats = dashStats(rows);
+  if (!stats.length) return `<div class="h-note" style="margin-top:32px"><b style="color:var(--ink)">The coach's read needs a few more games.</b><div style="margin-top:4px">It compares your last 20 games with high-elo games on the same champion and role, and needs at least 3 games on champions that have expert data.</div></div>`;
+  const worst = stats.slice().sort((a, b) => a.z - b.z)[0], best = stats.slice().sort((a, b) => b.z - a.z)[0];
+  const bad = worst && worst.z < -0.25 ? worst : null, good = best && best.z > 0.25 && best !== bad ? best : null;
+  const head = good && bad ? `${HEAD_GOOD[good.m.k]}. ${HEAD_BAD[bad.m.k]}.` : bad ? `${HEAD_BAD[bad.m.k]}.` : good ? `${HEAD_GOOD[good.m.k]}. Nothing is clearly behind experts.` : "You're on pace with experts across the board.";
+  return `<div class="h-read"><div><div class="h-eye h-mute">The coach's read on your last ${rows.length} games</div><h1>${esc(head)}</h1>
+    <div class="h-pair">${good ? hvBlock("Your edge", "--blue-ink", good) : ""}${bad ? hvBlock("Biggest gap vs experts", "--red-ink", bad) : ""}</div></div>
+    <div class="h-tile"><div class="h-eye h-mute">Your shape vs experts</div>${radarSvg(stats)}<div class="h-r" style="margin-top:8px"><div class="h-leg"><span>Gold = you · dashed = expert median</span></div><a class="h-sp h-sm" href="#" data-nav2="experts" style="color:var(--ink);font-weight:700">Full comparison</a></div></div></div>`;
+}
+function hvScore(g) {
+  const P = g.players || [], me = P.find(p => p.pid === g.pid) || P.find(p => p.champ === g.champion && p.k === g.kills && p.d === g.deaths);
+  if (!me || P.length < 2) return "";
+  const top = Math.max(1, ...P.map(p => p.dmg || 0));
+  const t = (rows, name, won) => `<div class="h-team${won ? "" : " l"}"><h3>${name} · ${won ? "Victory" : "Defeat"}</h3><table><thead><tr><th>Player</th><th>Score</th><th>KDA</th><th>Damage</th><th>Gold</th><th>CS</th></tr></thead><tbody>${rows.map(p => `<tr class="${p === me ? "me" : ""}">
+      <td><img src="${champIcon(p.champ)}" alt="" title="${esc(champName(p.champ))}"><b>${esc(p.name || champName(p.champ))}</b></td>
+      <td><b style="display:inline-block;width:30px">${(p.score ?? 0).toFixed(1)}</b><span class="h-rank${p.badge ? " " + p.badge.toLowerCase() : ""}">${p.badge || ord(p.rank)}</span></td>
+      <td>${p.k} / ${p.d} / ${p.a}<div style="font-size:12.5px">${hkr(p.k, p.d, p.a)}</div></td>
+      <td><span class="h-dmg" style="width:${(p.dmg || 0) / top * 56}px;background:var(${won ? "--blue-ink" : "--red-ink"})"></span>${((p.dmg || 0) / 1000).toFixed(1)}k</td><td>${((p.gold || 0) / 1000).toFixed(1)}k</td><td>${p.cs}</td></tr>`).join("")}</tbody></table></div>`;
+  const mine = P.filter(p => p.team === me.team), theirs = P.filter(p => p.team !== me.team);
+  return `<div style="display:flex;flex-direction:column;gap:10px">${t(mine, "Your team", !!g.win)}${t(theirs, "Enemy team", !g.win)}</div>`;
+}
+function hvLp(g) {
+  const l = g.lp; if (!l) return "";
+  if (l.delta == null) return l.placed ? `Placed<small>${esc(rankName(l.to))}</small>` : "";
+  if (l.over) return l.last ? `${signed(l.delta)}<small>LP over ${l.over} games</small>` : "";
+  const moved = l.from && l.to && rankName(l.from) !== rankName(l.to);
+  return `${signed(l.delta)}<small>${moved ? (l.delta > 0 ? "▲ " : "▼ ") + esc(rankName(l.to)) : "LP"}</small>`;
+}
+function hvRows() {
+  const list = hvList();
+  if (!list.length) return `<div class="h-note">No games in this queue yet.</div>`;
+  return list.slice(0, HV.shown).map(g => { const open = HV.open == g.id, P = g.players || [], me = P.find(p => p.pid === g.pid), mins = Math.max(1, g.duration / 60);
+    const order = me ? [...P.filter(p => p.team === me.team), ...P.filter(p => p.team !== me.team)] : P;
+    return `<div class="h-m${g.win ? " w" : ""}${open ? " open" : ""}" data-row="${g.id}"><div class="h-res" role="img" aria-label="${g.win ? "Victory" : "Defeat"}">${g.win ? "W" : "L"}</div>
+      <div class="h-r"><img class="h-champ" src="${champIcon(g.champion)}" alt=""><div><b style="font-size:16px">${esc(champName(g.champion))}${g.opponent ? ` <span class="h-mute" style="font-weight:400">vs ${esc(champName(g.opponent))}</span>` : ""}</b>
+        <div class="h-mute h-sm">${esc(shortQueue(g.queue))} · ${hAgo(g.created + g.duration * 1000)} · ${Math.round(mins)}m</div>${(g.tags || []).length ? `<div class="h-tags">${g.tags.map(t => `<span class="h-tag h-t-${HV_TAG[t] || "common"}">${esc(t)}</span>`).join("")}</div>` : ""}</div></div>
+      <div><b style="font-size:16px">${g.kills} / ${g.deaths} / ${g.assists}</b><div>${hkr(g.kills, g.deaths, g.assists)}</div></div>
+      <div><b>${g.cs} CS</b><div class="h-mute h-sm">${(g.cs / mins).toFixed(1)} / min</div></div>
+      <div class="h-teams" role="img" aria-label="Both teams">${order.map(p => `<img src="${champIcon(p.champ)}" alt="" title="${esc(champName(p.champ))}">`).join("")}</div>
+      <div class="h-lp">${hvLp(g)}</div>
+      <button class="h-chev" aria-expanded="${open}" aria-label="${open ? "Hide" : "Show"} match details">${open ? "▴" : "▾"}</button></div>
+      ${open ? `<div class="h-det">${hvScore(g) || `<div class="h-mute">The scoreboard isn't available for this game.</div>`}<div class="h-find"><div class="h-eye" style="color:#f3c34b">What the coach found</div><ul id="hvFind${g.id}"><li>Reading the game...</li></ul><button class="h-gold" data-analyze="${g.id}">Analyze game</button></div></div>` : ""}`; }).join("")
+    + (list.length > HV.shown ? `<div style="text-align:center;margin:20px 0 0"><button class="h-pill" id="hvMore">Show more games</button></div>` : "");
+}
+async function hvFindings(id) {
+  const g = STATE.games.find(x => x.id == id), el = $("hvFind" + id); if (!g || !el) return;
+  let A = null; if (g.hasTimeline) { try { A = analyse(await getGame(id)); } catch (e) {} }
+  const L = [];
+  if (A) {
+    const early = A.deaths.filter(d => d.t < 840).length; L.push(early ? `${early} death${early === 1 ? "" : "s"} before 14:00` : "No deaths before 14:00");
+    if (A.diff && A.minutes >= 10) L.push(`Lane gold ${signed(A.diff[10])} at 10:00`);
+    if (A.lvl6 != null && A.oppLvl6 != null) { const d = Math.round(A.lvl6 - A.oppLvl6); L.push(Math.abs(d) < 3 ? "Level 6 at the same time as your lane opponent" : `Level 6 came ${Math.abs(d)}s ${d < 0 ? "before" : "after"} ${A.opp ? esc(champName(A.opp.championId)) : "your lane opponent"}`); }
+    if (A.minutes >= 10 && A.myCs) L.push(`${A.myCs[10]} CS at 10:00`);
+  }
+  const now = $("hvFind" + id); if (now) now.innerHTML = L.length ? L.map(x => `<li>${x}</li>`).join("") : `<li>${g.hasTimeline ? "Open the game for the full review." : "League gave no timeline for this game, so there's nothing to review."}</li>`;
+}
+function hvDrawRows() { const el = $("hvRows"); if (!el) return; el.innerHTML = hvRows(); if (HV.open != null) hvFindings(HV.open); }
+async function openOverview(force) {
+  const list = hvList(), key = (STATE.as || "") + ":" + STATE.queue + ":" + list.map(g => g.id + (g.lp ? "l" : "")).join(",");
+  STATE.current = "home"; navState(); $("view").classList.remove("wide");
+  if (!force && key === HV.key && $("hvRoot")) return;
+  if (key !== HV.key) { HV.shown = 8; HV.open = null; }
+  HV.key = key;
+  const all = STATE.games, form = all.slice(0, 20), wins = form.filter(g => g.win).length;
+  const top = champRows().rows.sort((a, b) => b.n - a.n || b.wr - a.wr).slice(0, 5), pick = all[0] ? [all[0].champion, ...new Set(all.filter(g => g.champion === all[0].champion && g.opponent).map(g => g.opponent))].slice(0, 4) : [];
+  $("view").innerHTML = `<div class="hv" id="hvRoot">
+    <div id="hvRead"><div class="h-note" style="margin-top:32px">Going through your recent games...</div></div>
+    <div class="h-cta"><div><div class="h-eye" style="color:#f3c34b">Matchup guide</div><div class="h-hd" style="font-size:22px;font-weight:700;line-height:1.2;margin-top:4px">How experts play your lane, before you queue</div></div>
+      ${pick.length > 1 ? `<div class="h-r" style="gap:8px"><img src="${champIcon(pick[0])}" alt="${esc(champName(pick[0]))}"><span class="h-sm" style="color:#c9cdd8">vs</span>${pick.slice(1).map(c => `<img src="${champIcon(c)}" alt="${esc(champName(c))}">`).join("")}</div>` : ""}
+      <button class="h-gold" data-guide="1" style="margin-left:auto">Open matchup guide</button></div>
+    ${top.length ? `<div class="h-sec"><h2>Champions</h2><a class="h-sp h-sm" href="#" data-nav2="experts" style="color:var(--ink);font-weight:700">See all</a></div>
+    <div class="h-tiles">${top.map(r => { const c = 2 * Math.PI * 22, p = Math.round(r.wr * 100); return `<div class="h-tile" data-og="${r.newest}" title="Open your newest ${esc(r.name)} game"><div class="h-r"><img src="${champIcon(r.id)}" alt=""><div><b style="font-size:15px">${esc(r.name)}</b><div class="h-mute h-sm">${r.n} game${r.n === 1 ? "" : "s"}</div></div></div>
+      <div class="h-r" style="margin-top:14px"><svg viewBox="0 0 56 56" width="56" height="56" role="img" aria-label="${p}% win rate" style="flex:none"><circle cx="28" cy="28" r="22" fill="none" stroke-width="6" style="stroke:var(--htrack)"/><circle cx="28" cy="28" r="22" fill="none" stroke-width="6" stroke-linecap="round" stroke-dasharray="${c * r.wr} ${c}" transform="rotate(-90 28 28)" style="stroke:var(${p >= 50 ? "--blue-ink" : "--red-ink"})"/><text x="28" y="33" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--ink)">${p}%</text></svg>
+        <div class="h-sp"><div class="h-hd h-kr h-k${r.kda >= 5 ? 4 : r.kda >= 4 ? 3 : r.kda >= 3 ? 2 : r.kda >= 2 ? 1 : 0}" style="font-size:22px">${r.kda === Infinity ? "Perfect" : r.kda.toFixed(2)}</div><div class="h-mute h-sm">KDA</div></div></div></div>`; }).join("")}</div>` : ""}
+    <div class="h-sec"><h2>Match history</h2>${form.length ? `<div class="h-r" style="gap:10px;padding-bottom:4px"><div style="display:flex;gap:2px" role="img" aria-label="Last ${form.length} results, newest first: ${wins} wins, ${form.length - wins} losses">${form.map(g => `<i style="width:7px;height:22px;border-radius:2px;display:block;background:${g.win ? "#2f66f0" : "#d23a47"}"></i>`).join("")}</div><span class="h-sm" style="font-weight:600">${wins}–${form.length - wins} · ${Math.round(100 * wins / form.length)}%</span></div>` : ""}
+      <div class="h-seg" role="group" aria-label="Queue">${QUEUE_FILTERS.map(([k, label]) => `<button data-hq="${k}" class="${STATE.queue === k ? "on" : ""}">${label}</button>`).join("")}</div></div>
+    <div id="hvRows"></div></div>`;
+  hvDrawRows();
+  $("hvRoot").onclick = (ev) => {
+    const t = ev.target.closest("[data-analyze],[data-hq],[data-row],[data-nav2],[data-guide],[data-og],#hvMore"); if (!t) return;
+    if (t.dataset.analyze) { STATE.tab = "moments"; return openGame(t.dataset.analyze); }
+    if (t.dataset.nav2) { ev.preventDefault(); return openHome(true); }
+    if (t.dataset.guide) return openMatchups();
+    if (t.dataset.og) { STATE.tab = "moments"; return openGame(t.dataset.og); }
+    if (t.dataset.hq) { STATE.queue = t.dataset.hq; try { localStorage.setItem("custy-review-queue", STATE.queue); } catch (e) {} return openOverview(true); }
+    if (t.id === "hvMore") { HV.shown += 10; return hvDrawRows(); }
+    if (t.dataset.row) { HV.open = HV.open == t.dataset.row ? null : t.dataset.row; hvDrawRows(); }
+  };
+  const rows = await homeRows();
+  if (STATE.current !== "home" || HV.key !== key || !$("hvRead")) return;
+  $("hvRead").innerHTML = hvRead(rows);
+}
+
 let homeKey = "";
 async function openHome(force) {
-  const shown = STATE.games.filter(g => (STATE.queue === "all" || queueGroup(g.queue) === STATE.queue) && g.hasTimeline).slice(0, 20);
+  const shown = hvList().filter(g => g.hasTimeline).slice(0, 20);
   const key = STATE.queue + ":" + shown.map(g => g.id).join(",");
   const was = STATE.current;
-  STATE.current = "home";
-  document.querySelectorAll(".game").forEach(el => el.classList.remove("on"));
-  $("homerow")?.classList.add("on");
-  if (!force && was === "home" && key === homeKey && $("dash")) return;   // nothing changed since it was drawn
+  STATE.current = "experts"; navState();
+  if (!force && was === "experts" && key === homeKey && $("dash")) return;   // nothing changed since it was drawn
   homeKey = key;
-  if (!shown.length) { $("view").innerHTML = `<div class="empty" id="dash">No games to summarize yet. Play a ranked or normal game with the app running.</div>`; return; }
+  if (!shown.length) { $("view").innerHTML = `<div class="empty" id="dash">No games to compare yet. Play a ranked or normal game with the app running.</div>`; return; }
   $("view").innerHTML = `<div class="empty" id="dash">Going through your last ${shown.length} games...</div>`;
-  const loaded = await Promise.all(shown.map(g => getGame(g.id).then(analyse).then(A => A && { g, A }).catch(() => null)));
-  const rows = loaded.filter(Boolean).reverse();
-  const names = [...new Set(rows.map(r => DD.champ[r.A.me.championId]?.id && r.A.role ? DD.champ[r.A.me.championId].id + "-" + r.A.role : null).filter(Boolean))];
-  const bench = Object.fromEntries(await Promise.all(names.map(async n => [n, await getBench(n)])));
-  for (const r of rows) {
-    const b = bench[(DD.champ[r.A.me.championId]?.id || "") + "-" + r.A.role];
-    r.B = b && !b.missing ? b : null;
-  }
-  if (STATE.current !== "home" || homeKey !== key) return;
+  const rows = await homeRows();
+  if (STATE.current !== "experts" || homeKey !== key) return;
   renderHome(rows);
 }
 
@@ -2774,7 +3008,6 @@ function renderHome(rows) {
   $("view").innerHTML = `<div id="dash">
     <h1>Your last ${rows.length} games</h1>
     <div class="sub">${wins}–${rows.length - wins} · each game is compared with high-elo games on the same champion and role${withB < rows.length ? ` · expert data for ${withB} of ${rows.length} games` : ""}</div>
-    ${rankCards()}
     <div class="formstrip" title="Newest on the left">${rows.slice().reverse().map(r => `<i class="${r.g.win ? "w" : ""}" title="${esc(gameLabel(r.g))}"></i>`).join("")}</div>
     <div class="hero">${hero}${strength}${form}</div>
     <div id="champsec">${champTable()}</div>
@@ -3054,9 +3287,7 @@ function gamePlan(B, champ, role, opp) {
 // ---------------------------------------------------------------- Matchup guide: any champion, any opponent
 const MU = { page: true, live: false, role: "TOP", champ: null, opp: null, B: null, index: null, q: "", oq: "" };
 async function openMatchups() {
-  STATE.current = "matchups";
-  document.querySelectorAll(".game, .homerow").forEach(el => el.classList.remove("on"));
-  $("murow")?.classList.add("on");
+  STATE.current = "matchups"; navState(); $("view").classList.remove("wide");
   if (!DD.runes) await loadCsData();
   if (!MU.index) MU.index = await api("/api/benchmark-index").catch(() => ({}));
   if (!MU.champ) {   // start from the champion and role you've played most lately

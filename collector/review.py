@@ -164,6 +164,11 @@ def _info(name):
     data = _read_cache(name[:-5])
     info = None
     if data:
+        if data.get("summary") and data["summary"].get("v") != SUMMARY_V and data.get("game"):
+            try:
+                data["summary"] = _summarize(data["game"], data.get("me")) or data["summary"]
+            except Exception as e:
+                core.log.info("Review: couldn't re-summarise %s: %s", name, e)
         info = {"summary": data.get("summary"), "me": data.get("me"), "hasTimeline": data.get("timeline") is not None,
                 "reviewable": _is_reviewable(data.get("game") or {}), "tlTried": float(data.get("tlTried") or 0),
                 "created": (data.get("game") or {}).get("gameCreation") or 0}
@@ -201,6 +206,7 @@ def _summarize(game, me_puuid):
     opp = next((p for p in game["participants"] if _num(p.get("teamId")) != _num(me.get("teamId"))
                 and rl.get(p["participantId"]) == rl.get(me["participantId"])), None)
     st = me.get("stats") or {}
+    players, tags = _scoreboard(game, idents, me.get("participantId"))
     return {
         "id": game.get("gameId"), "created": game.get("gameCreation"), "duration": game.get("gameDuration"),
         "queue": QUEUES.get(_num(game.get("queueId")), "Queue %s" % game.get("queueId")),
@@ -209,7 +215,57 @@ def _summarize(game, me_puuid):
         "opponent": opp.get("championId") if opp else None,
         "win": bool(st.get("win")), "kills": st.get("kills"), "deaths": st.get("deaths"), "assists": st.get("assists"),
         "cs": _num(st.get("totalMinionsKilled")) + _num(st.get("neutralMinionsKilled")),
+        "players": players, "tags": tags, "pid": me.get("participantId"), "v": SUMMARY_V,
     }
+
+
+SUMMARY_V = 2   # bump when the summary gains fields, so cached games are summarised again
+
+
+def _scoreboard(game, idents, me_pid):
+    """All ten players with a 0-10 score (the custy site's MVP formula), placed 1st to 10th. MVP = best on the
+    winning team, ACE = best on the losing team. Also your tags for the match list."""
+    parts = game.get("participants") or []
+    minutes = max(1.0, _num(game.get("gameDuration")) / 60.0)
+    rows = []
+    for p in parts:
+        st = p.get("stats") or {}
+        rows.append({"pid": p.get("participantId"), "champ": p.get("championId"), "team": _num(p.get("teamId")),
+                     "name": (idents.get(p.get("participantId")) or {}).get("gameName") or (idents.get(p.get("participantId")) or {}).get("summonerName") or "",
+                     "k": _num(st.get("kills")), "d": _num(st.get("deaths")), "a": _num(st.get("assists")),
+                     "dmg": _num(st.get("totalDamageDealtToChampions")), "gold": _num(st.get("goldEarned")),
+                     "cs": _num(st.get("totalMinionsKilled")) + _num(st.get("neutralMinionsKilled")),
+                     "vision": _num(st.get("visionScore")), "win": bool(st.get("win")),
+                     "multi": _num(st.get("largestMultiKill")), "fb": bool(st.get("firstBloodKill"))})
+    for r in rows:
+        team = [x for x in rows if x["team"] == r["team"]]
+        kills = max(1, sum(x["k"] for x in team)); dmg = max(1, sum(x["dmg"] for x in team))
+        ratio = min((r["k"] + r["a"]) / max(1, r["d"]), 12) / 12.0
+        raw = 3.2 * ratio + 2.6 * (r["k"] + r["a"]) / kills + 2.6 * (r["dmg"] / dmg) * 2.5 \
+            + 0.8 * min(r["vision"] / minutes / 2.5, 1) + (0.8 if r["win"] else 0)
+        r["score"] = round(max(0.0, min(10.0, raw)), 1)
+    order = sorted(rows, key=lambda r: -r["score"])
+    for n, r in enumerate(order):
+        r["rank"] = n + 1
+    mvp = next((r for r in order if r["win"]), None)
+    ace = next((r for r in order if not r["win"]), None)
+    for r in rows:
+        r["badge"] = "MVP" if r is mvp else "ACE" if r is ace else ""
+    tags = []
+    me = next((r for r in rows if r["pid"] == me_pid), None)
+    if me:
+        if me["badge"]:
+            tags.append(me["badge"])
+        if me["multi"] >= 2:
+            tags.append({2: "Double kill", 3: "Triple kill", 4: "Quadra kill"}.get(me["multi"], "Penta kill"))
+        if me["win"] and me["d"] == 0:
+            tags.append("Unstoppable")
+        if me["fb"]:
+            tags.append("First blood")
+    for r in rows:
+        for k in ("vision", "multi", "fb"):
+            r.pop(k, None)
+    return rows, tags
 
 
 _cfg = {}
@@ -649,7 +705,11 @@ def _lp_update(lcu, puuid):
     try:
         qm = (lcu.get("/lol-ranked/v1/current-ranked-stats") or {}).get("queueMap") or {}
         ranks = {}
-        for key, label in RANKED.items():
+        keys = list(RANKED) + [k for k in qm if k not in RANKED and "TFT" not in k and "CHERRY" not in k and str((qm[k] or {}).get("tier") or "").upper() not in ("", "NONE", "UNRANKED")]
+        if set(qm) - set(RANKED):
+            core.log.info("Review: ranked queues the client reports: %s", sorted(qm))
+        for key in keys:
+            label = RANKED.get(key) or key.replace("RANKED_", "Ranked ").replace("_", " ").title().replace("Sr", "").strip()
             q = qm.get(key) or {}
             tier = str(q.get("tier") or "").upper()
             ranks[label] = {"tier": tier if tier not in ("", "NONE", "UNRANKED") else None, "division": q.get("division"),
@@ -735,7 +795,8 @@ def riot_to_client(match, timeline, puuid):
     parts, idents = [], []
     for p in m["participants"]:
         lane, role = _LANE.get(p.get("teamPosition"), ("NONE", "NONE"))
-        st = {k: p.get(k) for k in ("win", "kills", "deaths", "assists", "totalMinionsKilled", "neutralMinionsKilled", "goldEarned")}
+        st = {k: p.get(k) for k in ("win", "kills", "deaths", "assists", "totalMinionsKilled", "neutralMinionsKilled", "goldEarned",
+                                    "totalDamageDealtToChampions", "visionScore", "largestMultiKill", "firstBloodKill")}
         st.update({"item%d" % i: p.get("item%d" % i) for i in range(7)})
         sty = (p.get("perks") or {}).get("styles") or []
         if len(sty) >= 2:
@@ -844,6 +905,11 @@ def list_others(puuid):
             except (OSError, ValueError):
                 continue
             if data.get("summary"):
+                if data["summary"].get("v") != SUMMARY_V and data.get("game"):
+                    try:
+                        data["summary"] = _summarize(data["game"], puuid) or data["summary"]
+                    except Exception:
+                        pass
                 out.append(dict(data["summary"], hasTimeline=True))
     out.sort(key=lambda x: x.get("created") or 0, reverse=True)
     return out
