@@ -215,6 +215,10 @@ details.allnums { margin-top:22px; } details.allnums summary { cursor:pointer; c
 .sparks { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; }
 .sparks .card b { font-size:13px; } .sparks .card .sub { display:block; }
 .duo { display:grid; grid-template-columns: 330px 1fr; gap:14px; }
+.champs table { width:100%; border-collapse:collapse; margin-top:8px; font-size:14px; } .champs th { text-align:left; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--mute); font-weight:600; padding:6px 10px; cursor:pointer; user-select:none; white-space:nowrap; }
+.champs th.on { color:var(--gold); } .champs td { padding:8px 10px; border-top:1px solid var(--line-soft); white-space:nowrap; } .champs tbody tr { cursor:pointer; } .champs tbody tr:hover { background:var(--deck-2); }
+.champs td img { width:30px; height:30px; border-radius:7px; vertical-align:-9px; margin-right:9px; } .champs .wr { display:inline-block; width:70px; height:6px; border-radius:3px; background:var(--red); opacity:.9; vertical-align:1px; margin-right:8px; overflow:hidden; } .champs .wr i { display:block; height:100%; background:var(--blue); }
+.champs b.win { color:var(--blue-ink); } .champs b.loss { color:var(--red-ink); }
 .pool { display:grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap:10px; align-content:start; }
 .pool .card { display:flex; gap:10px; align-items:center; padding:10px 12px; cursor:pointer; } .pool .card:hover { border-color:var(--blue); }
 .pool img { width:40px; height:40px; border-radius:8px; } .pool small { display:block; color:var(--mute); font-size:12px; }
@@ -2484,6 +2488,33 @@ function dashStats(rows) {
 const trendText = (t) => t > 0.25 ? `<span class="trend-up">▲ improving</span>` : t < -0.25 ? `<span class="trend-down">▼ getting worse</span>` : "steady";
 const gameLabel = (g) => `${champName(g.champion)}${g.opponent ? " vs " + champName(g.opponent) : ""} · ${new Date(g.created).toLocaleDateString(undefined, { month: "short", day: "numeric" })}`;
 
+
+// Champions played: every saved game in the current queue filter, grouped by champion.
+const CHAMP_COLS = [["champ", "Champion"], ["n", "Games"], ["wr", "Win rate"], ["kda", "KDA"], ["cs", "CS / min"], ["len", "Avg game"]];
+function champRows() {
+  const games = STATE.games.filter(g => STATE.queue === "all" || queueGroup(g.queue) === STATE.queue), by = {};
+  for (const g of games) (by[g.champion] ??= []).push(g);
+  return { total: games.length, rows: Object.entries(by).map(([id, gs]) => {
+    const sum = f => gs.reduce((a, g) => a + (f(g) || 0), 0), n = gs.length, w = gs.filter(g => g.win).length;
+    const k = sum(g => g.kills), d = sum(g => g.deaths), a = sum(g => g.assists), mins = sum(g => g.duration) / 60, roles = {};
+    gs.forEach(g => roles[g.role] = (roles[g.role] || 0) + 1);
+    return { id: +id, name: champName(+id), n, w, wr: w / n, k: k / n, d: d / n, a: a / n, kda: d ? (k + a) / d : Infinity, cs: mins ? sum(g => g.cs) / mins : 0, len: mins / n,
+      role: Object.entries(roles).sort((x, y) => y[1] - x[1])[0][0], newest: gs.slice().sort((x, y) => y.created - x.created)[0].id };
+  }) };
+}
+function champTable() {
+  const { total, rows } = champRows(); if (!rows.length) return "";
+  const [key, dir] = STATE.champSort || ["n", -1];
+  rows.sort((x, y) => key === "champ" ? dir * x.name.localeCompare(y.name) : (dir * (x[key] - y[key]) || y.n - x.n || y.wr - x.wr));
+  const q = QUEUE_FILTERS.find(f => f[0] === STATE.queue);
+  return `<h2>Champions played</h2><div class="card champs"><div class="sub">${total} saved game${total === 1 ? "" : "s"}${STATE.queue === "all" ? "" : " · " + esc(q ? q[1] : "")} · click a column to sort, a row to open the newest game</div>
+    <table><thead><tr>${CHAMP_COLS.map(([k, label]) => `<th data-cs="${k}" class="${k === key ? "on" : ""}">${label}${k === key ? (dir < 0 ? " ▾" : " ▴") : ""}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(r => `<tr data-og="${r.newest}"><td><img src="${champIcon(r.id)}" alt=""><b>${esc(r.name)}</b> <span class="sub">${esc(ROLE_NAME[r.role] || "")}</span></td>
+      <td>${r.n}</td>
+      <td><div class="wr"><i style="width:${Math.round(r.wr * 100)}%"></i></div><b class="${r.wr >= .5 ? "win" : "loss"}">${Math.round(r.wr * 100)}%</b> <span class="sub">${r.w}W ${r.n - r.w}L</span></td>
+      <td><b>${r.kda === Infinity ? "Perfect" : r.kda.toFixed(2)}</b> <span class="sub">${r.k.toFixed(1)} / ${r.d.toFixed(1)} / ${r.a.toFixed(1)}</span></td>
+      <td>${r.cs.toFixed(1)}</td><td>${Math.round(r.len)}m</td></tr>`).join("")}</tbody></table></div>`;
+}
 let homeKey = "";
 async function openHome(force) {
   const shown = STATE.games.filter(g => (STATE.queue === "all" || queueGroup(g.queue) === STATE.queue) && g.hasTimeline).slice(0, 20);
@@ -2739,6 +2770,7 @@ function renderHome(rows) {
     ${rankCards()}
     <div class="formstrip" title="Newest on the left">${rows.slice().reverse().map(r => `<i class="${r.g.win ? "w" : ""}" title="${esc(gameLabel(r.g))}"></i>`).join("")}</div>
     <div class="hero">${hero}${strength}${form}</div>
+    <div id="champsec">${champTable()}</div>
     ${progress}
     <div class="dgrid">
       <div class="card a-radar"><div class="ctitle">Your shape vs experts</div><div class="sub">Each spoke is a skill. The dashed ring is the expert median; further out is better.</div>${radarSvg(stats)}
@@ -2765,7 +2797,13 @@ function renderHome(rows) {
   });
   const rb = $("reelBtn"); if (rb) rb.onclick = () => $("reel").classList.toggle("open");
   document.querySelectorAll("[data-rw]").forEach(b => b.onclick = () => { const [id, t] = b.dataset.rw.split(":"); watch(id, +t, b); });
+  const wireChamps = () => {
+    document.querySelectorAll("#champsec [data-cs]").forEach(th => th.onclick = () => { const [k, d] = STATE.champSort || ["n", -1];
+      STATE.champSort = [th.dataset.cs, th.dataset.cs === k ? -d : th.dataset.cs === "champ" ? 1 : -1]; $("champsec").innerHTML = champTable(); wireChamps(); });
+    document.querySelectorAll("#champsec [data-og]").forEach(b => b.onclick = () => { STATE.tab = "moments"; openGame(b.dataset.og); });
+  };
   document.querySelectorAll("[data-og]").forEach(b => b.onclick = () => { STATE.tab = "moments"; openGame(b.dataset.og); });
+  wireChamps();
 }
 
 let toastTimer;
