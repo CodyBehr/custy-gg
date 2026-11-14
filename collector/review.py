@@ -219,7 +219,7 @@ def _summarize(game, me_puuid):
     }
 
 
-SUMMARY_V = 2   # bump when the summary gains fields, so cached games are summarised again
+SUMMARY_V = 3   # bump when the summary gains fields, so cached games are summarised again
 
 
 def _scoreboard(game, idents, me_pid):
@@ -232,6 +232,7 @@ def _scoreboard(game, idents, me_pid):
         st = p.get("stats") or {}
         rows.append({"pid": p.get("participantId"), "champ": p.get("championId"), "team": _num(p.get("teamId")),
                      "name": (idents.get(p.get("participantId")) or {}).get("gameName") or (idents.get(p.get("participantId")) or {}).get("summonerName") or "",
+                     "tag": (idents.get(p.get("participantId")) or {}).get("tagLine") or "",
                      "k": _num(st.get("kills")), "d": _num(st.get("deaths")), "a": _num(st.get("assists")),
                      "dmg": _num(st.get("totalDamageDealtToChampions")), "gold": _num(st.get("goldEarned")),
                      "cs": _num(st.get("totalMinionsKilled")) + _num(st.get("neutralMinionsKilled")),
@@ -868,7 +869,7 @@ def lookup_player(riot_id, platform="NA1", limit=12):
     q = urllib.parse.urlencode({"riotId": riot_id, "platform": platform})
     who = _site_get("/api/review/lookup?" + q)
     d = _others_dir(who["puuid"])
-    json.dump({k: who.get(k) for k in ("puuid", "gameName", "tagLine")}, open(os.path.join(d, "_who.json"), "w"))
+    json.dump({k: who.get(k) for k in ("puuid", "gameName", "tagLine", "ranks")}, open(os.path.join(d, "_who.json"), "w"))
     # Games that aren't reviewable (ARAM, remakes...) are remembered so a second lookup doesn't spend
     # Riot requests on them again: the site's key allows 100 requests per 2 minutes, 2 per game.
     skip_path = os.path.join(d, "_skip.json")
@@ -922,6 +923,13 @@ def list_others(puuid):
                 out.append(dict(data["summary"], hasTimeline=True))
     out.sort(key=lambda x: x.get("created") or 0, reverse=True)
     return out
+
+
+def _who_ranks(puuid):
+    try:
+        return json.load(open(os.path.join(_others_dir(puuid), "_who.json"), encoding="utf-8")).get("ranks") or None
+    except (OSError, ValueError):
+        return None
 
 
 def read_other(puuid, game_id):
@@ -1425,11 +1433,12 @@ def make_handler(cfg, token):
                     who, games = lookup_player((q.get("riotId") or [""])[0], (q.get("platform") or ["NA1"])[0])
                 except Exception as e:
                     return self._send(400, {"error": str(e)})
-                return self._send(200, {"me": who, "games": games, "viewing": True, "patch": _client_patch(cfg), "replayApi": False})
+                return self._send(200, {"me": who, "games": games, "viewing": True, "patch": _client_patch(cfg), "replayApi": False,
+                                        "rank": _who_ranks(who.get("puuid"))})
             if url.path == "/api/games" and parse_qs(url.query).get("as"):
                 pu = parse_qs(url.query)["as"][0]
                 return self._send(200, {"me": who_other(pu), "games": list_others(pu), "viewing": True,
-                                        "patch": _client_patch(cfg), "replayApi": False})
+                                        "patch": _client_patch(cfg), "replayApi": False, "rank": _who_ranks(pu)})
             if url.path == "/api/games":
                 me, err = refresh(cfg)
                 if me:

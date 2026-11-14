@@ -51,7 +51,19 @@ export async function GET(req: Request) {
     if (!route || !name || !tag) return NextResponse.json({ error: "Give a Riot ID like Name#TAG" }, { status: 400 });
     const acc = await riot(ACCOUNT[route], `/riot/account/v1/accounts/by-riot-id/${encodeURIComponent(name)}/${encodeURIComponent(tag)}`, key);
     const ids: string[] = await riot(route, `/lol/match/v5/matches/by-puuid/${acc.puuid}/ids?start=0&count=20`, key);
-    return NextResponse.json({ puuid: acc.puuid, gameName: acc.gameName, tagLine: acc.tagLine, ids });
+    // Their ranks, for the rank strip on their overview (one more request; skipped quietly if it fails)
+    const QUEUE: Record<string, string> = { RANKED_SOLO_5x5: "Ranked Solo/Duo", RANKED_FLEX_SR: "Ranked Flex" };
+    const ranks: Record<string, unknown> = {};
+    try {
+      const entries: any[] = await riot(platform.toLowerCase(), `/lol/league/v4/entries/by-puuid/${acc.puuid}`, key);
+      for (const e of entries || []) {
+        if (!String(e.queueType).includes("TFT")) {
+          ranks[QUEUE[e.queueType] || String(e.queueType).replace(/^RANKED_/, "Ranked ").replace(/_/g, " ")] =
+            { tier: e.tier, division: e.rank, lp: e.leaguePoints, wins: e.wins, losses: e.losses };
+        }
+      }
+    } catch {}
+    return NextResponse.json({ puuid: acc.puuid, gameName: acc.gameName, tagLine: acc.tagLine, ids, ranks });
   } catch (e: any) {
     const s = e?.status === 404 ? 404 : e?.status === 429 ? 429 : 502;
     const msg = s === 404 ? "Player or game not found"
