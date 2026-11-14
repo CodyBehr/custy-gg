@@ -1180,7 +1180,7 @@ def make_handler(cfg, token):
                 if host not in ("127.0.0.1", "localhost") or parse_qs(url.query).get("k", [""])[0] != token:
                     return self._send(403, b"Open this from the custy.gg app.", "text/plain")
                 return self._send(200, _page(), "text/html; charset=utf-8")
-            m = re.match(r"^/assets/(sr-map\.jpg|sr-mini\.jpg|minion-blue\.png|minion-red\.png)$", url.path)
+            m = re.match(r"^/assets/(sr-map\.jpg|sr-mini\.jpg|minion-blue\.png|minion-red\.png|rank-[a-z]+\.png)$", url.path)
             if m:   # map art for the trades playback (public images; no key needed)
                 host = (self.headers.get("Host") or "").split(":")[0]
                 if host not in ("127.0.0.1", "localhost"):

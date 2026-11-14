@@ -35,6 +35,8 @@ aside .note { padding:10px 14px; color:var(--mute); font-size:13px; border-botto
 .game .t { font-size:13px; line-height:1.35; } .game .t small { color:var(--mute); display:block; }
 .lp { display:block; font-size:11.5px; font-weight:700; white-space:nowrap; } .lp.up { color:var(--green-ink); } .lp.down { color:var(--red-ink); }
 .rankrow { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; margin:14px 0; } .rankcard h3 { margin:2px 0 6px; }
+.rankcard { display:flex; align-items:center; gap:16px; } .rankcard img.emblem { flex:none; width:104px; height:104px; object-fit:contain; }
+.lp .crest { width:18px; height:18px; vertical-align:-4px; margin-right:2px; }
 .game .kda { margin-left:auto; text-align:right; font-size:13px; } .game .kda small { color:var(--faint); display:block; }
 section { padding:22px 28px; max-width:1400px; }
 section.wide { max-width:none; }
@@ -1248,6 +1250,9 @@ const queueGroup = (q) => q === "Ranked Solo/Duo" ? "solo" : q === "Ranked Flex"
 const cacheGame = {};
 // Rank and LP. The app notes your rank after each ranked game; the change is that game's LP.
 const TIER_COLOR = { IRON: "#8a8f98", BRONZE: "#b0794f", SILVER: "#b9c4cf", GOLD: "#e3b341", PLATINUM: "#4fd1c5", EMERALD: "#3ecf8e", DIAMOND: "#7aa7ff", MASTER: "#c17aff", GRANDMASTER: "#ff6b6b", CHALLENGER: "#ffd479" };
+// Riot's own rank emblems (from the League client's files), shipped with the app in assets/.
+const rankImg = (r, cls) => r && r.tier ? `<img class="${cls}" src="/assets/rank-${r.tier.toLowerCase()}.png" alt="" title="${esc(rankName(r))}" onerror="this.remove()">` : "";
+const rankEmblem = (r) => rankImg(r, "emblem"), rankCrest = (r) => rankImg(r, "crest");
 const cap = (w) => String(w || "").charAt(0) + String(w || "").slice(1).toLowerCase();
 const rankName = (r) => !r || !r.tier ? "Unranked" : ["MASTER", "GRANDMASTER", "CHALLENGER"].includes(r.tier) ? cap(r.tier) : `${cap(r.tier)} ${r.division || ""}`.trim();
 function lpChip(g) {
@@ -1255,7 +1260,7 @@ function lpChip(g) {
   const moved = l.from && l.to && rankName(l.from) !== rankName(l.to), tip = l.from && l.to ? `${rankName(l.from)} ${l.from.lp} LP → ${rankName(l.to)} ${l.to.lp} LP` : "";
   if (l.delta == null) return l.placed ? `<span class="lp up" title="${esc(tip)}">Placed ${esc(rankName(l.to))}</span>` : "";
   if (l.over) return l.last ? `<span class="lp ${l.delta >= 0 ? "up" : "down"}" title="${esc(tip)} · the app wasn't open between these games, so only the total is known">${signed(l.delta)} LP over ${l.over} games</span>` : "";
-  return `<span class="lp ${l.delta >= 0 ? "up" : "down"}" title="${esc(tip)}">${signed(l.delta)} LP${moved ? (l.delta > 0 ? " ▲ " : " ▼ ") + esc(rankName(l.to)) : ""}</span>`;
+  return `<span class="lp ${l.delta >= 0 ? "up" : "down"}" title="${esc(tip)}">${signed(l.delta)} LP${moved ? (l.delta > 0 ? " ▲ " : " ▼ ") + rankCrest(l.to) + esc(rankName(l.to)) : ""}</span>`;
 }
 function rankCards() {
   const R = STATE.rank; if (!R || STATE.as) return "";
@@ -1263,10 +1268,10 @@ function rankCards() {
     const n = (r.wins || 0) + (r.losses || 0); if (!r.tier && !n) return "";
     const tracked = STATE.games.filter(g => g.queue === queue && g.lp && g.lp.delta != null && (!g.lp.over || g.lp.last));
     const net = tracked.reduce((a, g) => a + g.lp.delta, 0), count = tracked.reduce((a, g) => a + (g.lp.over || 1), 0);
-    return `<div class="card rankcard" style="border-left:4px solid ${TIER_COLOR[r.tier] || "var(--line)"}"><div class="eyebrow">${esc(queue)}</div>
-      <div class="big" style="font-size:34px;color:${TIER_COLOR[r.tier] || "var(--ink)"}">${esc(rankName(r))}</div>
+    return `<div class="card rankcard">${rankEmblem(r)}<div><div class="eyebrow">${esc(queue)}</div>
+      <div class="big" style="font-size:32px;color:${TIER_COLOR[r.tier] || "var(--ink)"}">${esc(rankName(r))}</div>
       <h3>${r.tier ? `${r.lp} LP` : "Not placed yet"}${n ? ` · ${r.wins}W ${r.losses}L · ${Math.round(100 * r.wins / n)}% this season` : ""}</h3>
-      <div class="sub">${count ? `<b class="${net >= 0 ? "good" : "bad"}">${signed(net)} LP</b> over the last ${count} tracked game${count === 1 ? "" : "s"}` : "LP per game shows from your next ranked game on"}</div></div>`;
+      <div class="sub">${count ? `<b class="${net >= 0 ? "good" : "bad"}">${signed(net)} LP</b> over the last ${count} tracked game${count === 1 ? "" : "s"}` : "LP per game shows from your next ranked game on"}</div></div></div>`;
   }).join("");
   return cards ? `<div class="rankrow">${cards}</div>` : "";
 }
