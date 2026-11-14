@@ -268,7 +268,7 @@ details.fight .fpl .pop img { width:26px; height:26px; border-radius:4px; border
 .card.trade { grid-column:1 / -1; } .trade svg { max-height:190px; }
 .trade .finds { margin:8px 0 0; padding-left:18px; } .trade .finds li { margin:4px 0; line-height:1.45; }
 body.viewing [data-watch], body.viewing #ov { display:none !important; }
-#lookup { display:flex; gap:6px; margin-left:auto; margin-right:8px; } #lookup input { width:230px; }
+#lookup { display:flex; gap:6px; margin-left:auto; margin-right:8px; } #lookup input { width:200px; }
 #lookup button { padding:6px 12px; } .note.viewing { border-color:var(--gold); } .note.viewing button { margin-left:8px; }
 /* Lane trades */
 @keyframes lt-rise{0%{opacity:0;transform:translateY(6px)}15%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}@keyframes lt-pulse{0%{transform:scale(1.6)}100%{transform:scale(1)}}
@@ -406,6 +406,49 @@ body.viewing [data-watch], body.viewing #ov { display:none !important; }
 .gkpb .pblegend { font-size:12px; color:var(--mute); margin-top:6px; }
 @media (max-width:760px) { .gk { grid-template-columns:1fr; } }
 html[data-theme=light] button.primary, html[data-theme=light] .seg button.on, html[data-theme=light] .filter button.on { color:#fff; }
+/* ---- Sleek base for every page (cards, buttons, headings), then the game page and You vs experts ---- */
+:root { --btnbg:#626a7e; } html[data-theme=light] { --btnbg:#e1e4ec; }
+h1 { font:700 32px/1.1 "Space Grotesk",Inter,sans-serif; letter-spacing:-.02em; }
+h2 { font:700 22px "Space Grotesk",Inter,sans-serif; letter-spacing:-.02em; color:var(--ink); text-transform:none; margin:36px 0 12px; }
+.card { border:0; border-radius:20px; padding:20px; }
+button, .btn { border:0; border-radius:999px; background:var(--btnbg); padding:8px 16px; font-size:14px; font-weight:600; }
+button:hover, .btn:hover { filter:brightness(1.08); }
+button.primary, html[data-theme=light] button.primary { background:var(--btn); color:var(--btnfg); }
+.sub { font-size:13.5px; } .banner { border:0; border-radius:16px; padding:12px 16px; }
+.ctitle { font:700 12px Inter,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--mute); }
+.card .k { font:700 11.5px Inter,sans-serif; letter-spacing:.1em; text-transform:uppercase; color:var(--mute); }
+#view .tabs { display:inline-flex; gap:4px; background:var(--chip); border-radius:999px; padding:4px; border:0; margin-top:20px; }
+#view .tabs button { border:0; border-radius:999px; min-height:38px; padding:0 16px; background:none; color:var(--mute); font-size:14px; font-weight:600; }
+#view .tabs button.on { background:var(--btn); color:var(--btnfg); }
+.seg, .vtabs, .filter { gap:4px; } .seg button, .vtabs button { border:0; border-radius:999px; padding:6px 14px; font-size:13.5px; background:var(--btnbg); color:var(--ink); }
+.seg button.on, .vtabs button.on, html[data-theme=light] .seg button.on { background:var(--btn); color:var(--btnfg); }
+.vtabs button small { opacity:.8; font-weight:500; }
+.ii { width:20px; height:20px; border-radius:5px; vertical-align:-5px; margin-right:5px; }
+.vtabs .ii { width:24px; height:24px; vertical-align:-6px; }
+input, select { border-radius:999px; }
+.g-hero { display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:24px; align-items:center; background:#b92b37; color:#fff; border-radius:24px; padding:20px 24px; margin-top:12px; }
+.g-hero.w { background:#2152dc; } .g-hero > img { width:84px; height:84px; border-radius:20px; display:block; }
+.g-hero h1 { margin:2px 0 0; font-size:36px; color:#fff; } .g-hero h1 span { font-weight:600; opacity:.88; }
+.g-hero .h-mute { color:rgba(255,255,255,.93); }
+.g-nums { display:flex; gap:28px; align-items:center; flex-wrap:wrap; } .g-nums b { display:block; font:700 26px "Space Grotesk",sans-serif; }
+.g-nums .h-kr { display:inline-block; padding:1px 8px; border-radius:6px; background:rgba(8,9,12,.6); font-size:13px; }
+.g-hero .h-k0 { color:#e3e5ea; } .g-hero .h-k1 { color:#6fe6a8 !important; } .g-hero .h-k2 { color:#8fcbff !important; } .g-hero .h-k3 { color:#d0b0ff !important; } .g-hero .h-k4 { color:#ffb454 !important; }
+.g-hero .btn { background:rgba(0,0,0,.26); color:#fff; display:inline-block; }
+.g-top { display:grid; grid-template-columns:minmax(0,8fr) minmax(0,4fr); gap:16px; margin-top:16px; align-items:start; }
+.g-side { display:flex; flex-direction:column; gap:16px; }
+.g-glance .card { display:grid; grid-template-columns:minmax(0,1fr) auto auto; gap:14px; align-items:baseline; background:none; padding:10px 0; border-radius:0; border-top:1px solid var(--line-soft); }
+.g-glance .card:first-of-type { border-top:0; } .g-glance .card .k { font:400 15px Inter,sans-serif; letter-spacing:0; text-transform:none; color:var(--ink); }
+.g-glance .card .v { font:700 17px "Space Grotesk",sans-serif; margin:0; } .g-glance .card .d { font-size:13px; color:var(--mute); min-width:92px; text-align:right; margin:0; }
+.card:has(> .moment) { background:none; padding:0; }
+.moment, .moment.well, .moment.swing, .moment.worth { background:var(--deck); border:0; border-radius:20px; padding:18px 20px; margin:0 0 10px; }
+.moment.swing { box-shadow:inset 0 0 0 1.5px var(--red); } .moment.well { box-shadow:inset 0 0 0 1.5px var(--green); }
+.moment .when { font:700 17px "Space Grotesk",sans-serif; }
+.moment .badge { border-radius:7px; font:700 10.5px "Space Grotesk",sans-serif; letter-spacing:.09em; padding:3px 9px; }
+.x-g2 { display:grid; gap:16px; margin-top:16px; align-items:start; } .x-g2.a { grid-template-columns:minmax(0,5fr) minmax(0,7fr); } .x-g2.b { grid-template-columns:minmax(0,7fr) minmax(0,5fr); }
+.x-skill { display:grid; grid-template-columns:minmax(120px,1.1fr) minmax(0,1fr) 70px 70px; gap:16px; align-items:center; padding:12px 0; border-top:1px solid var(--line-soft); font-size:15px; }
+.x-skill:first-of-type { border-top:0; } .x-skill b.v { text-align:right; font-size:15px; } .x-skill span.e { text-align:right; color:var(--mute); }
+.x-take { font:700 22px/1.2 "Space Grotesk",sans-serif; letter-spacing:-.02em; margin-top:8px; }
+@media (max-width:900px) { .g-top, .x-g2.a, .x-g2.b, .g-hero { grid-template-columns:minmax(0,1fr); } }
 /* ---- Home (overview) and the app shell: dark slate by default, light optional ---- */
 .topbar { max-width:1344px; margin:0 auto; display:flex; align-items:center; gap:14px; padding:16px 32px; flex-wrap:wrap; border:0; }
 .topbar .brand { font:700 19px "Space Grotesk",Inter,sans-serif; letter-spacing:-.02em; } .topbar .brand span { color:var(--gold); }
@@ -413,7 +456,7 @@ html[data-theme=light] button.primary, html[data-theme=light] .seg button.on, ht
 .toptabs button { border:0; border-radius:999px; min-height:38px; padding:0 16px; background:none; color:var(--mute); font-size:14px; font-weight:600; margin:0; }
 .toptabs button.on { background:var(--btn); color:var(--btnfg); }
 .topbar .who { margin-left:0; font-size:13.5px; }
-.topbar form { margin-left:auto; display:flex; gap:6px; } .topbar input { background:var(--deck); border:0; border-radius:999px; color:var(--ink); padding:0 16px; min-height:40px; width:230px; font:inherit; font-size:14px; }
+.topbar form { margin-left:auto; display:flex; gap:6px; } .topbar input { background:var(--deck); border:0; border-radius:999px; color:var(--ink); padding:0 16px; min-height:40px; width:200px; font:inherit; font-size:14px; }
 .topbar input::placeholder { color:var(--mute); }
 .topbar form button, .topbar > button { border:0; border-radius:999px; min-height:40px; padding:0 16px; background:var(--chip); color:var(--ink); font-size:14px; font-weight:600; margin:0; }
 #list, #rk, #crumb { max-width:1344px; margin:0 auto; padding:0 32px; }
@@ -485,14 +528,30 @@ html[data-theme=light] .h-k1 { color:#12976a; } html[data-theme=light] .h-k2 { c
 .h-leg { display:flex; gap:16px; font-size:12.5px; color:var(--mute); flex-wrap:wrap; }
 .h-note { background:var(--deck); border-radius:20px; padding:20px; color:var(--mute); }
 @media (max-width:900px) { .h-read, .h-det { grid-template-columns:minmax(0,1fr); } .h-m { grid-template-columns:56px 1fr; } .h-teams { justify-content:start; } .h-seg, .h-qs, .topbar form { margin-left:0; } .h-read h1 { font-size:36px; } #view, #list, #rk, #crumb, .topbar { padding-left:16px; padding-right:16px; } }
+/* toned-down win / loss fills */
+.h-m, .g-hero { background:#9b3340; } .h-m.w, .g-hero.w { background:#2d52ad; }
+.h-team { background:rgba(45,82,173,.38); } .h-team.l { background:rgba(155,51,64,.38); }
+html[data-theme=light] .h-m, html[data-theme=light] .g-hero { background:#a8394a; } html[data-theme=light] .h-m.w, html[data-theme=light] .g-hero.w { background:#3159ba; }
+.vtabs button small, .vtabs small { color:inherit; opacity:.75; }
+/* Game analyzer picker */
+.gp { position:relative; display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:6px; }
+.gp-btn { display:flex; align-items:center; gap:12px; min-height:52px; padding:6px 18px 6px 6px; border-radius:16px; background:var(--deck); color:var(--ink); font-size:15px; text-align:left; }
+.gp-btn img, .gp-item img { width:40px; height:40px; border-radius:11px; flex:none; }
+.gp-btn .gp-caret { margin-left:8px; color:var(--mute); }
+.gp-list { position:absolute; top:calc(100% + 6px); left:0; z-index:30; width:min(560px, 92vw); max-height:440px; overflow-y:auto; background:var(--deck); border-radius:18px; padding:8px; box-shadow:0 18px 50px rgba(0,0,0,.45); }
+.gp-item { display:grid; grid-template-columns:8px 40px minmax(0,1fr) auto; gap:12px; align-items:center; width:100%; padding:8px 10px; border-radius:12px; background:none; color:var(--ink); text-align:left; font-weight:500; }
+.gp-item:hover, .gp-item.on { background:var(--deck-2); filter:none; }
+.gp-item i { width:8px; height:36px; border-radius:3px; background:#9b3340; } .gp-item i.w { background:#2d52ad; }
+.gp-btn small { display:block; color:var(--mute); font-size:13px; font-weight:500; } .gp-item small { display:block; color:var(--mute); font-size:13px; }
+.gp-head { padding:6px 10px 8px; color:var(--mute); font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
 </style>
 </head>
 <body>
 <header class="topbar"><div class="brand" id="brandHome" role="link" tabindex="0" title="Back to the overview" style="cursor:pointer">custy <span>coach</span></div><span class="tag">test</span>
-  <div class="toptabs" id="toptabs"><button data-nav="home">Overview</button><button data-nav="experts">You vs experts</button><button data-nav="matchups">Matchup guide</button></div>
+  <div class="toptabs" id="toptabs"><button data-nav="home">Overview</button><button data-nav="game">Game analyzer</button><button data-nav="experts">You vs experts</button><button data-nav="matchups">Matchup guide</button></div>
   <span class="who" id="who"></span>
-  <form id="lookup" title="See any player's recent ranked and normal games"><input id="lookupId" placeholder="Look up a player: Name#TAG" autocomplete="off"><button>View</button></form>
-  <button id="refresh" title="Look for new games">↻ Refresh</button><button id="themeBtn" title="Switch between dark and light">Light mode</button></header>
+  <form id="lookup" title="See any player's recent ranked and normal games"><input id="lookupId" placeholder="Look up Name#TAG" aria-label="Look up a player by Riot ID" autocomplete="off"><button>View</button></form>
+  <button id="refresh" title="Look for new games">↻ Refresh</button><button id="themeBtn" title="Switch between dark and light" aria-label="Switch to light mode" style="width:40px;padding:0;font-size:17px">☀</button></header>
 <main>
   <div id="list"><div class="note">Reading your games from League...</div></div>
   <div id="rk"></div>
@@ -638,7 +697,7 @@ function setupCard(A, B) {
   // Several setups are common on most champions: compare with experts who took the same keystone as you.
   const V = S.variants || [], myV = mine ? V.find(v => v.keystone === mine[2][0]) : null;
   const rec = (myV?.rec) || vs?.rec || S.rec; if (!rec) return "";
-  const ksName = (id) => esc(DD.runes[id]?.name || "another keystone"), P = (x) => Math.round(x * 100) + "%";
+  const ksName = (id) => runeTag(id), P = (x) => Math.round(x * 100) + "%";
   const ks = (vs?.keystones || S.keystones || []);
   const myKs = mine ? ks.find(k => k[0] === mine[2][0]) : null;
   const spells = (myV?.spells?.[0]) || (vs?.spells?.[0]) || S.spells?.[0], mySp = [A.me.spell1Id, A.me.spell2Id].sort((a, b) => a - b);
@@ -705,17 +764,19 @@ function buildOptions(A, B, mineIds, first3, mineAll) {
     <div class="pitems">${ids.map((id, i) => (i ? `<i class="arr">${i === 3 ? "┊" : "›"}</i>` : "") + icon(id, match(id, i), note(i))).join("")}</div></div>`;
   const same = B.builds.findIndex(b => b.item === mineIds[0]);
   const rows = B.builds.map((b, n) => { const p = b.path || { items: [b.item], rates: [] };
-    return row(p.items, `${esc(itemName(b.item))} first`, `${P(b.rate)} of experts · ${P(b.win)} wins · ${b.n} games`, n === same ? "same" : "",
+    return row(p.items, `${itemTag(b.item)} first`, `${P(b.rate)} of experts · ${P(b.win)} wins · ${b.n} games`, n === same ? "same" : "",
       (id, i) => i < 3 ? first3.has(id) : mineAll.has(id), i => i >= 3 && p.rates?.[i - 3] ? P(p.rates[i - 3]) : ""); }).join("");
   const mineRow = mineIds.length ? row(mineIds, "Your build", A.items.length >= 3 ? `3rd item at ${clock(A.items[2].t)}` : "not finished", "yours",
     (id, i) => { const b = B.builds[same >= 0 ? same : 0]?.path?.items || []; return i < 3 ? b[i] === id : b.slice(3).includes(id); }) : "";
-  const note = !mineIds.length ? "" : same >= 0 ? `You went the <b>${esc(itemName(mineIds[0]))}</b> build, like ${P(B.builds[same].rate)} of experts; gold borders compare you with that path. `
-    : `Your first item, <b>${esc(itemName(mineIds[0]))}</b>, isn't one of the experts' common starts on ${esc(champName(A.me.championId))}. `;
+  const note = !mineIds.length ? "" : same >= 0 ? `You went the <b>${itemTag(mineIds[0])}</b> build, like ${P(B.builds[same].rate)} of experts; gold borders compare you with that path. `
+    : `Your first item, <b>${itemTag(mineIds[0])}</b>, isn't one of the experts' common starts on ${esc(champName(A.me.championId))}. `;
   return `<div class="card paths">${rows}${mineRow}
     <div class="sub" style="margin-top:8px">${note}Experts on this champion go more than one way; each row is a build at least 6% of them use, with its own path. Items after ┊ are what they usually add later, with the share that bought each.</div></div>`;
 }
 const itemIcon = (id) => DD.v ? `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/item/${id}.png` : "";
 const champIcon = (id) => DD.champ[id] ? `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/champion/${DD.champ[id].id}.png` : "";
+const itemTag = (id) => (DD.v && DD.items[id] ? `<img class="ii" src="${itemIcon(id)}" alt="">` : "") + esc(itemName(id));
+const runeTag = (id) => DD.runes?.[id] ? `<img class="ii" src="https://ddragon.leagueoflegends.com/cdn/img/${DD.runes[id].icon}" alt="">${esc(DD.runes[id].name)}` : "another keystone";
 const itemName = (id) => DD.items[id]?.name || ("item " + id);
 const itemCost = (id) => DD.items[id]?.gold?.total || 0;
 const isBoots = (id) => { const it = DD.items[id]; return !!it && (it.tags || []).includes("Boots") && it.gold.total >= 700 && id != 1001; };
@@ -1449,7 +1510,7 @@ function renderList() {
 
 async function openGame(id) {
   $("view").classList.remove("wide");
-  STATE.current = id; navState(); window.scrollTo({ top: 0 });
+  STATE.current = id; STATE.lastGame = id; navState(); window.scrollTo({ top: 0 });
   $("view").innerHTML = `<div class="empty">Reading the game...</div>`;
   const s = STATE.games.find(g => g.id == id);
   let A;
@@ -1606,38 +1667,35 @@ function render(A, B, moments, s, label, well = []) {
   const myKills = A.kills.filter(k => k.killerId === A.me.participantId);
   const kd = [...myKills.map(k => ({ t: k.timestamp / 1000, kill: k })), ...A.deaths.map(d => ({ t: d.t, death: d }))].sort((a, b) => a.t - b.t);
   STATE.cmpWord = B?.expert ? "experts" : "usual";
+  const st0 = A.me.stats || {}, mins0 = Math.max(1, A.g.gameDuration / 60), cs0 = (st0.totalMinionsKilled || 0) + (st0.neutralMinionsKilled || 0), lp0 = s?.lp;
   $("view").innerHTML = `
-    <div class="vs"><img src="${champIcon(A.me.championId)}" alt="">
-      <div><h1>${esc(champName(A.me.championId))}${opp ? ` <span class="sub" style="font-size:18px">vs ${esc(opp)}</span>` : ""}</h1>
-      <div class="sub">${res} · ${esc(s.queue)} · ${esc(ROLE_NAME[A.role] || "role unknown")} · ${A.me.stats.kills}/${A.me.stats.deaths}/${A.me.stats.assists} · ${clock(A.g.gameDuration)} · ${new Date(A.g.gameCreation).toLocaleString()}</div></div></div>
-    <a class="btn yt" target="_blank" href="https://www.youtube.com/results?search_query=${encodeURIComponent("Domisumreplay " + champName(A.me.championId) + (opp ? " vs " + opp : ""))}">▶ High-elo ${esc(champName(A.me.championId))}${opp ? " vs " + esc(opp) : ""} games on YouTube</a>
+    <div class="g-hero${st0.win ? " w" : ""}"><img src="${champIcon(A.me.championId)}" alt="">
+      <div><div class="h-eye">${st0.win ? "Victory" : "Defeat"} · ${esc(s.queue)} · ${esc(ROLE_NAME[A.role] || "role unknown")} · ${clock(A.g.gameDuration)} · ${new Date(A.g.gameCreation).toLocaleDateString(undefined, { month: "short", day: "numeric" })}</div>
+        <h1>${esc(champName(A.me.championId))}${opp ? ` <span>vs ${esc(opp)}</span>` : ""}</h1>
+        ${(s.tags || []).length ? `<div class="h-tags">${s.tags.map(t => `<span class="h-tag h-t-${HV_TAG[t] || "common"}">${esc(t)}</span>`).join("")}</div>` : ""}</div>
+      <div class="g-nums"><div><b>${st0.kills} / ${st0.deaths} / ${st0.assists}</b>${hkr(st0.kills, st0.deaths, st0.assists)}</div>
+        <div><b>${cs0}</b><span class="h-mute h-sm">CS · ${(cs0 / mins0).toFixed(1)} / min</span></div>
+        ${lp0 && lp0.delta != null && !lp0.over ? `<div><b>${signed(lp0.delta)}</b><span class="h-mute h-sm">LP</span></div>` : ""}
+        <a class="btn yt" target="_blank" href="https://www.youtube.com/results?search_query=${encodeURIComponent("Domisumreplay " + champName(A.me.championId) + (opp ? " vs " + opp : ""))}">▶ High-elo ${esc(champName(A.me.championId))}${opp ? " vs " + esc(opp) : ""} on YouTube</a></div></div>
     ${banner}
-    <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">Breakdown</button>${STATE.as ? "" : `<button data-tab="trades">Lane trades</button>`}</div>
+    <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">Breakdown vs experts</button>${STATE.as ? "" : `<button data-tab="trades">Lane trades</button>`}</div>
     <div id="v-experts" hidden><div class="empty">Loading expert data...</div></div>
     <div id="v-trades" hidden></div>
     <div id="v-moments">
-    <h2>What went well</h2>
-    <div class="card well-card">${well.length ? well.map(w => `<div class="w"><i>✓</i><div><b>${esc(w.title)}</b><span>${esc(w.text)}</span></div></div>`).join("")
-      : `<div class="sub">A tough one: nothing this game beat ${B?.expert ? "the experts or your own recent games" : "your recent games"}. The moments below are where the most is to be gained.</div>`}</div>
-    <h2>${A.diff ? "Lane gold difference" : "Your gold"} by minute</h2>
-    <div class="card">${chart(A, B, moments)}
-      <div class="legend"><span><i style="background:var(--gold)"></i>This game</span>${B ? `<span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of ${esc(label)}</span>` : ""}<span><i style="background:var(--gold-wash)"></i>Moments to watch</span><span><i style="background:var(--red-wash)"></i>Turning points</span><span><i style="background:var(--green-wash)"></i>Went well</span><span style="color:var(--red-ink)">✕ your deaths</span></div>
-      ${B?.expert ? "" : `<div class="sub" style="margin-top:6px">No high-elo data for ${esc(champName(A.me.championId))} ${esc(ROLE_NAME[A.role] || "")} yet, so ${B ? "this uses your own recent games instead" : "there's nothing to compare with"}.</div>`}
-    </div>
-    <h2>Timings</h2>
-    <div class="timings">
-      ${timingCard("First back", A.backs[0]?.t ?? null, B?.firstBack, clock)}
-      ${timingCard("First item", A.firstItem, B?.firstItem, clock)}
-      ${timingCard("CS at 10:00", cs10, B?.cs?.[10]?.p50, v => Math.round(v), false)}
-      ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
-      ${levelCard(A, B)}
-      ${laneFightCard(A, B)}
-      ${tradeCard(A, B)}
-      ${pingCard(A)}
-    </div>
-    ${A.role === "JUNGLE" ? jungleCard(A, B) : ""}
+    <div class="g-top">
+      <div class="card"><div class="ctitle">${A.diff ? `Lane gold vs ${esc(opp || "your lane opponent")}` : "Your gold"}, by minute</div>${chart(A, B, moments)}
+        <div class="legend"><span><i style="background:var(--gold)"></i>This game</span>${B ? `<span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Middle half of ${esc(label)}</span>` : ""}<span><i style="background:var(--gold-wash)"></i>Moments to watch</span><span><i style="background:var(--red-wash)"></i>Turning points</span><span><i style="background:var(--green-wash)"></i>Went well</span></div>
+        ${B?.expert ? "" : `<div class="sub" style="margin-top:6px">No high-elo data for ${esc(champName(A.me.championId))} ${esc(ROLE_NAME[A.role] || "")} yet, so ${B ? "this uses your own recent games instead" : "there's nothing to compare with"}.</div>`}</div>
+      <div class="g-side">
+        <div class="card well-card"><div class="ctitle" style="color:var(--green-ink);margin-bottom:8px">What went well</div>${well.length ? well.map(w => `<div class="w"><i>✓</i><div><b>${esc(w.title)}</b><span>${esc(w.text)}</span></div></div>`).join("")
+          : `<div class="sub">A tough one: nothing this game beat ${B?.expert ? "the experts or your own recent games" : "your recent games"}. The moments below are where the most is to be gained.</div>`}</div>
+        <div class="card g-glance"><div class="ctitle" style="margin-bottom:4px">At a glance</div>
+          ${timingCard("CS at 10:00", cs10, B?.cs?.[10]?.p50, v => Math.round(v), false)}
+          ${timingCard("Deaths before 14:00", A.deaths.filter(d => d.t < 840).length, B?.deaths14, v => Math.round(v))}
+          ${timingCard("First back", A.backs[0]?.t ?? null, B?.firstBack, clock)}
+          ${timingCard("First item", A.firstItem, B?.firstItem, clock)}</div></div></div>
     ${STATE.as ? "" : `<div id="ganks"></div>`}
-    <h2>Moments to watch, in order</h2>
+    <h2>Moments to watch <span class="sub" style="font-weight:400;font-family:Inter,sans-serif;letter-spacing:0">in the order they happened</span></h2>
     <div class="card">${moments.length ? moments.map((w, i) => `
       <div class="moment${w.good ? " well" : w.parts.some(p => p.turning) ? " swing" : ""}">
         <div class="when">${w.good ? `<span class="badge ok">Went well</span>` : w.parts.some(p => p.turning) ? `<span class="badge">Turning point</span>` : ""}${clock(w.start)} – ${clock(w.end)}${w.parts.some(p => p.kind === "gold") ? `<small>${Math.round(Math.max(...w.parts.filter(p => p.kind === "gold").map(p => p.cost))).toLocaleString()} gold lost</small>` : ""}</div>
@@ -1646,9 +1704,17 @@ function render(A, B, moments, s, label, well = []) {
         <div class="acts"><button class="primary" data-watch="${w.start}">Watch in my replay</button></div>
       </div>`).join("") : `<div class="empty" style="padding:10px 0">Nothing stood out: your lane gold never slipped 400+ below ${B?.expert ? "the experts' range" : B ? "your usual" : "your opponent"}, no early deaths, and your timings were on pace.</div>`}
     </div>
-    <h2>All your kills and deaths (${myKills.length} kills · ${A.deaths.length} deaths)</h2>
+    <h2>Kills and deaths <span class="sub" style="font-weight:400;font-family:Inter,sans-serif;letter-spacing:0">${myKills.length} kills · ${A.deaths.length} deaths</span></h2>
     ${gameMap(A, myKills)}
     <div class="card">${kd.length ? kd.map(x => x.kill ? killRow(A, x.kill, myKills.indexOf(x.kill)) : deathRow(A, x.death)).join("") : `<div class="empty" style="padding:10px 0">No kills or deaths this game.</div>`}</div>
+    <h2>More detail</h2>
+    <div class="timings">
+      ${levelCard(A, B)}
+      ${laneFightCard(A, B)}
+      ${tradeCard(A, B)}
+      ${pingCard(A)}
+    </div>
+    ${A.role === "JUNGLE" ? jungleCard(A, B) : ""}
     </div>
     <p class="sub" style="margin-top:22px">Compared with ${B ? esc(label) : "nothing yet"}. It only says where to look; watching the replay is how you see why.</p>`;
   document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
@@ -2465,7 +2531,7 @@ function expertsView(A, B) {
   ${buildStrip(A)}
   ${buildPaths(A, B)}
   <div class="card"><table class="grid"><tr><th>Your items</th><th>Bought</th><th>Experts</th><th>How often experts build it</th></tr>
-    ${A.items.slice(0, 6).map((b, n) => { const e = byId[b.id]; return `<tr><td>${n + 1}. ${esc(itemName(b.id))}</td><td>${clock(b.t)}</td>
+    ${A.items.slice(0, 6).map((b, n) => { const e = byId[b.id]; return `<tr><td>${n + 1}. ${itemTag(b.id)}</td><td>${clock(b.t)}</td>
       <td>${e ? `usually ${ord(Math.round(e.slot))}, ~${clock(e.time)}` : "—"}</td><td>${e ? Math.round(e.rate * 100) + "%" : "rarely"}</td></tr>`; }).join("") || `<tr><td colspan="4" class="sub">No completed items.</td></tr>`}
   </table>
   <div class="sub" style="margin-top:10px">Enemies who built armor: <b>${A.armorN}</b> · magic resist: <b>${A.mrN}</b>.</div></div>
@@ -2603,21 +2669,44 @@ function champTable() {
 }
 // ---------------------------------------------------------------- App shell: tabs, theme, rank strip
 function setTheme(m) {
-  document.documentElement.dataset.theme = m; $("themeBtn").textContent = m === "light" ? "Dark mode" : "Light mode";
+  document.documentElement.dataset.theme = m; $("themeBtn").textContent = m === "light" ? "☾" : "☀"; $("themeBtn").setAttribute("aria-label", m === "light" ? "Switch to dark mode" : "Switch to light mode");
   try { localStorage.setItem("custy-theme", m); } catch (e) {}
 }
 $("themeBtn").onclick = () => setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light");
-$("themeBtn").textContent = document.documentElement.dataset.theme === "light" ? "Dark mode" : "Light mode";
+$("themeBtn").textContent = document.documentElement.dataset.theme === "light" ? "☾" : "☀";
 $("brandHome").onclick = () => openOverview(true);
 $("brandHome").onkeydown = (e) => { if (e.key === "Enter") openOverview(true); };
 function navState() {
-  const c = STATE.current, inGame = c != null && !["home", "experts", "matchups"].includes(c);
-  document.querySelectorAll("#toptabs [data-nav]").forEach(b => b.classList.toggle("on", b.dataset.nav === c || (inGame && b.dataset.nav === "home")));
-  $("crumb").innerHTML = inGame ? `<button id="backHome">← Back to matches</button>` : "";
-  if ($("backHome")) $("backHome").onclick = () => openOverview(true);
+  const c = STATE.current, inGame = c != null && !["home", "experts", "matchups", "game"].includes(c);
+  document.querySelectorAll("#toptabs [data-nav]").forEach(b => b.classList.toggle("on", b.dataset.nav === c || (inGame && b.dataset.nav === "game")));
+  drawPicker(inGame ? c : null);
   $("rk").hidden = c === "matchups";
 }
-document.querySelectorAll("#toptabs [data-nav]").forEach(b => b.onclick = () => b.dataset.nav === "home" ? openOverview(true) : b.dataset.nav === "experts" ? openHome(true) : openMatchups());
+document.querySelectorAll("#toptabs [data-nav]").forEach(b => b.onclick = () => b.dataset.nav === "home" ? openOverview(true) : b.dataset.nav === "experts" ? openHome(true) : b.dataset.nav === "game" ? openAnalyzer() : openMatchups());
+// Game analyzer: jump straight to a game, picked from a list with champion icons
+function openAnalyzer() {
+  const id = STATE.lastGame && STATE.games.some(g => g.id == STATE.lastGame) ? STATE.lastGame : (STATE.games.find(g => g.hasTimeline) || STATE.games[0])?.id;
+  if (id == null) { STATE.current = "game"; navState(); $("view").innerHTML = `<div class="empty">No games to analyze yet. Play a ranked or normal game with the app running.</div>`; return; }
+  STATE.tab = "moments"; openGame(id);
+}
+const gpLine = (g) => `<img src="${champIcon(g.champion)}" alt=""><span><b>${esc(champName(g.champion))}</b>${g.opponent ? ` <span class="h-mute">vs ${esc(champName(g.opponent))}</span>` : ""}<small>${g.win ? "Victory" : "Defeat"} · ${esc(shortQueue(g.queue))} · ${g.kills}/${g.deaths}/${g.assists} · ${hAgo(g.created + g.duration * 1000)}</small></span>`;
+function drawPicker(id) {
+  const el = $("crumb");
+  if (id == null) { el.innerHTML = ""; return; }
+  const g = STATE.games.find(x => x.id == id);
+  el.innerHTML = `<div class="gp"><button id="backHome">← Match history</button>
+    <button class="gp-btn" id="gpBtn" aria-haspopup="listbox" aria-expanded="false" title="Pick another game to analyze">${g ? gpLine(g) : "Pick a game"}<span class="gp-caret">▾</span></button>
+    <div class="gp-list" id="gpList" role="listbox" hidden></div></div>`;
+  $("backHome").onclick = () => openOverview(true);
+  const list = $("gpList");
+  $("gpBtn").onclick = (ev) => { ev.stopPropagation();
+    if (!list.hidden) { list.hidden = true; $("gpBtn").setAttribute("aria-expanded", "false"); return; }
+    list.innerHTML = `<div class="gp-head">Pick a game to analyze</div>` + STATE.games.slice(0, 40).map(x => `<button class="gp-item${x.id == id ? " on" : ""}" role="option" aria-selected="${x.id == id}" data-gp="${x.id}"><i class="${x.win ? "w" : ""}"></i>${gpLine(x)}<span class="h-mute h-sm">${x.hasTimeline ? "" : "no timeline"}</span></button>`).join("");
+    list.hidden = false; $("gpBtn").setAttribute("aria-expanded", "true");
+    list.querySelectorAll("[data-gp]").forEach(b => b.onclick = () => { list.hidden = true; STATE.tab = "moments"; openGame(b.dataset.gp); });
+  };
+}
+document.addEventListener("click", (ev) => { const l = $("gpList"); if (l && !l.hidden && !ev.target.closest(".gp")) { l.hidden = true; $("gpBtn")?.setAttribute("aria-expanded", "false"); } });
 const TIER_STRIP = { IRON: "#a9adb6", BRONZE: "#cf9566", SILVER: "#cfd8e2", GOLD: "#f3c34b", PLATINUM: "#5fd9cf", EMERALD: "#4fd6a3", DIAMOND: "#8fb6ff", MASTER: "#cf9bff", GRANDMASTER: "#ff8f8f", CHALLENGER: "#ffd77a" };
 const shortQueue = (q) => q.replace(/^Ranked /, "");
 function drawRank() {
@@ -2748,7 +2837,7 @@ async function openOverview(force) {
     <div class="h-tiles">${top.map(r => { const c = 2 * Math.PI * 22, p = Math.round(r.wr * 100); return `<div class="h-tile" data-og="${r.newest}" title="Open your newest ${esc(r.name)} game"><div class="h-r"><img src="${champIcon(r.id)}" alt=""><div><b style="font-size:15px">${esc(r.name)}</b><div class="h-mute h-sm">${r.n} game${r.n === 1 ? "" : "s"}</div></div></div>
       <div class="h-r" style="margin-top:14px"><svg viewBox="0 0 56 56" width="56" height="56" role="img" aria-label="${p}% win rate" style="flex:none"><circle cx="28" cy="28" r="22" fill="none" stroke-width="6" style="stroke:var(--htrack)"/><circle cx="28" cy="28" r="22" fill="none" stroke-width="6" stroke-linecap="round" stroke-dasharray="${c * r.wr} ${c}" transform="rotate(-90 28 28)" style="stroke:var(${p >= 50 ? "--blue-ink" : "--red-ink"})"/><text x="28" y="33" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--ink)">${p}%</text></svg>
         <div class="h-sp"><div class="h-hd h-kr h-k${r.kda >= 5 ? 4 : r.kda >= 4 ? 3 : r.kda >= 3 ? 2 : r.kda >= 2 ? 1 : 0}" style="font-size:22px">${r.kda === Infinity ? "Perfect" : r.kda.toFixed(2)}</div><div class="h-mute h-sm">KDA</div></div></div></div>`; }).join("")}</div>` : ""}
-    <div class="h-sec"><h2>Match history</h2>${form.length ? `<div class="h-r" style="gap:10px;padding-bottom:4px"><div style="display:flex;gap:2px" role="img" aria-label="Last ${form.length} results, newest first: ${wins} wins, ${form.length - wins} losses">${form.map(g => `<i style="width:7px;height:22px;border-radius:2px;display:block;background:${g.win ? "#2f66f0" : "#d23a47"}"></i>`).join("")}</div><span class="h-sm" style="font-weight:600">${wins}–${form.length - wins} · ${Math.round(100 * wins / form.length)}%</span></div>` : ""}
+    <div class="h-sec"><h2>Match history</h2>${form.length ? `<div class="h-r" style="gap:10px;padding-bottom:4px"><div style="display:flex;gap:2px" role="img" aria-label="Last ${form.length} results, newest first: ${wins} wins, ${form.length - wins} losses">${form.map(g => `<i style="width:7px;height:22px;border-radius:2px;display:block;background:${g.win ? "#3d63c4" : "#b8414f"}"></i>`).join("")}</div><span class="h-sm" style="font-weight:600">${wins}–${form.length - wins} · ${Math.round(100 * wins / form.length)}%</span></div>` : ""}
       <div class="h-seg" role="group" aria-label="Queue">${QUEUE_FILTERS.map(([k, label]) => `<button data-hq="${k}" class="${STATE.queue === k ? "on" : ""}">${label}</button>`).join("")}</div></div>
     <div id="hvRows"></div></div>`;
   hvDrawRows();
@@ -3007,31 +3096,33 @@ function renderHome(rows) {
   const curveKey = STATE.curve || "gold";
   const db = deathBlocks(rows);
   $("view").classList.add("wide");
-  $("view").innerHTML = `<div id="dash">
-    <h1>Your last ${rows.length} games</h1>
-    <div class="sub">${wins}–${rows.length - wins} · each game is compared with high-elo games on the same champion and role${withB < rows.length ? ` · expert data for ${withB} of ${rows.length} games` : ""}</div>
-    <div class="formstrip" title="Newest on the left">${rows.slice().reverse().map(r => `<i class="${r.g.win ? "w" : ""}" title="${esc(gameLabel(r.g))}"></i>`).join("")}</div>
-    <div class="hero">${hero}${strength}${form}</div>
-    ${progress}
-    <div class="dgrid">
-      <div class="card a-radar"><div class="ctitle">Your shape vs experts</div><div class="sub">Each spoke is a skill. The dashed ring is the expert median; further out is better.</div>${radarSvg(stats)}
-        <div class="legend"><span><i style="background:var(--gold)"></i>You</span><span><i style="background:transparent;border:1px dashed var(--blue)"></i>Experts</span></div></div>
-      <div class="card a-curve"><div class="ctitle">Your average game, minute by minute</div>
-        <div class="seg" id="curveSeg">${Object.entries(CURVES).map(([k, c]) => `<button data-ck="${k}" class="${k === curveKey ? "on" : ""}">${c[0]}</button>`).join("")}</div>
+  const skillRows = stats.slice().sort((a, b) => a.z - b.z).map(st => { const ok = st.z >= 0, fill = Math.max(6, Math.min(100, 50 + st.z * 30));
+    return `<div class="x-skill"><b>${esc(st.m.label)}</b><div class="h-track" title="Right of the marker is better than experts"><i style="width:${fill}%;background:var(${ok ? "--blue-ink" : "--red-ink"})"></i><b style="left:50%"></b></div><b class="v" style="color:var(${ok ? "--blue-ink" : "--red-ink"})">${st.m.fmt(st.you)}</b><span class="e">${st.m.fmt(st.exp)}</span></div>`; }).join("");
+  $("view").innerHTML = `<div id="dash" class="hv">
+    <div class="h-sec" style="margin-top:20px"><div><h1 style="margin:0">You vs experts</h1><div class="h-mute" style="margin-top:6px">Your last ${rows.length} games against high-elo games on the same champion and role${withB < rows.length ? ` · expert data for ${withB} of ${rows.length} games` : ""}</div></div>
+      <div class="h-seg" role="group" aria-label="Queue">${QUEUE_FILTERS.map(([k, label]) => `<button data-xq="${k}" class="${STATE.queue === k ? "on" : ""}">${label}</button>`).join("")}</div></div>
+    <div class="x-g2 a">
+      <div class="h-tile"><div class="h-eye h-mute">Your shape</div>${radarSvg(stats)}<div class="h-leg" style="margin-top:8px"><span>Gold = you · dashed = expert median · further out is better</span></div></div>
+      <div class="h-tile"><div class="h-r"><div class="h-eye h-mute">Every skill, worst gap first</div><div class="h-sp h-eye h-mute" style="display:flex;gap:42px"><span>You</span><span>Experts</span></div></div>
+        ${skillRows || `<div class="h-mute" style="padding:30px 0">Needs at least 3 games with expert data.</div>`}</div></div>
+    ${isBad ? `<div style="margin-top:16px">${hero}</div>` : ""}
+    <div class="x-g2 b">
+      <div class="h-tile"><div class="h-r"><div class="h-eye h-mute">Your average game, minute by minute</div><div class="seg h-sp" id="curveSeg" style="margin:0">${Object.entries(CURVES).map(([k, c]) => `<button data-ck="${k}" class="${k === curveKey ? "on" : ""}">${c[0]}</button>`).join("")}</div></div>
         <div id="curve">${curveSvg(rows, curveKey)}</div>
         <div class="legend"><span><i style="background:var(--gold)"></i>You, compared with experts on the same champion</span><span><i style="background:var(--blue-wash);border:1px solid var(--blue)"></i>Experts' usual range</span></div></div>
-      <div class="card a-deaths"><div class="ctitle">When you die</div><div class="sub">${esc(db.note)}</div>${deathBarsSvg(db)}
-        <div class="legend"><span><i style="background:var(--red)"></i>You</span>${db.exp ? `<span><i style="background:repeating-linear-gradient(135deg,#5d6987 0 2px,#253150 2px 4px)"></i>Experts</span>` : ""}<span>deaths per game, by game minute</span></div></div>
-      <div class="a-map">${map}</div>
-      <div class="card a-games"><div class="ctitle">Your lane, game by game</div><div class="sub">${esc(laneNote(rows))}</div>${gamesSvg(rows)}
-        <div class="legend"><span><i style="background:var(--blue)"></i>ahead of your lane opponent</span><span><i style="background:var(--red)"></i>behind</span><span>gold at 15:00 · click a bar to open the game · oldest on the left</span></div></div>
-      <div class="a-pool"><h2>Champions</h2><div class="pool">${pool}</div></div>
-    </div>
+      <div class="h-tile"><div class="h-eye h-mute">When you die</div><div class="x-take">${esc(db.note)}</div>${deathBarsSvg(db)}
+        <div class="legend"><span><i style="background:var(--red)"></i>You</span>${db.exp ? `<span><i style="background:var(--faint)"></i>Experts</span>` : ""}<span>deaths per game in each 5 minutes</span></div></div></div>
+    <div class="x-g2 b">
+      <div class="h-tile"><div class="h-eye h-mute">Your lane, game by game</div><div class="x-take">${esc(laneNote(rows))}</div>${gamesSvg(rows)}
+        <div class="legend"><span><i style="background:var(--blue)"></i>ahead of your lane opponent</span><span><i style="background:var(--red)"></i>behind</span><span>gold at 15:00 · click a bar to open that game</span></div></div>
+      <div>${map}</div></div>
+    ${progress ? `<div style="margin-top:16px">${progress}</div>` : ""}
     <div id="champsec">${champTable()}</div>
     ${stats.length ? `<details class="allnums"><summary>Show all numbers</summary>
     <div class="card"><div class="score h"><span></span><span>You</span><span>Experts</span><span style="display:flex;justify-content:space-between"><span>behind</span><span>their usual range</span><span>ahead</span></span><span></span></div>
       ${stats.map(scoreRow).join("")}</div></details>` : ""}
     <p class="sub" style="margin-top:22px">Averages of your games against the expert median for each game's champion and role. Fixed rules on the numbers, no AI.</p></div>`;
+  document.querySelectorAll("[data-xq]").forEach(b => b.onclick = () => { STATE.queue = b.dataset.xq; try { localStorage.setItem("custy-review-queue", STATE.queue); } catch (e) {} openHome(true); });
   document.querySelectorAll("#curveSeg button").forEach(b => b.onclick = () => {
     STATE.curve = b.dataset.ck;
     document.querySelectorAll("#curveSeg button").forEach(x => x.classList.toggle("on", x === b));
@@ -3241,7 +3332,7 @@ function gamePlan(B, champ, role, opp) {
     if (M?.n >= 20 && M.gd?.length && firstItemT) {
       const mi = Math.min(M.gd.length - 1, Math.floor(firstItemT / 60)), lead = M.gd[mi];
       const item = (B.paths || [])[0]?.items?.[0];
-      const it = item ? ` (${esc(itemName(item))}, ~${clock(firstItemT)})` : ` (~${clock(firstItemT)})`;
+      const it = item ? ` (${itemTag(item)}, ~${clock(firstItemT)})` : ` (~${clock(firstItemT)})`;
       L.push(lead >= 150 ? `<b>Before your first item${it}:</b> experts are already <b>${Math.round(lead)} gold</b> up on ${esc(name)} by then. This is a lane to play aggressive early.`
         : lead <= -150 ? `<b>Before your first item${it}:</b> experts are usually <b>${Math.round(-lead)} gold</b> behind ${esc(name)} by then. The early lane is theirs; farm safely and play for your item.`
         : `<b>Before your first item${it}:</b> usually even (${g(lead)} gold). Neither side tends to win the early lane outright.`);
@@ -3266,12 +3357,12 @@ function gamePlan(B, champ, role, opp) {
       const lvls = (a, b) => { const x = lvAt(a), y = lvAt(b); return x && y ? (x === y ? `level ${x}` : `levels ${x}–${y}`) : `${a}:00–${b}:00`; };
       if (up && up.d >= 150) {
         const sp = spikeNear(up.m);
-        L.push(`<b>Power window: ${lvls(up.m, up.m + 3)}</b>${sp ? `, right after ${esc(itemName(sp[1]))}` : ""} (about ${up.m}:00–${up.m + 3}:00). Experts${vsWho} pull ahead most here (${g(up.d)} gold). Look for trades then.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
+        L.push(`<b>Power window: ${lvls(up.m, up.m + 3)}</b>${sp ? `, right after ${itemTag(sp[1])}` : ""} (about ${up.m}:00–${up.m + 3}:00). Experts${vsWho} pull ahead most here (${g(up.d)} gold). Look for trades then.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
       }
       if (down && down.d <= -150) {
         // name the item that ends the weak stretch, if they finish one during or just after it
         const fix = spikes.find(([t]) => t >= down.m * 60 && t <= (down.m + 5) * 60);
-        L.push(`<b>Careful: ${lvls(down.m, down.m + 3)}</b>${fix ? `, before ${esc(itemName(fix[1]))}` : ""} (about ${down.m}:00–${down.m + 3}:00). Experts usually lose ${Math.round(-down.d)} gold of lead${vsWho} here. Play safe and farm${fix ? ` until ${esc(itemName(fix[1]))} is done` : ""}.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
+        L.push(`<b>Careful: ${lvls(down.m, down.m + 3)}</b>${fix ? `, before ${itemTag(fix[1])}` : ""} (about ${down.m}:00–${down.m + 3}:00). Experts usually lose ${Math.round(-down.d)} gold of lead${vsWho} here. Play safe and farm${fix ? ` until ${esc(itemName(fix[1]))} is done` : ""}.${general ? ` <span class="sub">(From all of their games.)</span>` : ""}`);
       }
     }
     const ls = levelStrength(B, opp);
@@ -3280,7 +3371,7 @@ function gamePlan(B, champ, role, opp) {
     }
     const fb = M?.first_back ?? B.timings?.first_back?.[1], back = S.backs?.[0];
     const fbLv = B.minutes?.level?.[Math.floor((fb || 0) / 60)]?.[1];
-    if (fb) L.push(`First back around <b>${clock(fb)}</b>${fbLv ? ` (level ${fbLv})` : ""}${back?.items?.length ? `, usually for ${back.items.slice(0, 2).map(([id]) => esc(itemName(id))).join(" and ")}` : ""}.`);
+    if (fb) L.push(`First back around <b>${clock(fb)}</b>${fbLv ? ` (level ${fbLv})` : ""}${back?.items?.length ? `, usually for ${back.items.slice(0, 2).map(([id]) => itemTag(id)).join(" and ")}` : ""}.`);
     if (!M && opp) L.push(`<span class="sub">Not enough expert games against ${esc(name)} for matchup numbers; these are for ${esc(me)} in general.</span>`);
   }
   return L.length ? `<div class="card plan"><div class="ctitle">Game plan${opp ? ` vs ${esc(name)}` : ""}</div>${L.map(l => `<div>${l}</div>`).join("")}</div>` : "";
@@ -3374,7 +3465,7 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
   if (rec) {
     const [prim, sub, perks, shards] = rec.page, ks = cur ? [cur.keystone, cur.rate] : (vs?.keystones || S.keystones || [])[0];
     parts.push(`<div class="card csr"><div class="ctitle">Runes ${useVs ? `vs ${esc(csName(C.opp))}` : ""}</div>
-      ${tabs(V, C.rv, "rv", v => `${esc(DD.runes?.[v.keystone]?.name || "Keystone")} <small>${P(v.rate)} · ${P(v.win)} wins</small>`)}
+      ${tabs(V, C.rv, "rv", v => `${DD.runes?.[v.keystone] ? runeTag(v.keystone) : "Keystone"} <small>${P(v.rate)} · ${P(v.win)} wins</small>`)}
       <div class="rp"><div class="rcol">${styleIcon(prim)}${runeIcon(perks[0], true)}${perks.slice(1, 4).map(id => runeIcon(id)).join("")}</div>
         <div class="rcol">${styleIcon(sub)}${perks.slice(4, 6).map(id => runeIcon(id)).join("")}</div>
         <div class="rcol shards">${shards.map(id => `<span>${esc(SHARDS[id] || id)}</span>`).join("")}</div></div>
@@ -3405,7 +3496,7 @@ function drawChampSelect(C = CS, head = "csHead", bodyId = "csBody") {
   if (path || start) {
     const icons = (ids) => ids.map(id => `<img src="${itemIcon(id)}" title="${esc(itemName(id))}" alt="">`).join("");
     parts.push(`<div class="card csb"><div class="ctitle">Build</div>
-      ${tabs(BL, C.bv, "bv", b => `${esc(itemName(b.item))} <small>${P(b.rate)} · ${P(b.win)} wins</small>`)}
+      ${tabs(BL, C.bv, "bv", b => `${itemTag(b.item)} <small>${P(b.rate)} · ${P(b.win)} wins</small>`)}
       ${start ? `<div class="row"><small>Start</small><div class="ics">${icons(start[0])}</div></div>` : ""}
       ${backs.map((b, i) => `<div class="row"><small>Back ${i + 1} · ~${clock(b.t)}</small><div class="ics">${b.items.map(([id, r]) => `<span title="${esc(itemName(id))}: ${Math.round(r * 100)}% buy it">${icons([id])}</span>`).join("")}</div></div>`).join("")}
       ${path ? `<div class="row"><small>Core path</small><div class="ics core">${icons(path.items)}</div></div>` : ""}
