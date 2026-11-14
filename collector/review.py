@@ -1193,6 +1193,152 @@ def _open_replay(cfg, game_id, seconds):
 
 
 # --------------------------------------------------------------------------
+# Clips: record a stretch of a replay to a video file through League's own Replay API
+# (/replay/render for the camera, /replay/recording for the file). League has to play the replay;
+# the app drives it and, if asked, keeps its window out of the way while it records.
+# --------------------------------------------------------------------------
+
+_clip = {"state": "idle", "message": "", "at": 0, "file": None}
+
+
+def clips_dir():
+    base = os.path.join(os.path.expanduser("~"), "Videos")
+    if not os.path.isdir(base):
+        base = os.path.expanduser("~")
+    d = os.path.join(base, "custy clips")
+    os.makedirs(d, exist_ok=True)
+    return d
+
+
+def list_clips():
+    d = clips_dir()
+    out = []
+    for n in os.listdir(d):
+        if n.lower().endswith((".webm", ".mp4")):
+            p = os.path.join(d, n)
+            out.append({"name": n, "size": os.path.getsize(p), "at": os.path.getmtime(p)})
+    out.sort(key=lambda x: -x["at"])
+    return {"dir": d, "clips": out[:50]}
+
+
+def _clip_status(state, message, **extra):
+    with _lock:
+        _clip.update(state=state, message=message, at=time.time(), **extra)
+    core.log.info("Clip: %s", message)
+
+
+def _replay_post(path, body):
+    req = urllib.request.Request(REPLAY_API + path, data=json.dumps(body).encode(), method="POST",
+                                 headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, context=_local_ctx(), timeout=10) as r:
+        raw = r.read()
+    return json.loads(raw) if raw else {}
+
+
+def _league_window(action):
+    """Moves League's game window off the screen ('hide') or back ('show'), or closes it ('close').
+    Only standard window calls on the window; nothing inside the game is touched."""
+    if os.name != "nt":
+        return False
+    try:
+        import ctypes
+        u = ctypes.windll.user32
+        hwnd = u.FindWindowW("RiotWindowClass", None)
+        if not hwnd:
+            return False
+        if action == "close":
+            u.PostMessageW(hwnd, 0x0010, 0, 0)          # WM_CLOSE, same as clicking the X
+        elif action == "hide":
+            u.SetWindowPos(hwnd, 0, -4000, -4000, 0, 0, 0x0001 | 0x0004 | 0x0010)   # move off screen, keep size
+        elif action == "show":
+            u.SetWindowPos(hwnd, 0, 40, 40, 0, 0, 0x0001 | 0x0004)
+        return True
+    except Exception as e:
+        core.log.info("Clip: window %s failed: %s", action, e)
+        return False
+
+
+def _who_in_replay(champion_name):
+    """The replay's name for the player on this champion, which /replay/render follows."""
+    try:
+        players = _live("/liveclientdata/playerlist") or []
+    except Exception:
+        return None
+    want = re.sub(r"[^a-z]", "", str(champion_name).lower())
+    for p in players:
+        if re.sub(r"[^a-z]", "", str(p.get("championName") or "").lower()) == want:
+            return p.get("riotIdGameName") or p.get("summonerName") or p.get("riotId")
+    return None
+
+
+def _record_clip(cfg, game_id, spec):
+    try:
+        t0 = max(0.0, float(spec.get("start", 0)))
+        t1 = max(t0 + 1, float(spec.get("end", t0 + 15)))
+        if replay_api_enabled(cfg) is False:
+            return _clip_status("error", "Clips need replay jumping turned on (Replay API). Turn it on from any game's banner, restart League, then try again.")
+        _clip_status("working", "Opening the replay...")
+        _open_replay(cfg, game_id, t0)
+        with _lock:
+            st = dict(_replay)
+        if st.get("state") == "error":
+            return _clip_status("error", st.get("message") or "Couldn't open the replay.")
+        hidden = bool(spec.get("hide")) and _league_window("hide")
+        _replay_post("/replay/playback", {"paused": True, "time": t0})
+        render = {"interfaceAll": bool(spec.get("hud", True)), "fogOfWar": bool(spec.get("fog", False))}
+        if spec.get("camera") == "fps":
+            c = spec.get("fps") or {}
+            render.update(cameraMode="fps", cameraAttached=False, fieldOfView=float(c.get("fov", 50)),
+                          cameraPosition={"x": float(c.get("x", 7400)), "y": float(c.get("h", 2200)), "z": float(c.get("z", 7400))},
+                          cameraRotation={"x": float(c.get("yaw", 0)), "y": float(c.get("pitch", 55)), "z": 0.0})
+        else:
+            who = _who_in_replay(spec.get("champion") or "")
+            render.update(cameraMode="top", cameraAttached=True)
+            if who:
+                render["selectionName"] = who
+            else:
+                core.log.info("Clip: couldn't find %s in the replay's player list", spec.get("champion"))
+        _replay_post("/replay/render", render)
+        name = re.sub(r"[^\w\-. ]", "", str(spec.get("name") or "clip")).strip()[:60] or "clip"
+        path = os.path.join(clips_dir(), "%s %s.webm" % (name, time.strftime("%Y-%m-%d %H%M%S")))
+        w, h = [int(x) for x in str(spec.get("size", "1920x1080")).split("x")[:2]]
+        _clip_status("working", "Recording %s to %s..." % (_clock(t0), _clock(t1)))
+        _replay_post("/replay/recording", {"recording": True, "codec": "webm", "path": path, "startTime": t0, "endTime": t1,
+                                          "framesPerSecond": int(spec.get("fps_rate", 60)), "width": w, "height": h,
+                                          "enforceFrameRate": True, "replaySpeed": 1.0})
+        deadline = time.time() + max(120, (t1 - t0) * 8)
+        rec = {}
+        time.sleep(2)
+        while time.time() < deadline:
+            try:
+                rec = _live("/replay/recording") or {}
+            except Exception:
+                rec = {}
+            if not rec.get("recording"):
+                break
+            cur = float(rec.get("currentTime") or t0)
+            _clip_status("working", "Recording... %d%%" % max(0, min(99, int(100 * (cur - t0) / (t1 - t0)))))
+            time.sleep(1)
+        try:
+            _replay_post("/replay/playback", {"paused": True})
+        except Exception:
+            pass
+        if hidden:
+            _league_window("show")
+        out = rec.get("path") or path
+        found = out if os.path.isfile(out) else (path if os.path.isfile(path) else None)
+        if spec.get("close", True):
+            _league_window("close")
+        if not found:
+            return _clip_status("error", "League finished, but the clip file didn't turn up in %s. The log has the details." % clips_dir())
+        _clip_status("done", "Saved %s" % os.path.basename(found), file=os.path.basename(found))
+    except Exception as e:
+        core.log.exception("Clip failed")
+        _league_window("show")
+        _clip_status("error", "Couldn't record the clip: %s" % e)
+
+
+# --------------------------------------------------------------------------
 # The local web server
 # --------------------------------------------------------------------------
 
@@ -1333,6 +1479,11 @@ def make_handler(cfg, token):
             if url.path == "/api/replay":
                 with _lock:
                     return self._send(200, dict(_replay))
+            if url.path == "/api/clip":
+                with _lock:
+                    return self._send(200, dict(_clip))
+            if url.path == "/api/clips":
+                return self._send(200, list_clips())
             if url.path == "/api/benchmark-index":   # champion -> role -> expert games, for the matchup guide
                 import champselect
                 return self._send(200, champselect.role_index(cfg))
@@ -1396,6 +1547,26 @@ def make_handler(cfg, token):
                     return self._send(400, {"error": "not allowed"})   # only YouTube and the expert guides we list
                 import webbrowser
                 webbrowser.open(link)
+                return self._send(200, {"ok": True})
+            m = re.match(r"^/api/clip/(\d+)$", url.path)
+            if m:
+                with _lock:
+                    busy = _clip["state"] == "working" and time.time() - _clip["at"] < 300
+                if busy:
+                    return self._send(409, {"error": "A clip is already recording."})
+                try:
+                    n = int(self.headers.get("Content-Length") or 0)
+                    spec = json.loads(self.rfile.read(n) or b"{}") if n else {}
+                except ValueError:
+                    return self._send(400, {"error": "bad clip settings"})
+                _clip_status("working", "Starting...", file=None)
+                threading.Thread(target=_record_clip, args=(cfg, int(m.group(1)), spec), daemon=True).start()
+                return self._send(200, {"ok": True})
+            if url.path == "/api/clips/open":
+                try:
+                    os.startfile(clips_dir())   # Windows: opens the folder in Explorer
+                except Exception:
+                    pass
                 return self._send(200, {"ok": True})
             if url.path == "/api/replay-setup":
                 try:

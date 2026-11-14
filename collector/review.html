@@ -544,6 +544,20 @@ html[data-theme=light] .h-m, html[data-theme=light] .g-hero { background:#a8394a
 .gp-item i { width:8px; height:36px; border-radius:3px; background:#9b3340; } .gp-item i.w { background:#2d52ad; }
 .gp-btn small { display:block; color:var(--mute); font-size:13px; font-weight:500; } .gp-item small { display:block; color:var(--mute); font-size:13px; }
 .gp-head { padding:6px 10px 8px; color:var(--mute); font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+/* clip dialog */
+.cl-back { position:fixed; inset:0; background:rgba(5,7,12,.6); z-index:60; }
+.cl { position:fixed; z-index:61; left:50%; top:50%; transform:translate(-50%,-50%); width:min(860px, 94vw); max-height:92vh; overflow:auto; background:var(--deck); border-radius:24px; padding:22px 24px; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+.cl-row { display:flex; gap:18px; flex-wrap:wrap; align-items:center; margin-top:14px; font-size:14px; }
+.cl-row input[type=number] { width:62px; background:var(--night); color:var(--ink); border:0; border-radius:10px; padding:6px 8px; font:inherit; margin:0 4px; }
+.cl select { background:var(--night); color:var(--ink); border:0; border-radius:10px; padding:7px 10px; font:inherit; font-size:14px; }
+.cl-chs { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+.cl-ch { position:relative; padding:3px; border-radius:14px; background:var(--night); min-height:0; }
+.cl-ch img { width:46px; height:46px; border-radius:11px; display:block; opacity:.75; } .cl-ch.on { background:var(--gold); } .cl-ch.on img { opacity:1; }
+.cl-ch span { position:absolute; left:50%; bottom:-6px; transform:translateX(-50%); font-size:10px; font-weight:700; background:var(--gold); color:#14151a; padding:0 5px; border-radius:5px; }
+.cl-fps { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; } .cl-fps canvas { display:block; border-radius:14px; margin-top:6px; max-width:100%; }
+#clMap { cursor:crosshair; touch-action:none; width:300px; height:300px; } #clPrev { width:100%; aspect-ratio:16/9; background:#101820; }
+.cl-sl { display:grid; grid-template-columns:1fr 1fr; gap:6px 16px; margin-top:10px; font-size:13px; } .cl-sl label { display:flex; flex-direction:column; gap:2px; color:var(--mute); }
+.cl-sl input { width:100%; accent-color:#f3c34b; }
 </style>
 </head>
 <body>
@@ -1718,6 +1732,7 @@ function render(A, B, moments, s, label, well = []) {
     </div>
     <p class="sub" style="margin-top:22px">Compared with ${B ? esc(label) : "nothing yet"}. It only says where to look; watching the replay is how you see why.</p>`;
   document.querySelectorAll("[data-watch]").forEach(b => b.onclick = () => watch(A.g.gameId, +b.dataset.watch, b));
+  document.querySelectorAll("[data-clip]").forEach(b => b.onclick = () => { const [x, y] = (b.dataset.cpos || "").split(",").map(Number); openClip(A, +b.dataset.clip, b.dataset.clabel, b.dataset.cpos ? { x, y } : null); });
   document.querySelectorAll("[data-fullitems]").forEach(c => c.onchange = () => {
     try { localStorage.setItem("custy.fullItems", c.checked ? "1" : "0"); } catch {}
     document.querySelectorAll("details.fight").forEach(d => d.classList.toggle("full", c.checked));
@@ -2368,7 +2383,7 @@ function killRow(A, k, n) {
     <div class="when">${clock(t)}<small class="kd">kill ${n + 1}</small></div>
     <div class="what"><div class="part"><b>${pidIcon(A, k.victimId)}You killed ${esc(A.champOf(k.victimId))}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
       <div class="cmp">${notes.join(" · ")}</div>${fightPanel(A, A.fightOf(k))}</div></div>
-    <div class="acts" data-pv="k${Math.round(t)}"><button data-watch="${Math.max(0, t - 30)}">Watch in my replay</button></div>
+    <div class="acts" data-pv="k${Math.round(t)}"><button data-watch="${Math.max(0, t - 30)}">Watch in my replay</button><button data-clip="${t}" data-cpos="${k.position ? k.position.x + "," + k.position.y : ""}" data-clabel="${esc("Kill on " + A.champOf(k.victimId) + " at " + clock(t))}">● Clip</button></div>
     <div class="gkpb" hidden></div>
   </div>`;
 }
@@ -2390,9 +2405,127 @@ function deathRow(A, d) {
     <div class="when">${worth ? `<span class="badge ok">Worth it</span>` : ""}${clock(d.t)}<small style="color:var(--red-ink)">death ${lead + 1}</small></div>
     <div class="what"><div class="part"><b>${killers.length ? [e.killerId, ...(e.assistingParticipantIds || [])].filter(p => p > 0).map(p => pidIcon(A, p) + esc(A.champOf(p))).join(" + ") : "Executed"}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
       ${notes.length ? `<div class="cmp">${notes.join(" · ")}</div>` : ""}${fightPanel(A, A.fightOf(e))}</div></div>
-    <div class="acts" data-pv="d${Math.round(d.t)}"><button class="primary" data-watch="${Math.max(0, d.t - 30)}">Watch in my replay</button></div>
+    <div class="acts" data-pv="d${Math.round(d.t)}"><button class="primary" data-watch="${Math.max(0, d.t - 30)}">Watch in my replay</button><button data-clip="${d.t}" data-cpos="${e.position ? e.position.x + "," + e.position.y : ""}" data-clabel="${esc("Death at " + clock(d.t))}">● Clip</button></div>
     <div class="gkpb" hidden></div>
   </div>`;
+}
+
+
+// ---------------------------------------------------------------- Clips: record a kill, death or moment to a video file
+// League plays the replay and records it through its own Replay API; this dialog picks the stretch and the camera.
+const CLIP = { A: null, t: 0, label: "", poll: null };
+const CLIPDEF = { before: 10, after: 5, camera: "follow", champ: null, size: "1920x1080", rate: 60, hud: true, hide: true, close: true, fps: null, presets: {} };
+function clipPrefs() { try { return Object.assign({}, CLIPDEF, JSON.parse(localStorage.getItem("custy-clip") || "{}")); } catch (e) { return { ...CLIPDEF }; } }
+function saveClipPrefs(p) { try { localStorage.setItem("custy-clip", JSON.stringify(p)); } catch (e) {} }
+const MAPW = 14900;
+let MAPPX = null;   // the minimap's pixels, for the camera preview
+function mapPixels(cb) {
+  if (MAPPX) return cb(MAPPX);
+  const im = new Image(); im.onload = () => { const c = document.createElement("canvas"); c.width = c.height = 2048; const x = c.getContext("2d"); x.drawImage(im, 0, 0, 2048, 2048);
+    MAPPX = { w: 2048, h: 2048, d: x.getImageData(0, 0, 2048, 2048).data, img: im }; cb(MAPPX); }; im.src = "/assets/sr-map.jpg";
+}
+// Camera maths. yaw 0 looks north (+z), 90 east; pitch is degrees below the horizon (90 = straight down).
+function camBasis(c) {
+  const th = c.yaw * Math.PI / 180, ph = c.pitch * Math.PI / 180;
+  const f = [Math.sin(th) * Math.cos(ph), -Math.sin(ph), Math.cos(th) * Math.cos(ph)], r = [Math.cos(th), 0, -Math.sin(th)];
+  const u = [f[1] * r[2] - f[2] * r[1], f[2] * r[0] - f[0] * r[2], f[0] * r[1] - f[1] * r[0]];
+  return { f, r, u };
+}
+function drawCamPreview(cv, c, mark) {
+  mapPixels(M => {
+    const W = cv.width, H = cv.height, ctx = cv.getContext("2d"), out = ctx.createImageData(W, H), o = out.data;
+    const { f, r, u } = camBasis(c), tv = Math.tan(c.fov * Math.PI / 360), asp = W / H;
+    for (let py = 0; py < H; py++) for (let px = 0; px < W; px++) {
+      const nx = (2 * px / W - 1) * tv * asp, ny = (1 - 2 * py / H) * tv, dx = f[0] + nx * r[0] + ny * u[0], dy = f[1] + nx * r[1] + ny * u[1], dz = f[2] + nx * r[2] + ny * u[2];
+      const i = (py * W + px) * 4;
+      if (dy > -1e-4) { o[i] = 18; o[i + 1] = 22; o[i + 2] = 32; o[i + 3] = 255; continue; }
+      const t = -c.h / dy, gx = c.x + t * dx, gz = c.z + t * dz;
+      if (gx < 0 || gz < 0 || gx > MAPW || gz > MAPW) { o[i] = 12; o[i + 1] = 16; o[i + 2] = 24; o[i + 3] = 255; continue; }
+      const sx = Math.min(M.w - 1, Math.floor(gx / MAPW * M.w)), sy = Math.min(M.h - 1, Math.floor((1 - gz / MAPW) * M.h)), j = (sy * M.w + sx) * 4;
+      o[i] = M.d[j]; o[i + 1] = M.d[j + 1]; o[i + 2] = M.d[j + 2]; o[i + 3] = 255;
+    }
+    ctx.putImageData(out, 0, 0);
+    if (mark) { const v = [mark.x - c.x, -c.h, mark.z - c.z], z = v[0] * f[0] + v[1] * f[1] + v[2] * f[2];
+      if (z > 0) { const sx = ((v[0] * r[0] + v[1] * r[1] + v[2] * r[2]) / z / (tv * asp) + 1) * W / 2, sy = (1 - (v[0] * u[0] + v[1] * u[1] + v[2] * u[2]) / z / tv) * H / 2;
+        ctx.strokeStyle = "#ff5a60"; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(sx, sy, 12, 0, 7); ctx.stroke(); } }
+  });
+}
+function drawCamMap(cv, c, mark) {
+  mapPixels(M => {
+    const S = cv.width, ctx = cv.getContext("2d"), P = (x, z) => [x / MAPW * S, (1 - z / MAPW) * S];
+    ctx.drawImage(M.img, 0, 0, S, S);
+    const [cx, cy] = P(c.x, c.z), th = c.yaw * Math.PI / 180, reach = Math.max(28, Math.min(S * .45, (c.h / Math.tan(Math.max(.15, c.pitch * Math.PI / 180))) / MAPW * S + 26));
+    const half = Math.atan(Math.tan(c.fov * Math.PI / 360) * 16 / 9);
+    ctx.fillStyle = "rgba(243,195,75,.28)"; ctx.strokeStyle = "#f3c34b"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + Math.sin(th - half) * reach, cy - Math.cos(th - half) * reach); ctx.lineTo(cx + Math.sin(th + half) * reach, cy - Math.cos(th + half) * reach); ctx.closePath(); ctx.fill(); ctx.stroke();
+    if (mark) { const [mx, my] = P(mark.x, mark.z); ctx.strokeStyle = "#ff5a60"; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(mx, my, 8, 0, 7); ctx.stroke(); }
+    ctx.fillStyle = "#f3c34b"; ctx.beginPath(); ctx.arc(cx, cy, 8, 0, 7); ctx.fill(); ctx.strokeStyle = "#14151a"; ctx.lineWidth = 2; ctx.stroke();
+    const hx = cx + Math.sin(th) * reach, hy = cy - Math.cos(th) * reach; ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(hx, hy, 6, 0, 7); ctx.fill(); ctx.stroke();
+    cv.dataset.h = JSON.stringify([hx, hy]);
+  });
+}
+function openClip(A, t, label, pos) {
+  CLIP.A = A; CLIP.t = t; CLIP.label = label; CLIP.pos = pos || null;
+  const p = clipPrefs(), me = A.me.participantId, parts = A.g.participants, mine = parts.filter(x => x.teamId === A.me.teamId), theirs = parts.filter(x => x.teamId !== A.me.teamId);
+  if (!p.champ || !parts.some(x => DD.champ[x.championId]?.id === p.champ)) p.champ = DD.champ[A.me.championId]?.id;
+  const mark = pos ? { x: pos.x, z: pos.y } : null;
+  let cam = p.fps || { x: mark ? mark.x : 7400, z: mark ? mark.z - 1400 : 6000, h: 2200, yaw: 0, pitch: 55, fov: 50 };
+  const chips = (list) => list.map(x => { const id = DD.champ[x.championId]?.id; return `<button class="cl-ch${id === p.champ ? " on" : ""}" data-ch="${esc(id || "")}" title="${esc(champName(x.championId))}${x.participantId === me ? " (you)" : ""}"><img src="${champIcon(x.championId)}" alt="">${x.participantId === me ? "<span>You</span>" : ""}</button>`; }).join("");
+  const presetOpts = () => `<option value="">This fight (default)</option>` + Object.keys(p.presets).map(n => `<option>${esc(n)}</option>`).join("");
+  let box = $("clipDlg"); if (!box) { box = document.createElement("div"); box.id = "clipDlg"; document.body.appendChild(box); }
+  box.innerHTML = `<div class="cl-back"></div><div class="cl" role="dialog" aria-label="Record a clip">
+    <div class="h-r"><div><div class="h-eye" style="color:var(--gold)">Record a clip</div><div class="h-hd" style="font-size:22px;font-weight:700">${label}</div></div><button class="h-sp" id="clX" aria-label="Close">✕</button></div>
+    <div class="cl-row"><label>Start <input type="number" id="clB" min="0" max="120" value="${p.before}"> s before</label><label>End <input type="number" id="clA" min="0" max="60" value="${p.after}"> s after</label><span class="h-mute" id="clSpan"></span></div>
+    <div class="h-seg" style="margin:14px 0 0" role="group" aria-label="Camera"><button data-cam="follow" class="${p.camera !== "fps" ? "on" : ""}">Follow a champion</button><button data-cam="fps" class="${p.camera === "fps" ? "on" : ""}">FPS camera</button></div>
+    <div id="clFollow" ${p.camera === "fps" ? "hidden" : ""}><div class="h-eye h-mute" style="margin-top:14px">Camera locked on</div><div class="cl-chs">${chips(mine)}</div><div class="cl-chs">${chips(theirs)}</div></div>
+    <div id="clFps" ${p.camera === "fps" ? "" : "hidden"}>
+      <div class="cl-fps"><div><div class="h-eye h-mute">Position · drag the camera, or the white dot to turn it</div><canvas id="clMap" width="300" height="300"></canvas></div>
+        <div style="flex:1;min-width:260px"><div class="h-eye h-mute">What the camera sees (map only; no units or terrain height)</div><canvas id="clPrev" width="384" height="216"></canvas>
+          <div class="cl-sl"><label>Height <input type="range" id="clH" min="400" max="8000" step="50"></label><label>Tilt <input type="range" id="clP" min="15" max="90"></label><label>Turn <input type="range" id="clY" min="0" max="359"></label><label>Zoom (field of view) <input type="range" id="clF" min="15" max="100"></label></div>
+          <div class="h-r" style="margin-top:8px;flex-wrap:wrap;gap:8px"><select id="clPre" aria-label="Saved camera">${presetOpts()}</select><input id="clPName" aria-label="Camera name" placeholder="Name this camera" style="background:var(--night);color:var(--ink);border:0;border-radius:10px;padding:7px 10px;font:inherit;font-size:14px;width:150px"><button id="clSave">Save camera</button>${mark ? `<button id="clCenter">Aim at this fight</button>` : ""}</div></div></div></div>
+    <div class="cl-row" style="margin-top:14px"><label>Size <select id="clSz"><option${p.size === "1920x1080" ? " selected" : ""}>1920x1080</option><option${p.size === "1280x720" ? " selected" : ""}>1280x720</option></select></label>
+      <label>Frame rate <select id="clR"><option${p.rate == 60 ? " selected" : ""}>60</option><option${p.rate == 30 ? " selected" : ""}>30</option></select></label>
+      <label><input type="checkbox" id="clHud" ${p.hud ? "checked" : ""}> Show the game's HUD</label></div>
+    <div class="cl-row"><label><input type="checkbox" id="clHide" ${p.hide ? "checked" : ""}> Keep the replay off my screen while it records <span class="h-mute">(experimental)</span></label><label><input type="checkbox" id="clClose" ${p.close ? "checked" : ""}> Close the replay when done</label></div>
+    <div class="h-r" style="margin-top:16px"><div id="clMsg" class="h-mute" style="flex:1">League plays the replay and records it to <b>Videos\\custy clips</b>. You can't be in a game while it records.</div><button class="h-gold" id="clGo">● Record clip</button></div></div>`;
+  const span = () => { const b = +$("clB").value || 0, a = +$("clA").value || 0; $("clSpan").textContent = `${clock(Math.max(0, t - b))} – ${clock(t + a)} · ${b + a}s`; };
+  span(); $("clB").oninput = span; $("clA").oninput = span;
+  const close = () => { box.innerHTML = ""; };
+  $("clX").onclick = close; box.querySelector(".cl-back").onclick = close;
+  box.querySelectorAll("[data-cam]").forEach(b => b.onclick = () => { p.camera = b.dataset.cam; box.querySelectorAll("[data-cam]").forEach(x => x.classList.toggle("on", x === b)); $("clFollow").hidden = p.camera === "fps"; $("clFps").hidden = p.camera !== "fps"; if (p.camera === "fps") redraw(); });
+  box.querySelectorAll("[data-ch]").forEach(b => b.onclick = () => { p.champ = b.dataset.ch; box.querySelectorAll("[data-ch]").forEach(x => x.classList.toggle("on", x === b)); });
+  const sl = { clH: "h", clP: "pitch", clY: "yaw", clF: "fov" };
+  const redraw = () => { for (const [id, k] of Object.entries(sl)) $(id).value = Math.round(cam[k]); drawCamMap($("clMap"), cam, mark); drawCamPreview($("clPrev"), cam, mark); };
+  for (const [id, k] of Object.entries(sl)) $(id).oninput = () => { cam[k] = +$(id).value; drawCamMap($("clMap"), cam, mark); drawCamPreview($("clPrev"), cam, mark); };
+  const mv = $("clMap"); let drag = null;
+  const at = (ev) => { const rc = mv.getBoundingClientRect(); return [(ev.clientX - rc.left) * mv.width / rc.width, (ev.clientY - rc.top) * mv.height / rc.height]; };
+  mv.onpointerdown = (ev) => { const [x, y] = at(ev), [hx, hy] = JSON.parse(mv.dataset.h || "[0,0]"); drag = Math.hypot(x - hx, y - hy) < 16 ? "turn" : "move"; mv.setPointerCapture(ev.pointerId); mv.onpointermove(ev); };
+  mv.onpointermove = (ev) => { if (!drag) return; const [x, y] = at(ev), S = mv.width;
+    if (drag === "move") { cam.x = Math.max(0, Math.min(MAPW, x / S * MAPW)); cam.z = Math.max(0, Math.min(MAPW, (1 - y / S) * MAPW)); }
+    else { const cx = cam.x / MAPW * S, cy = (1 - cam.z / MAPW) * S; cam.yaw = (Math.atan2(x - cx, cy - y) * 180 / Math.PI + 360) % 360; }
+    redraw(); };
+  mv.onpointerup = () => { drag = null; };
+  $("clPre").onchange = () => { const n = $("clPre").value; cam = n ? { ...p.presets[n] } : { x: mark ? mark.x : 7400, z: mark ? mark.z - 1400 : 6000, h: 2200, yaw: 0, pitch: 55, fov: 50 }; redraw(); };
+  $("clSave").onclick = () => { const n = ($("clPName").value || "").trim().slice(0, 40) || `Camera ${Object.keys(p.presets).length + 1}`; p.presets[n] = { ...cam }; saveClipPrefs({ ...p, fps: cam }); $("clPre").innerHTML = presetOpts(); $("clPre").value = n; toast(`Saved as "${n}". It's in the list for your next clips.`); };
+  if ($("clCenter")) $("clCenter").onclick = () => { const back = cam.h / Math.tan(Math.max(.2, cam.pitch * Math.PI / 180)), th = cam.yaw * Math.PI / 180; cam.x = mark.x - Math.sin(th) * back; cam.z = mark.z - Math.cos(th) * back; redraw(); };
+  if (p.camera === "fps") redraw(); else drawCamMap($("clMap"), cam, mark);
+  $("clGo").onclick = async () => {
+    const b = Math.max(0, +$("clB").value || 0), a = Math.max(0, +$("clA").value || 0);
+    Object.assign(p, { before: b, after: a, size: $("clSz").value, rate: +$("clR").value, hud: $("clHud").checked, hide: $("clHide").checked, close: $("clClose").checked, fps: cam });
+    saveClipPrefs(p);
+    const champ = Object.values(DD.champ).find(c => c.id === p.champ)?.name || p.champ;
+    const spec = { start: Math.max(0, t - b), end: t + a, camera: p.camera, champion: champ, fps: cam, size: p.size, fps_rate: p.rate, hud: p.hud, hide: p.hide, close: p.close,
+      name: `${champName(A.me.championId)} ${label.replace(/<[^>]+>/g, "")}`.replace(/:/g, ".").replace(/[^\w\-. ]/g, "").slice(0, 60) };
+    $("clGo").disabled = true;
+    try { await api("/api/clip/" + A.g.gameId, { method: "POST", body: JSON.stringify(spec) }); } catch (e) { $("clMsg").textContent = e.message; $("clGo").disabled = false; return; }
+    clearInterval(CLIP.poll);
+    CLIP.poll = setInterval(async () => { let s; try { s = await api("/api/clip"); } catch (e) { return; }
+      if (!$("clMsg")) { if (s.state !== "working") { clearInterval(CLIP.poll); toast(s.message); } return; }
+      $("clMsg").innerHTML = esc(s.message) + (s.state === "done" ? ` <button id="clOpen">Open clips folder</button>` : "");
+      if ($("clOpen")) $("clOpen").onclick = () => api("/api/clips/open", { method: "POST" });
+      if (s.state !== "working") { clearInterval(CLIP.poll); $("clGo").disabled = false; }
+    }, 1500);
+  };
 }
 
 // ---------------------------------------------------------------- Breakdown tab (builds and break points vs experts)
