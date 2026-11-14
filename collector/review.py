@@ -573,6 +573,101 @@ def fetch_game(lcu, game_id, me_puuid):
     return data
 
 
+# --------------------------------------------------------------------------
+# Rank and LP per game. Riot doesn't publish LP per game, so the app notes your rank each time it looks
+# and credits the change to the ranked game played in between.
+# --------------------------------------------------------------------------
+
+LP_FILE = os.path.join(core.HERE, "review-lp.json")   # outside the game cache, which is pruned
+RANKED = {"RANKED_SOLO_5x5": "Ranked Solo/Duo", "RANKED_FLEX_SR": "Ranked Flex"}
+_TIERS = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND"]
+_DIVS = {"IV": 0, "III": 1, "II": 2, "I": 3}
+
+
+def _ladder(r):
+    """Rank as one number, so a promotion or demotion still gives a point change. None when unranked."""
+    tier = str(r.get("tier") or "").upper()
+    if tier in ("MASTER", "GRANDMASTER", "CHALLENGER"):
+        return 2800 + _num(r.get("lp"))
+    if tier not in _TIERS:
+        return None
+    return _TIERS.index(tier) * 400 + _DIVS.get(str(r.get("division") or "").upper(), 0) * 100 + _num(r.get("lp"))
+
+
+def _lp_load():
+    try:
+        with open(LP_FILE, encoding="utf-8") as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def lp_credit(store, puuid, now_ranks, games, now=None):
+    """Compares your rank now with the last one noted and credits the change to the ranked game(s) in between.
+    `games`: your cached game summaries. Changes `store` in place; returns True when it changed."""
+    now = now or time.time()
+    me = store.setdefault(str(puuid), {"last": {}, "games": {}})
+    changed = False
+    for queue, cur in now_ranks.items():
+        prev = me["last"].get(queue)
+        cur = dict(cur, t=now)
+        if prev is None:
+            me["last"][queue] = cur
+            changed = True
+            continue
+        same = all(prev.get(k) == cur.get(k) for k in ("tier", "division", "lp", "wins", "losses"))
+        if same:
+            continue
+        a, b = _ladder(prev), _ladder(cur)
+        played = (_num(cur.get("wins")) + _num(cur.get("losses"))) - (_num(prev.get("wins")) + _num(prev.get("losses")))
+        # ranked games of this queue that ended after the last note and have no LP yet
+        new = sorted((g for g in games if g.get("queue") == queue and str(g.get("id")) not in me["games"]
+                      and (_num(g.get("created")) / 1000 + _num(g.get("duration"))) > prev["t"] - 60),
+                     key=lambda g: _num(g.get("created")))
+        if new and played > 0 and played != len(new):
+            new = new[-played:] if played < len(new) else new
+        if new:
+            rec = {"from": {k: prev.get(k) for k in ("tier", "division", "lp")}, "to": {k: cur.get(k) for k in ("tier", "division", "lp")}}
+            if a is not None and b is not None:
+                rec["delta"] = b - a
+            else:
+                rec["placed"] = a is None and b is not None
+            if len(new) == 1:
+                me["games"][str(new[0]["id"])] = rec
+            else:   # several games since the last look: only the total is known
+                for g in new:
+                    me["games"][str(g["id"])] = dict(rec, over=len(new), last=g is new[-1])
+        me["last"][queue] = cur
+        changed = True
+    return changed
+
+
+def _lp_update(lcu, puuid):
+    """Notes your rank from the client and credits any change. Returns your per-player LP record."""
+    store = _lp_load()
+    try:
+        qm = (lcu.get("/lol-ranked/v1/current-ranked-stats") or {}).get("queueMap") or {}
+        ranks = {}
+        for key, label in RANKED.items():
+            q = qm.get(key) or {}
+            tier = str(q.get("tier") or "").upper()
+            ranks[label] = {"tier": tier if tier not in ("", "NONE", "UNRANKED") else None, "division": q.get("division"),
+                            "lp": _num(q.get("leaguePoints")), "wins": _num(q.get("wins")), "losses": _num(q.get("losses"))}
+        if lp_credit(store, puuid, ranks, list_games(puuid)):
+            os.makedirs(CACHE_DIR, exist_ok=True)
+            with open(LP_FILE + ".tmp", "w", encoding="utf-8") as f:
+                json.dump(store, f)
+            os.replace(LP_FILE + ".tmp", LP_FILE)
+    except Exception as e:
+        core.log.info("Review: couldn't read rank: %s", e)
+    return store.get(str(puuid)) or {"last": {}, "games": {}}
+
+
+def lp_for(puuid):
+    return _lp_load().get(str(puuid)) or {"last": {}, "games": {}}
+
+
 def refresh(cfg):
     """Reads any reviewable games in the client's history that aren't cached yet. Returns (me, error)."""
     lcu = _lcu(cfg)
@@ -600,6 +695,7 @@ def refresh(cfg):
         except (urllib.error.URLError, OSError, ValueError) as e:
             core.log.info("Review: couldn't read game %s: %s", s.get("gameId"), e)
     _prune_cache()
+    _lp_update(lcu, me["puuid"])
     return me, None
 
 
@@ -1119,8 +1215,12 @@ def make_handler(cfg, token):
                     me_cache["me"] = me
                 me = me_cache["me"]
                 games = list_games(me.get("puuid") if me else None)
+                lp = lp_for(me.get("puuid")) if me else {"last": {}, "games": {}}
+                for g in games:
+                    if str(g.get("id")) in lp["games"]:
+                        g["lp"] = lp["games"][str(g["id"])]
                 return self._send(200, {"me": me, "note": err, "games": games, "patch": _client_patch(cfg),
-                                        "replayApi": replay_api_enabled(cfg)})
+                                        "replayApi": replay_api_enabled(cfg), "rank": lp["last"]})
             m = re.match(r"^/api/game/(\d+)$", url.path)
             if m and parse_qs(url.query).get("as"):
                 data = read_other(parse_qs(url.query)["as"][0], m.group(1))

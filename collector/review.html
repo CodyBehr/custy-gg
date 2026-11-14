@@ -33,6 +33,8 @@ aside .note { padding:10px 14px; color:var(--mute); font-size:13px; border-botto
 .game.w { border-left-color:var(--blue); } .game.l { border-left-color:var(--red); }
 .game img { width:38px; height:38px; border-radius:6px; }
 .game .t { font-size:13px; line-height:1.35; } .game .t small { color:var(--mute); display:block; }
+.lp { display:block; font-size:11.5px; font-weight:700; white-space:nowrap; } .lp.up { color:var(--green-ink); } .lp.down { color:var(--red-ink); }
+.rankrow { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:14px; margin:14px 0; } .rankcard h3 { margin:2px 0 6px; }
 .game .kda { margin-left:auto; text-align:right; font-size:13px; } .game .kda small { color:var(--faint); display:block; }
 section { padding:22px 28px; max-width:1400px; }
 section.wide { max-width:none; }
@@ -1244,6 +1246,31 @@ let STATE = { games: [], me: null, replayApi: null, current: "home", queue: "all
 const QUEUE_FILTERS = [["all", "All"], ["solo", "Solo/Duo"], ["flex", "Flex"], ["other", "Normals & other"], ["custom", "Customs"]];
 const queueGroup = (q) => q === "Ranked Solo/Duo" ? "solo" : q === "Ranked Flex" ? "flex" : q === "Custom" ? "custom" : "other";
 const cacheGame = {};
+// Rank and LP. The app notes your rank after each ranked game; the change is that game's LP.
+const TIER_COLOR = { IRON: "#8a8f98", BRONZE: "#b0794f", SILVER: "#b9c4cf", GOLD: "#e3b341", PLATINUM: "#4fd1c5", EMERALD: "#3ecf8e", DIAMOND: "#7aa7ff", MASTER: "#c17aff", GRANDMASTER: "#ff6b6b", CHALLENGER: "#ffd479" };
+const cap = (w) => String(w || "").charAt(0) + String(w || "").slice(1).toLowerCase();
+const rankName = (r) => !r || !r.tier ? "Unranked" : ["MASTER", "GRANDMASTER", "CHALLENGER"].includes(r.tier) ? cap(r.tier) : `${cap(r.tier)} ${r.division || ""}`.trim();
+function lpChip(g) {
+  const l = g.lp; if (!l) return "";
+  const moved = l.from && l.to && rankName(l.from) !== rankName(l.to), tip = l.from && l.to ? `${rankName(l.from)} ${l.from.lp} LP → ${rankName(l.to)} ${l.to.lp} LP` : "";
+  if (l.delta == null) return l.placed ? `<span class="lp up" title="${esc(tip)}">Placed ${esc(rankName(l.to))}</span>` : "";
+  if (l.over) return l.last ? `<span class="lp ${l.delta >= 0 ? "up" : "down"}" title="${esc(tip)} · the app wasn't open between these games, so only the total is known">${signed(l.delta)} LP over ${l.over} games</span>` : "";
+  return `<span class="lp ${l.delta >= 0 ? "up" : "down"}" title="${esc(tip)}">${signed(l.delta)} LP${moved ? (l.delta > 0 ? " ▲ " : " ▼ ") + esc(rankName(l.to)) : ""}</span>`;
+}
+function rankCards() {
+  const R = STATE.rank; if (!R || STATE.as) return "";
+  const cards = Object.entries(R).map(([queue, r]) => {
+    const n = (r.wins || 0) + (r.losses || 0); if (!r.tier && !n) return "";
+    const tracked = STATE.games.filter(g => g.queue === queue && g.lp && g.lp.delta != null && (!g.lp.over || g.lp.last));
+    const net = tracked.reduce((a, g) => a + g.lp.delta, 0), count = tracked.reduce((a, g) => a + (g.lp.over || 1), 0);
+    return `<div class="card rankcard" style="border-left:4px solid ${TIER_COLOR[r.tier] || "var(--line)"}"><div class="eyebrow">${esc(queue)}</div>
+      <div class="big" style="font-size:34px;color:${TIER_COLOR[r.tier] || "var(--ink)"}">${esc(rankName(r))}</div>
+      <h3>${r.tier ? `${r.lp} LP` : "Not placed yet"}${n ? ` · ${r.wins}W ${r.losses}L · ${Math.round(100 * r.wins / n)}% this season` : ""}</h3>
+      <div class="sub">${count ? `<b class="${net >= 0 ? "good" : "bad"}">${signed(net)} LP</b> over the last ${count} tracked game${count === 1 ? "" : "s"}` : "LP per game shows from your next ranked game on"}</div></div>`;
+  }).join("");
+  return cards ? `<div class="rankrow">${cards}</div>` : "";
+}
+
 // League can only play replays from the patch it's on. If the client can't say, go by your newest game.
 const patchOf = (v) => String(v || "").split(".").slice(0, 2).join(".");
 const currentPatch = () => STATE.patch || patchOf(STATE.games[0]?.version);
@@ -1258,7 +1285,7 @@ async function loadList() {
   try { r = await api("/api/games" + asQ()); } finally { btn.disabled = false; btn.textContent = "↻ Refresh"; }
   const before = new Set(r.viewing ? [] : STATE.games.map(g => g.id));
   const fresh = STATE.games.length ? r.games.filter(g => !before.has(g.id)) : [];
-  STATE = { ...STATE, games: r.games, me: r.me, replayApi: r.replayApi, patch: r.patch || STATE.patch };
+  STATE = { ...STATE, games: r.games, me: r.me, replayApi: r.replayApi, patch: r.patch || STATE.patch, rank: r.viewing ? null : r.rank };
   document.body.classList.toggle("viewing", !!STATE.as);
   if (r.viewing) { STATE.current = STATE.current && r.games.some(g => g.id == STATE.current) ? STATE.current : null; }
   try { STATE.queue = localStorage.getItem("custy-review-queue") || "all"; } catch (e) {}
@@ -1308,7 +1335,7 @@ function renderList(openFirst) {
       <img src="${champIcon(g.champion)}" alt="">
       <div class="t">${esc(champName(g.champion))}${g.opponent ? ` <span class="sub">vs ${esc(champName(g.opponent))}</span>` : ""}
         <small>${esc(g.queue)} · ${esc(ROLE_NAME[g.role] || "?")} · ${new Date(g.created).toLocaleDateString(undefined, { month: "short", day: "numeric" })}${replayExpired(g.id) ? ` · <span title="This game is from patch ${esc(patchOf(g.version))}. League can only play replays from the current patch.">replay expired</span>` : ""}</small></div>
-      <div class="kda">${g.kills}/${g.deaths}/${g.assists}<small>${Math.round(g.duration / 60)}m</small></div>
+      <div class="kda">${g.kills}/${g.deaths}/${g.assists}<small>${Math.round(g.duration / 60)}m</small>${lpChip(g)}</div>
     </div>`).join("") : `<div class="note">No games in this queue yet.</div>`);
   document.querySelectorAll(".game").forEach(el => el.onclick = () => openGame(el.dataset.id));
   document.querySelectorAll(".filter button").forEach(b => b.onclick = () => {
@@ -2704,6 +2731,7 @@ function renderHome(rows) {
   $("view").innerHTML = `<div id="dash">
     <h1>Your last ${rows.length} games</h1>
     <div class="sub">${wins}–${rows.length - wins} · each game is compared with high-elo games on the same champion and role${withB < rows.length ? ` · expert data for ${withB} of ${rows.length} games` : ""}</div>
+    ${rankCards()}
     <div class="formstrip" title="Newest on the left">${rows.slice().reverse().map(r => `<i class="${r.g.win ? "w" : ""}" title="${esc(gameLabel(r.g))}"></i>`).join("")}</div>
     <div class="hero">${hero}${strength}${form}</div>
     ${progress}
