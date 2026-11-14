@@ -488,7 +488,7 @@ html[data-theme=light] .h-k1 { color:#12976a; } html[data-theme=light] .h-k2 { c
 </style>
 </head>
 <body>
-<header class="topbar"><div class="brand">custy <span>coach</span></div><span class="tag">test</span>
+<header class="topbar"><div class="brand" id="brandHome" role="link" tabindex="0" title="Back to the overview" style="cursor:pointer">custy <span>coach</span></div><span class="tag">test</span>
   <div class="toptabs" id="toptabs"><button data-nav="home">Overview</button><button data-nav="experts">You vs experts</button><button data-nav="matchups">Matchup guide</button></div>
   <span class="who" id="who"></span>
   <form id="lookup" title="See any player's recent ranked and normal games"><input id="lookupId" placeholder="Look up a player: Name#TAG" autocomplete="off"><button>View</button></form>
@@ -2608,6 +2608,8 @@ function setTheme(m) {
 }
 $("themeBtn").onclick = () => setTheme(document.documentElement.dataset.theme === "light" ? "dark" : "light");
 $("themeBtn").textContent = document.documentElement.dataset.theme === "light" ? "Dark mode" : "Light mode";
+$("brandHome").onclick = () => openOverview(true);
+$("brandHome").onkeydown = (e) => { if (e.key === "Enter") openOverview(true); };
 function navState() {
   const c = STATE.current, inGame = c != null && !["home", "experts", "matchups"].includes(c);
   document.querySelectorAll("#toptabs [data-nav]").forEach(b => b.classList.toggle("on", b.dataset.nav === c || (inGame && b.dataset.nav === "home")));
@@ -3010,7 +3012,6 @@ function renderHome(rows) {
     <div class="sub">${wins}–${rows.length - wins} · each game is compared with high-elo games on the same champion and role${withB < rows.length ? ` · expert data for ${withB} of ${rows.length} games` : ""}</div>
     <div class="formstrip" title="Newest on the left">${rows.slice().reverse().map(r => `<i class="${r.g.win ? "w" : ""}" title="${esc(gameLabel(r.g))}"></i>`).join("")}</div>
     <div class="hero">${hero}${strength}${form}</div>
-    <div id="champsec">${champTable()}</div>
     ${progress}
     <div class="dgrid">
       <div class="card a-radar"><div class="ctitle">Your shape vs experts</div><div class="sub">Each spoke is a skill. The dashed ring is the expert median; further out is better.</div>${radarSvg(stats)}
@@ -3026,6 +3027,7 @@ function renderHome(rows) {
         <div class="legend"><span><i style="background:var(--blue)"></i>ahead of your lane opponent</span><span><i style="background:var(--red)"></i>behind</span><span>gold at 15:00 · click a bar to open the game · oldest on the left</span></div></div>
       <div class="a-pool"><h2>Champions</h2><div class="pool">${pool}</div></div>
     </div>
+    <div id="champsec">${champTable()}</div>
     ${stats.length ? `<details class="allnums"><summary>Show all numbers</summary>
     <div class="card"><div class="score h"><span></span><span>You</span><span>Experts</span><span style="display:flex;justify-content:space-between"><span>behind</span><span>their usual range</span><span>ahead</span></span><span></span></div>
       ${stats.map(scoreRow).join("")}</div></details>` : ""}

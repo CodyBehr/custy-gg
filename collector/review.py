@@ -664,7 +664,8 @@ def lp_credit(store, puuid, now_ranks, games, now=None):
     `games`: your cached game summaries. Changes `store` in place; returns True when it changed."""
     now = now or time.time()
     me = store.setdefault(str(puuid), {"last": {}, "games": {}})
-    changed = False
+    changed = me.get("now") != now_ranks
+    me["now"] = {q: dict(c) for q, c in now_ranks.items()}   # what the rank strip shows
     for queue, cur in now_ranks.items():
         prev = me["last"].get(queue)
         cur = dict(cur, t=now)
@@ -683,6 +684,14 @@ def lp_credit(store, puuid, now_ranks, games, now=None):
                      key=lambda g: _num(g.get("created")))
         if new and played > 0 and played != len(new):
             new = new[-played:] if played < len(new) else new
+        if not new and played > 0:
+            # The rank moved but the game isn't in League's match history yet (it can take a minute or two).
+            # Keep the old rank as the starting point so the change is credited once the game shows up.
+            wait = me.setdefault("wait", {})
+            if now - wait.setdefault(queue, now) < 3 * 3600:
+                changed = True
+                continue
+        me.get("wait", {}).pop(queue, None)
         if new:
             rec = {"from": {k: prev.get(k) for k in ("tier", "division", "lp")}, "to": {k: cur.get(k) for k in ("tier", "division", "lp")}}
             if a is not None and b is not None:
@@ -1286,7 +1295,7 @@ def make_handler(cfg, token):
                     if str(g.get("id")) in lp["games"]:
                         g["lp"] = lp["games"][str(g["id"])]
                 return self._send(200, {"me": me, "note": err, "games": games, "patch": _client_patch(cfg),
-                                        "replayApi": replay_api_enabled(cfg), "rank": lp["last"]})
+                                        "replayApi": replay_api_enabled(cfg), "rank": lp.get("now") or lp["last"]})
             m = re.match(r"^/api/game/(\d+)$", url.path)
             if m and parse_qs(url.query).get("as"):
                 data = read_other(parse_qs(url.query)["as"][0], m.group(1))
