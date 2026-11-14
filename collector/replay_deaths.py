@@ -113,21 +113,27 @@ def _alive_towers(team, t, dead):
 
 
 def _first_clear(track, team, until):
-    """Camps the jungler stood at for 3s+ between 1:00 and `until`, in order: [(camp, side, start, end)]."""
-    out = []
-    t = 60.0
-    cur, since = None, None
-    while t <= until:
+    """Camps the jungler actually cleared between 1:00 and `until`, in order: [(camp, side, start, end)].
+    A camp counts when they stayed near it, mostly standing still (attacking it), for 3s+; walking past doesn't count."""
+    out, done = [], set()
+    cur, since, still = None, None, 0
+    t = 55.0
+    while t <= until + 1:
         p = _pos(track, t)
         here = None
         if p:
-            for name, (cx, cz) in CAMPS[team].items():
-                if math.hypot(p[0] - cx, p[1] - cz) < 1100:
-                    here = name
-        if here != cur:
-            if cur and t - since >= 3 and cur not in [c[0] for c in out]:
+            d, name = min((math.hypot(p[0] - cx, p[1] - cz), n) for n, (cx, cz) in CAMPS[team].items())
+            if d < 950:
+                here = name
+        if here != cur or t > until:
+            if cur and still >= 3 and cur not in done:
                 out.append((cur, SIDE[team][cur], since, t))
-            cur, since = here, t
+                done.add(cur)
+            cur, since, still = here, t, 0
+        if here and t >= 60:
+            a, b = _pos(track, t - 1), _pos(track, t + 1)
+            if a and b and math.hypot(b[0] - a[0], b[1] - a[1]) < 450:   # under ~225 units/s: fighting the camp, not walking
+                still += 1
         t += 1.0
     return out
 
@@ -231,8 +237,9 @@ def death_reviews(path, me, roles, kills, towers_dead, d=None):
             clear = _first_clear(tracks.get(jg["slot"]), team(jg["slot"]), T)
             first_seen = None
             for (camp, side, a, b) in clear:
-                if any(seen(jg["slot"], x) for x in [a + i for i in range(int(b - a) + 1)]):
-                    first_seen = {"camp": camp, "side": side, "t": a}
+                hits = [x for x in [a + i for i in range(int(b - a) + 1)] if seen(jg["slot"], x)]
+                if hits:
+                    first_seen = {"camp": camp, "side": side, "t": hits[-1]}
                     break
             route = {"camps": [c[0] for c in clear], "sides": [c[1] for c in clear], "seenAt": first_seen}
         r = {"t": T, "kind": kind, "killer": names[kill["killer"]] if kill["killer"] is not None and kill["killer"] >= 0 else None,

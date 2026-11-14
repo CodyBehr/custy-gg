@@ -1631,7 +1631,7 @@ async function open(box, d, champs0, btn) {
   box.innerHTML = `<div class="stage"><canvas class="main" width="960" height="600"></canvas><canvas class="mini" width="300" height="300"></canvas>
     <div class="zm"><button data-z="3500">Close</button><button data-z="6000" class="on">Area</button><button data-z="10000">Wide</button></div>
     <div class="fog"><button data-fog="1" class="on">What your team saw</button><button data-fog="0">Everything</button></div>
-    <div class="maplegend"><span style="color:#4aa3ff">●</span> your team &nbsp;<span style="color:#ff5a5a">●</span> enemy &nbsp;· faded ? = where your team last saw them</div></div>
+    <div class="maplegend"><span style="color:#4aa3ff">●</span> your team &nbsp;<span style="color:#ff5a5a">●</span> enemy &nbsp;· faded icon with ? = where your team last saw them</div></div>
     <div class="chips">${inv.map(k => `<span class="chip" data-k="${k}"><img src="${LT.CHAMP_ICON(champs[k][0])}"><b>${esc(LT.nm(champs[k][0]))}</b><i></i></span>`).join("")}</div>
     <div class="ctl"><button class="pl">❚❚ Pause</button>${[1, 2, 4].map(v => `<button data-sp="${v}">${v}×</button>`).join("")}<button class="re">↺</button>
       <div class="scrub">${inv.map((k, n) => (p.vis[k] || []).map(([a, b]) => `<span class="vb" style="left:${a / L * 100}%;width:${Math.max(.4, (b - a + .5) / L * 100)}%;top:${4 + n * 5}px" title="${esc(LT.nm(champs[k][0]))} in sight"></span>`).join("")).join("")}
@@ -1669,7 +1669,8 @@ async function open(box, d, champs0, btn) {
     ctx.beginPath(); ctx.arc(px, py, r, 0, 7); ctx.save(); ctx.clip(); const im = img(LT.CHAMP_ICON(champs[k][0]), () => { if (ready && !st.playing) draw(); });
     if (im.complete && im.naturalWidth) { if (o.gray) ctx.filter = "grayscale(1)"; ctx.drawImage(im, px - r, py - r, 2 * r, 2 * r); ctx.filter = "none"; } else { ctx.fillStyle = col(k); ctx.fill(); }
     ctx.restore(); ctx.beginPath(); ctx.arc(px, py, r, 0, 7); ctx.lineWidth = r > 12 ? 3 : 2; ctx.strokeStyle = col(k); if (o.dash) ctx.setLineDash([5, 4]); ctx.stroke(); ctx.setLineDash([]);
-    if (o.q) { ctx.font = `900 ${Math.round(r * 1.1)}px system-ui`; ctx.textAlign = "center"; ctx.fillStyle = "#fff"; ctx.strokeStyle = "#000"; ctx.lineWidth = 3; ctx.strokeText("?", px, py + r * .4); ctx.fillText("?", px, py + r * .4); }
+    if (o.q) { const bx = px + r * .75, by = py - r * .75, br = Math.max(7, r * .42); ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(bx, by, br, 0, 7); ctx.fillStyle = "#1b2430"; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = "#ffd36b"; ctx.stroke();
+      ctx.font = `900 ${Math.round(br * 1.4)}px system-ui`; ctx.textAlign = "center"; ctx.fillStyle = "#ffd36b"; ctx.fillText("?", bx, by + br * .5); }
     if (o.label) { ctx.globalAlpha = Math.max(.75, o.alpha ?? 1); ctx.font = "600 13px system-ui"; ctx.textAlign = "center"; ctx.lineWidth = 3; ctx.strokeStyle = "rgba(0,0,0,.85)"; ctx.strokeText(o.label, px, py + r + 16); ctx.fillStyle = "#fff"; ctx.fillText(o.label, px, py + r + 16); }
     if (o.x) { ctx.globalAlpha = 1; ctx.font = `900 ${Math.round(r * 1.6)}px system-ui`; ctx.textAlign = "center"; ctx.fillStyle = "#ff4d4d"; ctx.strokeStyle = "#000"; ctx.lineWidth = 3; ctx.strokeText("✕", px, py + r * .55); ctx.fillText("✕", px, py + r * .55); }
     ctx.restore();
@@ -1695,7 +1696,7 @@ async function open(box, d, champs0, btn) {
       if (!vis && st.fog) {   // your team's view: show where they were last seen, not where they are
         const ls = lastSeen(k, t), pp = ls != null ? posAt(k, ls) : pin(k);
         if (pp) { const ago = t - (ls != null ? ls : pp.at); drawn[k] = toMain(C, pp.x, pp.z);
-          icon(cx, drawn[k], k, r * .9, { alpha: .45, gray: true, q: true, dash: true, label: big ? `${key} · ${Math.round(ago)}s ago` : null }); }
+          icon(cx, drawn[k], k, r, { alpha: .6, q: true, dash: true, label: `${key} · seen ${Math.round(ago)}s ago` }); }
         continue;
       }
       // trail
@@ -1724,7 +1725,7 @@ async function open(box, d, champs0, btn) {
     mx.clearRect(0, 0, MV.width, MV.height); if (mini.complete && mini.naturalWidth) mx.drawImage(mini, 0, 0, MV.width, MV.height);
     const [r0x, r0y] = toMini(C.x0, C.z1), [r1x, r1y] = toMini(C.x1, C.z0); mx.strokeStyle = "rgba(255,255,255,.85)"; mx.lineWidth = 2; mx.strokeRect(r0x, r0y, r1x - r0x, r1y - r0y);
     for (const k of order) { let q = posAt(k, t), o = {}; if (!q) continue;
-      if (!visible(k, t)) { if (st.fog) { const ls = lastSeen(k, t), pp = ls != null ? posAt(k, ls) : pin(k); if (!pp) continue; q = pp; o = { alpha: .45, gray: true, dash: true }; } else o = { alpha: .55, dash: true }; }
+      if (!visible(k, t)) { if (st.fog) { const ls = lastSeen(k, t), pp = ls != null ? posAt(k, ls) : pin(k); if (!pp) continue; q = pp; o = { alpha: .6, dash: true, q: true }; } else o = { alpha: .55, dash: true }; }
       icon(mx, toMini(q.x, q.z), k, k === me || inv.includes(k) ? 13 : 10, o); }
     // chips: in sight or how long unseen
     box.querySelectorAll(".chip").forEach(c => { const k = +c.dataset.k, v = visible(k, t), ls = lastSeen(k, t), pp = pin(k);
