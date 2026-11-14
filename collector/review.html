@@ -1622,8 +1622,8 @@ const IMG = window.__img || (window.__img = {});
 function img(src, redraw) { if (!IMG[src]) { const i = new Image(); i.src = src; IMG[src] = i; } if (redraw && !IMG[src].complete) IMG[src].addEventListener("load", redraw, { once: true }); return IMG[src]; }
 const clk = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
 async function open(box, d, champs0, btn) {
-  if (cur && cur.box === box && !box.hidden) { stop(); box.hidden = true; btn.textContent = "▶ Play it back"; return; }
-  if (cur) { stop(); cur.box.hidden = true; if (cur.btn) cur.btn.textContent = "▶ Play it back"; }
+  if (cur) { const was = cur; was.st.playing = false; if (was.st.raf) cancelAnimationFrame(was.st.raf); was.box.hidden = true; if (was.btn) was.btn.textContent = "▶ Play it back"; cur = null;
+    if (was.box === box) return; }   // same button again: just close it
   const p = d.pb, L = p.len, me = d.map.me, myTeam = me < 5 ? 100 : 200;
   const champs = champs0.map(([n, t]) => [LT.ddId(n), t || (champs0.indexOf(n) < 5 ? 100 : 200)]);
   const team = k => (k < 5 ? 100 : 200), ally = k => team(k) === myTeam, inv = p.involved;
