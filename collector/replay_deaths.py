@@ -389,7 +389,7 @@ def _verdict(r, my_role):
 
 def _playback(d, me, involved, who, T, seen, kills, enemies, lead=30):
     """Everything the page needs to play the lead-up back: all 10 champions, minions near you, hits on you,
-    casts, deaths, and when each enemy was visible to your team. Times are seconds from the window start."""
+    casts, deaths, map pings, and when each enemy was visible to your team. Times are seconds from the window start."""
     seen_at = [w["lastSeen"] for w in who if w.get("lastSeen") is not None]
     w0 = min(T - 30, max(T - 90, min(seen_at) - 3)) if seen_at else T - lead
     w0 = max(0.0, w0); w1 = T + 3
@@ -426,6 +426,9 @@ def _playback(d, me, involved, who, T, seen, kills, enemies, lead=30):
     for x in kills:
         if w0 <= x["t"] <= w1:
             ev.append([rel(x["t"]), "d", x["victim"]])
+    for t, k, kind, x, z, _tg in d.get("pings") or []:   # map pings, both teams (the page hides enemy ones in fog view)
+        if w0 <= t <= w1:
+            ev.append([rel(t), "p", k, kind, x, z])
     ev.sort(key=lambda e: e[0])
     # minions that came near your path
     mine = [(x, z) for t, x, z in pos[str(me)]]

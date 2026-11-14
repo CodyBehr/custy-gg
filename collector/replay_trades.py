@@ -40,6 +40,16 @@ V5 = {0: 0.99244, 1: 0.96423, 2: 2.6283, 3: 1.21461, 4: 2.69389, 5: 2.67777, 6: 
 SPELLS = {"Jax":{"3b8e7b":"W","2d8e7b":"Q","8c8e7b":"E","3a8e7b":"R"},"JarvanIV":{"2b03d7":"Q","f1aa45":"E","e9382f":"W","3fd49e":"R"},"Vladimir":{"adaf1d":"Q","38af1d":"E","e1638f":"W","2b01f4":"R"},"Jhin":{"befdc6":"Q","fbfdc6":"W","7afdc6":"E","f10120":"R","31fdc6":"R"},"Alistar":{"7a8ee6":"Q","07336c":"E","f7e69e":"W","8b56d1":"R"},"Sion":{"be4357":"-","7a4357":"E","fb4357":"W","2b6cc8":"W","314357":"Q","f7c699":"R"},"Lillia":{"2d0143":"Q","07b943":"E","3b0143":"W","3a0143":"R"},"Garen":{"be9c00":"Q","7a9c00":"E","8b24c6":"E","fb9c00":"W","319c00":"R"},"Ezreal":{"beb300":"Q","7ab300":"E","fbb300":"W","31b300":"R"},"Karma":{"c239a2":"E","d4f000":"Q","38ad92":"R","bb3830":"W"},"Tryndamere":{"2bbe85":"E","9cbe57":"-","d4be85":"Q","7dbe85":"W","13e3bc":"R"},"Ekko":{"85bb54":"Q","13bb54":"E","bc2456":"-","20bb54":"W","00bb54":"R"},"Jinx":{"2d24bb":"Q","3b24bb":"W","7ad1aa":"-","8c24bb":"E","3a24bb":"R"},"Thresh":{"d461e9":"Q","0370f1":"-","7d61e9":"W","9961e9":"E","38e28c":"R","e723af":"Q"},"Khazix":{"fbe892":"Q","d47322":"Q","7d7322":"W","997322":"E","fbe805":"W","967322":"R","018ff4":"Q","01bb73":"Q"},"Teemo":{"002fec":"R","852fec":"Q","202fec":"W"},"MissFortune":{"22f7de":"Q","3e878a":"W","c2d72e":"E","994d93":"R","f11de6":"W"},"Leona":{"aa3b57":"Q","96157a":"W","7a0896":"E","8c78e3":"R"},"Aatrox":{"e64dd0":"Q","07a271":"E","8ea271":"-","70318c":"-","3e318c":"-","e3a271":"W","e2a271":"R"},"LeeSin":{"070139":"Q","92e7dd":"Q","07015e":"E","079243":"W","926224":"W","92e7fe":"E","bfe73a":"R"},"Akali":{"d48989":"Q","2b0789":"E","7d8989":"W","3101fd":"E","968989":"R","0085fd":"R","33a5c8":"-"},"Karthus":{"85615b":"Q","99c639":"E","e29900":"-","79b39c":"W","d3ad2e":"R","e228c2":"R","3afe5e":"W"},"MonkeyKing":{"ca39be":"Q","4d2e08":"E","30ce9c":"W","5e7c3a":"R","2b00d3":"R"},"Malzahar":{"8e7c56":"Q","e37c56":"W","077c56":"E","e27c56":"R"},"Caitlyn":{"1d2b48":"Q","2e2b48":"W","132b48":"E","ad6bca":"-","152b48":"R"},"Mordekaiser":{"be489c":"Q","7a489c":"E","fb489c":"W","31489c":"R"},"Zyra":{"7d8e2f":"W","d48e2f":"Q","2ba12f":"E","968e2f":"R"},"Lucian":{"73b320":"Q","d3b320":"E","f0b320":"W","bfb320":"R","993bce":"R"},"Milio":{"13fd62":"E","85fd62":"Q","20fd62":"W","00fd62":"R","8f40e9":"W"},"Belveth":{"2d9cb4":"Q","bb3126":"-","3b9cb4":"W","8c9cb4":"E","3a9cb4":"R"},"Morgana":{"2e7d7c":"W","1d7d7c":"Q","d3897c":"E","157d7c":"R"},"Zac":{"99fe90":"-","f0fe90":"W","73fe90":"Q","bffe90":"E"},"Yasuo":{"13f200":"E","02782d":"-","70caa1":"Q","3843ca":"-","bfcaa1":"Q","e2caa1":"Q","7043ca":"-","3e43ca":"-"},"Twitch":{"b84a36":"W","7af333":"E","f4963b":"Q","f4e362":"R"},"Yone":{"1d30d4":"Q","c69c3d":"W","2e30d4":"E","d330d4":"Q","1530d4":"R"},"Cassiopeia":{"13aa9a":"E","739e9a":"Q","f09e9a":"W","bf9e9a":"R"},"Blitzcrank":{"bbfef4":"E","074354":"W","31b8d3":"Q","8ffc3d":"R","48f058":"Q"},"Poppy":{"d4b38a":"Q","481bc2":"-","2b268a":"E","7db38a":"W","96b38a":"-","c2d0fc":"R","481be6":"R"},"Viego":{"208be4":"-","858be4":"Q","138be4":"E","008be4":"R","f171d7":"E","be4357":"W","7da1e2":"E","fbe892":"E"},"Xayah":{"2d26f4":"Q","8c26f4":"E","3b26f4":"W","3a26f4":"R"},"Bard":{"058ebf":"W","1b2ebc":"-","388ebf":"Q","ad8ebf":"E","8bde33":"-","708ebf":"R"},"Viktor":{"2b35dd":"E","8535dd":"Q","2035dd":"W","7afcd0":"R","0035dd":"R"},"Yunara":{"2b8ee2":"E","7da1e2":"W","d4a1e2":"Q","9692bf":"E","bfd4bf":"W","96a1e2":"R"},"Yuumi":{"2b7d3e":"E","d42f3e":"Q","992daf":"-","f636e4":"-","7d2f3e":"W","8f87d4":"-","f636a4":"-","70b57c":"W"},"Kayle":{"d307f6":"E","1d07f6":"Q","2e07f6":"W","8bf6ca":"-","1507f6":"R"},"Janna":{"99c2dd":"Q","4fa433":"E","222ba2":"W","e6e69e":"R"},"Pantheon":{"befcaf":"-","fd7805":"Q","fbfcaf":"W","992392":"-","7afcaf":"Q","4ff6dd":"E","24ceec":"Q","31fcaf":"R"},"Nocturne":{"312de1":"Q","bf3af1":"E","e940f2":"W","38f285":"R","3a891b":"R"},"Galio":{"85fdfd":"Q","20fdfd":"-","13fdfd":"E","15ed43":"W","00fdfd":"R"},"Aphelios":{"2e3fdd":"W","af24e8":"Q","1d1356":"Q","7a78e9":"Q","2d03c6":"-","d4ce3f":"-","d49c19":"Q","38b33d":"R"},"Velkoz":{"85a543":"Q","20a543":"W","2ba543":"E","991c66":"Q","00a543":"R"},"Fiora":{"d4be1d":"Q","2bc81d":"E","7dbe1d":"W","96be1d":"R"},"KogMaw":{"8addb5":"R","2b857f":"E","8cf4a4":"-","8e2ddb":"Q","13befc":"W"},"Samira":{"2d8ea1":"Q","634f4a":"-","8f5b10":"-","07a1a1":"E","3b8ea1":"W","ad6c45":"-","f6bc88":"-","addb8c":"R"},"Nautilus":{"996c22":"W","8cdb19":"E","2026ad":"Q","13bb3b":"-","2b8b43":"R"},"DrMundo":{"be1b38":"Q","8c1b38":"E","fb1b38":"W","c26c92":"W","311b38":"R"},"Ashe":{"1dd7bf":"Q","bb58f7":"W","1b71a4":"E","c658f7":"W","1558f7":"W","308cf2":"W","05106c":"R"},"Seraphine":{"1be473":"Q","1db3ad":"-","f7e94a":"-","d3b3ad":"E","f7e958":"-","9203bc":"-","2eb3ad":"W","f7e9e3":"-"},"Jayce":{"c25ee3":"Q","e3f61d":"R","9cde1d":"R","8ced56":"W","99704f":"E","e9b4ce":"Q","c2027a":"W","05891b":"E"},"Veigar":{"7a28ce":"Q","157001":"W","8fe93e":"-","63311d":"E","003845":"R"},"Zilean":{"78e4b4":"E","be2ddd":"W","fb2ddd":"Q","bbe73e":"Q","fe2862":"-","e6a262":"R","8b6ce3":"Q"},"TahmKench":{"d4333b":"Q","7d333b":"W","99333b":"E","e248f3":"R","96333b":"-","e2e7b8":"R"},"Kayn":{"be7866":"Q","7a7866":"E","051be2":"W","fb7866":"W","317866":"R","f7de2b":"R"},"Syndra":{"998ef1":"Q","f102f3":"W","3b2de2":"W","2d2de2":"Q","07b3e2":"E","d36271":"E","3a2de2":"R","adaf4f":"-"},"Tristana":{"8c4a36":"E","8ee436":"Q","e3e436":"W","e2e436":"R"},"Swain":{"fb627c":"W","be627c":"Q","7a627c":"E","3a39fd":"E","31627c":"R"},"Gnar":{"8e8e87":"Q","adec02":"-","d4e2bf":"Q","8c782f":"-","078e87":"E","7de2bf":"W","d3e2bf":"E","e28e87":"R"},"Qiyana":{"3b39e4":"W","ce1bf3":"Q","70cb2f":"Q","072fe4":"E","4d9cbb":"Q","2d39e4":"Q","3a39e4":"R"},"Yorick":{"732bf4":"Q","992bf4":"E","f02bf4":"W","15f7e4":"Q","bf2bf4":"R","31f7e4":"R"},"Graves":{"5b5bd7":"-","48071b":"Q","39aa24":"-","7a33c6":"E","1313bf":"W","f63158":"R"},"Xerath":{"788ead":"-","3a7062":"Q","00e400":"W","96dbec":"R","d32bd3":"-","7043d1":"E","bf38e2":"R"},"Kaisa":{"d461fd":"Q","7d61fd":"W","2be2fd":"E","9661fd":"R","c228f3":"Q","e630f3":"W","f140f3":"-"},"Sylas":{"99bee7":"E","f0bee7":"W","3a61dd":"Q","73bee7":"E","bfbee7":"R","2b8b43":"R","f63158":"R","bf2bf4":"R"},"Rell":{"ad89e9":"E","3889e9":"Q","f6c266":"W","b34fad":"W","7089e9":"R"},"Ambessa":{"f23fe8":"-","d4b970":"Q","2dfdca":"E","2b0170":"-","7db970":"W","3afdca":"-","96b970":"R"},"Malphite":{"19d43a":"W","ade81c":"E","e67afb":"Q","57be57":"R"},"Soraka":{"2dd1bf":"Q","3bd1bf":"W","0796bf":"E","3ad1bf":"R"},"Olaf":{"22fda1":"Q","d3e44a":"E","d1ec45":"W","ce351b":"R"},"Vex":{"2d3db2":"Q","8c3db2":"E","3b3db2":"W","3a3db2":"R","3156b4":"R"},"Lux":{"2b8a70":"E","331333":"E","f02f48":"Q","d358d3":"W","3a197b":"E","b436e4":"R"},"Taliyah":{"befdc6":"Q","7afdc6":"E","b4a21d":"W","e4664f":"R","31fdc6":"E","5efb79":"R","a1d75e":"R"},"Ahri":{"7d3a92":"W","d43a92":"Q","963a92":"R","2b2d92":"E"},"Draven":{"3d4039":"W","fb8823":"Q","f700e8":"E","f6785b":"R","f74f00":"R"},"Rakan":{"e67354":"-","fb5478":"W","e67357":"-","7a5478":"E","be5478":"Q","f6d45e":"E","315478":"R"},"Nidalee":{"31d126":"R","9939ce":"W","e9c2f7":"Q","630079":"Q","8ce7aa":"E","8c38d3":"E","cecb6b":"W"},"Lulu":{"d37d58":"E","2e7d58":"W","1d7d58":"Q","ad30f3":"-","268ab4":"-","157d58":"R"},"Locke":{"d32f15":"Q","1dc628":"Q","d3c628":"E","2ec628":"W","15c628":"R","f63adb":"W","45231d":"-"},"Talon":{"7a0378":"E","fb0378":"W","be0378":"Q","3a30ed":"-","bcf45e":"-","afa579":"-","310378":"R"},"Sett":{"38e320":"Q","ade320":"E","05e320":"W","70e320":"R"},"MasterYi":{"2b2b5e":"Q","990115":"W","8c07ca":"E","e210dd":"R"},"Varus":{"7387bf":"-","9987bf":"Q","7aeced":"E","f087bf":"W","bf87bf":"R"},"Diana":{"d439e4":"Q","f78bc8":"E","e98f78":"W","9639e4":"R"},"Trundle":{"02afe1":"Q","ade3e4":"W","2b898d":"E","e43b01":"R"},"Mel":{"38db7b":"Q","addb7b":"E","05db7b":"W","70db7b":"R"},"Sona":{"2b401c":"E","7d301c":"W","d4301c":"Q","96301c":"R"},"Gangplank":{"13d031":"E","bf1d5e":"Q","f71b19":"Q","bb791c":"-","20d031":"W","00d031":"R"},"Chogath":{"2b1956":"Q","c6791d":"E","b57d8a":"W","222d70":"R"},"Nami":{"7d2f31":"W","2b7d31":"E","d42f31":"Q","ad1d24":"-","962f31":"R"},"Annie":{"d39299":"E","31f0b3":"R","1d9299":"Q","2e9299":"W","159299":"R"},"Gwen":{"7a02af":"E","be02af":"Q","c23999":"W","fb02af":"R","3102af":"R"},"Shyvana":{"7389d8":"Q","f089d8":"W","15f678":"E","137dd8":"Q","8f05cb":"W","bf89d8":"Q","5e454d":"R","c6f678":"E"},"Zed":{"ade390":"E","38e390":"Q","05e390":"W","bf3b96":"W","70e390":"R","316b96":"R","9cfda2":"E"},"Corki":{"7062a1":"Q","ad8f5e":"R","e4d791":"E","8c8b10":"-","bf3f54":"W","bf4fec":"-","f11de6":"Q"},"XinZhao":{"e3c6d1":"W","dba1ec":"-","e2bf6c":"-","8ec6d1":"Q","d3d320":"-","e2c6d1":"R"},"Senna":{"d4fc2d":"Q","c23962":"-","7dfc2d":"W","2b362d":"E","96fc2d":"R"},"Brand":{"053900":"W","ad3900":"E","383900":"Q","703900":"R"},"Naafiri":{"1d78c2":"Q","f68ef3":"E","d392c2":"Q","1578c2":"W","2e78c2":"R"},"Aurora":{"bbfd24":"E","85bead":"Q","99c8ad":"Q","20bead":"W","00bead":"R"},"Hwei":{"2b623b":"Q","13d43b":"E","d3456b":"Q","d4d43b":"W","7dd43b":"W","20d43b":"W","85d43b":"R","96024a":"W"},"Camille":{"be5762":"Q","1524ed":"Q","fb5762":"W","ad5762":"E","3a99d0":"E","315762":"R"},"Ziggs":{"73d74a":"Q","5bec6c":"-","99d74a":"E","96313b":"-","f0d74a":"W","073957":"W","bfd74a":"R"},"Singed":{"33a53e":"Q","2efde6":"E","d3ec3f":"W","56b4af":"R"},"Zeri":{"d4e2d1":"Q","2b8ed1":"E","7de2d1":"W","96e2d1":"R"}}   # champion -> {3-byte spell id: slot}
 
 
+# Map pings (record 1256, param 0), fitted for 16.22 against Riot's per-player ping counts in 34 replays (94% of
+# typed pings land on the right player and kind) and, for pings on a champion, that champion's position (median
+# ~90 units off). Layout: [flags][?][target 3 bytes, optional][pinger][0x98][kind, optional][x float][z float].
+PING_FROM = dict(zip(bytes.fromhex("c8114478dc20b73280ff"), range(10)))   # pinger byte -> slot
+PING_AT = dict(zip(bytes.fromhex("a4e5f4a79f8bce597bc2"), range(10)))     # champion target byte (before 0xD6) -> slot
+PING_KIND = {0xEB: "omw", 0x3C: "missing", 0xE2: "vision", 0xD6: "back", 0x08: "assist", 0x8F: "allin",
+             0xC0: "push", 0xA4: "needvision", 0xA7: "retreat"}   # anything else: a plain ping
+PING_EXP = {0xF3: 0x44, 0x59: 0x45, 0xBF: 0x46}   # float exponent byte, cipher -> plain
+PING_T = bytes.fromhex("b5423220c7187abe4883cd5a7177b0c2e2bc0cb187a6cb850bc84b4d362b1ca0f6090157e6db21e867c06a15979823c688da08ed8b0ea363efae7e2fd89ee9b7d3f010c5c16641bbaa80df28e16412f1045dca3b3fa5fb318e4555fe76065cbfaf0007729a0db86cfa902ead6168ba6e265803b9d9e3c913934ca21e026ba994228c49ce431d82598f24fd38ac50f5fca865b2e51fccf37073d69b605489c4ff3e6d537c474a92ebd73c7419d227b44ea11a849f25c32d51ecd4a49cd0bdab4617cf407d7beade86993d6916961b7f29f295f4ddb30581560f6275f9f82c4fdc0ae4522ae78ad134115b5fee78799d14e030d544359137f76f398db65e333aa7")   # float byte 2 (top of the mantissa), cipher -> plain
+
 # --------------------------------------------------------------------------
 # Reading the file
 # --------------------------------------------------------------------------
@@ -103,6 +113,32 @@ def _amount(b):
     return BASE[b[4]] * V5.get(b[5], 2.0)
 
 
+def _ping_float(F):
+    e = PING_EXP.get(F[3])
+    if e is None:
+        return None
+    v = struct.unpack("<f", bytes((0, 0, PING_T[F[2]], e)))[0]
+    return v if -500 < v < 15500 else None
+
+
+def _ping(b):
+    """One map ping: (pinger slot, kind, x, z, target slot or None), or None if the record doesn't parse."""
+    i = b.find(b"\x98", 2)
+    if i < 1 or b[i - 1] not in PING_FROM:
+        return None
+    if len(b) - i == 10:      # typed ping (on my way, enemy missing, ...)
+        kind, o = PING_KIND.get(b[i + 1], "ping"), i + 2
+    elif len(b) - i == 9:     # alt-click on a ward, tower, item or timer ("command" in Riot's counts)
+        kind, o = "info", i + 1
+    else:
+        return None
+    x, z = _ping_float(b[o:o + 4]), _ping_float(b[o + 4:o + 8])
+    if x is None or z is None:
+        return None
+    tgt = PING_AT.get(b[i - 3]) if i >= 4 and b[i - 2] == 0xD6 else None
+    return PING_FROM[b[i - 1]], kind, round(x), round(z), tgt
+
+
 def _v16(h, l):
     v = (T871[h] << 8) | T871[l]
     return v - 65536 if v >= 32768 else v
@@ -129,10 +165,10 @@ def _clean(L):
 
 
 def decode(path, until=900.0):
-    """One pass over the replay: hits on champions, casts, level-ups and positions up to `until` seconds."""
+    """One pass over the replay: hits on champions, casts, level-ups, positions and map pings up to `until` seconds."""
     version, stats, chunks = read_rofl(path)
     skins = [p.get("SKIN") for p in stats]
-    hits, casts, levels = [], [], []
+    hits, casts, levels, pings = [], [], [], []
     vision = {k: [] for k in range(10)}   # times each champion stepped into the other team's vision
     tracks = {}
     for body in chunks:
@@ -158,6 +194,10 @@ def decode(path, until=900.0):
                 levels.append((t, CHAMPS.index(param)))
             elif netid == 1027 and param in CHAMPS:       # stepped into the other team's vision
                 vision[CHAMPS.index(param)].append(t)
+            elif netid == 1256 and param == 0:            # map ping
+                pg = _ping(bytes(pl))
+                if pg:
+                    pings.append((round(t, 2),) + pg)
             elif netid == 871:                            # movement orders: several units per record
                 b = bytes(pl)
                 # Each entry ends [unit id 4][3f][waypoint count]; just before it: speed (4), then for one waypoint
@@ -178,7 +218,8 @@ def decode(path, until=900.0):
                     tracks.setdefault(key, []).append((round(t + 0.19, 2), round(x), round(z)))
     for key in list(tracks):
         tracks[key] = _clean(sorted(tracks[key]))
-    return dict(version=version, stats=stats, hits=hits, casts=casts, levels=levels, tracks=tracks, vision=vision)
+    return dict(version=version, stats=stats, hits=hits, casts=casts, levels=levels, tracks=tracks, vision=vision,
+                pings=pings)
 
 
 # --------------------------------------------------------------------------

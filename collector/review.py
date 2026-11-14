@@ -426,7 +426,7 @@ def trades_for(cfg, game_id):
     return out
 
 
-DEATHS_VERSION = 5
+DEATHS_VERSION = 6   # 6: map pings in playbacks
 
 
 def deaths_for(cfg, game_id):

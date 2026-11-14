@@ -377,6 +377,7 @@ body.viewing [data-watch], body.viewing #ov { display:none !important; }
 .gkpb .scrub .vb { position:absolute; height:4px; background:#e05050; border-radius:2px; opacity:.85; }
 .gkpb .mk { position:absolute; transform:translateX(-50%); } .gkpb .mk.cy { bottom:2px; font-size:9px; font-weight:800; color:var(--blue-ink); }
 .gkpb .mk.hy { bottom:14px; width:2px; height:6px; background:var(--red); } .gkpb .mk.dd { top:9px; font-size:13px; }
+.gkpb .mk.pg { top:1px; font-size:10px; font-weight:800; line-height:1; }
 .gkpb .pblegend { font-size:12px; color:var(--mute); margin-top:6px; }
 @media (max-width:760px) { .gk { grid-template-columns:1fr; } }
 </style>
@@ -1628,6 +1629,11 @@ let cur = null;
 const IMG = window.__img || (window.__img = {});
 function img(src, redraw) { if (!IMG[src]) { const i = new Image(); i.src = src; IMG[src] = i; } if (redraw && !IMG[src].complete) IMG[src].addEventListener("load", redraw, { once: true }); return IMG[src]; }
 const clk = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+// Map pings from the replay: label, colour, symbol.
+const PINGS = { omw: ["On my way", "#4fd1a1", "➜"], missing: ["Enemy missing", "#ffd36b", "?"], vision: ["Enemy vision", "#ff7a7a", "◉"],
+  back: ["Get back", "#ff9a5a", "!"], retreat: ["Retreat", "#ff9a5a", "↩"], assist: ["Assist me", "#7cc0ff", "+"], allin: ["All in", "#ff5a5a", "⚔"],
+  push: ["Push", "#4fd1a1", "⇈"], needvision: ["Need vision", "#c79bff", "◎"], info: ["Info", "#c8d4e2", "i"], ping: ["Ping", "#c8d4e2", "•"] };
+const PING_LOOK = k => PINGS[k] || PINGS.ping;
 async function open(box, d, champs0, btn) {
   if (cur) { const was = cur; was.st.playing = false; if (was.st.raf) cancelAnimationFrame(was.st.raf); was.box.hidden = true; if (was.btn) was.btn.textContent = was.btn.dataset.label || "▶ Play it back"; cur = null;
     if (was.box === box) return; }   // same button again: just close it
@@ -1638,14 +1644,15 @@ async function open(box, d, champs0, btn) {
   box.innerHTML = `<div class="stage"><canvas class="main" width="960" height="600"></canvas><canvas class="mini" width="640" height="640" title="Click to enlarge"></canvas>
     <div class="zm"><button data-z="3500">Close</button><button data-z="6000" class="on">Area</button><button data-z="10000">Wide</button></div>
     <div class="fog"><button data-fog="1" class="on">What your team saw</button><button data-fog="0">Everything</button></div>
-    <div class="maplegend"><span style="color:#4aa3ff">●</span> your team &nbsp;<span style="color:#ff5a5a">●</span> enemy &nbsp;· faded icon with ? = where your team last saw them</div></div>
+    <div class="maplegend"><span style="color:#4aa3ff">●</span> your team &nbsp;<span style="color:#ff5a5a">●</span> enemy &nbsp;· faded icon with ? = where your team last saw them · rings = pings</div></div>
     <div class="chips">${inv.map(k => `<span class="chip" data-k="${k}"><img src="${LT.CHAMP_ICON(champs[k][0])}"><b>${esc(LT.nm(champs[k][0]))}</b><i></i></span>`).join("")}</div>
     <div class="ctl"><button class="pl">❚❚ Pause</button>${[1, 2, 4].map(v => `<button data-sp="${v}">${v}×</button>`).join("")}<button class="re">↺</button>
       <div class="scrub">${inv.map((k, n) => (p.vis[k] || []).map(([a, b]) => `<span class="vb" style="left:${a / L * 100}%;width:${Math.max(.4, (b - a + .5) / L * 100)}%;top:${4 + n * 5}px" title="${esc(LT.nm(champs[k][0]))} in sight"></span>`).join("")).join("")}
         ${p.ev.filter(e => e[1] === "c" && e[2] === me).map(e => `<span class="mk cy" style="left:${e[0] / L * 100}%">${e[3]}</span>`).join("")}
         ${p.ev.filter(e => e[1] === "h" && e[2] === me && e[3] >= 0 && e[3] < 10).map(e => `<span class="mk hy" style="left:${e[0] / L * 100}%"></span>`).join("")}
+        ${p.ev.filter(e => e[1] === "p" && ally(e[2])).map(e => `<span class="mk pg" style="left:${e[0] / L * 100}%;color:${e[2] === me ? "#ffd479" : "#7cc0ff"}" title="${esc((e[2] === me ? "You" : LT.nm(champs[e[2]][0])) + ": " + PING_LOOK(e[3])[0])}">${PING_LOOK(e[3])[2]}</span>`).join("")}
         <span class="mk dd" style="left:${p.death / L * 100}%">☠</span><div class="head"></div></div><span class="clock"></span></div>
-    <div class="pblegend">Red bars on the timeline: when each enemy in the fight was in your team's sight · red ticks: champion damage on you · letters: your abilities</div>`;
+    <div class="pblegend">Red bars on the timeline: when each enemy in the fight was in your team's sight · red ticks: champion damage on you · letters: your abilities · symbols on top: your team's pings (enemy pings show in "Everything")</div>`;
   const st = { t: 0, speed: L > 40 ? 2 : 1, playing: false, last: null, fog: true, view: 6000 };
   cur = { box, btn, st };
   let ready = false;
@@ -1728,6 +1735,17 @@ async function open(box, d, champs0, btn) {
         if (ic && ic.complete && ic.naturalWidth) cx.drawImage(ic, ix + S / 2 - s / 2, iy + S / 2 - s / 2, s, s);
         cx.strokeStyle = col(k); cx.lineWidth = 2; cx.strokeRect(ix + S / 2 - s / 2, iy + S / 2 - s / 2, s, s);
         cx.font = "800 11px system-ui"; cx.textAlign = "center"; cx.fillStyle = "#000"; cx.fillRect(ix + S - 11, iy + S - 10, 12, 12); cx.fillStyle = "#fff"; cx.fillText(e[3], ix + S - 5, iy + S); cx.restore(); } }
+    // map pings: a ring where it was placed, for 3s; enemy pings only when showing everything
+    const pingsNow = p.ev.filter(e => e[1] === "p" && t >= e[0] && t - e[0] < 3 && (ally(e[2]) || !st.fog));
+    for (const e of pingsNow) { const [px, py] = toMain(C, e[4], e[5]), a = t - e[0], [label, c, g] = PING_LOOK(e[3]);
+      if (px < -40 || py < -40 || px > W + 40 || py > H + 40) continue;
+      cx.save(); cx.globalAlpha = a > 2.4 ? (3 - a) / .6 : 1;
+      cx.beginPath(); cx.arc(px, py, 14 + (a % 1) * 26, 0, 7); cx.strokeStyle = c; cx.lineWidth = 3; cx.globalAlpha *= 1 - (a % 1) * .8; cx.stroke();
+      cx.globalAlpha = a > 2.4 ? (3 - a) / .6 : 1; cx.beginPath(); cx.arc(px, py, 13, 0, 7); cx.fillStyle = "#101820"; cx.fill(); cx.lineWidth = 3; cx.strokeStyle = c; cx.stroke();
+      cx.font = "900 15px system-ui"; cx.textAlign = "center"; cx.fillStyle = c; cx.fillText(g, px, py + 5);
+      const who = e[2] === me ? "You" : LT.nm(champs[e[2]][0]), tx = `${who}: ${label}`;
+      cx.font = "700 13px system-ui"; cx.lineWidth = 3; cx.strokeStyle = "rgba(0,0,0,.9)"; cx.strokeText(tx, px, py - 20); cx.fillStyle = ally(e[2]) ? "#fff" : "#ffb3b3"; cx.fillText(tx, px, py - 20);
+      cx.restore(); }
     // minimap
     mx.clearRect(0, 0, MV.width, MV.height); mx.imageSmoothingQuality = "high";
     if (map.complete && map.naturalWidth) mx.drawImage(map, 0, 0, MV.width, MV.height); else if (mini.complete && mini.naturalWidth) mx.drawImage(mini, 0, 0, MV.width, MV.height);
@@ -1739,6 +1757,9 @@ async function open(box, d, champs0, btn) {
       if (!visible(k, t)) { if (st.fog) { const ls = lastSeen(k, t), pp = ls != null ? posAt(k, ls) : pin(k); if (!pp) continue; q = pp; o = { alpha: .6, dash: true, q: true }; } else o = { alpha: .55, dash: true }; }
       const dead = (e => e && t >= e[0] && t < e[0] + 12)(deadAt(k)); if (dead) o.x = true;
       icon(mx, toMini(q.x, q.z), k, k === me || inv.includes(k) ? 24 : 20, o); }
+    for (const e of pingsNow) { const [px, py] = toMini(e[4], e[5]), a = t - e[0], c = PING_LOOK(e[3])[1];
+      mx.save(); mx.globalAlpha = a > 2.4 ? (3 - a) / .6 : 1; mx.beginPath(); mx.arc(px, py, 10 + (a % 1) * 16, 0, 7); mx.strokeStyle = c; mx.lineWidth = 4; mx.stroke();
+      mx.beginPath(); mx.arc(px, py, 6, 0, 7); mx.fillStyle = c; mx.fill(); mx.restore(); }
     // chips: in sight or how long unseen
     box.querySelectorAll(".chip").forEach(c => { const k = +c.dataset.k, v = visible(k, t), ls = lastSeen(k, t), pp = pin(k);
       c.classList.toggle("on", v); c.querySelector("i").textContent = v ? "in sight" : ls != null ? `unseen ${Math.round(t - ls)}s` : pp ? `unseen ${Math.round(t - pp.at)}s` : "not seen"; });
