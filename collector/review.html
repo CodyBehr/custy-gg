@@ -1564,13 +1564,19 @@ async function loadGanks(A, again) {
   let r; try { r = await api("/api/deaths/" + id); } catch (e) { el.innerHTML = ""; return; }
   if (!$("ganks") || STATE.current != id) return;
   if (r.missing) {
-    if (!A.deaths.length) { el.innerHTML = ""; return; }
     const cur = r.patch && currentPatch() && r.patch !== currentPatch();
-    el.innerHTML = `<h2>Gank and caught-out checks</h2><div class="card gk"><div class="sub">With this game's replay, each death gets checked: where the enemies who killed you were last seen, the jungler's first clear, where the wave was and how far you were from your tower.</div>
+    el.innerHTML = `<h2>Previews and gank checks</h2><div class="card gk"><div class="sub" style="grid-column:1 / -1">With this game's replay file, every kill and death gets a <b>preview</b> you can play back on the map right here, and each death gets checked: where the enemies who killed you were last seen, the jungler's first clear, where the wave was and how far you were from your tower. The file downloads in the background; League doesn't open.</div>
       ${cur ? `<div class="sub" style="margin-top:6px">League can't download replays from patch ${esc(r.patch)} anymore.</div>` : `<button class="primary" id="gkDl" style="margin-top:8px" ${r.download === "working" ? "disabled" : ""}>${r.download === "working" ? esc(r.message || "Downloading...") : "Download the replay"}</button>`}</div>`;
     const b = $("gkDl"); if (b) b.onclick = async () => { b.disabled = true; b.textContent = "Downloading..."; try { await api(`/api/trades/${id}/download`, { method: "POST" }); } catch (e) {} setTimeout(() => loadGanks(A, true), 2500); };
     if (r.download === "working") setTimeout(() => loadGanks(A, true), 2500);
     return;
+  }
+  for (const pv of r.previews || []) {   // a Preview button on every kill and death row
+    const acts = [0, -1, 1].map(o => document.querySelector(`[data-pv="${pv.kind === "kill" ? "k" : "d"}${Math.round(pv.t) + o}"]`)).find(Boolean);
+    if (!acts || acts.querySelector("[data-pvgo]")) continue;
+    const b = document.createElement("button"); b.dataset.pvgo = "1"; b.textContent = "▶ Preview"; b.title = "Play this fight back on the map, without opening the replay";
+    b.onclick = () => DPB.open(acts.parentElement.querySelector(".gkpb"), pv, r.champs, b);
+    acts.prepend(b);
   }
   if (r.error || !r.deaths?.length) { el.innerHTML = ""; return; }
   el.innerHTML = `<h2>Gank and caught-out checks</h2>` + r.deaths.map((d, i) => `<div class="card gk${d.kind === "gank" ? " gank" : ""}">
@@ -1623,12 +1629,12 @@ const IMG = window.__img || (window.__img = {});
 function img(src, redraw) { if (!IMG[src]) { const i = new Image(); i.src = src; IMG[src] = i; } if (redraw && !IMG[src].complete) IMG[src].addEventListener("load", redraw, { once: true }); return IMG[src]; }
 const clk = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
 async function open(box, d, champs0, btn) {
-  if (cur) { const was = cur; was.st.playing = false; if (was.st.raf) cancelAnimationFrame(was.st.raf); was.box.hidden = true; if (was.btn) was.btn.textContent = "▶ Play it back"; cur = null;
+  if (cur) { const was = cur; was.st.playing = false; if (was.st.raf) cancelAnimationFrame(was.st.raf); was.box.hidden = true; if (was.btn) was.btn.textContent = was.btn.dataset.label || "▶ Play it back"; cur = null;
     if (was.box === box) return; }   // same button again: just close it
   const p = d.pb, L = p.len, me = d.map.me, myTeam = me < 5 ? 100 : 200;
   const champs = champs0.map(([n, t]) => [LT.ddId(n), t || (champs0.indexOf(n) < 5 ? 100 : 200)]);
   const team = k => (k < 5 ? 100 : 200), ally = k => team(k) === myTeam, inv = p.involved;
-  box.hidden = false; btn.textContent = "■ Close playback";
+  box.hidden = false; btn.dataset.label = btn.dataset.label || btn.textContent; btn.textContent = "■ Close";
   box.innerHTML = `<div class="stage"><canvas class="main" width="960" height="600"></canvas><canvas class="mini" width="640" height="640" title="Click to enlarge"></canvas>
     <div class="zm"><button data-z="3500">Close</button><button data-z="6000" class="on">Area</button><button data-z="10000">Wide</button></div>
     <div class="fog"><button data-fog="1" class="on">What your team saw</button><button data-fog="0">Everything</button></div>
@@ -1639,7 +1645,7 @@ async function open(box, d, champs0, btn) {
         ${p.ev.filter(e => e[1] === "c" && e[2] === me).map(e => `<span class="mk cy" style="left:${e[0] / L * 100}%">${e[3]}</span>`).join("")}
         ${p.ev.filter(e => e[1] === "h" && e[2] === me && e[3] >= 0 && e[3] < 10).map(e => `<span class="mk hy" style="left:${e[0] / L * 100}%"></span>`).join("")}
         <span class="mk dd" style="left:${p.death / L * 100}%">☠</span><div class="head"></div></div><span class="clock"></span></div>
-    <div class="pblegend">Red bars on the timeline: when each enemy who killed you was in your team's sight · red ticks: champion damage on you · letters: your abilities</div>`;
+    <div class="pblegend">Red bars on the timeline: when each enemy in the fight was in your team's sight · red ticks: champion damage on you · letters: your abilities</div>`;
   const st = { t: 0, speed: L > 40 ? 2 : 1, playing: false, last: null, fog: true, view: 6000 };
   cur = { box, btn, st };
   let ready = false;
@@ -2136,7 +2142,8 @@ function killRow(A, k, n) {
     <div class="when">${clock(t)}<small class="kd">kill ${n + 1}</small></div>
     <div class="what"><div class="part"><b>${pidIcon(A, k.victimId)}You killed ${esc(A.champOf(k.victimId))}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
       <div class="cmp">${notes.join(" · ")}</div>${fightPanel(A, A.fightOf(k))}</div></div>
-    <div class="acts"><button data-watch="${Math.max(0, t - 30)}">Watch in my replay</button></div>
+    <div class="acts" data-pv="k${Math.round(t)}"><button data-watch="${Math.max(0, t - 30)}">Watch in my replay</button></div>
+    <div class="gkpb" hidden></div>
   </div>`;
 }
 function deathRow(A, d) {
@@ -2157,7 +2164,8 @@ function deathRow(A, d) {
     <div class="when">${worth ? `<span class="badge ok">Worth it</span>` : ""}${clock(d.t)}<small style="color:var(--red-ink)">death ${lead + 1}</small></div>
     <div class="what"><div class="part"><b>${killers.length ? [e.killerId, ...(e.assistingParticipantIds || [])].filter(p => p > 0).map(p => pidIcon(A, p) + esc(A.champOf(p))).join(" + ") : "Executed"}${where ? ` <span class="sub">· ${esc(where)}</span>` : ""}</b>
       ${notes.length ? `<div class="cmp">${notes.join(" · ")}</div>` : ""}${fightPanel(A, A.fightOf(e))}</div></div>
-    <div class="acts"><button class="primary" data-watch="${Math.max(0, d.t - 30)}">Watch in my replay</button></div>
+    <div class="acts" data-pv="d${Math.round(d.t)}"><button class="primary" data-watch="${Math.max(0, d.t - 30)}">Watch in my replay</button></div>
+    <div class="gkpb" hidden></div>
   </div>`;
 }
 

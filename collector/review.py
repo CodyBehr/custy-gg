@@ -420,7 +420,7 @@ def trades_for(cfg, game_id):
     return out
 
 
-DEATHS_VERSION = 4
+DEATHS_VERSION = 5
 
 
 def deaths_for(cfg, game_id):
@@ -479,7 +479,8 @@ def deaths_for(cfg, game_id):
                 pos = e.get("position") or {}
                 towers.append((e["timestamp"] / 1000.0, pos.get("x", 0), pos.get("y", 0)))
     try:
-        out = {"deaths": RD.death_reviews(path, slots[me["participantId"]], rmap, kills, towers)}
+        prev = []
+        out = {"deaths": RD.death_reviews(path, slots[me["participantId"]], rmap, kills, towers, previews=prev), "previews": prev}
     except Exception as e:
         core.log.exception("Deaths: decoding %s failed", path)
         return {"error": "Couldn't decode this replay: %s" % e}

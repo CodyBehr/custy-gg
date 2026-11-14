@@ -138,7 +138,7 @@ def _first_clear(track, team, until):
     return out
 
 
-def death_reviews(path, me, roles, kills, towers_dead, d=None):
+def death_reviews(path, me, roles, kills, towers_dead, d=None, previews=None):
     """me: your replay slot. roles: slot -> TOP/JUNGLE/MIDDLE/BOTTOM/UTILITY. kills: [{t, victim, killer, assists, x, z}] in
     replay slots (killer -1 for towers/minions). towers_dead: [(t, x, z)]. Returns a list of reviewed deaths."""
     if d is None:
@@ -171,6 +171,23 @@ def death_reviews(path, me, roles, kills, towers_dead, d=None):
                     return True
         return False
 
+    if previews is not None:   # a short playback for every kill and death of yours, card or not
+        for kill in kills:
+            T = kill["t"]
+            if kill["victim"] == me:
+                inv = [k for k in [kill["killer"]] + list(kill.get("assists") or []) if k is not None and k >= 0 and team(k) != my]
+                kind = "death"
+            elif kill["killer"] == me:
+                inv, kind = [kill["victim"]], "kill"
+            else:
+                continue
+            mp = _pos(tracks.get(me), T - 0.5) or (kill["x"], kill["z"])
+            for k in enemies:   # other enemies who were in the fight
+                q = _pos(tracks.get(k), T - 1)
+                if k not in inv and alive(k, T - 1) and q and math.hypot(q[0] - mp[0], q[1] - mp[1]) < 1500:
+                    inv.append(k)
+            previews.append({"t": T, "kind": kind, "pos": [round(mp[0]), round(mp[1])], "map": {"me": me}, "who": [],
+                             "pb": _playback(d, me, inv, [], T, seen, kills, enemies, lead=20 if kind == "kill" else 25)})
     out = []
     opp_roles = LANE_OPP.get(roles.get(me, ""), ())
     for kill in kills:
@@ -370,11 +387,11 @@ def _verdict(r, my_role):
     return lines
 
 
-def _playback(d, me, involved, who, T, seen, kills, enemies):
+def _playback(d, me, involved, who, T, seen, kills, enemies, lead=30):
     """Everything the page needs to play the lead-up back: all 10 champions, minions near you, hits on you,
     casts, deaths, and when each enemy was visible to your team. Times are seconds from the window start."""
     seen_at = [w["lastSeen"] for w in who if w.get("lastSeen") is not None]
-    w0 = min(T - 30, max(T - 90, min(seen_at) - 3)) if seen_at else T - 30
+    w0 = min(T - 30, max(T - 90, min(seen_at) - 3)) if seen_at else T - lead
     w0 = max(0.0, w0); w1 = T + 3
     rel = lambda t: round(t - w0, 2)
 
