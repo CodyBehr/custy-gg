@@ -361,7 +361,8 @@ body.viewing [data-watch], body.viewing #ov { display:none !important; }
 .gk .gkbtns { display:flex; gap:8px; flex-wrap:wrap; } .gk .gkbtns button:not(.primary) { background:var(--deck-2); border:1px solid var(--line); color:var(--ink); border-radius:8px; padding:6px 12px; cursor:pointer; font:inherit; }
 .gkpb { grid-column:1 / -1; margin-top:4px; }
 .gkpb .stage { position:relative; } .gkpb canvas.main { width:100%; height:auto; display:block; background:#101820; border:1px solid #26313f; border-radius:10px; }
-.gkpb canvas.mini { position:absolute; right:10px; bottom:10px; width:150px; height:150px; border:1px solid #3a4a5c; border-radius:6px; background:#0d141c; }
+.gkpb canvas.mini { position:absolute; right:10px; bottom:10px; width:34%; aspect-ratio:1; height:auto; border:2px solid #3a4a5c; border-radius:8px; background:#0d141c; cursor:zoom-in; box-shadow:0 4px 18px rgba(0,0,0,.55); transition:width .15s; }
+.gkpb canvas.mini.big { width:62%; cursor:zoom-out; }
 .gkpb .zm, .gkpb .fog { position:absolute; top:10px; display:flex; gap:4px; } .gkpb .zm { left:10px; } .gkpb .fog { right:10px; }
 .gkpb .zm button, .gkpb .fog button, .gkpb .ctl button { background:var(--deck-2); border:1px solid var(--line); color:var(--ink); border-radius:8px; padding:3px 10px; cursor:pointer; font:inherit; font-size:12.5px; }
 .gkpb button.on { border-color:var(--gold); color:var(--gold); }
@@ -1628,7 +1629,7 @@ async function open(box, d, champs0, btn) {
   const champs = champs0.map(([n, t]) => [LT.ddId(n), t || (champs0.indexOf(n) < 5 ? 100 : 200)]);
   const team = k => (k < 5 ? 100 : 200), ally = k => team(k) === myTeam, inv = p.involved;
   box.hidden = false; btn.textContent = "■ Close playback";
-  box.innerHTML = `<div class="stage"><canvas class="main" width="960" height="600"></canvas><canvas class="mini" width="300" height="300"></canvas>
+  box.innerHTML = `<div class="stage"><canvas class="main" width="960" height="600"></canvas><canvas class="mini" width="640" height="640" title="Click to enlarge"></canvas>
     <div class="zm"><button data-z="3500">Close</button><button data-z="6000" class="on">Area</button><button data-z="10000">Wide</button></div>
     <div class="fog"><button data-fog="1" class="on">What your team saw</button><button data-fog="0">Everything</button></div>
     <div class="maplegend"><span style="color:#4aa3ff">●</span> your team &nbsp;<span style="color:#ff5a5a">●</span> enemy &nbsp;· faded icon with ? = where your team last saw them</div></div>
@@ -1722,11 +1723,16 @@ async function open(box, d, champs0, btn) {
         cx.strokeStyle = col(k); cx.lineWidth = 2; cx.strokeRect(ix + S / 2 - s / 2, iy + S / 2 - s / 2, s, s);
         cx.font = "800 11px system-ui"; cx.textAlign = "center"; cx.fillStyle = "#000"; cx.fillRect(ix + S - 11, iy + S - 10, 12, 12); cx.fillStyle = "#fff"; cx.fillText(e[3], ix + S - 5, iy + S); cx.restore(); } }
     // minimap
-    mx.clearRect(0, 0, MV.width, MV.height); if (mini.complete && mini.naturalWidth) mx.drawImage(mini, 0, 0, MV.width, MV.height);
-    const [r0x, r0y] = toMini(C.x0, C.z1), [r1x, r1y] = toMini(C.x1, C.z0); mx.strokeStyle = "rgba(255,255,255,.85)"; mx.lineWidth = 2; mx.strokeRect(r0x, r0y, r1x - r0x, r1y - r0y);
+    mx.clearRect(0, 0, MV.width, MV.height); mx.imageSmoothingQuality = "high";
+    if (map.complete && map.naturalWidth) mx.drawImage(map, 0, 0, MV.width, MV.height); else if (mini.complete && mini.naturalWidth) mx.drawImage(mini, 0, 0, MV.width, MV.height);
+    const [r0x, r0y] = toMini(C.x0, C.z1), [r1x, r1y] = toMini(C.x1, C.z0); mx.strokeStyle = "rgba(255,255,255,.85)"; mx.lineWidth = 3; mx.strokeRect(r0x, r0y, r1x - r0x, r1y - r0y);
+    for (const k of order) {   // last 4s of movement, only the part your team could see in fog view
+      mx.beginPath(); let first = true; for (let s = 4; s >= 0; s -= 0.25) { if (st.fog && !visible(k, t - s)) { first = true; continue; } const rr = posAt(k, t - s); if (!rr) continue; const [a, b] = toMini(rr.x, rr.z); first ? mx.moveTo(a, b) : mx.lineTo(a, b); first = false; }
+      mx.strokeStyle = k === me ? "rgba(255,212,121,.8)" : ally(k) ? "rgba(74,163,255,.7)" : "rgba(255,90,90,.75)"; mx.lineWidth = 4; mx.lineCap = "round"; mx.stroke(); }
     for (const k of order) { let q = posAt(k, t), o = {}; if (!q) continue;
       if (!visible(k, t)) { if (st.fog) { const ls = lastSeen(k, t), pp = ls != null ? posAt(k, ls) : pin(k); if (!pp) continue; q = pp; o = { alpha: .6, dash: true, q: true }; } else o = { alpha: .55, dash: true }; }
-      icon(mx, toMini(q.x, q.z), k, k === me || inv.includes(k) ? 13 : 10, o); }
+      const dead = (e => e && t >= e[0] && t < e[0] + 12)(deadAt(k)); if (dead) o.x = true;
+      icon(mx, toMini(q.x, q.z), k, k === me || inv.includes(k) ? 24 : 20, o); }
     // chips: in sight or how long unseen
     box.querySelectorAll(".chip").forEach(c => { const k = +c.dataset.k, v = visible(k, t), ls = lastSeen(k, t), pp = pin(k);
       c.classList.toggle("on", v); c.querySelector("i").textContent = v ? "in sight" : ls != null ? `unseen ${Math.round(t - ls)}s` : pp ? `unseen ${Math.round(t - pp.at)}s` : "not seen"; });
@@ -1739,6 +1745,7 @@ async function open(box, d, champs0, btn) {
     if (st.t >= L) { st.t = L; st.playing = false; box.querySelector(".pl").textContent = "▶ Play"; }
     draw(); if (st.playing) st.raf = requestAnimationFrame(frame); }
   const play = on => { st.playing = on; box.querySelector(".pl").textContent = on ? "❚❚ Pause" : "▶ Play"; if (on) { st.last = null; st.raf = requestAnimationFrame(frame); } };
+  MV.onclick = () => MV.classList.toggle("big");
   box.querySelector(".pl").onclick = () => { if (st.t >= L) st.t = 0; play(!st.playing); };
   box.querySelector(".re").onclick = () => { st.t = 0; play(true); };
   const spd = () => box.querySelectorAll("[data-sp]").forEach(b => b.classList.toggle("on", +b.dataset.sp === st.speed)); spd();
@@ -1825,7 +1832,7 @@ let PB=null;
 function openPB(tr,cell){
   if(PB&&PB.raf) cancelAnimationFrame(PB.raf);
   const g=GAME, p=tr.pb, L=p.len;
-  cell.innerHTML=`<div class="pbwrap"><div class="stage"><canvas class="main" width="960" height="560"></canvas><canvas class="mini" width="300" height="300"></canvas><div class="zm"><button data-z="3000">Close</button><button data-z="4800" class="on">Lane</button><button data-z="8000">Wide</button></div><div class="maplegend"><span style="color:#4aa3ff">●</span> your team &nbsp;<span style="color:#ff5a5a">●</span> enemy &nbsp;· lines = hits · ability icons pop when cast · from your replay file</div></div><div class="pb">
+  cell.innerHTML=`<div class="pbwrap"><div class="stage"><canvas class="main" width="960" height="560"></canvas><canvas class="mini" width="640" height="640" title="Click to enlarge"></canvas><div class="zm"><button data-z="3000">Close</button><button data-z="4800" class="on">Lane</button><button data-z="8000">Wide</button></div><div class="maplegend"><span style="color:#4aa3ff">●</span> your team &nbsp;<span style="color:#ff5a5a">●</span> enemy &nbsp;· lines = hits · ability icons pop when cast · from your replay file</div></div><div class="pb">
     <div class="fighter me" id="fMe"><h3>${esc(nm(g.me))} <small>you · lvl ${tr.lv[0]}</small></h3><div class="big"><div class="ghost"></div><div class="cur"></div></div>
       <div class="hpnum"></div><div class="cast"></div><div class="pops"></div><div class="dead">DIED</div></div>
     <div class="fighter op" id="fOp"><h3>${esc(nm(g.opp))} <small>lvl ${tr.lv[1]}</small></h3><div class="big"><div class="ghost"></div><div class="cur"></div></div>
