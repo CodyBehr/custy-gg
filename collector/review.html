@@ -2832,8 +2832,8 @@ function gamePlan(B, champ, role, opp) {
     if (J) {
       L.push(J.start_top >= .6 ? `Most start <b>top side</b> (${pct(J.start_top)}).` : J.start_top <= .4 ? `Most start <b>bot side</b> (${pct(1 - J.start_top)}).` : `They start either side (${pct(J.start_top)} top).`);
       const c24 = expertClear(J);
-      if (c24) L.push(`<b>First clear:</b> experts hit <b>level 4 at ${clock((J.lv4 || [172, 181, 217])[1])}</b> (most between ${clock((J.lv4 || [172, 181, 217])[0])} and ${clock((J.lv4 || [172, 181, 217])[2])}). Every few seconds counts: if you're past that, your route is losing time.${J.lane_before_clear != null ? ` ${J.lane_before_clear >= .5 ? `Over half the time (${pct(J.lane_before_clear)}) they show up in a lane <b>before</b> finishing it, so ganking early is normal on this champion.` : `Most (${pct(1 - J.lane_before_clear)}) <b>finish the clear first</b>, then look for a lane.`}` : ""}`);
-      if (J.first_lane?.length) L.push(`First lane visit is usually <b>${J.first_lane[0][0]}</b> (${pct(J.first_lane[0][1] / J.n)}) around ${clock((J.first_lane_min || 3) * 60)}; first kill or assist around <b>${clock(J.first_takedown || 0)}</b>.`);
+      if (c24) L.push(`<b>First clear:</b> experts hit <b>level 4 at ${clock((J.lv4 || [172, 181, 217])[1])}</b> (most between ${clock((J.lv4 || [172, 181, 217])[0])} and ${clock((J.lv4 || [172, 181, 217])[2])}). Every few seconds counts: if you're past that, your route is losing time.`);
+      if (J.first_takedown) L.push(`First kill or assist usually comes around <b>${clock(J.first_takedown)}</b>.`);
       const gl = Object.entries(J.ganks || {}).sort((a, b) => b[1][0] - a[1][0])[0];
       if (gl) L.push(`Most early takedowns come in <b>${gl[0]}</b> lane (${gl[1][0]} a game before 14:00).`);
       if (J.enemy_camps != null) L.push(J.enemy_camps >= 8 ? `They invade a lot: about <b>${J.enemy_camps}</b> enemy camps a game.` : `About ${J.enemy_camps} enemy camps a game.`);
