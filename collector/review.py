@@ -888,7 +888,87 @@ def refresh(cfg):
             core.log.info("Review: couldn't read game %s: %s", s.get("gameId"), e)
     _prune_cache()
     _lp_update(lcu, me["puuid"])
+    if time.time() - _bf.get("started", 0) > 1800:
+        plat = next((g.get("platformId") for g in games if g.get("platformId")), None) or "NA1"
+        threading.Thread(target=backfill_history, args=(cfg, me["puuid"], plat), daemon=True).start()
     return me, None
+
+
+# Your full history, like op.gg: the client only keeps recent games, so older ranked and normal games come from
+# Riot's match API through the site. Paced well under the site key's limit (100 requests / 2 min, shared with
+# lookups), two requests per game (match + timeline). Games are kept for good, so this only fetches new ones.
+BACKFILL_GAMES = 200
+BACKFILL_RATE = 50         # requests per 2 minutes, at most
+_bf = {"state": "idle"}
+
+
+def backfill_history(cfg, puuid, platform):
+    if _bf.get("state") == "working" or not cfg.get("site_url") or not cfg.get("ingest_key"):
+        return
+    _bf.clear(); _bf.update(state="working", loaded=0, started=time.time())
+    skip_path = os.path.join(core.HERE, "review-riot-skip.json")
+    try:
+        skip = set(json.load(open(skip_path)))
+    except (OSError, ValueError):
+        skip = set()
+    stamps = []
+
+    def pace(n):
+        while True:
+            now = time.time()
+            stamps[:] = [t for t in stamps if now - t < 120]
+            if len(stamps) + n <= BACKFILL_RATE:
+                stamps.extend([now] * n)
+                return
+            time.sleep(max(1, 120 - (now - stamps[0])))
+    try:
+        ids = []
+        for typ in ("ranked", "normal"):
+            for start in range(0, BACKFILL_GAMES, 100):
+                pace(1)
+                page = _site_get("/api/review/lookup?" + urllib.parse.urlencode(
+                    {"puuid": puuid, "platform": platform, "type": typ, "start": start, "count": 100})).get("ids") or []
+                ids += page
+                if len(page) < 100:
+                    break
+        ids = sorted(set(ids), key=lambda m: -int(m.split("_")[-1]))[:BACKFILL_GAMES]
+        _bf["total"] = len(ids)
+        for mid in ids:
+            gid = int(mid.split("_")[-1])
+            if os.path.exists(_cache_path(gid)) or mid in skip:
+                continue
+            for attempt in range(4):
+                pace(2)
+                try:
+                    raw = _site_get("/api/review/lookup?match=" + mid)
+                    break
+                except Exception as e:
+                    raw = None
+                    if "request limit" in str(e):
+                        time.sleep(120)          # someone else used the shared limit: wait it out
+                        continue
+                    core.log.info("History: couldn't load %s: %s", mid, e)
+                    break
+            if not raw:
+                continue
+            info = raw["match"]["info"]
+            if info.get("queueId") not in _VIEW_QUEUES or info.get("gameDuration", 0) < 600:
+                skip.add(mid)
+                json.dump(sorted(skip), open(skip_path, "w"))
+                continue
+            if os.path.exists(_cache_path(gid)):     # the client saved it meanwhile
+                continue
+            data = riot_to_client(raw["match"], raw["timeline"], puuid)
+            data.pop("viewing", None)
+            data["source"] = "riot"
+            with open(_cache_path(gid), "w", encoding="utf-8") as f:
+                json.dump(data, f)
+            _bf["loaded"] += 1
+        _bf.update(state="done", finished=time.time())
+        core.log.info("History: %d older games loaded from Riot", _bf["loaded"])
+    except Exception as e:
+        core.log.info("History backfill stopped: %s", e)
+        _bf.update(state="error", message=str(e))
 
 
 def list_games(me_puuid=None):

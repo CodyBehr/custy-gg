@@ -2,6 +2,7 @@
 // The Riot key stays on the server.
 //   GET /api/review/lookup?riotId=Name%23TAG&platform=NA1   -> { puuid, gameName, tagLine, ids }
 //   GET /api/review/lookup?match=NA1_5676694528             -> { match, timeline } (raw match-v5)
+//   GET /api/review/lookup?puuid=...&platform=NA1&type=ranked&start=0&count=100 -> { ids } (your history, paged)
 // (Authorization: Bearer <ingest key>)
 
 import { NextResponse } from "next/server";
@@ -43,6 +44,17 @@ export async function GET(req: Request) {
         riot(route, `/lol/match/v5/matches/${match.toUpperCase()}/timeline`, key),
       ]);
       return NextResponse.json({ match: mt, timeline: tl }, { headers: { "Cache-Control": "private, max-age=86400" } });
+    }
+    // A page of your own match ids for the app's history backfill (no account lookup, no ranks: 1 request)
+    const puuid = (url.searchParams.get("puuid") || "").trim();
+    if (puuid) {
+      const platform = (url.searchParams.get("platform") || "NA1").toUpperCase(), route = ROUTES[platform];
+      if (!route || !/^[\w-]{40,90}$/.test(puuid)) return NextResponse.json({ error: "Bad puuid or platform" }, { status: 400 });
+      const start = Math.max(0, Number(url.searchParams.get("start")) || 0), count = Math.min(100, Math.max(1, Number(url.searchParams.get("count")) || 20));
+      const type = url.searchParams.get("type");
+      const q = `start=${start}&count=${count}` + (type === "ranked" || type === "normal" ? `&type=${type}` : "");
+      const ids: string[] = await riot(route, `/lol/match/v5/matches/by-puuid/${puuid}/ids?${q}`, key);
+      return NextResponse.json({ ids });
     }
     const riotId = (url.searchParams.get("riotId") || "").trim();
     const platform = (url.searchParams.get("platform") || "NA1").toUpperCase();
