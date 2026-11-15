@@ -93,6 +93,8 @@ svg text { fill:var(--mute); font-size:11px; }
 .lvb .lr span { color:var(--mute); } .lvb .bar { display:flex; height:12px; border-radius:4px; overflow:hidden; background:var(--line-soft); }
 .lvb .bar .w { background:var(--green); } .lvb .bar .l { background:var(--red); opacity:.85; } .lvb .lr small { text-align:right; }
 .lvb .lr em { grid-column:2 / -1; font-style:normal; font-size:11.5px; color:var(--gold); margin-top:-2px; } .lvb .lr.mk span { color:var(--gold); font-weight:700; }
+.xpbox { display:flex; align-items:center; gap:12px; margin:12px 0; padding:10px 14px; border:1px solid var(--line); border-radius:10px; background:var(--deck); }
+.xpbox .xi { flex:1; } .xpbox .xi small { display:block; color:var(--muted); margin-top:2px; } .xpbox .bar { height:4px; background:var(--line); border-radius:4px; margin-top:6px; overflow:hidden; } .xpbox .bar i { display:block; height:100%; background:var(--gold); }
 .mu .roles { display:flex; gap:6px; margin:14px 0 6px; } .mu .roles button { padding:6px 14px; border-radius:99px; }
 .mu .roles button.on, .mu .mt.on { background:var(--gold-wash); border-color:var(--gold); color:var(--ink); }
 .mu .pick { margin-top:14px; } .mu .ph { display:flex; gap:10px; align-items:center; margin-bottom:6px; }
@@ -3514,6 +3516,26 @@ function gamePlan(B, champ, role, opp) {
 
 // ---------------------------------------------------------------- Matchup guide: any champion, any opponent
 const MU = { page: true, live: false, role: "TOP", champ: null, opp: null, B: null, index: null, q: "", oq: "" };
+// Expert replays of this exact matchup (public/experts/<A>-<B>-<ROLE>.json), downloaded through League at a few an hour.
+async function drawXp() {
+  const box = $("muXp"); if (!box || !MU.champ || !MU.opp) { if (box) box.innerHTML = ""; return; }
+  const want = [MU.champ, MU.opp, MU.role];
+  let st = null;
+  for (const n of [`${MU.champ}-${MU.opp}-${MU.role}`, `${MU.opp}-${MU.champ}-${MU.role}`]) {
+    const r = await api(`/api/experts/${n}`).catch(() => null);
+    if (r && r.total) { st = r; break; }
+  }
+  if ($("muXp") !== box || want.join() !== [MU.champ, MU.opp, MU.role].join()) return;
+  if (!st) { box.innerHTML = ""; return; }
+  const run = st.state === "working", pct = Math.round(100 * st.have / st.total);
+  box.innerHTML = `<div class="xpbox">${champImg(MU.champ)}${champImg(MU.opp)}<div class="xi"><b>Expert replays of this matchup</b> · ${st.have} of ${st.total} downloaded
+    <small>${run ? esc(st.message || "") : `NA high-elo games on patch ${esc(st.patch || "")}. League allows a few an hour, so this runs in the background (about ${st.perHour} an hour, paused while you play).`}${st.failed?.length ? ` · ${st.failed.length} couldn't be downloaded` : ""}</small>
+    <div class="bar"><i style="width:${pct}%"></i></div></div>
+    ${st.have < st.total ? `<button id="xpGo">${run ? "Stop" : "Download"}</button>` : ""}</div>`;
+  const b = $("xpGo");
+  if (b) b.onclick = async () => { await api(`/api/experts/${st.set}/${run ? "stop" : "start"}`, { method: "POST" }); setTimeout(drawXp, 800); };
+  if (run) setTimeout(() => { if (STATE.current === "matchups") drawXp(); }, 5000);
+}
 async function openMatchups() {
   STATE.current = "matchups"; navState(); $("view").classList.remove("wide");
   if (!DD.runes) await loadCsData();
@@ -3546,7 +3568,7 @@ async function drawMatchups(reload = true) {
     ${MU.champ && games(MU.champ) ? `<div class="pick"><div class="ph"><b>Against</b><input id="muO" placeholder="Search" value="${esc(MU.oq)}">${MU.opp ? `<button id="muClear">Any opponent</button>` : ""}</div>
       <div class="grid">${opps.map(c => tile(c, c === MU.opp, "data-mo", mu[c] ? `${mu[c].n} games` : "")).join("")}</div></div>` : ""}
     ${MU.champ && B ? `<div class="muhead">${champImg(MU.champ)}<b>${esc(csName(MU.champ))}</b><span>${esc(ROLE_NAME[MU.role])}</span>${MU.opp ? `<i>vs</i>${champImg(MU.opp)}<b>${esc(csName(MU.opp))}</b>` : `<span class="sub">against everyone · ${B.games} expert games</span>`}</div>
-      <div id="muBody" class="mugrid"></div>` : MU.champ ? `<div class="empty">No expert data for ${esc(csName(MU.champ))} ${esc(ROLE_NAME[MU.role])} yet.</div>` : `<div class="empty">Pick a champion.</div>`}
+      <div id="muXp"></div><div id="muBody" class="mugrid"></div>` : MU.champ ? `<div class="empty">No expert data for ${esc(csName(MU.champ))} ${esc(ROLE_NAME[MU.role])} yet.</div>` : `<div class="empty">Pick a champion.</div>`}
   </section>`;
   const cs = MU.cs && MU.cs.champion === MU.champ ? MU.cs : null;   // in champ select on this champion: use the client's state
   if (MU.cs) $("view").querySelector("h1").insertAdjacentHTML("afterend", `<div class="note cslive"><b>Champ select</b> · filled in from your client${MU.cs.champion ? `: ${esc(csName(MU.cs.champion))}${MU.cs.role ? " " + esc(ROLE_NAME[MU.cs.role] || "") : ""}${MU.cs.locked ? "" : " (hovering)"}` : ". Hover or pick a champion."}
@@ -3563,6 +3585,7 @@ async function drawMatchups(reload = true) {
   if (MU.champ && B) {
     MU.st = cs ? { ...cs } : { champion: MU.champ, championId: +Object.values(DD.champ).find(c => c.id === MU.champ)?.key || 0, role: MU.role, enemies: [], assigned: true, locked: true, spells: [] };
     drawChampSelect(MU, "muHeadUnused", "muBody");
+    drawXp();
   }
   document.querySelectorAll("[data-role]").forEach(b => b.onclick = () => { MU.role = b.dataset.role; MU.opp = null; drawMatchups(); });
   document.querySelectorAll("[data-mc]").forEach(b => b.onclick = () => { MU.champ = b.dataset.mc; MU.opp = null; drawMatchups(); window.scrollTo(0, 0); });

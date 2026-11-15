@@ -593,6 +593,92 @@ def _download_for_trades(cfg, game_id):
         st.update(state="error", message="The download failed: %s" % e)
 
 
+# Expert replays: League downloads other players' replays too (its own region and patch only), at most 10 an
+# hour per account. We keep well under that and never download while a game is on.
+XP_PER_HOUR = 8
+XP_FILE = os.path.join(core.HERE, "expert-downloads.json")
+_xp = {"state": "idle"}
+
+
+def _xp_times():
+    try:
+        return [t for t in json.load(open(XP_FILE)) if time.time() - t < 3600]
+    except Exception:
+        return []
+
+
+def _xp_have(cfg, game_id):
+    d = replay_dir(cfg)
+    try:
+        return d and any(f.endswith(".rofl") and ("-%s." % game_id) in f for f in os.listdir(d))
+    except OSError:
+        return False
+
+
+def expert_status(cfg, name):
+    data = benchmark(cfg, name, folder="experts")
+    games = [] if data.get("missing") else data.get("games", [])
+    out = dict(_xp) if _xp.get("set") == name else {"state": "idle"}
+    out.update(set=name, total=len(games), have=sum(1 for g in games if _xp_have(cfg, g["gameId"])),
+               patch=data.get("patch"), hourLeft=max(0, XP_PER_HOUR - len(_xp_times())), perHour=XP_PER_HOUR)
+    return out
+
+
+def expert_fetch(cfg, name):
+    """Downloads every replay in public/experts/<name>.json that isn't in the Replays folder yet, paced."""
+    if _xp.get("state") == "working":
+        return
+    _xp.clear(); _xp.update(state="working", set=name, failed=[], message="Starting...")
+    try:
+        data = benchmark(cfg, name, folder="experts")
+        games = [] if data.get("missing") else data.get("games", [])
+        for g in games:
+            gid = g["gameId"]
+            if _xp.get("stop"):
+                break
+            if _xp_have(cfg, gid):
+                continue
+            while not _xp.get("stop"):
+                lcu = _lcu(cfg)
+                phase = lcu.get("/lol-gameflow/v1/gameflow-phase") if lcu else None
+                times = _xp_times()
+                if lcu is None:
+                    _xp["message"] = "Waiting for League to open."
+                elif phase in ("ChampSelect", "InProgress", "Reconnect", "GameStart", "WaitingForStats"):
+                    _xp["message"] = "Paused while you play."
+                elif len(times) >= XP_PER_HOUR:
+                    _xp["message"] = "Hourly limit reached (%d an hour). Next one in about %d min." % (
+                        XP_PER_HOUR, max(1, (min(times) + 3600 - time.time()) // 60))
+                    _xp["next_at"] = min(times) + 3600
+                else:
+                    break
+                time.sleep(20)
+            if _xp.get("stop"):
+                break
+            json.dump(_xp_times() + [time.time()], open(XP_FILE, "w"))   # counts against the limit either way
+            _xp["message"] = "Downloading game %s..." % gid
+            meta = _replay_meta(lcu, gid, g)
+            core.log.info("Expert replay %s (%s): metadata %s", gid, g.get("gameVersion"), meta)
+            if meta.get("state") != "watch":
+                try:
+                    r = _lcu_post(lcu, "/lol-replays/v1/rofls/%s/download" % gid, {"componentType": "replay-button_match-history"})
+                    core.log.info("Expert replay %s: download request -> %s", gid, r)
+                except urllib.error.HTTPError as e:
+                    core.log.info("Expert replay %s: download request HTTP %s %s", gid, e.code, e.read()[:300])
+                for _ in range(180):
+                    time.sleep(1)
+                    meta = _replay_meta(lcu, gid, g)
+                    if meta.get("state") in ("watch", "incompatible", "unsupported", "lost", "missingOrExpired", "error"):
+                        break
+                core.log.info("Expert replay %s: final metadata %s", gid, meta)
+            if meta.get("state") != "watch" and not _xp_have(cfg, gid):
+                _xp["failed"].append({"gameId": gid, "why": meta.get("state") or "no answer"})
+        _xp.update(state="done", message="Stopped." if _xp.get("stop") else "All downloaded.")
+    except Exception as e:
+        core.log.info("Expert replays: %s", e)
+        _xp.update(state="error", message=str(e))
+
+
 def _lcu(cfg):
     creds = core.find_client(cfg)
     return core.LeagueClient(*creds) if creds else None
@@ -1112,21 +1198,31 @@ def _seek(seconds):
     return _status("done", "Replay is open, but the jump didn't stick. Drag the timeline to %s." % _clock(target))
 
 
-def _replay_meta(lcu, game_id):
+def _replay_meta(lcu, game_id, game=None):
     """What League knows about this game's replay. For a game the client hasn't shown in match history yet
-    it knows nothing (404) until it's asked to look, so ask, the way the match history page does."""
+    it knows nothing (404) until it's asked to look, so ask, the way the match history page does. Someone else's
+    game isn't in our cache, so its version, queue and end time come in `game` (from the Riot match API): without
+    them League can't tell which replay file to fetch."""
     path = "/lol-replays/v1/metadata/%s" % game_id
     try:
         return lcu.get(path) or {}
     except urllib.error.HTTPError as e:
         if e.code != 404:
             raise
-    game = (_read_cache(game_id) or {}).get("game") or {}
+    game = game or (_read_cache(game_id) or {}).get("game") or {}
     body = {"gameVersion": game.get("gameVersion") or "", "gameType": game.get("gameType") or "MATCHED_GAME",
             "queueId": _num(game.get("queueId")),
-            "gameEnd": _num(game.get("gameCreation")) + _num(game.get("gameDuration")) * 1000}
+            "gameEnd": _num(game.get("gameEnd")) or _num(game.get("gameCreation")) + _num(game.get("gameDuration")) * 1000}
+    if not body["gameVersion"]:
+        core.log.info("Replay metadata for %s: no game version known, League may not find this replay", game_id)
     try:
-        _lcu_post(lcu, path + "/create", body)
+        core.log.info("Replay metadata create %s %s -> %s", game_id, body, _lcu_post(lcu, path + "/create", body))
+    except urllib.error.HTTPError as e:
+        try:
+            why = e.read()[:300]
+        except Exception:
+            why = b""
+        core.log.info("Replay metadata create for %s: HTTP %s %s", game_id, e.code, why)
     except Exception as e:
         core.log.info("Replay metadata create for %s failed: %s", game_id, e)
     for _ in range(5):
@@ -1520,6 +1616,9 @@ def make_handler(cfg, token):
                     return self._send(200, dict(_clip))
             if url.path == "/api/clips":
                 return self._send(200, list_clips())
+            m = re.match(r"^/api/experts/([A-Za-z]+-[A-Za-z]+-[A-Z]+)$", url.path)   # expert replay downloads
+            if m:
+                return self._send(200, expert_status(cfg, m.group(1)))
             if url.path == "/api/benchmark-index":   # champion -> role -> expert games, for the matchup guide
                 import champselect
                 return self._send(200, champselect.role_index(cfg))
@@ -1603,6 +1702,13 @@ def make_handler(cfg, token):
                     os.startfile(clips_dir())   # Windows: opens the folder in Explorer
                 except Exception:
                     pass
+                return self._send(200, {"ok": True})
+            m = re.match(r"^/api/experts/([A-Za-z]+-[A-Za-z]+-[A-Z]+)/(start|stop)$", url.path)
+            if m:
+                if m.group(2) == "stop":
+                    _xp["stop"] = True
+                else:
+                    threading.Thread(target=expert_fetch, args=(cfg, m.group(1)), daemon=True).start()
                 return self._send(200, {"ok": True})
             if url.path == "/api/replay-setup":
                 try:
