@@ -1396,6 +1396,80 @@ def _replay_post(path, body):
 _win_prev = {}
 
 
+def _clip_setting(key, default=None):
+    try:
+        return json.load(open(CLIP_SETTINGS)).get(key, default)
+    except Exception:
+        return default
+
+
+def _save_clip_setting(key, value):
+    try:
+        d = json.load(open(CLIP_SETTINGS))
+    except Exception:
+        d = {}
+    d[key] = value
+    json.dump(d, open(CLIP_SETTINGS, "w"))
+
+
+def _hide_how():
+    """'vanish' (no window, no taskbar button) until we've seen League stop drawing that way, then 'hide' (off screen)."""
+    how = "hide" if _clip_setting("vanish_stalls") else "vanish"
+    _win_prev["how"] = how
+    return how
+
+
+def _league_mute(on):
+    """Mutes League's replay sound in Windows' volume mixer (only League's, nothing else), or unmutes it."""
+    if os.name != "nt":
+        return False
+    try:
+        import comtypes
+        from pycaw.pycaw import AudioUtilities
+        comtypes.CoInitialize()
+        done = False
+        for ses in AudioUtilities.GetAllSessions():
+            if ses.Process and ses.Process.name().lower() == "league of legends.exe":
+                ses.SimpleAudioVolume.SetMute(1 if on else 0, None)
+                done = True
+        return done
+    except Exception as e:
+        core.log.info("Clip: %s failed: %s", "mute" if on else "unmute", e)
+        return False
+
+
+def _mute_when_ready(stop):
+    """League's sound session appears a little after its window: keep trying until it's muted."""
+    for _ in range(200):
+        if _league_mute(True):
+            core.log.info("Clip: replay sound muted")
+            return
+        if stop.wait(0.3):
+            return
+
+
+def _window_mode(cfg, mode=None):
+    """Reads (or sets) WindowMode in League's game.cfg: 0 full screen, 1 windowed, 2 borderless."""
+    path = _game_cfg(cfg)
+    if not path or not os.path.exists(path):
+        return None
+    with open(path, "r", encoding="utf-8", errors="replace") as f:
+        text = f.read()
+    m = re.search(r"(?im)^\s*WindowMode\s*=\s*(\d+)", text)
+    if mode is None:
+        return int(m.group(1)) if m else None
+    if m:
+        text = re.sub(r"(?im)^(\s*WindowMode\s*=\s*)\d+", lambda x: x.group(1) + str(mode), text, count=1)
+    else:
+        nl = "\r\n" if "\r\n" in text else "\n"
+        text = re.sub(r"(?im)^(\[General\]\s*?)$", lambda x: x.group(1) + nl + "WindowMode=%d" % mode, text, count=1)
+    with open(path, "w", encoding="utf-8", newline="") as f:
+        f.write(text)
+    return mode
+
+
+
+
 def _hide_as_it_opens(stop):
     """Moves the replay window off the screen the moment it appears, instead of after it has loaded."""
     if os.name != "nt":
@@ -1405,14 +1479,15 @@ def _hide_as_it_opens(stop):
         u = ctypes.windll.user32
         _win_prev["hwnd"] = u.GetForegroundWindow()
         end = time.time() + 120
+        how = _hide_how()
         while time.time() < end and not stop.is_set():
             if u.FindWindowW("RiotWindowClass", None):
-                _league_window("hide")
-                # League re-centres its window as it finishes loading: keep it off screen for a while longer
+                _league_window(how)
+                # League re-centres its window as it finishes loading: keep it away for a while longer
                 for _ in range(100):
                     if stop.wait(0.1):
                         return
-                    _league_window("hide")
+                    _league_window(_win_prev.get("how", how))
                 return
             stop.wait(0.03)
     except Exception as e:
@@ -1432,12 +1507,19 @@ def _league_window(action):
             return False
         if action == "close":
             u.PostMessageW(hwnd, 0x0010, 0, 0)          # WM_CLOSE, same as clicking the X
+        elif action == "vanish":                          # hidden entirely, no taskbar button (if League keeps drawing)
+            u.ShowWindow(hwnd, 0)
+            prev = _win_prev.get("hwnd")
+            if prev and prev != hwnd:
+                u.SetForegroundWindow(prev)
         elif action == "hide":
+            u.ShowWindow(hwnd, 4)                             # SW_SHOWNOACTIVATE, in case it was hidden entirely
             u.SetWindowPos(hwnd, 0, -4000, -4000, 0, 0, 0x0001 | 0x0004 | 0x0010)   # move off screen, keep size
             prev = _win_prev.get("hwnd")
             if prev and prev != hwnd:
                 u.SetForegroundWindow(prev)                  # give the screen back to whatever you were using
         elif action == "show":
+            u.ShowWindow(hwnd, 5)
             u.SetWindowPos(hwnd, 0, 40, 40, 0, 0, 0x0001 | 0x0004)
         return True
     except Exception as e:
@@ -1493,8 +1575,42 @@ def _follow(cfg, game_id, champion, t0, t1):
         if str(r.get("selectionName") or "").lower() == n.lower():
             picked = n
             break
-    # League's replay API can select a champion but can't pick it in the replay's camera dropdown (the real lock),
-    # so the camera flies along the champion's path from the replay file instead, at the game camera's angle.
+    # The replay API can't pick a champion in the camera dropdown (the real lock), but it can attach the FPS camera
+    # to the selected champion: League then carries the camera along with it every frame (Flash, dashes and all).
+    # Put the camera where the game camera would be over the champion, attach, and check it really moves.
+    if picked:
+        try:
+            import replay_trades as RT
+            game = (_read_cache(game_id) or {}).get("game") or {"gameId": game_id}
+            path = _rofl_path(cfg, game)
+            d = RT.decode(path, until=t0 + 3) if path else None
+            slot = next((k for k, st in enumerate((d or {}).get("stats", [])) if
+                         re.sub(r"[^a-z]", "", str(st.get("SKIN") or "").lower()) == re.sub(r"[^a-z]", "", champion.lower())), None)
+            L = [p for p in (d["tracks"].get(slot) or [])] if d and slot is not None else []
+            here = None
+            for p in L:
+                if p[0] <= t0 + 1.5:
+                    here = p
+            # the champion may have moved since its last click; fine, the camera is re-centred below if needed
+            x, z = (here[1], here[2]) if here else (None, None)
+            body = {"cameraMode": "fps", "cameraAttached": False, "selectionName": picked,
+                    "cameraRotation": {"x": 0.0, "y": 56.0, "z": 0.0}}
+            if x is not None:
+                body["cameraPosition"] = {"x": float(x), "y": 1900.0, "z": float(z) - 1250.0}
+            _replay_post("/replay/render", body)
+            time.sleep(0.3)
+            _replay_post("/replay/render", {"cameraAttached": True})
+            time.sleep(0.4)
+            a = _render_now(); time.sleep(1.6); b = _render_now()
+            pa, pb = a.get("cameraPosition") or {}, b.get("cameraPosition") or {}
+            moved = math.hypot(float(pb.get("x", 0)) - float(pa.get("x", 0)), float(pb.get("z", 0)) - float(pa.get("z", 0)))
+            core.log.info("Clip: attached camera to %s at %s -> mode=%r attached=%r, moved %.0f units in 1.6s (%s -> %s)",
+                          picked, body.get("cameraPosition"), b.get("cameraMode"), b.get("cameraAttached"), moved, pa, pb)
+            if b.get("cameraAttached") and moved > 60:
+                return True
+            _replay_post("/replay/render", {"cameraAttached": False})
+        except Exception as e:
+            core.log.info("Clip: attaching the camera failed: %s", e)
     core.log.info("Clip: following %s along its path from the replay file", champion)
     try:
         import replay_trades as RT
@@ -1542,19 +1658,34 @@ def _clear_sequence():
         pass
 
 
+def _replay_open():
+    try:
+        _live("/replay/playback")
+        return True
+    except Exception:
+        return False
+
+
 def _record_clip(cfg, game_id, spec):
     """Same order as Riot's League Director: set the camera, press play, then turn recording on with a folder
     as the path. League names the file and reports it (and its progress) on GET /replay/recording."""
     hidden = False
+    restore_mode = None
     try:
         t0 = max(0.0, float(spec.get("start", 0)))
         t1 = max(t0 + 1, float(spec.get("end", t0 + 15)))
         if replay_api_enabled(cfg) is False:
             return _clip_status("error", "Clips need replay jumping turned on (Replay API). Turn it on from any game's banner, restart League, then try again.")
-        _clip_status("working", "Opening the replay...")
         hide_stop = threading.Event()
+        if spec.get("hide") and _window_mode(cfg) == 0 and not _replay_open():
+            # Full screen can't be moved off the screen: open this replay borderless, then put the setting back
+            restore_mode = 0 if _window_mode(cfg, 2) is not None else None
+            core.log.info("Clip: League is set to full screen; opening this replay borderless")
+        _clip_status("working", "Opening the replay...")
         if spec.get("hide"):
             threading.Thread(target=_hide_as_it_opens, args=(hide_stop,), daemon=True).start()
+        if spec.get("mute", True):
+            threading.Thread(target=_mute_when_ready, args=(hide_stop,), daemon=True).start()
         _open_replay(cfg, game_id, t0)
         with _lock:
             st = dict(_replay)
@@ -1570,7 +1701,7 @@ def _record_clip(cfg, game_id, spec):
             core.log.info("Clip: render -> %s", _replay_post("/replay/render", render))
         except Exception as e:
             core.log.info("Clip: render failed: %s", e)
-        hidden = bool(spec.get("hide")) and _league_window("hide")
+        hidden = bool(spec.get("hide")) and _league_window(_win_prev.get("how") or _hide_how())
         folder = clips_dir()
         watch = [folder] + [d for d in {_highlights_dir()} if d != folder and os.path.isdir(d)]
         before = {d: set(os.listdir(d)) for d in watch if os.path.isdir(d)}
@@ -1595,8 +1726,18 @@ def _record_clip(cfg, game_id, spec):
             if rec.get("recording"):
                 if not started:
                     core.log.info("Clip: League is recording: %s", rec)
+                    last_t, last_at = None, time.time()
                 started = True
                 cur = float(rec.get("currentTime") or t0)
+                if cur != last_t:
+                    last_t, last_at = cur, time.time()
+                elif hidden and _win_prev.get("how") == "vanish" and time.time() - last_at > 4:
+                    # Hidden entirely, League stopped drawing: remember that, and move it off screen instead
+                    core.log.info("Clip: recording stalled with the window hidden entirely; moving it off screen instead")
+                    _save_clip_setting("vanish_stalls", True)
+                    _win_prev["how"] = "hide"
+                    _league_window("hide")
+                    last_at = time.time()
                 _clip_status("working", "Recording... %d%%" % max(0, min(99, int(100 * (cur - t0) / (t1 - t0)))))
             elif started or time.time() > start_by:
                 break
@@ -1607,6 +1748,10 @@ def _record_clip(cfg, game_id, spec):
         except Exception:
             pass
         hide_stop.set()
+        if started and hidden and _win_prev.get("how") == "vanish" and not _clip_setting("vanish_stalls"):
+            _save_clip_setting("vanish_ok", True)
+        if spec.get("mute", True) and not spec.get("close", True):
+            _league_mute(False)
         if hidden and not spec.get("close", True):   # closing it anyway: no need to bring it back first
             _league_window("show")
         hidden = False
@@ -1646,7 +1791,14 @@ def _record_clip(cfg, game_id, spec):
         core.log.exception("Clip failed")
         if hidden:
             _league_window("show")
+        _league_mute(False)
         _clip_status("error", "Couldn't record the clip: %s" % e)
+    finally:
+        if restore_mode is not None:   # League reads it at the next launch; your normal setting goes back now
+            try:
+                _window_mode(cfg, restore_mode)
+            except Exception as e:
+                core.log.info("Clip: couldn't put full screen back: %s", e)
 
 # --------------------------------------------------------------------------
 # The local web server

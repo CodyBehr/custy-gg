@@ -39,7 +39,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install PyInstaller and tray libraries
-        run: pip install pyinstaller==6.11.1 pystray==0.19.5 pillow==11.0.0 zstandard==0.23.0
+        run: pip install pyinstaller==6.11.1 pystray==0.19.5 pillow==11.0.0 zstandard==0.23.0 pycaw==20251023 comtypes==1.5.0 psutil==7.2.2
 
       - name: Stamp the version from custy_collector.py into the file details
         shell: bash
@@ -71,7 +71,7 @@ jobs:
             --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;." --add-data "collector/assets;assets" \
             --version-file collector/version_info_coach.txt \
             --paths collector --hidden-import windows_app --hidden-import edition --hidden-import review --hidden-import overlay \
-            --hidden-import champselect --hidden-import replay_trades --hidden-import replay_deaths --hidden-import zstandard --hidden-import tkinter --hidden-import pystray._win32 \
+            --hidden-import champselect --hidden-import replay_trades --hidden-import replay_deaths --hidden-import zstandard --hidden-import pycaw.pycaw --hidden-import comtypes.stream --hidden-import tkinter --hidden-import pystray._win32 \
             collector/custy_collector.py
 
       - name: Check the app starts and reads attached settings

@@ -2490,7 +2490,7 @@ function openClip(A, t, label, pos) {
     <div class="cl-row" style="margin-top:14px"><span class="h-mute">Size: same as the replay window</span>
       <label>Frame rate <select id="clR"><option${p.rate == 60 ? " selected" : ""}>60</option><option${p.rate == 30 ? " selected" : ""}>30</option></select></label>
       <label><input type="checkbox" id="clHud" ${p.hud ? "checked" : ""}> Show the game's HUD</label></div>
-    <div class="cl-row"><label><input type="checkbox" id="clHide" ${p.hide ? "checked" : ""}> Keep the replay off my screen while it records <span class="h-mute">(experimental)</span></label><label><input type="checkbox" id="clClose" ${p.close ? "checked" : ""}> Close the replay when done</label></div>
+    <div class="cl-row"><label><input type="checkbox" id="clHide" ${p.hide ? "checked" : ""}> Keep the replay off my screen while it records <span class="h-mute">(experimental)</span></label><label><input type="checkbox" id="clClose" ${p.close ? "checked" : ""}> Close the replay when done</label><label><input type="checkbox" id="clMute" ${p.mute !== false ? "checked" : ""}> Mute the replay while it records</label></div>
     <div class="cl-row cl-dir"><span class="h-mute">Save to</span><b id="clDir" title="">…</b><button id="clPick">Change…</button><button id="clLeague" hidden>Use League's highlights folder</button></div>
     <div class="h-mute" style="font-size:13px;margin-top:4px">File name: <span id="clName"></span></div>
     <div class="h-r" style="margin-top:16px"><div id="clMsg" class="h-mute" style="flex:1">League plays the replay and records it. You can't be in a game while it records.</div><button class="h-gold" id="clGo">● Record clip</button></div></div>`;
@@ -2524,10 +2524,10 @@ function openClip(A, t, label, pos) {
   if (p.camera === "fps") redraw(); else drawCamMap($("clMap"), cam, mark);
   $("clGo").onclick = async () => {
     const b = Math.max(0, +$("clB").value || 0), a = Math.max(0, +$("clA").value || 0);
-    Object.assign(p, { before: b, after: a, rate: +$("clR").value, hud: $("clHud").checked, hide: $("clHide").checked, close: $("clClose").checked, fps: cam });
+    Object.assign(p, { before: b, after: a, rate: +$("clR").value, hud: $("clHud").checked, hide: $("clHide").checked, close: $("clClose").checked, mute: $("clMute").checked, fps: cam });
     saveClipPrefs(p);
     const champ = Object.values(DD.champ).find(c => c.id === p.champ)?.name || p.champ;
-    const spec = { start: Math.max(0, t - b), end: t + a, camera: p.camera, champion: champ, fps: cam, fps_rate: p.rate, hud: p.hud, hide: p.hide, close: p.close,
+    const spec = { start: Math.max(0, t - b), end: t + a, camera: p.camera, champion: champ, fps: cam, fps_rate: p.rate, hud: p.hud, hide: p.hide, close: p.close, mute: p.mute !== false,
       name: clipName() };
     $("clGo").disabled = true;
     try { await api("/api/clip/" + A.g.gameId, { method: "POST", body: JSON.stringify(spec) }); } catch (e) { $("clMsg").textContent = e.message; $("clGo").disabled = false; return; }
