@@ -2879,7 +2879,7 @@ function drawRank() {
   if (!qs.length) { el.innerHTML = ""; return; }
   if (!qs.some(([q]) => q === STATE.rankQ)) STATE.rankQ = qs[0][0];
   const [q, r] = qs.find(([q]) => q === STATE.rankQ), n = (r.wins || 0) + (r.losses || 0);
-  const tracked = STATE.as ? [] : STATE.games.filter(g => g.queue === q && g.lp && g.lp.delta != null && (!g.lp.over || g.lp.last)).slice(0, 12).reverse();
+  const tracked = STATE.as ? [] : STATE.games.filter(g => g.queue === q && g.lp && g.lp.delta != null && (!g.lp.over || g.lp.last)).slice(0, 15).reverse();
   const count = tracked.reduce((a, g) => a + (g.lp.over || 1), 0), net = tracked.reduce((a, g) => a + g.lp.delta, 0);
   let trend = STATE.as ? `<div class="h-sm" style="font-weight:600;max-width:260px">${esc(STATE.me?.gameName || "This player")}'s current rank, from Riot</div>` : `<div class="h-sm" style="font-weight:600;max-width:240px">LP per game shows here from your next ${esc(shortQueue(q))} game on.</div>`;
   if (tracked.length) {
@@ -2889,10 +2889,10 @@ function drawRank() {
     const lad = (x) => { if (!x || !x.tier) return null; const t = String(x.tier).toUpperCase(); if (["MASTER", "GRANDMASTER", "CHALLENGER"].includes(t)) return 2800 + (x.lp || 0);
       const i = LT.indexOf(t); return i < 0 ? null : i * 400 + (LD[String(x.division || "").toUpperCase()] || 0) * 100 + (x.lp || 0); };
     let run = 0; const pts = tracked.map(g => { const v = lad(g.lp.to); run = v ?? run + g.lp.delta; return run; });
-    const w = Math.max(220, Math.min(520, 34 * tracked.length + 40)), h = 132, n = tracked.length, bw = Math.min(18, (w - 40) / n - 6);
+    const n = tracked.length, w = Math.max(300, Math.min(540, 36 * n + 60)), h = 162, bw = Math.min(24, (w - 40) / n - 8);
     const X = (i) => 30 + (n === 1 ? (w - 40) / 2 : i * (w - 40 - bw) / (n - 1));
     const lo = Math.min(...pts) - 10, hi = Math.max(...pts) + 10, Y = (v) => 28 + (1 - (v - lo) / Math.max(1, hi - lo)) * 42;
-    const maxd = Math.max(...tracked.map(g => Math.abs(g.lp.delta)), 1), mid = 90, sc = 14 / maxd;
+    const maxd = Math.max(...tracked.map(g => Math.abs(g.lp.delta)), 1), mid = 98, sc = 18 / maxd;
     const borders = []; for (let v = Math.ceil(lo / 400) * 400; v <= hi; v += 400) borders.push(v);
     const tierAt = (v) => v >= 2800 ? "Master" : cap(LT[Math.floor(v / 400)] || "");
     const turn = tracked.map(g => g.lp.from?.tier && g.lp.to?.tier && g.lp.from.tier !== g.lp.to.tier ? (lad(g.lp.to) > lad(g.lp.from) ? "Promoted" : "Demoted") : "");
@@ -2903,7 +2903,8 @@ function drawRank() {
     trend = `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="LP over your last ${count} tracked games" style="max-width:100%;overflow:visible">
       ${tracked.map((g, i) => { const hh = Math.max(2, Math.abs(g.lp.delta) * sc); return `<g><title>${esc(tipOf(g, i))}</title>
         <rect x="${X(i)}" y="${g.lp.delta > 0 ? mid - hh : mid}" width="${bw}" height="${hh}" rx="3" fill="${g.lp.delta >= 0 ? "#2d52ad" : "#9b3340"}"/>
-        <image href="${champIcon(g.champion)}" x="${X(i)}" y="${h - 20}" width="${bw}" height="${bw}"/></g>`; }).join("")}
+        <text x="${X(i) + bw / 2}" y="${g.lp.delta > 0 ? mid - hh - 3 : mid + hh + 10}" text-anchor="middle" font-size="9.5" font-weight="700" fill="#14151a" style="fill:#14151a">${signed(g.lp.delta)}</text>
+        <image href="${champIcon(g.champion)}" x="${X(i)}" y="${h - bw - 2}" width="${bw}" height="${bw}"/></g>`; }).join("")}
       ${borders.map(v => `<line x1="24" x2="${w - 4}" y1="${Y(v)}" y2="${Y(v)}" stroke="#14151a" stroke-opacity=".45" stroke-dasharray="4 4"/><text x="${w - 4}" y="${Y(v) - 4}" text-anchor="end" font-size="10" font-weight="700" fill="#14151a" style="fill:#14151a">${tierAt(v)}</text>`).join("")}
       ${n > 1 ? `<polyline points="${pts.map((v, i) => (X(i) + bw / 2).toFixed(1) + "," + Y(v).toFixed(1)).join(" ")}" fill="none" stroke="#14151a" stroke-width="2.5" stroke-linejoin="round"/>` : ""}
       ${pts.map((v, i) => `<circle cx="${X(i) + bw / 2}" cy="${Y(v)}" r="4" fill="#14151a"><title>${esc(tipOf(tracked[i], i))}</title></circle>`).join("")}
