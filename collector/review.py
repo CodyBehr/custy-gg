@@ -1493,24 +1493,9 @@ def _follow(cfg, game_id, champion, t0, t1):
         if str(r.get("selectionName") or "").lower() == n.lower():
             picked = n
             break
-    # Selecting a champion doesn't move the camera by itself (that's what happened in 1.16.4: Garen selected,
-    # camera still manual). Try the camera modes that follow the selection, and keep one only if the camera
-    # actually moves on its own.
-    if picked:
-        for mode in ("focus", "top"):
-            try:
-                _replay_post("/replay/render", {"cameraMode": mode, "cameraAttached": True, "selectionName": picked})
-            except Exception as e:
-                core.log.info("Clip: camera mode %s failed: %s", mode, e); continue
-            time.sleep(0.4)
-            a = _render_now(); time.sleep(1.6); b = _render_now()
-            pa, pb = a.get("cameraPosition") or {}, b.get("cameraPosition") or {}
-            moved = math.hypot(float(pb.get("x", 0)) - float(pa.get("x", 0)), float(pb.get("z", 0)) - float(pa.get("z", 0)))
-            core.log.info("Clip: camera mode %s -> mode=%r attached=%r, camera moved %.0f units in 1.6s",
-                          mode, b.get("cameraMode"), b.get("cameraAttached"), moved)
-            if moved > 60 and b.get("cameraMode") == mode:
-                return True
-    core.log.info("Clip: League didn't lock onto %s; steering the camera from the replay's positions", champion)
+    # League's replay API can select a champion but can't pick it in the replay's camera dropdown (the real lock),
+    # so the camera flies along the champion's path from the replay file instead, at the game camera's angle.
+    core.log.info("Clip: following %s along its path from the replay file", champion)
     try:
         import replay_trades as RT
         game = (_read_cache(game_id) or {}).get("game") or {"gameId": game_id}
