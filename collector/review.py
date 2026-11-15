@@ -597,8 +597,8 @@ def _download_for_trades(cfg, game_id):
 
 
 # Expert replays: League downloads other players' replays too (its own region and patch only), at most 10 an
-# hour per account. We keep well under that and never download while a game is on.
-XP_PER_HOUR = 8
+# hour per account. We use all 10 and never download while a game is on.
+XP_PER_HOUR = 10
 XP_FILE = os.path.join(core.HERE, "expert-downloads.json")
 _xp = {"state": "idle"}
 
