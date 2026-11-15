@@ -2883,10 +2883,34 @@ function drawRank() {
   const count = tracked.reduce((a, g) => a + (g.lp.over || 1), 0), net = tracked.reduce((a, g) => a + g.lp.delta, 0);
   let trend = STATE.as ? `<div class="h-sm" style="font-weight:600;max-width:260px">${esc(STATE.me?.gameName || "This player")}'s current rank, from Riot</div>` : `<div class="h-sm" style="font-weight:600;max-width:240px">LP per game shows here from your next ${esc(shortQueue(q))} game on.</div>`;
   if (tracked.length) {
-    const pts = [0]; tracked.forEach(g => pts.push(pts.at(-1) + g.lp.delta));
-    const w = 240, h = 56, lo = Math.min(...pts) - 6, hi = Math.max(...pts) + 6, X = i => 6 + i * (w - 12) / (pts.length - 1), Y = v => h - 8 - (v - lo) / (hi - lo) * (h - 16);
-    trend = `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="LP change over your last ${count} tracked games" style="max-width:100%"><polyline points="${pts.map((v, i) => X(i).toFixed(1) + "," + Y(v).toFixed(1)).join(" ")}" fill="none" stroke="#14151a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${X(pts.length - 1)}" cy="${Y(pts.at(-1))}" r="5.5" fill="#14151a"/></svg>
-      <div><div class="h-hd" style="font-size:22px;font-weight:700;line-height:1.1">${signed(net)} LP</div><div class="h-sm" style="font-weight:600">last ${count} tracked game${count === 1 ? "" : "s"}</div></div>`;
+    // Option C (user's pick): LP line on the real ladder above, one win/loss bar per game below with its champion,
+    // a dashed line at each tier border, and a marker where you promoted or demoted.
+    const LT = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND"], LD = { IV: 0, III: 1, II: 2, I: 3 };
+    const lad = (x) => { if (!x || !x.tier) return null; const t = String(x.tier).toUpperCase(); if (["MASTER", "GRANDMASTER", "CHALLENGER"].includes(t)) return 2800 + (x.lp || 0);
+      const i = LT.indexOf(t); return i < 0 ? null : i * 400 + (LD[String(x.division || "").toUpperCase()] || 0) * 100 + (x.lp || 0); };
+    let run = 0; const pts = tracked.map(g => { const v = lad(g.lp.to); run = v ?? run + g.lp.delta; return run; });
+    const w = Math.max(220, Math.min(520, 34 * tracked.length + 40)), h = 132, n = tracked.length, bw = Math.min(18, (w - 40) / n - 6);
+    const X = (i) => 30 + (n === 1 ? (w - 40) / 2 : i * (w - 40 - bw) / (n - 1));
+    const lo = Math.min(...pts) - 10, hi = Math.max(...pts) + 10, Y = (v) => 28 + (1 - (v - lo) / Math.max(1, hi - lo)) * 42;
+    const maxd = Math.max(...tracked.map(g => Math.abs(g.lp.delta)), 1), mid = 90, sc = 14 / maxd;
+    const borders = []; for (let v = Math.ceil(lo / 400) * 400; v <= hi; v += 400) borders.push(v);
+    const tierAt = (v) => v >= 2800 ? "Master" : cap(LT[Math.floor(v / 400)] || "");
+    const turn = tracked.map(g => g.lp.from?.tier && g.lp.to?.tier && g.lp.from.tier !== g.lp.to.tier ? (lad(g.lp.to) > lad(g.lp.from) ? "Promoted" : "Demoted") : "");
+    const tipOf = (g, i) => `${champName(g.champion)} · ${g.win ? "Win" : "Loss"} · ${signed(g.lp.delta)} LP${g.lp.over > 1 ? ` (${g.lp.over} games)` : ""}${g.lp.to?.tier ? " · " + rankName(g.lp.to) + " after" : ""}`;
+    const wins = tracked.filter(g => g.lp.delta > 0), losses = tracked.filter(g => g.lp.delta < 0);
+    const avg = (a) => a.length ? Math.round(a.reduce((x, g) => x + g.lp.delta / (g.lp.over || 1), 0) / a.length) : null;
+    const last5 = tracked.slice(-5), net5 = last5.reduce((a, g) => a + g.lp.delta, 0);
+    trend = `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="LP over your last ${count} tracked games" style="max-width:100%;overflow:visible">
+      ${tracked.map((g, i) => { const hh = Math.max(2, Math.abs(g.lp.delta) * sc); return `<g><title>${esc(tipOf(g, i))}</title>
+        <rect x="${X(i)}" y="${g.lp.delta > 0 ? mid - hh : mid}" width="${bw}" height="${hh}" rx="3" fill="${g.lp.delta >= 0 ? "#2d52ad" : "#9b3340"}"/>
+        <image href="${champIcon(g.champion)}" x="${X(i)}" y="${h - 20}" width="${bw}" height="${bw}"/></g>`; }).join("")}
+      ${borders.map(v => `<line x1="24" x2="${w - 4}" y1="${Y(v)}" y2="${Y(v)}" stroke="#14151a" stroke-opacity=".45" stroke-dasharray="4 4"/><text x="${w - 4}" y="${Y(v) - 4}" text-anchor="end" font-size="10" font-weight="700" fill="#14151a" style="fill:#14151a">${tierAt(v)}</text>`).join("")}
+      ${n > 1 ? `<polyline points="${pts.map((v, i) => (X(i) + bw / 2).toFixed(1) + "," + Y(v).toFixed(1)).join(" ")}" fill="none" stroke="#14151a" stroke-width="2.5" stroke-linejoin="round"/>` : ""}
+      ${pts.map((v, i) => `<circle cx="${X(i) + bw / 2}" cy="${Y(v)}" r="4" fill="#14151a"><title>${esc(tipOf(tracked[i], i))}</title></circle>`).join("")}
+      ${turn.map((t, i) => t ? `<text x="${X(i) + bw / 2}" y="${Y(pts[i]) - 10}" text-anchor="middle" font-size="10" font-weight="700" fill="#14151a" style="fill:#14151a">${t === "Promoted" ? "★ Promoted" : "▼ Demoted"}</text>` : "").join("")}
+    </svg>
+      <div><div class="h-hd" style="font-size:22px;font-weight:700;line-height:1.1">${signed(net5)} LP</div><div class="h-sm" style="font-weight:600">last ${last5.length} game${last5.length === 1 ? "" : "s"}</div>
+      ${wins.length || losses.length ? `<div class="h-sm" style="font-weight:600;opacity:.75">${[avg(wins) != null ? signed(avg(wins)) + " per win" : "", avg(losses) != null ? signed(avg(losses)) + " per loss" : ""].filter(Boolean).join(" · ")}</div>` : ""}</div>`;
   }
   const em = (x) => x.tier ? `<img src="/assets/rank-${x.tier.toLowerCase()}.png" alt="" onerror="this.remove()">` : "";
   el.innerHTML = `<div class="h-rk" style="--tier:${TIER_STRIP[r.tier] || "#cfd3dc"}"><div class="h-disc">${em(r)}</div>
