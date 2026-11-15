@@ -18,6 +18,7 @@ numbers for the "vs Experts" tab.
 
 import bisect
 import json
+import math
 import os
 import re
 import secrets
@@ -1392,6 +1393,32 @@ def _replay_post(path, body):
     return json.loads(raw) if raw else {}
 
 
+_win_prev = {}
+
+
+def _hide_as_it_opens(stop):
+    """Moves the replay window off the screen the moment it appears, instead of after it has loaded."""
+    if os.name != "nt":
+        return
+    try:
+        import ctypes
+        u = ctypes.windll.user32
+        _win_prev["hwnd"] = u.GetForegroundWindow()
+        end = time.time() + 120
+        while time.time() < end and not stop.is_set():
+            if u.FindWindowW("RiotWindowClass", None):
+                _league_window("hide")
+                # League re-centres its window as it finishes loading: keep it off screen for a while longer
+                for _ in range(100):
+                    if stop.wait(0.1):
+                        return
+                    _league_window("hide")
+                return
+            stop.wait(0.03)
+    except Exception as e:
+        core.log.info("Clip: early hide failed: %s", e)
+
+
 def _league_window(action):
     """Moves League's game window off the screen ('hide') or back ('show'), or closes it ('close').
     Only standard window calls on the window; nothing inside the game is touched."""
@@ -1407,6 +1434,9 @@ def _league_window(action):
             u.PostMessageW(hwnd, 0x0010, 0, 0)          # WM_CLOSE, same as clicking the X
         elif action == "hide":
             u.SetWindowPos(hwnd, 0, -4000, -4000, 0, 0, 0x0001 | 0x0004 | 0x0010)   # move off screen, keep size
+            prev = _win_prev.get("hwnd")
+            if prev and prev != hwnd:
+                u.SetForegroundWindow(prev)                  # give the screen back to whatever you were using
         elif action == "show":
             u.SetWindowPos(hwnd, 0, 40, 40, 0, 0, 0x0001 | 0x0004)
         return True
@@ -1451,17 +1481,35 @@ def _follow(cfg, game_id, champion, t0, t1):
         core.log.info("Clip: player list failed: %s", e)
     names = [n for i, n in enumerate(names) if n and n not in names[:i]] + [champion]
     time.sleep(1.0)
+    picked = None
     for n in names:
         try:
-            _replay_post("/replay/render", {"cameraMode": "top", "cameraAttached": True, "selectionName": n})
+            _replay_post("/replay/render", {"selectionName": n})
         except Exception as e:
-            core.log.info("Clip: render %s failed: %s", n, e); continue
-        time.sleep(0.6)
+            core.log.info("Clip: select %s failed: %s", n, e); continue
+        time.sleep(0.5)
         r = _render_now()
-        core.log.info("Clip: follow %r -> selectionName=%r cameraAttached=%r cameraMode=%r", n, r.get("selectionName"),
-                      r.get("cameraAttached"), r.get("cameraMode"))
-        if r.get("cameraAttached") and str(r.get("selectionName") or "").lower() == n.lower():
-            return True
+        core.log.info("Clip: select %r -> selectionName=%r", n, r.get("selectionName"))
+        if str(r.get("selectionName") or "").lower() == n.lower():
+            picked = n
+            break
+    # Selecting a champion doesn't move the camera by itself (that's what happened in 1.16.4: Garen selected,
+    # camera still manual). Try the camera modes that follow the selection, and keep one only if the camera
+    # actually moves on its own.
+    if picked:
+        for mode in ("focus", "top"):
+            try:
+                _replay_post("/replay/render", {"cameraMode": mode, "cameraAttached": True, "selectionName": picked})
+            except Exception as e:
+                core.log.info("Clip: camera mode %s failed: %s", mode, e); continue
+            time.sleep(0.4)
+            a = _render_now(); time.sleep(1.6); b = _render_now()
+            pa, pb = a.get("cameraPosition") or {}, b.get("cameraPosition") or {}
+            moved = math.hypot(float(pb.get("x", 0)) - float(pa.get("x", 0)), float(pb.get("z", 0)) - float(pa.get("z", 0)))
+            core.log.info("Clip: camera mode %s -> mode=%r attached=%r, camera moved %.0f units in 1.6s",
+                          mode, b.get("cameraMode"), b.get("cameraAttached"), moved)
+            if moved > 60 and b.get("cameraMode") == mode:
+                return True
     core.log.info("Clip: League didn't lock onto %s; steering the camera from the replay's positions", champion)
     try:
         import replay_trades as RT
@@ -1519,6 +1567,9 @@ def _record_clip(cfg, game_id, spec):
         if replay_api_enabled(cfg) is False:
             return _clip_status("error", "Clips need replay jumping turned on (Replay API). Turn it on from any game's banner, restart League, then try again.")
         _clip_status("working", "Opening the replay...")
+        hide_stop = threading.Event()
+        if spec.get("hide"):
+            threading.Thread(target=_hide_as_it_opens, args=(hide_stop,), daemon=True).start()
         _open_replay(cfg, game_id, t0)
         with _lock:
             st = dict(_replay)
@@ -1570,9 +1621,10 @@ def _record_clip(cfg, game_id, spec):
             _playback({"paused": True})
         except Exception:
             pass
-        if hidden:
+        hide_stop.set()
+        if hidden and not spec.get("close", True):   # closing it anyway: no need to bring it back first
             _league_window("show")
-            hidden = False
+        hidden = False
         if not started:
             return _clip_status("error", "League didn't start recording. If \"Keep the replay off my screen\" was on, try once with it off. The log has League's answer.")
         found = None
