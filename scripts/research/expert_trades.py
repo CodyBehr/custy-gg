@@ -15,6 +15,26 @@ games = json.load(open("public/experts/%s.json" % name))
 tls = json.load(open("public/experts/%s.timelines.json" % name))
 A, B = games["champions"]
 
+import urllib.request
+CD = {}
+for c in (A, B):
+    data = json.loads(urllib.request.urlopen("https://ddragon.leagueoflegends.com/cdn/16.22.1/data/en_US/champion/%s.json" % c).read())
+    CD[c] = {k: sp["cooldown"][0] for k, sp in zip("QWER", list(data["data"].values())[0]["spells"])}
+LONG = 12    # only abilities this slow: "used it a moment ago" reliably means "it's still down"
+
+
+def down(casts, k, t, champ):
+    """Long-cooldown abilities of champion slot k that were used within ~90% of their (rank 1) cooldown before t."""
+    out = []
+    for key, cd in CD[champ].items():
+        if cd < LONG:
+            continue
+        last = max([tc for tc, kk, L in casts if kk == k and L == key and tc < t - 0.5] or [-1e9])
+        if t - last < 0.9 * cd:
+            out.append(key)
+    return out
+
+
 rows = []      # one per trade, from the point of view of `champ`
 for g in games["games"]:
     path = os.path.join(folder, "NA1-%d.rofl" % g["gameId"])
@@ -23,6 +43,7 @@ for g in games["games"]:
         continue
     _v, stats, _c = RT.read_rofl(path)
     slot = {c: RT.slot_of(stats, champion=c) for c in (A, B)}
+    casts = RT.decode(path, until=900)["casts"]
     for me, opp in ((A, B), (B, A)):
         frames = []
         fm, fo = tl[me]["frames"], tl[opp]["frames"]
@@ -35,7 +56,9 @@ for g in games["games"]:
             theirs = [s["k"] for s in tr["seq"] if s["w"] == "them"]
             # who pressed the first button: our first cast vs theirs, by order in the sequence
             first_cast = tr["seq"][0]["w"] if tr["seq"] else None
-            rows.append(dict(game=g["gameId"], champ=me, opp=opp, t=tr["t0"], lv=tr["lv"][0], olv=tr["lv"][1],
+            rows.append(dict(game=g["gameId"], champ=me, opp=opp, t=tr["t0"], t1=tr["t1"], lv=tr["lv"][0], olv=tr["lv"][1],
+                             opp_down=down(casts, slot[opp], tr["t0"] - 2, opp), my_down=down(casts, slot[me], tr["t0"] - 2, me),
+                             netp=round(100 * (tr["dealt"] / max(1, tr["hpOpp"][1]) - tr["took"] / max(1, tr["hpMe"][1]))),
                              net=tr["dealt"] - tr["took"], dealt=tr["dealt"], took=tr["took"], gank=tr["gank"],
                              died=tr["died"], first_hit=tr["first"], first_cast=first_cast,
                              opener=mine[0] if mine else "auto", combo=mine[:3], theirs=theirs[:3],
@@ -85,3 +108,31 @@ for c, S in summary["champions"].items():
     print("  openers:", [(o["opener"], o["n"], o["won"], o["net"]) for o in S["openers"]])
     print("  combos:", [(o["combo"], o["n"], o["won"], o["net"]) for o in S["combos"][:6]])
     print("  by level:", S["by_level"])
+
+
+def line(label, rr):
+    if not rr:
+        return
+    w = sum(r["won"] for r in rr)
+    print("   %-44s won %2d of %2d (%3d%%)  avg net %+d%% of max HP" % (label, w, len(rr), round(100 * w / len(rr)), round(sum(r["netp"] for r in rr) / len(rr))))
+
+
+for c in (A, B):
+    o = B if c == A else A
+    R = [r for r in rows if r["champ"] == c and r["won"] is not None]
+    print("\n== General patterns, %s vs %s (%d 1v1 trades)" % (c, o, len(R)))
+    line("%s pressed the first button" % c, [r for r in R if r["first_cast"] == "you"])
+    line("%s pressed first" % o, [r for r in R if r["first_cast"] == "them"])
+    for key in [k for k, cd in CD[o].items() if cd >= LONG]:
+        line("%s's %s was down when it started" % (o, key), [r for r in R if key in r["opp_down"]])
+        line("%s's %s was up" % (o, key), [r for r in R if key not in r["opp_down"]])
+    for key in [k for k, cd in CD[c].items() if cd >= LONG]:
+        line("own %s was down when it started" % key, [r for r in R if key in r["my_down"]])
+    line("level ahead", [r for r in R if r["lv"] > r["olv"]])
+    line("same level", [r for r in R if r["lv"] == r["olv"]])
+    line("level behind", [r for r in R if r["lv"] < r["olv"]])
+    line("15%+ more HP going in", [r for r in R if r["hp"] - r["ohp"] >= 15])
+    line("HP within 15%", [r for r in R if abs(r["hp"] - r["ohp"]) < 15])
+    line("15%+ less HP going in", [r for r in R if r["ohp"] - r["hp"] >= 15])
+    line("short trade (under 3 s)", [r for r in R if r["t1"] - r["t"] < 3])
+    line("long trade (3 s+)", [r for r in R if r["t1"] - r["t"] >= 3])

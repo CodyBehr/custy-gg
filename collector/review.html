@@ -608,13 +608,13 @@ const champName = (id) => DD.champ[id]?.name || ("Champion " + id);
 const JG_RANKS = ["Bronze", "Silver", "Gold", "Emerald", "Master+"];
 const JG = { jcs10: [60, 64, 64, 67, 70], firstTakedown: [305, 283, 259, 235, 226], laneMins: [3.02, 3.05, 3.37, 3.54, 3.65],
   enemyJg: [.7, .7, .78, .85, .88], ganks: { top: [.52, .58, .70, .79, .82], mid: [.53, .62, .78, .82, .94], bot: [1.13, 1.30, 1.44, 1.51, 1.44] } };
-function mapArea(p) {
+function mapArea(p, midBand = 1600) {
   const x = p?.x ?? 7400, y = p?.y ?? 7400;
   if ((x < 3600 && y < 3600) || (x > 11200 && y > 11200)) return "base";
   if (CAMPS.some(([cx, cy]) => Math.hypot(x - cx, y - cy) < 1000)) return "jungle";   // raptors/gromp aren't lanes
   if (x < 2400 || y > 12400) return "top";
   if (y < 2400 || x > 12400) return "bot";
-  if (Math.abs(x - y) < 1600) return "mid";
+  if (Math.abs(x - y) < midBand) return "mid";
   if (Math.abs(x + y - 14800) < 1300) return "river";
   return "jungle";
 }
@@ -624,11 +624,12 @@ function jungleOf(A) {
   const own = (p) => (p.x + p.y < 14800) === (team === 100);
   const where = {};
   for (let k = 2; k <= end; k++) {
-    let a = mapArea(at(k).position);
+    // narrow mid band: the path between wolves and raptors runs right beside mid lane
+    let a = mapArea(at(k).position, 800);
     if (a === "jungle") a = own(at(k).position) ? "own jungle" : "enemy jungle";
     where[a] = (where[a] || 0) + 1;
   }
-  const firstLane = (() => { for (let k = 2; k <= end; k++) { const a = mapArea(at(k).position); if (["top", "mid", "bot"].includes(a)) return [k, a]; } return null; })();
+  const firstLane = (() => { for (let k = 2; k <= end; k++) { const a = mapArea(at(k).position, 800); if (["top", "mid", "bot"].includes(a)) return [k, a]; } return null; })();
   const ganks = { top: [0, 0], mid: [0, 0], bot: [0, 0] };
   for (const k of A.kills) {
     if (k.timestamp > 840000) continue;
@@ -698,7 +699,7 @@ function jungleCard(A, B) {
     ${rows.some(r => r[3] === "Slow first clear") ? `<div class="sub">A slow first clear usually means a wasted camp, a missed Smite, a late leash or extra walking. Watch the first three minutes of the replay.</div>` : ""}
     <div class="ctitle" style="margin-top:12px">Where you spent 2:00–14:00</div>
     <div class="wbar">${seg.filter(([k]) => W[k]).map(([k, n, c]) => `<span style="flex:${W[k]};background:${c}" title="${n}: ${W[k]} min">${W[k] / tot > .08 ? n : ""}</span>`).join("")}</div>
-    <div class="sub">From one position per minute, so it's rough. You started on the ${J.start} side${J.firstLane ? ` and first showed up in ${J.firstLane[1]} lane around ${J.firstLane[0]}:00` : ""}.</div>
+    <div class="sub">From one position per minute, so it's rough. You started on the ${J.start} side.</div>
     <div class="ctitle" style="margin-top:12px">Ganks before 14:00 (kills and assists in each lane)</div>
     <div class="gks">${gk}</div>
     ${curve}
