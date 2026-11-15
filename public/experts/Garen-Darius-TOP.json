@@ -1,0 +1,1062 @@
+{
+ "champions": [
+  "Garen",
+  "Darius"
+ ],
+ "role": "TOP",
+ "region": "NA",
+ "patch": "16.22",
+ "built": "2026-11-15",
+ "games": [
+  {
+   "matchId": "NA1_5677792019",
+   "gameId": 5677792019,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794385256219,
+   "gameDuration": 1519,
+   "gameEnd": 1794386786153,
+   "Garen": {
+    "name": "Iron Smurf",
+    "tag": "ezwin",
+    "team": 100,
+    "win": true,
+    "kda": [
+     11,
+     5,
+     1
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 1095
+    }
+   },
+   "Darius": {
+    "name": "Lelouch Vi Brit",
+    "tag": "Zero0",
+    "team": 200,
+    "win": false,
+    "kda": [
+     3,
+     10,
+     4
+    ],
+    "rank": {
+     "tier": "GRANDMASTER",
+     "division": "I",
+     "lp": 1379
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5676900275",
+   "gameId": 5676900275,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794274522847,
+   "gameDuration": 2684,
+   "gameEnd": 1794277220054,
+   "Garen": {
+    "name": "too digit iq",
+    "tag": "NA1",
+    "team": 100,
+    "win": false,
+    "kda": [
+     15,
+     11,
+     3
+    ],
+    "rank": {
+     "tier": "GRANDMASTER",
+     "division": "I",
+     "lp": 1450
+    }
+   },
+   "Darius": {
+    "name": "Burrito",
+    "tag": "140ms",
+    "team": 200,
+    "win": true,
+    "kda": [
+     13,
+     6,
+     10
+    ],
+    "rank": {
+     "tier": "GRANDMASTER",
+     "division": "I",
+     "lp": 1488
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5676827053",
+   "gameId": 5676827053,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794267458039,
+   "gameDuration": 1540,
+   "gameEnd": 1794269009147,
+   "Garen": {
+    "name": "AddictedToBacon",
+    "tag": "TTV",
+    "team": 100,
+    "win": false,
+    "kda": [
+     1,
+     8,
+     3
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 1078
+    }
+   },
+   "Darius": {
+    "name": "Burrito",
+    "tag": "140ms",
+    "team": 200,
+    "win": true,
+    "kda": [
+     14,
+     5,
+     3
+    ],
+    "rank": {
+     "tier": "GRANDMASTER",
+     "division": "I",
+     "lp": 1488
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5679915072",
+   "gameId": 5679915072,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794705259215,
+   "gameDuration": 1346,
+   "gameEnd": 1794706622421,
+   "Garen": {
+    "name": "Seabass",
+    "tag": "Na2",
+    "team": 100,
+    "win": true,
+    "kda": [
+     5,
+     4,
+     2
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 862
+    }
+   },
+   "Darius": {
+    "name": "rock pikmin",
+    "tag": "senny",
+    "team": 200,
+    "win": false,
+    "kda": [
+     2,
+     7,
+     1
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 792
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5679440696",
+   "gameId": 5679440696,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794631978464,
+   "gameDuration": 1559,
+   "gameEnd": 1794633549088,
+   "Garen": {
+    "name": "twtv xnaiiy",
+    "tag": "cutie",
+    "team": 100,
+    "win": true,
+    "kda": [
+     5,
+     4,
+     7
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 1192
+    }
+   },
+   "Darius": {
+    "name": "rock pikmin",
+    "tag": "senny",
+    "team": 200,
+    "win": false,
+    "kda": [
+     3,
+     6,
+     1
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 792
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5679213430",
+   "gameId": 5679213430,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794613082305,
+   "gameDuration": 1048,
+   "gameEnd": 1794614143952,
+   "Garen": {
+    "name": "fidgtspinnr",
+    "tag": "7777",
+    "team": 200,
+    "win": true,
+    "kda": [
+     2,
+     1,
+     1
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 118
+    }
+   },
+   "Darius": {
+    "name": "Zagh",
+    "tag": "NA1",
+    "team": 100,
+    "win": false,
+    "kda": [
+     0,
+     2,
+     1
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 129
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5679011844",
+   "gameId": 5679011844,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794567112978,
+   "gameDuration": 1974,
+   "gameEnd": 1794569100011,
+   "Garen": {
+    "name": "Extremepanda2",
+    "tag": "NA1",
+    "team": 100,
+    "win": true,
+    "kda": [
+     10,
+     5,
+     6
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 78
+    }
+   },
+   "Darius": {
+    "name": "Etude",
+    "tag": "10  4",
+    "team": 200,
+    "win": false,
+    "kda": [
+     5,
+     12,
+     6
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 80
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5678435803",
+   "gameId": 5678435803,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794478960893,
+   "gameDuration": 1538,
+   "gameEnd": 1794480526728,
+   "Garen": {
+    "name": "Iron Smurf",
+    "tag": "ezwin",
+    "team": 200,
+    "win": false,
+    "kda": [
+     10,
+     6,
+     0
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 1095
+    }
+   },
+   "Darius": {
+    "name": "jae",
+    "tag": "wogud",
+    "team": 100,
+    "win": true,
+    "kda": [
+     8,
+     6,
+     1
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 21
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5678220452",
+   "gameId": 5678220452,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794453978437,
+   "gameDuration": 1670,
+   "gameEnd": 1794455664630,
+   "Garen": {
+    "name": "Broccolinia",
+    "tag": "7750",
+    "team": 100,
+    "win": true,
+    "kda": [
+     0,
+     12,
+     1
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "IV",
+     "lp": 6
+    }
+   },
+   "Darius": {
+    "name": "InYoungRen",
+    "tag": "SFW",
+    "team": 200,
+    "win": false,
+    "kda": [
+     10,
+     5,
+     8
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 63
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5677950952",
+   "gameId": 5677950952,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794427318680,
+   "gameDuration": 2031,
+   "gameEnd": 1794429364332,
+   "Garen": {
+    "name": "fidgtspinnr",
+    "tag": "7777",
+    "team": 200,
+    "win": false,
+    "kda": [
+     14,
+     3,
+     6
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 118
+    }
+   },
+   "Darius": {
+    "name": "wdym by that",
+    "tag": "ana",
+    "team": 100,
+    "win": true,
+    "kda": [
+     8,
+     10,
+     4
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 30
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5677556609",
+   "gameId": 5677556609,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794365382767,
+   "gameDuration": 2323,
+   "gameEnd": 1794367787584,
+   "Garen": {
+    "name": "fidgtspinnr",
+    "tag": "7777",
+    "team": 100,
+    "win": false,
+    "kda": [
+     18,
+     5,
+     6
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 118
+    }
+   },
+   "Darius": {
+    "name": "THEREALSTEWIE",
+    "tag": "FAMY",
+    "team": 200,
+    "win": true,
+    "kda": [
+     4,
+     15,
+     12
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 300
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5677034455",
+   "gameId": 5677034455,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794283978089,
+   "gameDuration": 1407,
+   "gameEnd": 1794285400029,
+   "Garen": {
+    "name": "poome1",
+    "tag": "NA1",
+    "team": 100,
+    "win": false,
+    "kda": [
+     2,
+     12,
+     3
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 30
+    }
+   },
+   "Darius": {
+    "name": "Beensuss",
+    "tag": "NA1",
+    "team": 200,
+    "win": true,
+    "kda": [
+     13,
+     2,
+     2
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "I",
+     "lp": 92
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5676617394",
+   "gameId": 5676617394,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794224086668,
+   "gameDuration": 1278,
+   "gameEnd": 1794225385122,
+   "Garen": {
+    "name": "Iron Smurf",
+    "tag": "ezwin",
+    "team": 200,
+    "win": true,
+    "kda": [
+     7,
+     3,
+     5
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 1095
+    }
+   },
+   "Darius": {
+    "name": "mansnothot2plus2",
+    "tag": "top",
+    "team": 100,
+    "win": false,
+    "kda": [
+     0,
+     10,
+     5
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 392
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5675678205",
+   "gameId": 5675678205,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794107799059,
+   "gameDuration": 1856,
+   "gameEnd": 1794109671964,
+   "Garen": {
+    "name": "TritonSucks",
+    "tag": "DMCIA",
+    "team": 200,
+    "win": true,
+    "kda": [
+     5,
+     4,
+     1
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 173
+    }
+   },
+   "Darius": {
+    "name": "ttv RoboShaoran",
+    "tag": "TTV",
+    "team": 100,
+    "win": false,
+    "kda": [
+     4,
+     4,
+     3
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 335
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5675575480",
+   "gameId": 5675575480,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794100606740,
+   "gameDuration": 1324,
+   "gameEnd": 1794102058265,
+   "Garen": {
+    "name": "fidgtspinnr",
+    "tag": "7777",
+    "team": 200,
+    "win": true,
+    "kda": [
+     5,
+     2,
+     3
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 118
+    }
+   },
+   "Darius": {
+    "name": "Darius above All",
+    "tag": "NA1",
+    "team": 100,
+    "win": false,
+    "kda": [
+     3,
+     4,
+     1
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "I",
+     "lp": 56
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5675166638",
+   "gameId": 5675166638,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794035455048,
+   "gameDuration": 1626,
+   "gameEnd": 1794037106175,
+   "Garen": {
+    "name": "TritonSucks",
+    "tag": "DMCIA",
+    "team": 100,
+    "win": false,
+    "kda": [
+     1,
+     10,
+     4
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 173
+    }
+   },
+   "Darius": {
+    "name": "Yellow Dog",
+    "tag": "\u5c0f\u9ec4\u72d7",
+    "team": 200,
+    "win": true,
+    "kda": [
+     14,
+     3,
+     6
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 907
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5675099616",
+   "gameId": 5675099616,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794029880962,
+   "gameDuration": 1902,
+   "gameEnd": 1794031799636,
+   "Garen": {
+    "name": "FIGHTING IRISH",
+    "tag": "IRA",
+    "team": 100,
+    "win": true,
+    "kda": [
+     9,
+     8,
+     3
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 312
+    }
+   },
+   "Darius": {
+    "name": "Assassin Zero",
+    "tag": "4869",
+    "team": 200,
+    "win": false,
+    "kda": [
+     4,
+     6,
+     4
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "III",
+     "lp": 55
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5674952526",
+   "gameId": 5674952526,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794019955213,
+   "gameDuration": 1438,
+   "gameEnd": 1794021409802,
+   "Garen": {
+    "name": "singedyahu",
+    "tag": "GAS",
+    "team": 200,
+    "win": false,
+    "kda": [
+     0,
+     4,
+     0
+    ],
+    "rank": {
+     "tier": "MASTER",
+     "division": "I",
+     "lp": 175
+    }
+   },
+   "Darius": {
+    "name": "EIVH",
+    "tag": "1114",
+    "team": 100,
+    "win": true,
+    "kda": [
+     7,
+     2,
+     1
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "II",
+     "lp": 26
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5679144392",
+   "gameId": 5679144392,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794604268730,
+   "gameDuration": 2367,
+   "gameEnd": 1794606656185,
+   "Garen": {
+    "name": "1458",
+    "tag": "2756",
+    "team": 100,
+    "win": true,
+    "kda": [
+     8,
+     6,
+     6
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "III",
+     "lp": 31
+    }
+   },
+   "Darius": {
+    "name": "Esiuqram",
+    "tag": "int",
+    "team": 200,
+    "win": false,
+    "kda": [
+     9,
+     7,
+     4
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "IV",
+     "lp": 58
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5678832764",
+   "gameId": 5678832764,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794542803429,
+   "gameDuration": 1622,
+   "gameEnd": 1794544450163,
+   "Garen": {
+    "name": "Joseph",
+    "tag": "Sold",
+    "team": 200,
+    "win": true,
+    "kda": [
+     7,
+     5,
+     12
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "I",
+     "lp": 12
+    }
+   },
+   "Darius": {
+    "name": "Koronex",
+    "tag": "NA1",
+    "team": 100,
+    "win": false,
+    "kda": [
+     1,
+     8,
+     3
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "IV",
+     "lp": 42
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5678784165",
+   "gameId": 5678784165,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794539846623,
+   "gameDuration": 2342,
+   "gameEnd": 1794542220410,
+   "Garen": {
+    "name": "Joseph",
+    "tag": "Sold",
+    "team": 200,
+    "win": true,
+    "kda": [
+     9,
+     11,
+     9
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "I",
+     "lp": 12
+    }
+   },
+   "Darius": {
+    "name": "FrostRAA",
+    "tag": "NA1",
+    "team": 100,
+    "win": false,
+    "kda": [
+     10,
+     8,
+     5
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "III",
+     "lp": 27
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5678283274",
+   "gameId": 5678283274,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794458132443,
+   "gameDuration": 1637,
+   "gameEnd": 1794459781987,
+   "Garen": {
+    "name": "Waek Chungus",
+    "tag": "NA1",
+    "team": 200,
+    "win": false,
+    "kda": [
+     1,
+     11,
+     3
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "IV",
+     "lp": 63
+    }
+   },
+   "Darius": {
+    "name": "smok3jumper",
+    "tag": "NA1",
+    "team": 100,
+    "win": true,
+    "kda": [
+     20,
+     3,
+     1
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "III",
+     "lp": 74
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5677991924",
+   "gameId": 5677991924,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794433071843,
+   "gameDuration": 1360,
+   "gameEnd": 1794434448192,
+   "Garen": {
+    "name": "1458",
+    "tag": "2756",
+    "team": 100,
+    "win": false,
+    "kda": [
+     4,
+     6,
+     1
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "III",
+     "lp": 31
+    }
+   },
+   "Darius": {
+    "name": "I Do Not OP",
+    "tag": "CA1",
+    "team": 200,
+    "win": true,
+    "kda": [
+     6,
+     3,
+     4
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "II",
+     "lp": 17
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5677456035",
+   "gameId": 5677456035,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794356614867,
+   "gameDuration": 1598,
+   "gameEnd": 1794358244255,
+   "Garen": {
+    "name": "ThaWiz",
+    "tag": "2072",
+    "team": 100,
+    "win": true,
+    "kda": [
+     4,
+     8,
+     10
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "III",
+     "lp": 12
+    }
+   },
+   "Darius": {
+    "name": "punysuperman",
+    "tag": "NA1",
+    "team": 200,
+    "win": false,
+    "kda": [
+     10,
+     5,
+     3
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "III",
+     "lp": 39
+    }
+   }
+  },
+  {
+   "matchId": "NA1_5675414900",
+   "gameId": 5675414900,
+   "gameVersion": "16.22.834.8910",
+   "queueId": 420,
+   "gameType": "MATCHED_GAME",
+   "gameCreation": 1794083019349,
+   "gameDuration": 1536,
+   "gameEnd": 1794084607263,
+   "Garen": {
+    "name": "Shiina Mashiro",
+    "tag": "NA202",
+    "team": 200,
+    "win": false,
+    "kda": [
+     8,
+     8,
+     1
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "I",
+     "lp": 1
+    }
+   },
+   "Darius": {
+    "name": "EIVH",
+    "tag": "1114",
+    "team": 100,
+    "win": true,
+    "kda": [
+     6,
+     7,
+     5
+    ],
+    "rank": {
+     "tier": "DIAMOND",
+     "division": "II",
+     "lp": 26
+    }
+   }
+  }
+ ]
+}
