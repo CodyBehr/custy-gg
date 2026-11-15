@@ -16,10 +16,12 @@ numbers for the "vs Experts" tab.
     python custy_collector.py --review     open it without the Windows app
 """
 
+import bisect
 import json
 import os
 import re
 import secrets
+import shutil
 import ssl
 import sys
 import threading
@@ -1307,13 +1309,57 @@ def _open_replay(cfg, game_id, seconds):
 _clip = {"state": "idle", "message": "", "at": 0, "file": None}
 
 
+CLIP_SETTINGS = os.path.join(core.HERE, "clip-settings.json")
+
+
+def _highlights_dir():
+    """Where the League client saves its highlights (its own setting), else its default folder."""
+    try:
+        lcu = _lcu(_cfg)
+        p = lcu.get("/lol-highlights/v1/highlights-folder-path") if lcu else None
+        if isinstance(p, str) and p.strip():
+            return p
+    except Exception:
+        pass
+    docs = os.path.join(os.path.expanduser("~"), "Documents")
+    return os.path.join(docs, "League of Legends", "Highlights")
+
+
 def clips_dir():
-    base = os.path.join(os.path.expanduser("~"), "Videos")
-    if not os.path.isdir(base):
-        base = os.path.expanduser("~")
-    d = os.path.join(base, "custy clips")
-    os.makedirs(d, exist_ok=True)
+    """The folder clips are saved to: the one picked in custy coach, else League's highlights folder."""
+    d = None
+    try:
+        d = json.load(open(CLIP_SETTINGS)).get("folder")
+    except Exception:
+        pass
+    d = d or _highlights_dir()
+    try:
+        os.makedirs(d, exist_ok=True)
+    except OSError:
+        d = os.path.join(os.path.expanduser("~"), "Videos", "custy clips")
+        os.makedirs(d, exist_ok=True)
     return d
+
+
+def set_clips_dir(path):
+    path = (path or "").strip()
+    if path:
+        os.makedirs(path, exist_ok=True)
+    json.dump({"folder": path or None}, open(CLIP_SETTINGS, "w"))
+    return clips_dir()
+
+
+def pick_folder(start):
+    """Windows' own folder picker (through PowerShell, so nothing extra has to be bundled)."""
+    import subprocess
+    ps = ("Add-Type -AssemblyName System.Windows.Forms;"
+          "$d=New-Object System.Windows.Forms.FolderBrowserDialog;$d.Description='Where custy coach saves clips';"
+          "$d.SelectedPath=$env:CUSTY_START;$d.ShowNewFolderButton=$true;"
+          "$f=New-Object System.Windows.Forms.Form;$f.TopMost=$true;"
+          "if($d.ShowDialog($f) -eq 'OK'){[Console]::Out.Write($d.SelectedPath)}")
+    r = subprocess.run(["powershell", "-NoProfile", "-STA", "-Command", ps], capture_output=True, text=True, timeout=600,
+                       env=dict(os.environ, CUSTY_START=start), creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+    return r.stdout.strip() or None
 
 
 def list_clips():
@@ -1324,7 +1370,12 @@ def list_clips():
             p = os.path.join(d, n)
             out.append({"name": n, "size": os.path.getsize(p), "at": os.path.getmtime(p)})
     out.sort(key=lambda x: -x["at"])
-    return {"dir": d, "clips": out[:50]}
+    custom = False
+    try:
+        custom = bool(json.load(open(CLIP_SETTINGS)).get("folder"))
+    except Exception:
+        pass
+    return {"dir": d, "clips": out[:50], "custom": custom, "league": _highlights_dir()}
 
 
 def _clip_status(state, message, **extra):
@@ -1377,6 +1428,87 @@ def _who_in_replay(champion_name):
     return None
 
 
+def _render_now():
+    try:
+        return _live("/replay/render") or {}
+    except Exception:
+        return {}
+
+
+def _follow(cfg, game_id, champion, t0, t1):
+    """Locks the camera on a champion. League follows the object named in selectionName with the camera attached,
+    but only once the replay is running, and the name it wants varies (Riot ID, summoner name, champion). We check
+    what League actually took; if nothing sticks, we fly the camera ourselves along the champion's path from the
+    replay file, at the normal game camera's angle."""
+    names = []
+    try:
+        for p in _live("/liveclientdata/playerlist") or []:
+            if re.sub(r"[^a-z]", "", str(p.get("championName") or "").lower()) == re.sub(r"[^a-z]", "", champion.lower()):
+                names = [p.get("riotIdGameName"), p.get("summonerName"), p.get("riotId"), p.get("championName"),
+                         (p.get("riotId") or "").split("#")[0]]
+                break
+    except Exception as e:
+        core.log.info("Clip: player list failed: %s", e)
+    names = [n for i, n in enumerate(names) if n and n not in names[:i]] + [champion]
+    time.sleep(1.0)
+    for n in names:
+        try:
+            _replay_post("/replay/render", {"cameraMode": "top", "cameraAttached": True, "selectionName": n})
+        except Exception as e:
+            core.log.info("Clip: render %s failed: %s", n, e); continue
+        time.sleep(0.6)
+        r = _render_now()
+        core.log.info("Clip: follow %r -> selectionName=%r cameraAttached=%r cameraMode=%r", n, r.get("selectionName"),
+                      r.get("cameraAttached"), r.get("cameraMode"))
+        if r.get("cameraAttached") and str(r.get("selectionName") or "").lower() == n.lower():
+            return True
+    core.log.info("Clip: League didn't lock onto %s; steering the camera from the replay's positions", champion)
+    try:
+        import replay_trades as RT
+        game = (_read_cache(game_id) or {}).get("game") or {"gameId": game_id}
+        path = _rofl_path(cfg, game)
+        d = RT.decode(path, until=t1 + 5) if path else None
+        slot = next((k for k, st in enumerate((d or {}).get("stats", [])) if
+                     re.sub(r"[^a-z]", "", str(st.get("SKIN") or "").lower()) == re.sub(r"[^a-z]", "", champion.lower())), None)
+        L = d["tracks"].get(slot) if d and slot is not None else None
+        if not L:
+            core.log.info("Clip: no positions for %s in the replay file", champion)
+            return False
+        T = [p[0] for p in L]
+
+        def at(t):
+            i = bisect.bisect_right(T, t)
+            if i <= 0:
+                return L[0][1:]
+            if i >= len(L):
+                return L[-1][1:]
+            (ta, xa, za), (tb, xb, zb) = L[i - 1], L[i]
+            f = (t - ta) / max(1e-6, tb - ta)
+            return xa + (xb - xa) * f, za + (zb - za) * f
+        keys, t = [], max(0.0, t0 - 1)
+        while t <= t1 + 1:
+            # average a second either side, so the camera glides instead of jerking with each click
+            pts = [at(t + o) for o in (-1, -0.5, 0, 0.5, 1)]
+            x = sum(p[0] for p in pts) / 5; z = sum(p[1] for p in pts) / 5
+            keys.append({"time": round(t, 2), "value": {"x": x, "y": 1900.0, "z": z - 1250.0}, "blend": "smoothStep"})
+            t += 0.5
+        rot = [{"time": keys[0]["time"], "value": {"x": 0.0, "y": 56.0, "z": 0.0}, "blend": "snap"}]
+        _replay_post("/replay/render", {"cameraMode": "fps", "cameraAttached": False})
+        core.log.info("Clip: camera path %d points -> %s", len(keys),
+                      _replay_post("/replay/sequence", {"cameraPosition": keys, "cameraRotation": rot}))
+        return True
+    except Exception as e:
+        core.log.info("Clip: camera path failed: %s", e)
+        return False
+
+
+def _clear_sequence():
+    try:
+        _replay_post("/replay/sequence", {})
+    except Exception:
+        pass
+
+
 def _record_clip(cfg, game_id, spec):
     """Same order as Riot's League Director: set the camera, press play, then turn recording on with a folder
     as the path. League names the file and reports it (and its progress) on GET /replay/recording."""
@@ -1398,21 +1530,18 @@ def _record_clip(cfg, game_id, spec):
             render.update(cameraMode="fps", cameraAttached=False, fieldOfView=float(c.get("fov", 50)),
                           cameraPosition={"x": float(c.get("x", 7400)), "y": float(c.get("h", 2200)), "z": float(c.get("z", 7400))},
                           cameraRotation={"x": float(c.get("yaw", 0)), "y": float(c.get("pitch", 55)), "z": 0.0})
-        else:
-            who = _who_in_replay(spec.get("champion") or "")
-            render.update(cameraMode="top", cameraAttached=True)
-            if who:
-                render["selectionName"] = who
-            else:
-                core.log.info("Clip: couldn't find %s in the replay's player list", spec.get("champion"))
         try:
             core.log.info("Clip: render -> %s", _replay_post("/replay/render", render))
         except Exception as e:
             core.log.info("Clip: render failed: %s", e)
         hidden = bool(spec.get("hide")) and _league_window("hide")
-        before = set(os.listdir(clips_dir()))
+        folder = clips_dir()
+        watch = [folder] + [d for d in {_highlights_dir()} if d != folder and os.path.isdir(d)]
+        before = {d: set(os.listdir(d)) for d in watch if os.path.isdir(d)}
         _playback({"paused": False})                       # League records while the replay plays
-        req = {"recording": True, "codec": "webm", "path": clips_dir(), "startTime": t0, "endTime": t1,
+        if spec.get("camera") != "fps":
+            _follow(cfg, game_id, spec.get("champion") or "", t0, t1)
+        req = {"recording": True, "codec": "webm", "path": folder, "startTime": t0, "endTime": t1,
                "framesPerSecond": int(spec.get("fps_rate", 60)), "enforceFrameRate": True, "replaySpeed": 1.0}
         _clip_status("working", "Recording %s to %s..." % (_clock(t0), _clock(t1)))
         core.log.info("Clip: recording request %s -> %s", req, _replay_post("/replay/recording", req))
@@ -1436,6 +1565,7 @@ def _record_clip(cfg, game_id, spec):
             elif started or time.time() > start_by:
                 break
         core.log.info("Clip: last recording status %s", rec)
+        _clear_sequence()
         try:
             _playback({"paused": True})
         except Exception:
@@ -1445,23 +1575,35 @@ def _record_clip(cfg, game_id, spec):
             hidden = False
         if not started:
             return _clip_status("error", "League didn't start recording. If \"Keep the replay off my screen\" was on, try once with it off. The log has League's answer.")
-        time.sleep(2)   # let League finish writing the file
-        found = out if out and os.path.isfile(out) else None
-        if not found:
-            new = [n for n in set(os.listdir(clips_dir())) - before if n.lower().endswith(".webm")]
-            found = os.path.join(clips_dir(), new[0]) if new else None
-        if found and spec.get("name"):   # give it a readable name
-            nice = re.sub(r"[^\w\-. ]", "", str(spec["name"])).strip()[:60] or "clip"
-            target = os.path.join(os.path.dirname(found), "%s %s.webm" % (nice, time.strftime("%Y-%m-%d %H%M%S")))
-            try:
-                os.replace(found, target)
-                found = target
-            except OSError as e:
-                core.log.info("Clip: couldn't rename %s: %s", found, e)
+        found = None
+        for _ in range(30):   # League can take a while to finish writing; it may also use its own highlights folder
+            time.sleep(1)
+            found = out if out and os.path.isfile(out) else None
+            if not found:
+                new = [os.path.join(d, n) for d in before for n in set(os.listdir(d)) - before[d] if n.lower().endswith(".webm")]
+                found = max(new, key=os.path.getmtime) if new else None
+            if found:
+                size = os.path.getsize(found); time.sleep(1.5)
+                if size and os.path.getsize(found) == size:
+                    break
+        core.log.info("Clip: League's file %s", found)
+        if found:   # into the chosen folder, named after the moment
+            nice = re.sub(r"[^\w\-. ()]", "", str(spec.get("name") or "")).strip()[:90] or "custy clip"
+            target = os.path.join(folder, "%s (%s).webm" % (nice, time.strftime("%Y-%m-%d %H.%M")))
+            n = 2
+            while os.path.exists(target):
+                target = os.path.join(folder, "%s (%s) %d.webm" % (nice, time.strftime("%Y-%m-%d %H.%M"), n)); n += 1
+            for _ in range(5):
+                try:
+                    shutil.move(found, target)
+                    found = target
+                    break
+                except OSError as e:
+                    core.log.info("Clip: couldn't move %s yet: %s", found, e); time.sleep(2)
         if spec.get("close", True):
             _league_window("close")
         if not found:
-            return _clip_status("error", "League recorded, but the file isn't in %s. League reported: %s" % (clips_dir(), out or "no path"))
+            return _clip_status("error", "League recorded, but the file isn't in %s. League reported: %s" % (folder, out or "no path"))
         _clip_status("done", "Saved %s" % os.path.basename(found), file=os.path.basename(found))
     except Exception as e:
         core.log.exception("Clip failed")
@@ -1697,6 +1839,15 @@ def make_handler(cfg, token):
                 _clip_status("working", "Starting...", file=None)
                 threading.Thread(target=_record_clip, args=(cfg, int(m.group(1)), spec), daemon=True).start()
                 return self._send(200, {"ok": True})
+            if url.path == "/api/clips/folder":   # {"path": "..."} to set, {"pick": true} for Windows' picker, {} = League's
+                try:
+                    body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
+                    path = pick_folder(clips_dir()) if body.get("pick") else body.get("path")
+                    if body.get("pick") and not path:
+                        return self._send(200, {"dir": clips_dir(), "cancelled": True})
+                    return self._send(200, {"dir": set_clips_dir(path), "league": _highlights_dir()})
+                except Exception as e:
+                    return self._send(400, {"error": str(e)})
             if url.path == "/api/clips/open":
                 try:
                     os.startfile(clips_dir())   # Windows: opens the folder in Explorer

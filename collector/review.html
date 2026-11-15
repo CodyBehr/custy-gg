@@ -93,6 +93,7 @@ svg text { fill:var(--mute); font-size:11px; }
 .lvb .lr span { color:var(--mute); } .lvb .bar { display:flex; height:12px; border-radius:4px; overflow:hidden; background:var(--line-soft); }
 .lvb .bar .w { background:var(--green); } .lvb .bar .l { background:var(--red); opacity:.85; } .lvb .lr small { text-align:right; }
 .lvb .lr em { grid-column:2 / -1; font-style:normal; font-size:11.5px; color:var(--gold); margin-top:-2px; } .lvb .lr.mk span { color:var(--gold); font-weight:700; }
+.cl-dir { align-items:center; } .cl-dir b { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:600; }
 .xpbox { display:flex; align-items:center; gap:12px; margin:12px 0; padding:10px 14px; border:1px solid var(--line); border-radius:10px; background:var(--deck); }
 .xpbox .xi { flex:1; } .xpbox .xi small { display:block; color:var(--muted); margin-top:2px; } .xpbox .bar { height:4px; background:var(--line); border-radius:4px; margin-top:6px; overflow:hidden; } .xpbox .bar i { display:block; height:100%; background:var(--gold); }
 .mu .roles { display:flex; gap:6px; margin:14px 0 6px; } .mu .roles button { padding:6px 14px; border-radius:99px; }
@@ -2490,7 +2491,16 @@ function openClip(A, t, label, pos) {
       <label>Frame rate <select id="clR"><option${p.rate == 60 ? " selected" : ""}>60</option><option${p.rate == 30 ? " selected" : ""}>30</option></select></label>
       <label><input type="checkbox" id="clHud" ${p.hud ? "checked" : ""}> Show the game's HUD</label></div>
     <div class="cl-row"><label><input type="checkbox" id="clHide" ${p.hide ? "checked" : ""}> Keep the replay off my screen while it records <span class="h-mute">(experimental)</span></label><label><input type="checkbox" id="clClose" ${p.close ? "checked" : ""}> Close the replay when done</label></div>
-    <div class="h-r" style="margin-top:16px"><div id="clMsg" class="h-mute" style="flex:1">League plays the replay and records it to <b>Videos\\custy clips</b>. You can't be in a game while it records.</div><button class="h-gold" id="clGo">● Record clip</button></div></div>`;
+    <div class="cl-row cl-dir"><span class="h-mute">Save to</span><b id="clDir" title="">…</b><button id="clPick">Change…</button><button id="clLeague" hidden>Use League's highlights folder</button></div>
+    <div class="h-mute" style="font-size:13px;margin-top:4px">File name: <span id="clName"></span></div>
+    <div class="h-r" style="margin-top:16px"><div id="clMsg" class="h-mute" style="flex:1">League plays the replay and records it. You can't be in a game while it records.</div><button class="h-gold" id="clGo">● Record clip</button></div></div>`;
+  const clipName = () => { const opp = A.opp ? ` vs ${champName(A.opp.championId)}` : "";
+    return `${champName(A.me.championId)}${opp} - ${label.replace(/<[^>]+>/g, "")}`.replace(/:/g, ".").replace(/[^\w\-. ()]/g, "").slice(0, 90); };
+  $("clName").textContent = clipName() + " (date time).webm";
+  const showDir = (r) => { if (!r || !$("clDir")) return; $("clDir").textContent = r.dir; $("clDir").title = r.dir; $("clLeague").hidden = !r.custom && r.dir === r.league; };
+  api("/api/clips").then(showDir).catch(() => {});
+  $("clPick").onclick = async () => { $("clPick").disabled = true; try { const r = await api("/api/clips/folder", { method: "POST", body: JSON.stringify({ pick: true }) }); const l = await api("/api/clips"); showDir(l); } catch (e) { toast(e.message); } $("clPick").disabled = false; };
+  $("clLeague").onclick = async () => { await api("/api/clips/folder", { method: "POST", body: "{}" }); showDir(await api("/api/clips")); };
   const span = () => { const b = +$("clB").value || 0, a = +$("clA").value || 0; $("clSpan").textContent = `${clock(Math.max(0, t - b))} – ${clock(t + a)} · ${b + a}s`; };
   span(); $("clB").oninput = span; $("clA").oninput = span;
   const close = () => { box.innerHTML = ""; };
@@ -2518,7 +2528,7 @@ function openClip(A, t, label, pos) {
     saveClipPrefs(p);
     const champ = Object.values(DD.champ).find(c => c.id === p.champ)?.name || p.champ;
     const spec = { start: Math.max(0, t - b), end: t + a, camera: p.camera, champion: champ, fps: cam, fps_rate: p.rate, hud: p.hud, hide: p.hide, close: p.close,
-      name: `${champName(A.me.championId)} ${label.replace(/<[^>]+>/g, "")}`.replace(/:/g, ".").replace(/[^\w\-. ]/g, "").slice(0, 60) };
+      name: clipName() };
     $("clGo").disabled = true;
     try { await api("/api/clip/" + A.g.gameId, { method: "POST", body: JSON.stringify(spec) }); } catch (e) { $("clMsg").textContent = e.message; $("clGo").disabled = false; return; }
     clearInterval(CLIP.poll);
