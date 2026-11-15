@@ -226,7 +226,7 @@ def decode(path, until=900.0):
 # Trades
 # --------------------------------------------------------------------------
 
-def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=None):
+def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=None, lane_mates=()):
     """frames: per minute [{t, me:[hp, max], opp:[hp, max]}] from Riot's timeline (HP anchors).
     kills: {"me": [times], "opp": [times]} from Riot's kill events. hpa / deaths_all: everyone's minute health
     {slot: [(t, hp, max)]} and deaths {slot: [t]}, for health bars over every champion. Returns the page's data."""
@@ -311,6 +311,24 @@ def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=Non
                 mins.append({"tm": 100 if math.hypot(x0 - 1500, z0 - 1500) < math.hypot(x0 - 13300, z0 - 13300) else 200, "p": sg})
         died = [who for k, who in ((i, "you"), (j, "them")) if any(t0 - 0.5 <= x <= t1 + 8 for x in deaths[k])]
         hpall = hp_series(d, hpa, deaths_all, w0, w1) if hpa else {}
+        # Was anyone else there? A trade is only the two laners: any other champion within ~1,400 units of either
+        # of them from just before to a few seconds after, or any damage from another champion, makes it a 2v1/gank.
+        near = {}
+        for k in range(10):
+            if k in (i, j) or k in lane_mates or k not in d["tracks"]:
+                continue
+            best, tt = 9e9, t0 - 3
+            while tt <= t1 + 4:
+                a = _at(d["tracks"][k], tt)
+                for m in (i, j):
+                    b = _at(d["tracks"].get(m), tt)
+                    if a and b:
+                        best = min(best, math.hypot(a[0] - b[0], a[1] - b[1]))
+                tt += 0.25
+            helped = sum(v for t, tg, a, v in H if t0 - 2 <= t <= t1 + 4 and a == k and tg in (i, j))
+            if best < 1400 or helped > 0:
+                near[k] = {"k": k, "champ": d["stats"][k].get("SKIN"), "side": "ally" if (k < 5) == (i < 5) else "enemy",
+                           "dist": round(best), "dmg": round(helped)}
         out.append(dict(
             t0=round(t0, 1), t1=round(t1, 1), dealt=round(dealt), took=round(took), first="you" if w[0][1] == i else "them",
             lv=[level(i, t0), level(j, t0)],
@@ -318,9 +336,30 @@ def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=Non
             seq=[{"w": "you" if k == i else "them", "k": L} for t, k, L in d["casts"] if k in (i, j) and t0 - 1.5 <= t <= t1 + 0.5],
             hpMe=[round(hm), round(mm)], hpOpp=[round(ho), round(mo)],
             pb=dict(w0=round(w0, 2), len=round(w1 - w0, 2), start=[round(hp_at(i, w0)[0]), round(hp_at(j, w0)[0])], ev=ev,
-                    pos=pos, mins=mins[:60], c=[round(cx), round(cz)], hp=hpall)))
+                    pos=pos, mins=mins[:60], c=[round(cx), round(cz)], hp=hpall),
+            others=sorted(near.values(), key=lambda x: x["dist"]), solo=not near))
     return {"version": d["version"], "champs": [[p.get("SKIN"), int(p.get("TEAM") or 0)] for p in d["stats"]],
             "mi": i, "oi": j, "trades": out}
+
+
+_TIMES = {}
+
+
+def _at(L, t):
+    if not L:
+        return None
+    key = (id(L), len(L))
+    T = _TIMES.get(key)
+    if T is None:
+        T = _TIMES[key] = [p[0] for p in L]
+    i = bisect.bisect_right(T, t)
+    if i <= 0:
+        return (L[0][1], L[0][2]) if L[0][0] - t < 3 else None
+    if i >= len(L):
+        return (L[-1][1], L[-1][2]) if t - L[-1][0] < 3 else None
+    (ta, xa, za), (tb, xb, zb) = L[i - 1], L[i]
+    f = (t - ta) / max(1e-6, tb - ta)
+    return xa + (xb - xa) * f, za + (zb - za) * f
 
 
 def hp_series(d, anchors, deaths, w0, w1, step=0.5):

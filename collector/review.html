@@ -307,6 +307,7 @@ body.viewing [data-watch], body.viewing #ov { display:none !important; }
 #v-trades .pill.won{background:var(--green-wash);color:var(--green-ink)}
 #v-trades .pill.lost{background:var(--red-wash);color:var(--red-ink)}
 #v-trades .pill.even{background:var(--line-soft);color:var(--mute)}
+#v-trades .pill.help{background:#8b6fd133;color:#c4b2f2}
 #v-trades .lv{font-size:12px;color:var(--mute)}
 #v-trades .lv.down{color:var(--red-ink)}
 #v-trades .lv.up{color:var(--green-ink)}
@@ -2048,6 +2049,8 @@ const NICE={MissFortune:"Miss Fortune",DrMundo:"Dr. Mundo",MonkeyKing:"Wukong",K
 const nm=s=>{for(const c of Object.values(DD.champ)) if(c.id===s) return c.name; return NICE[s]||s}, clk=t=>`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,"0")}`;
 function judge(tr){
   const meL=tr.took/tr.hpMe[1], opL=tr.dealt/tr.hpOpp[1];
+  if(tr.solo===false){const en=(tr.others||[]).some(o=>o.side==="enemy"),al=(tr.others||[]).some(o=>o.side==="ally");
+    return ["help", en&&al?"Skirmish":en?"Gank":"2v1"];}
   if(tr.died.includes("you")&&tr.died.includes("them")) return ["even","Traded kills"];
   if(tr.died.includes("you")) return ["lost","You died"];
   if(tr.died.includes("them")) return ["won","You got the kill"];
@@ -2056,13 +2059,15 @@ function judge(tr){
   return ["even","Even"];
 }
 function why(tr,v){
+  if(v==="help"){const L=(tr.others||[]).map(o=>`${LT.nm(o.champ)} (${o.side==="ally"?"your team":"their team"})`);
+    return `Not a 1v1: ${L.join(", ")} ${L.length>1?"were":"was"} there, so it doesn't count as a won or lost trade.`;}
   const out=[], dl=tr.lv[0]-tr.lv[1], meL=tr.took/tr.hpMe[1], opL=tr.dealt/tr.hpOpp[1];
   const mySeq=tr.seq.filter(s=>s.w==="you").map(s=>s.k), thSeq=tr.seq.filter(s=>s.w==="them").map(s=>s.k);
   if(v==="lost"||v==="even"){
     if(dl<0) out.push(`You fought a level down (${tr.lv[0]} vs ${tr.lv[1]}).`);
     if(tr.first==="them"&&tr.dealt===0) out.push("They poked you and you didn't hit back.");
     else if(tr.first==="them"&&!mySeq.length) out.push("They started it and you answered with autos only.");
-    if(tr.gank>100) out.push(`Someone else joined: ${tr.gank} extra damage on the two of you.`);
+    if(tr.solo===undefined&&tr.gank>100) out.push(`Someone else joined: ${tr.gank} extra damage on the two of you.`);
     if(tr.first==="you"&&v==="lost"&&mySeq.length) out.push(`You went in (${mySeq.join(" → ")}) and they out-traded you.`);
   } else {
     if(dl>0) out.push(`You used your level lead (${tr.lv[0]} vs ${tr.lv[1]}).`);
@@ -2218,28 +2223,30 @@ function openPB(tr,cell){
 let sel=-1, filt="all", ROOT=null, GAME=null;
 function render(){
   const g=GAME, T=g.trades.map(tr=>{const [v,label]=judge(tr);return {...tr,v,label,why:why(tr,v)}});
-  const won=T.filter(t=>t.v==="won").length, lost=T.filter(t=>t.v==="lost").length;
-  const net=T.reduce((a,t)=>a+t.dealt-t.took,0);
-  const mineStart=T.filter(t=>t.first==="you"), theirStart=T.filter(t=>t.first==="them");
+  const TS=T.filter(t=>t.v!=="help");
+  const won=TS.filter(t=>t.v==="won").length, lost=TS.filter(t=>t.v==="lost").length;
+  const net=TS.reduce((a,t)=>a+t.dealt-t.took,0);
+  const mineStart=TS.filter(t=>t.first==="you"), theirStart=TS.filter(t=>t.first==="them");
   const rate=a=>a.length?`${a.filter(t=>t.v==="won").length}/${a.length}`:"–";
-  const down=T.filter(t=>t.lv[0]<t.lv[1]), downLost=down.filter(t=>t.v==="lost").length;
-  const poked=T.filter(t=>t.first==="them"&&t.dealt===0);
-  const worst=[...T].sort((a,b)=>(b.took/b.hpMe[1]-b.dealt/b.hpOpp[1])-(a.took/a.hpMe[1]-a.dealt/a.hpOpp[1]))[0];
+  const down=TS.filter(t=>t.lv[0]<t.lv[1]), downLost=down.filter(t=>t.v==="lost").length;
+  const poked=TS.filter(t=>t.first==="them"&&t.dealt===0);
+  const worst=[...TS].sort((a,b)=>(b.took/b.hpMe[1]-b.dealt/b.hpOpp[1])-(a.took/a.hpMe[1]-a.dealt/a.hpOpp[1]))[0];
   const ins=[];
   ins.push(`You won <b>${rate(mineStart)}</b> trades you started and <b>${rate(theirStart)}</b> trades ${esc(nm(g.opp))} started.`);
   if(down.length) ins.push(`You traded <b>${down.length}</b> times while a level down and lost <b>${downLost}</b> of them.`);
   if(poked.length>=3) ins.push(`${esc(nm(g.opp))} poked you <b>${poked.length}</b> times without taking damage back (${poked.reduce((a,t)=>a+t.took,0)} damage total). Consider standing further back or punishing their cooldowns.`);
   if(worst&&worst.v==="lost") ins.push(`Worst trade: <b>${clk(worst.t0)}</b>, you lost ${Math.round(worst.took/worst.hpMe[1]*100)}% HP for ${Math.round(worst.dealt/worst.hpOpp[1]*100)}% of theirs.`);
+  if(T.length>TS.length) ins.push(`<b>${T.length-TS.length}</b> fights had someone else there (a gank or 2v1), so they're shown but not counted as trades.`);
   const span=[90,840], X=t=>(t-span[0])/(span[1]-span[0])*100;
   const maxd=Math.max(...T.map(t=>t.dealt+t.took),1);
-  const color=v=>v==="won"?"var(--green)":v==="lost"?"var(--red)":"var(--faint)";
+  const color=v=>v==="won"?"var(--green)":v==="lost"?"var(--red)":v==="help"?"#8b6fd1":"var(--faint)";
   const rows=T.map((t,i)=>({t,i})).filter(({t})=>filt==="all"||t.v===filt);
   ROOT.innerHTML=`
   <div class="card">
     <div class="vs"><div class="ic me">${esc(nm(g.me)[0])}</div><div><h2>${esc(nm(g.me))} <span class="meh">vs</span> ${esc(nm(g.opp))}</h2>
       <div class="sub">Every trade with your lane opponent, 1:30–14:00, decoded hit by hit from your replay file.</div></div><div class="ic op" style="margin-left:auto">${esc(nm(g.opp)[0])}</div></div>
     <div class="stats">
-      <div class="stat"><b>${T.length}</b><span>trades</span></div>
+      <div class="stat"><b>${TS.length}</b><span>trades</span></div>
       <div class="stat"><b class="good">${won}</b><span>won</span></div>
       <div class="stat"><b class="bad">${lost}</b><span>lost</span></div>
       <div class="stat"><b class="${net>=0?"good":"bad"}">${net>=0?"+":""}${net}</b><span>net damage in trades</span></div>
@@ -2250,14 +2257,14 @@ function render(){
   <div class="card"><h2>Trades over time</h2><div class="sub">Each bar is one trade; height = total damage exchanged. Click one to jump to it and play it.</div>
     <div class="strip">${T.map((t,i)=>`<div class="dot ${i===sel?"sel":""}" data-i="${i}" title="${clk(t.t0)} · ${t.label}" style="left:${X(t.t0)}%;height:${8+52*(t.dealt+t.took)/maxd}px;width:${Math.max(6,(t.t1-t.t0)/7.5)}px;background:${color(t.v)}"></div>`).join("")}
       ${[2,4,6,8,10,12,14].map(m=>`<div class="tick" style="left:${X(m*60)}%">${m}:00</div>`).join("")}</div>
-    <div class="legend"><span><i style="background:var(--green)"></i>won</span><span><i style="background:var(--red)"></i>lost</span><span><i style="background:var(--faint)"></i>even</span></div></div>
+    <div class="legend"><span><i style="background:var(--green)"></i>won</span><span><i style="background:var(--red)"></i>lost</span><span><i style="background:var(--faint)"></i>even</span><span><i style="background:#8b6fd1"></i>gank / 2v1 (not counted)</span></div></div>
   <div class="card"><h2>Every trade</h2>
-    <div class="filters">${["all","lost","won","even"].map(f=>`<button class="${filt===f?"on":""}" data-f="${f}">${f==="all"?"All":f[0].toUpperCase()+f.slice(1)}</button>`).join("")}</div>
+    <div class="filters">${["all","lost","won","even","help"].map(f=>`<button class="${filt===f?"on":""}" data-f="${f}">${f==="all"?"All":f==="help"?"Ganks / 2v1":f[0].toUpperCase()+f.slice(1)}</button>`).join("")}</div>
     <table><thead><tr><th>Time</th><th>Result</th><th>Levels</th><th>Your HP</th><th>Their HP</th><th>Abilities</th></tr></thead><tbody>
     ${rows.map(({t,i})=>{const dl=t.lv[0]-t.lv[1];
       const hb=(cls,hp,mx,loss,dead)=>{const a=Math.min(100,hp/mx*100), l=dead?a:Math.min(a,loss/mx*100);return `<div class="bar ${cls}"><div class="now" style="width:${a-l}%"></div><div class="lost" style="left:${a-l}%;width:${l}%"></div></div><small>−${loss} (${Math.round(loss/mx*100)}%)</small>`};
       return `<tr class="row ${i===sel?"sel":""}" data-i="${i}" id="tr${i}"><td>${clk(t.t0)}<div class="lv">${t.first==="you"?"you started":"they started"}</div></td>
-      <td><span class="pill ${t.v}">${t.label}</span>${t.gank>100?`<span class="flag">+gank</span>`:""}<div class="why">${esc(t.why)}</div></td>
+      <td><span class="pill ${t.v}">${t.label}</span>${t.solo===undefined&&t.gank>100?`<span class="flag">+gank</span>`:""}<div class="why">${esc(t.why)}</div></td>
       <td><span class="lv ${dl<0?"down":dl>0?"up":""}">${t.lv[0]} vs ${t.lv[1]}</span></td>
       <td class="hp">${hb("me",t.hpMe[0],t.hpMe[1],t.took,t.died.includes("you"))}${t.died.includes("you")?'<small class="bad"> · died</small>':""}</td><td class="hp">${hb("op",t.hpOpp[0],t.hpOpp[1],t.dealt,t.died.includes("them"))}${t.died.includes("them")?'<small class="good"> · killed</small>':""}</td>
       <td><div class="seq">${t.seq.map(s=>`<span class="k ${s.w}">${s.k}</span>`).join("")||'<span class="meh">autos only</span>'}</div><div class="lv" style="margin-top:4px">${i===sel?"▾ playing":"▸ click to play"}</div></td></tr>${i===sel?`<tr class="pbrow"><td colspan="6" id="pbcell"></td></tr>`:""}`}).join("")}

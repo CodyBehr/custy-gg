@@ -366,7 +366,7 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
-TRADES_VERSION = 3          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 4          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
@@ -495,7 +495,12 @@ def trades_for(cfg, game_id):
         return {"error": "Still waiting for this game's health data from the site. Try again in a minute."}
     try:
         pslot = {p["participantId"]: slot(p) for p in game.get("participants") or []}
-        out = RT.lane_trades(path, i, j, frames, kills, hpa=_hp_anchors(data, pslot.get), deaths_all=_deaths_by_slot(data, pslot.get))
+        rl = roles(game)
+        # Bot lane is two against two: both supports are part of the lane, not a gank
+        lane_roles = {"BOT", "SUPPORT"} if rl.get(me["participantId"]) in ("BOT", "SUPPORT") else {rl.get(me["participantId"])}
+        mates = {pslot[pid] for pid, r in rl.items() if r in lane_roles and pslot.get(pid) is not None} - {i, j}
+        out = RT.lane_trades(path, i, j, frames, kills, hpa=_hp_anchors(data, pslot.get), deaths_all=_deaths_by_slot(data, pslot.get),
+                             lane_mates=mates)
     except Exception as e:
         core.log.exception("Trades: decoding %s failed", path)
         return {"error": "Couldn't decode this replay: %s" % e}

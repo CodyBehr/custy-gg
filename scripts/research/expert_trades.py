@@ -41,7 +41,8 @@ for g in games["games"]:
                              opener=mine[0] if mine else "auto", combo=mine[:3], theirs=theirs[:3],
                              hp=round(100 * tr["hpMe"][0] / max(1, tr["hpMe"][1])),
                              ohp=round(100 * tr["hpOpp"][0] / max(1, tr["hpOpp"][1])),
-                             won=None if tr["gank"] > 150 else (tr["dealt"] - tr["took"] > 0 or "them" in tr["died"]) and "you" not in tr["died"]))
+                             solo=tr.get("solo", True), others=[o["champ"] for o in tr.get("others", [])],
+                             won=None if not tr.get("solo", True) else (tr["dealt"] - tr["took"] > 0 or "them" in tr["died"]) and "you" not in tr["died"]))
 
 
 def pct(a, b):
