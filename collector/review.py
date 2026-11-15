@@ -366,7 +366,7 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
-TRADES_VERSION = 2          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 3          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
@@ -413,6 +413,30 @@ def _lane_pair(data):
     opp = next((p for p in game["participants"] if _num(p.get("teamId")) != _num(me.get("teamId"))
                 and rl.get(p["participantId"]) == rl.get(me["participantId"])), None)
     return me, opp, idents
+
+
+def _hp_anchors(data, slot_of_pid):
+    """Everyone's health at each minute mark from the saved timeline, keyed by replay slot."""
+    out = {}
+    for f in data["timeline"].get("frames") or []:
+        t = (f.get("timestamp") or 0) / 1000.0
+        for pid, pf in (f.get("participantFrames") or {}).items():
+            k = slot_of_pid(int(pid))
+            st = (pf or {}).get("st")
+            if k is not None and st and st[0] is not None and st[1]:
+                out.setdefault(k, []).append((t, st[0], st[1]))
+    return out
+
+
+def _deaths_by_slot(data, slot_of_pid):
+    out = {}
+    for f in data["timeline"].get("frames") or []:
+        for e in f.get("events") or []:
+            if e.get("type") == "CHAMPION_KILL":
+                k = slot_of_pid(int(e.get("victimId") or 0))
+                if k is not None:
+                    out.setdefault(k, []).append(e["timestamp"] / 1000.0)
+    return out
 
 
 def trades_for(cfg, game_id):
@@ -470,7 +494,8 @@ def trades_for(cfg, game_id):
     if not any(fr["me"] for fr in frames):
         return {"error": "Still waiting for this game's health data from the site. Try again in a minute."}
     try:
-        out = RT.lane_trades(path, i, j, frames, kills)
+        pslot = {p["participantId"]: slot(p) for p in game.get("participants") or []}
+        out = RT.lane_trades(path, i, j, frames, kills, hpa=_hp_anchors(data, pslot.get), deaths_all=_deaths_by_slot(data, pslot.get))
     except Exception as e:
         core.log.exception("Trades: decoding %s failed", path)
         return {"error": "Couldn't decode this replay: %s" % e}
@@ -486,7 +511,7 @@ def trades_for(cfg, game_id):
     return out
 
 
-DEATHS_VERSION = 6   # 6: map pings in playbacks
+DEATHS_VERSION = 7   # 6: map pings in playbacks; 7: everyone's health
 
 
 def deaths_for(cfg, game_id):
@@ -546,7 +571,8 @@ def deaths_for(cfg, game_id):
                 towers.append((e["timestamp"] / 1000.0, pos.get("x", 0), pos.get("y", 0)))
     try:
         prev = []
-        out = {"deaths": RD.death_reviews(path, slots[me["participantId"]], rmap, kills, towers, previews=prev), "previews": prev}
+        out = {"deaths": RD.death_reviews(path, slots[me["participantId"]], rmap, kills, towers, previews=prev,
+                                           hpa=_hp_anchors(data, slots.get)), "previews": prev}
     except Exception as e:
         core.log.exception("Deaths: decoding %s failed", path)
         return {"error": "Couldn't decode this replay: %s" % e}

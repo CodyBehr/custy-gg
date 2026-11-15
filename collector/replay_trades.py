@@ -226,9 +226,10 @@ def decode(path, until=900.0):
 # Trades
 # --------------------------------------------------------------------------
 
-def lane_trades(path, me_slot, opp_slot, frames, kills):
+def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=None):
     """frames: per minute [{t, me:[hp, max], opp:[hp, max]}] from Riot's timeline (HP anchors).
-    kills: {"me": [times], "opp": [times]} from Riot's kill events. Returns the page's data for this lane."""
+    kills: {"me": [times], "opp": [times]} from Riot's kill events. hpa / deaths_all: everyone's minute health
+    {slot: [(t, hp, max)]} and deaths {slot: [t]}, for health bars over every champion. Returns the page's data."""
     d = decode(path)
     if not any(d["version"].startswith(v) for v in SUPPORTED):
         return {"unsupported": d["version"]}
@@ -237,6 +238,7 @@ def lane_trades(path, me_slot, opp_slot, frames, kills):
     taken = {i: [(t, v) for t, tg, a, v in H if tg == i], j: [(t, v) for t, tg, a, v in H if tg == j]}
     ts = {k: [x[0] for x in taken[k]] for k in (i, j)}
     deaths = {i: kills.get("me") or [], j: kills.get("opp") or []}
+    deaths_all = deaths_all or {}
     anchor = {i: [(f["t"], f["me"]) for f in frames if f.get("me")], j: [(f["t"], f["opp"]) for f in frames if f.get("opp")]}
 
     def dmg(k, a, b):
@@ -308,6 +310,7 @@ def lane_trades(path, me_slot, opp_slot, frames, kills):
                 x0, z0 = L[0][1], L[0][2]
                 mins.append({"tm": 100 if math.hypot(x0 - 1500, z0 - 1500) < math.hypot(x0 - 13300, z0 - 13300) else 200, "p": sg})
         died = [who for k, who in ((i, "you"), (j, "them")) if any(t0 - 0.5 <= x <= t1 + 8 for x in deaths[k])]
+        hpall = hp_series(d, hpa, deaths_all, w0, w1) if hpa else {}
         out.append(dict(
             t0=round(t0, 1), t1=round(t1, 1), dealt=round(dealt), took=round(took), first="you" if w[0][1] == i else "them",
             lv=[level(i, t0), level(j, t0)],
@@ -315,9 +318,47 @@ def lane_trades(path, me_slot, opp_slot, frames, kills):
             seq=[{"w": "you" if k == i else "them", "k": L} for t, k, L in d["casts"] if k in (i, j) and t0 - 1.5 <= t <= t1 + 0.5],
             hpMe=[round(hm), round(mm)], hpOpp=[round(ho), round(mo)],
             pb=dict(w0=round(w0, 2), len=round(w1 - w0, 2), start=[round(hp_at(i, w0)[0]), round(hp_at(j, w0)[0])], ev=ev,
-                    pos=pos, mins=mins[:60], c=[round(cx), round(cz)])))
+                    pos=pos, mins=mins[:60], c=[round(cx), round(cz)], hp=hpall)))
     return {"version": d["version"], "champs": [[p.get("SKIN"), int(p.get("TEAM") or 0)] for p in d["stats"]],
             "mi": i, "oi": j, "trades": out}
+
+
+def hp_series(d, anchors, deaths, w0, w1, step=0.5):
+    """Everyone's health through a playback window: Riot's once-a-minute health, minus every hit the replay shows,
+    with the healing between two minute marks spread evenly (regen, potions, lifesteal aren't in the replay).
+    anchors {slot: [(t, hp, max), ...]}, deaths {slot: [t, ...]}. Returns {"k": [[t from w0, hp, max], ...]}."""
+    out = {}
+    for k in range(10):
+        A = sorted(a for a in anchors.get(k, []) if a[1] is not None and a[2])
+        if not A:
+            continue
+        hits = sorted((t, v) for t, tg, a, v in d["hits"] if tg == k)
+        HT = [h[0] for h in hits]; cum = [0.0]
+        for _t, v in hits:
+            cum.append(cum[-1] + v)
+        dmg = lambda a, b: cum[bisect.bisect_right(HT, b)] - cum[bisect.bisect_right(HT, a)]
+        AT = [a[0] for a in A]
+        D = sorted(deaths.get(k, []))
+        ser, t = [], w0
+        while t <= w1 + 1e-6:
+            i = max(0, bisect.bisect_right(AT, t) - 1)
+            ta, ha, ma = A[i]
+            nb = A[i + 1] if i + 1 < len(A) else None
+            died = [x for x in D if max(ta, w0 - 60) <= x <= t]
+            if died:
+                hp, mx = 0.0, ma
+            else:
+                heal, mx = 0.0, ma
+                if nb and not any(ta < x <= nb[0] for x in D):
+                    tb, hb, mb = nb
+                    f = (t - ta) / max(1e-6, tb - ta)
+                    heal = max(0.0, hb - ha + dmg(ta, tb)) * f
+                    mx = ma + (mb - ma) * f
+                hp = max(0.0, min(mx, ha - dmg(ta, t) + heal))
+            ser.append([round(t - w0, 2), round(hp), round(mx)])
+            t += step
+        out[str(k)] = ser
+    return out
 
 
 def slot_of(stats, puuid=None, name=None, champion=None, team=None):

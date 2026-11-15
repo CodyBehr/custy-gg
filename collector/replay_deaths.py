@@ -138,7 +138,7 @@ def _first_clear(track, team, until):
     return out
 
 
-def death_reviews(path, me, roles, kills, towers_dead, d=None, previews=None):
+def death_reviews(path, me, roles, kills, towers_dead, d=None, previews=None, hpa=None):
     """me: your replay slot. roles: slot -> TOP/JUNGLE/MIDDLE/BOTTOM/UTILITY. kills: [{t, victim, killer, assists, x, z}] in
     replay slots (killer -1 for towers/minions). towers_dead: [(t, x, z)]. Returns a list of reviewed deaths."""
     if d is None:
@@ -187,7 +187,7 @@ def death_reviews(path, me, roles, kills, towers_dead, d=None, previews=None):
                 if k not in inv and alive(k, T - 1) and q and math.hypot(q[0] - mp[0], q[1] - mp[1]) < 1500:
                     inv.append(k)
             previews.append({"t": T, "kind": kind, "pos": [round(mp[0]), round(mp[1])], "map": {"me": me}, "who": [],
-                             "pb": _playback(d, me, inv, [], T, seen, kills, enemies, lead=20 if kind == "kill" else 25)})
+                             "pb": _playback(d, me, inv, [], T, seen, kills, enemies, lead=20 if kind == "kill" else 25, hpa=hpa)})
     out = []
     opp_roles = LANE_OPP.get(roles.get(me, ""), ())
     for kill in kills:
@@ -266,7 +266,7 @@ def death_reviews(path, me, roles, kills, towers_dead, d=None, previews=None):
              "missing": [names[k] for k in missing], "wave": wave, "route": route, "lane": lane}
         r["text"] = _verdict(r, roles.get(me, ""))
         r["map"] = _snapshot(tracks, me, involved, who, T, my)
-        r["pb"] = _playback(d, me, involved, who, T, seen, kills, enemies)
+        r["pb"] = _playback(d, me, involved, who, T, seen, kills, enemies, hpa=hpa)
         out.append(r)
     return out
 
@@ -387,7 +387,7 @@ def _verdict(r, my_role):
     return lines
 
 
-def _playback(d, me, involved, who, T, seen, kills, enemies, lead=30):
+def _playback(d, me, involved, who, T, seen, kills, enemies, lead=30, hpa=None):
     """Everything the page needs to play the lead-up back: all 10 champions, minions near you, hits on you,
     casts, deaths, map pings, and when each enemy was visible to your team. Times are seconds from the window start."""
     seen_at = [w["lastSeen"] for w in who if w.get("lastSeen") is not None]
@@ -440,8 +440,15 @@ def _playback(d, me, involved, who, T, seen, kills, enemies, lead=30):
         if len(sg) >= 2 and any(math.hypot(x - a, z - b) < 1800 for t, x, z in sg[::3] for a, b in mine[::10]):
             x0, z0 = L[0][1], L[0][2]
             mins.append({"tm": 100 if math.hypot(x0 - 1500, z0 - 1500) < math.hypot(x0 - 13300, z0 - 13300) else 200, "p": sg})
+    hp = {}
+    if hpa:
+        import replay_trades as RT
+        dl = {}
+        for x in kills:
+            dl.setdefault(x["victim"], []).append(x["t"])
+        hp = RT.hp_series(d, hpa, dl, w0, w1)
     return {"w0": round(w0, 2), "len": round(w1 - w0, 2), "death": rel(T), "pos": pos, "vis": vis, "ev": ev,
-            "mins": mins[:80], "involved": list(involved)}
+            "mins": mins[:80], "involved": list(involved), "hp": hp}
 
 
 def _snapshot(tracks, me, involved, who, T, my):

@@ -1831,6 +1831,16 @@ function gankMap(cv, d, champs) {
 
 
 // Death playback: the lead-up to a death on the real map, with what your team could see of the enemies.
+// Health over a champion's head in every playback: p.hp = {slot: [[t, hp, max], ...]} every 0.5s.
+function hpAt(series, t) { if (!series || !series.length) return null; let i = 0; while (i + 1 < series.length && series[i + 1][0] <= t) i++;
+  const a = series[i], b = series[i + 1] || a, f = b[0] > a[0] ? Math.min(1, Math.max(0, (t - a[0]) / (b[0] - a[0]))) : 0;
+  return [a[1] + (b[1] - a[1]) * f, a[2] + (b[2] - a[2]) * f]; }
+function drawHp(ctx, xy, r, hp, colr) { if (!hp || !hp[1]) return; const [px, py] = xy, w = 2 * r + 6, f = Math.max(0, Math.min(1, hp[0] / hp[1])), y = py - r - 12;
+  ctx.save(); ctx.globalAlpha = 1; ctx.fillStyle = "rgba(0,0,0,.8)"; ctx.fillRect(px - w / 2 - 1, y - 1, w + 2, 8);
+  ctx.fillStyle = colr; ctx.fillRect(px - w / 2, y, w * f, 6);
+  ctx.strokeStyle = "rgba(0,0,0,.55)"; ctx.lineWidth = 1; for (let s = 1; s < Math.floor(hp[1] / 250); s++) { const x = px - w / 2 + w * s * 250 / hp[1]; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + 6); ctx.stroke(); }
+  ctx.restore(); }
+const HP_COL = { me: "#5fd16f", ally: "#4aa3ff", enemy: "#ff5a5a" };
 const DPB = (() => {
 let cur = null;
 const IMG = window.__img || (window.__img = {});
@@ -1925,6 +1935,7 @@ async function open(box, d, champs0, btn) {
       cx.strokeStyle = ally(k) ? "rgba(74,163,255,.5)" : "rgba(255,90,90,.55)"; cx.lineWidth = big ? 3 : 2; cx.stroke();
       drawn[k] = toMain(C, q.x, q.z);
       icon(cx, drawn[k], k, r, { alpha: dead ? .5 : vis ? 1 : .55, dash: !vis, label: key + (!vis ? " (unseen)" : ""), x: dead });
+      if (!dead) drawHp(cx, drawn[k], r, hpAt((p.hp || {})[k], t), k === me ? HP_COL.me : ally(k) ? HP_COL.ally : HP_COL.enemy);
     }
     // hits on you / by you, damage numbers, ability icons
     const stack = {};
@@ -2112,8 +2123,7 @@ function openPB(tr,cell){
     if(label){ctx.font="600 13px system-ui";ctx.textAlign="center";ctx.lineWidth=3;ctx.strokeStyle="rgba(0,0,0,.8)";
       const tx=k==MI?"You":champs[k][0];ctx.strokeText(tx,px,py+r+16);ctx.fillStyle="#fff";ctx.fillText(tx,px,py+r+16)}
     ctx.restore()}
-  function hpBar(xy,w,r){const [px,py]=xy,f=Math.max(0,st.hp[w]/MX[w]);cx.fillStyle="rgba(0,0,0,.75)";cx.fillRect(px-r-2,py-r-14,2*r+4,8);
-    cx.fillStyle=f>.5?"#5fd16f":f>.25?"#e8c15a":"#ff5a5a";cx.fillRect(px-r,py-r-12,2*r*f,4)}
+  function hpBar(xy,w,r){drawHp(cx,xy,r,[st.hp[w],MX[w]],w==="you"?HP_COL.me:HP_COL.enemy)}
   function mapDraw(t){
     const C=crop(t),W=CV.width,H=CV.height; cx.clearRect(0,0,W,H);
     if(map.complete&&map.naturalWidth){const iw=map.naturalWidth,ih=map.naturalHeight,sx=(C.x0-MB.x0)/(MB.x1-MB.x0)*iw,sy=(1-(C.z1-MB.z0)/(MB.z1-MB.z0))*ih,
@@ -2144,7 +2154,7 @@ function openPB(tr,cell){
         cx.font="600 13px system-ui";cx.textAlign="center";cx.lineWidth=3;cx.strokeStyle="rgba(0,0,0,.8)";const tx=k==MI?"You":champs[k][0];
         cx.strokeText(tx,xy[0],xy[1]+rr+16);cx.fillStyle="#fff";cx.fillText(tx,xy[0],xy[1]+rr+16);cx.restore();
         if(main&&!dead) hpBar(xy,w,rr)}
-      else{ icon(cx,xy,k,main?R:R*.8,true,al); if(main&&!dead) hpBar(xy,w,main?R:R*.8)}}
+      else{ icon(cx,xy,k,main?R:R*.8,true,al); if(main&&!dead) hpBar(xy,w,main?R:R*.8); else if(!main&&!dead) drawHp(cx,xy,R*.8,hpAt((p.hp||{})[k],t),(k<5)===(MI<5)?HP_COL.ally:HP_COL.enemy)}}
     // hits (lines), casts (labels), damage pops: drawn from recent events so scrubbing works
     const stack={};
     for(const e of [...p.ev].reverse()){const a=t-e[0];if(a<0||a>1.4)continue;if(e[1]==='h'&&a>1)continue;
