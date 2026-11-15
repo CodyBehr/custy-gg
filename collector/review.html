@@ -2415,8 +2415,8 @@ function deathRow(A, d) {
 // ---------------------------------------------------------------- Clips: record a kill, death or moment to a video file
 // League plays the replay and records it through its own Replay API; this dialog picks the stretch and the camera.
 const CLIP = { A: null, t: 0, label: "", poll: null };
-const CLIPDEF = { before: 10, after: 5, camera: "follow", champ: null, size: "1920x1080", rate: 60, hud: true, hide: true, close: true, fps: null, presets: {} };
-function clipPrefs() { try { return Object.assign({}, CLIPDEF, JSON.parse(localStorage.getItem("custy-clip") || "{}")); } catch (e) { return { ...CLIPDEF }; } }
+const CLIPDEF = { before: 10, after: 5, camera: "follow", champ: null, rate: 60, hud: true, hide: false, close: true, fps: null, presets: {} };
+function clipPrefs() { try { const p = Object.assign({}, CLIPDEF, JSON.parse(localStorage.getItem("custy-clip") || "{}")); if (p.v !== 2) { p.hide = false; p.v = 2; } return p; } catch (e) { return { ...CLIPDEF, v: 2 }; } }
 function saveClipPrefs(p) { try { localStorage.setItem("custy-clip", JSON.stringify(p)); } catch (e) {} }
 const MAPW = 14900;
 let MAPPX = null;   // the minimap's pixels, for the camera preview
@@ -2484,7 +2484,7 @@ function openClip(A, t, label, pos) {
         <div style="flex:1;min-width:260px"><div class="h-eye h-mute">What the camera sees (map only; no units or terrain height)</div><canvas id="clPrev" width="384" height="216"></canvas>
           <div class="cl-sl"><label>Height <input type="range" id="clH" min="400" max="8000" step="50"></label><label>Tilt <input type="range" id="clP" min="15" max="90"></label><label>Turn <input type="range" id="clY" min="0" max="359"></label><label>Zoom (field of view) <input type="range" id="clF" min="15" max="100"></label></div>
           <div class="h-r" style="margin-top:8px;flex-wrap:wrap;gap:8px"><select id="clPre" aria-label="Saved camera">${presetOpts()}</select><input id="clPName" aria-label="Camera name" placeholder="Name this camera" style="background:var(--night);color:var(--ink);border:0;border-radius:10px;padding:7px 10px;font:inherit;font-size:14px;width:150px"><button id="clSave">Save camera</button>${mark ? `<button id="clCenter">Aim at this fight</button>` : ""}</div></div></div></div>
-    <div class="cl-row" style="margin-top:14px"><label>Size <select id="clSz"><option${p.size === "1920x1080" ? " selected" : ""}>1920x1080</option><option${p.size === "1280x720" ? " selected" : ""}>1280x720</option></select></label>
+    <div class="cl-row" style="margin-top:14px"><span class="h-mute">Size: same as the replay window</span>
       <label>Frame rate <select id="clR"><option${p.rate == 60 ? " selected" : ""}>60</option><option${p.rate == 30 ? " selected" : ""}>30</option></select></label>
       <label><input type="checkbox" id="clHud" ${p.hud ? "checked" : ""}> Show the game's HUD</label></div>
     <div class="cl-row"><label><input type="checkbox" id="clHide" ${p.hide ? "checked" : ""}> Keep the replay off my screen while it records <span class="h-mute">(experimental)</span></label><label><input type="checkbox" id="clClose" ${p.close ? "checked" : ""}> Close the replay when done</label></div>
@@ -2512,10 +2512,10 @@ function openClip(A, t, label, pos) {
   if (p.camera === "fps") redraw(); else drawCamMap($("clMap"), cam, mark);
   $("clGo").onclick = async () => {
     const b = Math.max(0, +$("clB").value || 0), a = Math.max(0, +$("clA").value || 0);
-    Object.assign(p, { before: b, after: a, size: $("clSz").value, rate: +$("clR").value, hud: $("clHud").checked, hide: $("clHide").checked, close: $("clClose").checked, fps: cam });
+    Object.assign(p, { before: b, after: a, rate: +$("clR").value, hud: $("clHud").checked, hide: $("clHide").checked, close: $("clClose").checked, fps: cam });
     saveClipPrefs(p);
     const champ = Object.values(DD.champ).find(c => c.id === p.champ)?.name || p.champ;
-    const spec = { start: Math.max(0, t - b), end: t + a, camera: p.camera, champion: champ, fps: cam, size: p.size, fps_rate: p.rate, hud: p.hud, hide: p.hide, close: p.close,
+    const spec = { start: Math.max(0, t - b), end: t + a, camera: p.camera, champion: champ, fps: cam, fps_rate: p.rate, hud: p.hud, hide: p.hide, close: p.close,
       name: `${champName(A.me.championId)} ${label.replace(/<[^>]+>/g, "")}`.replace(/:/g, ".").replace(/[^\w\-. ]/g, "").slice(0, 60) };
     $("clGo").disabled = true;
     try { await api("/api/clip/" + A.g.gameId, { method: "POST", body: JSON.stringify(spec) }); } catch (e) { $("clMsg").textContent = e.message; $("clGo").disabled = false; return; }

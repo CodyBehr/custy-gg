@@ -636,7 +636,8 @@ def fetch_game(lcu, game_id, me_puuid):
 # --------------------------------------------------------------------------
 
 LP_FILE = os.path.join(core.HERE, "review-lp.json")   # outside the game cache, which is pruned
-RANKED = {"RANKED_SOLO_5x5": "Ranked Solo/Duo", "RANKED_FLEX_SR": "Ranked Flex"}
+RANKED = {"RANKED_SOLO_5x5": "Ranked Solo/Duo", "RANKED_FLEX_SR": "Ranked Flex", "RANKED_PREMADE_5x5": "Ranked 5s"}
+_lp_logged = {}
 _TIERS = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND"]
 _DIVS = {"IV": 0, "III": 1, "II": 2, "I": 3}
 
@@ -716,7 +717,8 @@ def _lp_update(lcu, puuid):
         qm = (lcu.get("/lol-ranked/v1/current-ranked-stats") or {}).get("queueMap") or {}
         ranks = {}
         keys = list(RANKED) + [k for k in qm if k not in RANKED and "TFT" not in k and "CHERRY" not in k and str((qm[k] or {}).get("tier") or "").upper() not in ("", "NONE", "UNRANKED")]
-        if set(qm) - set(RANKED):
+        if set(qm) - set(RANKED) and not _lp_logged.get("q"):
+            _lp_logged["q"] = True
             core.log.info("Review: ranked queues the client reports: %s", sorted(qm))
         for key in keys:
             label = RANKED.get(key) or key.replace("RANKED_", "Ranked ").replace("_", " ").title().replace("Sr", "").strip()
@@ -1280,6 +1282,9 @@ def _who_in_replay(champion_name):
 
 
 def _record_clip(cfg, game_id, spec):
+    """Same order as Riot's League Director: set the camera, press play, then turn recording on with a folder
+    as the path. League names the file and reports it (and its progress) on GET /replay/recording."""
+    hidden = False
     try:
         t0 = max(0.0, float(spec.get("start", 0)))
         t1 = max(t0 + 1, float(spec.get("end", t0 + 15)))
@@ -1291,8 +1296,6 @@ def _record_clip(cfg, game_id, spec):
             st = dict(_replay)
         if st.get("state") == "error":
             return _clip_status("error", st.get("message") or "Couldn't open the replay.")
-        hidden = bool(spec.get("hide")) and _league_window("hide")
-        _replay_post("/replay/playback", {"paused": True, "time": t0})
         render = {"interfaceAll": bool(spec.get("hud", True)), "fogOfWar": bool(spec.get("fog", False))}
         if spec.get("camera") == "fps":
             c = spec.get("fps") or {}
@@ -1306,45 +1309,69 @@ def _record_clip(cfg, game_id, spec):
                 render["selectionName"] = who
             else:
                 core.log.info("Clip: couldn't find %s in the replay's player list", spec.get("champion"))
-        _replay_post("/replay/render", render)
-        name = re.sub(r"[^\w\-. ]", "", str(spec.get("name") or "clip")).strip()[:60] or "clip"
-        path = os.path.join(clips_dir(), "%s %s.webm" % (name, time.strftime("%Y-%m-%d %H%M%S")))
-        w, h = [int(x) for x in str(spec.get("size", "1920x1080")).split("x")[:2]]
+        try:
+            core.log.info("Clip: render -> %s", _replay_post("/replay/render", render))
+        except Exception as e:
+            core.log.info("Clip: render failed: %s", e)
+        hidden = bool(spec.get("hide")) and _league_window("hide")
+        before = set(os.listdir(clips_dir()))
+        _playback({"paused": False})                       # League records while the replay plays
+        req = {"recording": True, "codec": "webm", "path": clips_dir(), "startTime": t0, "endTime": t1,
+               "framesPerSecond": int(spec.get("fps_rate", 60)), "enforceFrameRate": True, "replaySpeed": 1.0}
         _clip_status("working", "Recording %s to %s..." % (_clock(t0), _clock(t1)))
-        _replay_post("/replay/recording", {"recording": True, "codec": "webm", "path": path, "startTime": t0, "endTime": t1,
-                                          "framesPerSecond": int(spec.get("fps_rate", 60)), "width": w, "height": h,
-                                          "enforceFrameRate": True, "replaySpeed": 1.0})
-        deadline = time.time() + max(120, (t1 - t0) * 8)
-        rec = {}
-        time.sleep(2)
+        core.log.info("Clip: recording request %s -> %s", req, _replay_post("/replay/recording", req))
+        started, rec, out = False, {}, None
+        start_by = time.time() + 20
+        deadline = time.time() + max(120, (t1 - t0) * 10)
         while time.time() < deadline:
+            time.sleep(1)
             try:
                 rec = _live("/replay/recording") or {}
-            except Exception:
-                rec = {}
-            if not rec.get("recording"):
+            except Exception as e:
+                core.log.info("Clip: recording status failed: %s", e)
+                continue
+            out = rec.get("path") or out
+            if rec.get("recording"):
+                if not started:
+                    core.log.info("Clip: League is recording: %s", rec)
+                started = True
+                cur = float(rec.get("currentTime") or t0)
+                _clip_status("working", "Recording... %d%%" % max(0, min(99, int(100 * (cur - t0) / (t1 - t0)))))
+            elif started or time.time() > start_by:
                 break
-            cur = float(rec.get("currentTime") or t0)
-            _clip_status("working", "Recording... %d%%" % max(0, min(99, int(100 * (cur - t0) / (t1 - t0)))))
-            time.sleep(1)
+        core.log.info("Clip: last recording status %s", rec)
         try:
-            _replay_post("/replay/playback", {"paused": True})
+            _playback({"paused": True})
         except Exception:
             pass
         if hidden:
             _league_window("show")
-        out = rec.get("path") or path
-        found = out if os.path.isfile(out) else (path if os.path.isfile(path) else None)
+            hidden = False
+        if not started:
+            return _clip_status("error", "League didn't start recording. If \"Keep the replay off my screen\" was on, try once with it off. The log has League's answer.")
+        time.sleep(2)   # let League finish writing the file
+        found = out if out and os.path.isfile(out) else None
+        if not found:
+            new = [n for n in set(os.listdir(clips_dir())) - before if n.lower().endswith(".webm")]
+            found = os.path.join(clips_dir(), new[0]) if new else None
+        if found and spec.get("name"):   # give it a readable name
+            nice = re.sub(r"[^\w\-. ]", "", str(spec["name"])).strip()[:60] or "clip"
+            target = os.path.join(os.path.dirname(found), "%s %s.webm" % (nice, time.strftime("%Y-%m-%d %H%M%S")))
+            try:
+                os.replace(found, target)
+                found = target
+            except OSError as e:
+                core.log.info("Clip: couldn't rename %s: %s", found, e)
         if spec.get("close", True):
             _league_window("close")
         if not found:
-            return _clip_status("error", "League finished, but the clip file didn't turn up in %s. The log has the details." % clips_dir())
+            return _clip_status("error", "League recorded, but the file isn't in %s. League reported: %s" % (clips_dir(), out or "no path"))
         _clip_status("done", "Saved %s" % os.path.basename(found), file=os.path.basename(found))
     except Exception as e:
         core.log.exception("Clip failed")
-        _league_window("show")
+        if hidden:
+            _league_window("show")
         _clip_status("error", "Couldn't record the clip: %s" % e)
-
 
 # --------------------------------------------------------------------------
 # The local web server
