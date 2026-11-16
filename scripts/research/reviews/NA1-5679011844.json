@@ -1,0 +1,20 @@
+{
+  "game": "NA1-5679011844",
+  "matchup": "Garen-Darius-TOP",
+  "reviewer": "user",
+  "subject": "Garen first death 2:13",
+  "context": "Darius used Flash + Ghost vs Sylas at 0:53, so he can't extend early trades. Garen has Flash + Ignite. Play more aggressive.",
+  "notes": [
+    {"t": "1:05", "verdict": "good", "text": "Trading level 1 when the minion waves meet.",
+     "data": "fine to trade early because the opponent had no summoner spells"},
+    {"t": "1:36", "verdict": "missed_kill", "text": "Trade on the level-2 timer. Garen walked off as Darius hit level 2, while Garen was one melee minion short of level 2. He then took W instead of Q, so he couldn't use Q with full Conqueror stacks. Darius hit the Q handle (no heal). With Flash + Ignite against no summoners, Garen probably had a kill.",
+     "data": {"darius_lvl2": 96.5, "garen_lvl2": 102.4, "garen_hits_94_104": 10, "darius_q_98_22": {"dmg": 34, "dist": 192, "zone": "handle"}, "dist_after": [[98,147],[99,344],[100,354],[101,430],[102,625]], "garen_lvl2_skill": "W", "sums": {"garen": ["Flash","Ignite"], "darius": []}},
+     "rule": "Level-2 race: solo laners hit level 2 on the first melee minion of wave 2. Stay in the fight if you're about to level and the opponent has no summoner spells."},
+    {"t": "1:36", "verdict": "ok", "text": "Even with the misplay, Garen came out ahead in the trade."},
+    {"t": "1:50", "verdict": "bad", "text": "Hit by a Darius Q poke and gave no damage back. Darius healed from it.",
+     "data": {"darius_q_111_01": {"dmg": 85, "dist": 343, "zone": "blade"}}},
+    {"t": "2:00", "verdict": "bad", "text": "Walked up and used E on the wave. Darius punished the cooldown, hit level 3 during the fight, and pulled Garen into a long trade Garen couldn't fight back in, a level down. Garen died.",
+     "data": {"garen_e_on_wave": [116.4, 118.9], "darius_lvl3": 125.2, "garen_ignite": 128.8, "death": 133.37, "fight_dmg": {"garen_dealt": 192, "garen_taken": 725}},
+     "rule": "Don't use your main trading ability on the wave when the opponent is about to level and can punish it."}
+  ]
+}
