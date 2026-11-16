@@ -1,0 +1,17 @@
+{
+  "game": 5678283274, "matchup": "Garen vs Darius, top", "reviewer": "Buckley", "perspective": "Garen", "reviewed": "2026-11-16",
+  "notes": [
+    {"t": "1:11", "verdict": "ok", "text": "Level 1 trade wasn't bad for Garen. Darius started with Q so he couldn't slow him with W and extend the trade. Garen may have lost more health in the initial trade, but with Doran's Shield and his passive he comes out ahead after some regeneration.",
+     "reasons": ["opponent opened without their extender (W slow)", "health lost is regained by regen (passive, Doran's Shield)"]},
+    {"t": "1:28", "verdict": "bad", "text": "Got hit by Darius Q and didn't really return damage with E; he wasn't in position to.",
+     "reasons": ["hit by a skillshot", "no damage returned", "out of position to answer"]},
+    {"t": "2:12", "verdict": "bad", "text": "Walked up into a bigger minion wave at level 2 vs Darius level 3. Darius could open with E, so Garen burned Flash without being able to trade back.",
+     "reasons": ["level behind", "enemy wave bigger", "opponent opened with E", "Flash used without trading back"]},
+    {"t": "2:20", "verdict": "good", "text": "Darius was under Garen's tower and couldn't trade back without taking tower damage.",
+     "reasons": ["opponent under your tower"]},
+    {"t": "2:40", "verdict": "meh", "text": "Not the worst, but Darius could open with E because of the earlier bad trades and the health bars, and Garen had no Flash so he had to back off sooner than he'd like.",
+     "reasons": ["health state from earlier trades", "opponent opened with E", "your Flash down"]},
+    {"t": "3:25", "verdict": "bad", "text": "Tried to stop Darius's back by walking up and igniting him, but could probably have got a kill or at least a Flash if he hadn't used his abilities to farm seconds before. Then went all in without Ignite and Flash and died.",
+     "reasons": ["abilities used on minions just before", "punishing the opponent's recall", "all-in with Ignite and Flash down", "died"]}
+  ]
+}
