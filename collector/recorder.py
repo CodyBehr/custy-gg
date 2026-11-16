@@ -11,7 +11,7 @@ After the game, the recording is lined up with game time: Riot's match timeline 
 estimated from when the game closed and how long it lasted, and gets better as you nudge it.
 
 Recordings are kept for a week in Recordings/, unless you press Keep (moves them to Saved/).
-ffmpeg (about 90 MB) is downloaded from its official Windows builds the first time you
+ffmpeg (about 110 MB) is downloaded from its official Windows builds the first time you
 turn recording on, and checked against a known checksum.
 """
 
@@ -29,10 +29,10 @@ import zipfile
 core = sys.modules.get("custy_collector") or sys.modules["__main__"]
 
 SETTINGS = os.path.join(core.HERE, "recording.json")
-FF_DIR = os.path.join(core.HERE, "ffmpeg")
+FF_DIR = os.path.join(core.HERE, "ffmpeg", "8.1.2")   # 8.1 added window capture (Windows.Graphics.Capture, like OBS)
 FF_EXE = os.path.join(FF_DIR, "ffmpeg.exe")
-FF_URL = "https://github.com/GyanD/codexffmpeg/releases/download/7.1.1/ffmpeg-7.1.1-essentials_build.zip"
-FF_SHA256 = "04861d3339c5ebe38b56c19a15cf2c0cc97f5de4fa8910e4d47e5e6404e4a2d4"
+FF_URL = "https://github.com/GyanD/codexffmpeg/releases/download/8.1.2/ffmpeg-8.1.2-essentials_build.zip"
+FF_SHA256 = "db580001caa24ac104c8cb856cd113a87b0a443f7bdf47d8c12b1d740584a2ec"
 GAME_WINDOW = "League of Legends (TM) Client"
 IN_GAME = ("GameStart", "InProgress", "Reconnect")
 FPS = 30
@@ -43,7 +43,7 @@ _NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 _lock = threading.Lock()
 _state = {"recording": None, "ffmpeg": None, "proc": None}   # ffmpeg: None | {"pct": n} while downloading | {"error": ...}
 
-# Encoders to try, best first. Each takes the frames ddagrab captures (on the graphics card).
+# Encoders to try, best first. Each takes the frames captured on the graphics card.
 ENCODERS = {
     "nvenc": ["-c:v", "h264_nvenc", "-preset", "p4", "-rc", "vbr", "-b:v", "5M", "-maxrate", "8M", "-bufsize", "10M"],
     "amf": ["-c:v", "h264_amf", "-quality", "speed", "-rc", "vbr_peak", "-b:v", "5M", "-maxrate", "8M"],
@@ -155,8 +155,12 @@ def _ff(args, **kw):
                           creationflags=_NO_WINDOW, **kw)
 
 
-def _source(output_idx=0):
-    return ["-f", "lavfi", "-i", "ddagrab=output_idx=%d:framerate=%d:draw_mouse=0" % (output_idx, FPS)]
+def _source(output_idx=0, hwnd=None):
+    """Just the game window (like OBS's window capture: other windows on top, alt-tabbing and other screens
+    don't show up), or the whole screen it's on."""
+    if hwnd:
+        return ["-f", "lavfi", "-i", "gfxcapture=hwnd=%d:max_framerate=%d:capture_cursor=1:capture_border=0,fps=%d" % (hwnd, FPS, FPS)]
+    return ["-f", "lavfi", "-i", "ddagrab=output_idx=%d:framerate=%d:draw_mouse=1" % (output_idx, FPS)]
 
 
 def pick_encoder(force=False):
@@ -178,6 +182,13 @@ def pick_encoder(force=False):
 
 
 # ---------------------------------------------------------------- which screen the game is on
+def _game_window():
+    if sys.platform != "win32":
+        return None
+    import ctypes
+    return ctypes.windll.user32.FindWindowW(None, GAME_WINDOW) or None
+
+
 def _game_monitor():
     """Index of the monitor the game window is on (0 if unknown). None if the game window isn't open."""
     if sys.platform != "win32":
@@ -202,17 +213,30 @@ def _start(game_id, info):
         core.log.warning("Recording: no encoder works on this computer")
         return
     mon = _game_monitor() or 0
+    hwnd = _game_window() if settings().get("capture", "window") == "window" else None
     stamp = time.strftime("%Y-%m-%d %H.%M")
     base = os.path.join(temp_dir(), "%s - %s" % (stamp, game_id))
-    cmd = [FF_EXE, "-hide_banner", "-loglevel", "error", "-y"] + _source(mon) + ENCODERS[enc] + ["-g", str(FPS * 2), "-an", base + ".mkv"]
-    t0 = time.time()
-    p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, creationflags=_NO_WINDOW)
-    rec = {"game": str(game_id), "base": base, "start": t0 + START_LAG, "encoder": enc, "monitor": mon,
+
+    def launch(h):
+        cmd = [FF_EXE, "-hide_banner", "-loglevel", "error", "-y"] + _source(mon, h) + ENCODERS[enc] + ["-g", str(FPS * 2), "-an", base + ".mkv"]
+        return time.time(), subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, creationflags=_NO_WINDOW)
+
+    t0, p = launch(hwnd)
+    if hwnd:   # window capture needs Windows 10 (2019) or newer; if it doesn't take, record the screen instead
+        try:
+            p.wait(3)
+            core.log.info("Recording: window capture didn't start (%s); recording the screen instead",
+                          (p.stderr.read() or b"").decode(errors="replace").strip()[-200:])
+            hwnd = None
+            t0, p = launch(None)
+        except subprocess.TimeoutExpired:
+            pass
+    rec = {"game": str(game_id), "base": base, "start": t0 + START_LAG, "encoder": enc, "monitor": mon, "window": bool(hwnd),
            "championId": info.get("championId"), "queue": info.get("queue"), "platform": info.get("platform")}
     with _lock:
         _state["recording"], _state["proc"] = rec, p
     _write_meta(base, rec)
-    core.log.info("Recording: started game %s (%s, screen %d)", game_id, enc, mon)
+    core.log.info("Recording: started game %s (%s, %s)", game_id, enc, "game window" if hwnd else "screen %d" % mon)
 
 
 def _stop(game_length=None):
@@ -223,8 +247,9 @@ def _stop(game_length=None):
         return
     rec["end"] = time.time()
     try:
-        p.stdin.write(b"q")
-        p.stdin.flush()
+        if p.poll() is None:   # (window capture stops by itself when the game window closes)
+            p.stdin.write(b"q")
+            p.stdin.flush()
         p.wait(15)
     except Exception:
         p.kill()
@@ -453,7 +478,7 @@ def status():
     s = settings()
     with _lock:
         rec, ff = _state["recording"], _state["ffmpeg"]
-    return {"on": s["on"], "days": s["days"], "folder": root_dir(), "encoder": s.get("encoder"),
+    return {"on": s["on"], "days": s["days"], "folder": root_dir(), "encoder": s.get("encoder"), "capture": s.get("capture", "window"),
             "ffmpeg": "ready" if ffmpeg_ready() else ff or "missing",
             "recording": {"game": rec["game"], "since": rec["start"]} if rec else None, "list": listing()}
 

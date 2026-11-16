@@ -2663,7 +2663,7 @@ async function openRecordings() {
   STATE.current = "recordings"; navState(); $("view").classList.remove("wide"); window.scrollTo({ top: 0 });
   let r; try { r = await api("/api/rec"); } catch (e) { $("view").innerHTML = `<div class="empty">Couldn't reach the app: ${esc(e.message)}</div>`; return; }
   if (STATE.current !== "recordings") return;
-  const ff = r.ffmpeg === "ready" ? "" : r.ffmpeg?.pct != null ? `Getting the recorder (ffmpeg, about 90 MB): ${r.ffmpeg.pct}%`
+  const ff = r.ffmpeg === "ready" ? "" : r.ffmpeg?.pct != null ? `Getting the recorder (ffmpeg, about 110 MB): ${r.ffmpeg.pct}%`
     : r.ffmpeg?.error ? `Couldn't get the recorder: ${esc(r.ffmpeg.error)} <button id="recRetry">Try again</button>` : r.on ? "The recorder (ffmpeg) isn't downloaded yet." : "";
   const enc = { nvenc: "NVIDIA graphics card", amf: "AMD graphics card", qsv: "Intel graphics", cpu: "processor (no graphics encoder found; records at 720p)" }[r.encoder];
   const byGame = Object.fromEntries(STATE.games.map(g => [String(g.id), g]));
@@ -2672,9 +2672,12 @@ async function openRecordings() {
       <span class="h-mute">Starts when a game loads and stops when it ends. It records your screen like OBS does and never reads the game.</span></div>
       ${ff ? `<div class="sub" style="margin-top:8px" id="recFf">${ff}</div>` : ""}
       ${r.recording ? `<div style="margin-top:8px;color:var(--red)"><b>● Recording now</b> <span class="h-mute">game ${esc(r.recording.game)}</span></div>` : ""}
+      <div class="rec-set" style="margin-top:12px"><span class="h-mute">Record</span><div class="h-seg" role="group" aria-label="What to record" style="margin:0">
+        <button data-cap="window" class="${r.capture !== "screen" ? "on" : ""}">Just the game window</button><button data-cap="screen" class="${r.capture === "screen" ? "on" : ""}">The whole screen</button></div>
+        <span class="h-mute">${r.capture === "screen" ? "Everything on the game's screen, including other windows on top and alt-tabbing." : "Only League, like OBS's window capture: Discord pop-ups, alt-tabbing and your other screens aren't recorded."}</span></div>
       <div class="rec-set" style="margin-top:12px"><label>Delete recordings after <input type="number" id="recDays" min="1" max="60" value="${r.days}"> days</label><span class="h-mute">unless you keep them (kept ones move to a Saved folder and stay)</span></div>
       <div class="rec-set" style="margin-top:12px"><span class="h-mute">Saved in</span><b title="${esc(r.folder)}">${esc(r.folder)}</b><button id="recPick">Change…</button><button id="recOpen">Open folder</button></div>
-      <div class="sub" style="margin-top:10px">${enc ? `Encoding with your ${enc}.` : "The first game picks the best encoder your computer has (NVIDIA, AMD or Intel graphics, else the processor)."} About 1 GB per 30 minutes. No game sound yet.</div></div>
+      <div class="sub" style="margin-top:10px">${enc ? `Encoding with your ${enc}.` : "The first game picks the best encoder your computer has (NVIDIA, AMD or Intel graphics, else the processor)."} About 1 GB per 30 minutes. No game sound yet. The ffmpeg download is about 110 MB.</div></div>
     <h2>Your recordings <span class="sub" style="font-weight:400">${r.list.length}</span></h2>
     <div class="card">${r.list.length ? `<div class="rec-list">${r.list.map(x => { const g = byGame[x.game];
       return `<div class="rec-item"><img src="${champIcon(g?.champion ?? x.championId)}" alt=""><span><b>${g ? esc(champName(g.champion)) + (g.opponent ? ` <span class="h-mute">vs ${esc(champName(g.opponent))}</span>` : "") : "Game " + esc(x.game)}</b>
@@ -2682,6 +2685,7 @@ async function openRecordings() {
         <span style="display:flex;gap:8px">${g ? `<button class="primary" data-recg="${esc(x.game)}">Review</button>` : ""}<button data-del="${esc(x.game)}">Delete</button></span></div>`; }).join("")}</div>`
       : `<div class="empty" style="padding:10px 0">${r.on ? "Nothing yet. Your next game will show up here." : "Turn on “Record my games” and your next game shows up here."}</div>`}</div>`;
   $("recOn").onchange = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ on: $("recOn").checked }) }).catch(e => toast(e.message)); openRecordings(); };
+  document.querySelectorAll("[data-cap]").forEach(b => b.onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ capture: b.dataset.cap }) }).catch(e => toast(e.message)); openRecordings(); });
   $("recDays").onchange = () => api("/api/rec", { method: "POST", body: JSON.stringify({ days: +$("recDays").value }) }).catch(e => toast(e.message));
   $("recPick").onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ pick: true }) }).catch(e => toast(e.message)); openRecordings(); };
   $("recOpen").onclick = () => api("/api/rec/open", { method: "POST" });
