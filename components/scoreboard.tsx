@@ -43,7 +43,7 @@ export function Board({ s, m, t, mvp, deltas, scores, highlight, compact }: {
               <th>Player</th>
               <th>KDA</th>
               <th>Damage</th>
-              {compact ? null : <th className="num">Gold</th>}
+              <th className="num">Gold</th>
               <th className="num">CS</th>
               {compact ? null : <th className="num">Vision</th>}
               <th>Items</th>
@@ -80,7 +80,7 @@ export function Board({ s, m, t, mvp, deltas, scores, highlight, compact }: {
                       <span className="bar"><i style={{ width: `${(p.damageToChampions / maxDmg) * 100}%` }} /></span>
                     </div>
                   </td>
-                  {compact ? null : <td className="num">{p.gold.toLocaleString("en-US")}</td>}
+                  <td className="num">{p.gold.toLocaleString("en-US")}<div className="sub">{Math.round(p.gold / minutes)}/min</div></td>
                   <td className="num">{p.cs}<div className="sub">{(p.cs / minutes).toFixed(1)}/min</div></td>
                   {compact ? null : <td className="num">{p.visionScore}<div className="sub">{p.controlWards} control</div></td>}
                   <td><Items s={s} items={p.items} size={compact ? 22 : 24} /></td>

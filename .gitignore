@@ -17,3 +17,4 @@ lib/collector-files.ts
 scripts/benchmark/champion.json
 collector/review-key.txt
 collector/overlay-pos.json
+.scratch
