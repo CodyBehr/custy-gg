@@ -2658,6 +2658,20 @@ async function openRecording(A, t) {
   document.addEventListener("keydown", esc_);
   $("rpX").onclick = close; box.querySelector(".cl-back").onclick = close;
 }
+// One-time notice that expert downloads run in the background (on by default for everyone).
+async function xaNotice() {
+  if (STATE.as) return;
+  const xa = await api("/api/experts-auto").catch(() => null);
+  if (!xa || xa.settings.noticed || $("xaNote")) return;
+  const d = document.createElement("div"); d.id = "xaNote"; d.className = "card";
+  d.style.cssText = "position:fixed;right:20px;bottom:20px;max-width:440px;z-index:50;box-shadow:0 10px 40px rgba(0,0,0,.45)";
+  d.innerHTML = `<b>custy coach now helps train the coach</b><div class="sub" style="margin:8px 0 12px">While League is open and you're not playing, it downloads up to 10 Challenger, Grandmaster and Master replays an hour on your account, turns each into a small data file for custy.gg, then deletes it. It pauses during champ select and games. You can turn it off any time on the Recordings tab.</div>
+    <div style="display:flex;gap:8px;justify-content:flex-end"><button id="xaOff">Turn it off</button><button class="h-gold" id="xaOk">Sounds good</button></div>`;
+  document.body.appendChild(d);
+  const done = (b) => { api("/api/experts-auto", { method: "POST", body: JSON.stringify(Object.assign({ noticed: true }, b)) }).catch(() => {}); d.remove(); };
+  $("xaOk").onclick = () => done({}); $("xaOff").onclick = () => done({ on: false });
+}
+setTimeout(xaNotice, 4000);
 // The Recordings page: turn recording on, where it saves, how long it keeps them, and the list.
 async function openRecordings() {
   STATE.current = "recordings"; navState(); $("view").classList.remove("wide"); window.scrollTo({ top: 0 });
@@ -2686,9 +2700,9 @@ async function openRecordings() {
       : `<div class="empty" style="padding:10px 0">${r.on ? "Nothing yet. Your next game will show up here." : "Turn on “Record my games” and your next game shows up here."}</div>`}</div>
     ${xa ? `<h2>Expert replays for the coach</h2><div class="card">
       <div class="rec-set"><label><input type="checkbox" id="xaOn" ${xa.settings.on ? "checked" : ""}> <b>Download 10 high-elo replays an hour</b></label>
-        <span class="h-mute">Runs by itself whenever League is open and you're not in a game. Each replay is boiled down to a small data file the coach learns from.</span></div>
+        <span class="h-mute">Runs by itself whenever League is open and you're not in a game, using your account's replay downloads. Each replay is boiled down to a small data file, sent to custy.gg for the coach to learn from, then deleted from this PC.</span></div>
       <div style="margin-top:10px"><b>${esc(xa.message || "")}</b></div>
-      <div class="sub" style="margin-top:6px">${xa.today} today · ${xa.total} in total${Object.entries(xa.matchup).map(([k, n]) => ` · ${n} ${esc(k.split("-").slice(0, 2).join(" vs "))}`).join("")}${xa.failedToday ? ` · ${xa.failedToday} couldn't be downloaded today` : ""} · data ${xa.dataMB} MB</div>
+      <div class="sub" style="margin-top:6px">${xa.today} today · ${xa.total} in total · ${xa.uploaded} sent to custy.gg${xa.failedToday ? ` · ${xa.failedToday} couldn't be downloaded today` : ""}${xa.dataMB ? ` · ${xa.dataMB} MB waiting to send` : ""}${xa.storage === "not set up yet" ? " (custy.gg's storage isn't set up yet, so it's kept here for now)" : ""}</div>
       <div class="rec-set" style="margin-top:12px"><label>Keep up to <input type="number" id="xaCap" min="2" max="500" value="${xa.settings.cap_gb}"> GB of the replays themselves</label><span class="h-mute">oldest deleted first; your own replays are never touched</span></div>
       <div class="rec-set" style="margin-top:10px"><label><input type="checkbox" id="xaOpen" ${xa.settings.open_league ? "checked" : ""}> Open League when it's closed and you've been away 10 minutes</label><span class="h-mute">at most every 3 hours; needs “Stay signed in” in the Riot Client</span></div></div>` : ""}`;
   const xaSet = (b) => api("/api/experts-auto", { method: "POST", body: JSON.stringify(b) }).catch(e => toast(e.message));

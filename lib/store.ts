@@ -25,6 +25,8 @@ interface Store {
   /** Stores the value only if the key is unset, then returns whatever is stored. */
   initSetting(key: string, value: string): Promise<string>;
   setSetting(key: string, value: string): Promise<void>;
+  /** A lock shared by every server instance: true if taken (it frees itself after ttlMs). */
+  tryLock(key: string, ttlMs: number): Promise<boolean>;
   /** The raw game as uploaded, or null. */
   getRaw(id: string): Promise<any | null>;
   saveTimeline(id: string, summary: TimelineSummary, raw: unknown): Promise<SaveResult>;
@@ -178,6 +180,13 @@ const pgStore: Store = {
     const [row] = await sql()`select 1 as ok from timelines where match_id = ${id}`;
     return Boolean(row);
   },
+  async tryLock(key, ttlMs) {
+    await ensureSchema();
+    const now = Date.now();
+    const rows = await sql()`insert into settings (key, value) values (${key}, ${String(now)})
+      on conflict (key) do update set value = excluded.value where settings.value::bigint < ${now - ttlMs} returning key`;
+    return rows.length > 0;
+  },
   async initSetting(key, value) {
     await ensureSchema();
     await sql()`insert into settings (key, value) values (${key}, ${value}) on conflict (key) do nothing`;
@@ -267,6 +276,16 @@ const fileStore: Store = {
   async getSettings(keys) {
     const all = await readSettings();
     return Object.fromEntries(keys.filter((k) => k in all).map((k) => [k, all[k]]));
+  },
+  tryLock(key, ttlMs) {
+    return locked(async () => {
+      const all = await readSettings();
+      if (Number(all[key] ?? 0) > Date.now() - ttlMs) return false;
+      all[key] = String(Date.now());
+      await fs.mkdir(path.dirname(SETTINGS_FILE), { recursive: true });
+      await fs.writeFile(SETTINGS_FILE, JSON.stringify(all));
+      return true;
+    });
   },
   setSetting(key, value) {
     return locked(async () => {
