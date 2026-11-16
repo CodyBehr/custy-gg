@@ -1960,6 +1960,43 @@ def make_handler(cfg, token):
             self.end_headers()
             self.wfile.write(data)
 
+        def _send_file(self, path, ctype):
+            """A file, with Range support so the video player can jump around without loading it all."""
+            size = os.path.getsize(path)
+            rng = re.match(r"bytes=(\d*)-(\d*)", self.headers.get("Range") or "")
+            a, b = 0, size - 1
+            if rng and (rng.group(1) or rng.group(2)):
+                if rng.group(1):
+                    a = int(rng.group(1))
+                    b = min(size - 1, int(rng.group(2))) if rng.group(2) else size - 1
+                else:
+                    a = max(0, size - int(rng.group(2)))
+                if a >= size:
+                    self.send_response(416)
+                    self.send_header("Content-Range", "bytes */%d" % size)
+                    self.end_headers()
+                    return
+            self.send_response(206 if rng else 200)
+            self.send_header("Content-Type", ctype)
+            self.send_header("Accept-Ranges", "bytes")
+            self.send_header("Content-Length", str(b - a + 1))
+            if rng:
+                self.send_header("Content-Range", "bytes %d-%d/%d" % (a, b, size))
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            try:
+                with open(path, "rb") as f:
+                    f.seek(a)
+                    left = b - a + 1
+                    while left > 0:
+                        chunk = f.read(min(1 << 20, left))
+                        if not chunk:
+                            break
+                        self.wfile.write(chunk)
+                        left -= len(chunk)
+            except (ConnectionError, OSError):
+                pass   # the player stopped reading (it jumped elsewhere)
+
         def _allowed(self):
             # Only this computer, only our own page (stops other sites from poking it).
             host = (self.headers.get("Host") or "").split(":")[0]
@@ -1988,6 +2025,16 @@ def make_handler(cfg, token):
                 return self._send(200, body, "image/jpeg" if m.group(1).endswith(".jpg") else "image/png")
             if url.path == "/api/ping":
                 return self._send(200, {"ok": True})
+            m = re.match(r"^/rec/(\d+)\.mp4$", url.path)
+            if m:   # your recording of a game, for the page's player (key in the address: <video> can't send headers)
+                host = (self.headers.get("Host") or "").split(":")[0]
+                if host not in ("127.0.0.1", "localhost") or not secrets.compare_digest(parse_qs(url.query).get("k", [""])[0], token):
+                    return self._send(403, b"forbidden", "text/plain")
+                import recorder
+                f = recorder.find(m.group(1))
+                if not f:
+                    return self._send(404, b"no recording", "text/plain")
+                return self._send_file(f[0], "video/mp4" if f[0].endswith(".mp4") else "video/x-matroska")
             if not self._allowed():
                 return self._send(403, {"error": "forbidden"})
             if url.path == "/api/app-version":      # lets an open page notice that the app updated
@@ -2058,6 +2105,19 @@ def make_handler(cfg, token):
                     return self._send(200, dict(_clip))
             if url.path == "/api/clips":
                 return self._send(200, list_clips())
+            if url.path == "/api/rec":                 # recording settings, state and the list
+                import recorder
+                return self._send(200, recorder.status())
+            m = re.match(r"^/api/rec/(\d+)$", url.path)
+            if m:                                      # is there a recording of this game, and where 0:00 is in it
+                import recorder
+                q = parse_qs(url.query)
+                if q.get("len"):
+                    try:
+                        recorder.fill_length(m.group(1), float(q["len"][0]))
+                    except (ValueError, OSError):
+                        pass
+                return self._send(200, recorder.info_for(m.group(1)))
             m = re.match(r"^/api/experts/([A-Za-z]+-[A-Za-z]+-[A-Z]+)$", url.path)   # expert replay downloads
             if m:
                 return self._send(200, expert_status(cfg, m.group(1)))
@@ -2154,6 +2214,51 @@ def make_handler(cfg, token):
                 except Exception:
                     pass
                 return self._send(200, {"ok": True})
+            if url.path == "/api/rec":   # {"on": bool, "days": n, "pick": true (folder picker), "folder": path or ""}
+                import recorder
+                try:
+                    body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
+                    if "on" in body:
+                        recorder.save_settings(on=bool(body["on"]))
+                        if body["on"]:
+                            recorder.get_ffmpeg()
+                    if body.get("days"):
+                        recorder.save_settings(days=max(1, min(60, int(body["days"]))))
+                    if body.get("pick"):
+                        path = pick_folder(recorder.root_dir())
+                        if path:
+                            recorder.save_settings(folder=path)
+                    elif "folder" in body:
+                        recorder.save_settings(folder=(body["folder"] or "").strip() or None)
+                    if body.get("retry"):
+                        recorder.get_ffmpeg()
+                    return self._send(200, recorder.status())
+                except Exception as e:
+                    return self._send(400, {"error": str(e)})
+            if url.path == "/api/rec/open":
+                import recorder
+                try:
+                    os.startfile(recorder.root_dir())
+                except Exception:
+                    pass
+                return self._send(200, {"ok": True})
+            m = re.match(r"^/api/rec/(\d+)/(keep|unkeep|nudge|delete|clip)$", url.path)
+            if m:
+                import recorder
+                gid, act = m.groups()
+                try:
+                    body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
+                    if act == "keep" or act == "unkeep":
+                        return self._send(200, recorder.keep(gid, act == "keep"))
+                    if act == "nudge":
+                        return self._send(200, recorder.nudge(gid, float(body.get("delta") or 0)) or {"exists": False})
+                    if act == "delete":
+                        recorder.delete(gid)
+                        return self._send(200, {"exists": False})
+                    out = recorder.clip(gid, float(body["start"]), float(body["end"]), body.get("name"), clips_dir())
+                    return self._send(200, {"file": os.path.basename(out), "dir": clips_dir()})
+                except Exception as e:
+                    return self._send(400, {"error": str(e)})
             m = re.match(r"^/api/experts/([A-Za-z]+-[A-Za-z]+-[A-Z]+)/(start|stop)$", url.path)
             if m:
                 if m.group(2) == "stop":

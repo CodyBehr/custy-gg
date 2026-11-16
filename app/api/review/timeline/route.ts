@@ -39,6 +39,10 @@ export async function GET(req: Request) {
   }
   const tl = await res.json();
   const info = tl?.info ?? {};
+  // When game time 0:00 was, in real time (ms): events like GAME_END carry both clocks. For lining up recordings.
+  let zero: number | null = null;
+  for (const f of info.frames ?? []) for (const e of f.events ?? [])
+    if (typeof e.realTimestamp === "number" && typeof e.timestamp === "number") zero = e.realTimestamp - e.timestamp;
   const participants = (info.participants ?? []).map((p: any) => ({ participantId: p.participantId, puuid: p.puuid }));
   const frames = (info.frames ?? []).map((f: any) => ({
     timestamp: f.timestamp,
@@ -72,5 +76,5 @@ export async function GET(req: Request) {
         [p.spell1Casts, p.spell2Casts, p.spell3Casts, p.spell4Casts, p.summoner1Casts, p.summoner2Casts].map((x: any) => x ?? 0)]));
     }
   } catch {}
-  return NextResponse.json({ participants, frames, pings, casts, who }, { headers: { "Cache-Control": "private, max-age=86400" } });
+  return NextResponse.json({ participants, frames, pings, casts, who, clock: zero ? { zero } : null }, { headers: { "Cache-Control": "private, max-age=86400" } });
 }
