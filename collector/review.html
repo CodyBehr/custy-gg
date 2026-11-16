@@ -2661,7 +2661,7 @@ async function openRecording(A, t) {
 // The Recordings page: turn recording on, where it saves, how long it keeps them, and the list.
 async function openRecordings() {
   STATE.current = "recordings"; navState(); $("view").classList.remove("wide"); window.scrollTo({ top: 0 });
-  let r; try { r = await api("/api/rec"); } catch (e) { $("view").innerHTML = `<div class="empty">Couldn't reach the app: ${esc(e.message)}</div>`; return; }
+  let r, xa; try { [r, xa] = await Promise.all([api("/api/rec"), api("/api/experts-auto").catch(() => null)]); } catch (e) { $("view").innerHTML = `<div class="empty">Couldn't reach the app: ${esc(e.message)}</div>`; return; }
   if (STATE.current !== "recordings") return;
   const ff = r.ffmpeg === "ready" ? "" : r.ffmpeg?.pct != null ? `Getting the recorder (ffmpeg, about 110 MB): ${r.ffmpeg.pct}%`
     : r.ffmpeg?.error ? `Couldn't get the recorder: ${esc(r.ffmpeg.error)} <button id="recRetry">Try again</button>` : r.on ? "The recorder (ffmpeg) isn't downloaded yet." : "";
@@ -2683,7 +2683,16 @@ async function openRecordings() {
       return `<div class="rec-item"><img src="${champIcon(g?.champion ?? x.championId)}" alt=""><span><b>${g ? esc(champName(g.champion)) + (g.opponent ? ` <span class="h-mute">vs ${esc(champName(g.opponent))}</span>` : "") : "Game " + esc(x.game)}</b>
         <small>${x.at ? new Date(x.at * 1000).toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) : ""} · ${(x.size / 1e9).toFixed(2)} GB · ${x.kept ? "Kept" : "Temporary"}${x.sync === "riot" ? "" : " · sync estimated"}</small></span>
         <span style="display:flex;gap:8px">${g ? `<button class="primary" data-recg="${esc(x.game)}">Review</button>` : ""}<button data-del="${esc(x.game)}">Delete</button></span></div>`; }).join("")}</div>`
-      : `<div class="empty" style="padding:10px 0">${r.on ? "Nothing yet. Your next game will show up here." : "Turn on “Record my games” and your next game shows up here."}</div>`}</div>`;
+      : `<div class="empty" style="padding:10px 0">${r.on ? "Nothing yet. Your next game will show up here." : "Turn on “Record my games” and your next game shows up here."}</div>`}</div>
+    ${xa ? `<h2>Expert replays for the coach</h2><div class="card">
+      <div class="rec-set"><label><input type="checkbox" id="xaOn" ${xa.settings.on ? "checked" : ""}> <b>Download 10 high-elo replays an hour</b></label>
+        <span class="h-mute">Runs by itself whenever League is open and you're not in a game. Each replay is boiled down to a small data file the coach learns from.</span></div>
+      <div style="margin-top:10px"><b>${esc(xa.message || "")}</b></div>
+      <div class="sub" style="margin-top:6px">${xa.today} today · ${xa.total} in total${Object.entries(xa.matchup).map(([k, n]) => ` · ${n} ${esc(k.split("-").slice(0, 2).join(" vs "))}`).join("")}${xa.failedToday ? ` · ${xa.failedToday} couldn't be downloaded today` : ""} · data ${xa.dataMB} MB</div>
+      <div class="rec-set" style="margin-top:12px"><label>Keep up to <input type="number" id="xaCap" min="2" max="500" value="${xa.settings.cap_gb}"> GB of the replays themselves</label><span class="h-mute">oldest deleted first; your own replays are never touched</span></div>
+      <div class="rec-set" style="margin-top:10px"><label><input type="checkbox" id="xaOpen" ${xa.settings.open_league ? "checked" : ""}> Open League when it's closed and you've been away 10 minutes</label><span class="h-mute">at most every 3 hours; needs “Stay signed in” in the Riot Client</span></div></div>` : ""}`;
+  const xaSet = (b) => api("/api/experts-auto", { method: "POST", body: JSON.stringify(b) }).catch(e => toast(e.message));
+  if ($("xaOn")) { $("xaOn").onchange = () => xaSet({ on: $("xaOn").checked }); $("xaOpen").onchange = () => xaSet({ open_league: $("xaOpen").checked }); $("xaCap").onchange = () => xaSet({ cap_gb: +$("xaCap").value }); }
   $("recOn").onchange = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ on: $("recOn").checked }) }).catch(e => toast(e.message)); openRecordings(); };
   document.querySelectorAll("[data-cap]").forEach(b => b.onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ capture: b.dataset.cap }) }).catch(e => toast(e.message)); openRecordings(); });
   $("recDays").onchange = () => api("/api/rec", { method: "POST", body: JSON.stringify({ days: +$("recDays").value }) }).catch(e => toast(e.message));

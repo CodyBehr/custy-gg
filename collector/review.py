@@ -24,6 +24,7 @@ import re
 import secrets
 import shutil
 import ssl
+import subprocess
 import sys
 import threading
 import time
@@ -658,6 +659,27 @@ def expert_status(cfg, name):
     return out
 
 
+def _xp_download(lcu, gid, g):
+    """Asks League to download someone else's replay (counts against the hourly limit either way). Returns League's
+    final state for it: "watch" means it's on disk."""
+    json.dump(_xp_times() + [time.time()], open(XP_FILE, "w"))
+    meta = _replay_meta(lcu, gid, g)
+    core.log.info("Expert replay %s (%s): metadata %s", gid, g.get("gameVersion"), meta)
+    if meta.get("state") != "watch":
+        try:
+            r = _lcu_post(lcu, "/lol-replays/v1/rofls/%s/download" % gid, {"componentType": "replay-button_match-history"})
+            core.log.info("Expert replay %s: download request -> %s", gid, r)
+        except urllib.error.HTTPError as e:
+            core.log.info("Expert replay %s: download request HTTP %s %s", gid, e.code, e.read()[:300])
+        for _ in range(180):
+            time.sleep(1)
+            meta = _replay_meta(lcu, gid, g)
+            if meta.get("state") in ("watch", "incompatible", "unsupported", "lost", "missingOrExpired", "error"):
+                break
+        core.log.info("Expert replay %s: final metadata %s", gid, meta)
+    return meta.get("state")
+
+
 def expert_fetch(cfg, name):
     """Downloads every replay in public/experts/<name>.json that isn't in the Replays folder yet, paced."""
     if _xp.get("state") == "working":
@@ -689,28 +711,213 @@ def expert_fetch(cfg, name):
                 time.sleep(20)
             if _xp.get("stop"):
                 break
-            json.dump(_xp_times() + [time.time()], open(XP_FILE, "w"))   # counts against the limit either way
             _xp["message"] = "Downloading game %s..." % gid
-            meta = _replay_meta(lcu, gid, g)
-            core.log.info("Expert replay %s (%s): metadata %s", gid, g.get("gameVersion"), meta)
-            if meta.get("state") != "watch":
-                try:
-                    r = _lcu_post(lcu, "/lol-replays/v1/rofls/%s/download" % gid, {"componentType": "replay-button_match-history"})
-                    core.log.info("Expert replay %s: download request -> %s", gid, r)
-                except urllib.error.HTTPError as e:
-                    core.log.info("Expert replay %s: download request HTTP %s %s", gid, e.code, e.read()[:300])
-                for _ in range(180):
-                    time.sleep(1)
-                    meta = _replay_meta(lcu, gid, g)
-                    if meta.get("state") in ("watch", "incompatible", "unsupported", "lost", "missingOrExpired", "error"):
-                        break
-                core.log.info("Expert replay %s: final metadata %s", gid, meta)
-            if meta.get("state") != "watch" and not _xp_have(cfg, gid):
-                _xp["failed"].append({"gameId": gid, "why": meta.get("state") or "no answer"})
+            state = _xp_download(lcu, gid, g)
+            if state != "watch" and not _xp_have(cfg, gid):
+                _xp["failed"].append({"gameId": gid, "why": state or "no answer"})
         _xp.update(state="done", message="Stopped." if _xp.get("stop") else "All downloaded.")
     except Exception as e:
         core.log.info("Expert replays: %s", e)
         _xp.update(state="error", message=str(e))
+
+
+# Always-on expert downloads: 10 high-elo replays an hour, every hour, with nothing to start. The site picks the
+# games (target matchups first, then any Master+ game on the current patch). Each replay is boiled down to a
+# small data file (positions, hits, casts, levels; about 1 MB) that's kept; the replays themselves are deleted
+# oldest first once they pass a size limit. Never runs while you're in champ select or a game.
+XPA_SETTINGS = os.path.join(core.HERE, "expert-auto.json")
+XPA_LOG = os.path.join(core.HERE, "expert-auto-log.json")
+XPA_DATA = os.path.join(core.HERE, "expert-data")
+_xpa = {"state": "starting", "message": "Starting..."}
+
+
+def xpa_settings():
+    try:
+        s = json.load(open(XPA_SETTINGS))
+    except Exception:
+        s = {}
+    s.setdefault("on", True)
+    s.setdefault("cap_gb", 20)          # replays kept on disk; the small data files are kept regardless
+    s.setdefault("open_league", True)   # open League (when you're away) if it's closed, so downloads keep going
+    return s
+
+
+def xpa_save(**kw):
+    s = xpa_settings()
+    s.update(kw)
+    with open(XPA_SETTINGS, "w") as f:
+        json.dump(s, f)
+    return s
+
+
+def _xpa_log():
+    try:
+        return json.load(open(XPA_LOG))
+    except Exception:
+        return []
+
+
+def _xpa_log_add(entry):
+    log = _xpa_log() + [entry]
+    with open(XPA_LOG, "w") as f:
+        json.dump(log[-20000:], f)
+
+
+def _idle_seconds():
+    """How long since you last touched the mouse or keyboard."""
+    if sys.platform != "win32":
+        return 0
+    import ctypes
+
+    class LII(ctypes.Structure):
+        _fields_ = [("cbSize", ctypes.c_uint), ("dwTime", ctypes.c_uint)]
+    li = LII()
+    li.cbSize = ctypes.sizeof(LII)
+    if not ctypes.windll.user32.GetLastInputInfo(ctypes.byref(li)):
+        return 0
+    return (ctypes.windll.kernel32.GetTickCount() - li.dwTime) / 1000.0
+
+
+def _open_league():
+    """Starts League through the Riot Client (signs in by itself if you ticked "Stay signed in")."""
+    paths = []
+    try:
+        inst = json.load(open(os.path.join(os.environ.get("PROGRAMDATA", r"C:\ProgramData"), "Riot Games", "RiotClientInstalls.json")))
+        paths += [inst.get(k) for k in ("rc_default", "rc_live") if inst.get(k)]
+    except Exception:
+        pass
+    paths.append(r"C:\Riot Games\Riot Client\RiotClientServices.exe")
+    for p in paths:
+        if p and os.path.exists(p):
+            subprocess.Popen([p, "--launch-product=league_of_legends", "--launch-patchline=live"],
+                             creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+            return True
+    return False
+
+
+def _xpa_next(cfg, patch):
+    skip = ",".join(str(e["gameId"]) for e in _xpa_log()[-300:])
+    url = "%s/api/experts/next?patch=%s&count=1&skip=%s" % (cfg["site_url"].rstrip("/"), patch, skip)
+    req = urllib.request.Request(url, headers={"Authorization": "Bearer " + cfg.get("ingest_key", ""),
+                                               "User-Agent": "custy-collector/" + core.VERSION})
+    with urllib.request.urlopen(req, timeout=70) as r:
+        data = json.loads(r.read())
+    if data.get("note"):
+        core.log.info("Expert downloads: site says %s", data["note"])
+    return (data.get("games") or [None])[0], data
+
+
+def _xpa_extract(cfg, gid, g):
+    """Keeps the useful part of a replay (about 1 MB) so the replay itself can go later."""
+    d = replay_dir(cfg)
+    f = next((os.path.join(d, n) for n in os.listdir(d) if n.endswith(".rofl") and ("-%s." % gid) in n), None) if d else None
+    if not f:
+        return False
+    import gzip
+    import replay_trades as RT
+    os.makedirs(XPA_DATA, exist_ok=True)
+    data = RT.decode(f, until=99999)
+    data["game"] = g
+    with gzip.open(os.path.join(XPA_DATA, "%s.json.gz" % gid), "wt") as out:
+        json.dump(data, out, default=str)
+    return True
+
+
+def _xpa_prune(cfg):
+    """Deletes the oldest expert replays once they pass the size limit (never your own games)."""
+    d = replay_dir(cfg)
+    if not d:
+        return 0
+    mine = {str(e["gameId"]) for e in _xpa_log() if e.get("state") == "watch" and e.get("extracted")}
+    files = []
+    for n in os.listdir(d):
+        m = re.match(r"^[A-Z0-9]+-(\d+)\.rofl$", n)
+        if m and m.group(1) in mine:
+            p = os.path.join(d, n)
+            files.append((os.path.getmtime(p), os.path.getsize(p), p))
+    files.sort()
+    total, cap = sum(f[1] for f in files), xpa_settings()["cap_gb"] * 1e9
+    for _t, size, p in files:
+        if total <= cap:
+            break
+        try:
+            os.remove(p)
+            total -= size
+        except OSError:
+            pass
+    return total
+
+
+def expert_auto(cfg, stop):
+    opened_at = 0
+    while not stop.is_set():
+        wait = 30
+        try:
+            st = xpa_settings()
+            if not st["on"]:
+                _xpa.update(state="off", message="Turned off.")
+                wait = 60
+            elif _xp.get("state") == "working":
+                _xpa.update(state="waiting", message="A matchup download set is running.")
+                wait = 60
+            else:
+                lcu = _lcu(cfg)
+                phase = lcu.get("/lol-gameflow/v1/gameflow-phase") if lcu else None
+                times = _xp_times()
+                if lcu is None:
+                    if st["open_league"] and time.time() - opened_at > 3 * 3600 and _idle_seconds() > 600:
+                        opened_at = time.time()
+                        ok = _open_league()
+                        _xpa.update(state="waiting", message="Opening League so downloads can continue." if ok else "League is closed (couldn't find it to open).")
+                    else:
+                        _xpa.update(state="waiting", message="Waiting for League to open.")
+                    wait = 60
+                elif phase in ("ChampSelect", "InProgress", "Reconnect", "GameStart", "WaitingForStats", "PreEndOfGame"):
+                    _xpa.update(state="waiting", message="Paused while you play.")
+                elif len(times) >= XP_PER_HOUR:
+                    nxt = min(times) + 3600
+                    _xpa.update(state="waiting", message="Hourly limit reached. Next one in about %d min." % max(1, (nxt - time.time()) // 60), next_at=nxt)
+                    wait = max(5, min(120, nxt - time.time() + 2))
+                else:
+                    patch = _client_patch(cfg)
+                    g, info = _xpa_next(cfg, patch) if patch else (None, {})
+                    if not g:
+                        _xpa.update(state="waiting", message=(info or {}).get("note") or "No games ready yet. Trying again in 10 min.")
+                        wait = 600
+                    else:
+                        gid = g["gameId"]
+                        _xpa.update(state="working", message="Downloading %s game %s..." % (g.get("matchup") or "a", gid))
+                        state = "watch" if _xp_have(cfg, gid) else _xp_download(lcu, gid, g)
+                        entry = {"gameId": gid, "at": time.time(), "state": state, "kind": g.get("kind"), "matchup": g.get("matchup"),
+                                 "patch": patch}
+                        if state == "watch":
+                            try:
+                                entry["extracted"] = _xpa_extract(cfg, gid, g)
+                            except Exception as e:
+                                core.log.info("Expert downloads: couldn't read %s: %s", gid, e)
+                        _xpa_log_add(entry)
+                        _xpa_prune(cfg)
+                        _xpa.update(state="ok", message="Last: game %s (%s)." % (gid, "saved" if state == "watch" else state))
+                        wait = 2
+        except Exception as e:
+            core.log.info("Expert downloads: %s", e)
+            _xpa.update(state="error", message=str(e)[:200])
+            wait = 120
+        stop.wait(wait)
+
+
+def xpa_status(cfg):
+    log = _xpa_log()
+    ok = [e for e in log if e.get("state") == "watch"]
+    day = time.time() - 86400
+    try:
+        data_mb = sum(os.path.getsize(os.path.join(XPA_DATA, n)) for n in os.listdir(XPA_DATA)) / 1e6
+    except OSError:
+        data_mb = 0
+    return dict(_xpa, settings=xpa_settings(), total=len(ok), today=sum(1 for e in ok if e["at"] > day),
+                failedToday=sum(1 for e in log if e["at"] > day and e.get("state") != "watch"),
+                matchup={k: sum(1 for e in ok if e.get("matchup") == k) for k in {e.get("matchup") for e in ok if e.get("matchup")}},
+                hourLeft=max(0, XP_PER_HOUR - len(_xp_times())), dataMB=round(data_mb))
 
 
 def _lcu(cfg):
@@ -2105,6 +2312,8 @@ def make_handler(cfg, token):
                     return self._send(200, dict(_clip))
             if url.path == "/api/clips":
                 return self._send(200, list_clips())
+            if url.path == "/api/experts-auto":        # the always-on expert downloads
+                return self._send(200, xpa_status(cfg))
             if url.path == "/api/rec":                 # recording settings, state and the list
                 import recorder
                 return self._send(200, recorder.status())
@@ -2235,6 +2444,16 @@ def make_handler(cfg, token):
                     if body.get("retry"):
                         recorder.get_ffmpeg()
                     return self._send(200, recorder.status())
+                except Exception as e:
+                    return self._send(400, {"error": str(e)})
+            if url.path == "/api/experts-auto":   # {"on": bool, "cap_gb": n, "open_league": bool}
+                try:
+                    body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
+                    kw = {k: body[k] for k in ("on", "open_league") if k in body}
+                    if body.get("cap_gb"):
+                        kw["cap_gb"] = max(2, min(500, int(body["cap_gb"])))
+                    xpa_save(**kw)
+                    return self._send(200, xpa_status(cfg))
                 except Exception as e:
                     return self._send(400, {"error": str(e)})
             if url.path == "/api/rec/open":

@@ -448,6 +448,7 @@ def run_with_tray(cfg, start_collector):
         threading.Thread(target=review.keep_cache_fresh, args=(cfg, stop), name="review-cache", daemon=True).start()
         import recorder
         threading.Thread(target=recorder.watch, args=(cfg, stop, review._lcu), name="recorder", daemon=True).start()
+        threading.Thread(target=review.expert_auto, args=(cfg, stop), name="expert-downloads", daemon=True).start()
         import champselect
         threading.Thread(target=champselect.watch, args=(cfg, stop, lambda: review.open_window(review_url["url"] + "&champselect=1")),
                          name="champ-select", daemon=True).start()

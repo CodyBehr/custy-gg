@@ -81,8 +81,12 @@ def run(s, verbose=False):
             D["q_cd"] = t + 9; D["q_hit"] = t + 0.75
         if D.get("q_hit") and t >= D["q_hit"]:
             D["q_hit"] = None
-            hit_garen(50 + d_ad(), "Q blade"); add_stack()
-            heal = (D["max"] - D["hp"]) * 0.17 * (0.6 if t < gw_end else 1); D["hp"] += heal
+            if s.get("q_handle"):   # Garen Flashes into the middle: handle damage, no bleed, no heal
+                hit_garen((50 + d_ad()) * 0.35, "Q handle (Garen flashed in)"); heal = 0
+            else:
+                hit_garen(50 + d_ad(), "Q blade"); add_stack()
+                heal = (D["max"] - D["hp"]) * 0.17 * (0.6 if t < gw_end else 1)
+            D["hp"] += heal
             log.append((round(t, 2), "Darius Q heal", round(heal)))
         if t >= D["aa"]:
             if t >= D["w_cd"] and t >= silence_until:
