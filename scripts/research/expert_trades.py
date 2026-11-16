@@ -201,7 +201,8 @@ def takeaways(c):
             cands.append(dict(family="opener", z=z, nums=[a, n, b, m],
                               text="Open with {me:%s}: you won %d of %d trades started with it, %d of %d with your other abilities." % (key, a, n, b, m)))
     best = {}
-    for x in cands:       # one per family, strongest first
+    for x in cands:       # one per kind (all "own ability on cooldown" tips are one kind), strongest first
+        x["family"] = "own_cd" if x["family"].startswith("own_cd") else "opp_cd" if x["family"].startswith("opp_cd") else x["family"]
         if x["z"] >= 1.96 and (x["family"] not in best or x["z"] > best[x["family"]]["z"]):
             best[x["family"]] = x
     return sorted(best.values(), key=lambda x: -x["z"]), sorted(cands, key=lambda x: -x["z"])
