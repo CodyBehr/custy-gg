@@ -88,7 +88,7 @@ for g in games["games"]:
                              hp=round(100 * tr["hpMe"][0] / max(1, tr["hpMe"][1])),
                              ohp=round(100 * tr["hpOpp"][0] / max(1, tr["hpOpp"][1])),
                              solo=tr.get("solo", True), others=[o["champ"] for o in tr.get("others", [])],
-                             won=None if not tr.get("solo", True) else (tr["dealt"] - tr["took"] > 0 or "them" in tr["died"]) and "you" not in tr["died"]))
+                             won=None if not tr.get("solo", True) or not tr["seq"] else (tr["dealt"] - tr["took"] > 0 or "them" in tr["died"]) and "you" not in tr["died"]))
 
 
 def pct(a, b):
