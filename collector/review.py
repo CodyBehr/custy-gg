@@ -368,7 +368,7 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
-TRADES_VERSION = 6          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 7          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
@@ -427,6 +427,24 @@ def _hp_anchors(data, slot_of_pid):
             st = (pf or {}).get("st")
             if k is not None and st and st[0] is not None and st[1]:
                 out.setdefault(k, []).append((t, st[0], st[1]))
+    return out
+
+
+def _kf_anchors(path, have):
+    """Health anchors read from the replay's own keyframes, for anyone the saved timeline has no health for
+    (custom games: Riot serves no timeline for them)."""
+    import replay_trades as RT
+    if len([v for v in have.values() if v]) >= 10:
+        return have
+    try:
+        kf = RT.keyframe_health(path)
+    except Exception as e:
+        core.log.info("Keyframe health: couldn't read %s: %s", path, e)
+        return have
+    out = dict(have)
+    for k, ser in kf.items():
+        if not out.get(k):
+            out[k] = [(t, hp, mx) for t, hp, mx in ser if mx > 0]
     return out
 
 
@@ -493,15 +511,22 @@ def trades_for(cfg, game_id):
                     kills["me"].append(e["timestamp"] / 1000.0)
                 elif e.get("victimId") == opp["participantId"]:
                     kills["opp"].append(e["timestamp"] / 1000.0)
+    pslot = {p["participantId"]: slot(p) for p in game.get("participants") or []}
+    hpa = _hp_anchors(data, pslot.get)
+    if not any(fr["me"] for fr in frames) or not any(fr["opp"] for fr in frames):
+        # No health in the timeline (custom games): use the health snapshots inside the replay itself
+        hpa = _kf_anchors(path, hpa)
+        mine, theirs = hpa.get(i) or [], hpa.get(j) or []
+        frames = [{"t": t, "me": [hp, mx], "opp": next(([h2, m2] for t2, h2, m2 in theirs if abs(t2 - t) < 2), None)}
+                  for t, hp, mx in mine]
     if not any(fr["me"] for fr in frames):
         return {"error": "Still waiting for this game's health data from the site. Try again in a minute."}
     try:
-        pslot = {p["participantId"]: slot(p) for p in game.get("participants") or []}
         rl = roles(game)
         # Bot lane is two against two: both supports are part of the lane, not a gank
         lane_roles = {"BOT", "SUPPORT"} if rl.get(me["participantId"]) in ("BOT", "SUPPORT") else {rl.get(me["participantId"])}
         mates = {pslot[pid] for pid, r in rl.items() if r in lane_roles and pslot.get(pid) is not None} - {i, j}
-        out = RT.lane_trades(path, i, j, frames, kills, hpa=_hp_anchors(data, pslot.get), deaths_all=_deaths_by_slot(data, pslot.get),
+        out = RT.lane_trades(path, i, j, frames, kills, hpa=_kf_anchors(path, hpa), deaths_all=_deaths_by_slot(data, pslot.get),
                              lane_mates=mates)
     except Exception as e:
         core.log.exception("Trades: decoding %s failed", path)
@@ -518,7 +543,7 @@ def trades_for(cfg, game_id):
     return out
 
 
-DEATHS_VERSION = 8   # 6: map pings in playbacks; 7: everyone's health
+DEATHS_VERSION = 9   # 6: map pings in playbacks; 7: everyone's health
 
 
 def deaths_for(cfg, game_id):
@@ -579,7 +604,7 @@ def deaths_for(cfg, game_id):
     try:
         prev = []
         out = {"deaths": RD.death_reviews(path, slots[me["participantId"]], rmap, kills, towers, previews=prev,
-                                           hpa=_hp_anchors(data, slots.get)), "previews": prev}
+                                           hpa=_kf_anchors(path, _hp_anchors(data, slots.get))), "previews": prev}
     except Exception as e:
         core.log.exception("Deaths: decoding %s failed", path)
         return {"error": "Couldn't decode this replay: %s" % e}
@@ -829,6 +854,10 @@ def _xpa_extract(cfg, gid, g):
     import replay_trades as RT
     os.makedirs(XPA_DATA, exist_ok=True)
     data = RT.decode(f, until=99999)
+    try:
+        data["hp"] = RT.keyframe_health(f, units=True)   # every unit's health about once a minute
+    except Exception:
+        pass
     data["game"] = g
     with gzip.open(os.path.join(XPA_DATA, "%s.json.gz" % gid), "wt") as out:
         json.dump(data, out, default=str)
