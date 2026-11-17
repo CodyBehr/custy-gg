@@ -59,7 +59,7 @@ def reads(out):
     for m in mom:
         t = clock(m["t"])
         if m["kind"] == "level race":
-            if m["first"] == "opp" and m["gap"] > 3:
+            if m["first"] == "opp" and m["gap"] >= 10:
                 lost = [x for x in trades if x["t"] < m["oppAt"] and x["netPct"] <= -8 and x["solo"]]
                 why = (" Likely caused by the lost trade at %s: you gave up the push and they controlled the wave." % clock(lost[-1]["t"])) if lost else ""
                 R.append((t, "level race", "context" if lost else "check", "Level %d: they were %.0fs earlier.%s" % (m["L"], m["gap"], why)))
