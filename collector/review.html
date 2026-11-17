@@ -2671,7 +2671,6 @@ async function xaNotice() {
   const done = (b) => { api("/api/experts-auto", { method: "POST", body: JSON.stringify(Object.assign({ noticed: true }, b)) }).catch(() => {}); d.remove(); };
   $("xaOk").onclick = () => done({}); $("xaOff").onclick = () => done({ on: false });
 }
-setTimeout(xaNotice, 4000);
 // The Recordings page: turn recording on, where it saves, how long it keeps them, and the list.
 async function openRecordings() {
   STATE.current = "recordings"; navState(); $("view").classList.remove("wide"); window.scrollTo({ top: 0 });
