@@ -4,38 +4,12 @@
 //   -> 503 { error } until R2 is set up (R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET)
 // The files go to games/<patch>/<gameId>.json.gz. The app deletes its own copy once the upload succeeds.
 
-import crypto from "node:crypto";
 import { NextResponse } from "next/server";
 import { checkIngestKey } from "@/lib/ingest-key";
 import { store } from "@/lib/store";
+import { presignPut } from "@/lib/r2";
 
 export const dynamic = "force-dynamic";
-
-const hmac = (k: crypto.BinaryLike, s: string) => crypto.createHmac("sha256", k).update(s).digest();
-const enc = (s: string) => encodeURIComponent(s).replace(/[!'()*]/g, (c) => "%" + c.charCodeAt(0).toString(16).toUpperCase());
-
-/** An S3-style presigned PUT link (AWS Signature Version 4), which is what R2 accepts. */
-function presignPut(account: string, akid: string, secret: string, bucket: string, key: string, seconds = 900) {
-  const host = `${account}.r2.cloudflarestorage.com`;
-  const now = new Date();
-  const amzDate = now.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-  const day = amzDate.slice(0, 8);
-  const scope = `${day}/auto/s3/aws4_request`;
-  const path = `/${bucket}/${key.split("/").map(enc).join("/")}`;
-  const q: Record<string, string> = {
-    "X-Amz-Algorithm": "AWS4-HMAC-SHA256",
-    "X-Amz-Credential": `${akid}/${scope}`,
-    "X-Amz-Date": amzDate,
-    "X-Amz-Expires": String(seconds),
-    "X-Amz-SignedHeaders": "host",
-  };
-  const query = Object.keys(q).sort().map((k) => `${enc(k)}=${enc(q[k])}`).join("&");
-  const canonical = ["PUT", path, query, `host:${host}\n`, "host", "UNSIGNED-PAYLOAD"].join("\n");
-  const toSign = ["AWS4-HMAC-SHA256", amzDate, scope, crypto.createHash("sha256").update(canonical).digest("hex")].join("\n");
-  const kSign = hmac(hmac(hmac(hmac("AWS4" + secret, day), "auto"), "s3"), "aws4_request");
-  const sig = crypto.createHmac("sha256", kSign).update(toSign).digest("hex");
-  return `https://${host}${path}?${query}&X-Amz-Signature=${sig}`;
-}
 
 export async function GET(req: Request) {
   if (!(await checkIngestKey(req.headers.get("authorization")))) {

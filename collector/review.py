@@ -854,8 +854,12 @@ def _xpa_upload(cfg, gid, patch):
     with open(f, "rb") as fh:
         body = fh.read()
     put = urllib.request.Request(url, data=body, method="PUT", headers={"Content-Type": "application/gzip", "Content-Length": str(len(body))})
-    with urllib.request.urlopen(put, timeout=120) as r:
-        ok = 200 <= r.status < 300
+    try:
+        with urllib.request.urlopen(put, timeout=120) as r:
+            ok = 200 <= r.status < 300
+    except urllib.error.HTTPError as e:
+        _xpa["storage"] = "Cloudflare answered %s: %s" % (e.code, e.read()[:200].decode(errors="replace"))
+        raise
     if ok:
         _xpa["storage"] = "ok"
         os.remove(f)
@@ -997,6 +1001,23 @@ def _xpa_contributors(cfg):
     return _xpa.get("contrib")
 
 
+def _xpa_storage_check(cfg):
+    """custy.gg tries writing a tiny file to its storage and says what happened (checked every 10 minutes)."""
+    if time.time() - _xpa.get("check_at", 0) < 600:
+        return _xpa.get("check")
+    _xpa["check_at"] = time.time()
+    try:
+        req = urllib.request.Request(cfg["site_url"].rstrip("/") + "/api/experts/storage-check",
+                                     headers={"Authorization": "Bearer " + cfg.get("ingest_key", ""), "User-Agent": "custy-collector/" + core.VERSION})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            _xpa["check"] = json.loads(r.read())
+    except Exception as e:
+        _xpa["check"] = {"ok": False, "why": "Couldn't reach custy.gg: %s" % e}
+    if _xpa["check"].get("ok") and _xpa.get("storage") == "not set up yet":
+        _xpa["storage"] = None
+    return _xpa["check"]
+
+
 def xpa_status(cfg):
     log = _xpa_log()
     ok = [e for e in log if e.get("state") == "watch"]
@@ -1006,7 +1027,7 @@ def xpa_status(cfg):
     except OSError:
         data_mb = 0
     return dict(_xpa, settings=xpa_settings(), total=len(ok), today=sum(1 for e in ok if e["at"] > day),
-                uploaded=sum(1 for e in ok if e.get("uploaded")), contributors=_xpa_contributors(cfg),
+                uploaded=sum(1 for e in ok if e.get("uploaded")), contributors=_xpa_contributors(cfg), storageCheck=_xpa_storage_check(cfg),
                 failedToday=sum(1 for e in log if e["at"] > day and e.get("state") != "watch"),
                 matchup={k: sum(1 for e in ok if e.get("matchup") == k) for k in {e.get("matchup") for e in ok if e.get("matchup")}},
                 hourLeft=max(0, XP_PER_HOUR - len(_xp_times())), dataMB=round(data_mb))
