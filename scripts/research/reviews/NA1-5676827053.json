@@ -1,0 +1,59 @@
+{
+ "game": "NA1-5676827053",
+ "matchup": "Garen-Darius-TOP",
+ "reviewer": "user",
+ "subject": "Coach draft grades, game 1 (expert Garen the reviewer knows)",
+ "context": "Garen: Conqueror, Doran's Blade, Nimbus Cloak, Ignite + Flash (aggressive level 1 setup). Darius: Stormraider's Surge (rune 8230), Nimbus Cloak, Bone Plating, Flash + Ignite.",
+ "notes": [
+  {
+   "t": "0:59",
+   "verdict": "good",
+   "draft": "missed",
+   "text": "Auto-for-auto trade to pop Darius's Bone Plating without using an ability, then walked out of range before Darius got auto + W off. Lost a little health, still a good trade.",
+   "rule": "A short trade that pops a defensive rune (Bone Plating) before an all-in is good even when it loses on damage."
+  },
+  {
+   "t": "1:07",
+   "verdict": "right_idea",
+   "draft": "wrong (draft said bad)",
+   "text": "Right idea: Darius has no Bone Plating up and runs Stormraider's instead of Conqueror, so Garen should win a straight headbutt. Darius played it well: W slow, kited the E spins, Ignite procced Nimbus Cloak to close, then Stormraider's. Garen's E mostly missed and the fight got extended.",
+   "takeaways": [
+    "Garen had Nimbus Cloak too: Ignite early so he doesn't get kited out.",
+    "Starting with an auto stalls Garen and lets Darius space out of E. Walk up with E, Ignite after Darius's W.",
+    "Even then it's a stat/DPS check."
+   ]
+  },
+  {
+   "t": "2:23",
+   "verdict": "missed_opportunity",
+   "draft": "partly right (free poke)",
+   "text": "Garen should have been aggressive: a level up even after dying and being down Long Sword + Boots, with a much bigger wave. Darius's Q at 2:24 was spaced badly (Garen got hit by it, not the handle) so Garen could walk up with E + Q for a good trade, crash the wave, maybe kill.",
+   "rule": "Level up + bigger wave + opponent misspaced = take the trade, even when behind on items."
+  },
+  {
+   "t": "2:34",
+   "verdict": "bad",
+   "draft": "right",
+   "text": "Crashing a small wave with E, hit by Darius Q, then Darius E once Garen's E was down. Forced all-in: good fighting in his own wave and kiting to top brush on cooldowns, but W used too early (no shield value), maybe a misclick 2:44-2:45 delaying an auto, possibly Flashed into the Q blade. Darius barely lived with Flash. A 1-for-1 would have been fine since Garen was crashing a big wave.",
+   "takeaways": [
+    "The root cause is ~2:30: either commit to crash and recall to come back even on items, or play aggressive. Garen was in between.",
+    "Better E use wins it; better W timing at least trades 1-for-1."
+   ]
+  },
+  {
+   "t": "4:13",
+   "verdict": "meh",
+   "draft": "wrong severity (question answered)",
+   "text": "Not recalling: farming under tower. After two deaths in a hard matchup Garen is a passenger: don't die, keep farm. Could have traded back a bit, but once items and levels gap, trades that used to be fine look bad on stats alone.",
+   "rule": "When far behind, judge farming and survival, not trades."
+  },
+  {
+   "t": "5:21",
+   "verdict": "exclude",
+   "draft": "wrong (draft said bad)",
+   "text": "Garen looks tilted: standing still under tower, thought he was out of E range, got hit and died. A washed data point.",
+   "rule": "Obvious tilt or AFK misplays shouldn't teach the model."
+  }
+ ],
+ "summary": "Good game to review; good Garen player."
+}

@@ -1,0 +1,51 @@
+{
+ "game": "NA1-5677792019",
+ "matchup": "Garen-Darius-TOP",
+ "reviewer": "user",
+ "subject": "Coach draft grades, game 2",
+ "context": "Garen: Conqueror + Doran's Blade (aggressive). Darius: Stormraider's Surge, Nimbus Cloak, no Bone Plating.",
+ "notes": [
+  {
+   "t": "0:45",
+   "verdict": "bad",
+   "draft": "partly right",
+   "text": "Poor matchup knowledge: Garen warded, saw Darius walk up, then tried to trade and run. With this setup vs no Bone Plating he wins the level 1 fight. He leveled Q instead of E; auto into E spin with Ignite would have won hard, and Darius face-checking the brush leaves no time to W-kite.",
+   "rule": "Great candidate for data: how Garen wins level 1 with this setup (E start, not Q)."
+  },
+  {
+   "t": "1:39",
+   "verdict": "context",
+   "draft": "cause wrong",
+   "text": "Late levels come from losing the level 1 trade: Garen conceded the push and couldn't contest level 2, so Darius slow-pushed as he liked. Possibly also stood too far back for minion XP.",
+   "rule": "A late level race usually traces back to an earlier lost trade or conceded push."
+  },
+  {
+   "t": "3:02",
+   "verdict": "good",
+   "draft": "right",
+   "text": "Same as game 1's 2:34 at levels 4 vs 3: Garen crashing a wave after Darius reset; Darius fought him in a big wave down a level and lost. Huge Darius mistake. What the reviewer wanted from game 1's Garen. Also shows why opening E usually isn't best for Darius.",
+   "rule": "Fighting into a bigger wave a level down is the opponent's mistake; punish it."
+  },
+  {
+   "t": "4:59",
+   "verdict": "good",
+   "draft": "right",
+   "text": "Garen stacking a big wave to crash; Darius walked up and E'd him for no reason, ignoring that Garen was about to hit 6. Mostly a Darius error.",
+   "rule": "Start fights just before your level spike; don't start one when the opponent is about to spike."
+  },
+  {
+   "t": "5:58",
+   "verdict": "meh",
+   "draft": "right (meh)",
+   "text": "Not worth mentioning here. Free pokes matter in close games (game 1's level 3 vs 2 poke before a near all-in), not when far ahead.",
+   "rule": "A poke's weight depends on how close the next all-in is."
+  },
+  {
+   "t": "6:29",
+   "verdict": "meh",
+   "draft": "incomplete",
+   "text": "Limit test with a big lead: could easily have walked away. Not much lost (wave crashed, Darius just respawned), and dodging Lee Sin's Q is a double kill; Ivern could have tanked. Leans to 'don't take the risk with this lead', also a small shutdown.",
+   "rule": "With a lead, flag unnecessary risk mildly."
+  }
+ ]
+}
