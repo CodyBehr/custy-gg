@@ -19,6 +19,7 @@ DEADLINE = time.time() + a.minutes * 60
 ROUTE = {"na1": "americas", "euw1": "europe", "kr": "asia", "eun1": "europe", "br1": "americas"}
 SLOT = {1: "Q", 2: "W", 3: "E", 4: "R"}
 stamps = []
+forbidden = set()
 
 
 def get(host, path):
@@ -38,7 +39,8 @@ def get(host, path):
             if e.code in (500, 502, 503, 504):
                 time.sleep(5); continue
             if e.code in (401, 403):
-                raise SystemExit("Riot rejected the key (HTTP %s)." % e.code)
+                print("HTTP %s on %s%s" % (e.code, host, path.split("?")[0]), flush=True)
+                forbidden.add(host)
             return None
         except Exception:
             time.sleep(5)
