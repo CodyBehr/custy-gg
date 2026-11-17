@@ -108,6 +108,11 @@ def main(gid, me_c, opp_c, until=600.0):
         return out
     de = W.unit_deaths(path, until + 30)
     mins = W.minions(d, de)
+    deaths_by = {}
+    for x in kills:
+        deaths_by.setdefault(x["victim"], []).append(x["t"])
+    rec = W.recalls(d, deaths_by, until + 30)
+    out_recalls = {"me": [round(t) for k, t, x, z in rec if k == me], "opp": [round(t) for k, t, x, z in rec if k == opp]}
     tr = RT.lane_trades(path, me, opp, frames, {"me": dl.get(me, []), "opp": dl.get(opp, [])}, hpa=hpa, deaths_all=dl)
     casts = d["casts"]
     hits = d["hits"]
@@ -151,7 +156,9 @@ def main(gid, me_c, opp_c, until=600.0):
         mt = TOWERS[my_team]; ot = TOWERS[300 - my_team]
         net_me = x["dealt"] - x["took"]
         mx = (x["hpMe"][1] or 1, x["hpOpp"][1] or 1)
-        mo = {"t": t0, "end": t1, "kind": "trade", "solo": x["solo"], "first": x["first"], "seq": x["seq"],
+        bigger = "even" if abs(nm[my_team] - nm[300 - my_team]) <= 1 else ("mine" if nm[my_team] > nm[300 - my_team] else "theirs")
+        back = {w: next((round(t0 - r) for r in out_recalls[w] if 0 < t0 - r <= 60), None) for w in ("me", "opp")}
+        mo = {"t": t0, "end": t1, "kind": "trade", "biggerWave": bigger, "backFromBaseSecsAgo": back, "solo": x["solo"], "first": x["first"], "seq": x["seq"],
               "dealt": x["dealt"], "took": x["took"], "netPct": round(100 * (x["dealt"] / mx[1] - x["took"] / mx[0])),
               "hpMe": x["hpMe"], "hpOpp": x["hpOpp"], "lv": [level(pme, t0), level(popp, t0)],
               "died": x["died"], "others": [o["champ"] for o in x["others"]],
@@ -198,6 +205,10 @@ def main(gid, me_c, opp_c, until=600.0):
                                "sumsUsed": [(round(t, 1), skins[kk], n) for t, kk, n in sc if kk in (me, opp) and x["t"] - 15 <= t <= x["t"]],
                                "minions": {"theirTeam": nm[300 - team], "ownTeam": nm[team]},
                                "toOwnTower": round(math.hypot(p[0] - TOWERS[team][0], p[1] - TOWERS[team][1]))})
+    for w, L in out_recalls.items():
+        for r in L:
+            if r <= until:
+                out["moments"].append({"t": r, "kind": "recall", "who": w})
     out["moments"].sort(key=lambda z: z["t"])
     out["sumCasts"] = [(round(t, 1), skins[k], n) for t, k, n in sc if k in (me, opp)]
     return out
