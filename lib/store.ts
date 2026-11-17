@@ -94,6 +94,12 @@ async function ensureSchema() {
           raw jsonb not null,
           inserted_at timestamptz not null default now()
         )`;
+      // Supabase serves the public schema over its REST API to anyone with the project's public (anon) key. The site only
+      // talks to the database directly as the table owner, which RLS doesn't restrict, so RLS with no policies closes
+      // that door without changing anything here.
+      await db`alter table matches enable row level security`;
+      await db`alter table settings enable row level security`;
+      await db`alter table timelines enable row level security`;
       // Only 5v5 games count: clear out anything else (1v1s, 2v2s...) uploaded before that rule.
       const gone = await db`
         delete from matches m where
