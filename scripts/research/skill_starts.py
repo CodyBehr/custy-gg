@@ -13,6 +13,7 @@ ap.add_argument("--a", required=True); ap.add_argument("--b", required=True); ap
 ap.add_argument("--days", type=int, default=30); ap.add_argument("--minutes", type=float, default=90)
 ap.add_argument("--want", type=int, default=400); ap.add_argument("--regions", default="na1,euw1,kr")
 ap.add_argument("--out", default="research")
+ap.add_argument("--seed", default="scripts/research/seed_puuids_na.txt")   # NA high-elo players, used when the ladder is forbidden
 a = ap.parse_args()
 KEY = os.environ["RIOT_API_KEY"]
 DEADLINE = time.time() + a.minutes * 60
@@ -86,6 +87,8 @@ for i, plat in enumerate(regions):
     for q in ("challengerleagues", "grandmasterleagues", "masterleagues"):
         L = get(plat, "/lol/league/v4/%s/by-queue/RANKED_SOLO_5x5" % q) or {}
         ladder += [e["puuid"] for e in sorted(L.get("entries", []), key=lambda e: -e["leaguePoints"]) if e.get("puuid")]
+    if not ladder and plat == "na1" and os.path.exists(a.seed):
+        ladder = [x.strip() for x in open(a.seed) if x.strip()]
     mains, queue, scanned = [], ladder, set()
     print("%s: ladder %d" % (plat, len(ladder)), flush=True)
     while time.time() < reg_deadline and len(found) < a.want and (mains or queue):
