@@ -22,7 +22,11 @@ SUMM = {"363fad": "Flash", "78ed5b": "Teleport", "22568a": "Ignite", "cbb9e2": "
         "f62bbf": "Exhaust", "993dca": "Ghost"}
 SUMM_ID = {4: "Flash", 14: "Ignite", 6: "Ghost", 12: "Teleport", 7: "Heal", 21: "Barrier", 3: "Exhaust", 11: "Smite", 1: "Cleanse"}
 SUMM_CD = {"Flash": 300, "Ignite": 180, "Ghost": 210, "Teleport": 330, "Heal": 240, "Barrier": 180, "Exhaust": 210, "Cleanse": 210}
-KEY = {"Darius": "E", "Garen": "Q"}            # the ability each side least wants to have down in a trade
+KEY = {"Darius": "E", "Garen": "Q"}
+RUNE = {8010: "Conqueror", 8230: "Stormraider's Surge", 8005: "Press the Attack", 8021: "Fleet Footwork", 8437: "Grasp",
+        8439: "Aftershock", 8465: "Guardian", 8112: "Electrocute", 8214: "Aery", 8229: "Arcane Comet", 9923: "Hail of Blades",
+        8128: "Dark Harvest", 8351: "Glacial", 8360: "Unsealed Spellbook", 8369: "First Strike", 8473: "Bone Plating",
+        8275: "Nimbus Cloak", 8444: "Second Wind", 8299: "Last Stand", 9111: "Triumph"}            # the ability each side least wants to have down in a trade
 SLOT = {1: "Q", 2: "W", 3: "E", 4: "R"}
 TOWERS = {100: (981, 10441), 200: (4318, 13875)}   # outer top towers (blue, red)
 
@@ -45,6 +49,99 @@ def summoner_casts(path, until):
                 if name:
                     out.append((t, RT.CHAMPS.index(prm), name))
     return out
+
+
+def reads(out):
+    """The coach's read of each moment, from general rules (the reviewer's lessons, games 1-2). No champion names."""
+    R = []
+    mom = out["moments"]
+    trades = [m for m in mom if m["kind"] == "trade"]
+    for m in mom:
+        t = clock(m["t"])
+        if m["kind"] == "level race":
+            if m["first"] == "opp" and m["gap"] > 3:
+                lost = [x for x in trades if x["t"] < m["oppAt"] and x["netPct"] <= -8 and x["solo"]]
+                why = (" Likely caused by the lost trade at %s: you gave up the push and they controlled the wave." % clock(lost[-1]["t"])) if lost else ""
+                R.append((t, "level race", "context" if lost else "check", "Level %d: they were %.0fs earlier.%s" % (m["L"], m["gap"], why)))
+            continue
+        if m["kind"] == "death":
+            if m["who"] == "me" and m.get("laneLead", 0) >= 2 and len(m["assists"]) >= 1:
+                R.append((t, "death", "meh", "Died to %d enemies with a %d-kill lead: unnecessary risk, and a shutdown." % (1 + len(m["assists"]), m["laneLead"])))
+            continue
+        if m["kind"] != "trade":
+            continue
+        st, f = m["state"], {x["f"] for x in m["flags"]}
+        behind = st["deathsGap"] >= 2 or (st["levelGap"] <= -1 and st["itemGoldGap"] <= -700)
+        ahead = st["deathsGap"] <= -2 or st["levelGap"] >= 1 and st["itemGoldGap"] >= 700
+        dur = m["end"] - m["t"]
+        win = m["biggerWave"] == "mine"
+        notes, verdict = [], None
+        if m.get("stillBefore") and m["first"] == "them" and "you" in m["died"]:
+            verdict = "exclude"; notes.append("You were standing still in their range when they engaged. Looks idle or tilted; not a lesson.")
+        elif behind and "you" not in m["died"]:
+            verdict = "meh"; notes.append("You're behind (%+d deaths, %+d levels, %+d item gold): judge farming and staying alive here, not the trade." % (st["deathsGap"], st["levelGap"], st["itemGoldGap"]))
+        elif m.get("theirBonePlatingUp") and dur < 6 and abs(m["netPct"]) <= 8 and not m["died"]:
+            verdict = "good"; notes.append("Short trade that popped their Bone Plating; any fight in the next ~55 s is without it.")
+        elif m["died"] and m.get("enemiesNear"):
+            verdict = "good" if m["died"] == ["them"] else "check"
+            notes.append("Their teammates were there too (%s), so this isn't judged as a 1v1 trade." % ", ".join(m["enemiesNear"]))
+        elif "you" in m["died"] and "them" in m["died"]:
+            verdict = "1-for-1"
+            if m["minionDmg"]["me"] >= 300 and m["toTheirTower"] < 900:
+                notes.append("You got the kill but died to their tower (%d tower/minion damage): was the dive worth more than the wave and plates?" % m["minionDmg"]["me"])
+            else:
+                notes.append("You got the kill, then died yourself: after a kill, back off toward your side instead of staying in their wave.")
+        elif m["died"]:
+            loser = "you" if "you" in m["died"] and "them" not in m["died"] else "them" if "them" in m["died"] and "you" not in m["died"] else None
+            if loser == "you":
+                gap = m["leftAtEnd"]["opp"]
+                close = gap <= 0.15 * m["hpOpp"][1]
+                verdict = "close" if close else "lost"
+                if m.get("alliesNear"):
+                    notes.append("(Your %s was nearby.)" % ", ".join(m["alliesNear"]))
+                n = gap / m["avgHit"] if m["avgHit"] else None
+                notes.append("They were left on ~%d HP%s." % (gap, " — about %d more of your hits would have flipped it" % max(1, math.ceil(n)) if n is not None and close else ""))
+                if m["openedWithAuto"]:
+                    notes.append("You opened with an auto before your first ability; that can let them space out of it.")
+                unused = [n for n, up, _ in m["sumsMe"] if up and n not in m.get("sumsUsedMe", [])]
+                if unused:
+                    notes.append("Unused: %s." % ", ".join(unused))
+            elif loser == "them":
+                verdict = "good"
+        their_win = st["levelGap"] <= -1 and m["biggerWave"] == "theirs"
+        if st["levelGap"] >= 1 and win and m["first"] == "them":
+            notes.append("They fought into your bigger wave a level down: their mistake to punish.")
+            if verdict is None:
+                verdict = "good" if m["netPct"] > 0 else "missed"
+        if verdict is None:
+            if their_win and not m["died"]:
+                verdict = "meh"; notes.append("Their window (a level up, bigger wave): giving up a little here is fine.")
+            elif False:
+                pass
+            elif st["levelGap"] >= 1 and win and m["netPct"] < 0:
+                verdict = "missed"; notes.append("You were a level up with the bigger wave: your window to trade hard, not take damage.")
+            elif "free poke taken" in f:
+                soon = any(x for x in trades if 0 < x["t"] - m["t"] <= 60 and (x["died"] or abs(x["netPct"]) <= 10))
+                verdict = "bad" if soon and not ahead else "meh"
+                notes.append("Free poke taken." + (" It mattered: a close fight followed within a minute." if verdict == "bad" else " Little weight here." if ahead else ""))
+            elif m["netPct"] >= 10:
+                verdict = "good"
+            elif m["netPct"] <= -10:
+                verdict = "bad"
+            else:
+                verdict = "even"
+        for sp in m["spike"]:
+            starter = "me" if m["first"] == "you" else "opp"
+            if sp["who"] == starter:
+                notes.append("%s started it %.0fs before %s level %d: good timing%s." % ("You" if starter == "me" else "They", sp["secsIn"], "your" if starter == "me" else "their", sp["to"], "" if starter == "me" else " for them"))
+            else:
+                notes.append("%s started it %.0fs before %s level %d: %s." % ("You" if starter == "me" else "They", sp["secsIn"], "their" if sp["who"] == "opp" else "your", sp["to"], "risky" if starter == "me" else "their mistake"))
+        if "ability used on the wave, then they engaged" in f:
+            notes.append("Ability on the wave, then they engaged: commit to crashing and recalling, or to fighting; not in between.")
+        if m["minionDmg"]["me"] + m["minionDmg"]["opp"] >= 60:
+            notes.append("Minions/towers: %d to you, %d to them." % (m["minionDmg"]["me"], m["minionDmg"]["opp"]))
+        R.append((t, "trade" if m["solo"] else "fight (others near)", verdict, " ".join(notes) or "Net %+d%% of max HP." % m["netPct"]))
+    return R
 
 
 def main(gid, me_c, opp_c, until=600.0):
@@ -97,6 +194,11 @@ def main(gid, me_c, opp_c, until=600.0):
     my_sums = [SUMM_ID.get(parts[pme]["summoner1Id"]), SUMM_ID.get(parts[pme]["summoner2Id"])]
     op_sums = [SUMM_ID.get(parts[popp]["summoner1Id"]), SUMM_ID.get(parts[popp]["summoner2Id"])]
     runes = {k: parts[p]["perks"]["styles"][0]["selections"][0]["perk"] for k, p in (("me", pme), ("opp", popp))}
+    perks = {k: [sel["perk"] for st in parts[p]["perks"]["styles"] for sel in st["selections"]] for k, p in (("me", pme), ("opp", popp))}
+    setup = {k: [RUNE.get(r) for r in v if r in RUNE] for k, v in perks.items()}
+    def gold_at(p, t):   # item gold (spent) at the last minute mark
+        f = tl["frames"][min(len(tl["frames"]) - 1, int(t // 60))]["participantFrames"][str(p)]
+        return f["totalGold"] - f["currentGold"]
 
     # --- replay facts
     sc = summoner_casts(path, until + 30)
@@ -164,7 +266,8 @@ def main(gid, me_c, opp_c, until=600.0):
               "died": x["died"], "others": [o["champ"] for o in x["others"]],
               "minions": {"mine": nm[my_team], "theirs": nm[300 - my_team]},
               "toMyTower": round(math.hypot(cx - mt[0], cz - mt[1])), "toTheirTower": round(math.hypot(cx - ot[0], cz - ot[1])),
-              "sumsMe": sums_up(me, my_sums, t0), "sumsOpp": sums_up(opp, op_sums, t0), "flags": []}
+              "sumsMe": sums_up(me, my_sums, t0), "sumsOpp": sums_up(opp, op_sums, t0), "flags": [],
+              "sumsUsedMe": sorted({n for tt, kk, n in sc if kk == me and t0 - 1 <= tt <= t1})}
         # level-up during the trade
         for p, who in ((pme, "me"), (popp, "opp")):
             for lt in lvl[p][1:]:
@@ -187,6 +290,36 @@ def main(gid, me_c, opp_c, until=600.0):
             if k == opp and L == KEY.get(opp_c) and t0 - 24 <= t < t0 - 2:
                 mo["flags"].append({"f": "their key ability was on cooldown", "ability": L, "since": round(t, 1)})
                 break
+        # --- added from the reviewer's games 1-2 grades (general rules)
+        dmg_from = lambda tg, a0, a1: round(sum(v for ht, t2, a, v in hits if t2 == tg and a is None and a0 <= ht <= a1))
+        mo["enemiesNear"] = [o for o in mo["others"] if (skins.index(o) < 5) != (me < 5)] if all(o in skins for o in mo["others"]) else mo["others"]
+        mo["alliesNear"] = [o for o in mo["others"] if o not in mo["enemiesNear"]]
+        mo["minionDmg"] = {"me": dmg_from(me, t0, t1 + 1), "opp": dmg_from(opp, t0, t1 + 1)}
+        # health left on each side when the fight ended (start - champion damage - minion/tower damage)
+        left_me = x["hpMe"][0] - x["took"] - mo["minionDmg"]["me"]
+        left_opp = x["hpOpp"][0] - x["dealt"] - mo["minionDmg"]["opp"]
+        mo["leftAtEnd"] = {"me": round(max(0, left_me)), "opp": round(max(0, left_opp))}
+        my_hits = [v for ht, tg, a, v in hits if a == me and tg == opp and t0 <= ht <= t1]
+        mo["avgHit"] = round(sum(my_hits) / len(my_hits)) if my_hits else None
+        # opened with an auto before the first ability?
+        first_cast = min([t for t, k, L in casts if k == me and t0 - 1 <= t <= t1], default=None)
+        first_hit = min([ht for ht, tg, a, v in hits if a == me and tg == opp and t0 - 1 <= ht <= t1], default=None)
+        mo["openedWithAuto"] = bool(first_hit is not None and (first_cast is None or first_hit < first_cast - 0.1))
+        # defensive rune up for them? (Bone Plating: on after 55 s without champion damage)
+        if "Bone Plating" in setup["opp"]:
+            prev = [ht for ht, tg, a, v in hits if tg == opp and a is not None and t0 - 55 <= ht < t0]
+            mo["theirBonePlatingUp"] = not prev
+        # context: who is ahead
+        lv_gap = level(pme, t0) - level(popp, t0)
+        gold_gap = gold_at(pme, t0) - gold_at(popp, t0)
+        deaths_gap = (sum(1 for z in kills if z["victim"] == me and z["killer"] == opp and z["t"] < t0)
+                      - sum(1 for z in kills if z["victim"] == opp and z["killer"] == me and z["t"] < t0))
+        mo["state"] = {"levelGap": lv_gap, "itemGoldGap": gold_gap, "deathsGap": deaths_gap}
+        # level spikes within the first 8 s
+        a3, a0 = RT._at(d["tracks"][me], t0 - 3), RT._at(d["tracks"][me], t0)
+        mo["stillBefore"] = bool(a3 and a0 and math.hypot(a3[0] - a0[0], a3[1] - a0[1]) < 120 and math.hypot(pm[0] - po[0], pm[1] - po[1]) < 750)
+        mo["spike"] = [{"who": who, "to": level(pp, lt), "secsIn": round(lt - t0, 1)}
+                       for pp, who in ((pme, "me"), (popp, "opp")) for lt in lvl[pp][1:] if 0 <= lt - t0 <= 8]
         out["moments"].append(mo)
 
     # deaths in lane
@@ -197,7 +330,16 @@ def main(gid, me_c, opp_c, until=600.0):
         p = RT._at(d["tracks"][k], x["t"] - 0.5) or x["pos"]
         nm = near_minions(p[0], p[1], x["t"] - 3)
         team = 100 if k < 5 else 200
-        out["moments"].append({"t": x["t"], "kind": "death", "who": "me" if k == me else "opp",
+        # standing still just before dying, with the killer close (tilt / idle)
+        still = None
+        if k == me:
+            a, b = RT._at(d["tracks"][k], x["t"] - 4), RT._at(d["tracks"][k], x["t"] - 1)
+            o = RT._at(d["tracks"][opp], x["t"] - 1)
+            if a and b and o:
+                still = math.hypot(a[0] - b[0], a[1] - b[1]) < 150 and math.hypot(b[0] - o[0], b[1] - o[1]) < 700
+        lead = (sum(1 for z in kills if z["victim"] == opp and z["killer"] == me and z["t"] < x["t"])
+                - sum(1 for z in kills if z["victim"] == me and z["killer"] == opp and z["t"] < x["t"]))
+        out["moments"].append({"t": x["t"], "kind": "death", "who": "me" if k == me else "opp", "standingStill": still, "laneLead": lead,
                                "killer": skins[x["killer"]] if x["killer"] is not None else "minions/tower",
                                "assists": [skins[a] for a in x["assists"] if a is not None],
                                "lv": [level(pme, x["t"]), level(popp, x["t"])],
@@ -211,6 +353,8 @@ def main(gid, me_c, opp_c, until=600.0):
                 out["moments"].append({"t": r, "kind": "recall", "who": w})
     out["moments"].sort(key=lambda z: z["t"])
     out["sumCasts"] = [(round(t, 1), skins[k], n) for t, k, n in sc if k in (me, opp)]
+    out["setup"] = setup
+    out["reads"] = reads(out)
     return out
 
 
