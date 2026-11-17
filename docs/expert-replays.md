@@ -12,7 +12,7 @@ custy coach gathers high-elo games in the background so the coach can learn how 
 
 ## On the Recordings tab
 
-- **Download 8 high-elo replays an hour:** turns it on or off. It's on by default.
+- **Download 8 high-elo replays an hour:** turns it on or off (on by default), and picks how many an hour, 1 to 10 (8 by default, leaving room for your own replays).
 - **Status:** what it's doing right now, how many games it downloaded today and in total, and how many were sent to custy.gg.
 - **custy.gg storage:** whether uploads are working.
 - **Sent to custy.gg so far:** how many games each person's app has contributed, by Riot ID.
