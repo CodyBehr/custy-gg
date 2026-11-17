@@ -33,6 +33,7 @@ CAST_MARK = bytes.fromhex("b4a4b4b4")
 # Waypoint count byte (cipher) of a movement entry -> where its start position sits, counted back from the entry's end:
 # 1 waypoint: right after speed; 2-5: after one delta-flags byte; 6+: after two (checked against camera tracks).
 WP_COUNT = {0x2C: 11, 0x1B: 12, 0x26: 12, 0xBB: 12, 0x24: 12, 0x70: 13, 0xE7: 13, 0x1E: 13, 0x3B: 13, 0xF4: 13, 0xB4: 13, 0xE2: 13}
+ID_HI = {0x3F, 0x14, 0x2C, 0x1E}   # unit id byte 2 (0x00-0x03 in the id cipher): late-game units pass 0x40010000
 POS_IDS = {0x9E: 0, 0xAC: 1, 0x8C: 2, 0xE6: 3, 0x8A: 4, 0x0B: 5, 0x36: 6, 0xBD: 7, 0x8F: 8, 0x57: 9}
 # Patch 16.22 tables, fitted from replays against Riot's match data (see project notes).
 T871 = bytes.fromhex('d8f76fc3304fabd7d9a460b38652329fca5af2df01c143181a5bbf04f1c4031b771988050a78083a6769d09702aacc1c3f2094e2e739b42498817f0f22b81600fae421a92fa06a54a383de0bcf92e93672758e1f4d2dd2b7c863ac7e85a6a7e88a31654238c7c22791a534ffbbebbe350c296b28d33d46e1742a967bf84815504b2bd4eaf911705d4982b27db0253eb644e09e8cfd337a1d9087addba856aeed5fbd5c713740e661e5c5f6efaf641310c96c470714f36e0d4a518f0662b54e76dcce6d553b4cda80d173cde3fe93d5591e9d23d645fc9add3ca289ba997cb9268b9c17f0fb41b10e66539becee95f58409c0c65e125768bc8df42ea12ccb5879')   # movement record byte substitution, cipher -> plain
@@ -43,6 +44,8 @@ SPELLS = {"Jax":{"3b8e7b":"W","2d8e7b":"Q","8c8e7b":"E","3a8e7b":"R"},"JarvanIV"
 # Map pings (record 1256, param 0), fitted for 16.22 against Riot's per-player ping counts in 34 replays (94% of
 # typed pings land on the right player and kind) and, for pings on a champion, that champion's position (median
 # ~90 units off). Layout: [flags][?][target 3 bytes, optional][pinger][0x98][kind, optional][x float][z float].
+SUMMONERS = {"363fad": "Flash", "78ed5b": "Teleport", "22568a": "Ignite", "cbb9e2": "Heal", "96b4e4": "Barrier",
+             "f62bbf": "Exhaust", "993dca": "Ghost"}   # 1131 cast ids, the same for every champion (Smite not solved)
 PING_FROM = dict(zip(bytes.fromhex("c8114478dc20b73280ff"), range(10)))   # pinger byte -> slot
 PING_AT = dict(zip(bytes.fromhex("a4e5f4a79f8bce597bc2"), range(10)))     # champion target byte (before 0xD6) -> slot
 PING_KIND = {0xEB: "omw", 0x3C: "missing", 0xE2: "vision", 0xD6: "back", 0x08: "assist", 0x8F: "allin",
@@ -168,7 +171,7 @@ def decode(path, until=900.0):
     """One pass over the replay: hits on champions, casts, level-ups, positions and map pings up to `until` seconds."""
     version, stats, chunks = read_rofl(path)
     skins = [p.get("SKIN") for p in stats]
-    hits, casts, levels, pings = [], [], [], []
+    hits, casts, levels, pings, summs = [], [], [], [], []
     vision = {k: [] for k in range(10)}   # times each champion stepped into the other team's vision
     tracks = {}
     for body in chunks:
@@ -187,9 +190,12 @@ def decode(path, until=900.0):
                 b = bytes(pl)
                 q = b.find(CAST_MARK)
                 k = CHAMPS.index(param)
-                slot = SPELLS.get(skins[k], {}).get(b[q + 4:q + 7].hex(), "") if q >= 0 else ""
+                sid = b[q + 4:q + 7].hex() if q >= 0 else ""
+                slot = SPELLS.get(skins[k], {}).get(sid, "")
                 if slot in ("Q", "W", "E", "R"):
                     casts.append((t, k, slot))
+                elif sid in SUMMONERS:
+                    summs.append((t, k, SUMMONERS[sid]))
             elif netid == 12 and param in CHAMPS:         # level up
                 levels.append((t, CHAMPS.index(param)))
             elif netid == 1027 and param in CHAMPS:       # stepped into the other team's vision
@@ -204,7 +210,7 @@ def decode(path, until=900.0):
                 # the start position (4), for 2+ a delta-flags byte and then the start position. Entries are stored
                 # back to front, so the position is read backwards from the end of each entry.
                 for i in range(len(b) - 6, 9, -1):
-                    if b[i] != 0xA5 or b[i + 1] != 0x3F or b[i + 4] != 0x3F or b[i + 5] not in WP_COUNT:
+                    if b[i] != 0xA5 or b[i + 1] not in ID_HI or b[i + 4] != 0x3F or b[i + 5] not in WP_COUNT:
                         continue
                     e = i + 6
                     o = e - WP_COUNT[b[i + 5]]                  # x low byte of the start position
@@ -214,12 +220,12 @@ def decode(path, until=900.0):
                     z = _v16(b[o - 3], b[o - 2]) * 2 + 7412
                     if not (-500 < x < 15500 and -500 < z < 15500):
                         continue
-                    key = POS_IDS[b[i + 3]] if (b[i + 2] == 0x3F and b[i + 3] in POS_IDS) else (b[i + 1] << 16 | b[i + 2] << 8 | b[i + 3])
+                    key = POS_IDS[b[i + 3]] if (b[i + 1] == 0x3F and b[i + 2] == 0x3F and b[i + 3] in POS_IDS) else (b[i + 1] << 16 | b[i + 2] << 8 | b[i + 3])
                     tracks.setdefault(key, []).append((round(t + 0.19, 2), round(x), round(z)))
     for key in list(tracks):
         tracks[key] = _clean(sorted(tracks[key]))
     return dict(version=version, stats=stats, hits=hits, casts=casts, levels=levels, tracks=tracks, vision=vision,
-                pings=pings)
+                pings=pings, summs=summs)
 
 
 # --------------------------------------------------------------------------
@@ -262,8 +268,8 @@ def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=Non
 
     lv = {i: sorted(t for t, k in d["levels"] if k == i), j: sorted(t for t, k in d["levels"] if k == j)}
     level = lambda k, t: sum(1 for x in lv[k] if x <= t)
-    duel = sorted((t, a, v) for t, tg, a, v in H if 55 <= t <= 840 and {a, tg} == {i, j})
-    others = [(t, tg, v) for t, tg, a, v in H if 55 <= t <= 840 and tg in (i, j) and a not in (i, j) and a is not None and (a < 5) != (tg < 5)]
+    duel = sorted((t, a, v) for t, tg, a, v in H if 30 <= t <= 840 and {a, tg} == {i, j})
+    others = [(t, tg, v) for t, tg, a, v in H if 30 <= t <= 840 and tg in (i, j) and a not in (i, j) and a is not None and (a < 5) != (tg < 5)]
     groups, cur = [], []
     for e in duel:
         if cur and e[0] - cur[-1][0] > 3:
