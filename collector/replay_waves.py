@@ -142,3 +142,44 @@ def recalls(d, deaths_by_slot, until=99999.0):
                     continue
                 out.append((k, round(b[0], 1), a[1], a[2]))
     return sorted(out, key=lambda r: r[1])
+
+
+def minion_damage(path, mins, until=99999.0):
+    """Every hit each lane minion took (record 393 keyed to the minion): {unit id: [(t, amount)]}.
+    A minion's hits add up to its max health at death (plus the last hit's overkill), so health over time is
+    1 - (damage so far / damage at death). Melee ~490 and casters ~340 early, growing over the game."""
+    _v, _s, chunks = RT.read_rofl(path)
+    out = {}
+    for body in chunks:
+        for t, nid, prm, pl in RT._blocks(body):
+            if t > until:
+                break
+            if nid == 393 and prm in mins:
+                out.setdefault(prm, []).append((t, RT._amount(bytes(pl))))
+    return out
+
+
+def minion_hp(mins, dmg, u, t):
+    """Fraction of health left (0-1) for minion u at time t, or None if it isn't alive then."""
+    m = mins[u]
+    if m["spawn"] > t or (m["died"] is not None and m["died"] <= t):
+        return None
+    hits = dmg.get(u, [])
+    total = sum(a for _t, a in hits) or 1.0
+    done = sum(a for ht, a in hits if ht <= t)
+    return max(0.0, 1.0 - done / total)
+
+
+def auto_attacks(path, until=99999.0):
+    """[(t, slot)]: a champion starting a basic attack (record 991, keyed to the attacker). Fires before 49 of
+    Garen's 54 hits on Darius in one game and never during his E spin. The target isn't decoded yet; an auto not
+    followed by a hit on a champion went into a minion or monster."""
+    _v, _s, chunks = RT.read_rofl(path)
+    out = []
+    for body in chunks:
+        for t, nid, prm, pl in RT._blocks(body):
+            if t > until:
+                break
+            if nid == 991 and prm in RT.CHAMPS:
+                out.append((t, RT.CHAMPS.index(prm)))
+    return out
