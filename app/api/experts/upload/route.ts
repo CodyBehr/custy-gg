@@ -7,6 +7,7 @@
 import crypto from "node:crypto";
 import { NextResponse } from "next/server";
 import { checkIngestKey } from "@/lib/ingest-key";
+import { store } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
 
@@ -49,6 +50,26 @@ export async function GET(req: Request) {
   const patch = url.searchParams.get("patch") ?? "";
   if (!/^\d{6,15}$/.test(gameId) || !/^\d+\.\d+$/.test(patch)) {
     return NextResponse.json({ error: "gameId and patch are required" }, { status: 400 });
+  }
+  // Who sent it (their Riot ID), for the thank-you counts on the Recordings tab. Counted once per game.
+  const by = (url.searchParams.get("by") ?? "").slice(0, 40) || "someone";
+  const s = store();
+  for (let i = 0; i < 20; i++) {
+    if (await s.tryLock("expert_contrib_lock", 10_000)) {
+      try {
+        const c = JSON.parse((await s.getSetting("expert_contrib")) ?? "{}") as { counts?: Record<string, number>; games?: number[] };
+        c.counts ??= {}; c.games ??= [];
+        if (!c.games.includes(Number(gameId))) {
+          c.counts[by] = (c.counts[by] ?? 0) + 1;
+          c.games = [...c.games, Number(gameId)].slice(-30000);
+          await s.setSetting("expert_contrib", JSON.stringify(c));
+        }
+      } finally {
+        await s.setSetting("expert_contrib_lock", "0");
+      }
+      break;
+    }
+    await new Promise((r) => setTimeout(r, 300));
   }
   return NextResponse.json({ url: presignPut(acc, akid, secret, bucket, `games/${patch}/${gameId}.json.gz`) });
 }
