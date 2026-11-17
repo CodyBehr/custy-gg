@@ -655,8 +655,8 @@ def _download_for_trades(cfg, game_id):
 
 
 # Expert replays: League downloads other players' replays too (its own region and patch only), at most 10 an
-# hour per account. We use all 10 and never download while a game is on.
-XP_PER_HOUR = 10
+# hour per account. We use 8, leaving 2 for the player's own replays, and never download while a game is on.
+XP_PER_HOUR = 8
 XP_FILE = os.path.join(core.HERE, "expert-downloads.json")
 _xp = {"state": "idle"}
 
@@ -757,7 +757,7 @@ def expert_fetch(cfg, name):
         _xp.update(state="error", message=str(e))
 
 
-# Always-on expert downloads: 10 high-elo replays an hour, every hour, on every PC running the app, with nothing to
+# Always-on expert downloads: 8 high-elo replays an hour, every hour, on every PC running the app, with nothing to
 # start. The site picks the games (Challenger first, then Grandmaster, then Master; each game goes to one PC). Each
 # replay is boiled down to a small data file (positions, hits, casts, levels; about 1 MB) and the replay is deleted
 # straight away; the file is uploaded to the site's storage and then deleted too (if storage isn't reachable, only
