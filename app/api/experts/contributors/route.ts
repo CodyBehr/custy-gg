@@ -1,4 +1,4 @@
-// How many expert games each person's custy coach has sent, by Riot ID, for the Recordings tab.
+// How many expert games each person's custy coach has sent (successful uploads only), by Riot ID, for the Recordings tab.
 //   GET /api/experts/contributors   (Authorization: Bearer <ingest key>) -> { people: [{ who, n }], total }
 import { NextResponse } from "next/server";
 import { checkIngestKey } from "@/lib/ingest-key";
@@ -11,7 +11,7 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "Wrong ingest key" }, { status: 401 });
   }
   let counts: Record<string, number> = {};
-  try { counts = JSON.parse((await store().getSetting("expert_contrib")) ?? "{}").counts ?? {}; } catch {}
+  try { counts = JSON.parse((await store().getSetting("expert_contrib_v2")) ?? "{}").counts ?? {}; } catch {}
   const people = Object.entries(counts).map(([who, n]) => ({ who, n })).sort((a, b) => b.n - a.n);
   return NextResponse.json({ people, total: people.reduce((t, p) => t + p.n, 0) });
 }

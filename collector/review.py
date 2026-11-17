@@ -863,6 +863,12 @@ def _xpa_upload(cfg, gid, patch):
     if ok:
         _xpa["storage"] = "ok"
         os.remove(f)
+        try:   # tell custy.gg it arrived, so it counts for you
+            done = urllib.request.Request("%s/api/experts/upload?gameId=%s&patch=%s&by=%s&done=1" % (base, gid, patch, me),
+                                          headers={"Authorization": "Bearer " + cfg.get("ingest_key", ""), "User-Agent": "custy-collector/" + core.VERSION})
+            urllib.request.urlopen(done, timeout=20).read()
+        except Exception:
+            pass
     return ok
 
 
@@ -878,7 +884,7 @@ def _xpa_delete_replay(cfg, gid):
 
 def _xpa_backlog(cfg, limit=5):
     """Uploads data files that couldn't be sent earlier."""
-    if _xpa.get("storage") == "not set up yet" and time.time() - _xpa.get("storage_checked", 0) < 1800:
+    if _xpa.get("storage") not in (None, "ok") and time.time() - _xpa.get("storage_checked", 0) < 600:
         return
     _xpa["storage_checked"] = time.time()
     log = _xpa_log()
@@ -1003,7 +1009,7 @@ def _xpa_contributors(cfg):
 
 def _xpa_storage_check(cfg):
     """custy.gg tries writing a tiny file to its storage and says what happened (checked every 10 minutes)."""
-    if time.time() - _xpa.get("check_at", 0) < 600:
+    if time.time() - _xpa.get("check_at", 0) < (600 if (_xpa.get("check") or {}).get("ok") else 120):
         return _xpa.get("check")
     _xpa["check_at"] = time.time()
     try:
