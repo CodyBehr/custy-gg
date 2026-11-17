@@ -1,0 +1,31 @@
+# One-off research: level 1 skill, setup and early lane results for one matchup (Riot match + timeline only).
+name: Skill starts (matchup)
+
+on:
+  workflow_dispatch:
+    inputs:
+      a: { description: "Champion A", default: "Garen" }
+      b: { description: "Champion B", default: "Darius" }
+      role: { description: "Role", default: "TOP" }
+      days: { description: "Days back", default: "30" }
+      minutes: { description: "Minutes to search", default: "90" }
+      regions: { description: "Regions", default: "na1,euw1,kr" }
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull
+        env:
+          RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+        run: |
+          python3 scripts/research/skill_starts.py --a "${{ inputs.a }}" --b "${{ inputs.b }}" --role "${{ inputs.role }}" \
+            --days "${{ inputs.days }}" --minutes "${{ inputs.minutes }}" --regions "${{ inputs.regions }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: skill-starts
+          path: research/
+          retention-days: 7
