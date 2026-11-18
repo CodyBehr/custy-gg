@@ -221,7 +221,7 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
         a = lvl[pme][L - 1] if len(lvl[pme]) >= L else None
         b = lvl[popp][L - 1] if len(lvl[popp]) >= L else None
         if a and b and b < a and a - b >= 10:
-            lost = [y for y in trades if y["t"] < a and y["netPct"] <= -8 and y["solo"]]
+            lost = [y for y in trades if y["t"] < b and y["netPct"] <= -8 and y["solo"]]   # before THEY levelled
             R.append({"t": round(b, 1), "kind": "level race", "verdict": "context" if lost else "check",
                       "text": "Level %d: they were %.0fs earlier.%s" % (L, a - b, (" Likely caused by the lost trade at %s: you gave up the push and they controlled the wave." % clock(lost[-1]["t"])) if lost else "")})
 
