@@ -3745,7 +3745,7 @@ async function drawXp() {
   if (!st) { box.innerHTML = ""; return; }
   const run = st.state === "working", pct = Math.round(100 * st.have / st.total);
   box.innerHTML = `<div class="xpbox">${champImg(MU.champ)}${champImg(MU.opp)}<div class="xi"><b>Expert replays of this matchup</b> · ${st.have} of ${st.total} downloaded
-    <small>${run ? esc(st.message || "") : `NA high-elo games on patch ${esc(st.patch || "")}. League allows a few an hour, so this runs in the background (about ${st.perHour} an hour, paused while you play).`}${st.failed?.length ? ` · ${st.failed.length} couldn't be downloaded` : ""}</small>
+    <small>${run ? esc(st.message || "") : `High-elo games from your region on patch ${esc(st.patch || "")}. League allows a few an hour, so this runs in the background (about ${st.perHour} an hour, paused while you play).`}${st.failed?.length ? ` · ${st.failed.length} couldn't be downloaded` : ""}</small>
     <div class="bar"><i style="width:${pct}%"></i></div></div>
     ${st.have < st.total ? `<button id="xpGo">${run ? "Stop" : "Download"}</button>` : ""}</div>`;
   const b = $("xpGo");

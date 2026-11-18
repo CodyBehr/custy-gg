@@ -21,6 +21,9 @@ export async function GET(req: Request) {
   }
   const url = new URL(req.url);
   const gameId = url.searchParams.get("gameId") ?? "";
+  const platform = (url.searchParams.get("platform") ?? "na1").toLowerCase();
+  if (!/^[a-z]{2,4}\d?$/.test(platform)) return NextResponse.json({ error: "bad platform" }, { status: 400 });
+  const file = platform === "na1" ? gameId : `${platform.toUpperCase()}_${gameId}`;
   const patch = url.searchParams.get("patch") ?? "";
   if (!/^\d{6,15}$/.test(gameId) || !/^\d+\.\d+$/.test(patch)) {
     return NextResponse.json({ error: "gameId and patch are required" }, { status: 400 });
@@ -48,5 +51,5 @@ export async function GET(req: Request) {
     }
     return NextResponse.json({ ok: true });
   }
-  return NextResponse.json({ url: presignPut(acc, akid, secret, bucket, `games/${patch}/${gameId}.json.gz`) });
+  return NextResponse.json({ url: presignPut(acc, akid, secret, bucket, `games/${patch}/${file}.json.gz`) });
 }

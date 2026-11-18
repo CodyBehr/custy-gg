@@ -18,6 +18,13 @@ export const maxDuration = 60;
 const MATCHUPS = [{ a: "Garen", b: "Darius", role: "TOP" }];   // only labelled, not preferred
 const STATE_KEY = "expert_crawl_v2";
 const LOCK_KEY = "expert_crawl_lock";
+// Each PC can only download replays from its own region, so each region has its own crawl (and its own Riot rate
+// limit). NA keeps the original keys.
+const ROUTES: Record<string, string> = {
+  na1: "americas", br1: "americas", la1: "americas", la2: "americas",
+  euw1: "europe", eun1: "europe", tr1: "europe", ru: "europe", me1: "europe",
+  kr: "asia", jp1: "asia", oc1: "sea", sg2: "sea", tw2: "sea", vn2: "sea",
+};
 const BUDGET_MS = 22_000;
 const BUDGET_CALLS = 40;
 const TIERS = ["challengerleagues", "grandmasterleagues", "masterleagues"] as const;
@@ -64,16 +71,20 @@ export async function GET(req: Request) {
   if (!patch) return NextResponse.json({ error: "patch is required, like 16.22" }, { status: 400 });
   const count = Math.max(1, Math.min(10, Number(url.searchParams.get("count")) || 1));
   const skip = new Set((url.searchParams.get("skip") ?? "").split(",").map(Number).filter(Boolean));
+  const platform = (url.searchParams.get("platform") ?? "na1").toLowerCase();
+  const route = ROUTES[platform];
+  if (!route) return NextResponse.json({ games: [], note: `Region ${platform} isn't supported yet.` });
+  const sfx = platform === "na1" ? "" : `_${platform}`;
 
   // One request at a time works on the queue, so two PCs never get the same game.
   const s = store();
   let locked = false;
-  for (let i = 0; i < 30 && !(locked = await s.tryLock(LOCK_KEY, 55_000)); i++) await sleep(500);
+  for (let i = 0; i < 30 && !(locked = await s.tryLock(LOCK_KEY + sfx, 55_000)); i++) await sleep(500);
   if (!locked) return NextResponse.json({ games: [], note: "busy" });
 
   try {
     let st: State;
-    try { st = JSON.parse((await s.getSetting(STATE_KEY)) ?? "null") ?? fresh(patch); } catch { st = fresh(patch); }
+    try { st = JSON.parse((await s.getSetting(STATE_KEY + sfx)) ?? "null") ?? fresh(patch); } catch { st = fresh(patch); }
     if (st.patch !== patch) {
       if (older(patch, st.patch)) return NextResponse.json({ games: [], note: "Your League is on an older patch." });
       st = { ...fresh(patch), ladder: st.ladder, ladderAt: st.ladderAt };   // new patch: older replays can't be downloaded
@@ -87,7 +98,7 @@ export async function GET(req: Request) {
         if (!st.ladder.length || Date.now() - st.ladderAt > 12 * 3_600_000) {
           const all: { p: string; t: number }[] = [];
           for (let t = 0; t < TIERS.length; t++) {
-            const l = await riot("na1", `/lol/league/v4/${TIERS[t]}/by-queue/RANKED_SOLO_5x5`, key); calls++;
+            const l = await riot(platform, `/lol/league/v4/${TIERS[t]}/by-queue/RANKED_SOLO_5x5`, key); calls++;
             const es = [...(l?.entries ?? [])].sort((x: any, y: any) => y.leaguePoints - x.leaguePoints);
             for (const e of es) if (e.puuid) all.push({ p: e.puuid, t });
           }
@@ -103,12 +114,12 @@ export async function GET(req: Request) {
         if (!pl) { st.next = 0; note = "Everyone on the ladder was read in the last 6 hours."; break; }
         st.scanned[pl.p] = Date.now();
         const since = Math.floor(Date.now() / 1000) - 14 * 86400;
-        const ids: string[] = (await riot("americas", `/lol/match/v5/matches/by-puuid/${pl.p}/ids?queue=420&startTime=${since}&count=20`, key)) ?? []; calls++;
+        const ids: string[] = (await riot(route, `/lol/match/v5/matches/by-puuid/${pl.p}/ids?queue=420&startTime=${since}&count=20`, key)) ?? []; calls++;
         for (const mid of ids) {
           const gid = Number(mid.split("_")[1]);
           if (!gid || seen.has(gid)) continue;
           if (Date.now() - t0 > BUDGET_MS || calls >= BUDGET_CALLS) break;
-          const m = await riot("americas", `/lol/match/v5/matches/${mid}`, key); calls++; crawled++;
+          const m = await riot(route, `/lol/match/v5/matches/${mid}`, key); calls++; crawled++;
           seen.add(gid); st.seen.push(gid);
           const info = m?.info;
           if (!info) continue;
@@ -124,7 +135,7 @@ export async function GET(req: Request) {
             if (pa && pb && pa.teamId !== pb.teamId) matchup = `${t.a}-${t.b}-${t.role}`;
           }
           st.queue.push({
-            gameId: gid, platform: info.platformId ?? "NA1", gameVersion: info.gameVersion, gameType: info.gameType ?? "MATCHED_GAME",
+            gameId: gid, platform: info.platformId ?? platform.toUpperCase(), gameVersion: info.gameVersion, gameType: info.gameType ?? "MATCHED_GAME",
             queueId: info.queueId ?? 420, gameEnd: info.gameEndTimestamp ?? info.gameCreation + info.gameDuration * 1000,
             tier: pl.t, matchup,
           });
@@ -145,10 +156,10 @@ export async function GET(req: Request) {
     if (Object.keys(st.scanned).length > 6000) {
       st.scanned = Object.fromEntries(Object.entries(st.scanned).sort((a, b) => b[1] - a[1]).slice(0, 4000));
     }
-    await s.setSetting(STATE_KEY, JSON.stringify(st));
-    console.log(`experts/next: served ${pick.length}, queued ${st.queue.length}, crawled ${crawled}, calls ${calls}, ladder ${st.ladder.length}${note ? ", note: " + note : ""}`);
+    await s.setSetting(STATE_KEY + sfx, JSON.stringify(st));
+    console.log(`experts/next ${platform}: served ${pick.length}, queued ${st.queue.length}, crawled ${crawled}, calls ${calls}, ladder ${st.ladder.length}${note ? ", note: " + note : ""}`);
     return NextResponse.json({ games: pick, queued: st.queue.length, served: st.served.length, crawled, calls, note });
   } finally {
-    await s.setSetting(LOCK_KEY, "0");
+    await s.setSetting(LOCK_KEY + sfx, "0");
   }
 }

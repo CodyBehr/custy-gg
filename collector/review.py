@@ -833,9 +833,22 @@ def _open_league():
     return False
 
 
-def _xpa_next(cfg, patch):
+REGION_PLATFORM = {"NA": "na1", "EUW": "euw1", "EUNE": "eun1", "KR": "kr", "BR": "br1", "LAN": "la1", "LAS": "la2",
+                   "OCE": "oc1", "TR": "tr1", "RU": "ru", "JP": "jp1", "ME": "me1", "SG": "sg2", "TW": "tw2", "VN": "vn2"}
+
+
+def _client_platform(lcu):
+    """The Riot platform the League client is signed into (na1, euw1...). Replays can only come from there."""
+    try:
+        r = (lcu.get("/riotclient/region-locale") or {}).get("region", "NA")
+        return REGION_PLATFORM.get(str(r).upper(), str(r).lower())
+    except Exception:
+        return "na1"
+
+
+def _xpa_next(cfg, patch, platform="na1"):
     skip = ",".join(str(e["gameId"]) for e in _xpa_log()[-300:])
-    url = "%s/api/experts/next?patch=%s&count=1&skip=%s" % (cfg["site_url"].rstrip("/"), patch, skip)
+    url = "%s/api/experts/next?patch=%s&count=1&skip=%s&platform=%s" % (cfg["site_url"].rstrip("/"), patch, skip, platform)
     req = urllib.request.Request(url, headers={"Authorization": "Bearer " + cfg.get("ingest_key", ""),
                                                "User-Agent": "custy-collector/" + core.VERSION})
     with urllib.request.urlopen(req, timeout=70) as r:
@@ -865,14 +878,14 @@ def _xpa_extract(cfg, gid, g):
     return True
 
 
-def _xpa_upload(cfg, gid, patch):
+def _xpa_upload(cfg, gid, patch, platform="na1"):
     """Sends a data file to the site's storage. True once it's there (the local copy is then deleted)."""
     f = os.path.join(XPA_DATA, "%s.json.gz" % gid)
     if not os.path.exists(f):
         return False
     base = cfg["site_url"].rstrip("/")
     me = urllib.parse.quote(xpa_settings().get("me") or "")
-    req = urllib.request.Request("%s/api/experts/upload?gameId=%s&patch=%s&by=%s" % (base, gid, patch, me),
+    req = urllib.request.Request("%s/api/experts/upload?gameId=%s&patch=%s&by=%s&platform=%s" % (base, gid, patch, me, platform),
                                  headers={"Authorization": "Bearer " + cfg.get("ingest_key", ""), "User-Agent": "custy-collector/" + core.VERSION})
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
@@ -894,7 +907,7 @@ def _xpa_upload(cfg, gid, patch):
         _xpa["storage"] = "ok"
         os.remove(f)
         try:   # tell custy.gg it arrived, so it counts for you
-            done = urllib.request.Request("%s/api/experts/upload?gameId=%s&patch=%s&by=%s&done=1" % (base, gid, patch, me),
+            done = urllib.request.Request("%s/api/experts/upload?gameId=%s&patch=%s&by=%s&done=1&platform=%s" % (base, gid, patch, me, platform),
                                           headers={"Authorization": "Bearer " + cfg.get("ingest_key", ""), "User-Agent": "custy-collector/" + core.VERSION})
             urllib.request.urlopen(done, timeout=20).read()
         except Exception:
@@ -928,7 +941,7 @@ def _xpa_backlog(cfg, limit=5):
         gid = n.split(".")[0]
         e = by_id.get(gid) or {}
         try:
-            if _xpa_upload(cfg, gid, e.get("patch") or "0.0"):
+            if _xpa_upload(cfg, gid, e.get("patch") or "0.0", e.get("platform") or "na1"):
                 _xpa_delete_replay(cfg, gid)
                 e["uploaded"] = sent = True
         except Exception as ex:
@@ -947,12 +960,12 @@ def _xpa_cleanup(cfg):
             _xpa_delete_replay(cfg, e["gameId"])
 
 
-def _xpa_one(cfg, lcu, g, patch):
+def _xpa_one(cfg, lcu, g, patch, platform="na1"):
     """Download one expert replay, boil it down, delete it, upload the data. Safe to run a few at once."""
     gid = g["gameId"]
     state = "watch" if _xp_have(cfg, gid) else _xp_download(lcu, gid, g)
     entry = {"gameId": gid, "at": time.time(), "state": state, "kind": g.get("kind"), "matchup": g.get("matchup"),
-             "patch": patch}
+             "patch": patch, "platform": platform}
     if state == "watch":
         try:
             entry["extracted"] = _xpa_extract(cfg, gid, g)
@@ -960,7 +973,7 @@ def _xpa_one(cfg, lcu, g, patch):
             core.log.info("Expert downloads: couldn't read %s: %s", gid, e)
         _xpa_delete_replay(cfg, gid)   # the data file has what we need; the replay goes now
         try:
-            if entry.get("extracted") and _xpa_upload(cfg, gid, patch):
+            if entry.get("extracted") and _xpa_upload(cfg, gid, patch, platform):
                 entry["uploaded"] = True
         except Exception as e:
             core.log.info("Expert downloads: upload of %s failed: %s", gid, e)
@@ -1018,9 +1031,10 @@ def expert_auto(cfg, stop):
                     wait = max(5, min(120, nxt - time.time() + 2))
                 else:
                     patch = _client_patch(cfg)
+                    platform = _client_platform(lcu)
                     games, info = [], {}
                     for _ in range(min(XPA_PARALLEL, limit - len(times))):
-                        g, info = _xpa_next(cfg, patch) if patch else (None, {})
+                        g, info = _xpa_next(cfg, patch, platform) if patch else (None, {})
                         if not g:
                             break
                         games.append(g)
@@ -1031,7 +1045,7 @@ def expert_auto(cfg, stop):
                     else:
                         _xpa.update(state="working", message="Downloading %d high-elo game%s..." % (len(games), "s" if len(games) > 1 else ""))
                         with ThreadPoolExecutor(max_workers=len(games)) as pool:
-                            done = list(pool.map(lambda g: _xpa_one(cfg, lcu, g, patch), games))
+                            done = list(pool.map(lambda g: _xpa_one(cfg, lcu, g, patch, platform), games))
                         _xpa.update(state="ok", message="Last: %s." % ", ".join("game %s (%s)" % (gid, "saved" if s_ == "watch" else s_) for gid, s_ in done))
                         wait = 1
         except Exception as e:
