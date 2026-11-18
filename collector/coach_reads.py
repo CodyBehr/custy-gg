@@ -179,7 +179,7 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
             if unused:
                 notes.append("Unused: %s." % ", ".join(unused))
         elif "them" in died:
-            verdict = "good"
+            verdict = "good"; notes.append("You got the kill.")
         if lv_gap >= 1 and bigger == "mine" and x["first"] == "them":
             notes.append("They fought into your bigger wave a level down: their mistake to punish.")
             if verdict is None:
