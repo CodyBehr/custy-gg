@@ -515,10 +515,25 @@ def watch(cfg, stop, lcu_for):
                 rec = _state["recording"]
             lcu = lcu_for(cfg)
             phase = lcu.get("/lol-gameflow/v1/gameflow-phase") if lcu else None
-            if rec is None and phase in IN_GAME and settings()["on"] and ffmpeg_ready():
-                game_id, info = _session(lcu)
-                if game_id and _game_monitor() is not None and not find(game_id):
-                    _start(game_id, info)
+            if rec is None and phase in IN_GAME:
+                why = None
+                if not settings()["on"]:
+                    why = "recording is off"
+                elif not ffmpeg_ready():
+                    why = "ffmpeg isn't downloaded"
+                else:
+                    game_id, info = _session(lcu)
+                    if not game_id:
+                        why = "no game id from the client"
+                    elif _game_monitor() is None:
+                        why = "the game window (%r) isn't open yet" % GAME_WINDOW
+                    elif find(game_id):
+                        why = "game %s is already recorded" % game_id
+                    else:
+                        _start(game_id, info)
+                if why and why != _state.get("why_not"):
+                    core.log.info("Recording: in a game (%s) but not recording: %s", phase, why)
+                _state["why_not"] = why
             elif rec is not None and phase not in IN_GAME and (phase is not None or _game_monitor() is None):
                 if phase in ("PreEndOfGame", "EndOfGame", "WaitingForStats"):
                     try:   # the game's length, from the end-of-game screen
