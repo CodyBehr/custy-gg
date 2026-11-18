@@ -489,7 +489,11 @@ def _session(lcu):
     try:
         s = lcu.get("/lol-gameflow/v1/session") or {}
         gd = s.get("gameData") or {}
-        info = {"queue": (gd.get("queue") or {}).get("id"), "platform": (lcu.get("/lol-platform-config/v1/namespaces/LoginDataPacket/platformId") or None)}
+        info = {"queue": (gd.get("queue") or {}).get("id")}
+        try:   # optional: some clients don't have this endpoint (it used to throw and skip the whole recording)
+            info["platform"] = lcu.get("/lol-platform-config/v1/namespaces/LoginDataPacket/platformId") or None
+        except Exception:
+            pass
         try:
             me = lcu.get("/lol-summoner/v1/current-summoner") or {}
             for p in (gd.get("teamOne") or []) + (gd.get("teamTwo") or []):
@@ -498,7 +502,8 @@ def _session(lcu):
         except Exception:
             pass
         return gd.get("gameId"), info
-    except Exception:
+    except Exception as e:
+        core.log.info("Recording: couldn't read the game session: %s", e)
         return None, {}
 
 
