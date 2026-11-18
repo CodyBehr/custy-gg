@@ -308,6 +308,13 @@ body.viewing [data-watch], body.viewing #ov { display:none !important; }
 #v-trades .pill.lost{background:var(--red-wash);color:var(--red-ink)}
 #v-trades .pill.even{background:var(--line-soft);color:var(--mute)}
 #v-trades .pill.help{background:#8b6fd133;color:#c4b2f2}
+#v-trades .pill.c-good{background:var(--green-wash);color:var(--green-ink)}
+#v-trades .pill.c-bad,#v-trades .pill.c-lost,#v-trades .pill.c-missed{background:var(--red-wash);color:var(--red-ink)}
+#v-trades .pill.c-close,#v-trades .pill.c-1-for-1{background:#e3b86626;color:#e3b866}
+#v-trades .pill.c-meh,#v-trades .pill.c-even,#v-trades .pill.c-skip,#v-trades .pill.c-check,#v-trades .pill.c-context{background:var(--line-soft);color:var(--mute)}
+#v-trades .coach li{cursor:pointer;margin:6px 0;line-height:1.45}
+#v-trades .coach li b.t{display:inline-block;min-width:42px}
+#v-trades .why.coachwhy{color:var(--ink);margin-top:4px}
 #v-trades .lv{font-size:12px;color:var(--mute)}
 #v-trades .lv.down{color:var(--red-ink)}
 #v-trades .lv.up{color:var(--green-ink)}
@@ -2240,6 +2247,7 @@ function openPB(tr,cell){
 }
 
 let sel=-1, filt="all", ROOT=null, GAME=null;
+const CV={good:"good",bad:"bad",lost:"lost",missed:"missed chance",close:"close","1-for-1":"1-for-1",meh:"meh",even:"even",skip:"ignore",check:"check",context:"why"};
 function render(){
   const g=GAME, T=g.trades.map(tr=>{const [v,label]=judge(tr);return {...tr,v,label,why:why(tr,v)}});
   const TS=T.filter(t=>t.v!=="help");
@@ -2273,6 +2281,8 @@ function render(){
     </div>
     <ul class="insights">${ins.map(s=>`<li>${s}</li>`).join("")}</ul>
   </div>
+  ${(g.coach||[]).length?`<div class="card coach"><h2>Coach's read</h2><div class="sub">Each moment judged by general rules (levels, waves, level-ups, runes, who's ahead), not by champion. A first version: tell us where it's wrong.</div>
+    <ul class="insights">${g.coach.map(c=>{const ti=T.findIndex(t=>Math.abs(t.t0-c.t)<1.5);return `<li data-ti="${ti}"><b class="t">${clk(c.t)}</b> <span class="pill c-${c.verdict}">${CV[c.verdict]||c.verdict}</span> ${esc(c.text)}</li>`}).join("")}</ul></div>`:""}
   <div class="card"><h2>Trades over time</h2><div class="sub">Each bar is one trade; height = total damage exchanged. Click one to jump to it and play it.</div>
     <div class="strip">${T.map((t,i)=>`<div class="dot ${i===sel?"sel":""}" data-i="${i}" title="${clk(t.t0)} · ${t.label}" style="left:${X(t.t0)}%;height:${8+52*(t.dealt+t.took)/maxd}px;width:${Math.max(6,(t.t1-t.t0)/7.5)}px;background:${color(t.v)}"></div>`).join("")}
       ${[2,4,6,8,10,12,14].map(m=>`<div class="tick" style="left:${X(m*60)}%">${m}:00</div>`).join("")}</div>
@@ -2283,13 +2293,14 @@ function render(){
     ${rows.map(({t,i})=>{const dl=t.lv[0]-t.lv[1];
       const hb=(cls,hp,mx,loss,dead)=>{const a=Math.min(100,hp/mx*100), l=dead?a:Math.min(a,loss/mx*100);return `<div class="bar ${cls}"><div class="now" style="width:${a-l}%"></div><div class="lost" style="left:${a-l}%;width:${l}%"></div></div><small>−${loss} (${Math.round(loss/mx*100)}%)</small>`};
       return `<tr class="row ${i===sel?"sel":""}" data-i="${i}" id="tr${i}"><td>${clk(t.t0)}<div class="lv">${t.first==="you"?"you started":"they started"}</div></td>
-      <td><span class="pill ${t.v}">${t.label}</span>${t.solo===undefined&&t.gank>100?`<span class="flag">+gank</span>`:""}<div class="why">${esc(t.why)}</div></td>
+      <td><span class="pill ${t.v}">${t.label}</span>${t.solo===undefined&&t.gank>100?`<span class="flag">+gank</span>`:""}<div class="why">${esc(t.why)}</div>${(()=>{const c=(g.coach||[]).find(c=>c.kind==="trade"&&Math.abs(c.t-t.t0)<1.5);return c?`<div class="why coachwhy"><span class="pill c-${c.verdict}">Coach: ${CV[c.verdict]||c.verdict}</span> ${esc(c.text)}</div>`:""})()}</td>
       <td><span class="lv ${dl<0?"down":dl>0?"up":""}">${t.lv[0]} vs ${t.lv[1]}</span></td>
       <td class="hp">${hb("me",t.hpMe[0],t.hpMe[1],t.took,t.died.includes("you"))}${t.died.includes("you")?'<small class="bad"> · died</small>':""}</td><td class="hp">${hb("op",t.hpOpp[0],t.hpOpp[1],t.dealt,t.died.includes("them"))}${t.died.includes("them")?'<small class="good"> · killed</small>':""}</td>
       <td><div class="seq">${t.seq.map(s=>`<span class="k ${s.w}">${s.k}</span>`).join("")||'<span class="meh">autos only</span>'}</div><div class="lv" style="margin-top:4px">${i===sel?"▾ playing":"▸ click to play"}</div></td></tr>${i===sel?`<tr class="pbrow"><td colspan="6" id="pbcell"></td></tr>`:""}`}).join("")}
     </tbody></table>
     <div class="note">Damage is decoded hit-by-hit from the replay file and matches Riot's official damage totals (r = 1.00 across 230 players). HP going in is estimated from Riot's per-minute HP minus the damage taken since, so it can run low when you healed or regenerated in between. Abilities: blue = you, red = them, in the order they were cast.</div>
   </div>`;
+  ROOT.querySelectorAll(".coach li[data-ti]").forEach(li=>{const ti=+li.dataset.ti;if(ti>=0)li.onclick=()=>{sel=ti;filt="all";render();document.getElementById("tr"+sel)?.scrollIntoView({behavior:"smooth",block:"center"})}});
   ROOT.querySelectorAll(".dot").forEach(d=>d.onclick=()=>{sel=+d.dataset.i;filt="all";render();document.getElementById("tr"+sel)?.scrollIntoView({behavior:"smooth",block:"center"})});
   ROOT.querySelectorAll("tr.row").forEach(r=>r.onclick=()=>{sel=(sel===+r.dataset.i)?-1:+r.dataset.i;render();if(sel>=0)document.getElementById("tr"+sel)?.scrollIntoView({behavior:"smooth",block:"start"})});
   const pc=ROOT.querySelector("#pbcell"); if(pc&&sel>=0) openPB(T[sel],pc);

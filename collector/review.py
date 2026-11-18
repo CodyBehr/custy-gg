@@ -368,7 +368,7 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
-TRADES_VERSION = 7          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 8          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
@@ -533,6 +533,11 @@ def trades_for(cfg, game_id):
         return {"error": "Couldn't decode this replay: %s" % e}
     if out.get("unsupported"):
         return {"error": "Trades can't be read from patch %s replays yet." % out["unsupported"]}
+    try:   # the coach's read of each trade, level race and risky death (general rules; see coach_reads.py)
+        import coach_reads
+        out["coach"] = coach_reads.analyze(path, i, j, me, opp, pslot.get, data["timeline"], out)
+    except Exception:
+        core.log.exception("Trades: coach reads failed for %s", path)
     out["v"] = TRADES_VERSION
     out["role"] = roles(game).get(me["participantId"], "")
     try:
