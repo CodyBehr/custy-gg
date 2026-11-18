@@ -12,6 +12,9 @@ on:
       minutes:
         description: "Minutes each region spends pulling (max ~330)"
         default: "320"
+      regions:
+        description: "Regions to pull (NA,EUW,KR)"
+        default: "NA,EUW,KR"
 
 permissions:
   contents: write
@@ -38,9 +41,11 @@ jobs:
           V=$(curl -s https://ddragon.leagueoflegends.com/api/versions.json | python3 -c "import json,sys;print(json.load(sys.stdin)[0])")
           curl -s -o scripts/benchmark/item.json https://ddragon.leagueoflegends.com/cdn/$V/data/en_US/item.json
       - name: Pull ${{ matrix.region }}
+        if: contains(github.event.inputs.regions || 'NA,EUW,KR', matrix.region)
         env:
           RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
-        run: python3 scripts/benchmark/master_pull.py --platform ${{ matrix.platform }} --route ${{ matrix.route }} --out rows-${{ matrix.region }} --minutes ${{ github.event.inputs.minutes || 320 }}
+        run: python3 scripts/benchmark/master_pull.py --platform ${{ matrix.platform }} --route ${{ matrix.route }} --out rows-${{ matrix.region }} --minutes ${{ github.event.inputs.minutes || 320 }} --per2min 45
+        # 45 of Riot's 100 requests per 2 minutes: the site uses the same key to pick games for the replay downloaders
       - uses: actions/upload-artifact@v4
         if: always()
         with:

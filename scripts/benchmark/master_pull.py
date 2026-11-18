@@ -17,6 +17,7 @@ ap.add_argument("--minutes", type=float, default=300)  # time budget
 ap.add_argument("--cap", type=int, default=300)        # samples per champion+role from this region
 ap.add_argument("--players", type=int, default=1500)
 ap.add_argument("--days", type=int, default=21)
+ap.add_argument("--per2min", type=int, default=99)   # requests per 2 min per host; the site shares the key, so the workflow leaves it room
 a = ap.parse_args()
 KEY = os.environ["RIOT_API_KEY"]
 REGION = {"na1": "NA", "euw1": "EUW", "kr": "KR", "eun1": "EUNE", "br1": "BR"}.get(a.platform, a.platform.upper())
@@ -28,7 +29,7 @@ def get(host, path):
     """GET with a per-host limiter: under 100 requests / 2 min and 20 / s (development and personal keys)."""
     while True:
         st = [t for t in stamps.get(host, []) if time.time() - t < 121]
-        if len(st) >= 99:
+        if len(st) >= a.per2min:
             time.sleep(max(0.1, 121 - (time.time() - st[0])))
             continue
         if st and time.time() - st[-1] < 0.06:
