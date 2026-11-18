@@ -17,6 +17,12 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
+      - name: Check the key's shape (never prints it)
+        env:
+          RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+        run: |
+          python3 -c "import os,re;k=os.environ.get('RIOT_API_KEY','');print('length',len(k),'| starts RGAPI-',k.startswith('RGAPI-'),'| spaces/newlines',bool(re.search(r'\s',k)),'| quotes',('\x22' in k) or (\"'\" in k))"
+          curl -s -o /dev/null -w "Riot status check: HTTP %{http_code}\n" -H "X-Riot-Token: $(echo -n "$RIOT_API_KEY" | tr -d '[:space:]')" https://na1.api.riotgames.com/lol/status/v4/platform-data
       - name: Pull
         env:
           RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
