@@ -2,7 +2,7 @@ node_modules
 .next
 .env*.local
 .env
-data/
+/data/
 collector/config.json
 collector/uploaded.json
 collector/collector.log
