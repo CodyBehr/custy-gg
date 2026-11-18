@@ -430,20 +430,6 @@
 ]
 }
 ],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"4/10"
-],
-[
-"",
-"Very easy but hard to solo kill: her black shield blocks your E root and her W clears fast. Poke with Q, clear so you aren't stuck farming under tower, and reflect her Q when needed."
-]
-]
-}
-],
 "Naafiri": [
 {
 "fields": [
@@ -650,20 +636,6 @@
 [
 "",
 "Free lane: reflect his gold card (wait for the actual attack, not the lock-in). You win trades even if stunned; keep priority and ping his ult roams."
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"Difficulty",
-"6/10"
-],
-[
-"",
-"You can't reflect his W. Stay behind minions, track the jungler vs his cage setup, reflect his ult when in kill range, and never walk into the cage edge. Max Q."
 ]
 ]
 }

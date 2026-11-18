@@ -7,7 +7,7 @@
 "rank": "Challenger NA",
 "updated": "2022-07"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -607,52 +607,6 @@
 ]
 }
 ],
-"Illaoi": [
-{
-"fields": [
-[
-"Difficulty",
-"Medium"
-],
-[
-"Keystone",
-"Conqueror"
-],
-[
-"Secondary",
-"Resolve"
-],
-[
-"Recommended Runes",
-"alacrity or tenacity, second wind"
-],
-[
-"Start",
-"DShield"
-],
-[
-"Mythic",
-"Triforce"
-],
-[
-"Notes",
-"it's a dodgeball minigame, dodge her skillshots, especially her e, otherwise u should be winning early all-ins and therefore have perma priority. at 6 if she ults then you should back off in most cases, unless you have dodged her e already at that point and have health advantage/already have passive buff, etc. basically back off from her ult unless ur already really winning"
-],
-[
-"early",
-"Win"
-],
-[
-"mid",
-"Skill"
-],
-[
-"late",
-"Lose"
-]
-]
-}
-],
 "Irelia": [
 {
 "fields": [
@@ -1201,52 +1155,6 @@
 [
 "late",
 "Win"
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Medium"
-],
-[
-"Keystone",
-"Conqueror"
-],
-[
-"Secondary",
-"Resolve"
-],
-[
-"Recommended Runes",
-"alacrity, second wind"
-],
-[
-"Start",
-"DBlade"
-],
-[
-"Mythic",
-"Triforce"
-],
-[
-"Notes",
-"level 1 you should still be winning even after durability patch if you start w, so I would honestly bush cheese and just run into the third bush with w start and wait until he shows up on wave and go on him. if he has ignite then maybe don't do this, i haven't tested this matchup with him having ignite after durability patch so it's hard to say. otherwise in general you should be hard winning levels 3-5 if you rely on your ghost movespeed to dodge his skillshots, but if you hit level 6 without any significant lead then that is his chance to win the matchup if he can land all of his skillshots in ult"
-],
-[
-"early",
-"Win"
-],
-[
-"mid",
-"Skill"
-],
-[
-"late",
-"Skill"
 ]
 ]
 }
@@ -2121,52 +2029,6 @@
 [
 "late",
 "Skill"
-]
-]
-}
-],
-"TahmKench": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy"
-],
-[
-"Keystone",
-"Conqueror"
-],
-[
-"Secondary",
-"Resolve"
-],
-[
-"Recommended Runes",
-"tenacity second wind unflinching"
-],
-[
-"Start",
-"DShield"
-],
-[
-"Mythic",
-"Triforce"
-],
-[
-"Notes",
-"should be fine matchup just don't get hit by too many of his q's and after 6 don't get eaten into his turret and he shouldn't be able to do much. anytime he walks up just auto-w-q into a few more autos and it should be winning, and you counter him just like any other tank in late game teamfights"
-],
-[
-"early",
-"Win"
-],
-[
-"mid",
-"Win"
-],
-[
-"late",
-"Win"
 ]
 ]
 }

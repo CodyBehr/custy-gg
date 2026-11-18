@@ -7,7 +7,7 @@
 "rank": "D2-Masters EUW",
 "updated": "2020-11"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -317,28 +317,6 @@
 ]
 }
 ],
-"Illaoi": [
-{
-"fields": [
-[
-"difficulty",
-"Hard"
-],
-[
-"tips",
-"Dodge her e at all cost, try to poke her under your own tower, ask jungler for help. She will perma push you so be ready for being dived"
-],
-[
-"Rune Path",
-"Phase rush"
-],
-[
-"1 v 1 pottential",
-"No."
-]
-]
-}
-],
 "Irelia": [
 {
 "fields": [
@@ -573,28 +551,6 @@
 [
 "Rune Path",
 "Grasp/Phase rush"
-],
-[
-"1 v 1 pottential",
-"Yes"
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"difficulty",
-"Medium"
-],
-[
-"tips",
-"If you dodge his e you have free poke, always try to kite him, his ult kinda fucks you up and you need zhonya to survive it."
-],
-[
-"Rune Path",
-"Phase rush"
 ],
 [
 "1 v 1 pottential",

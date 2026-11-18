@@ -24,20 +24,6 @@
 ]
 }
 ],
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"His bandage telegraphs who he is going for, so step in front of it to protect your ADC and the lane stays comfortable."
-]
-]
-}
-],
 "Ashe": [
 {
 "fields": [
@@ -76,20 +62,6 @@
 [
 "",
 "Pleasant for you: if he hooks you, start stacking your passive on him or his ADC; if he hooks your ADC, W to them and keep fighting."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"He deals a lot of damage, but your shield blocks much of it. Try to catch his ult with your E so it fizzles."
 ]
 ]
 }
@@ -202,20 +174,6 @@
 [
 "",
 "His W range boost makes it easy for him to poke you; play around that cooldown and the lane is fine."
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Your Q's magic damage, scaling with your health, can break her Black Shield while still applying a passive stack. If you play around her bindings, the lane is quite winnable."
 ]
 ]
 }
@@ -412,20 +370,6 @@
 [
 "",
 "He brings damage, CC and healing, so anti-heal is close to mandatory for you or your ADC. In fights, slow him with Q or R to let his ult expire, then re-engage."
-]
-]
-}
-],
-"TahmKench": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"A tanky but beatable opponent. He plays aggressively, so be ready to peel; both of you stack passives with autos, which makes fights explosive."
 ]
 ]
 }

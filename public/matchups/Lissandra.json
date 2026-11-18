@@ -79,20 +79,6 @@
 ]
 }
 ],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Hard"
-],
-[
-"",
-"Make-or-break lane: he outranges you but must combo and his spells are mana-hungry. Dodge his stun and pillar and self-cast R before his ult lands; you can kill him with enough HP. You outscale and out-roam him, so be patient and leave lane to help elsewhere."
-]
-]
-}
-],
 "Cassiopeia": [
 {
 "fields": [
@@ -401,34 +387,6 @@
 ]
 }
 ],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Hard"
-],
-[
-"",
-"Trade at range early and zone him off farm. Respect his level 6 all-in with Ignite; catch him alone in the jungle since he is immobile."
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Skill"
-],
-[
-"",
-"Her spell shield negates you and she farms safely. Roam and punish greed; she's weak until level 4 and has short range, so zone her off CS."
-]
-]
-}
-],
 "Nidalee": [
 {
 "fields": [
@@ -551,20 +509,6 @@
 [
 "",
 "Very hard: he outranges and outtanks you. Build armor early, get your jungler to camp him and roam/push when he leaves."
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy"
-],
-[
-"",
-"Bully him early; he's squishy and immobile. Self-cast R to dodge his ult and snowball off him."
 ]
 ]
 }

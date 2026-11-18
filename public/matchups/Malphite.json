@@ -7,7 +7,7 @@
 "rank": "Master, Rank 1 NA Malphite",
 "updated": "2022-09"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -411,36 +411,6 @@
 ]
 }
 ],
-"Illaoi": [
-{
-"fields": [
-[
-"Runes",
-"Phase Rush"
-],
-[
-"Summoner",
-"Ignite / TP"
-],
-[
-"Starting",
-"Corrupting\nPotion"
-],
-[
-"Skill Max",
-"Q > W"
-],
-[
-"Difficulty",
-"Unfavored"
-],
-[
-"Comments",
-"- She usually pushes you in and tries to pull your soul under your turret while you try to farm. She'll pull you when you go for a last hit, give up the first CS to dodge the pull and farm the rest.\n- Get early boots 2, dodge his soul pulling skill!!! If you dodge it, she has no damage! Run away if it hits!\n- Q her whenever you get a chance\n- If you dodge her soul pull, take this chance to trade with her! If she pulls when she's low on health and you dodged it, all in her!\n- Farm as much as you can."
-]
-]
-}
-],
 "Irelia": [
 {
 "fields": [
@@ -703,36 +673,6 @@
 [
 "Comments",
 "- I think Maokai is pretty easy since you both can't really kill each other. Given you maintain good HP.\n- He's basically free Grasp procs for you. Be aggressive and keep stacking your grasp.\n- Fight and trade away from bushes!\n- Get MR for sure, your goal is to farm and proc grasp as much as you can.\n- One thing to becareful is that he has very good jungle gank setup, so let him push you in!\n- If your jungle ganks for you even once this game, you should win the lane. (Same for him though if his jungler gets a good gank off of you)\n- Problem is, he's also playing hoping his team is going to carry him just like you...\n- So winning or losing literally depends on which team's other 4 members is…"
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Runes",
-"Phase Rush"
-],
-[
-"Summoner",
-"Ignite / TP"
-],
-[
-"Starting",
-"Corrupting\nPotion"
-],
-[
-"Skill Max",
-"Q > W"
-],
-[
-"Difficulty",
-"Unfavored"
-],
-[
-"Comments",
-"- A classic counterpick against Malphite but honestly he's easier than you think\n- He doesn't have a lot of kill pressure pre 6, he just keeps poking you but you just try to dodge and farm as much as you can\n- First back, get MR and now even after 6 he can't kill you as well.\n- In his ult, you want to Q and run away to the border of his ult asap, then he should be very close to you autoing you. Focus on dodging instead of fighting him. Your goal is to stay alive after his ult ends!\n- Max Q and you can juke his skills very easily.\n- A tip to juking is to make small directional movements and move in opposite direction when he finally uses his skill.\n- It's scary to gank him if you don't have a…"
 ]
 ]
 }
@@ -1243,36 +1183,6 @@
 [
 "Comments",
 "- I ban him every game because he can steal your ult and use it on your team.\n- But overall his laning is not too bad, just let him push, Q him, get some early MR\n- Always take quick trades, try to not get hit by his grab and you'll be fine\n- Don't let him get a kill on you... He can snowball out of control... Steal your ult and kills you repeatedly"
-]
-]
-}
-],
-"TahmKench": [
-{
-"fields": [
-[
-"Runes",
-"Phase Rush"
-],
-[
-"Summoner",
-"Flash / TP"
-],
-[
-"Starting",
-"Doran's Shield"
-],
-[
-"Skill Max",
-"Q > W"
-],
-[
-"Difficulty",
-"Unfavored"
-],
-[
-"Comments",
-"- This lane is impossible to win and you can't win any trades\n- Just farm as much as you can, and if he comes to trade, just phase rush away\n- You can go greedy and take cd runes, conditioning / overgrowth for max value\n- Roam a lot, look for ganks, you need to our KP him!"
 ]
 ]
 }

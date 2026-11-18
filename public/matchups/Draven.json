@@ -7,7 +7,7 @@
 "rank": "Challenger NA (Draven main)",
 "updated": "2025"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Ahri": [
 {
@@ -145,28 +145,6 @@
 [
 "Advice/Tips/Matchup Notes",
 "Draven is commonly banned by Asol bot players and for good reason. He can not sit and channel Q on you because you outdamage him enough to just facetank it and win. Your E also will stop his Q channel and his E. You ideally want to be E'ing him out of his E, especially while trading. If he Q's, and you cancel with E, he can then use his E and start Q'ing again with more damage. He can also randomly roam mid off reset, so ping your midlaner for it."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty Scale",
-"5"
-],
-[
-"Annoying Scale",
-"7"
-],
-[
-"Summoner Spell",
-"Barrier"
-],
-[
-"Advice/Tips/Matchup Notes",
-"He's an immobile mage and Draven can go BT first, so the lane isn't too bad. The problem tends to start once he gets Rylai's. There's pretty much no dodging his Q if you're tagged by the slow, and the slow lasts so long that he can space you with ease. Rylai's is also cheap, so ideally you'd have enough of a lead at that point to already have BT completed. Also during lane, try to avoid his W>E poke on minions. He can't really hit W on you unless you're cc'd."
 ]
 ]
 }
@@ -457,28 +435,6 @@
 ]
 }
 ],
-"Mel": [
-{
-"fields": [
-[
-"Difficulty Scale",
-"10"
-],
-[
-"Annoying Scale",
-"10"
-],
-[
-"Summoner Spell",
-"Dodge"
-],
-[
-"Advice/Tips/Matchup Notes",
-"She should have been banned. Very annoying and hard matchup to play. Her W just stops you from being able to do anything in lane if she has any reaction time, not to mention her E which will either hit you or force you to drop an axe. This champion also does an absurd amount of damage in extended fights, and late game you will end up exploding if you auto her and she W's.\nBuild BT and pray to Allah."
-]
-]
-}
-],
 "MissFortune": [
 {
 "fields": [
@@ -497,28 +453,6 @@
 [
 "Advice/Tips/Matchup Notes",
 "She can match your initial autos with Q+Auto and you'll be playing a weird minigame of \"trying to catch my axe but not walk into her Q bounce but also not giving all wave control permanently\" since her Q poke does hurt, but all-ins are incredibly free."
-]
-]
-}
-],
-"Nilah": [
-{
-"fields": [
-[
-"Difficulty Scale",
-"9"
-],
-[
-"Annoying Scale",
-"10"
-],
-[
-"Summoner Spell",
-"Barrier"
-],
-[
-"Advice/Tips/Matchup Notes",
-"Poke her down level 1/2 and try to freeze/play for river on the wave bounce."
 ]
 ]
 }
@@ -780,24 +714,6 @@
 }
 ],
 "Vayne": [
-{
-"fields": [
-[
-"Difficulty Scale",
-"0"
-],
-[
-"Annoying Scale",
-"0"
-],
-[
-"Summoner Spell",
-"Barrier"
-]
-]
-}
-],
-"Veigar": [
 {
 "fields": [
 [

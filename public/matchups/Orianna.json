@@ -79,20 +79,6 @@
 ]
 }
 ],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Early trading is like Ahri: make him choose between pushing and poking you, but do not stand beside the wave where he can stun you. After 6 he usually outdamages you in a 1v1, though you outscale him on utility. Barrier or Teleport both work, with Mercury's Treads or Banshee's Veil if behind."
-]
-]
-}
-],
 "Cassiopeia": [
 {
 "fields": [
@@ -387,20 +373,6 @@
 ]
 }
 ],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"She maxes W to shove you in, so push back and keep farm even. Q into ultimate with Ignite can kill you, but Cleanse prevents that. Do not ult her while Black Shield is up; add Banshee's Veil late."
-]
-]
-}
-],
 "Ryze": [
 {
 "fields": [
@@ -467,20 +439,6 @@
 [
 "",
 "You can win early trades by dodging and landing spells. If he walks up with cards shuffling, back off for a possible gold card gank. From level 6 he threatens side lanes, so keep him low even at some cost. Cleanse makes gold cards survivable."
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"His Q and W are easy to dodge, so harass him early. Cleanse counters him well: if caught near the cage, walk in and Cleanse the stun. Add Banshee's Veil later, and Liandry's plus Void Staff if he goes tank."
 ]
 ]
 }

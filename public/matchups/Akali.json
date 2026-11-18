@@ -6,7 +6,7 @@
 "author": "Wahid3251",
 "rank": "Rank 20 EUW peak, Master-Challenger OTP"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -550,28 +550,6 @@
 ]
 }
 ],
-"Illaoi": [
-{
-"fields": [
-[
-"WHAT YOU SHOULD DO",
-"- Q Passive Auto trade early\n- Perma dodge her abilites before / while trading\n- It is winnable at lvl 6 but get her down to 60-70% first\n- Run away if she lands E / Uses R unless you can kill her"
-],
-[
-"AVOID DOING / LOOK OUT FOR",
-"- Trading after getting hit by her E"
-],
-[
-"Note",
-"- This matchup is basically a minigame of sidestepping. You get hit you lose"
-],
-[
-"matchup specific runes",
-"- Second Wind"
-]
-]
-}
-],
 "Irelia": [
 {
 "fields": [
@@ -930,28 +908,6 @@
 [
 "Note",
 "- his Q slows massively which messes up your passive\n- Roam if and when you cant kill him anymore\n- his Q displacement can mess with your buffering"
-],
-[
-"matchup specific runes",
-"- Second wind\n- Unflinching"
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"WHAT YOU SHOULD DO",
-"- Q Passive Auto trade him early\n- Dodge his spells with either sidesteps or E/R\n- All in at 6 when he is around 70% HP"
-],
-[
-"AVOID DOING / LOOK OUT FOR",
-"- Fighting him when his passive is procced\n- All inning him when his W is fully charged\n- doing long trades, he out damages you in the long run when you run out of energy\n- letting him land isolated Q's, these do over double damage"
-],
-[
-"Note",
-"- He beats you when his passive is procced and his W shield can be massive so dont get baited\n- This matchup is similar to Illaoi and a minigame of sidestepping. You win every trade if you manage to dodge well\nDon't let him proc his passive.Akali has a good kit to dodge spells even when it comes to close combat, use your\nPassive MS / E / R dashes to dodge his spells"
 ],
 [
 "matchup specific runes",
@@ -1418,29 +1374,6 @@
 ]
 }
 ],
-"TahmKench": [
-{
-"fields": [
-[
-"WHAT YOU SHOULD DO",
-"- Q Passive auto short trades early\n- Constantly wiggle in lane to dodge his Q's\n- Avoid long trades as he will win those\n- stand behind minions to avoid his massive q slow that fucks up your trading with passives\n- If he gets 2+ stacks on his passive then use W/E to get away from him ASAP\n- his W has a long animation, you can E him during this time to dodge and or follow up after his W"
-],
-[
-"AVOID DOING / LOOK OUT FOR",
-"- let him land Q when your W/E is down, he can follow up easily with 3 autos and eat you\nwhich chunks you massively. can even force you to have to go base\n- letting him land Q also heals him"
-],
-[
-"Note",
-"- he has to auto 3x to be able to eat you but this becomes very easy for him when your W/E is on CD and he lands\nhis Q so play safe during this period\n- his E heals him for % of damage you do to him out of combat"
-],
-[
-"matchup specific runes",
-"- Second wind\n- Unflinching"
-]
-],
-"as": "Tahm"
-}
-],
 "Taliyah": [
 {
 "fields": [
@@ -1587,28 +1520,6 @@
 [
 "Note",
 "- vayne players will often greed to proc their 3rd W\n- if they get hexdrinker, save E/R1 til they are low if you can"
-],
-[
-"matchup specific runes",
-"- Second wind\n- Unflinching"
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"WHAT YOU SHOULD DO",
-"- wiggle constantly to bait/dodge his Q so a trading window opens up\n- short trade early but play around his stun so he cant hard chunk you\n- if he throws his cage around you but you are in no immediate danger from a gank or getting one shot, you can E him and get stunned by his cage but\nyou can follow up with E2 to chunk him\n- you can use W invis/ms to dodge his spells in his cage\n- zhonya his R if you can, especially during late game as this almost always one shots you"
-],
-[
-"AVOID DOING / LOOK OUT FOR",
-"- getting stunned early game, it almost always guarentees him landing his W which chunks you hard\nand makes laning much harder\n- staying in lane while you are in lethal range without defensive spells (500-650 depending on his items\nand if he has ignite and this only gets higher as the lane goes on)\n- letting him scale for free, get a lead with roaming or killing him but dont force too hard else you will just\nend up messing up and lose anyways"
-],
-[
-"Note",
-"- his R can be cancelled if you cast W really early but this is hard to pull off\n- his Q can hit 2 units and stops on the second one\n- if you Zhonya his R, it goes on full CD\n- you can Zhonya during E2 and dash through his cage if you have enough time"
 ],
 [
 "matchup specific runes",

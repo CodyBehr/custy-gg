@@ -5,7 +5,7 @@
 "url": "https://docs.google.com/spreadsheets/d/1Hg9Z1XVQQV-D473shA4O6XmexuoQ2jUTJqTfxBGTa30/edit",
 "updated": "2021-09"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Ahri": [
 {
@@ -157,28 +157,6 @@
 [
 "HOW TO PLAY",
 "This is one of the commonly known good matchups for Ekko. One thing you can do is to go Hail of Blades and start E. This lets you dominate the lane from level 1, but it's easy to mess up if you are not used to HoB. Also HoB is nerfed and not as good anymore\nAzir is really strong during the first levels of the match, being able to push hard and also harass if given the opportunity. Play smart early, let him push you until at least level 3-4 when you get 2 points into your Q. If you let him push the first waves,\nyou’ll be able to bounce the wave back into his tower for a free recall. If he bullies you too hard, you still have your tp which is fine to use. Azir is really strong during the first…"
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Very Easy"
-],
-[
-"SUMMS",
-"Flash/TP"
-],
-[
-"RUNES",
-"Electrocute"
-],
-[
-"HOW TO PLAY",
-"Don't let Brand poke you level 1, stay back and don't let him hit a W or get an E on you for free, at least make him work for it. You can look to trade already at level 2, if he has taken W at level 2 then you E forward as soon as he uses W and then\nquick E Q auto and run. You want to trade in this matchup basically whenever he can't stun you, so if his Q is down you go, if his W and E are down you go. You can also go if he just wastes 1 ability. For example if he uses either E or W on the\nwave then just insta W and E Q auto run trade. W might stun, but will no matter what absorb some of his damage. He is hyper immobile so landing W is very realistic. E away from his W if it's about to hit, …"
 ]
 ]
 }
@@ -799,50 +777,6 @@
 ]
 }
 ],
-"Mordekaiser": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Very Easy"
-],
-[
-"SUMMS",
-"Flash/TP"
-],
-[
-"RUNES",
-"Conqueror/\nElectrocute to\npunish him\nearly game"
-],
-[
-"HOW TO PLAY",
-"Early game you want to let Mordekaiser push you. You can stand behind your minions so if he uses Q to poke you he also pushes the wave. You can already start trading from level 2 if he doesn't have E. Mordekaiser E has a 24 second CD.\nUse E to dodge it if it's going to hit you. You can E 3 times before Morde has his E again. Whenever he uses his shield, proc passive and kite him until it expires. Morde is big and slow, if you let him push you it's super easy to set up a gank on\nhim because of how easy it is to land W on him. When Morde targets you with R, do not R to try to dodge it unless you are severely out of position and the enemy team is collapsing on you. Dodging Morde R does not make…"
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Medium"
-],
-[
-"SUMMS",
-"Flash/TP"
-],
-[
-"RUNES",
-"Electrocute/\nConq"
-],
-[
-"HOW TO PLAY",
-"Morgana is pretty weak early as long as you use minions for cover. Until level 7 (level 9 without Minion Demat) you have similar pushing power. Don't stand inside your minion wave because Morgana's W cooldown gets reduced by 1 second\nevery time it damages a champion. Trading with her is pointless because of her Q and E, play to push and get mid prio and outscale. Morgana is another champ that it's risky to standard teamfight against because of her Q and her Black Shield\ngets pretty big when she gets decent amounts of AP which denies you from stunning or bursting important targets. Get into a side lane, force Morgana's team to respond and then you fight when the enemy team isn't grouped. Get …"
-]
-]
-}
-],
 "Neeko": [
 {
 "fields": [
@@ -1323,28 +1257,6 @@
 [
 "HOW TO PLAY",
 "TF can do some pretty spicy poke level 1, both with W start or E start. Sit back, don't stand close to minions so his red card aoe doesn't hit you. TF is pretty squishy until he gets his Catalyst, whenever his W is on CD or if we picks red/blue card\ngo for a quick trade. TF W is nerfed and has an 8 sec CD now so you have pretty long windows to punish him. It is possible to even kill him early, but make sure you keep the enemy jungler in mind. Most junglers know that ganking for a TF\nusually means a free kill. Once TF gets his Ruby Crystal he will already be really tanky. You don't deal meaningful damage to him at this point, so just keep farming and pushing, look for roams if possible but on…"
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Very Easy"
-],
-[
-"SUMMS",
-"Flash/TP"
-],
-[
-"RUNES",
-"Electrocute"
-],
-[
-"HOW TO PLAY",
-"E start with HoB is possible in this matchup for early aggression. You win this matchup when you're allowed to perma all in him. You can do this when you have a slow push towards you, so either try to push early to make the wave bounce, or\njust let Veigar push if possible. You can already start trading at level 2 in this matchup. Veigar E CD is 18 seconds at rank 1 so you get huge windows of pressure if he has to use it. Be careful of the enemy jungler though, you will be an easy\ngank target if you go perma all in. If the enemy jungler is camping you, you can just start perma clearing waves while staying decently safe. Veigar cannot follow your roams or match your waveclear early on, so this…"
 ]
 ]
 }

@@ -94,20 +94,6 @@
 ]
 }
 ],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Strong early fighter, but he struggles to gank and your E-Q lets you kite him."
-]
-]
-}
-],
 "Trundle": [
 {
 "fields": [
@@ -178,20 +164,6 @@
 ]
 }
 ],
-"Sejuani": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Both of you scale with tank stats and bring engage; the better jungler wins."
-]
-]
-}
-],
 "Rengar": [
 {
 "fields": [
@@ -216,20 +188,6 @@
 [
 "",
 "She can cancel your E-Q and wins early duels. She does not scale especially well but can snowball the matchup heavily."
-]
-]
-}
-],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Not a problem early, though he can out-tank you late."
 ]
 ]
 }
@@ -458,20 +416,6 @@
 ]
 }
 ],
-"Evelynn": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"She struggles against you. Late game you can ult her to trade ultimates and take her out of fights."
-]
-]
-}
-],
 "Ekko": [
 {
 "fields": [
@@ -482,20 +426,6 @@
 [
 "",
 "His mobility lets him jump around you, making him hard to pin down."
-]
-]
-}
-],
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"His slow early clear gives you a free invade path."
 ]
 ]
 }

@@ -10,62 +10,6 @@
 },
 "fetched": "2026-11-12",
 "rows": {
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"He is strong right now thanks to sustained burn damage from his items, so expect him to hit harder than he looks."
-]
-]
-}
-],
-"Belveth": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"A truly even matchup. Play your normal game and focus on denying her objectives."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Weaker than before but still a strong farmer. Build an early lead through ganks and mirror his pathing so he cannot take objectives."
-]
-]
-}
-],
-"Briar": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"Easy, similar to fighting Master Yi. Dodge her E, which hits hard, and knock her up during her Q leap to cancel it."
-]
-]
-}
-],
 "Diana": [
 {
 "fields": [
@@ -104,20 +48,6 @@
 [
 "",
 "Skill-based. Dodge her human E at all costs or you get one-shot, and remember her spider E lets her avoid your knock-up and ultimate."
-]
-]
-}
-],
-"Evelynn": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Your Tremor Sense gives you vision of her, but she still bursts hard. Shut her down early before she becomes a problem."
 ]
 ]
 }
@@ -374,20 +304,6 @@
 ]
 }
 ],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"His updated kit has more CC, including a knock-up on his ultimate, and his high armor makes fights hard."
-]
-]
-}
-],
 "Rengar": [
 {
 "fields": [
@@ -398,20 +314,6 @@
 [
 "",
 "His W can negate much of your burst. Your W can knock him up mid-leap and cancel his attack damage."
-]
-]
-}
-],
-"Sejuani": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"A standard tank matchup; do not let her kite you too much."
 ]
 ]
 }
@@ -468,20 +370,6 @@
 [
 "",
 "Her E is a strong counter to your tunnels. She is squishy, so if you reach her you can burst her."
-]
-]
-}
-],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"High speed and CC let him kite you. Do not try to one-shot a tanky Udyr; it will not work."
 ]
 ]
 }

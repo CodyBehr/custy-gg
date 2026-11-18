@@ -7,7 +7,7 @@
 "rank": "Challenger (EUNE, per community index)",
 "updated": "2023-12"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -259,28 +259,6 @@
 ]
 }
 ],
-"Illaoi": [
-{
-"fields": [
-[
-"Difficulty",
-"Medium"
-],
-[
-"Tips",
-"Try to either dodge her E or R with your R. If she hits most of the E's you will just slowly\ndie and be forced to back a lot. If you dodge her E it's your turn to trade so feel free to insta E in and chunk her.\nLong story short: Dodge her E = win. No dodge = Lose."
-],
-[
-"Outscale?",
-"Yes"
-],
-[
-"Recommended",
-"Grasp"
-]
-]
-}
-],
 "Irelia": [
 {
 "fields": [
@@ -475,28 +453,6 @@
 [
 "Recommended",
 "Conq"
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Hard"
-],
-[
-"Tips",
-"Killable very early (lvl2-3) and then he literally becomes an immortal god that will run you down if you ever dare to E\nhim. If he ults you, always save your R to dodge his Q to stall time for your escape with E, since you can\nvery rarely win a duel vs him. HOWEVER, if you are even at like 20 min and you got both your items\n(hydra, divine sunderer) you are very likely to win a duel vs him. It's all just about surviving lane, which is really\nhard. Just abuse your better early and try to snowball off that, grasp is probably superior here."
-],
-[
-"Outscale?",
-"Yes"
-],
-[
-"Recommended",
-"Conq/Grasp"
 ]
 ]
 }

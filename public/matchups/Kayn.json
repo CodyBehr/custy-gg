@@ -135,20 +135,6 @@
 ]
 }
 ],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"Much stronger after his rework, though manageable unless he buys lethality. Kite him with your W."
-]
-]
-}
-],
 "Garen": [
 {
 "fields": [
@@ -201,20 +187,6 @@
 [
 "",
 "Strong early and mid. Rhaast need not fear him, but a good Lee can kill Shadow Assassin, so be careful."
-]
-]
-}
-],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Avoid Shadow Assassin against him unless the rest of their team is squishy. Rhaast handles him better; buy Black Cleaver second or third, take objectives and counter-gank."
 ]
 ]
 }
@@ -373,20 +345,6 @@
 ]
 }
 ],
-"Belveth": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Shadow Assassin can duel her, but avoid full combos while her E is up. Rhaast handles her until late game, when she can shred you; keep her behind."
-]
-]
-}
-],
 "JarvanIV": [
 {
 "fields": [
@@ -425,34 +383,6 @@
 [
 "",
 "Easy to kill in mid and late game unless he is heavily fed."
-]
-]
-}
-],
-"Briar": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"She can kill you early, so avoid her before your form and level 6; afterward you beat her in both forms."
-]
-]
-}
-],
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"He can kill you before your first item. Rhaast handles him easily; Shadow Assassin has some trouble."
 ]
 ]
 }
@@ -569,20 +499,6 @@
 ]
 }
 ],
-"Evelynn": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"You deal huge damage to her in either form and she cannot one-shot you unless you are behind. Force dragons as Rhaast; as Shadow Assassin the jungle is yours."
-]
-]
-}
-],
 "Skarner": [
 {
 "fields": [
@@ -607,20 +523,6 @@
 [
 "",
 "Her early damage cannot kill you; Shadow Assassin one-shots her and Rhaast out-heals her. Play near dragons and ganks."
-]
-]
-}
-],
-"Sejuani": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"Same as Skarner: Rhaast wins easily, Shadow Assassin should avoid solo fights and outscale."
 ]
 ]
 }
@@ -663,20 +565,6 @@
 [
 "",
 "You win at every stage, and your ult dodges all his spells."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"Not a threat unless far ahead. Shadow Assassin one-shots him; Rhaast tanks his damage and heals back with ult. Respect his burst, invade early and take objectives."
 ]
 ]
 }

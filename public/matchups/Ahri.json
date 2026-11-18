@@ -4,7 +4,7 @@
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/12RJckctaCLLzZBNJwxQPoRFU-65ZWd2P-C-kqVjBEtY/edit"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -122,24 +122,6 @@
 [
 "Tips, Tricks, & Outplay Mechanics",
 "If Azir is dashing in, he's committing. R can be used at a 90 degree angle to his and it should move you out of the way before his wall arrives."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy"
-],
-[
-"Matchup Information/Win Conditions",
-"Most Brands are very aggressive but will easily pop post-6."
-],
-[
-"Tips, Tricks, & Outplay Mechanics",
-"Just don't dash straight into him lmao"
 ]
 ]
 }
@@ -622,46 +604,6 @@
 ]
 }
 ],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Medium"
-],
-[
-"Matchup Information/Win Conditions",
-"Mordekaiser likes to push early on, try to poke him down and deny him a free lane."
-],
-[
-"Tips, Tricks, & Outplay Mechanics",
-"If Morde ults you, not only should you not die, he's taking a far more potent fighter out of teamfights (himself). Try force him to use it on you in fights."
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Medium"
-],
-[
-"Matchup Information/Win Conditions",
-"Bland afk shove game. Maybe you'll kill her in lane, but you're mostly playing to outrotate her."
-],
-[
-"Important Items",
-"In absolute worst case scenario, grab a Banshee's"
-],
-[
-"Tips, Tricks, & Outplay Mechanics",
-"Absolutely hold your charm until her spellshield ticks down. You have enough damage that if you try burn her she'll pop it early or she'll die in the process of saving it."
-]
-]
-}
-],
 "Neeko": [
 {
 "fields": [
@@ -954,28 +896,6 @@
 [
 "Tips, Tricks, & Outplay Mechanics",
 "Zhonya's is a top tier item into Varus as you'll be in stasis for the entirety of his ult duration."
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy"
-],
-[
-"Matchup Information/Win Conditions",
-"Veigar has bad waveclear early on, and getting a big wave into his tower can be a huge turning point for your lane. Shove, but make sure it's a big wave and not a 3-4 minion wave."
-],
-[
-"Important Items",
-"Banshee's lets you chase through the cage, Zhonya's blocks ulti but requires good reflexes"
-],
-[
-"Tips, Tricks, & Outplay Mechanics",
-"If you Charm him, expect him to dump his entire combo when he gets un-Charmed. Duck out of vision last second to avoid his ultimate cast completely."
 ]
 ]
 }

@@ -247,20 +247,6 @@
 ]
 }
 ],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Dodge his spells with E speed. His AoE pushes the wave into you, making him easy to gank with an E-double-bomb."
-]
-]
-}
-],
 "Taric": [
 {
 "fields": [
@@ -299,20 +285,6 @@
 [
 "",
 "One of the easiest lanes unless it is a cheesy Lucian-Braum duo. When he holds up his shield, your double bomb cannot miss."
-]
-]
-}
-],
-"TahmKench": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"Basically free: he cannot reach you to devour you. Slow and double bomb him rather than the ADC for easy kills."
 ]
 ]
 }

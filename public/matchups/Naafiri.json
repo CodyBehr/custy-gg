@@ -6,7 +6,7 @@
 "author": "Peachwolf",
 "updated": "2025-01"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -116,24 +116,6 @@
 [
 "TIPS/HINTS - Peachwolf",
 "Ambessa is a difficult one. During laning phase, you can poke her down with relative ease. Don't use Q when she uses her shield, or at least try to time your Q2 after the shield dissipates. She's incredible hard to hit in fights when you're on top of her because of her passive. After she gets a couple of items, she's a very hard champion to kill unless you're giga-fed and way ahead."
-]
-]
-}
-],
-"Amumu": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Hard"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Amumu has at least three, and later four different targets to latch onto (you and your packmates). Dodge it with E. He's not super bursty so if he nabs you in lane, you'll have plenty of time to walk back to tower, unless your laner is also around to capitalize on the CC. Try not to group up with your team when contesting objectives because a single Amumu R will let the enemy team pop you."
-],
-[
-"TIPS/HINTS - ✗",
-"Amummy r will shut you down, but EON should make getting to the ADC and getting your combo off a lot easier. If you do need to interact with him, Q him so the dogs block his Q (the bandage wrap). Be wary of him Qing onto a dog and then ulting you - use E to dodge the bandage toss to stop that."
 ]
 ]
 }
@@ -282,24 +264,6 @@
 ]
 }
 ],
-"Belveth": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Hard"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"This champion is annoying. I wouldn't recommend trying to fight her unless you're ahead. Avoid the knockup with your E, and don't blow your Q combo on her when she's flailing around on the spot or you'll lose a lot of your damage."
-],
-[
-"TIPS/HINTS - ✗",
-"Its rare that Hashinshin is based, but his call to remove this champion was unfathomably so. 4 dashes, fast multi-target cc that gives her another dash, damage reduction because she needs it and more than enough attack speed to melt your entire pack if she wanted to. Steer clear of her at all costs unless she has burnt her damage reduction, and even then watch out for her cancelling your w with the knock up and one shotting you after."
-]
-]
-}
-],
 "Blitzcrank": [
 {
 "fields": [
@@ -318,24 +282,6 @@
 ]
 }
 ],
-"Brand": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"EZ"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"If you see Brand use his Q, you can freely W onto him. If he hits you with any of his other abilities, walk away so that he can't stun you or combo you with his W into E. When he uses W, walk away from the wave unless you're in the middle of landing a Q2 because his E gains a bunch of range if they've been hit by W. This guy is aggravating because it's very easy for him to poke you with minimal effort, but he'll also fall over with minimal resistance if he doesn't have his CC. Try to avoid getting poked while throwing Qs at him. It's very much possible to get a few kills before hitting level 6."
-],
-[
-"TIPS/HINTS - ✗",
-"Brand is another one of those champs that I despise. Stay away from the wave unless you are actively cs'ing or trying to contest him getting cannon. If he hits the wave with an ability move away asap as he will normally follow up with his massive aoe (did you know it also gives him mana back when he kills stuff with it?). If he misses both aoe's you can go in as the stun doesn't stun unless you have a burn proc on you. If he R's it is possible to E at the right time to stop it from bouncing between you and your dogs. It is very worth to just keep him pinned to lane or zone him from getting to fights. Even if you lose most of your health many times he out damages anyone in a teamfight by just…"
-]
-]
-}
-],
 "Braum": [
 {
 "fields": [
@@ -350,24 +296,6 @@
 [
 "TIPS/HINTS - ✗",
 "He is here for you, and for his AY DE SEE. Try to flank or be on the opposite side of him from the adc. He will jump to them, give them upwards of 60 armour late game, and probably stun you in the process. Excellent peel, and able to block Q's, but being held back by being relatively slow."
-]
-]
-}
-],
-"Briar": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Medium"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Briar can feel very uninteractive. Position yourself close enough to throw Qs without giving her the chance to jump on you and stun you. Use your E to avoid her E - you really don't want to get knocked into a surface. If she hits her ult on you, I'd recommend pre-ulting before she arrives and trying to proc your shield before she stuns you. That way, you regain control with most of your health left giving you a chance to escape, or to fight back. She's actually pretty squishy when she doesn't get armor from her ult and damage resist from her scream."
-],
-[
-"TIPS/HINTS - ✗",
-"INTeractive, skillfull game design. Outplay the iron simulator by standing behind someone able to tank (or someone less fed if no one is tanky, but don't tell that to others) and wait for her to burn her scream so you can actually kill her since it gives her 70% damage resist and heals her and one shots you if you get hit by the full charge (because she needs it you know) . If she ults you, ult back and cry, hoping someone on your team is nearby to kill her before she kills you since its borderline impossible to get away"
 ]
 ]
 }
@@ -566,24 +494,6 @@
 [
 "TIPS/HINTS - ✗",
 "Elise is not a very common jungler in my experience, however most of them are really good. She has incredible ganks and pick potential, and some of the best tower dives in the game. Try to keep a dog between you and her so she cannot stun you, and if you see she is setting up for a dive, often times its better to just concede, lose the wave than to die and lose a wave anyway. If she is ever caught out, be sure to group beneath the center of her spider drop so she can't pick the most likely escape. Map awareness and vision go a long way to not be picked out by her"
-]
-]
-}
-],
-"Evelynn": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Dodge"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Control wards. Don't let her get ahead. I just ❤️love❤️ it when champions get an untargetable teleport + execute on their R key. Don't be afraid to pre-emptively pop R to maximize your odds of survival if she starts charming you while you're overextended. She's pretty squishy, but she doesn't need much health to kill you and afflict you with every known STI."
-],
-[
-"TIPS/HINTS - ✗",
-"if she gets ahead you are ✨FUCKED✨, buy pink wards and dont let her."
 ]
 ]
 }
@@ -836,24 +746,6 @@
 [
 "TIPS/HINTS - ✗",
 "I play both of these champs and I have no idea whatsoever how Naafiri is Hwei's number one counter. He has good poke, excellent wave management, good roams, and insane teamfights. You realistically will never be able to get onto him if he plays it right holding that ability, and if you try he will fear you into ult Q full combo and either kill you or chunk you out of lane. If he ever wastes his fear (or any purple spell) he is free, otherwise manage wave, don't eat too much poke, and try to do something with your jungler."
-]
-]
-}
-],
-"Illaoi": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"EZ"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Illaoi is very simple to lane against. Dodge her E and poke her down with your Q, that's it. If you do get hit by E, I'd recommend backing off until it ends because you should be able to dodge the resulting tentacles with relative ease. Don't try and fight her with her ult - once she uses it, back off immediately; you won't be able to outdamage her healing."
-],
-[
-"TIPS/HINTS - ✗",
-"Eelaowie is a 5 course meal of the finest Crayola has to offer. Dodge her E, mind her tentacles, be afraid of her Iceborne gauntlet spike. She builds tanky yet has so much base damage she can still one shot most champs with ult even if she doesn't hit her E. She is an incredibly difficult champ to try and approach, however she can not follow well as she loses a lot of her power being away from tentacles. Early game if she hits her E, sometimes it is worth to stay and trade a bit back keeping the lane presence instead of auto conceding. Mid to late definitely walk out if you can and if you are low be very wary of her pressing ult to make the tentacles not only slam faster but not show their h…"
 ]
 ]
 }
@@ -1506,42 +1398,6 @@
 ]
 }
 ],
-"Mordekaiser": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Medium"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Dodge his E and his Q while landing your own Q. If he lands his E, he's bout to his Q - which means that a lot of the time, he'll throw out E and instantly follow-up with Q regardless of if he hits the first ability. He's vulnerable when either of these are down as long as you dodge the one that he still has up. His W healing is pretty substantial, so factor that in if you're planning to fight him while both of you are close to death. His ult can be pretty devastating - if you can't kill him, use E to jump over walls and waste as much of his time as possible. Once he gets Rylai's, his aura around him will become absolutely obnoxious so you really want to keep your distance."
-],
-[
-"TIPS/HINTS - ✗",
-"Mord is a stat checker supreme who lacks heavily in the mobility department. His main weakness is being kited out by a good coordinated team, and with almost all his abilities being skillshots you can dodge them with fancy feet or your dashes. Only jump onto him if you are sure you can get a kill, as he will ult you and kill you, or the weakest nearby person and come out even."
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Medium"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Morgana isn't a champion that does a lot of damage in a short amount of time. Her most damaging combo in lane is her Q into W which you can avoid with your E or just fancy footwork. Her spellshield is also nigh useless against you, though it does save her from the short slow from your W. Morgana CC is relatively easy to avoid, but it lasts for a very long amount of time so consider Merc Treads or simply try extra hard not to get hit by her abilities. Be wary of Morganas with Zhonya's - they'll start their R beside you and then use their hourglass so you can't punish them for getting close to you. In a teamfight, catching a single Morgana CC ability is likely a death sentence."
-],
-[
-"TIPS/HINTS - ✗",
-"Morgana has the best root in the game, but not much else to keep their adc alive. Good ones will wait for you to W and root you as you are almost done with your travel so you can't hit the adc with E and will probably stun you with her ult afterwards. If you have Edge there is really nothing she can do to you to stop your kill other than block W, ult and zhonyas."
-]
-]
-}
-],
 "Naafiri": [
 {
 "fields": [
@@ -1642,24 +1498,6 @@
 [
 "TIPS/HINTS - ✗",
 "Nidalee has a lot in her kit, but as with most multi form characters, only a few will be good while the rest are not so much. Her spear is one of the most dangerous parts of her kit, but it only really does the crazy amount of damage when its hit at max range. This makes it easy to dodge when its at its most powerful and does less damage when its not, as it does token damage in melee range. The other thing to worry about is her mark. It extends her pounce range to about your W range instantly, and she'll burst you down from there."
-]
-]
-}
-],
-"Nilah": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Medium"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Technically still an ADC, but one with a lot of sustain and also one that you won't always have a huge level advantage on because of her passive. Her W is less impactful against you because most of your damage comes from your abilities, but it will nullify your packmates' extra damage for a few moments so bear that in mind when jumping her. She has up to two dashes with her E but they're targeted and can only go a fixed distance, so they're relatively predictable. Her ult is the scariest part of her kit because of its healing; flash out of it if necessary."
-],
-[
-"TIPS/HINTS - ✗",
-"Nilah is an odd adc. She has quite a bit of damage, heal and mobility but very low range. She takes a while to scale, but once she does she is one of the scarier adcs to jump on. She normally plays with enchanter and gets increased heals and shields off them to make her quite difficult to kill. I'd recommend jumping on her only if she is low or has burnt some of her kit already since the dashes save her and her ult both rehealths her bar and unhealths yours."
 ]
 ]
 }
@@ -1863,24 +1701,6 @@
 ]
 }
 ],
-"Rammus": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Medium"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Not a terribly big threat on his own, mostly just an HP pool with a dangerous click-on taunt. Will take you half the match to kill him on your own, so I wouldn't recommend interacting with him unless you have teammates to play off of."
-],
-[
-"TIPS/HINTS - ✗",
-"Rammus is pretty OK. He is quite hard to kill on your own, but if he his half health you can just spam Q's at him and between Grudge's slow and your packmates sitting ontop of him he cant go anywhere since it stops his Q. similarly if he is ganking you try your best to either Q him to send your packmates to stop him or try to get your dogs between you and him so he cant just roll up to you."
-]
-]
-}
-],
 "RekSai": [
 {
 "fields": [
@@ -2040,24 +1860,6 @@
 [
 "TIPS/HINTS - ✗",
 "Samira is definitely an adc you need a team to kill. If she is ahead her burst damage is incredibly high and chances are she can blow you up before you can even prime the second Q (that she can block with her windwall but thats another problem). If your team has anyone with reliable cc they should be able to shut her down and take advantage of that window and kill her, otherwise wait for her to burn her dash and or windwall before going in"
-]
-]
-}
-],
-"Sejuani": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Medium"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Avoid Sejuani's Q. For her stun to proc, she needs to land 4 abilities/autos on you - don't let her do that. Use your E to avoid her W. If she lands her R on you while ganking, you're probably dead. I have never encountered a Sejuani in lane, but she can apparently play toplane."
-],
-[
-"TIPS/HINTS - ✗",
-"Sej is incredibly tanky, has high sticking power. She serves as great peel for her team and can shut down an entire area with her utlimate. Keep a wide breth of her and hope she misteps so you can get in to the rest of the team, otherwise just poke her down with Q's and wait for an opening. Her ganks are quite strong with the knockback, stun and ulti. Keep wards in bushes so she can't get the jump on you, and use your E to get out of her range if you can."
 ]
 ]
 }
@@ -2346,24 +2148,6 @@
 ]
 }
 ],
-"TahmKench": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Medium"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Kench is actually killable early on. Use your packmates and minions to avoid his Q. Otherwise, it comes out too fast to react to, so try to keep your movements erratic. You can easily dodge his W with your E. If he's running from you, his W is super telegraphed so you can easily follow it with W. Once he gets an item, you have to clear wave and roam."
-],
-[
-"TIPS/HINTS - ✗",
-"TK is quite beefy and has decent peel and engage. His dash is highly telegraphed so be sure to dodge once you see the animation start, and either position your dogs between you and him, or stand behind minions so he can't Q you. Be careful of jumping onto the carry when he is nearby, as he may just eat them and carry them to safety."
-]
-]
-}
-],
 "Taliyah": [
 {
 "fields": [
@@ -2544,24 +2328,6 @@
 ]
 }
 ],
-"Udyr": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"Hard"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Only fight this champion if you're ahead, or it's early-on. He's faster than you, does damage, and can stun you. If he builds tanky, you're not killing him late-game and he'll just run you down. He only has fast movement speed though; no movement abilities. You can hop a wall when trying to escape a gank; he will have to burn flash to follow."
-],
-[
-"TIPS/HINTS - ✗",
-"Udyr is a monster. He has a rather fast clear, high movement speed, reliable CC good survivability and damage to top it all off. He is about average to above in all those, but his empowered gives him a great boost. Keep good vision since his ganks are pretty linear (he just runs at you) and keep an eye out for your jungler. You should be able to 2v1 him if he isnt ahead, otherwise stand there and be scary. Jump walls and don't try to 1v1 him as he very good at those."
-]
-]
-}
-],
 "Urgot": [
 {
 "fields": [
@@ -2612,24 +2378,6 @@
 [
 "TIPS/HINTS - ✗",
 "Yet another of the four horsewomen of top lane. if the Vayne is even mildly sweaty good luck killing her without edge of night. She will push you back, stay invis half the fight and build off tank without any compromise to her damage. If you have eon and are ahead enough to one shot her go for it, otherwise be wary of her, stay away from walls or atleast jump away quickly so she doesnt pin it to you and slowly insert true damage into you."
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"DIFFICULTY",
-"EZ"
-],
-[
-"TIPS/HINTS - Peachwolf",
-"Veigar is fun to fight. The main goal here is not to touch his wall. Once he uses it, you're good to jump on him for free. If he hasn't used it, you can still W onto him but you just gotta dance around in it and dodge his skillshots. If they stick around to try to land abilities, you can continue your assault. If he just walks away, you've still burned his wall for a bit and you probably won the trade with Q2. Once he hits level 6 though, be careful of the point & click outplay - he will blow you up with zero effort. Maw isn't a bad option against this guy."
-],
-[
-"TIPS/HINTS - ✗",
-"Vei is a pretty fun matchup. Sporting some of the lowest base armour in the game he is really easy to kill, and all his abilities are skillshots so its difficult for him to kill you. Make sure you dont stand behind low health minions so he cant cs and stack off you at the same time. Edge of night makes it very easy to get on him since his wall is his only cc ability. You should also far outpush him, but its not a good idea to leave him a solo lane to farm. I recommend staying and killing him on repeat"
 ]
 ]
 }

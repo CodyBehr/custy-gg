@@ -23,20 +23,6 @@
 ]
 }
 ],
-"Evelynn": [
-{
-"fields": [
-[
-"Difficulty",
-"Extreme"
-],
-[
-"",
-"Do not let her hit level 6 uncontested. Pick up some magic resist early and use Control Wards to reveal her before she can burst you."
-]
-]
-}
-],
 "Shaco": [
 {
 "fields": [
@@ -65,20 +51,6 @@
 ]
 }
 ],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"Never fight him while his W is up. Wait for him to use his taunt, then lean on Q resets and true damage to get through his armor."
-]
-]
-}
-],
 "Fiddlesticks": [
 {
 "fields": [
@@ -103,20 +75,6 @@
 [
 "",
 "Her early ganks and targeted ultimate demand respect. Once you have tenacity and damage items she falls off sharply."
-]
-]
-}
-],
-"Belveth": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"With good farm and resets she can beat you in clear speed and skirmishes. Deny her early tempo so she cannot snowball."
 ]
 ]
 }
@@ -317,20 +275,6 @@
 ]
 }
 ],
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"You farm freely early, but he is dangerous in teamfights. Engage only after he misses his Q or uses his ultimate."
-]
-]
-}
-],
 "Diana": [
 {
 "fields": [
@@ -387,20 +331,6 @@
 ]
 }
 ],
-"Sejuani": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Her chained CC breaks your resets. Bait out her Q or ultimate before committing."
-]
-]
-}
-],
 "Olaf": [
 {
 "fields": [
@@ -411,20 +341,6 @@
 [
 "",
 "Avoid early river fights since he wins before items. Once you have lifesteal and your ultimate, you flip the duel."
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Her root and W zone slow you down. Use your ultimate to run through and kill her before she can CC you again."
 ]
 ]
 }
@@ -513,20 +429,6 @@
 ]
 }
 ],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Early duels are risky. Kite back until your ultimate and E true damage let you outdamage him."
-]
-]
-}
-],
 "Talon": [
 {
 "fields": [
@@ -611,34 +513,6 @@
 ]
 }
 ],
-"Briar": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Strong early duelist. When she overcommits, back off until her frenzy runs out, then turn on her with ultimate resets."
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"His ultimate can isolate you. Build QSS or wait for him to spend it on someone else before diving."
-]
-]
-}
-],
 "Sylas": [
 {
 "fields": [
@@ -677,20 +551,6 @@
 [
 "",
 "Do not fight him early. Farm up and shred him later with true damage."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"Very squishy but bursty. Dodge his stun combo with Alpha Strike and you can kill him before he ults."
 ]
 ]
 }

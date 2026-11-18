@@ -7,7 +7,7 @@
 "rank": "Challenger EUNE",
 "updated": "2026"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -307,24 +307,6 @@
 ]
 }
 ],
-"Illaoi": [
-{
-"fields": [
-[
-"LANE THREAT",
-"MEDIUM"
-],
-[
-"GAME THREAT",
-"EASY"
-],
-[
-"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
-"Be in lane instantly. Kill any tentacle that spawns instantly even if Illaoi is fighting you. You don't technically have to, level 1 and 2, but after, you have to. The tentacles are stronger than her. Illaoi W fighting pattern can let her damage you a lot more than you expect, don't go for any trade where you can't make sure hit her with your E/W as well, Q for Illaoi W is always bad. If She Rs and you're E-d, run away. If you didn't W her E, save your W not for her R, but her W after R, that will let you dodge the tentacle slam damage. Tip: You can Q out of Illaoi E range, and the spirit will travel to you, you can W at almost the end of Q animation and avoid the spirit debuff. You outscale…"
-]
-]
-}
-],
 "Irelia": [
 {
 "fields": [
@@ -519,24 +501,6 @@
 [
 "MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
 "This matchup is here purely because of Monster SSS. Props to him. Matchup is easy. Yi only has one fighting pattern where he can actually beat you or anything close to it. He has to start the fight melee range, preferably with his passive stacked so he gets double strike instantly. You just need to poke him out with max range Qs that he cannot trade back into and you have to use your W the second he autos you. Do not hold your W. Always use it instantly after the first auto attack (assuming he has hail of blades). Even if you're behind in gold, you still beat him because he just doesn't have the DPS to kill you with the Titanic build compared to normal on hit Master yi jungle build. You just…"
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"LANE THREAT",
-"VERY EASY"
-],
-[
-"GAME THREAT",
-"VERY EASY"
-],
-[
-"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
-"Mordekaiser is a generally easy matchup, if the morde knows what he's doing, it's still easy, just have to respect his positioning. You win all-ins early. See whether Morde can dodge your W when he E-s you or not, if he can't, GG, easy lane. If he can, you need to be a little more cautious and use your Q to dodge his E instead. If he gets Bramble, you outscale at Ravenous, if not, you outscale at spawn. When you engage, you have to make sure you're not max range Q-ing, and instead Q-ing as close as possible to prolong the fight. Q-ing max range lets him trade back and gives him more control in this situation. You can consistently W his R, it has a clear sound and animation, you can also tank…"
 ]
 ]
 }
@@ -883,25 +847,6 @@
 ]
 }
 ],
-"TahmKench": [
-{
-"fields": [
-[
-"LANE THREAT",
-"EASY"
-],
-[
-"GAME THREAT",
-"EASY"
-],
-[
-"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
-"You hard win into him pre-Bramble. Early game before he has points in Q, his champ is pretty useless and you can fight him however you like and you will most likely win. After he gets level 4-5, you do not want to get Q-ed for free, make sure to stand behind minions or bait Q out before starting a fight. If he has a passive facing you, you can always walk out of your wave, walk into him, wait for him to press Q then Q-W into his Q, and that trade will go insanely well for you. After you get tiamat, you don't even need to fight, you can just perma wave clear, proxy, and move around the map and jungle. He is on a hard timer before he gets mega outscaled. You just have to be careful in lane aft…"
-]
-],
-"as": "Sir Thomas Kench \n(Tahm Kench)"
-}
-],
 "Teemo": [
 {
 "fields": [
@@ -952,24 +897,6 @@
 [
 "MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
 "Do not let him touch the wave level 1. You hard win if he has no fury. Do not let him stack it for free. Level 2, and 3, you win. Fist fight, do not let him breathe. Level 4, when he finally has the wave and fury stacked, he will be annoying to deal with because he will just Auto+E away. You need to make sure when you fight him, you either max range Q and not give him the opportunity for that, or you play from an angle to his side and chase him when he E-s away. Bonus points if you're holding Q/got Q back up, and chase him with Q+W when he Es away. You just beat Tryndamere at level 6, he doesn't have enough damage. Later on, when you're at 1-2 items and so is he, what you want to do is not p…"
-]
-]
-}
-],
-"Udyr": [
-{
-"fields": [
-[
-"LANE THREAT",
-"MEDIUM"
-],
-[
-"GAME THREAT",
-"EASY"
-],
-[
-"MATCHUPS KNOWLEDGE/TIPS AND TRICKS",
-"Go Dblade, Conq, and triple tonic (inspiration) in secondary. You can look for a kill on him level 1 if he walks up to fight you. You can only all-in. You can't poke him. Any type of poke battle he wins. If you are full HP and he uses an empowered R on you, always look for an all-in into him. You will be able to win that. Realistically into Udyr, you can only kill him once at level 6 with the adaptive force tonic + ignite. If Udyr presses empowered W with the shield/healing, just back off and wait for it to fade. There is no point trying to trade into that. He'll just come out on top. As the game progresses, it will become easier and easier to deal with the Udyr. If you exit lane without bei…"
 ]
 ]
 }

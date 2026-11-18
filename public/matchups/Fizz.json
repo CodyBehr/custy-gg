@@ -696,20 +696,6 @@
 ]
 }
 ],
-"Veigar": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"You can dodge every spell, including his ult, and E out of his cage; just do not Q into the cage edge. He is immobile and easy to gank."
-]
-]
-}
-],
 "Xerath": [
 {
 "fields": [
@@ -720,20 +706,6 @@
 [
 "",
 "A landed shark usually kills him, and every spell is dodgeable. He tends to clear from under turret, so freeze, then Q off a minion and ult him. Very gankable."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"Land your ult and he dies. His range is shorter than Xerath's, and your E dodges his passive, Q, W and ult."
 ]
 ]
 }

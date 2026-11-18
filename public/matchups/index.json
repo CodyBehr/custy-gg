@@ -4,19 +4,19 @@
 "url": "https://docs.google.com/spreadsheets/d/1-FbMkeN8QyRHNPCz_Z0FDdrFqRwr7iellFuwwL1Q8gs/edit",
 "author": "Falconator9000",
 "updated": "2025",
-"opponents": 56
+"opponents": 52
 },
 "Ahri": {
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/12RJckctaCLLzZBNJwxQPoRFU-65ZWd2P-C-kqVjBEtY/edit",
-"opponents": 57
+"opponents": 53
 },
 "Akali": {
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1FyIFuubDdYon0GsAhE9BmcIWtCUir-i-VJVyEr7XWQg/edit",
 "author": "Wahid3251",
 "rank": "Rank 20 EUW peak, Master-Challenger OTP",
-"opponents": 88
+"opponents": 84
 },
 "Akshan": {
 "quality": "summary",
@@ -25,7 +25,7 @@
 "rank": "Grandmaster",
 "updated": "2026-06-30",
 "title": "[26.13] The Only Akshan Guide You'll Need - Matchups Included",
-"opponents": 22
+"opponents": 21
 },
 "Alistar": {
 "quality": "summary",
@@ -33,7 +33,7 @@
 "author": "PykeUGeo",
 "updated": "2026-10-14",
 "title": "✔️ Tank + Alistar = MUU!! ✔️",
-"opponents": 14
+"opponents": 12
 },
 "Ambessa": {
 "quality": "summary",
@@ -41,7 +41,7 @@
 "author": "SprdLoL",
 "updated": "2024-12-09",
 "title": "CHALLENGER AMBESSA TOP BUILD & MATCH-UP TIPS.",
-"opponents": 40
+"opponents": 38
 },
 "Amumu": {
 "quality": "summary",
@@ -50,14 +50,14 @@
 "rank": "Master",
 "updated": "2026-04-22",
 "title": "[26.08] Amumu SUPPORT",
-"opponents": 42
+"opponents": 40
 },
 "Anivia": {
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1PHVPkfcmqm1I49LG4eoGIPnoVS_f6ftYlb5r2LS6aUc/edit",
 "rank": "Gold (per community index)",
 "updated": "2020",
-"opponents": 45
+"opponents": 42
 },
 "Annie": {
 "quality": "summary",
@@ -89,7 +89,7 @@
 "rank": "Challenger",
 "updated": "2026-01-09",
 "title": "[26.1] Shok's Rank 1 Challenger Aurora Guide",
-"opponents": 46
+"opponents": 45
 },
 "Azir": {
 "quality": "summary",
@@ -97,7 +97,7 @@
 "author": "Body Those Fools",
 "updated": "2026-11-03",
 "title": "[Season 16] BodyThoseFools' Challenger Azir Guide [In-depth] (10,000,000+ Mastery Points) (Beat Faker)",
-"opponents": 92
+"opponents": 87
 },
 "Bard": {
 "quality": "summary",
@@ -105,7 +105,7 @@
 "author": "BeefyyLoL",
 "updated": "2025-01-31",
 "title": "[25.S1.2] [NA] Beefy's Challenger Bard Guide",
-"opponents": 39
+"opponents": 35
 },
 "Belveth": {
 "quality": "summary",
@@ -114,7 +114,7 @@
 "rank": "Master",
 "updated": "2026-11-12",
 "title": "Mo100z [26.10] NEW SPLIT !! CHALLENGER BEL'VETH INDEPTH GUIDE UPDATED!!",
-"opponents": 11
+"opponents": 10
 },
 "Blitzcrank": {
 "quality": "summary",
@@ -123,7 +123,7 @@
 "rank": "Diamond",
 "updated": "2025-08-09",
 "title": "[25.15] LOADINGSCREEN GUIDE GREATEST SUPPORT",
-"opponents": 20
+"opponents": 17
 },
 "Brand": {
 "quality": "summary",
@@ -140,7 +140,7 @@
 "rank": "Emerald",
 "updated": "2026-11-04",
 "title": "[26.22] First we fight, then we eat! - A comprehensive Braum guide.",
-"opponents": 37
+"opponents": 33
 },
 "Briar": {
 "quality": "summary",
@@ -148,7 +148,7 @@
 "author": "Arctic Arrow",
 "updated": "2025-11-25",
 "title": "Ultimate Briar Jng Guide - 25.21",
-"opponents": 60
+"opponents": 51
 },
 "Caitlyn": {
 "quality": "summary",
@@ -157,7 +157,7 @@
 "rank": "Diamond",
 "updated": "2026-11-06",
 "title": "26.22 Caitlyn Build ADC 1 SHOT LATE GAME SCALING CAITLYN BUILD Meta Build Included",
-"opponents": 23
+"opponents": 22
 },
 "Camille": {
 "quality": "sheet",
@@ -165,7 +165,7 @@
 "author": "Kryze",
 "rank": "Challenger (EUNE, per community index)",
 "updated": "2023-12",
-"opponents": 49
+"opponents": 47
 },
 "Cassiopeia": {
 "quality": "summary",
@@ -173,7 +173,7 @@
 "author": "Hyrav",
 "updated": "2022-08-02",
 "title": "Hyrav's Challenger Rank 1 Cassiopeia Guide",
-"opponents": 70
+"opponents": 66
 },
 "Chogath": {
 "quality": "summary",
@@ -181,7 +181,7 @@
 "author": "LeonAtreides",
 "updated": "2024-12-10",
 "title": "THE PASSIONATE GUIDE TO CHO'GATH JUNGLE",
-"opponents": 5
+"opponents": 4
 },
 "Corki": {
 "quality": "none"
@@ -192,7 +192,7 @@
 "author": "Qwacker",
 "rank": "Challenger NA",
 "updated": "2022-07",
-"opponents": 58
+"opponents": 55
 },
 "Diana": {
 "quality": "stats_only"
@@ -203,7 +203,7 @@
 "author": "Federals1",
 "rank": "Challenger",
 "updated": "2026-11",
-"opponents": 169
+"opponents": 154
 },
 "Draven": {
 "quality": "sheet",
@@ -211,13 +211,13 @@
 "author": "AfroTJ",
 "rank": "Challenger NA (Draven main)",
 "updated": "2025",
-"opponents": 45
+"opponents": 41
 },
 "Ekko": {
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1Hg9Z1XVQQV-D473shA4O6XmexuoQ2jUTJqTfxBGTa30/edit",
 "updated": "2021-09",
-"opponents": 73
+"opponents": 69
 },
 "Elise": {
 "quality": "summary",
@@ -233,7 +233,7 @@
 "author": "LoL_Excalibur",
 "updated": "2025-07-07",
 "title": "(RANK 1 EVELYNN) Excalibur's Evelynn Bible - All Matchups Explained with Tips and Strategies",
-"opponents": 46
+"opponents": 39
 },
 "Ezreal": {
 "quality": "summary",
@@ -255,7 +255,7 @@
 "author": "Sad",
 "rank": "Challenger EUNE",
 "updated": "2026",
-"opponents": 66
+"opponents": 62
 },
 "Fizz": {
 "quality": "summary",
@@ -264,7 +264,7 @@
 "rank": "Diamond",
 "updated": "2026-07-03",
 "title": "[S16] CHALLENGER Fizz Guide ALL MATCHUPS",
-"opponents": 61
+"opponents": 59
 },
 "Galio": {
 "quality": "stats_only"
@@ -275,7 +275,7 @@
 "author": "Wielki B",
 "updated": "2024-05-20",
 "title": "GANGPLANK MATCHUPS GUIDE 14.10 by EUNE rank 2",
-"opponents": 41
+"opponents": 38
 },
 "Garen": {
 "quality": "sheet",
@@ -283,7 +283,7 @@
 "author": "Federals1",
 "rank": "Challenger",
 "updated": "2026-11",
-"opponents": 170
+"opponents": 155
 },
 "Gnar": {
 "quality": "summary",
@@ -292,7 +292,7 @@
 "rank": "Diamond",
 "updated": "2026-03-08",
 "title": "[26.05] Wyvern's Gnar",
-"opponents": 51
+"opponents": 48
 },
 "Gragas": {
 "quality": "summary",
@@ -308,7 +308,7 @@
 "url": "https://docs.google.com/spreadsheets/d/16lAiU2YJE2FkxzvdaPP6O8ekO9XE0kFXAsqAqCzjEtg/edit",
 "author": "MiraiNChill",
 "updated": "2020",
-"opponents": 147
+"opponents": 136
 },
 "Gwen": {
 "quality": "sheet_link",
@@ -323,7 +323,7 @@
 "rank": "Master",
 "updated": "2026-01-08",
 "title": "[Patch 26.1] [CHALLENGER] Hecarim Build Guide by Huncho1v9",
-"opponents": 46
+"opponents": 37
 },
 "Heimerdinger": {
 "quality": "summary",
@@ -331,7 +331,7 @@
 "author": "SanyGame",
 "updated": "2026-02-21",
 "title": "[26.4] In-Depth Heimerdinger Guide [Mid/Top/Bot/Support]",
-"opponents": 29
+"opponents": 27
 },
 "Hwei": {
 "quality": "summary",
@@ -340,7 +340,7 @@
 "rank": "Challenger",
 "updated": "2026-01-09",
 "title": "[26.1] Shok's Rank 1 Challenger Hwei Guide",
-"opponents": 60
+"opponents": 56
 },
 "Illaoi": {
 "quality": "sheet",
@@ -354,7 +354,7 @@
 "url": "https://docs.google.com/spreadsheets/d/1J6n5U-BQiItLPfFPpfbMv32BpceG9u7rfaoCYhoXO18/edit",
 "author": "IreliaCarriesU",
 "rank": "Master-low Challenger NA (per community index)",
-"opponents": 44
+"opponents": 43
 },
 "Ivern": {
 "quality": "summary",
@@ -362,7 +362,7 @@
 "author": "Shekar",
 "updated": "2026-10-06",
 "title": "Season 16's Shekars Ivern Guide (3 Million+ Mastery)",
-"opponents": 42
+"opponents": 36
 },
 "Janna": {
 "quality": "guide",
@@ -377,7 +377,7 @@
 "rank": "Emerald",
 "updated": "2024-02-03",
 "title": "[S14] DESTROY SOLOQ WITH JARVAN IV - UDYSOF Challenger J4!",
-"opponents": 35
+"opponents": 30
 },
 "Jax": {
 "quality": "sheet_link",
@@ -398,7 +398,7 @@
 "rank": "Emerald",
 "updated": "2021-04-19",
 "title": "Challenger Jinx Guide",
-"opponents": 45
+"opponents": 43
 },
 "KSante": {
 "quality": "summary",
@@ -406,7 +406,7 @@
 "author": "Auroline",
 "updated": "2026-08-03",
 "title": "K'Sante 2026",
-"opponents": 34
+"opponents": 32
 },
 "Kaisa": {
 "quality": "summary",
@@ -414,7 +414,7 @@
 "author": "DemonsEdge90",
 "updated": "2026-11-11",
 "title": "Exploit Their Weaknesses",
-"opponents": 23
+"opponents": 22
 },
 "Kalista": {
 "quality": "summary",
@@ -422,7 +422,7 @@
 "author": "OtakuGaming",
 "updated": "2026-10-09",
 "title": "The Spear of Vengeance | An in-depth Kalista Guide!",
-"opponents": 10
+"opponents": 8
 },
 "Karma": {
 "quality": "summary",
@@ -430,7 +430,7 @@
 "author": "ZSharpFire",
 "updated": "2024-10-07",
 "title": "|S14| Karma SUPPORT Itemization+Matchups+Playstyles",
-"opponents": 31
+"opponents": 28
 },
 "Karthus": {
 "quality": "summary",
@@ -438,7 +438,7 @@
 "author": "Kociokwik",
 "updated": "2026-06-19",
 "title": "Karthus stomping bot start (free elo hack)",
-"opponents": 26
+"opponents": 25
 },
 "Kassadin": {
 "quality": "sheet_link",
@@ -460,7 +460,7 @@
 "author": "UJard",
 "rank": "High GM-low Challenger, Rank 1 Kayle OTP",
 "updated": "2026-09",
-"opponents": 171
+"opponents": 156
 },
 "Kayn": {
 "quality": "summary",
@@ -468,7 +468,7 @@
 "author": "Kukiziuu_",
 "updated": "2025-10-22",
 "title": "Kukiziu's Guide [S15.21 UPDATED] Every Situation | MATCHUPS + GUIDE",
-"opponents": 49
+"opponents": 41
 },
 "Kennen": {
 "quality": "none"
@@ -499,7 +499,7 @@
 "author": "Abes_o7",
 "updated": "2021-12-09",
 "title": "Lee Sin Guide",
-"opponents": 17
+"opponents": 16
 },
 "Leona": {
 "quality": "summary",
@@ -507,7 +507,7 @@
 "author": "PykeUGeo",
 "updated": "2026-10-14",
 "title": "The Most Reliable guide on Leona",
-"opponents": 14
+"opponents": 12
 },
 "Lillia": {
 "quality": "stats_only"
@@ -518,7 +518,7 @@
 "author": "MrMad2000",
 "updated": "2015-07-15",
 "title": "[S5] Kneel to the Watchers! - Lissandra The Ice Witch.",
-"opponents": 50
+"opponents": 46
 },
 "Locke": {
 "quality": "none"
@@ -538,14 +538,14 @@
 "rank": "Diamond",
 "updated": "2026-07-30",
 "title": "[S16/2] Master elo In-depth Lulu support guide",
-"opponents": 45
+"opponents": 42
 },
 "Lux": {
-"quality": "sheet",
+"quality": "sheet_unparsed",
 "url": "https://docs.google.com/spreadsheets/d/1rCZaLNI61ByB-mMbfx3BuAgHMpC99w14/edit",
 "author": "Yozu (credits Justin X)",
 "updated": "2020",
-"opponents": 37
+"pull": "no opponent column"
 },
 "Malphite": {
 "quality": "sheet",
@@ -553,7 +553,7 @@
 "author": "TheRockTitan",
 "rank": "Master, Rank 1 NA Malphite",
 "updated": "2022-09",
-"opponents": 54
+"opponents": 51
 },
 "Malzahar": {
 "quality": "summary",
@@ -570,7 +570,7 @@
 "rank": "Emerald",
 "updated": "2026-03-30",
 "title": "Maokai (Tank) Support 2026",
-"opponents": 33
+"opponents": 30
 },
 "MasterYi": {
 "quality": "summary",
@@ -578,7 +578,7 @@
 "author": "Eddeeken",
 "updated": "2026-01-09",
 "title": "Season 15 Master Yi Guide",
-"opponents": 54
+"opponents": 44
 },
 "Mel": {
 "quality": "summary",
@@ -587,7 +587,7 @@
 "rank": "Grandmaster",
 "updated": "2025-08-08",
 "title": "Evandabank's Grandmaster Mel Midlane Guide",
-"opponents": 56
+"opponents": 54
 },
 "Milio": {
 "quality": "summary",
@@ -596,7 +596,7 @@
 "rank": "Master",
 "updated": "2026-11-04",
 "title": "[26.22] Milio Support | In-Depth Guide",
-"opponents": 35
+"opponents": 32
 },
 "MissFortune": {
 "quality": "none"
@@ -607,15 +607,11 @@
 "author": "Pride Jia",
 "rank": "Masters NA",
 "updated": "2021-01",
-"opponents": 57
+"opponents": 55
 },
 "Mordekaiser": {
-"quality": "summary",
-"url": "https://www.mobafire.com/league-of-legends/tier-list/mordekaiser-matchups-4376",
-"author": "N.I.",
-"updated": "2025-05-06",
-"title": "Mordekaiser Matchups (tier list)",
-"opponents": 1
+"quality": "guide",
+"url": "https://www.mobafire.com/league-of-legends/tier-list/mordekaiser-matchups-4376"
 },
 "Morgana": {
 "quality": "none"
@@ -625,7 +621,7 @@
 "url": "https://docs.google.com/spreadsheets/d/1da68vhVi-narz6gp0We7jqm9ke-pNtWCs1w-JiOU6Qo/edit#gid=2101009548",
 "author": "Peachwolf",
 "updated": "2025-01",
-"opponents": 169
+"opponents": 155
 },
 "Nami": {
 "quality": "summary",
@@ -633,7 +629,7 @@
 "author": "PicklePantsLoL",
 "updated": "2022-02-27",
 "title": "[12.4] Nami, the Fish (ex-Top 85 EUW) | Diamond 1 Guide",
-"opponents": 25
+"opponents": 22
 },
 "Nasus": {
 "quality": "summary",
@@ -642,7 +638,7 @@
 "rank": "Grandmaster",
 "updated": "2026-11-11",
 "title": "Nasus / Stack Now, Ascend Later",
-"opponents": 58
+"opponents": 54
 },
 "Nautilus": {
 "quality": "summary",
@@ -651,7 +647,7 @@
 "rank": "Emerald",
 "updated": "2025-12-04",
 "title": "[25.24] Echoes from the deep! - A comprehensive Nautilus guide.",
-"opponents": 37
+"opponents": 33
 },
 "Neeko": {
 "quality": "guide",
@@ -663,7 +659,7 @@
 "author": "Nidalee mains discord collab",
 "rank": "high elo (claimed)",
 "updated": "2021-04",
-"opponents": 57
+"opponents": 49
 },
 "Nilah": {
 "quality": "summary",
@@ -672,7 +668,7 @@
 "rank": "Diamond",
 "updated": "2025-09-01",
 "title": "[25.17] A Guide to Might and Joy",
-"opponents": 29
+"opponents": 28
 },
 "Nocturne": {
 "quality": "summary",
@@ -681,7 +677,7 @@
 "rank": "Grandmaster",
 "updated": "2026-10-07",
 "title": "Nocturne / Become the Nightmare",
-"opponents": 35
+"opponents": 31
 },
 "Nunu": {
 "quality": "stats_only"
@@ -700,7 +696,7 @@
 "author": "Sylvan Lore",
 "updated": "2021-11-13",
 "title": "[11.22] Command: Attack - One Trick Orianna Mid",
-"opponents": 50
+"opponents": 47
 },
 "Ornn": {
 "quality": "sheet_link",
@@ -713,7 +709,7 @@
 "author": "Broclaw, Sleepless, Torse",
 "rank": "Master EUW",
 "updated": "2024-06",
-"opponents": 65
+"opponents": 61
 },
 "Poppy": {
 "quality": "summary",
@@ -722,7 +718,7 @@
 "rank": "Emerald",
 "updated": "2025-11-17",
 "title": "[25.22] Supporting the Hero! A Poppy Support guide.",
-"opponents": 68
+"opponents": 63
 },
 "Pyke": {
 "quality": "summary",
@@ -730,7 +726,7 @@
 "author": "Pykings",
 "updated": "2025-11-11",
 "title": "Pyken's [Grandmaster] S15 Pyke Guide",
-"opponents": 167
+"opponents": 153
 },
 "Qiyana": {
 "quality": "sheet_link",
@@ -748,7 +744,7 @@
 "author": "DaltonFresh",
 "updated": "2026-10-23",
 "title": "[26.21] Rakan for Low Elo | Rush Dark Seal, play with Xayah! | Updated Every Patch",
-"opponents": 33
+"opponents": 29
 },
 "Rammus": {
 "quality": "stats_only"
@@ -760,7 +756,7 @@
 "rank": "Emerald",
 "updated": "2026-05-13",
 "title": "[S16] LordGrox High Elo Rek'sai Guide",
-"opponents": 40
+"opponents": 32
 },
 "Rell": {
 "quality": "summary",
@@ -768,7 +764,7 @@
 "author": "HerYandere",
 "updated": "2021-07-28",
 "title": "Hi, I'm Rell :)",
-"opponents": 57
+"opponents": 54
 },
 "Renata": {
 "quality": "none"
@@ -778,21 +774,21 @@
 "url": "https://docs.google.com/spreadsheets/d/1MKaw_PGFrKitMyqfE4fl6QxHK-cidspg/edit",
 "author": "Twevor",
 "updated": "2025?",
-"opponents": 168
+"opponents": 153
 },
 "Rengar": {
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1U9wPmKWusKo1-SFG-m1Fm_zaKaZ6Xgv1DzoDlnT7lWI/edit",
 "author": "SavagePrideStalkers",
 "rank": "Master",
-"opponents": 155
+"opponents": 144
 },
 "Riven": {
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1JT2zJyhWEhD1f01CrJGHXUkHAGIy1dwLDZZ5PjLIsPs/edit",
 "author": "Oskar + Chalseu",
 "updated": "2024",
-"opponents": 60
+"opponents": 56
 },
 "Rumble": {
 "quality": "none"
@@ -818,7 +814,7 @@
 "Sett": {
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1pF2wbqRxHz00vQolCQ_z896kH5TDuLYFPryPDDSCKxg/edit",
-"opponents": 50
+"opponents": 47
 },
 "Shaco": {
 "quality": "stats_only"
@@ -836,7 +832,7 @@
 "author": "Oikaton",
 "updated": "2026-11-07",
 "title": "[26.22] Reworked Shyvana // Jungle Guide",
-"opponents": 57
+"opponents": 48
 },
 "Singed": {
 "quality": "summary",
@@ -844,7 +840,7 @@
 "author": "Hoikatop",
 "updated": "2025-09-25",
 "title": "Minishcap1's singed guide",
-"opponents": 56
+"opponents": 52
 },
 "Sion": {
 "quality": "summary",
@@ -852,7 +848,7 @@
 "author": "The Milelator",
 "updated": "2023-10-22",
 "title": "The ULTIMATE SION MID GUIDE | Master 400 lp Player | ALL MATCH UPS",
-"opponents": 48
+"opponents": 46
 },
 "Sivir": {
 "quality": "stats_only"
@@ -863,7 +859,7 @@
 "author": "Hazardist",
 "updated": "2026-11-04",
 "title": "(26.22) The Last Bastion of Ixtal: a Skarner Jungle Guide",
-"opponents": 47
+"opponents": 38
 },
 "Smolder": {
 "quality": "summary",
@@ -872,7 +868,7 @@
 "rank": "Gold",
 "updated": "2026-11-11",
 "title": "SCORCHED EARTH: 225 Stacks to Glory",
-"opponents": 36
+"opponents": 34
 },
 "Sona": {
 "quality": "summary",
@@ -889,7 +885,7 @@
 "author": "nZan",
 "updated": "2024-11-18",
 "title": "SupportZan's Guide to Soraka: Be the Best Teammate You Can Be!",
-"opponents": 21
+"opponents": 18
 },
 "Swain": {
 "quality": "sheet",
@@ -897,7 +893,7 @@
 "author": "Determination",
 "rank": "D2-Masters EUW",
 "updated": "2020-11",
-"opponents": 56
+"opponents": 54
 },
 "Sylas": {
 "quality": "sheet",
@@ -905,7 +901,7 @@
 "author": "Rime",
 "rank": "GM NA",
 "updated": "2022-08",
-"opponents": 53
+"opponents": 50
 },
 "Syndra": {
 "quality": "summary",
@@ -913,7 +909,7 @@
 "author": "Gaming Academy",
 "updated": "2024-11-24",
 "title": "Ultimate Syndra Guide MID by GAMING ACADEMY YouTube Channel",
-"opponents": 21
+"opponents": 20
 },
 "TahmKench": {
 "quality": "sheet_link",
@@ -939,7 +935,7 @@
 "rank": "Emerald",
 "updated": "2023-04-20",
 "title": "[S13] Surf's Up! | Master Taric Support Guide",
-"opponents": 29
+"opponents": 26
 },
 "Teemo": {
 "quality": "sheet",
@@ -947,7 +943,7 @@
 "author": "iPav",
 "rank": "Masters NA",
 "updated": "2024",
-"opponents": 86
+"opponents": 79
 },
 "Thresh": {
 "quality": "sheet",
@@ -955,7 +951,7 @@
 "author": "Pirsuit (contrib. TheKat)",
 "rank": "high elo (claimed in index)",
 "updated": "2020-06",
-"opponents": 49
+"opponents": 46
 },
 "Tristana": {
 "quality": "summary",
@@ -963,7 +959,7 @@
 "author": "Nortoxz",
 "updated": "2025-08-21",
 "title": "(AD) Tristana Build Guide (Patch 25.16)",
-"opponents": 22
+"opponents": 21
 },
 "Trundle": {
 "quality": "stats_only"
@@ -984,7 +980,7 @@
 "author": "LewisTheRat",
 "updated": "2023-12-22",
 "title": "[13.24] Twitch's Guide + Matchup sheets",
-"opponents": 33
+"opponents": 32
 },
 "Udyr": {
 "quality": "sheet",
@@ -992,7 +988,7 @@
 "author": "MetaSolaray",
 "rank": "Masters/GM NA",
 "updated": "old",
-"opponents": 57
+"opponents": 49
 },
 "Urgot": {
 "quality": "sheet_link",
@@ -1014,7 +1010,7 @@
 "Veigar": {
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1Gw7ghDG6FtX0QJiUgFUe1QdCeUQmZFZbo6sGjZq0Y8s/edit",
-"opponents": 61
+"opponents": 58
 },
 "Velkoz": {
 "quality": "summary",
@@ -1022,7 +1018,7 @@
 "author": "NorthernRedStar",
 "updated": "2015-05-25",
 "title": "Keeping An Eye On Your Carry - Support Vel'koz",
-"opponents": 16
+"opponents": 15
 },
 "Vex": {
 "quality": "summary",
@@ -1031,7 +1027,7 @@
 "rank": "Grandmaster",
 "updated": "2026-10-07",
 "title": "Vex / Have Some Misery",
-"opponents": 47
+"opponents": 45
 },
 "Vi": {
 "quality": "summary",
@@ -1039,7 +1035,7 @@
 "author": "y every name taken",
 "updated": "2024-08-11",
 "title": "Vi Matchups, Tips & Tricks [updated 14.15]",
-"opponents": 36
+"opponents": 30
 },
 "Viego": {
 "quality": "sheet_link",
@@ -1066,7 +1062,7 @@
 "rank": "Challenger",
 "updated": "2026-11-02",
 "title": "[26.21] Challenger Volibear Top Guide",
-"opponents": 54
+"opponents": 51
 },
 "Warwick": {
 "quality": "sheet",
@@ -1074,7 +1070,7 @@
 "author": "Federals1",
 "rank": "Challenger",
 "updated": "2026-11",
-"opponents": 168
+"opponents": 153
 },
 "Xayah": {
 "quality": "none"
@@ -1139,12 +1135,12 @@
 "rank": "Diamond",
 "updated": "2022-08-27",
 "title": "[12.16] A Master Tier Guide To Zac (WIP)",
-"opponents": 22
+"opponents": 18
 },
 "Zed": {
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1oOdoxOECGxrH5glVCORRSvGnfdehMhhnSfJBcpXX0rk/edit",
-"opponents": 51
+"opponents": 47
 },
 "Zeri": {
 "quality": "summary",
@@ -1152,7 +1148,7 @@
 "author": "Fatusa",
 "updated": "2026-01-16",
 "title": "CHALLENGER ZERI FATUSA - SEASON 16 GUIDE",
-"opponents": 23
+"opponents": 22
 },
 "Ziggs": {
 "quality": "none"
@@ -1163,7 +1159,7 @@
 "author": "Arcurath",
 "updated": "2022-09-21",
 "title": "[12.18] Arcurath's Rank 1 Zilean Support Guide",
-"opponents": 22
+"opponents": 20
 },
 "Zoe": {
 "quality": "stats_only"
@@ -1175,6 +1171,6 @@
 "rank": "Diamond",
 "updated": "2026-09-23",
 "title": "Zyra Jungle 16.19",
-"opponents": 63
+"opponents": 56
 }
 }

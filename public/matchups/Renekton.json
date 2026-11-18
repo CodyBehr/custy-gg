@@ -6,7 +6,7 @@
 "author": "Twevor",
 "updated": "2025?"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -184,36 +184,6 @@
 [
 "Tips",
 "Don't get hit by her Q2. Don't hit while her counter still active, if you can break her shield with Empowered W. Just play around Eclipse passive and you're good."
-]
-]
-}
-],
-"Amumu": [
-{
-"fields": [
-[
-"Spell",
-"TP"
-],
-[
-"Skill Order",
-"3 points Q > W > E"
-],
-[
-"Runes",
-"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > Black Cleaver > Eclipse or Shojin if they have 2+ FIGHTERS"
-],
-[
-"Difficulty",
-"Easy"
-],
-[
-"Tips",
-"Don't waste your fury with W, you need to stay healty to stay fighting him over time."
 ]
 ]
 }
@@ -458,36 +428,6 @@
 ]
 }
 ],
-"Belveth": [
-{
-"fields": [
-[
-"Spell",
-"Ignite"
-],
-[
-"Skill Order",
-"Q > W"
-],
-[
-"Runes",
-"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > Eclipse > Plated Steelcaps > Shojin or Black Cleaver if they have 2+ TANKS"
-],
-[
-"Difficulty",
-"Skill Matchup"
-],
-[
-"Tips",
-"You cand bait her E with fake W or fast E1+Q+AA+E2, don't waste damage and cooldowns while she is casting it. Don't let her push and get Voidgrubs and Herald, that's your max priority."
-]
-]
-}
-],
 "Blitzcrank": [
 {
 "fields": [
@@ -518,36 +458,6 @@
 ]
 }
 ],
-"Brand": [
-{
-"fields": [
-[
-"Spell",
-"TP"
-],
-[
-"Skill Order",
-"E start > Q > E"
-],
-[
-"Runes",
-"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Shield > Malmortius > Eclipse"
-],
-[
-"Difficulty",
-"Skill Matchup"
-],
-[
-"Tips",
-"His E can bouncy between the wave and you, be careful to not get poked till death. If he tries to freeze just proxy, but don't overextend, he have a good clear wave to go after you."
-]
-]
-}
-],
 "Braum": [
 {
 "fields": [
@@ -574,36 +484,6 @@
 [
 "Tips",
 "Be aware about ganks, his passive can make them sucessful almost every time. Otherwise he doesn't should be able to kill you."
-]
-]
-}
-],
-"Briar": [
-{
-"fields": [
-[
-"Spell",
-"Ignite"
-],
-[
-"Skill Order",
-"E start > 3 points Q > W > E"
-],
-[
-"Runes",
-"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > Bramble if behind > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
-],
-[
-"Difficulty",
-"Easy"
-],
-[
-"Tips",
-"Be careful level 1. This lane you need to play around her E, it has the same cooldown as your E and W , don't waste your combo while she's casting it. She's stronger than you till level 3. Don't dive unless you waste her E."
 ]
 ]
 }
@@ -934,36 +814,6 @@
 [
 "Tips",
 "Don't waste all your combo if she have W, just wait her come back and then you kill her."
-]
-]
-}
-],
-"Evelynn": [
-{
-"fields": [
-[
-"Spell",
-"Ignite"
-],
-[
-"Skill Order",
-"3 points Q > W > E"
-],
-[
-"Runes",
-"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Overgrowth\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
-],
-[
-"Difficulty",
-"Easy"
-],
-[
-"Tips",
-"She doesn't have enough damage to one shot you or push the lane, just work in 2 waves and dive her. Her R is the only escape she has, but it's strong enough to stop your dive."
 ]
 ]
 }
@@ -1338,36 +1188,6 @@
 [
 "Tips",
 "If he waste his E just trade, if he is lower than 70% HP it's a free kill"
-]
-]
-}
-],
-"Illaoi": [
-{
-"fields": [
-[
-"Spell",
-"Ignite"
-],
-[
-"Skill Order",
-"Q > E"
-],
-[
-"Runes",
-"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Shield > Pickaxe > Executioner > Black Cleaver if she goes ARMOR or Eclipse if she goes AD (but you need both)"
-],
-[
-"Difficulty",
-"Hard"
-],
-[
-"Tips",
-"Level 1-2 you can abuse your PTA spyke, if she start W you start with W. Everytime she miss her E you NEED to trade, use E2 if needed. If you go first with E1 insta sidewalk to dodge her E then you can use your skills. Dont try to fight her after laning phase. Let your teammates deal with her and just hold the lanes if she is splitpushing."
 ]
 ]
 }
@@ -2258,32 +2078,6 @@
 ]
 }
 ],
-"Mel": [
-{
-"fields": [
-[
-"Spell",
-"TP"
-],
-[
-"Skill Order",
-"E start > Q > E"
-],
-[
-"Runes",
-"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Shield > Eclipse > Shojin or Black Cleaver if they have 2+ TANKS"
-],
-[
-"Difficulty",
-"Skill Matchup"
-]
-]
-}
-],
 "Milio": [
 {
 "fields": [
@@ -2332,62 +2126,6 @@
 [
 "Difficulty",
 "Easy"
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Spell",
-"Ignite"
-],
-[
-"Skill Order",
-"3 points Q > W > E"
-],
-[
-"Runes",
-"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > BORK > Eclipse"
-],
-[
-"Difficulty",
-"Skill Matchup"
-],
-[
-"Tips",
-"You'll easily win before 6 if you keep short trading. Don't use your E1 to poke, let him pull you in with his E, and if you use your E to finish the trade. Hold your empowered W to break his shield or use it to dash in with E. After 6, don't use your R before his R."
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"Spell",
-"TP"
-],
-[
-"Skill Order",
-"E start > Q > E"
-],
-[
-"Runes",
-"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Unflinching\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > Mercury's Thread > Eclipse > Stridebreaker"
-],
-[
-"Difficulty",
-"Skill Matchup"
 ]
 ]
 }
@@ -2560,32 +2298,6 @@
 [
 "Difficulty",
 "Skill Matchup"
-]
-]
-}
-],
-"Nilah": [
-{
-"fields": [
-[
-"Spell",
-"Ignite"
-],
-[
-"Skill Order",
-"E start > 3 points Q > W > E"
-],
-[
-"Runes",
-"Precision: Press the Attack > Triumph > Legend: Alacrity > Last Stand\nnspiration: Triple Tonic > Jack of All Trades\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > Eclipse > Youmuu's"
-],
-[
-"Difficulty",
-"Easy"
 ]
 ]
 }
@@ -2909,36 +2621,6 @@
 ]
 }
 ],
-"Rammus": [
-{
-"fields": [
-[
-"Spell",
-"Ignite"
-],
-[
-"Skill Order",
-"Q > E"
-],
-[
-"Runes",
-"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > Black Cleaver > Mercury's Thread > BORK"
-],
-[
-"Difficulty",
-"Hard"
-],
-[
-"Tips",
-"After his bramble he becomes unstoppable, try to get some advantage before his first B. After, focus on farm until you finish Black Cleaver. Don't waste fury on W, focus on Q and E."
-]
-]
-}
-],
 "RekSai": [
 {
 "fields": [
@@ -3182,32 +2864,6 @@
 [
 "Difficulty",
 "Easy"
-]
-]
-}
-],
-"Sejuani": [
-{
-"fields": [
-[
-"Spell",
-"Ignite"
-],
-[
-"Skill Order",
-"3 points Q > W > E"
-],
-[
-"Runes",
-"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Bone Plating\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > BORK if she rushes HP or Black Cleaver if she rushes ARMOR (But you need both)"
-],
-[
-"Difficulty",
-"Skill Matchup"
 ]
 ]
 }
@@ -3648,32 +3304,6 @@
 ]
 }
 ],
-"TahmKench": [
-{
-"fields": [
-[
-"Spell",
-"Ignite"
-],
-[
-"Skill Order",
-"3 points Q > W > E"
-],
-[
-"Runes",
-"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Demolish > Second Wind\nHaste AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > BORK > Black Cleaver"
-],
-[
-"Difficulty",
-"Easy"
-]
-]
-}
-],
 "Taliyah": [
 {
 "fields": [
@@ -3938,32 +3568,6 @@
 ]
 }
 ],
-"Udyr": [
-{
-"fields": [
-[
-"Spell",
-"Ignite"
-],
-[
-"Skill Order",
-"E start > Q > E"
-],
-[
-"Runes",
-"Precision: Conqueror > Triumph > Legend: Alacrity > Last Stand\nResolve: Bone Plating > Overgrowth\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > BORK > Eclipse"
-],
-[
-"Difficulty",
-"Skill Matchup"
-]
-]
-}
-],
 "Varus": [
 {
 "fields": [
@@ -4012,32 +3616,6 @@
 [
 "Difficulty",
 "Hard"
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"Spell",
-"TP"
-],
-[
-"Skill Order",
-"E start > Q > E"
-],
-[
-"Runes",
-"Precision: Press the Attack > Triumph > Legend: Haste > Last Stand\nResolve: Second Wind > Overgrowth\nAD AD Scaling Health"
-],
-[
-"Items",
-"Doran Blade > Eclipse > Mercury's Thread or Hexdrinker if they have 3+ AP > Youmuu's"
-],
-[
-"Difficulty",
-"Skill Matchup"
 ]
 ]
 }

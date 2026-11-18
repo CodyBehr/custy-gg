@@ -23,62 +23,6 @@
 ]
 }
 ],
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"You can absorb his CC for your team, but he has enough damage to threaten you, and dragging him into your team can set up his ultimate. Do not fight him alone and keep him away from your backline."
-]
-]
-}
-],
-"Belveth": [
-{
-"fields": [
-[
-"Difficulty",
-"Extreme"
-],
-[
-"",
-"Mobile, true damage, and usually building Blade of the Ruined King. Let her engage first, then use E or your ultimate to shove her off whoever she is on, and build anti-auto armor like Frozen Heart and Randuin's Omen."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"With Rylai's, one spell from him keeps you slowed all fight. He is squishy enough for you to burst alone, so find creative engage angles that avoid his stun and you will have the edge."
-]
-]
-}
-],
-"Briar": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Her movement is predictable and she must stay in her frenzy to hurt you, so your CC lands easily. A Bramble Vest can make fights hopeless for her."
-]
-]
-}
-],
 "Diana": [
 {
 "fields": [
@@ -131,20 +75,6 @@
 [
 "",
 "Squishy, immobile, and cannot kill you alone, though cocoon and rappel can dodge or stall your engage. Making her spend cooldowns on you leaves her little for your team."
-]
-]
-}
-],
-"Evelynn": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Any magic resist item plus Mercury's Treads makes her combo unable to kill you. Good Evelynns go for your backline instead, so do not force engages while she is unseen or her charm is ready."
 ]
 ]
 }
@@ -331,20 +261,6 @@
 ]
 }
 ],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"He wins duels but teamfights worse and is less mobile. Build slow resistance such as Boots of Swiftness and Force of Nature, and avoid being caught alone before mid-game fights."
-]
-]
-}
-],
 "Naafiri": [
 {
 "fields": [
@@ -457,20 +373,6 @@
 ]
 }
 ],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"A stalemate where it comes down to who disrupts the enemy backline better. He is tankier but lower damage, so itemize against his laners' damage so you outlast him."
-]
-]
-}
-],
 "RekSai": [
 {
 "fields": [
@@ -481,20 +383,6 @@
 [
 "",
 "She has the damage, mobility and CC to keep up, and her tunnels make her hard to lock down. If you force her ultimate as a disengage, she is much less threatening while it is down."
-]
-]
-}
-],
-"Sejuani": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"A stalemate, but she is less tanky than Rammus. Poke off her bonus resistances with Q from range before fights."
 ]
 ]
 }
@@ -565,20 +453,6 @@
 [
 "",
 "He beats tanks at every stage, especially after unlocking his ultimate. Avoid early fights and counter-gank instead, and stack armor for the frontline."
-]
-]
-}
-],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"His strong slow makes him hard to chase or escape, and both his AD and AP builds win most 1v1s. Avoid early duels and stack resistances against his damage type."
 ]
 ]
 }

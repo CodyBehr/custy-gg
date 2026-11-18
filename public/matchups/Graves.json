@@ -6,7 +6,7 @@
 "author": "MiraiNChill",
 "updated": "2020"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -71,16 +71,6 @@
 }
 ],
 "Alistar": [
-{
-"fields": [
-[
-"Difficulty",
-"TROLL"
-]
-]
-}
-],
-"Amumu": [
 {
 "fields": [
 [
@@ -206,24 +196,6 @@
 [
 "Difficulty",
 "TROLL"
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy"
-],
-[
-"Rune Page",
-"elec/fleet"
-],
-[
-"What to do",
-"Brand will only beat you if he's able to dwindle you down. If you rush a vamp scepter and heal the damage he deals in lane he will eventually have 0 mana and you will win lane because cs will be harder for him to get with no mana."
 ]
 ]
 }
@@ -428,16 +400,6 @@
 ]
 }
 ],
-"Evelynn": [
-{
-"fields": [
-[
-"Difficulty",
-"TROLL"
-]
-]
-}
-],
 "Ezreal": [
 {
 "fields": [
@@ -618,24 +580,6 @@
 [
 "What to do",
 "Not very much to sat about this matchup. Mainly try and focus on constantly trying to have him waste mana on turrets and eventually all in him down the lane"
-]
-]
-}
-],
-"Illaoi": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy"
-],
-[
-"Rune Page",
-"pta/fleet"
-],
-[
-"What to do",
-"Illaoi is very dependent on hitting her E, if she misses this E she really won't have any damage and she can't force you to trade. If she ults you just walk away if you can, she will burst you 100-0 or kill range."
 ]
 ]
 }
@@ -1076,34 +1020,6 @@
 ]
 }
 ],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy then Hard"
-],
-[
-"Rune Page",
-"pta"
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Medium"
-],
-[
-"Rune Page",
-"elec/pta"
-]
-]
-}
-],
 "Nami": [
 {
 "fields": [
@@ -1313,16 +1229,6 @@
 ]
 }
 ],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"TROLL"
-]
-]
-}
-],
 "RekSai": [
 {
 "fields": [
@@ -1404,16 +1310,6 @@
 }
 ],
 "Samira": [
-{
-"fields": [
-[
-"Difficulty",
-"TROLL"
-]
-]
-}
-],
-"Sejuani": [
 {
 "fields": [
 [
@@ -1575,20 +1471,6 @@
 ]
 }
 ],
-"TahmKench": [
-{
-"fields": [
-[
-"Difficulty",
-"Medium"
-],
-[
-"Rune Page",
-"pta"
-]
-]
-}
-],
 "Taliyah": [
 {
 "fields": [
@@ -1703,16 +1585,6 @@
 ]
 }
 ],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"TROLL"
-]
-]
-}
-],
 "Urgot": [
 {
 "fields": [
@@ -1747,20 +1619,6 @@
 [
 "Rune Page",
 "pta"
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy"
-],
-[
-"Rune Page",
-"elec"
 ]
 ]
 }

@@ -6,7 +6,7 @@
 "author": "Oskar + Chalseu",
 "updated": "2024"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -452,36 +452,6 @@
 ]
 }
 ],
-"Illaoi": [
-{
-"fields": [
-[
-"Difficulty",
-"Even / Farm"
-],
-[
-"Runes",
-"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
-],
-[
-"Comments (Oskar)",
-"Punish her weak early, force her to waste E so you can make a play. Freezing is op here cause her E obviously doesnt travel through minions. Despite popular belief, she got buffed really hard with the new map - the reason I say this is due to the fact that she gets to spawn a crazy amount of tentacles in a small proximity, if the wave was to be pushed into you, or into her. Avoid putting the wave too close to terrain as it then becomes insanely hard to play.. Good usage and knowledge of proxying helps a lot in this matchup."
-],
-[
-"Cooldowns",
-"Passive (20-7.25) Based on level\nQ 10 / 9 / 8 / 7 / 6\nW 4\nE 16 / 15 / 14 / 13 / 12\nR 120 / 95 / 70"
-],
-[
-"Notes (Oskar)",
-"ZONE LVL 1, WIN LVL 6"
-],
-[
-"Comments+Notes (Chals)",
-"Dodge all her shit and Q dance, it's like Illaoi plays the game in slowmo kekw"
-]
-]
-}
-],
 "Irelia": [
 {
 "fields": [
@@ -728,36 +698,6 @@
 [
 "Comments+Notes (Chals)",
 "Just focus on farm not worth trying to kill"
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy"
-],
-[
-"Runes",
-"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
-],
-[
-"Comments (Oskar)",
-"Play for prio lvl 1, he will win the extended trade due to his passive but you push the wave way harder, morde only really deals damage if he hits e and or isolated Q. Both are pretty much impossible to hit vs riven so its a walk in the park.."
-],
-[
-"Cooldowns",
-"Q 9 / 7.75 / 6.5 / 5.25 / 4\nW 12 / 11 / 10 / 9 / 8\nE 18 / 16 / 14 / 12 / 10\nR 140 / 120 / 100"
-],
-[
-"Notes (Oskar)",
-"PRIO LVL 1, WIN LVL 6"
-],
-[
-"Comments+Notes (Chals)",
-"Dodge all his shit"
 ]
 ]
 }
@@ -1214,36 +1154,6 @@
 ]
 }
 ],
-"TahmKench": [
-{
-"fields": [
-[
-"Difficulty",
-"Even / Farm"
-],
-[
-"Runes",
-"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
-],
-[
-"Comments (Oskar)",
-"You hardwin level 1. You outscale really hard so play for your own spikes and if you dodge his Q the champ is relatively useless."
-],
-[
-"Cooldowns",
-"Q 7 / 6.5 / 6 / 5.5 / 5\nW 21 / 20 / 19 / 18 / 17\nE 3\nR 120 / 100 / 80"
-],
-[
-"Notes (Oskar)",
-"PLAY TO GO EVEN/SCALE, WIN LVL 1"
-],
-[
-"Comments+Notes (Chals)",
-"Dodge his Qs to deny tons of dmg + healing"
-]
-]
-}
-],
 "Teemo": [
 {
 "fields": [
@@ -1340,32 +1250,6 @@
 [
 "Cooldowns",
 "Q 6 / 5.75 / 5.5 / 5.25 / 5\nW 6\nR 180 / 150 / 120"
-]
-]
-}
-],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"Hard / Farm"
-],
-[
-"Runes",
-"Conqueror + Sorcery (Nimbus Cloak + Transcendence)"
-],
-[
-"Comments (Oskar)",
-"You win level 1 very hard.. Play for that and utilize the lead you get from that to snowball further if possible. Really important to respect that his goal is always to run you down, much like darius, so be cautious with your cooldowns on his side of the lane. Short trades are nice for you in general, but he has good sustain. Your goal in the matchup is to abuse your early strength as much as possible till he gets too much armor for you to kill.. Much like Malphite in that sense. Respect that he can use W + Empowered W giving him absurd shields (like 300 shield rank 1 W!!!) + healing which makes it easy to underestimate how much damage you actually need.."
-],
-[
-"Cooldowns",
-"Passive 50 / 40 / 30 / 20 Based on level\nQ 6\nW 6\nE 6\nR 6"
-],
-[
-"Notes (Oskar)",
-"PLAY FOR LVL1, WIN LVL 6"
 ]
 ]
 }

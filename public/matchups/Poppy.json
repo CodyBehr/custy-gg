@@ -192,20 +192,6 @@
 ]
 }
 ],
-"Nilah": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Her W blocks auto attacks, so make her use it before engaging or your carry cannot kill her. Punish her short range early; she has to push the wave to farm safely."
-]
-]
-}
-],
 "Samira": [
 {
 "fields": [
@@ -272,20 +258,6 @@
 [
 "",
 "Both of you want to pin the other to a wall. Bait her Q tumble before engaging or stop it with your W; without mobility she struggles against longer-ranged carries."
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"His short range and reliance on spells make him punishable with good positioning; as a support he focuses on hitting you with Q for stacks. Bait his cage, using your dash to escape before it closes, then rush him down, since one or two kills put him far ahead."
 ]
 ]
 }
@@ -416,20 +388,6 @@
 ]
 }
 ],
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Stay behind minions since his Q is his only gap closer. His W scales off your max health, so prefer magic resist over health if you tank him, and keep him off your carry."
-]
-]
-}
-],
 "Bard": [
 {
 "fields": [
@@ -454,20 +412,6 @@
 [
 "",
 "His hook has a large early mana cost and cooldown, so punish right after he uses it. His passive shield may force you to pop it and back off before you can kill him."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"He wants to chain spells to proc his passive. Do not stand near your carry, and after taking one spell, avoid his Q, which will now stun you."
 ]
 ]
 }
@@ -636,20 +580,6 @@
 [
 "",
 "Play around his Q, which is both his peel and his damage. Punish his long cooldowns and bait his ultimate, since a good Milio can wreck your engage."
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"She punishes you for getting close, and she will W the brushes so camping there is risky. Bait her Black Shield, which she uses as soon as you engage."
 ]
 ]
 }

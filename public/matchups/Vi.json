@@ -23,20 +23,6 @@
 ]
 }
 ],
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Do not underestimate him: a Conqueror Amumu can win an early river 1v1 even if you land everything. Check his runes."
-]
-]
-}
-],
 "AurelionSol": [
 {
 "fields": [
@@ -145,20 +131,6 @@
 [
 "",
 "Avoid ganking him; his turrets let him beat two melee champions at once."
-]
-]
-}
-],
-"Illaoi": [
-{
-"fields": [
-[
-"Difficulty",
-"Extreme"
-],
-[
-"",
-"Never 1v1 her even when she is behind. Fight her with your team and keep moving to dodge tentacles instead of standing still to attack."
 ]
 ]
 }
@@ -289,34 +261,6 @@
 ]
 }
 ],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Extreme"
-],
-[
-"",
-"Never gank him while his ultimate is up; he will isolate and kill you."
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"Do not Q straight at her while her root is up. Use your ultimate to dodge her Q or ultimate, or Q out of tether range. Mercury's Treads are important."
-]
-]
-}
-],
 "Nocturne": [
 {
 "fields": [
@@ -341,20 +285,6 @@
 [
 "",
 "Her W stops your dashes, which effectively silences you. Time your ultimate around hers so you are not knocked away."
-]
-]
-}
-],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"He counters AD, but keep hitting him with your W armor shred; Black Cleaver is worth it against him regardless of team."
 ]
 ]
 }
@@ -411,20 +341,6 @@
 [
 "",
 "His ADC is very hard to reach while he is near. Use your ultimate to dodge his CC, do not Q at him while hook or flay is ready, and block his lantern by standing on or warding it."
-]
-]
-}
-],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"Extreme"
-],
-[
-"",
-"He outduels you at every stage with either build and loves to invade. His speed lets him escape even when your team arrives."
 ]
 ]
 }

@@ -149,20 +149,6 @@
 ]
 }
 ],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"A good Morgana with a good ADC will likely push you out of lane. Stay very aware of her binding and bait it before poking; she has little other lane damage."
-]
-]
-}
-],
 "Thresh": [
 {
 "fields": [
@@ -219,20 +205,6 @@
 ]
 }
 ],
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"His long Q range and all-ins are tough. Play behind minions and poke with empowered Q while watching his bandage."
-]
-]
-}
-],
 "Bard": [
 {
 "fields": [
@@ -243,20 +215,6 @@
 [
 "",
 "Easy to fight in lane with your early damage, but you cannot match his fast roams. Look for low-risk, high-reward plays and early roams of your own."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Empowered Q gives you range to poke him safely, and he has no sustain. When you W him, watch his Q and use your E speed to dodge if your ADC does not need the shield."
 ]
 ]
 }

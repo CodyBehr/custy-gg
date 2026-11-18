@@ -7,7 +7,7 @@
 "rank": "Challenger",
 "updated": "2026-11"
 },
-"fetched": "2026-11-12",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -98,28 +98,6 @@
 }
 ],
 "Alistar": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Demolish, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Cull > Tiamat > Hullbreaker > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy Matchup"
-]
-]
-}
-],
-"Amumu": [
 {
 "fields": [
 [
@@ -317,28 +295,6 @@
 ]
 }
 ],
-"Belveth": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Second Wind, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Doran's Blade > Plated Steelcaps > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy Matchup"
-]
-]
-}
-],
 "Blitzcrank": [
 {
 "fields": [
@@ -361,28 +317,6 @@
 ]
 }
 ],
-"Brand": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Second Wind, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Doran's Blade > Mercury's Treads > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy matchup"
-]
-]
-}
-],
 "Braum": [
 {
 "fields": [
@@ -401,28 +335,6 @@
 [
 "Matchup difficulty",
 "Easy Matchup"
-]
-]
-}
-],
-"Briar": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Second Wind, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Doran's Blade > Plated Steelcaps > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy matchup"
 ]
 ]
 }
@@ -669,28 +581,6 @@
 [
 "Matchup difficulty",
 "Easy matchup"
-]
-]
-}
-],
-"Evelynn": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Demolish, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Cull > Tiamat > Hullbreaker > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy Matchup"
 ]
 ]
 }
@@ -1007,28 +897,6 @@
 [
 "Matchup difficulty",
 "Skill matchup"
-]
-]
-}
-],
-"Illaoi": [
-{
-"fields": [
-[
-"level up order",
-"W > Q > E"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Demolish, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Doran's Blade > Plated Steelcaps > Executioner's Calling > Blade of the Ruined King > Hullbreaker > Stridebreaker > Terminus"
-],
-[
-"Matchup difficulty",
-"Easy matchup"
 ]
 ]
 }
@@ -1768,28 +1636,6 @@
 ]
 }
 ],
-"Mel": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Demolish, Revitalize\nSmall shards: attack speed, adaptive force, tenacity and slow resist\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Doran's Shield > Mercury's Treads > Blade of the Ruined King."
-],
-[
-"Matchup difficulty",
-"Easy matchup"
-]
-]
-}
-],
 "Milio": [
 {
 "fields": [
@@ -1826,50 +1672,6 @@
 [
 "General build path to 2/3 items and components",
 "Doran's Blade > Boots > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy Matchup"
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Conditioning, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Doran's Blade > Boots > Blade of the Ruined King > Boots of Swiftness > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy Matchup"
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Demolish, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Cull > Tiamat > Mercury's Treads > Hullbreaker > Blade of the Ruined King > Stridebreaker"
 ],
 [
 "Matchup difficulty",
@@ -2002,28 +1804,6 @@
 [
 "General build path to 2/3 items and components",
 "Doran's Blade > Plated Steelcaps > Stridebreaker > Blade of the Ruined King"
-],
-[
-"Matchup difficulty",
-"Easy matchup"
-]
-]
-}
-],
-"Nilah": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Second Wind, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Doran's Blade > Plated Steelcaps > Blade of the Ruined King > Stridebreaker"
 ],
 [
 "Matchup difficulty",
@@ -2278,28 +2058,6 @@
 ]
 }
 ],
-"Rammus": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Demolish, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Cull > Tiamat > Mercury's Treads > Hullbreaker > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy Matchup"
-]
-]
-}
-],
 "RekSai": [
 {
 "fields": [
@@ -2499,28 +2257,6 @@
 [
 "Matchup difficulty",
 "Easy matchup"
-]
-]
-}
-],
-"Sejuani": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Demolish, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Cull > Tiamat > Mercury's Treads > Hullbreaker > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy Matchup"
 ]
 ]
 }
@@ -2881,28 +2617,6 @@
 ]
 }
 ],
-"TahmKench": [
-{
-"fields": [
-[
-"level up order",
-"W > Q > E"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Demolish, Revitalize\nSmall shards: attack speed, adaptive force, tenacity and slow resist\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Doran's Blade > Mercury's Treads > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy matchup"
-]
-]
-}
-],
 "Taliyah": [
 {
 "fields": [
@@ -3123,28 +2837,6 @@
 ]
 }
 ],
-"Udyr": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Demolish, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Doran's Blade > Boots of Swiftness vs AP/ Plated Steelcaps vs AD > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Skill matchup"
-]
-]
-}
-],
 "Urgot": [
 {
 "fields": [
@@ -3207,28 +2899,6 @@
 [
 "Matchup difficulty",
 "Extremely hard matchup"
-]
-]
-}
-],
-"Veigar": [
-{
-"fields": [
-[
-"level up order",
-"W > E > Q"
-],
-[
-"Runes+ Summoner spells",
-"Precision: Lethal Tempo, Triumph, Legend: Alacrity, Last Stand\nResolve: Demolish, Revitalize\nSmall shards: attack speed, adaptive force, scaling health\nSummoner spells: Flash + Barrier"
-],
-[
-"General build path to 2/3 items and components",
-"Cull > Tiamat > Hullbreaker > Blade of the Ruined King > Stridebreaker"
-],
-[
-"Matchup difficulty",
-"Easy Matchup"
 ]
 ]
 }

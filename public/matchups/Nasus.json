@@ -234,20 +234,6 @@
 ]
 }
 ],
-"Illaoi": [
-{
-"fields": [
-[
-"Difficulty",
-"7/10"
-],
-[
-"",
-"Deadly inside her tentacle field. Dodge her E above all, and don't assume your ult beats hers in a prepared zone; drag fights away from tentacles. Pressure side lanes where her coverage is poor."
-]
-]
-}
-],
 "Irelia": [
 {
 "fields": [
@@ -370,20 +356,6 @@
 [
 "",
 "Waveclear, range and suppression; passive blocks isolated spells. Clear voidlings, don't waste Wither into his shield, beware tower-side fights when R is up. Make him spend mana on waves."
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"7/10"
-],
-[
-"",
-"Excels in extended fights and isolates you with his realm. Avoid needless fights before your defensive spike; Wither after his approach and save E for inside the realm. Fight when his ult is down."
 ]
 ]
 }
@@ -594,20 +566,6 @@
 ]
 }
 ],
-"TahmKench": [
-{
-"fields": [
-[
-"Difficulty",
-"4/10"
-],
-[
-"",
-"Durable and wins isolated trades with his passive stun stacks, but can't match your scaling without kills. Respect his stun threshold and W; Wither only in prolonged fights. Farm safely and keep him in lane."
-]
-]
-}
-],
 "Teemo": [
 {
 "fields": [
@@ -646,20 +604,6 @@
 [
 "",
 "Long trades and sustain with reliable dash; his ult breaks kill math. Track fury and ult cooldown, Wither when he chases after dashing. Don't waste your ult during his undying; create distance and win the next wave."
-]
-]
-}
-],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"7/10"
-],
-[
-"",
-"Threat depends on his empowered stance; his speed makes chasing awkward. Read his stance before committing, Wither when he enters range, control the wave."
 ]
 ]
 }

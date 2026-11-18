@@ -7,7 +7,7 @@
 "rank": "high elo (claimed)",
 "updated": "2021-04"
 },
-"fetched": "2026-11-11",
+"fetched": "2026-11-18",
 "rows": {
 "Aatrox": [
 {
@@ -23,20 +23,6 @@
 [
 "tips n tricks",
 "Not a huge threat but he can kill you if you play poorly. You HAVE to predict his e's and flashes with his Q's. If he is Q3'ing nothing while you are low you better be ready to flash away. Respect him, his damage, and his healing, and you will probably win."
-]
-]
-}
-],
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy"
-],
-[
-"tips n tricks",
-"Dodge his q, look to invade him early. You win duels the entire game, his only hope is stalling through aftershock for ally to show up"
 ]
 ]
 }
@@ -155,24 +141,6 @@
 [
 "tips n tricks",
 "Have a plan for her cocoon, play it slow while it's up. Know where she can rappel to and don't waste cooldowns if she can rappel to stay on top of you. If cocoon is down, you can out burst her, just be careful of spiders blocking skillshots. Ward her early and you can take camps with ease"
-]
-]
-}
-],
-"Evelynn": [
-{
-"fields": [
-[
-"Difficulty",
-"Easy"
-],
-[
-"special item or runes",
-"Zhonyas for anti-burst"
-],
-[
-"tips n tricks",
-"Horrid early game, invade her and keep her pre-6 as long as possible. She loses every duel early on, late game is a burst battle. Smart use of zhonyas late game is crucial here, buying MR won't help you survive a charm and banshees won't help you late game because the charm will still be cooked even if it blocks something (or she just smites it away)"
 ]
 ]
 }
@@ -449,42 +417,6 @@
 ]
 }
 ],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Hard"
-],
-[
-"special item or runes",
-"Banshees good to prevent his engage, everfrost is OK"
-],
-[
-"tips n tricks",
-"Can everfrost to maintain distance, especially if he ults you. His base dmg is insane because he's a BrUiSeR so be extremely wary if he's on top of you and make it your focus to get back to distance"
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Medium"
-],
-[
-"special item or runes",
-"Banshees, mercs"
-],
-[
-"tips n tricks",
-"She has a tendency to dual-camp while clearing early, and doesn't take black shield at level 3, so you have a lot of opportunities to invade her on her clear. She's very fast at clearing though, and scales fairly well. The duel itself is pretty easy though given it's easy as nidalee to dodge her Q."
-]
-]
-}
-],
 "Nocturne": [
 {
 "fields": [
@@ -591,20 +523,6 @@
 ]
 }
 ],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"Medium"
-],
-[
-"tips n tricks",
-"He doesn't really do much besides be annoying, just don't get baited by his Q and E"
-]
-]
-}
-],
 "RekSai": [
 {
 "fields": [
@@ -669,20 +587,6 @@
 [
 "tips n tricks",
 "Can zhonyas his ult, or just banshees his E so it's hard for him to get on top of you. His base dmg is insane, but you can kite him fairly easily. Don't jump in on him unless you're confident"
-]
-]
-}
-],
-"Sejuani": [
-{
-"fields": [
-[
-"Difficulty",
-"easy"
-],
-[
-"tips n tricks",
-"Don't just jump into her, dodge her stuff with your cougar W and you win every time."
 ]
 ]
 }
@@ -761,24 +665,6 @@
 ]
 }
 ],
-"TahmKench": [
-{
-"fields": [
-[
-"Difficulty",
-"Medium"
-],
-[
-"special item or runes",
-"Banshees"
-],
-[
-"tips n tricks",
-"You can't really burst him thanks to his E, do the damage you need but don't over-push it if he has his shield ready as it's an easy bait. Play it slow vs him and keep your distance, dodge his Q with W"
-]
-]
-}
-],
 "Taliyah": [
 {
 "fields": [
@@ -803,24 +689,6 @@
 [
 "tips n tricks",
 "Not that bad, you can't really jump into him but he can't really do anything to you as you can jump over his pillar. You get you pick the battles you fight with him. You outpace him besides that, this is only medium because you can't adequately jump into him."
-]
-]
-}
-],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"Hard"
-],
-[
-"special item or runes",
-"Rylais / Everfrost"
-],
-[
-"tips n tricks",
-"You cannot jump into him ever. Keep him at arms distance. YOUR Q OUT-RANGES HIS STUN, ABUSE THIS AND Q-W AWAY FROM HIM FOR FREE DAMAGE (bonus points if you have gauntlet or rylais for a slow while you do it too). Once he is low you can go for a final spear into a last cougar combo - buffer your Q to avoid getting stunned and not being able to finish. Also, be wary of early bush cheeses - a good udyr that knows how to q3-auto-q you will basically instantly kill you, so check bushes with traps while clearing and moving forward through the jungle."
 ]
 ]
 }

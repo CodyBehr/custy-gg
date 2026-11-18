@@ -220,20 +220,6 @@
 ]
 }
 ],
-"Illaoi": [
-{
-"fields": [
-[
-"Difficulty",
-"Extreme"
-],
-[
-"",
-"You win short trades while her ultimate is down but lose badly when she uses it, and every E she lands is lethal, so dodge them all. Anathema's Chains helps you survive. Max W, or Q if you trust yourself to dodge E with the speed."
-]
-]
-}
-],
 "Irelia": [
 {
 "fields": [
@@ -356,20 +342,6 @@
 [
 "",
 "Very easy in lane: he loses any engage on you. He outscales you in teamfights, so build for the enemy comp freely."
-]
-]
-}
-],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Slightly favours you. You can cancel his ultimate with yours if timed well; if you used E before being pulled into his realm, you lose its damage and shield there. Max Q to dodge his pull and win short trades, or max W to win straight 1v1s but lose chase power. Cosmic Drive or Force of Nature."
 ]
 ]
 }
@@ -594,20 +566,6 @@
 [
 "",
 "His E can dodge your E and ultimate, so stun with Q first or wait for him to use E. Do not let him use W on you freely for sustain. He outscales you, so shut him down early; Cosmic Drive rush works."
-]
-]
-}
-],
-"TahmKench": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"Tough: with Anathema's Chains he is unkillable unless you have Black Cleaver plus Divine Sunderer, and his early to mid damage is high. Dodging his Q is key; max Q to weave around him. Divine Sunderer is a must for late 1v1s."
 ]
 ]
 }

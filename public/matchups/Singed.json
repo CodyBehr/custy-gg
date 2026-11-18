@@ -219,20 +219,6 @@
 ]
 }
 ],
-"Illaoi": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"Rush Chain Vest, building toward Swiftness Boots, Liandry's and Dead Man's Plate. Dodge her E; if hit, run and kite out of her tentacles. Her ultimate cancels your fling, but you outscale her for teamfights."
-]
-]
-}
-],
 "Irelia": [
 {
 "fields": [
@@ -359,20 +345,6 @@
 ]
 }
 ],
-"Mordekaiser": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Harder than it looks: his base damage, shield and healing win most trades. You can kill him by flinging him under your tower. Hold your W until after he ults so you can fling him inside his realm and escape. QSS no longer works against his ultimate; you win teamfights."
-]
-]
-}
-],
 "Nasus": [
 {
 "fields": [
@@ -467,20 +439,6 @@
 [
 "",
 "Hard. Trade very aggressively early with Conqueror and Ignite, crash and reset quickly, and spam ping for ganks; your jungler needs to camp her. Chain Vest with armored boots helps against AD teams. Consider dodging."
-]
-]
-}
-],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"The easiest matchup: he has no way to pressure you, and his W does nothing since you build no AD or attack speed. You will rarely kill him, so get perfect CS and scale for teamfights. Rush Liandry's into Bloodletter's."
 ]
 ]
 }
@@ -607,20 +565,6 @@
 [
 "",
 "He out-trades you early, but you clear waves better after the first back. Avoid long trades against his W heal. He makes great use of your stolen ultimate. You win a full-health all-in near your tower and eventually outscale him."
-]
-]
-}
-],
-"TahmKench": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"One of the harder tank lanes due to his single-target damage and CC. Never get stunned near his tower, dodge his Q, and only all-in near your tower. Rush Liandry's; you outscale him for teamfights."
 ]
 ]
 }

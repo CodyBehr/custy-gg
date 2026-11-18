@@ -37,20 +37,6 @@
 ]
 }
 ],
-"Belveth": [
-{
-"fields": [
-[
-"Difficulty",
-"Hard counter"
-],
-[
-"",
-"Don't give her free early skirmishes or grubs; one cashed objective fight makes the map much harder to control."
-]
-]
-}
-],
 "Poppy": [
 {
 "fields": [
@@ -93,20 +79,6 @@
 ]
 }
 ],
-"Briar": [
-{
-"fields": [
-[
-"Difficulty",
-"Unfavorable"
-],
-[
-"",
-"Her forced engage turns messy fights her way. Kite her first commit, don't chase into fog, and buy armor earlier."
-]
-]
-}
-],
 "Hecarim": [
 {
 "fields": [
@@ -117,34 +89,6 @@
 [
 "",
 "Don't give him long run-ups through open river. Ward entrances early and fight after his first charge is spent."
-]
-]
-}
-],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"Unfavorable"
-],
-[
-"",
-"Don't tunnel him through taunt and his anti-auto armor. Farm the opposite side, keep tempo, and hit targets he can't protect."
-]
-]
-}
-],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"Unfavorable"
-],
-[
-"",
-"He matches your clear and wins early stand-and-fight duels. Avoid straight early 1v1s unless you have numbers."
 ]
 ]
 }
@@ -359,20 +303,6 @@
 ]
 }
 ],
-"Amumu": [
-{
-"fields": [
-[
-"Difficulty",
-"Skill matchup"
-],
-[
-"",
-"He wants you lined up for a free engage. Fight spread out, avoid blind entrances and keep moving after the first bandage."
-]
-]
-}
-],
 "Khazix": [
 {
 "fields": [
@@ -457,20 +387,6 @@
 ]
 }
 ],
-"Evelynn": [
-{
-"fields": [
-[
-"Difficulty",
-"Skill matchup"
-],
-[
-"",
-"You win early tempo and she wins later in fog. Press camps and dragons early, then buy vision and stop walking into dark lanes."
-]
-]
-}
-],
 "Skarner": [
 {
 "fields": [
@@ -523,20 +439,6 @@
 [
 "",
 "Kite his first burst and keep hitting; his early game is strong but you scale better into objectives and long fights."
-]
-]
-}
-],
-"Sejuani": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Don't give her free melee proc chains; once her first CC is down you outdamage her and take neutrals faster."
 ]
 ]
 }
@@ -747,34 +649,6 @@
 [
 "",
 "Fragile and tempo-based; reach him through fog or objective setup and he can't handle the long fight."
-]
-]
-}
-],
-"Brand": [
-{
-"fields": [
-[
-"Difficulty",
-"Favored"
-],
-[
-"",
-"Dies fast if you reach him cleanly; just don't start the fight already chunked or in narrow space."
-]
-]
-}
-],
-"Morgana": [
-{
-"fields": [
-[
-"Difficulty",
-"Favored"
-],
-[
-"",
-"Sidestep her Q, bait out her black shield early, then run through her; she can't win first contact."
 ]
 ]
 }

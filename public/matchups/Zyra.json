@@ -24,34 +24,6 @@
 ]
 }
 ],
-"Belveth": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Her current version gains less from invading you, and you clear faster. Her dashes still let her partly ignore your plants."
-]
-]
-}
-],
-"Briar": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"A good diver, but Oblivion Orb punishes her healing and your E catches her straight-line movement."
-]
-]
-}
-],
 "Diana": [
 {
 "fields": [
@@ -104,20 +76,6 @@
 [
 "",
 "She can go untargetable and has a long engage, but you often path apart, your plants block her cocoon, and you out-clear her."
-]
-]
-}
-],
-"Evelynn": [
-{
-"fields": [
-[
-"Difficulty",
-"Tiny"
-],
-[
-"",
-"She can go untargetable but usually cannot reach you."
 ]
 ]
 }
@@ -444,20 +402,6 @@
 ]
 }
 ],
-"Rammus": [
-{
-"fields": [
-[
-"Difficulty",
-"Minor"
-],
-[
-"",
-"Dangerous with other divers, but you deal magic damage, build Liandry's, and have reliable CC and zone control."
-]
-]
-}
-],
 "RekSai": [
 {
 "fields": [
@@ -482,20 +426,6 @@
 [
 "",
 "Ban him; otherwise start on your red so he cannot steal it and then chase you down with both buffs."
-]
-]
-}
-],
-"Sejuani": [
-{
-"fields": [
-[
-"Difficulty",
-"Even"
-],
-[
-"",
-"Your E and Liandry's are very good against her, but she is still a good diver."
 ]
 ]
 }
@@ -552,20 +482,6 @@
 [
 "",
 "Oblivion Orb is very good against him, but alone he will likely catch and beat you."
-]
-]
-}
-],
-"Udyr": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"He can ignore your E but suffers against Liandry's and sometimes Oblivion Orb. Check whether he is AD or AP so you can buy Zhonya's against AD with other threats."
 ]
 ]
 }
@@ -720,20 +636,6 @@
 [
 "",
 "Her wind wall blocks your spells and she pairs well with divers."
-]
-]
-}
-],
-"Mel": [
-{
-"fields": [
-[
-"Difficulty",
-"Major"
-],
-[
-"",
-"She reflects your spells and nearly matches your range. If you are the only AP threat, Shadowflame lets you trade poke evenly; otherwise it is very hard."
 ]
 ]
 }
