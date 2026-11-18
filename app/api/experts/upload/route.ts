@@ -35,13 +35,14 @@ export async function GET(req: Request) {
     for (let i = 0; i < 20; i++) {
       if (await s.tryLock("expert_contrib_lock", 10_000)) {
         try {
-          const c = JSON.parse((await s.getSetting("expert_contrib_v2")) ?? "{}") as { counts?: Record<string, number>; games?: number[] };
-          c.counts ??= {}; c.games ??= [];
+          const c = JSON.parse((await s.getSetting("expert_contrib_v2")) ?? "{}") as { counts?: Record<string, number>; games?: number[]; last?: Record<string, number> };
+          c.counts ??= {}; c.games ??= []; c.last ??= {};
+          c.last[by] = Date.now();
           if (!c.games.includes(Number(gameId))) {
             c.counts[by] = (c.counts[by] ?? 0) + 1;
             c.games = [...c.games, Number(gameId)].slice(-30000);
-            await s.setSetting("expert_contrib_v2", JSON.stringify(c));
           }
+          await s.setSetting("expert_contrib_v2", JSON.stringify(c));
         } finally {
           await s.setSetting("expert_contrib_lock", "0");
         }

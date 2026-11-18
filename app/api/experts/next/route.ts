@@ -156,6 +156,7 @@ export async function GET(req: Request) {
     if (Object.keys(st.scanned).length > 6000) {
       st.scanned = Object.fromEntries(Object.entries(st.scanned).sort((a, b) => b[1] - a[1]).slice(0, 4000));
     }
+    (st as any).last = { at: Date.now(), served: pick.length, queued: st.queue.length, note: note ?? null };
     await s.setSetting(STATE_KEY + sfx, JSON.stringify(st));
     console.log(`experts/next ${platform}: served ${pick.length}, queued ${st.queue.length}, crawled ${crawled}, calls ${calls}, ladder ${st.ladder.length}${note ? ", note: " + note : ""}`);
     return NextResponse.json({ games: pick, queued: st.queue.length, served: st.served.length, crawled, calls, note });
