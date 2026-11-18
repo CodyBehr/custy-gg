@@ -194,6 +194,7 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
                 notes.append("Free poke taken." + (" Little weight with your lead." if ahead else ""))
             else:
                 verdict = "good" if net >= 10 else "bad" if net <= -10 else "even"
+                notes.insert(0, "%s %d%% of max HP more than %s." % ("You dealt" if net >= 0 else "They dealt", abs(net), "they did" if net >= 0 else "you did"))
         for who, to, secs in spikes:
             starter = "me" if x["first"] == "you" else "opp"
             if who == starter:
