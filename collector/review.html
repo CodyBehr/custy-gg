@@ -2688,9 +2688,12 @@ async function openRecordings() {
       <div class="rec-set" style="margin-top:12px"><span class="h-mute">Record</span><div class="h-seg" role="group" aria-label="What to record" style="margin:0">
         <button data-cap="window" class="${r.capture !== "screen" ? "on" : ""}">Just the game window</button><button data-cap="screen" class="${r.capture === "screen" ? "on" : ""}">The whole screen</button></div>
         <span class="h-mute">${r.capture === "screen" ? "Everything on the game's screen, including other windows on top and alt-tabbing." : "Only League, like OBS's window capture: Discord pop-ups, alt-tabbing and your other screens aren't recorded."}</span></div>
+      <div class="rec-set" style="margin-top:12px"><span class="h-mute">Sound</span><div class="h-seg" role="group" aria-label="Sound" style="margin:0">
+        <button data-snd="game" class="${(r.sound || "game") === "game" ? "on" : ""}">League only</button><button data-snd="all" class="${r.sound === "all" ? "on" : ""}">Everything</button><button data-snd="off" class="${r.sound === "off" ? "on" : ""}">Off</button></div>
+        <span class="h-mute">${r.sound === "off" ? "No sound." : r.sound === "all" ? "Everything your PC plays, including Discord and music." : "Only the game's sound: Discord, music and notifications are left out."}</span></div>
       <div class="rec-set" style="margin-top:12px"><label>Delete recordings after <input type="number" id="recDays" min="1" max="60" value="${r.days}"> days</label><span class="h-mute">unless you keep them (kept ones move to a Saved folder and stay)</span></div>
       <div class="rec-set" style="margin-top:12px"><span class="h-mute">Saved in</span><b title="${esc(r.folder)}">${esc(r.folder)}</b><button id="recPick">Change…</button><button id="recOpen">Open folder</button></div>
-      <div class="sub" style="margin-top:10px">${enc ? `Encoding with your ${enc}.` : "The first game picks the best encoder your computer has (NVIDIA, AMD or Intel graphics, else the processor)."} About 1 GB per 30 minutes. No game sound yet. The ffmpeg download is about 110 MB.</div></div>
+      <div class="sub" style="margin-top:10px">${enc ? `Encoding with your ${enc}.` : "The first game picks the best encoder your computer has (NVIDIA, AMD or Intel graphics, else the processor)."} About 1 GB per 30 minutes. The ffmpeg download is about 110 MB.</div></div>
     <h2>Your recordings <span class="sub" style="font-weight:400">${r.list.length}</span></h2>
     <div class="card">${r.list.length ? `<div class="rec-list">${r.list.map(x => { const g = byGame[x.game];
       return `<div class="rec-item"><img src="${champIcon(g?.champion ?? x.championId)}" alt=""><span><b>${g ? esc(champName(g.champion)) + (g.opponent ? ` <span class="h-mute">vs ${esc(champName(g.opponent))}</span>` : "") : "Game " + esc(x.game)}</b>
@@ -2710,6 +2713,7 @@ async function openRecordings() {
   const xaSet = (b) => api("/api/experts-auto", { method: "POST", body: JSON.stringify(b) }).catch(e => toast(e.message));
   if ($("xaOn")) { $("xaOn").onchange = () => xaSet({ on: $("xaOn").checked }); $("xaOpen").onchange = () => xaSet({ open_league: $("xaOpen").checked }); $("xaPer").onchange = () => xaSet({ per_hour: +$("xaPer").value }); }
   $("recOn").onchange = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ on: $("recOn").checked }) }).catch(e => toast(e.message)); openRecordings(); };
+  document.querySelectorAll("[data-snd]").forEach(b => b.onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ sound: b.dataset.snd }) }).catch(e => toast(e.message)); openRecordings(); });
   document.querySelectorAll("[data-cap]").forEach(b => b.onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ capture: b.dataset.cap }) }).catch(e => toast(e.message)); openRecordings(); });
   $("recDays").onchange = () => api("/api/rec", { method: "POST", body: JSON.stringify({ days: +$("recDays").value }) }).catch(e => toast(e.message));
   $("recPick").onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ pick: true }) }).catch(e => toast(e.message)); openRecordings(); };

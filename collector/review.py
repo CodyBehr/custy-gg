@@ -2616,6 +2616,8 @@ def make_handler(cfg, token):
                         recorder.save_settings(days=max(1, min(60, int(body["days"]))))
                     if body.get("capture") in ("window", "screen"):
                         recorder.save_settings(capture=body["capture"])
+                    if body.get("sound") in ("game", "all", "off"):
+                        recorder.save_settings(sound=body["sound"])
                     if body.get("pick"):
                         path = pick_folder(recorder.root_dir())
                         if path:

@@ -15,6 +15,7 @@ on:
       - "collector/replay_deaths.py"
       - "collector/champselect.py"
       - "collector/recorder.py"
+      - "collector/audiocap/**"
       - "collector/overlay.py"
       - "collector/edition.py"
       - "collector/assets/**"
@@ -38,6 +39,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Build audiocap.exe (game sound for recordings)
+        shell: cmd
+        run: cl /nologo /EHsc /O2 /std:c++17 /DUNICODE /D_UNICODE collector\audiocap\audiocap.cpp /Fe:collector\audiocap.exe /link ole32.lib mmdevapi.lib
 
       - name: Install PyInstaller and tray libraries
         run: pip install pyinstaller==6.11.1 pystray==0.19.5 pillow==11.0.0 zstandard==0.23.0 pycaw==20251023 comtypes==1.5.0 psutil==7.2.2
@@ -69,7 +76,7 @@ jobs:
               -e "s/Uploads League of Legends custom games to custy.gg./Reviews your League of Legends games./" \
               collector/version_info.txt > collector/version_info_coach.txt
           pyinstaller --onefile --noconsole --name custy-coach \
-            --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;." --add-data "collector/assets;assets" \
+            --icon collector/icon.ico --add-data "collector/icon.ico;." --add-data "collector/review.html;." --add-data "collector/assets;assets" --add-binary "collector/audiocap.exe;." \
             --version-file collector/version_info_coach.txt \
             --paths collector --hidden-import windows_app --hidden-import edition --hidden-import review --hidden-import overlay \
             --hidden-import champselect --hidden-import recorder --hidden-import replay_trades --hidden-import replay_deaths --hidden-import zstandard --hidden-import pycaw.pycaw --hidden-import comtypes.stream --hidden-import tkinter --hidden-import pystray._win32 \

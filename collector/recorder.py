@@ -62,6 +62,7 @@ def settings():
     s.setdefault("on", False)
     s.setdefault("days", 7)
     s.setdefault("folder", None)
+    s.setdefault("sound", "game")   # "game" = League's sound only, "all" = everything the PC plays, "off"
     if not isinstance(s.get("bias"), dict):
         s["bias"] = {}     # custom games: game id -> how far the user nudged the estimated sync (seconds)
     return s
@@ -206,6 +207,78 @@ def _game_monitor():
     return found.index(mon) if mon in found else 0
 
 
+# ---------------------------------------------------------------- sound
+def _audiocap_exe():
+    """The small sound recorder that ships inside the app (audiocap/audiocap.cpp)."""
+    for d in (getattr(sys, "_MEIPASS", None), os.path.dirname(os.path.abspath(__file__))):
+        if d and os.path.exists(os.path.join(d, "audiocap.exe")):
+            return os.path.join(d, "audiocap.exe")
+    return None
+
+
+def _game_pid():
+    if sys.platform != "win32":
+        return 0
+    import ctypes
+    from ctypes import wintypes
+    hwnd = _game_window()
+    if not hwnd:
+        return 0
+    pid = wintypes.DWORD()
+    ctypes.windll.user32.GetWindowThreadProcessId(hwnd, ctypes.byref(pid))
+    return pid.value
+
+
+def _start_sound(base, rec):
+    """Starts recording sound next to the video (merged in when the game ends). Never stops the video recording."""
+    mode = settings().get("sound", "game")
+    exe = _audiocap_exe()
+    if mode == "off" or not exe:
+        return None
+    pid = _game_pid() if mode == "game" else 0
+    try:
+        p = subprocess.Popen([exe, base + ".wav", str(pid)], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                             creationflags=_NO_WINDOW)
+    except Exception as e:
+        core.log.info("Recording: no sound (%s)", e)
+        return None
+
+    def first_line():
+        line = (p.stdout.readline() or b"").decode(errors="replace").strip()
+        if line.startswith("started"):
+            rec["audio_start"] = time.time()
+            rec["audio"] = line.split()[-1]   # "game" or "system"
+            core.log.info("Recording: sound from %s", "League only" if rec["audio"] == "game" else "everything the PC plays")
+        else:
+            core.log.info("Recording: no sound: %s", (p.stderr.read() or b"").decode(errors="replace").strip()[-200:])
+    threading.Thread(target=first_line, daemon=True).start()
+    return p
+
+
+def _stop_sound(p):
+    if not p:
+        return
+    try:
+        if p.poll() is None:
+            p.stdin.write(b"q")
+            p.stdin.flush()
+        p.wait(10)
+    except Exception:
+        p.kill()
+
+
+def _mux_sound(rec, video, out):
+    """Puts the sound into the finished video, lined up by when each started. True if it worked."""
+    wav = rec["base"] + ".wav"
+    if not rec.get("audio_start") or not os.path.exists(wav) or os.path.getsize(wav) < 50_000:
+        return False
+    off = rec["audio_start"] - rec["start"]   # > 0: the sound started after the first video frame
+    a_in = ["-itsoffset", "%.3f" % off, "-i", wav] if off >= 0 else ["-ss", "%.3f" % -off, "-i", wav]
+    r = _ff(["-i", video] + a_in + ["-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k",
+                                     "-movflags", "+faststart", out], timeout=900)
+    return r.returncode == 0 and os.path.exists(out)
+
+
 # ---------------------------------------------------------------- recording
 def _start(game_id, info):
     enc = pick_encoder()
@@ -233,18 +306,20 @@ def _start(game_id, info):
             pass
     rec = {"game": str(game_id), "base": base, "start": t0 + START_LAG, "encoder": enc, "monitor": mon, "window": bool(hwnd),
            "championId": info.get("championId"), "queue": info.get("queue"), "platform": info.get("platform")}
+    sp = _start_sound(base, rec)
     with _lock:
-        _state["recording"], _state["proc"] = rec, p
+        _state["recording"], _state["proc"], _state["sound"] = rec, p, sp
     _write_meta(base, rec)
     core.log.info("Recording: started game %s (%s, %s)", game_id, enc, "game window" if hwnd else "screen %d" % mon)
 
 
 def _stop(game_length=None):
     with _lock:
-        rec, p = _state["recording"], _state["proc"]
-        _state["recording"], _state["proc"] = None, None
+        rec, p, sp = _state["recording"], _state["proc"], _state.get("sound")
+        _state["recording"], _state["proc"], _state["sound"] = None, None, None
     if not rec:
         return
+    _stop_sound(sp)
     rec["end"] = time.time()
     try:
         if p.poll() is None:   # (window capture stops by itself when the game window closes)
@@ -260,15 +335,23 @@ def _stop(game_length=None):
     if not os.path.exists(mkv) or os.path.getsize(mkv) < 100_000:
         core.log.warning("Recording: nothing was recorded for game %s", rec["game"])
         save_settings(encoder=None)   # try the encoders again next time
-        for f in (mkv, rec["base"] + ".json"):
+        for f in (mkv, rec["base"] + ".json", rec["base"] + ".wav"):
             try:
                 os.remove(f)
             except OSError:
                 pass
         return
-    # mp4 with the index up front, so the page's player can jump around in it right away
-    r = _ff(["-i", mkv, "-c", "copy", "-movflags", "+faststart", mp4], timeout=600)
-    if r.returncode == 0 and os.path.exists(mp4):
+    # mp4 with the index up front, so the page's player can jump around in it right away (with the sound, if any)
+    if _mux_sound(rec, mkv, mp4):
+        rec["sound"] = rec.get("audio")
+        ok = True
+    else:
+        ok = _ff(["-i", mkv, "-c", "copy", "-movflags", "+faststart", mp4], timeout=600).returncode == 0 and os.path.exists(mp4)
+    try:
+        os.remove(rec["base"] + ".wav")
+    except OSError:
+        pass
+    if ok:
         os.remove(mkv)
         rec["file"] = os.path.basename(mp4)
     else:
@@ -479,6 +562,7 @@ def status():
     with _lock:
         rec, ff = _state["recording"], _state["ffmpeg"]
     return {"on": s["on"], "days": s["days"], "folder": root_dir(), "encoder": s.get("encoder"), "capture": s.get("capture", "window"),
+            "sound": s.get("sound", "game"), "soundReady": bool(_audiocap_exe()),
             "ffmpeg": "ready" if ffmpeg_ready() else ff or "missing",
             "recording": {"game": rec["game"], "since": rec["start"]} if rec else None, "list": listing()}
 
