@@ -968,7 +968,20 @@ def _xpa_cleanup(cfg):
 def _xpa_one(cfg, lcu, g, patch, platform="na1"):
     """Download one expert replay, boil it down, delete it, upload the data. Safe to run a few at once."""
     gid = g["gameId"]
+    if time.time() < _xpa.get("limited_until", 0):
+        return gid, "skipped"
     state = "watch" if _xp_have(cfg, gid) else _xp_download(lcu, gid, g)
+    if state == "maxLimitReached":
+        # League's own limit (it isn't just 10 an hour): back off instead of spending attempts, and note how many
+        # downloads worked recently so we can learn the real number
+        if time.time() >= _xpa.get("limited_until", 0):
+            ok = _xpa_ok_times()
+            core.log.info("Expert downloads: League says its replay limit is reached. Worked in the last 1 h: %d, 6 h: %d, 24 h: %d, 48 h: %d. Pausing 1 hour.",
+                          *[sum(1 for t in ok if time.time() - t < h * 3600) for h in (1, 6, 24, 48)])
+        _xpa["limited_until"] = time.time() + 3600
+    elif state == "watch":
+        with _xp_lock:
+            json.dump(_xpa_ok_times() + [time.time()], open(XPA_OK, "w"))
     entry = {"gameId": gid, "at": time.time(), "state": state, "kind": g.get("kind"), "matchup": g.get("matchup"),
              "patch": patch, "platform": platform}
     if state == "watch":
@@ -987,6 +1000,14 @@ def _xpa_one(cfg, lcu, g, patch, platform="na1"):
 
 
 XPA_PARALLEL = 3   # replays fetched at once; League's hourly cap still applies
+XPA_OK = os.path.join(core.HERE, "expert-ok.json")   # when each download worked (to learn League's real limit)
+
+
+def _xpa_ok_times():
+    try:
+        return [t for t in json.load(open(XPA_OK)) if time.time() - t < 3 * 86400]
+    except Exception:
+        return []
 
 
 def expert_auto(cfg, stop):
@@ -1029,6 +1050,10 @@ def expert_auto(cfg, stop):
                 elif phase in ("ChampSelect", "InProgress", "Reconnect", "GameStart", "WaitingForStats", "PreEndOfGame"):
                     _xpa.update(state="waiting", message="Paused while you play.")
                     wait = 15
+                elif time.time() < _xpa.get("limited_until", 0):
+                    nxt = _xpa["limited_until"]
+                    _xpa.update(state="waiting", message="League's replay limit is reached. Trying again at %s." % time.strftime("%H:%M", time.localtime(nxt)), next_at=nxt)
+                    wait = max(30, min(600, nxt - time.time() + 2))
                 elif len(times) >= limit:
                     nxt = min(times) + 3600
                     _xpa_backlog(cfg)
@@ -1038,7 +1063,8 @@ def expert_auto(cfg, stop):
                     patch = _client_patch(cfg)
                     platform = _client_platform(lcu)
                     games, info = [], {}
-                    for _ in range(min(XPA_PARALLEL, limit - len(times))):
+                    probing = _xpa.get("limited_until", 0) > 0   # just came off a pause: try one first
+                    for _ in range(1 if probing else min(XPA_PARALLEL, limit - len(times))):
                         g, info = _xpa_next(cfg, patch, platform) if patch else (None, {})
                         if not g:
                             break
@@ -1051,6 +1077,9 @@ def expert_auto(cfg, stop):
                         _xpa.update(state="working", message="Downloading %d high-elo game%s..." % (len(games), "s" if len(games) > 1 else ""))
                         with ThreadPoolExecutor(max_workers=len(games)) as pool:
                             done = list(pool.map(lambda g: _xpa_one(cfg, lcu, g, patch, platform), games))
+                        if probing and any(s_ == "watch" for _, s_ in done):
+                            _xpa["limited_until"] = 0
+                            core.log.info("Expert downloads: League's limit has lifted.")
                         _xpa.update(state="ok", message="Last: %s." % ", ".join("game %s (%s)" % (gid, "saved" if s_ == "watch" else s_) for gid, s_ in done))
                         wait = 1
         except Exception as e:
