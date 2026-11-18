@@ -30,7 +30,7 @@ def get(host, path):
         if len(stamps) >= 98:
             time.sleep(max(0.1, 121 - (time.time() - stamps[0]))); continue
         stamps.append(time.time())
-        req = urllib.request.Request("https://%s.api.riotgames.com%s" % (host, path), headers={"X-Riot-Token": KEY})
+        req = urllib.request.Request("https://%s.api.riotgames.com%s" % (host, path), headers={"X-Riot-Token": KEY, "User-Agent": "custy.gg-research"})
         try:
             with urllib.request.urlopen(req, timeout=30) as r:
                 return json.loads(r.read())
