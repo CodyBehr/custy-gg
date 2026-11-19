@@ -39,7 +39,7 @@ FPS = 30
 END_DWELL = 5.0          # custom games: seconds on the victory screen before the game closes (a first guess)
 START_LAG = 0.4          # ffmpeg's first frame comes about this long after it's started
 
-_NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+_NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0) | 0x00004000   # no window, below-normal priority (the game comes first)
 _lock = threading.Lock()
 _state = {"recording": None, "ffmpeg": None, "proc": None}   # ffmpeg: None | {"pct": n} while downloading | {"error": ...}
 
@@ -47,9 +47,13 @@ _state = {"recording": None, "ffmpeg": None, "proc": None}   # ffmpeg: None | {"
 ENCODERS = {
     "nvenc": ["-c:v", "h264_nvenc", "-preset", "p4", "-rc", "vbr", "-b:v", "5M", "-maxrate", "8M", "-bufsize", "10M"],
     "amf": ["-c:v", "h264_amf", "-quality", "speed", "-rc", "vbr_peak", "-b:v", "5M", "-maxrate", "8M"],
+    # AMD cards whose encoder won't take frames straight from the capture: copy them to memory first (still encoded
+    # on the graphics card, much lighter on the game than the processor fallback)
+    "amf_copy": ["-vf", "hwdownload,format=bgra,format=nv12", "-c:v", "h264_amf", "-quality", "speed", "-rc", "vbr_peak", "-b:v", "5M", "-maxrate", "8M"],
     "qsv": ["-vf", "hwmap=derive_device=qsv,format=qsv", "-c:v", "h264_qsv", "-b:v", "5M", "-maxrate", "8M"],
     # No usable graphics encoder: the processor, at 720p so it stays light.
-    "cpu": ["-vf", "hwdownload,format=bgra,scale=-2:720,format=yuv420p", "-c:v", "libx264", "-preset", "ultrafast", "-crf", "28"],
+    "cpu": ["-vf", "hwdownload,format=bgra,scale=-2:720,format=yuv420p", "-c:v", "libx264", "-preset", "ultrafast", "-crf", "28",
+            "-threads", "2"],   # two threads at most, so the game keeps the rest of the processor
 }
 
 
@@ -167,6 +171,9 @@ def _source(output_idx=0, hwnd=None):
 def pick_encoder(force=False):
     """The first encoder that works on this computer, remembered (and checked again if a recording fails)."""
     s = settings()
+    if s.get("encoder") == "cpu" and s.get("enc_v", 0) < 2:
+        force = True   # PCs that fell back to the processor: try the new AMD path once
+        save_settings(enc_v=2)
     if s.get("encoder") in ENCODERS and not force:
         return s["encoder"]
     for name, args in ENCODERS.items():
@@ -286,7 +293,7 @@ def _start(game_id, info):
         core.log.warning("Recording: no encoder works on this computer")
         return
     mon = _game_monitor() or 0
-    hwnd = _game_window() if settings().get("capture", "window") == "window" else None
+    hwnd = _game_window() if settings().get("capture", "screen") == "window" else None
     stamp = time.strftime("%Y-%m-%d %H.%M")
     base = os.path.join(temp_dir(), "%s - %s" % (stamp, game_id))
 
@@ -561,7 +568,7 @@ def status():
     s = settings()
     with _lock:
         rec, ff = _state["recording"], _state["ffmpeg"]
-    return {"on": s["on"], "days": s["days"], "folder": root_dir(), "encoder": s.get("encoder"), "capture": s.get("capture", "window"),
+    return {"on": s["on"], "days": s["days"], "folder": root_dir(), "encoder": s.get("encoder"), "capture": s.get("capture", "screen"),
             "sound": s.get("sound", "game"), "soundReady": bool(_audiocap_exe()),
             "ffmpeg": "ready" if ffmpeg_ready() else ff or "missing",
             "recording": {"game": rec["game"], "since": rec["start"]} if rec else None, "list": listing()}

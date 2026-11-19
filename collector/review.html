@@ -2689,7 +2689,7 @@ async function openRecordings() {
   if (STATE.current !== "recordings") return;
   const ff = r.ffmpeg === "ready" ? "" : r.ffmpeg?.pct != null ? `Getting the recorder (ffmpeg, about 110 MB): ${r.ffmpeg.pct}%`
     : r.ffmpeg?.error ? `Couldn't get the recorder: ${esc(r.ffmpeg.error)} <button id="recRetry">Try again</button>` : r.on ? "The recorder (ffmpeg) isn't downloaded yet." : "";
-  const enc = { nvenc: "NVIDIA graphics card", amf: "AMD graphics card", qsv: "Intel graphics", cpu: "processor (no graphics encoder found; records at 720p)" }[r.encoder];
+  const enc = { nvenc: "NVIDIA graphics card", amf: "AMD graphics card", amf_copy: "AMD graphics card", qsv: "Intel graphics", cpu: "processor (no graphics encoder found; records at 720p)" }[r.encoder];
   const byGame = Object.fromEntries(STATE.games.map(g => [String(g.id), g]));
   $("view").innerHTML = `<h1 style="margin-top:6px">Recordings</h1>
     <div class="card"><div class="rec-set"><label><input type="checkbox" id="recOn" ${r.on ? "checked" : ""}> <b>Record my games</b></label>
@@ -2697,8 +2697,8 @@ async function openRecordings() {
       ${ff ? `<div class="sub" style="margin-top:8px" id="recFf">${ff}</div>` : ""}
       ${r.recording ? `<div style="margin-top:8px;color:var(--red)"><b>● Recording now</b> <span class="h-mute">game ${esc(r.recording.game)}</span></div>` : ""}
       <div class="rec-set" style="margin-top:12px"><span class="h-mute">Record</span><div class="h-seg" role="group" aria-label="What to record" style="margin:0">
-        <button data-cap="window" class="${r.capture !== "screen" ? "on" : ""}">Just the game window</button><button data-cap="screen" class="${r.capture === "screen" ? "on" : ""}">The whole screen</button></div>
-        <span class="h-mute">${r.capture === "screen" ? "Everything on the game's screen, including other windows on top and alt-tabbing." : "Only League, like OBS's window capture: Discord pop-ups, alt-tabbing and your other screens aren't recorded."}</span></div>
+        <button data-cap="screen" class="${r.capture !== "window" ? "on" : ""}">The whole screen</button><button data-cap="window" class="${r.capture === "window" ? "on" : ""}">Just the game window</button></div>
+        <span class="h-mute">${r.capture !== "window" ? "Everything on the game's screen, including other windows on top and alt-tabbing." : "Only League, like OBS's window capture: Discord pop-ups, alt-tabbing and your other screens aren't recorded. Windows may draw a yellow border around the game while it records."}</span></div>
       <div class="rec-set" style="margin-top:12px"><span class="h-mute">Sound</span><div class="h-seg" role="group" aria-label="Sound" style="margin:0">
         <button data-snd="game" class="${(r.sound || "game") === "game" ? "on" : ""}">League only</button><button data-snd="all" class="${r.sound === "all" ? "on" : ""}">Everything</button><button data-snd="off" class="${r.sound === "off" ? "on" : ""}">Off</button></div>
         <span class="h-mute">${r.sound === "off" ? "No sound." : r.sound === "all" ? "Everything your PC plays, including Discord and music." : "Only the game's sound: Discord, music and notifications are left out."}</span></div>
