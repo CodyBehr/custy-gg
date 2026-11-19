@@ -8,7 +8,7 @@ who started, damage each way, HP going in, and a playback of the fight on the ma
 
 The byte tables below were fitted for patch 16.22 from replays checked against Riot's match data
 (damage totals match Riot's to r = 1.00; positions are within ~10-30 units). Other patches return
-"unsupported" until the tables are re-fitted.
+"unsupported" until the tables are re-fitted. 16.23 (new format) has its own tables and _decode23().
 
 Needs the zstandard package (bundled in the Windows app; `pip install zstandard` otherwise).
 """
@@ -24,7 +24,7 @@ try:
 except ImportError:   # running from source without it
     zstandard = None
 
-SUPPORTED = ("16.22",)
+SUPPORTED = ("16.22", "16.23")
 CHAMPS = list(range(0x400000AE, 0x400000B8))     # the 10 champions' unit ids, in the replay's player order
 ATK = [0x0F, 0xCF, 0x56, 0x86, 0x83, 0xD8, 0x36, 0xD5, 0x8C, 0x7D]   # damage record: attacker slot codes
 TGT = [0x13, 0x35, 0x63, 0x0D, 0xE3, 0x6C, 0x05, 0x2F, 0x95, 0xF5]   # damage record: target slot codes
@@ -57,6 +57,35 @@ PING_KIND = {0xEB: "omw", 0x3C: "missing", 0xE2: "vision", 0xD6: "back", 0x08: "
              0xC0: "push", 0xA4: "needvision", 0xA7: "retreat"}   # anything else: a plain ping
 PING_EXP = {0xF3: 0x44, 0x59: 0x45, 0xBF: 0x46}   # float exponent byte, cipher -> plain
 PING_T = bytes.fromhex("b5423220c7187abe4883cd5a7177b0c2e2bc0cb187a6cb850bc84b4d362b1ca0f6090157e6db21e867c06a15979823c688da08ed8b0ea363efae7e2fd89ee9b7d3f010c5c16641bbaa80df28e16412f1045dca3b3fa5fb318e4555fe76065cbfaf0007729a0db86cfa902ead6168ba6e265803b9d9e3c913934ca21e026ba994228c49ce431d82598f24fd38ac50f5fca865b2e51fccf37073d69b605489c4ff3e6d537c474a92ebd73c7419d227b44ea11a849f25c32d51ecd4a49cd0bdab4617cf407d7beade86993d6916961b7f29f295f4ddb30581560f6275f9f82c4fdc0ae4522ae78ad134115b5fee78799d14e030d544359137f76f398db65e333aa7")   # float byte 2 (top of the mantissa), cipher -> plain
+
+# ---- patch 16.23+ tables (fitted 2026-11-18 from 8 ranked games vs Riot data; see replay-decoding.md) ----
+CHAMPS23 = list(range(0x40000151, 0x4000015B))
+TGT23 = [0xCE, 0x90, 0xEB, 0x3A, 0x66, 0xC8, 0x8E, 0xDE, 0x18, 0xC7]   # damage record 530: target slot codes
+ATK23 = [0x71, 0x00, 0x3E, 0xB9, 0xD6, 0xE8, 0xCE, 0xB1, 0xCD, 0x95]   # attacker slot codes (3 bytes after the target)
+EXP23 = {0x3D: -1, 0x71: 0, 0x70: 1, 0xDF: 2, 0x51: 3, 0xD6: 4}   # amount byte 7 -> exponent class (2*4^e)
+M23 = bytes.fromhex('6b4e60cabac4329b447dff3d43b1ef0620c0cc116283cd5bd5febe715186d352aafd0bfb5d01fca6109d8fb314c6fa4b6ff96159f85eb02f277ec92e7647a0ab3a15cf9436b29abbbd6a6ead960d3868562966982a35f75c64a34c3cc56712f6e1b5414a3ea853f5af8725f4f36db48a265ad40c93d7f255199c340f03c38970ebe0f11aa2e8bf1307f08258c1a104658c288b85d905e554791fee30461d784902ae7f578821ed814fb684237295696cec33971c7b1b08ead8cee9da1775b77ae78050318e9009e6bc3b1eb84dcbc85f92e43fdfd691224224b9e399168dc239d0d29e00a718407cd177a42c48acc737a92bdb74dc2d45dd73de9f630a0ea5e2')   # amount byte 6 -> top mantissa byte
+T1012 = bytes.fromhex('ece49c948c84bcb4aca45b534b437b736b631b130b033b332b23dbd3cbc3fbf3ebe39b938b83bbb3aba35a524a427a726a621a120a023a322a22dad2cac2faf2eee69e968e86beb6aea65d554d457d756d651d150d053d352d25ddd5cdc5fdf5ede59d958d85bdb5ada55c544c447c746c641c140c043c342c24dcd4ccc4fcf4e8e098908880b8b0a8a05f574f477f776f671f170f073f372f27dfd7cfc7fff7efe79f978f87bfb7afa75e564e467e766e661e160e063e362e26ded6cec6fef6eae29a928a82bab2aaa259514941797169611911090139312921d9d1c9c1f9f1e9e199918981b9b1a9a158504840787068601810080038302820d8d0c8c0f8f0')   # keyframe health record 1012, cipher -> plain
+HDR23 = bytes.fromhex('54bce4b924')   # ability record 564: the 4-byte ability id follows this
+SUMM23 = {'ba04ed63': 'Ignite', '4e42ad3c': 'Flash', '1e0948a8': 'Barrier', '84cac067': 'Heal', '1facbc2a': 'Teleport', '1f7ba2a9': 'Exhaust'}
+SPELLS23 = {"Garen":{"253f1630":"Q","6c3f1630":"W","973f1630":"R"},"Talon":{"25385a95":"Q","03385a95":"W","97385a95":"R"},"Seraphine":{"43f9ad8a":"Q","90f9ad8a":"W","64f9ad8a":"R"},"Lux":{"36e313f4":"Q","4be44b14":"W"},"Nautilus":{"45b2ad78":"Q","e6d2ba83":"W","a0bddb39":"E","7b0a4922":"R"},"Camille":{"97eb10d7":"R"},"Sylas":{"b525af95":"Q","3625af95":"W"},"Xerath":{"58495b62":"E"},"Ezreal":{"03f9169b":"E","97f9169b":"R"},"Janna":{"e694f2cf":"Q","abfce17a":"E","2626352d":"R"},"KSante":{"c9a4fc51":"E","584b0076":"R"},"Ahri":{"a3b453dc":"Q","6eb453dc":"W","7be853dc":"E","1eb453dc":"R"},"Xayah":{"e8b228f4":"Q","17b228f4":"W","a0b228f4":"E","b4b228f4":"R"},"Pantheon":{"970bf5de":"R"},"MonkeyKing":{"716d25f4":"Q","574a3f98":"W","2090f708":"E","611db478":"R"},"Corki":{"5810c60f":"Q","a2428b30":"W","ad066111":"R"},"Thresh":{"6ea6c987":"E","6bc0a011":"R","a3a6c987":"Q"},"Renekton":{"ad13ff2b":"Q","4b8bf29a":"W","1f1db422":"R"},"Malphite":{"dba3b4a9":"W","adffdf56":"E","eb25ebf6":"R"},"Ekko":{"00798bdc":"Q","45798bdc":"W","7f798bdc":"E","16798bdc":"R"},"Jinx":{"e8c879dc":"Q","17c879dc":"W","a0c879dc":"E","b4c879dc":"R"},"Blitzcrank":{"97654b98":"Q","96498bf1":"W","79b92837":"E","060bcc9e":"R"},"Fiora":{"6e254330":"W","7b774330":"E"},"Kindred":{"40ccec2a":"Q","5eccec2a":"W","1e0a6402":"E","c0ccec2a":"R"},"Riven":{"7f57f5c2":"Q","646b3d62":"W","dd001374":"E"},"Swain":{"25101d95":"Q","6c101d95":"W"},"Alistar":{"5926359f":"W","0a045bb1":"R"},"TwistedFate":{"1ccb368d":"Q"},"Kaisa":{"a3a64488":"Q","6ea64488":"W","1ea64488":"R"},"Velkoz":{"7b9c49a8":"E"},"Syndra":{"b4e8c0be":"R"},"Zeri":{"1ec05b81":"R"},"Ashe":{"43aea2dc":"Q","82ecfcd6":"E","4733d28f":"R"},"Kayle":{"43961f88":"Q","90961f88":"W","4b961f88":"E","64961f88":"R"},"Briar":{"40e8c98c":"Q"},"Yone":{"9057a381":"W","6457a381":"R"},"Morgana":{"646e1d8c":"R"},"Hecarim":{"bd587788":"Q","36e61629":"W","af694ea9":"E","bab7d2c5":"R"},"Vex":{"e8cccd5b":"Q","17cccd5b":"W","a0cccd5b":"E"},"Draven":{"6c3bacbf":"Q","cc0d6da8":"W","5916ffe0":"E"},"Viktor":{"030ba7fa":"R"},"Jhin":{"0344b7dc":"W"},"Senna":{"a30be8d8":"Q","7b4ee8d8":"E","1e0be8d8":"R"},"Ornn":{"03d246dc":"E"},"Khazix":{"e6b5ba55":"E","1eb5ba55":"R"},"Vayne":{"a097a2a8":"Q","61001d01":"E","04691fd9":"R"},"Lulu":{"436ee4dc":"Q","646ee4dc":"R"},"Sion":{"0349ebdc":"E"},"Tristana":{"40484ee5":"Q","5e484ee5":"W"},"Braum":{"433f168c":"Q","581f1e88":"R"},"Naafiri":{"645a94c3":"W","4b5394c3":"E","905a94c3":"R"},"Azir":{"6480a022":"Q","5eb5badc":"W","1e0aa022":"E","c0b5badc":"R"},"Caitlyn":{"7f7b1322":"E","647b1322":"R"},"Nami":{"a3e397dc":"Q"},"Kled":{"ad6c0ddc":"E","586c0ddc":"R"},"Udyr":{"40a3b2dc":"Q","5ea3b2dc":"W","96a3b2dc":"E","c0a3b2dc":"R"},"Varus":{"367ea21a":"W","e67ea21a":"E","a27ea21a":"R"},"FiddleSticks":{"6e44593c":"W","1e44593c":"R"}}   # champion -> {ability id: slot}; unknown ids are mapped per game from Riot's cast counts
+
+
+def is23(version):
+    """16.23 changed the replay format: a 4-byte field in every record, new record ids and new byte tables."""
+    try:
+        a, b = (int(x) for x in str(version).split(".")[:2])
+        return (a, b) >= (16, 23)
+    except ValueError:
+        return False
+
+
+def _amount23(b):
+    if len(b) < 8 or b[7] not in EXP23:
+        return 0.0
+    m = M23[b[6]]
+    w = 1 + (m + 0.5) / 128 if m < 128 else 2 * (1 + (m - 128 + 0.5) / 128)
+    return 2 * 4.0 ** EXP23[b[7]] * w
+
 
 # --------------------------------------------------------------------------
 # Reading the file
@@ -110,6 +139,7 @@ def _keyframes(path):
         pos += clen or ulen
         if (cid2 >> 24) & 0xFF == 2:
             out.append(dctx.decompress(raw, max_output_size=ulen) if clen else raw)
+    _keyframes.version = data[0x0F:0x0F + data[0x0E]].decode("ascii", "replace")
     return out
 
 
@@ -117,7 +147,23 @@ def keyframe_health(path, units=False):
     """Health and max health read from the replay itself about once a minute: {slot: [(t, hp, max)]} for the 10
     champions (with units=True also every other unit by its id). Works for custom games, which have no Riot timeline."""
     out = {}
-    for body in _keyframes(path):
+    bodies = _keyframes(path)
+    if is23(_keyframes.version):   # 16.23: record 1012, max health = bytes 2-5, health = bytes 10-13 (float LE)
+        for body in bodies:
+            for t, nid, prm, pl in _blocks(body, True):
+                if nid != 1012 or len(pl) < 14:
+                    continue
+                key = CHAMPS23.index(prm) if prm in CHAMPS23 else (prm if units else None)
+                if key is None:
+                    continue
+                mx = struct.unpack("<f", bytes(T1012[x] for x in pl[2:6]))[0]
+                hp = struct.unpack("<f", bytes(T1012[x] for x in pl[10:14]))[0]
+                if 0 <= hp <= mx < 100000:
+                    out.setdefault(key, []).append((round(t, 2), round(hp, 1), round(mx, 1)))
+        for v in out.values():
+            v.sort()
+        return out
+    for body in bodies:
         for t, nid, prm, pl in _blocks(body):
             if nid != 1046 or len(pl) < 10 or pl[0] != 0xE3 or pl[1] != 0xD0:
                 continue
@@ -133,7 +179,7 @@ def keyframe_health(path, units=False):
     return out
 
 
-def _blocks(body):
+def _blocks(body, v23=False):
     p, t, pid, prm, n = 0, 0.0, 0, 0, len(body)
     while p < n:
         m = body[p]; p += 1
@@ -141,6 +187,8 @@ def _blocks(body):
             t += body[p] * 0.001; p += 1
         else:
             t = struct.unpack_from("<f", body, p)[0]; p += 4
+        if v23:
+            p += 4   # 16.23+: an extra 4-byte field (looks like the chunk's time) in every record
         if m & 0x10:
             ln = body[p]; p += 1
         else:
@@ -215,6 +263,8 @@ def _clean(L):
 def decode(path, until=900.0):
     """One pass over the replay: hits on champions, casts, level-ups, positions and map pings up to `until` seconds."""
     version, stats, chunks = read_rofl(path)
+    if is23(version):
+        return _decode23(version, stats, chunks, until)
     skins = [p.get("SKIN") for p in stats]
     hits, casts, levels, pings, summs = [], [], [], [], []
     vision = {k: [] for k in range(10)}   # times each champion stepped into the other team's vision
@@ -273,17 +323,99 @@ def decode(path, until=900.0):
                 pings=pings, summs=summs)
 
 
+def _decode23(version, stats, chunks, until):
+    """Patch 16.23+. Hits, casts, level-ups and vision; positions and pings aren't decoded yet (tracks/pings empty).
+    Casts whose ability id isn't in SPELLS23 come back as slot "?" with the id in cast_ids, for map_casts()."""
+    skins = [p.get("SKIN") for p in stats]
+    hits, casts, levels, summs, cast_ids = [], [], [], [], []
+    vision = {k: [] for k in range(10)}
+    for body in chunks:
+        for t, nid, prm, pl in _blocks(body, True):
+            if t > until:
+                break
+            if prm not in CHAMPS23:
+                continue
+            k = CHAMPS23.index(prm)
+            if nid == 530:                                # damage landed on champion k: [..][amount 4..7][..][TGT][2][ATK][25]
+                b = bytes(pl)
+                atk = None
+                for o in range(7, min(14, len(b) - 4)):
+                    if b[o] == TGT23[k] and b[o + 4] == 0x25:
+                        atk = ATK23.index(b[o + 3]) if b[o + 3] in ATK23 else None
+                        break
+                hits.append((t, k, atk, _amount23(b)))
+            elif nid == 564:                              # ability cast
+                b = bytes(pl)
+                q = b.find(HDR23)
+                sid = b[q + 5:q + 9].hex() if q >= 0 else ""
+                slot = SPELLS23.get(skins[k], {}).get(sid)
+                if slot:
+                    casts.append((t, k, slot))
+                elif sid in SUMM23:
+                    summs.append((t, k, SUMM23[sid]))
+                elif sid:
+                    cast_ids.append((t, k, sid))
+            elif nid == 677:                              # level up (skill point)
+                levels.append((t, k))
+            elif nid == 66:                               # stepped into the other team's vision
+                vision[k].append(t)
+    return dict(version=version, stats=stats, hits=hits, casts=casts, levels=levels, tracks={}, vision=vision,
+                pings=[], summs=summs, cast_ids=cast_ids)
+
+
+def map_casts(d, riot_casts, first_skill):
+    """16.23+: give each unknown ability id a slot by matching per-game counts to Riot's spellNCasts.
+    riot_casts {slot: [q, w, e, r]}, first_skill {slot: {1..4: first SKILL_LEVEL_UP seconds}}. Edits d["casts"]."""
+    from collections import Counter
+    known = {(k, L) for _, k, L in d.get("casts", [])}
+    owners = {}
+    for _, kk, sid in d.get("cast_ids", []):
+        owners.setdefault(sid, set()).add(kk)
+    for k in range(10):
+        want = (riot_casts or {}).get(k)
+        if not want:
+            continue
+        cnt, first = Counter(), {}
+        for t, kk, sid in d.get("cast_ids", []):
+            if kk == k and len(owners[sid]) == 1:   # ids several champions use are items, trinkets, recall
+                cnt[sid] += 1
+                first.setdefault(sid, t)
+        free = [n for n in range(4) if (k, "QWER"[n]) not in known and want[n]]
+        if not free or not cnt:
+            continue
+        # the replay may be read only partway (until=), Riot counts the whole game: compare shares
+        top = sorted(cnt.values(), reverse=True)[:len(free)]
+        scale = sum(top) / max(1, sum(want[n] for n in free))
+        pairs = []
+        for n in free:
+            for sid, c in cnt.items():
+                late = first[sid] < (first_skill.get(k, {}).get(n + 1, 0) - 2)
+                pairs.append((abs(c - scale * want[n]) / max(1.0, scale * want[n]) + (2 if late else 0), n, sid))
+        used_n, used_s, slot_of = set(), set(), {}
+        for cost, n, sid in sorted(pairs):
+            if cost < 0.35 and n not in used_n and sid not in used_s:
+                used_n.add(n); used_s.add(sid); slot_of[sid] = "QWER"[n]
+        for t, kk, sid in d.get("cast_ids", []):
+            if kk == k and sid in slot_of:
+                d["casts"].append((t, k, slot_of[sid]))
+    d["casts"].sort()
+    return d
+
+
 # --------------------------------------------------------------------------
 # Trades
 # --------------------------------------------------------------------------
 
-def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=None, lane_mates=()):
+def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=None, lane_mates=(), riot_casts=None,
+                first_skill=None):
     """frames: per minute [{t, me:[hp, max], opp:[hp, max]}] from Riot's timeline (HP anchors).
     kills: {"me": [times], "opp": [times]} from Riot's kill events. hpa / deaths_all: everyone's minute health
     {slot: [(t, hp, max)]} and deaths {slot: [t]}, for health bars over every champion. Returns the page's data."""
     d = decode(path)
     if not any(d["version"].startswith(v) for v in SUPPORTED):
         return {"unsupported": d["version"]}
+    if d.get("cast_ids") and riot_casts:
+        map_casts(d, riot_casts, first_skill or {})
     i, j = me_slot, opp_slot
     H = d["hits"]
     taken = {i: [(t, v) for t, tg, a, v in H if tg == i], j: [(t, v) for t, tg, a, v in H if tg == j]}
@@ -366,10 +498,10 @@ def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=Non
         # of them from just before to a few seconds after, or any damage from another champion, makes it a 2v1/gank.
         near = {}
         for k in range(10):
-            if k in (i, j) or k in lane_mates or k not in d["tracks"]:
+            if k in (i, j) or k in lane_mates:
                 continue
             best, tt = 9e9, t0 - 3
-            while tt <= t1 + 4:
+            while tt <= t1 + 4 and k in d["tracks"]:   # no positions (16.23 for now): only damage from others counts
                 a = _at(d["tracks"][k], tt)
                 for m in (i, j):
                     b = _at(d["tracks"].get(m), tt)

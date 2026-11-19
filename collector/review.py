@@ -368,7 +368,7 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
-TRADES_VERSION = 10          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 11          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
@@ -526,8 +526,15 @@ def trades_for(cfg, game_id):
         # Bot lane is two against two: both supports are part of the lane, not a gank
         lane_roles = {"BOT", "SUPPORT"} if rl.get(me["participantId"]) in ("BOT", "SUPPORT") else {rl.get(me["participantId"])}
         mates = {pslot[pid] for pid, r in rl.items() if r in lane_roles and pslot.get(pid) is not None} - {i, j}
+        # 16.23+: abilities the replay names by an id we haven't mapped get their slot from Riot's cast counts
+        rc = {pslot[int(pid)]: c[:4] for pid, c in (data.get("casts") or {}).items() if pslot.get(int(pid)) is not None}
+        fs = {}
+        for f in data["timeline"].get("frames") or []:
+            for e in f.get("events") or []:
+                if e.get("type") == "SKILL_LEVEL_UP" and pslot.get(e.get("participantId")) is not None:
+                    fs.setdefault(pslot[e["participantId"]], {}).setdefault(e.get("skillSlot"), e["timestamp"] / 1000.0)
         out = RT.lane_trades(path, i, j, frames, kills, hpa=_kf_anchors(path, hpa), deaths_all=_deaths_by_slot(data, pslot.get),
-                             lane_mates=mates)
+                             lane_mates=mates, riot_casts=rc, first_skill=fs)
     except Exception as e:
         core.log.exception("Trades: decoding %s failed", path)
         return {"error": "Couldn't decode this replay: %s" % e}
@@ -535,7 +542,8 @@ def trades_for(cfg, game_id):
         return {"error": "Trades can't be read from patch %s replays yet." % out["unsupported"]}
     try:   # the coach's read of each trade, level race and risky death (general rules; see coach_reads.py)
         import coach_reads
-        out["coach"] = coach_reads.analyze(path, i, j, me, opp, pslot.get, data["timeline"], out)
+        if not RT.is23(out.get("version")):   # 16.23: positions aren't decoded yet and the reads need them
+            out["coach"] = coach_reads.analyze(path, i, j, me, opp, pslot.get, data["timeline"], out)
     except Exception:
         core.log.exception("Trades: coach reads failed for %s", path)
     out["v"] = TRADES_VERSION
@@ -584,6 +592,8 @@ def deaths_for(cfg, game_id):
     except Exception as e:
         core.log.info("Deaths: couldn't read %s: %s", path, e)
         return {"error": "Couldn't read this game's replay file."}
+    if RT.is23(_v):
+        return {"error": "Gank checks need champion positions, which can't be read from patch %s replays yet." % _v}
     slots = {}
     for p in game.get("participants") or []:
         pl = idents.get(p["participantId"], {})
