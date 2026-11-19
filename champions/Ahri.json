@@ -42,7 +42,7 @@
    ],
    "costType": null,
    "range": 970.0,
-   "description": "Ahri throws then pulls back her orb, dealing 35/60/85/110/135 + 0.5×AP magic damage on the way out and 35/60/85/110/135 + 0.5×AP true damage on the way back.",
+   "description": "Ahri throws then pulls back her orb, dealing 35/60/85/110/135 + 0.5\u00d7AP magic damage on the way out and 35/60/85/110/135 + 0.5\u00d7AP true damage on the way back.",
    "summary": "Ahri sends out and pulls back her orb, dealing magic damage on the way out and true damage on the way back.",
    "values": {
     "BaseDamage": [
@@ -54,7 +54,7 @@
     ]
    },
    "formulas": {
-    "TotalDamage": "35/60/85/110/135 + 0.5×AP"
+    "TotalDamage": "35/60/85/110/135 + 0.5\u00d7AP"
    },
    "tags": [
     "true damage"
@@ -72,7 +72,7 @@
    "cost": 30,
    "costType": null,
    "range": 700.0,
-   "description": "Ahri releases 3 fox-fires that seek nearby enemies and deal 40/60/80/100/120 + 0.4×AP magic damage, reduced to (40/60/80/100/120 + 0.4×AP) × 0.4 damage beyond the first. She also gains 40% Move Speed decaying over 2 seconds.",
+   "description": "Ahri releases 3 fox-fires that seek nearby enemies and deal 40/60/80/100/120 + 0.4\u00d7AP magic damage, reduced to (40/60/80/100/120 + 0.4\u00d7AP) \u00d7 0.4 damage beyond the first. She also gains 40% Move Speed decaying over 2 seconds.",
    "summary": "Ahri gains a brief burst of Move Speed and releases three fox-fires, that lock onto and attack nearby enemies.",
    "values": {
     "MovementSpeed": 0.4,
@@ -96,8 +96,8 @@
     "APRatio": 0.4
    },
    "formulas": {
-    "SingleFireDamage": "40/60/80/100/120 + 0.4×AP",
-    "MultiFireDamage": "(40/60/80/100/120 + 0.4×AP) × 0.4"
+    "SingleFireDamage": "40/60/80/100/120 + 0.4\u00d7AP",
+    "MultiFireDamage": "(40/60/80/100/120 + 0.4\u00d7AP) \u00d7 0.4"
    },
    "tags": [
     "move speed"
@@ -109,7 +109,7 @@
    "cost": 60,
    "costType": null,
    "range": 975.0,
-   "description": "Ahri blows a kiss that Charms the first enemy hit for 1.2/1.35/1.5/1.65/1.8 seconds and deals 80/120/160/200/240 + 0.85×AP magic damage.",
+   "description": "Ahri blows a kiss that Charms the first enemy hit for 1.2/1.35/1.5/1.65/1.8 seconds and deals 80/120/160/200/240 + 0.85\u00d7AP magic damage.",
    "summary": "Ahri blows a kiss that damages and charms an enemy it encounters, instantly stopping movement abilities and causing them to walk harmlessly towards her.",
    "values": {
     "BaseDamage": [
@@ -130,7 +130,7 @@
     "APRatio": 0.85
    },
    "formulas": {
-    "TotalDamage": "80/120/160/200/240 + 0.85×AP"
+    "TotalDamage": "80/120/160/200/240 + 0.85\u00d7AP"
    },
    "tags": [
     "charm"
@@ -146,7 +146,7 @@
    "cost": 100,
    "costType": null,
    "range": 450.0,
-   "description": "Ahri nimbly dashes, firing 3 essence bolts at nearby enemies, prioritizing champions. These bolts deal 75/125/175 + rAPCoefficient×AP magic damage each. Spirit Rush can be Recast up to 2 more times within 15 seconds. Consuming a champion's Essence with Essence Theft during this period extends the recast window by up to 10 seconds and grants an additional recast of Spirit Rush (up to 3 stored).",
+   "description": "Ahri nimbly dashes, firing 3 essence bolts at nearby enemies, prioritizing champions. These bolts deal 75/125/175 + rAPCoefficient\u00d7AP magic damage each. Spirit Rush can be Recast up to 2 more times within 15 seconds. Consuming a champion's Essence with Essence Theft during this period extends the recast window by up to 10 seconds and grants an additional recast of Spirit Rush (up to 3 stored).",
    "summary": "Ahri dashes forward and fires essence bolts, damaging nearby enemies. Spirit Rush can be cast up to three times before going on cooldown, and gains additional recasts when taking down enemy champions.",
    "values": {
     "RBaseDamage": [
@@ -166,7 +166,7 @@
     "PDurationExtension": 10
    },
    "formulas": {
-    "RCalculatedDamage": "75/125/175 + rAPCoefficient×AP"
+    "RCalculatedDamage": "75/125/175 + rAPCoefficient\u00d7AP"
    },
    "tags": [
     "dash"
@@ -185,8 +185,8 @@
     "MaxStacks": 9
    },
    "formulas": {
-    "ChampionHeal": "75–165 (by level) + 0.3×AP",
-    "MinionHeal": "35–95 (by level) + 0.2×AP"
+    "ChampionHeal": "75\u2013165 (by level) + 0.3\u00d7AP",
+    "MinionHeal": "35\u201395 (by level) + 0.2\u00d7AP"
    },
    "tags": [
     "heal"
@@ -212,17 +212,17 @@
    "Low damage once E is spent"
   ],
   "curve": {
-   "lvl1": "medium – Q poke, no dash",
-   "lvl2": "medium – Q+E combo",
-   "lvl3": "strong – Q-W-E full combo",
-   "lvl6": "strong – R dashes enable all-ins and roams",
+   "lvl1": "medium \u2013 Q poke, no dash",
+   "lvl2": "medium \u2013 Q+E combo",
+   "lvl3": "strong \u2013 Q-W-E full combo",
+   "lvl6": "strong \u2013 R dashes enable all-ins and roams",
    "items": "first item (burst + haste)",
-   "late": "medium – pick tool, falls off vs tanks"
+   "late": "medium \u2013 pick tool, falls off vs tanks"
   },
   "wantsLevelToTrade": 2,
   "curveNote": "Wants E available before committing; level 6 is her biggest spike.",
-  "waveClear": "good – Q passes through the wave twice",
-  "sustain": "low – passive heal from minion and champion takedowns",
+  "waveClear": "good \u2013 Q passes through the wave twice",
+  "sustain": "low \u2013 passive heal from minion and champion takedowns",
   "mobility": "high after 6 (R dashes), low before",
   "range": "ranged",
   "keyAbilities": {
@@ -275,8 +275,6 @@
    }
   },
   "windowAgainst": "E on cooldown (she can't follow up) or R down after 6 (no escape).",
-  "checks": [
-   "Q tag 'airborne' from the auto-tagger is wrong: Q has no knock-up"
-  ]
+  "checks": []
  }
 }

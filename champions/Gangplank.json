@@ -72,8 +72,8 @@
     "PlunderThreshold": 500
    },
    "formulas": {
-    "ShotDamage": "10/40/70/100/130 + 1×AD",
-    "ShotCrit": "(10/40/70/100/130 + 1×AD) × (1 + (1 × (1×stat + -1)))"
+    "ShotDamage": "10/40/70/100/130 + 1\u00d7AD",
+    "ShotCrit": "(10/40/70/100/130 + 1\u00d7AD) \u00d7 (1 + (1 \u00d7 (1\u00d7stat + -1)))"
    },
    "tags": []
   },
@@ -95,7 +95,7 @@
    ],
    "costType": null,
    "range": 400.0,
-   "description": "Gangplank consumes a large amount of citrus fruit, removing all Disabling effects and restoring 45/70/95/120/145 + 0.9×AP plus 13% missing Health.",
+   "description": "Gangplank consumes a large amount of citrus fruit, removing all Disabling effects and restoring 45/70/95/120/145 + 0.9\u00d7AP plus 13% missing Health.",
    "summary": "Eats citrus to cure crowd control effects and restore Health.",
    "values": {
     "BaseHeal": [
@@ -117,7 +117,7 @@
     ]
    },
    "formulas": {
-    "BaseHealth": "45/70/95/120/145 + 0.9×AP"
+    "BaseHealth": "45/70/95/120/145 + 0.9\u00d7AP"
    },
    "tags": [
     "execute",
@@ -195,7 +195,7 @@
    "cost": 100,
    "costType": null,
    "range": 30000.0,
-   "description": "Gangplank signals his ship to fire 12 waves of cannonballs anywhere on the map over 8 seconds. Each wave Slows by 30% for 0.5 seconds and deals 40/70/100 + 0.1×AP magic damage. Maximum damage: (40/70/100 + 0.1×AP) × 12 This Ability can be upgraded in the shop via Parrrley. Fire at Will: Fires 6 additional waves of cannonballs. Death's Daughter: Fires a Mega-Cannonball that deals 120/210/300 + 0.3×AP true damage and Slows by 75% for 1 second. Raise Morale: Allies inside Cannon Barrage gain 40% Move Speed for 2 seconds.",
+   "description": "Gangplank signals his ship to fire 12 waves of cannonballs anywhere on the map over 8 seconds. Each wave Slows by 30% for 0.5 seconds and deals 40/70/100 + 0.1\u00d7AP magic damage. Maximum damage: (40/70/100 + 0.1\u00d7AP) \u00d7 12 This Ability can be upgraded in the shop via Parrrley. Fire at Will: Fires 6 additional waves of cannonballs. Death's Daughter: Fires a Mega-Cannonball that deals 120/210/300 + 0.3\u00d7AP true damage and Slows by 75% for 1 second. Raise Morale: Allies inside Cannon Barrage gain 40% Move Speed for 2 seconds.",
    "summary": "Gangplank signals his ship to bombard an area, slowing and damaging enemies.",
    "values": {
     "DamagePerWave": [
@@ -220,9 +220,9 @@
     "TotalWavesTooltip": 12
    },
    "formulas": {
-    "OneWaveDamage": "40/70/100 + 0.1×AP",
-    "DeathsDaughterDamage": "120/210/300 + 0.3×AP",
-    "TotalDamageTooltip": "(40/70/100 + 0.1×AP) × 12"
+    "OneWaveDamage": "40/70/100 + 0.1\u00d7AP",
+    "DeathsDaughterDamage": "120/210/300 + 0.3\u00d7AP",
+    "TotalDamageTooltip": "(40/70/100 + 0.1\u00d7AP) \u00d7 12"
    },
    "tags": [
     "move speed",
@@ -246,8 +246,8 @@
     "ADRatio": 1
    },
    "formulas": {
-    "TotalDamage": "50–250 (by level) + 1×bonus AD",
-    "MoveSpeed": "0.15–0.3 (by level)"
+    "TotalDamage": "50\u2013250 (by level) + 1\u00d7bonus AD",
+    "MoveSpeed": "0.15\u20130.3 (by level)"
    },
    "tags": []
   }
@@ -273,16 +273,16 @@
   ],
   "curve": {
    "lvl1": "weak",
-   "lvl2": "medium – barrels",
+   "lvl2": "medium \u2013 barrels",
    "lvl3": "medium",
-   "lvl6": "medium – R global",
+   "lvl6": "medium \u2013 R global",
    "items": "first and second items (crit spikes)",
-   "late": "strong – late game"
+   "late": "strong \u2013 late game"
   },
   "wantsLevelToTrade": 3,
   "curveNote": "Plays for farm early; barrels win short trades once ranked up.",
   "waveClear": "good with barrels",
-  "sustain": "medium – W heal, passive",
+  "sustain": "medium \u2013 W heal, passive",
   "mobility": "low",
   "range": "melee",
   "keyAbilities": {
@@ -342,8 +342,7 @@
   },
   "windowAgainst": "W on cooldown (no cleanse) or no barrels up.",
   "checks": [
-   "Q isAttack: Parrrley applies on-hit; whether Jax E dodges it",
-   "Auto-tagger 'parry' on E/R is wrong ('apparrrrrr' text)"
+   "Q isAttack: Parrrley applies on-hit; whether Jax E dodges it"
   ]
  }
 }

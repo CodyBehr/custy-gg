@@ -36,7 +36,7 @@
    "cost": 50,
    "costType": null,
    "range": 950.0,
-   "description": "Cho'Gath ruptures the ground, Knocking Up enemies for (varies) second, dealing 80/135/190/245/300 + 1×AP magic damage, and Slowing them by (varies)% for (varies) seconds.",
+   "description": "Cho'Gath ruptures the ground, Knocking Up enemies for (varies) second, dealing 80/135/190/245/300 + 1\u00d7AP magic damage, and Slowing them by (varies)% for (varies) seconds.",
    "summary": "Ruptures the ground at target location, popping enemy units into the air, dealing damage and slowing them.",
    "values": {
     "BaseDamage": [
@@ -49,7 +49,7 @@
     "SlowAmountPercentage": 60
    },
    "formulas": {
-    "TotalDamageTooltip": "80/135/190/245/300 + 1×AP"
+    "TotalDamageTooltip": "80/135/190/245/300 + 1\u00d7AP"
    },
    "tags": [
     "airborne",
@@ -74,11 +74,11 @@
    ],
    "costType": null,
    "range": 300.0,
-   "description": "Cho'Gath roars, Silencing enemies for (varies) seconds and dealing ? + 0.7×AP magic damage.",
+   "description": "Cho'Gath roars, Silencing enemies for (varies) seconds and dealing ? + 0.7\u00d7AP magic damage.",
    "summary": "Cho'Gath unleashes a terrible scream at enemies in a cone, dealing magic damage and Silencing enemies for a few seconds.",
    "values": {},
    "formulas": {
-    "TotalDamageTooltip": "? + 0.7×AP"
+    "TotalDamageTooltip": "? + 0.7\u00d7AP"
    },
    "tags": []
   },
@@ -94,7 +94,7 @@
    "cost": 30,
    "costType": null,
    "range": 40.0,
-   "description": "Cho'Gath's next 3 Attacks launch spikes that deal 30/50/70/90/110 + 0.3×AP plus (2.5/2.85/3.2/3.55/3.9 + ?) × 0.01 of the target's max Health magic damage and Slow by 30/35/40/45/50%, decaying over 1.5 seconds.",
+   "description": "Cho'Gath's next 3 Attacks launch spikes that deal 30/50/70/90/110 + 0.3\u00d7AP plus (2.5/2.85/3.2/3.55/3.9 + ?) \u00d7 0.01 of the target's max Health magic damage and Slow by 30/35/40/45/50%, decaying over 1.5 seconds.",
    "summary": "Cho'Gath's attacks release deadly spikes, dealing damage and slowing all enemy units in front of him.",
    "values": {
     "BaseDamage": [
@@ -134,8 +134,8 @@
     ]
    },
    "formulas": {
-    "FlatDamageCalc": "30/50/70/90/110 + 0.3×AP",
-    "MaxHealthPercentCalc": "(2.5/2.85/3.2/3.55/3.9 + ?) × 0.01"
+    "FlatDamageCalc": "30/50/70/90/110 + 0.3\u00d7AP",
+    "MaxHealthPercentCalc": "(2.5/2.85/3.2/3.55/3.9 + ?) \u00d7 0.01"
    },
    "tags": [
     "empowered attack",
@@ -157,7 +157,7 @@
    ],
    "costType": null,
    "range": 175.0,
-   "description": "Cho'Gath ravenously feeds on an enemy, dealing 300/475/650 + 0.5×AP + 0.1×bonus max HP true damage to champions or 1200 + 0.5×AP + 0.1×bonus max HP to minions or jungle monsters. If this kills the target, Cho'Gath gains a stack, which causes him to grow in size and gain 80/120/160 max Health. Only 6 stacks can be gained from minions and non-epic jungle monsters.",
+   "description": "Cho'Gath ravenously feeds on an enemy, dealing 300/475/650 + 0.5\u00d7AP + 0.1\u00d7bonus max HP true damage to champions or 1200 + 0.5\u00d7AP + 0.1\u00d7bonus max HP to minions or jungle monsters. If this kills the target, Cho'Gath gains a stack, which causes him to grow in size and gain 80/120/160 max Health. Only 6 stacks can be gained from minions and non-epic jungle monsters.",
    "summary": "Devours an enemy unit, dealing a high amount of true damage. If the target is killed, Cho'Gath grows, gaining maximum Health.",
    "values": {
     "RBaseMonsterDamage": 1200,
@@ -183,8 +183,8 @@
     "MaxBonusAttackRange": 75
    },
    "formulas": {
-    "RMonsterDamage": "1200 + 0.5×AP + 0.1×bonus max HP",
-    "RDamage": "300/475/650 + 0.5×AP + 0.1×bonus max HP",
+    "RMonsterDamage": "1200 + 0.5\u00d7AP + 0.1\u00d7bonus max HP",
+    "RDamage": "300/475/650 + 0.5\u00d7AP + 0.1\u00d7bonus max HP",
     "BonusAttackRange": "?",
     "{9f798bd0}": "?"
    },
@@ -231,17 +231,17 @@
    "Weak to sustained true or %HP damage"
   ],
   "curve": {
-   "lvl1": "medium – E spikes and Q poke",
+   "lvl1": "medium \u2013 E spikes and Q poke",
    "lvl2": "medium",
    "lvl3": "medium",
-   "lvl6": "strong – R execute",
-   "items": "strong – tank or AP item",
-   "late": "strong – frontline + execute"
+   "lvl6": "strong \u2013 R execute",
+   "items": "strong \u2013 tank or AP item",
+   "late": "strong \u2013 frontline + execute"
   },
   "wantsLevelToTrade": 3,
   "curveNote": "Trades around Q landing; R level 6 changes kill threat.",
-  "waveClear": "good – Q and E",
-  "sustain": "medium – passive heal on kills",
+  "waveClear": "good \u2013 Q and E",
+  "sustain": "medium \u2013 passive heal on kills",
   "mobility": "low",
   "range": "melee",
   "keyAbilities": {
@@ -319,8 +319,6 @@
    }
   },
   "windowAgainst": "Q down = no reliable engage/peel; W down = no silence answer.",
-  "checks": [
-   "W silence tag missing in auto-tags; Riot text says Silencing"
-  ]
+  "checks": []
  }
 }
