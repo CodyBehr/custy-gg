@@ -1,0 +1,315 @@
+{
+ "id": 120,
+ "alias": "Hecarim",
+ "name": "Hecarim",
+ "title": "the Shadow of War",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 625,
+  "hpPerLevel": 106,
+  "ad": 66,
+  "adPerLevel": 3.7,
+  "armor": 32,
+  "armorPerLevel": 5.45,
+  "attackSpeed": 0.67,
+  "attackSpeedPerLevel": 2.5,
+  "range": 175,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Rampage",
+   "cooldown": 4,
+   "cost": [
+    26,
+    24,
+    22,
+    20,
+    20
+   ],
+   "costType": null,
+   "range": 350.0,
+   "description": "Hecarim cleaves nearby enemies for 60/90/120/150/180 + 0.9\u00d7bonus AD physical damage. If this Ability hits, he gains a stack that decreases its Cooldown by 0.75 seconds and increases its damage by 3 + 0.03\u00d7bonus AD% for 8 seconds. Stacks up to 3 times.",
+   "summary": "Hecarim cleaves nearby enemies dealing physical damage. If Hecarim damages at least one enemy, he increases the damage and lowers the cooldown of subsequent Rampages.",
+   "values": {
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "MinionDamageRatio": 0.6,
+    "RampageBonusRatio": 3,
+    "RampageDuration": 6,
+    "RampageCooldownReduction": 0.75,
+    "BaseDamageBonusAD": 0.9,
+    "MaxStacks": 3,
+    "BuffDuration": 8
+   },
+   "formulas": {
+    "Damage": "60/90/120/150/180 + 0.9\u00d7bonus AD",
+    "MinionDamage": "(60/90/120/150/180 + 0.9\u00d7bonus AD) \u00d7 0.6",
+    "RampageBonusDamagePerc": "3 + 0.03\u00d7bonus AD"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Spirit of Dread",
+   "cooldown": 14,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 525.0,
+   "description": "Hecarim deals 80/120/160/200/240 + 0.8\u00d7AP magic damage over 4 seconds to nearby enemies. Hecarim gains 5/10/15/20/25 Armor and Magic Resist and heals for 25% of damage nearby enemies take from Hecarim and (25) \u00d7 0.5% of damage taken from his allies.",
+   "summary": "Hecarim gains Armor and Magic Resist. Hecarim deals magic damage to nearby enemies, and gains Health equal to a percentage of any damage those enemies suffer.",
+   "values": {
+    "NonSelfLeechRatio": 0.5,
+    "DamageLeechPerc": 25,
+    "Damage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "BuffDuration": 4,
+    "TickTime": 0.5,
+    "MinionHealCap": [
+     120,
+     150,
+     180,
+     210,
+     240
+    ],
+    "ResistAmount": [
+     5,
+     10,
+     15,
+     20,
+     25
+    ],
+    "HealBonusADRatio": 0.02,
+    "APRatio": 0.8
+   },
+   "formulas": {
+    "TotalDamage": "80/120/160/200/240 + 0.8\u00d7AP",
+    "LeechAmount": "25",
+    "AllyTooltipLeachValue": "(25) \u00d7 0.5"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Devastating Charge",
+   "cooldown": [
+    20,
+    19,
+    18,
+    17,
+    16
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 300.0,
+   "description": "Hecarim becomes Ghosted and gains 25% Move Speed increasing to 65% over 4 seconds. His next Attack Knocks Back and deals between 30/45/60/75/90 + 0.5\u00d7bonus AD and (30/45/60/75/90 + 0.5\u00d7bonus AD) \u00d7 2 physical damage. Knock Back distance and damage scales with distance travelled during this Ability.",
+   "summary": "Hecarim gains increasing Move Speed and can move through units for a short duration. His next attack knocks the target back and deals additional physical damage based on the distance he has traveled since activating the ability.",
+   "values": {
+    "MinMoveSpeed": 0.25,
+    "MaxMoveSpeed": 0.65,
+    "MinBaseDamage": [
+     30,
+     45,
+     60,
+     75,
+     90
+    ],
+    "BonusADRatio": 0.5,
+    "MaxBaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "MinKnockback": 150,
+    "MaxKnockback": 350,
+    "Duration": 4,
+    "DistanceToMaxDamage": 1200,
+    "TimeToMaxMoveSpeed": 2.5
+   },
+   "formulas": {
+    "MinDamage": "30/45/60/75/90 + 0.5\u00d7bonus AD",
+    "MaxDamage": "(30/45/60/75/90 + 0.5\u00d7bonus AD) \u00d7 2"
+   },
+   "tags": [
+    "airborne",
+    "empowered attack",
+    "move speed"
+   ]
+  },
+  "R": {
+   "name": "Onslaught of Shadows",
+   "cooldown": [
+    140,
+    120,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 50000.0,
+   "description": "Hecarim summons spectral riders and charges forward, dealing 150/250/350 + 1\u00d7AP magic damage. Hecarim unleashes a shockwave at the end of the charge that Fears for between 0.75 to 1.5 seconds, increased by charge distance.",
+   "summary": "Hecarim summons spectral riders and charges forward, dealing magic damage in a line. Hecarim creates a shockwave when he finishes his charge, causing nearby enemies to flee in terror.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "FearDurationMin": 0.75,
+    "FearDurationMax": 1.5,
+    "APRatio": 1,
+    "DashSpeed": 1100,
+    "MaxDashRange": 1000,
+    "RangeForMaxFearDuration": 950
+   },
+   "formulas": {
+    "DamageDone": "150/250/350 + 1\u00d7AP"
+   },
+   "tags": [
+    "fear"
+   ]
+  },
+  "Passive": {
+   "name": "Warpath",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Hecarim gains Attack Damage equal to a percentage of his bonus Move Speed.",
+   "summary": "Hecarim gains Attack Damage equal to a percentage of his bonus Move Speed.",
+   "values": {},
+   "formulas": {
+    "BonusAD": "0.12+ (by level)\u00d7bonus move speed"
+   },
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Hecarim is a fast-moving fighter jungler who turns move speed into damage through Warpath. He ganks from far away with Devastating Charge and starts teamfights with Onslaught of Shadows, a charge that fears.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Devastating Charge gives Ghosted move speed that ramps up, then knocks back on his next attack, making long-range ganks easy.",
+   "Warpath turns bonus move speed into attack damage, so speed items give him damage too.",
+   "Onslaught of Shadows charges through the enemy team and fears everyone at the end, longer the farther he charged.",
+   "Very fast clear with Rampage stacks and Spirit of Dread's healing.",
+   "Spirit of Dread heals him from damage nearby enemies take, even from allies."
+  ],
+  "weaknesses": [
+   "Mana-hungry early: spamming Q runs him dry.",
+   "No hard CC apart from E's knock-back and R's fear.",
+   "Kited by slows: they cut both his speed and his damage.",
+   "E's charge is predictable; enemies see him coming.",
+   "Grievous Wounds cuts the healing from W."
+  ],
+  "curve": {
+   "lvl1": "okay \u2013 Q and W clear fast but he lacks CC",
+   "lvl2": "okay \u2013 Q stacks, W heal, but no gank tool",
+   "lvl3": "strong \u2013 E Devastating Charge gives long-range ganks",
+   "lvl6": "very strong \u2013 Onslaught of Shadows starts teamfights",
+   "items": "strong \u2013 first item: Trinity Force or Eclipse, then Sundered Sky; speed items add damage",
+   "late": "good \u2013 stays a strong engage fighter"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Hecarim wants E to gank, so he waits for level 3. His teamfight power comes at 6 with Onslaught of Shadows.",
+  "waveClear": "Very good: Q hits whole camps and waves.",
+  "sustain": "Good: W heals from damage taken by nearby enemies.",
+  "mobility": "High: E Ghosted move speed and R charge.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "E (Devastating Charge) knock-back into Q",
+   "engage": "R (Onslaught of Shadows) to fear the team",
+   "escape": "E (Devastating Charge) move speed to escape",
+   "answers": "None. Hecarim has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Warpath: gains attack damage from bonus move speed. Slows reduce his damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Rampage: a cleave that stacks for more damage and lower cooldown."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Spirit of Dread: damage around him over time, armor, magic resist and healing."
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Jax E dodges; Fiora W parries; slows cut his charge.",
+    "notes": "Devastating Charge: Ghosted ramping move speed; next attack knocks back, more with distance."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "fear",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways; Cleanse/QSS removes the fear.",
+    "notes": "Onslaught of Shadows: a charge with damage, ending in a fear that lasts longer with distance."
+   }
+  },
+  "windowAgainst": "Hecarim's window is when E is on cooldown: he has no way to catch you. Slow him to cut his damage and speed.",
+  "checks": [
+   "Does Hecarim use E to gank from long range?",
+   "Does Hecarim charge R through the enemy team to fear several targets?",
+   "Does the enemy team slow him?"
+  ]
+ }
+}

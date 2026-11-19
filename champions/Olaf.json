@@ -1,0 +1,339 @@
+{
+ "id": 2,
+ "alias": "Olaf",
+ "name": "Olaf",
+ "title": "the Berserker",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 645,
+  "hpPerLevel": 119,
+  "ad": 68,
+  "adPerLevel": 4.7,
+  "armor": 35,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.72,
+  "attackSpeedPerLevel": 2.7,
+  "range": 125,
+  "moveSpeed": 350
+ },
+ "abilities": {
+  "Q": {
+   "name": "Undertow",
+   "cooldown": 9,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Olaf throws an axe, dealing 70/120/170/220/270 + 1×bonus AD physical damage and Slowing by 30/35/40/45/50% for up to 3 seconds (based on distance travelled). Champions hit lose 20% Armor for 4 seconds. If Olaf picks up the axe, this Ability's Cooldown is reduced to (2.5) × ? seconds, or fully refunded if (2.5) × ? seconds has elapsed.",
+   "summary": "Olaf throws an axe into the ground at a target location, dealing damage to enemies it passes through and reducing their Armor and Move Speed. If Olaf picks up the axe, the ability's cooldown is reset.",
+   "values": {
+    "MinimumRange": 425,
+    "SlowAmount": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "ShredAmount": 0.2,
+    "DebuffDuration": 4,
+    "MinimumCooldown": 2.5,
+    "BaseDamage": [
+     70,
+     120,
+     170,
+     220,
+     270
+    ],
+    "MonsterDamage": [
+     20,
+     45,
+     70,
+     95,
+     120
+    ],
+    "MaxSlowDuration": 3,
+    "MinSlowDuration": 1,
+    "MaxSlowDistance": 800,
+    "MinSlowDistance": 400
+   },
+   "formulas": {
+    "TotalDamage": "70/120/170/220/270 + 1×bonus AD",
+    "TooltipCDRefund": "(2.5) × ?"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Tough It Out",
+   "cooldown": [
+    16,
+    15,
+    14,
+    13,
+    12
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 700.0,
+   "description": "Olaf gains 40/50/60/70/80% Attack Speed for 5 seconds, and 10/40/70/100/130 plus 17.5% missing Health Shield (up to a maximum of 10/40/70/100/130 + (0.175 × (1 + (-1 × 0.3)))×max HP Shield below 30% Health) for 2.5 seconds.",
+   "summary": "Olaf's Attack Speed is increased and he gains a Shield.",
+   "values": {
+    "Attackspeed": [
+     0.4,
+     0.5,
+     0.6,
+     0.7,
+     0.8
+    ],
+    "Duration": 5,
+    "ShieldPercMissingHP": 0.175,
+    "ShieldDuration": 2.5,
+    "BaseShield": [
+     10,
+     40,
+     70,
+     100,
+     130
+    ],
+    "ThresholdForMax": 0.3
+   },
+   "formulas": {
+    "ShieldCalc": "10/40/70/100/130 + 0.175×max HP×stat",
+    "MaxShieldCalc": "10/40/70/100/130 + (0.175 × (1 + (-1 × 0.3)))×max HP"
+   },
+   "tags": [
+    "attack speed",
+    "execute",
+    "heal",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Reckless Swing",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 325.0,
+   "description": "Olaf ferociously swings his axes, dealing 70/115/160/205/250 + 0.5×AD true damage. If the enemy dies, the cost is refunded. Attacks lower the Cooldown of this Ability by 1 second, increased to 2 seconds when attacking monsters.",
+   "summary": "Olaf attacks with such force that it deals true damage to his target and himself, refunding the Health cost if he destroys the target.",
+   "values": {
+    "Cast_Time_Base": 0.25,
+    "Cast_Time_Min": 0.175,
+    "Cast_Time_Attack_Speed_Cap": 125,
+    "ADRatio": 0.5,
+    "BaseHealthCost": [
+     28,
+     46,
+     64,
+     82,
+     100
+    ],
+    "HealthCostADRatio": 0.2,
+    "BaseDamage": [
+     70,
+     115,
+     160,
+     205,
+     250
+    ],
+    "HealthCostPercent": 0.4,
+    "MonsterRefresh": 2,
+    "ChampionRefresh": 1
+   },
+   "formulas": {
+    "TotalDamage": "70/115/160/205/250 + 0.5×AD",
+    "{fcf1daee}": "28/46/64/82/100 + 0.2×AD",
+    "HealthCostCalc": "(70/115/160/205/250 + 0.5×AD) × 0.4"
+   },
+   "tags": [
+    "true damage"
+   ]
+  },
+  "R": {
+   "name": "Ragnarok",
+   "cooldown": [
+    100,
+    90,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 400.0,
+   "description": "Passive: Olaf gains 10/15/20 Armor and 10/15/20 Magic Resist. Active: Olaf cleanses all Immobilizing and Disabling effects on himself and becomes immune to them for 3 seconds. While active, Olaf gains 10/20/30 + 0.25×AD Attack Damage. Hitting a champion with an Attack or Reckless Swing extends the duration by 2.5 seconds. Additionally, Olaf gains 20/45/70% Move Speed towards enemy champions for 1 second.",
+   "summary": "Olaf passively gains increased armor and magic resist. He can activate this ability to become immune to disables for as long as he keeps attacking.",
+   "values": {
+    "Resists": [
+     10,
+     15,
+     20
+    ],
+    "Duration": 3,
+    "FlatAD": [
+     10,
+     20,
+     30
+    ],
+    "PercentTotalADAmp": 0.25,
+    "HasteDuration": 1,
+    "Haste": [
+     0.2,
+     0.45,
+     0.7
+    ],
+    "DurationExtension": 2.5
+   },
+   "formulas": {
+    "AD": "10/20/30 + 0.25×AD"
+   },
+   "tags": [
+    "immobilizing",
+    "move speed"
+   ]
+  },
+  "Passive": {
+   "name": "Berserker Rage",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Olaf gains Attack Speed and Life Steal based on his missing Health.",
+   "summary": "Olaf gains Attack Speed and Life Steal based on his missing Health.",
+   "values": {
+    "AttackSpeedPerMissingHPPerc": 0.009,
+    "MaxStatsThreshold": 0.3
+   },
+   "formulas": {
+    "MaxAttackSpeed": "0.5–1 (by level)",
+    "MaxLifeSteal": "0.08–0.25 (by level)"
+   },
+   "tags": [
+    "attack speed",
+    "execute",
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Berserker duelist who throws axes to slow and shred armor, gaining attack speed and lifesteal as his health drops. Wins fights by activating R to cleanse and ignore crowd control while chasing with true-damage E swings.",
+  "positions": [
+   "JUNGLE",
+   "TOP"
+  ],
+  "strengths": [
+   "R cleanses and grants immunity to immobilizing/disabling effects while he keeps attacking",
+   "Q axe slows (longer with distance) and shreds armor; short cooldown if he picks it up",
+   "E true damage, cooldown lowered by his attacks",
+   "Passive attack speed and lifesteal grow as his health drops: very strong duels",
+   "Fast, healthy early clear and invades"
+  ],
+  "weaknesses": [
+   "No dash: kited once Q slow misses",
+   "R does not stop slows: heavy slows still kite him",
+   "Falls off late against grouped teams and tanks",
+   "Must walk to pick up the axe to keep Q's short cooldown",
+   "Only W shield as defence early, weak to burst before R"
+  ],
+  "curve": {
+   "lvl1": "strong – Q axe clear and duels",
+   "lvl2": "strong – Q + E true damage",
+   "lvl3": "strong – Q/W/E full duel",
+   "lvl6": "strong – R makes him unstoppable for dives",
+   "items": "strong – Black Cleaver or Sundered Sky, then Sterak's",
+   "late": "medium – dive threat, but kited by slows"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Strong duellist from level 1; R from 6 makes his dives work through crowd control.",
+  "waveClear": "good – Q axe",
+  "sustain": "high – passive lifesteal at low health",
+  "mobility": "low – no dash; R move speed toward enemies",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "Q",
+    "R"
+   ],
+   "escape": [],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attack speed + lifesteal scale with missing health."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Axe throw: slow (longer with distance) + armor shred; pick up to reset cooldown."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attack speed + shield scaling with missing health."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "True damage swing; attacks lower its cooldown."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "unstoppable",
+    "notes": "Cleanses and grants immunity to immobilizing/disabling effects; attacks extend it."
+   }
+  },
+  "windowAgainst": "R down: hard crowd control stops him. Slow and kite him; slows still work during R.",
+  "checks": [
+   "R: confirm slows are not cleansed/blocked (Riot text says immobilizing and disabling effects)."
+  ]
+ }
+}

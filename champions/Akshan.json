@@ -1,0 +1,349 @@
+{
+ "id": 166,
+ "alias": "Akshan",
+ "name": "Akshan",
+ "title": "the Rogue Sentinel",
+ "classes": [
+  "marksman",
+  "assassin"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 107,
+  "ad": 52,
+  "adPerLevel": 3,
+  "armor": 26,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.638,
+  "attackSpeedPerLevel": 4,
+  "range": 500,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Avengerang",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    80
+   ],
+   "costType": null,
+   "range": 850.0,
+   "description": "Akshan throws a boomerang that deals 45/75/105/135/165 + 0.7×bonus AD physical damage, extending the range each time an enemy is hit. Champion hits grant Akshan 0.2 + 0.001×AP Move Speed decaying over 1 second.",
+   "summary": "Akshan throws a boomerang that deals damage going out and coming back, extending its range each time it hits an enemy.",
+   "values": {
+    "BaseDamage": [
+     45,
+     75,
+     105,
+     135,
+     165
+    ],
+    "ADRatio": 0.7,
+    "SecondaryTargetDamage": [
+     0.4,
+     0.5,
+     0.6,
+     0.7,
+     0.8
+    ],
+    "HasteDuration": 1,
+    "HasteValue": 0.2,
+    "ExtensionDistance": 500,
+    "RevealDuration": 1,
+    "HasteAPRatio": 0.001
+   },
+   "formulas": {
+    "FinalDamage": "45/75/105/135/165 + 0.7×bonus AD",
+    "TotalHaste": "0.2 + 0.001×AP"
+   },
+   "tags": [
+    "move speed"
+   ]
+  },
+  "W": {
+   "name": "Going Rogue",
+   "cooldown": [
+    18,
+    14,
+    10,
+    6,
+    2
+   ],
+   "cost": [
+    30,
+    20,
+    10,
+    0,
+    30
+   ],
+   "costType": null,
+   "range": 5500.0,
+   "description": "{{ Spell_AkshanW_Tooltip_1 }}",
+   "summary": "Akshan passively marks enemy champions as Scoundrels when they kill his ally champions. If Akshan kills a Scoundrel, he resurrects the allies they killed, gains bonus gold, and clears all marks. When activated, Akshan enters camouflage and gains Move Speed and Mana Regen while moving towards Scoundrels. Akshan loses the camouflage quickly while he is not in brush or near terrain.",
+   "values": {
+    "VengeanceDuration": 60,
+    "MSValue": [
+     80,
+     90,
+     100,
+     110,
+     120
+    ],
+    "ShredValue": [
+     15,
+     17.5,
+     20,
+     22.5,
+     25
+    ],
+    "DeathTimer": 1,
+    "PassiveSecondAutoRatio": [
+     0.46,
+     0.52,
+     0.58,
+     0.64,
+     0.7
+    ],
+    "WallGracePeriod": 2,
+    "MissingManaRegen": 0.12,
+    "GoldReward": 100,
+    "RecentlyDamagedWindow": 3,
+    "VFXTrailSpeed": 3,
+    "PassiveWallRange": 175,
+    "StealthDetectionRange": 800,
+    "GameModeInteger": 1,
+    "ReviveHealthPercent": 1
+   },
+   "formulas": {
+    "SecondAutoDamage": "0.46/0.52/0.58/0.64/0.7×AD"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Heroic Swing",
+   "cooldown": [
+    18,
+    16.5,
+    15,
+    13.5,
+    12
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 800.0,
+   "description": "First Cast: Akshan fires a grappling hook, attaching to the first terrain hit. Second Cast: Akshan swings around the terrain, repeatedly firing at the nearest enemy for (8/16/24/32/40 + 0.25×AD) × (1 + 0.3×bonus stat) physical damage per shot. Third Cast: Akshan dives off the rope, firing a final shot. Colliding with an enemy Champion or terrain ends the swing early. Champion takedowns refresh this Ability's Cooldown.",
+   "summary": "Akshan fires a grappling hook into terrain then swings around it, repeatedly firing at the nearest enemy while swinging. He can jump off early or gets knocked off when colliding with champions or terrain.",
+   "values": {
+    "BaseDamage": [
+     8,
+     16,
+     24,
+     32,
+     40
+    ],
+    "ADRatio": 0.25,
+    "AttackSpeedCoefficient": 0.3,
+    "CritDamageMod": 0.5,
+    "OnHitDamageReduction": 0.25,
+    "AttackFrequency": 0.2,
+    "TimeToCastE2": 2,
+    "AnchorLifetime": 3,
+    "MinJumpbackDistance": 250,
+    "EdgeToEdgeCollisionRadius": 50,
+    "ResetCooldownToSet": 0.5,
+    "DistanceShiftTowardsWall": 175,
+    "E3LockoutDuration": 0.5,
+    "SpinDuration": 25000
+   },
+   "formulas": {
+    "DamageToDeal": "(8/16/24/32/40 + 0.25×AD) × (1 + 0.3×bonus stat)",
+    "CriticalCalc": "((8/16/24/32/40 + 0.25×AD) × (1 + 0.3×bonus stat)) × (1 + (0.5 × (1×stat + -1)))",
+    "{36ebd3cf}": "1×stat"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Comeuppance",
+   "cooldown": [
+    100,
+    85,
+    70
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 2500.0,
+   "description": "Akshan locks onto a champion and begins overcharging his gun for up to 2.5 seconds, storing up to 5/6/7 bullets. Recast: Akshan unleashes the stored bullets, each dealing at least (25/35/45 + 0.15×AD) × (1 + (0.3×crit × (1×stat + -1))) physical damage to the first enemy or structure hit, increased up to ((25/35/45 + 0.15×AD) × (1 + (0.3×crit × (1×stat + -1)))) × 3 physical damage based on missing Health.",
+   "summary": "Akshan locks onto an enemy champion and starts storing bullets. When released, he fires all stored bullets, dealing damage based on missing health to the first champion, minion, or structure hit.",
+   "values": {
+    "BonusDamage": [
+     25,
+     35,
+     45
+    ],
+    "ADRatio": 0.15,
+    "CritDamageMod": 0.3,
+    "MaxIncrease": 3,
+    "ChannelDuration": 2.5,
+    "GraceCooldown": 5,
+    "CastTimePerBullet": 0.15,
+    "MinimumChannelDuration": 0.5,
+    "NumberOfBullets": [
+     5,
+     6,
+     7
+    ]
+   },
+   "formulas": {
+    "MaxDamagePerBullet": "((25/35/45 + 0.15×AD) × (1 + (0.3×crit × (1×stat + -1)))) × 3",
+    "DamagePerBulletWithCrit": "(25/35/45 + 0.15×AD) × (1 + (0.3×crit × (1×stat + -1)))"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Dirty Fighting",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every three hits from Akshan's Attacks and Abilities deals bonus damage and grants him a Shield if the target was a champion. When Akshan Attacks, he fires an additional Attack for reduced damage. If he cancels the additional Attack, he instead gains Move Speed.",
+   "summary": "Every three hits from Akshan's Attacks and Abilities deals bonus damage and grants him a Shield if the target was a champion. When Akshan Attacks, he fires an additional Attack for reduced damage. If he cancels the additional Attack, he instead gains Move Speed.",
+   "values": {
+    "MaxStacks": 3,
+    "DebuffDuration": 4.5,
+    "ShieldBADRatio": 0.35,
+    "ShieldDuration": 2,
+    "SecondAutoADRatio": 0.5,
+    "HasteDuration": 1,
+    "SecondAutoFlexedAttackRange": 200,
+    "SecondAutoCritRatio": 1,
+    "APRatio": 0.6
+   },
+   "formulas": {
+    "MS": "20–75 (by level)",
+    "TotalShieldAmount": "40–280 (by level) + 0.35×bonus AD",
+    "PassiveProcDamage": "15+ (by level) + 0.6×AP",
+    "SecondAutoDamage": "0.5×AD",
+    "PassiveCooldown": "16+ (by level)",
+    "ASModdedMS": "(20–75 (by level)) × (1 + 1×bonus stat)",
+    "{82593567}": "(0.5×AD) × (1 + (1 × (1×stat + -1)))"
+   },
+   "tags": [
+    "move speed",
+    "shield"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Mobile ranged assassin-marksman who wins short trades with his passive's three-hit proc and double shot, swings around terrain with E and executes with R.",
+  "positions": [
+   "MIDDLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Strong short trades: three-hit passive procs and shields him",
+   "E swing gives mobility and damage",
+   "R executes low-health targets from range",
+   "W camouflage for roams and revives allies by killing Scoundrels"
+  ],
+  "weaknesses": [
+   "Short range for a ranged champion (500)",
+   "E swing is interrupted by colliding with champions or terrain",
+   "Squishy, punished by hard crowd control",
+   "Falls off against tanks late"
+  ],
+  "curve": {
+   "lvl1": "medium – passive procs make short trades decent",
+   "lvl2": "strong – Q + passive procs",
+   "lvl3": "strong – E adds all-in mobility",
+   "lvl6": "strong – R execute threat",
+   "items": "first item (crit/lethality) is a big spike",
+   "late": "medium – loses value against tanks"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Trades early with Q + passive; all-ins once E is up.",
+  "waveClear": "medium – Q boomerang clears casters",
+  "sustain": "low – passive shield only",
+  "mobility": "high – E swing, W camouflage move speed",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "passive three-hit"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E",
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Three-hit proc from attacks and abilities; extra attack is a second shot (attack-based)."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Boomerang, damages out and back."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Camouflage + move speed; revives allies by killing their killer."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Hook to terrain, fires at nearest enemy while swinging; knocked off by colliding with champions/terrain."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Channel then fires bullets at first unit hit; can be body-blocked by minions."
+   }
+  },
+  "windowAgainst": "E down (no escape/engage) or after he uses Q.",
+  "checks": [
+   "E shots: count as attacks (dodgeable)? check",
+   "R bullets projectile-blockable: check"
+  ]
+ }
+}

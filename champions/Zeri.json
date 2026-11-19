@@ -1,0 +1,357 @@
+{
+ "id": 221,
+ "alias": "Zeri",
+ "name": "Zeri",
+ "title": "The Spark of Zaun",
+ "classes": [
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 0
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 110,
+  "ad": 56,
+  "adPerLevel": 2,
+  "armor": 24,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Burst Fire",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": 700.0,
+   "description": "Zeri fires a burst of 7 rounds that deals 22/26/30/34/38 + 1.02/1.04/1.06/1.08/1.1\u00d7AD physical damage to the first enemy hit. This Ability is treated as an Attack.",
+   "summary": "Burst Fire shoots a burst of 7 rounds that deal attack damage to the first enemy hit. This Ability is treated as an Attack.",
+   "values": {
+    "MinCooldown": 0.5,
+    "AttackSpeedCap": 1.5,
+    "ExcessAttackSpeedToADMult": 0.6,
+    "BaseDamage": [
+     22,
+     26,
+     30,
+     34,
+     38
+    ],
+    "ActiveADRatio": [
+     1.02,
+     1.04,
+     1.06,
+     1.08,
+     1.1
+    ],
+    "NumberOfMissiles": 7,
+    "EnergizedMissiles": 3,
+    "SlowDuration": 0.25,
+    "SlowPercent": 0.99,
+    "ActivePercentDamageToTowers": 1,
+    "MaxPercentHealthToMonsters": 300,
+    "ChargePerAttack": 10,
+    "ChargeDistanceMultiplier": 0.025,
+    "CDRefund": 1.5,
+    "CDRefundUrf": 0.5,
+    "AttackSpeed": [
+     0.45,
+     0.6,
+     0.75,
+     0.9,
+     1.05
+    ]
+   },
+   "formulas": {
+    "ActiveDamageThatCanCrit": "22/26/30/34/38 + 1.02/1.04/1.06/1.08/1.1\u00d7AD",
+    "MinDamage": "10\u201325 (by level) + 0.03\u00d7AP",
+    "CurrentCritDamage": "1\u00d7stat",
+    "PassiveMaxDamage": "75\u2013160 (by level) + 1.1\u00d7AP",
+    "PassiveMaxChargePercentHealth": "0.01\u20130.11 (by level)",
+    "PassiveExecuteThreshold": "70\u2013160 (by level) + 0.2\u00d7AP",
+    "Damage": "22/26/30/34/38 + 1\u00d7AD + 0.15\u00d7AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Ultrashock Laser",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "costType": null,
+   "range": 1150.0,
+   "description": "Zeri fires an electric pulse that deals 30/70/110/150/190 + 1\u00d7AD + 0.5\u00d7AP physical damage and Slows the first enemy hit by 30/35/40/45/50% for 2 seconds. If the pulse hits terrain, it expands into a laser that applies the effects in an area and Critically Strikes champions and monsters for (30/70/110/150/190 + 1\u00d7AD + 0.5\u00d7AP) \u00d7 (1 + (0.5 \u00d7 (1\u00d7stat + -1))) physical damage.",
+   "summary": "Zeri fires an electric pulse that slows and damages the first enemy hit. If the pulse hits a wall it expands into a long range laser.",
+   "values": {
+    "Damage": [
+     30,
+     70,
+     110,
+     150,
+     190
+    ],
+    "ADRatio": 1,
+    "CriticalEffectiveness": 0.5,
+    "SlowPercent": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "SlowDuration": 2,
+    "WallBeamRange": 1500,
+    "BeamWidth": 200,
+    "BeamCastTime": 0.85,
+    "MinCastTime": 0.3,
+    "ASpeedCastTimeScalarPerHundrethSecond": 0.09,
+    "BaseCastTime": 0.55,
+    "APRatio": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "30/70/110/150/190 + 1\u00d7AD + 0.5\u00d7AP",
+    "WallDamage": "(30/70/110/150/190 + 1\u00d7AD + 0.5\u00d7AP) \u00d7 (1 + (0.5 \u00d7 (1\u00d7stat + -1)))"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Spark Surge",
+   "cooldown": [
+    24,
+    22.5,
+    21,
+    19.5,
+    18
+   ],
+   "cost": [
+    85,
+    80,
+    75,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 25000.0,
+   "description": "Zeri dashes a short distance and vaults over any terrain she touches, greatly extending the dash range. For the next 5 seconds, her shots of Burst Fire pierce dealing 80/85/90/95/100% damage to enemies after the first and an additional (22/24/26/28/30 + 0.2\u00d7AP) \u00d7 (1 + (1\u00d7crit \u00d7 (1\u00d7stat + -1))) magic damage On-Hit to the first target struck. Hitting an enemy with an Attack reduces this Ability's cooldown by 0.5 seconds. Critical strikes reduce the cooldown by 1.5 seconds instead.",
+   "summary": "Zeri dashes a short distance and energizes Burst Fire to pierce through enemies. She will vault and grind over any terrain she touches.",
+   "values": {
+    "MaxDistance": 300,
+    "MaxDistanceOverWalls": 3000,
+    "BuffDuration": 5,
+    "NumberOfPierceShots": 3,
+    "PenDamagePercent": [
+     0.8,
+     0.85,
+     0.9,
+     0.95,
+     1
+    ],
+    "CDReductionPerHit": 0.5,
+    "ShortHopAnimCutoff": 250,
+    "MediumHopAnimCutoff": 550,
+    "RevealRangeOverWalls": 1500,
+    "BonusDamageBase": [
+     22,
+     24,
+     26,
+     28,
+     30
+    ],
+    "BonusAPRatio": 0.2,
+    "IndicatorRevealTime": 0.75,
+    "CritScalingMod": 1,
+    "CritCDReductionPerHit": 1.5,
+    "CDReductionModNonChamp": 1
+   },
+   "formulas": {
+    "DashSpeed": "600 + 1\u00d7move speed",
+    "BonusDamageTotal": "(22/24/26/28/30 + 0.2\u00d7AP) \u00d7 (1 + (1\u00d7crit \u00d7 (1\u00d7stat + -1)))",
+    "{93e3e1a0}": "600 + 1\u00d7move speed"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Lightning Crash",
+   "cooldown": [
+    80,
+    75,
+    70
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 800.0,
+   "description": "Zeri discharges a nova of electricity, dealing 150/250/350 + 1.1\u00d7AP + 0.6\u00d7bonus AD magic damage to nearby enemies. If she hits an enemy champion, Zeri gains 30% Attack Speed and 15% Move Speed for 5 seconds. Hitting an enemy champion with an Attack or Ability extends this ability's duration and adds a stack of Overcharge for 2.5 seconds. Critical strikes add 2 additional stacks. Each stack grants 1.5% Move Speed. During this time, Burst Fire becomes a faster triple shot that chains 0.4\u00d7AD physical damage to nearby enemies.",
+   "summary": "Zeri discharges a nova of electricity and overcharges herself, gaining increased damage and stacking Move Speed that refreshes and gets stronger every time she hits an enemy champion. While overcharged, Burst fire becomes a faster triple shot that chains lightning between enemies.",
+   "values": {
+    "StackDuration": 5,
+    "MaxStacks": 100000,
+    "DurationIncreasePerHit": 2.5,
+    "MaxHyperchargeDuration": 2.5,
+    "BaseASPercent": 0.3,
+    "MSPercent": 0.015,
+    "RDuration": 5,
+    "BonusMagicDamage": [
+     5,
+     10,
+     15
+    ],
+    "ActiveDamage": [
+     150,
+     250,
+     350
+    ],
+    "NovaRange": 825,
+    "MaxChainTargets": 5,
+    "BaseBonusMS": 0.15,
+    "ChainADRatio": 0.4
+   },
+   "formulas": {
+    "TotalBonusDamage": "5/10/15 + 0.15\u00d7AP",
+    "TotalActiveDamage": "150/250/350 + 1.1\u00d7AP + 0.6\u00d7bonus AD",
+    "ChainPhysicalDamage": "0.4\u00d7AD"
+   },
+   "tags": [
+    "attack speed",
+    "move speed"
+   ]
+  },
+  "Passive": {
+   "name": "Living Battery",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Zeri's Attacks deal magic damage and are treated as Abilities. Moving and casting Burst Fire stores up energy in Zeri's Sparkpack. When fully charged her next Attack deals bonus damage.",
+   "summary": "Zeri's Attacks deal magic damage and are treated as Abilities. Moving and casting Burst Fire stores up energy in Zeri's Sparkpack. When fully charged her next Attack deals bonus damage.",
+   "values": {
+    "ShieldDuration": 3,
+    "HastePercent": 0.1,
+    "EnergizedDuration": 2,
+    "PercentShieldSteal": 0.45,
+    "ChampHitHasteDuration": 1.5
+   },
+   "formulas": {
+    "PassiveAttackSpeed": "0.2+ (by level)"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Zeri is a hyper-mobile marksman whose Burst Fire is treated as an attack and whose Spark Surge vaults over terrain. She plays bot lane, kiting enemies and ramping up with Lightning Crash in long fights.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "Spark Surge vaults over terrain, giving her one of the best escapes and repositioning tools among ADCs.",
+   "Lightning Crash gives attack speed and move speed that grows as she keeps hitting champions.",
+   "Ultrashock Laser slows and crits if it hits terrain, letting her poke from long range.",
+   "Burst Fire is treated as an attack, so she kites with Q while moving.",
+   "Very strong in long, open teamfights where she can run and shoot."
+  ],
+  "weaknesses": [
+   "Low damage early: her attacks deal little damage until she has items.",
+   "Q is her main damage, and it stops on the first enemy hit.",
+   "E is her only escape; when it is down she is vulnerable.",
+   "Struggles against hard CC that stops her from kiting.",
+   "Her normal attacks are weak, so last-hitting minions can be harder."
+  ],
+  "curve": {
+   "lvl1": "okay \u2013 Q poke but low damage",
+   "lvl2": "okay \u2013 W slow for poke",
+   "lvl3": "good \u2013 E gives an escape and piercing Q",
+   "lvl6": "strong \u2013 Lightning Crash gives attack speed and move speed",
+   "items": "strong \u2013 first item: Statikk Shiv, Runaan's Hurricane or Infinity Edge for damage",
+   "late": "strong \u2013 keeps kiting and ramping in long teamfights"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Zeri wants E for mobility and Lightning Crash for fights. Her damage comes with items and her teamfight power at 6.",
+  "waveClear": "Good: E makes Q pierce and clear waves.",
+  "sustain": "Low: no healing.",
+  "mobility": "Very high: E vaults over terrain.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Burst Fire) while kiting",
+   "engage": "R (Lightning Crash) to start fights",
+   "escape": "E (Spark Surge) to escape over walls",
+   "answers": "None. Zeri has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Living Battery: her attacks deal magic damage and are treated as abilities; a fully charged attack deals bonus damage."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": true,
+    "cc": [],
+    "answer": "Jax E dodges; projectile blocks stop it.",
+    "notes": "Burst Fire: a burst of rounds hitting the first enemy; treated as an attack, so it applies on-hit effects."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block.",
+    "notes": "Ultrashock Laser: slows the first enemy hit; if it hits terrain, becomes a long laser that crits."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Spark Surge: dashes and vaults over terrain; her Q then pierces."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Lightning Crash: a nova that gives attack speed and move speed if it hits a champion."
+   }
+  },
+  "windowAgainst": "Zeri's window is when Spark Surge is on cooldown: she can't escape a hard engage. Early she has low damage, so all-in her before items.",
+  "checks": [
+   "Does Zeri use E over terrain to escape?",
+   "Does Zeri start fights with R?",
+   "Does the enemy team use hard CC on her?"
+  ]
+ }
+}

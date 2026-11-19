@@ -1,0 +1,266 @@
+{
+ "id": 30,
+ "alias": "Karthus",
+ "name": "Karthus",
+ "title": "the Deathsinger",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 110,
+  "ad": 46,
+  "adPerLevel": 3.25,
+  "armor": 21,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.11,
+  "range": 450,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Lay Waste",
+   "cooldown": 0,
+   "cost": [
+    25,
+    30,
+    35,
+    40,
+    45
+   ],
+   "costType": null,
+   "range": 875.0,
+   "description": "Karthus creates a blast of magic, dealing 40/59/78/97/116 + 0.35×AP magic damage. If the blast hits only one enemy, it instead deals (40/59/78/97/116 + 0.35×AP) × 2 magic damage.",
+   "summary": "Karthus unleashes a delayed blast at a location, dealing damage to nearby enemies. Deals increased damage to isolated enemies.",
+   "values": {
+    "MonsterMod": 1,
+    "BaseDamage": [
+     40,
+     59,
+     78,
+     97,
+     116
+    ],
+    "APRatio": 0.35
+   },
+   "formulas": {
+    "QDamage": "40/59/78/97/116 + 0.35×AP",
+    "QSingleTargetDamage": "(40/59/78/97/116 + 0.35×AP) × 2"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Wall of Pain",
+   "cooldown": 15,
+   "cost": 70,
+   "costType": null,
+   "range": 1000.0,
+   "description": "Karthus creates a wall that lasts for 5 seconds. Enemies that pass through lose 25% Magic Resist for 5 seconds and are Slowed by 40/50/60/70/80% decaying over the duration.",
+   "summary": "Karthus creates a passable screen of leeching energy. Any enemy units that walk through the screen have their Move Speed and Magic Resist reduced for a period.",
+   "values": {
+    "MagicResistShred": 25,
+    "TT_WallWidth": [
+     800,
+     900,
+     1000,
+     1100,
+     1200
+    ],
+    "SlowPercent": [
+     40,
+     50,
+     60,
+     70,
+     80
+    ],
+    "WallDuration": 5,
+    "DebuffDuration": 5
+   },
+   "formulas": {},
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Defile",
+   "cooldown": 0.5,
+   "cost": [
+    42,
+    54,
+    66,
+    78,
+    90
+   ],
+   "costType": null,
+   "range": 550.0,
+   "description": "Passive: When Karthus kills a unit, he restores 10/20/30/40/50 Mana. Toggle: Karthus creates a necrotic aura, dealing 30/50/70/90/110 + 0.2×AP magic damage per second to nearby enemies.",
+   "summary": "Karthus passively steals energy from his victims, gaining Mana on each kill. Alternatively, Karthus can surround himself in the souls of his prey, dealing damage to nearby enemies, but quickly draining his own Mana.",
+   "values": {
+    "DamagePerSecond": [
+     30,
+     50,
+     70,
+     90,
+     110
+    ],
+    "APRatioPerSecond": 0.2,
+    "ManaRestoreOnKill": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ]
+   },
+   "formulas": {
+    "TotalDPS": "30/50/70/90/110 + 0.2×AP",
+    "{57456bbc}": "(30/50/70/90/110 + 0.2×AP) × 0.25"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Requiem",
+   "cooldown": [
+    200,
+    180,
+    160
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 10000.0,
+   "description": "Karthus channels for 3 seconds, then deals 200/350/500 + 0.7×AP magic damage to enemy champions, regardless of distance.",
+   "summary": "After channeling for 3 seconds, Karthus deals damage to all enemy champions.",
+   "values": {
+    "BaseDamage": [
+     200,
+     350,
+     500
+    ],
+    "APRatio": 0.7
+   },
+   "formulas": {
+    "TotalDamage": "200/350/500 + 0.7×AP"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Death Defied",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Upon dying, Karthus enters a spirit form that allows him to continue casting spells.",
+   "summary": "Upon dying, Karthus enters a spirit form that allows him to continue casting spells.",
+   "values": {
+    "PassiveDuration": 7
+   },
+   "formulas": {},
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Late-game mage who clears waves and camps with Q and E and threatens every low enemy on the map with Requiem. He keeps casting for a few seconds after death.",
+  "positions": [
+   "JUNGLE",
+   "MIDDLE",
+   "BOTTOM"
+  ],
+  "strengths": [
+   "Global R finishes low enemies anywhere",
+   "Q double damage on isolated targets",
+   "Very fast farming once E is toggled",
+   "Passive keeps him casting after death",
+   "W wall slows and shreds magic resist"
+  ],
+  "weaknesses": [
+   "No dash or blink",
+   "Immobile; dies to dive and engage",
+   "Weak early fights",
+   "Mana-hungry before items",
+   "Q is a delayed ground skillshot that is easy to dodge"
+  ],
+  "curve": {
+   "lvl1": "weak – slow clear, no escape",
+   "lvl2": "weak – Q+W but no escape",
+   "lvl3": "medium – Q/W/E all up",
+   "lvl6": "strong – global R",
+   "items": "strong – Liandry's/Rylai's farm and kite",
+   "late": "strong – teamfight DPS + R"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Farms early; threat jumps at 6.",
+  "waveClear": "excellent – Q spam + E aura",
+  "sustain": "low – E restores mana on kills only",
+  "mobility": "none – relies on W slow",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q"
+   ],
+   "engage": [
+    "W"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Delayed circle; double damage if it hits only one target. Keep moving."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Wall: passing through slows and lowers magic resist. Don't cross it."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Toggle damage aura; drains mana."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "3 s channel, then hits all enemy champions anywhere. Spell shield, stasis or untargetable at the end blocks it."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Keeps casting after death for a few seconds; back off when he dies in a fight."
+   }
+  },
+  "windowAgainst": "Before 6 and while W is down: dive or walk at him. Interrupt R channel with hard CC.",
+  "checks": []
+ }
+}

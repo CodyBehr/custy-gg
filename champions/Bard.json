@@ -1,0 +1,323 @@
+{
+ "id": 432,
+ "alias": "Bard",
+ "name": "Bard",
+ "title": "the Wandering Caretaker",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 103,
+  "ad": 52,
+  "adPerLevel": 3,
+  "armor": 32,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2,
+  "range": 500,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Cosmic Binding",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Bard fires an energy bolt, dealing 80/125/170/215/260 + 1×AP magic damage to the first two enemies hit. The first target hit is Slowed by 60% for 1/1.2/1.4/1.6/1.8s. If the bolt hits a second enemy or a wall, any enemies hit are Stunned for 1/1.2/1.4/1.6/1.8s.",
+   "summary": "Bard fires a missile which will slow the first enemy struck, and continue onward. If it strikes a wall, it will stun the initial target; if it strikes another enemy, it will stun them both.",
+   "values": {
+    "BaseDamage": [
+     80,
+     125,
+     170,
+     215,
+     260
+    ],
+    "APRatio": 1,
+    "SlowAmountPercentage": 60,
+    "SlowDuration": [
+     1,
+     1.2,
+     1.4,
+     1.6,
+     1.8
+    ],
+    "StunDuration": [
+     1,
+     1.2,
+     1.4,
+     1.6,
+     1.8
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "80/125/170/215/260 + 1×AP"
+   },
+   "tags": [
+    "slow",
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Caretaker's Shrine",
+   "cooldown": 0,
+   "cost": 70,
+   "costType": null,
+   "range": 800.0,
+   "description": "Bard creates a Health shrine that grants 0.2/0.225/0.25/0.275/0.3 + 0.001×AP Move Speed decaying over 1.5 seconds and restores at least (25/50/75/100/125 + 0.4×AP) × 1 Health to the first ally to enter. The shrine grows to restore (50/87.5/125/162.5/200 + 0.7×AP) × 1 Health after existing for 5 seconds. Bard can have up to 3 shrines at once. If an enemy champion enters a shrine, it is destroyed. This ability has 2 charges. Current Active Shrines: (varies) / (varies)",
+   "summary": "Reveals a Health shrine which powers up over a short time, disappearing after healing and speeding up the first ally that touches it.",
+   "values": {
+    "ChargeupTime": 5,
+    "MaxPacks": 3,
+    "HealingMult": 1,
+    "Ammo_Limit": 2,
+    "Ammo_Cooldown": 18,
+    "MoveSpeed_Duration": 1.5,
+    "MoveSpeed_Base": [
+     0.2,
+     0.225,
+     0.25,
+     0.275,
+     0.3
+    ],
+    "MoveSpeed_Ratio": 0.001,
+    "APRatio_Min": 0.4,
+    "APRatio_Max": 0.7,
+    "MinimumHeal": [
+     25,
+     50,
+     75,
+     100,
+     125
+    ],
+    "MaximumHeal": [
+     50,
+     87.5,
+     125,
+     162.5,
+     200
+    ]
+   },
+   "formulas": {
+    "InitialHeal": "(25/50/75/100/125 + 0.4×AP) × 1",
+    "MaxHeal": "(50/87.5/125/162.5/200 + 0.7×AP) × 1",
+    "Calc_MoveSpeed": "0.2/0.225/0.25/0.275/0.3 + 0.001×AP"
+   },
+   "tags": [
+    "heal",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Magical Journey",
+   "cooldown": [
+    22,
+    20.5,
+    19,
+    17.5,
+    16
+   ],
+   "cost": 30,
+   "costType": null,
+   "range": 900.0,
+   "description": "Bard opens a one-way portal through Terrain for 10 seconds. Any champion can enter the portal by moving onto it while near the entrance.",
+   "summary": "Bard opens a portal in nearby terrain. Allies and enemies alike can take a one-way trip through that terrain by moving into the portal.",
+   "values": {
+    "FriendlyMovementBonusPercentage": 33,
+    "DoorDuration": 10,
+    "BaseTravelSpeed": 900
+   },
+   "formulas": {},
+   "tags": []
+  },
+  "R": {
+   "name": "Tempered Fate",
+   "cooldown": [
+    110,
+    95,
+    80
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 3400.0,
+   "description": "Bard hurls magical protective energy to an area, placing all units and structures hit into Stasis for 2.5 seconds.",
+   "summary": "Bard sends spirit energy arcing to a location, putting all champions, minions, monsters, and turrets hit into stasis for a brief time.",
+   "values": {
+    "RStasisDuration": 2.5
+   },
+   "formulas": {},
+   "tags": [
+    "stasis"
+   ]
+  },
+  "Passive": {
+   "name": "Traveler's Call",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Meeps: Bard attracts lesser spirits that assist with his basic attacks to deal extra magic damage. When Bard has collected enough Chimes, his meeps will also deal damage in an area and slow enemies hit. Chimes: Ancient chimes randomly appear for Bard to collect. These grant experience, restore mana, and provide out of combat Move Speed.",
+   "summary": "Meeps: Bard attracts lesser spirits that assist with his basic attacks to deal extra magic damage. When Bard has collected enough Chimes, his meeps will also deal damage in an area and slow enemies hit. Chimes: Ancient chimes randomly appear for Bard to collect. These grant experience, restore mana, and provide out of combat Move Speed.",
+   "values": {
+    "TooltipMSPerStack": 24,
+    "TooltipMSMax": 150,
+    "TooltipManaRestore": 12,
+    "BaseMeepSpawnCD": 8,
+    "BaseMeepDamage": 30,
+    "TooltipChimeDamageCheckpoint": 5,
+    "DamagePerCheckpoint": 6,
+    "SlowDuration": 1,
+    "ChimesPerUpgrade": 5,
+    "MeepAPRatio": 0.4,
+    "MaxSpeedStacks": 10,
+    "SpeedStackDuration": 20
+   },
+   "formulas": {
+    "MeepDamageNoChime": "30 + 0.4×AP",
+    "ChimesForSlowUpgrade": "(5) × 1",
+    "ChimesForSplashDamageUpgrade": "(5) × 3",
+    "ChimesForSplashAreaUpgrade": "(5) × 7"
+   },
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Roaming support who sets up kills with Q stun into walls/second target and creates picks with portals and R stasis.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "Q stun on walls or two targets",
+   "portals (E) for roams and escapes",
+   "R stasis for picks and saving allies",
+   "meep empowered autos scale with chimes"
+  ],
+  "weaknesses": [
+   "low early laning if he roams",
+   "Q needs wall/second target to stun",
+   "squishy",
+   "R can stasis allies by mistake"
+  ],
+  "curve": {
+   "lvl1": "medium – meep autos",
+   "lvl2": "medium",
+   "lvl3": "medium – Q stun threat",
+   "lvl6": "strong – R picks",
+   "items": "medium",
+   "late": "strong – chimes stacked"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Roams early; his lane strength depends on Q angles near walls.",
+  "waveClear": "low",
+  "sustain": "medium (W shrine heals)",
+  "mobility": "high (E portal, W speed)",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Passive",
+    "Q"
+   ],
+   "engage": [
+    "Q",
+    "R"
+   ],
+   "escape": [
+    "E",
+    "W"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Meeps on autos; slow at high chimes."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Stuns if it hits a wall or a second enemy."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shrine heals the first ally who touches it."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Terrain portal usable by everyone."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stasis",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "stasis can also save allies or freeze an objective",
+    "notes": null
+   }
+  },
+  "windowAgainst": "Q down and no wall behind you: he can't stun.",
+  "checks": [
+   "R stasis listed as cc type 'stasis' (makes units invulnerable and untargetable too)"
+  ]
+ }
+}

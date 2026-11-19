@@ -1,0 +1,321 @@
+{
+ "id": 113,
+ "alias": "Sejuani",
+ "name": "Sejuani",
+ "title": "Fury of the North",
+ "classes": [
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 114,
+  "ad": 66,
+  "adPerLevel": 4,
+  "armor": 34,
+  "armorPerLevel": 5.45,
+  "attackSpeed": 0.688,
+  "attackSpeedPerLevel": 3.5,
+  "range": 150,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Arctic Assault",
+   "cooldown": [
+    18,
+    16.5,
+    15,
+    13.5,
+    12
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    80
+   ],
+   "costType": null,
+   "range": 650.0,
+   "description": "Sejuani charges, dealing 90/140/190/240/290 + 0.75\u00d7AP magic damage to enemies and Knocking them Up for 0.5 seconds. The charge ends after hitting an enemy champion.",
+   "summary": "Sejuani charges forward, knocking enemies into the air. The charge stops after hitting an enemy champion.",
+   "values": {
+    "BaseDamage": [
+     90,
+     140,
+     190,
+     240,
+     290
+    ],
+    "APRatio": 0.75,
+    "MaxTravelDistance": 625,
+    "DashSpeed": 1000,
+    "KnockupDurationTOOLTIPONLY": 0.5
+   },
+   "formulas": {
+    "TotalDamageTooltip": "90/140/190/240/290 + 0.75\u00d7AP"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "W": {
+   "name": "Winter's Wrath",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 600.0,
+   "description": "Sejuani swings her flail, dealing 5/15/25/35/45 + 0.3\u00d7AP + 0.04\u00d7max HP physical damage and Knocking Back minions and jungle monsters. She then lashes out again, dealing 5/25/45/65/85 + 0.6\u00d7AP + 0.08\u00d7max HP physical damage and briefly Slowing targets. Both swings apply stacks of Permafrost.",
+   "summary": "Sejuani swings her mace twice, dealing damage, slowing enemies and applying Frost stacks.",
+   "values": {
+    "SlowAmount": 0.75,
+    "SlowDuration": 0.25,
+    "BaseDamageOne": [
+     5,
+     15,
+     25,
+     35,
+     45
+    ],
+    "BaseDamageTwo": [
+     5,
+     25,
+     45,
+     65,
+     85
+    ],
+    "APRatioOne": 0.3,
+    "APRatioTwo": 0.6,
+    "HPRatioOne": 0.04,
+    "HPRatioTwo": 0.08
+   },
+   "formulas": {
+    "FirstHitDamageTooltip": "5/15/25/35/45 + 0.3\u00d7AP + 0.04\u00d7max HP",
+    "SecondHitDamageTooltip": "5/25/45/65/85 + 0.6\u00d7AP + 0.08\u00d7max HP"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Permafrost",
+   "cooldown": 1.5,
+   "cost": 20,
+   "costType": null,
+   "range": 560.0,
+   "description": "Passive: Nearby melee allied champions' Attacks apply a stack to champions and jungle monsters. Active: Sejuani deals 55/105/155/205/255 + 0.7\u00d7AP magic damage to target enemy with 4 stacks and Stuns them for 1 second.",
+   "summary": "Sejuani freezes and stuns an enemy champion that has maximum Frost stacks.",
+   "values": {
+    "PerChampionCD": 8,
+    "BaseDamage": [
+     55,
+     105,
+     155,
+     205,
+     255
+    ],
+    "APRatio": 0.7,
+    "CCDuration": 1,
+    "MaxStacks": 4,
+    "StackDuration": 5,
+    "AuraRange": 1100
+   },
+   "formulas": {
+    "TotalDamage": "55/105/155/205/255 + 0.7\u00d7AP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Glacial Prison",
+   "cooldown": [
+    120,
+    105,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1300.0,
+   "description": "Sejuani throws her True Ice bola, Stunning and revealing the first enemy champion hit for 1 second and dealing 125/150/175 + 0.4\u00d7AP magic damage. If the bola travels at least 25% of its range, it Stuns and reveals for 1.5 seconds instead. It then also creates an ice storm that Slows surrounding enemies by 80% for 2 seconds. All affected enemies take 200/300/400 + 0.8\u00d7AP magic damage.",
+   "summary": "Sejuani throws her bola that freezes and stuns the first champion hit and creates an ice storm that slows other enemies.",
+   "values": {
+    "BaseDamage": [
+     125,
+     150,
+     175
+    ],
+    "BaseStunDuration": 1,
+    "ZoneDuration": 2,
+    "ExplosionSlowAmount": 80,
+    "ExplosionSlowDuration": 1,
+    "EmpoweredStunDuration": 1.5,
+    "EmpoweredBaseDamage": [
+     200,
+     300,
+     400
+    ],
+    "ZoneSlowAmount": 30
+   },
+   "formulas": {
+    "TotalDamageTooltip": "200/300/400 + 0.8\u00d7AP",
+    "MinorDamageTooltip": "125/150/175 + 0.4\u00d7AP"
+   },
+   "tags": [
+    "slow",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Fury of the North",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "After being out of combat, Sejuani gains Frost Armor which grants Armor and Magic Resist and immunity to slows. Frost Armor persists for a short time after Sejuani takes damage. Sejuani can damage a stunned enemy to shatter it, dealing massive magic damage.",
+   "summary": "After being out of combat, Sejuani gains Frost Armor which grants Armor and Magic Resist and immunity to slows. Frost Armor persists for a short time after Sejuani takes damage. Sejuani can damage a stunned enemy to shatter it, dealing massive magic damage.",
+   "values": {
+    "FrostArmorDuration": 3,
+    "EpicMonsterCap": 250,
+    "BonusArmorRatio": 0.75,
+    "BonusMRRatio": 0.75,
+    "BonusArmorBase": 10,
+    "BonusMRBase": 10,
+    "PercentHPDamageBase": 0.1
+   },
+   "formulas": {
+    "PercentHPDamage": "0.1",
+    "TotalArmorTooltip": "10 + 0.75\u00d7bonus armor",
+    "TotalMRTooltip": "10 + 0.75\u00d7bonus MR",
+    "FrostArmorOOC": "12\u20136 (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Sejuani is an engage tank jungler who charges in with Arctic Assault and locks targets down with Permafrost and Glacial Prison. She plays best with melee allies, whose attacks build the Permafrost stacks that let her stun.",
+  "positions": [
+   "JUNGLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Lots of reliable crowd control: Q knock-up, E stun and R stun, all in one engage.",
+   "Glacial Prison is a long-range stun that can start fights or pick a target from distance.",
+   "Fury of the North gives armor, magic resist and slow immunity before a fight, and shatters stunned enemies for big magic damage.",
+   "Strong ganks once she has Q and E, especially into lanes with melee allies.",
+   "Tanky and keeps her value late as the team's main engage."
+  ],
+  "weaknesses": [
+   "Permafrost needs four stacks, which come mostly from melee allies, so ranged-heavy teams make her E harder to use.",
+   "Q is her only dash; once used she cannot escape or re-engage.",
+   "Low damage on her own: she sets up kills rather than finishing them.",
+   "Slow early clear compared with damage junglers, so she can be invaded.",
+   "Glacial Prison is a skillshot that wind walls and projectile blocks can stop."
+  ],
+  "curve": {
+   "lvl1": "weak \u2013 slow clear and little damage; she should not fight an invade",
+   "lvl2": "okay \u2013 Q and W give a short gank, but no stun without E",
+   "lvl3": "good \u2013 Q knock-up into E stun is a reliable gank",
+   "lvl6": "strong \u2013 Glacial Prison adds a long-range stun to start fights or picks",
+   "items": "medium \u2013 first item: Sunfire Aegis or Heartsteel for tankiness, then Kaenic Rookern or Thornmail against what the enemy builds",
+   "late": "good \u2013 stays a strong engage tank, but needs her team to follow up"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Sejuani needs E (Permafrost) to stun, so she wants level 3 before ganking, and becomes a teamfight engage at 6. Her stun relies on allied melee attacks, so check who is with her.",
+  "waveClear": "Okay: W hits the whole camp, but her clear is slow.",
+  "sustain": "Low: no healing of her own; relies on armor and magic resist from her passive and items.",
+  "mobility": "Low: Q dash only.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "Q (Arctic Assault) into E (Permafrost) stun once stacks are built",
+   "engage": "R (Glacial Prison) from long range to start a fight",
+   "escape": "Q (Arctic Assault) over a wall or away",
+   "answers": "None. Sejuani has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Fury of the North: armor, magic resist and slow immunity after being out of combat; damaging a stunned enemy shatters it for extra magic damage. Poke her before she engages to remove Frost Armor."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Dodge sideways; the charge stops at the first champion hit.",
+    "notes": "Arctic Assault: a charge that knocks up enemies and ends when it hits a champion."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Winter's Wrath: two flail swings dealing % max HP damage; the second briefly slows."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Avoid trading with melee allies near her so stacks don't build; Cleanse/QSS removes the stun.",
+    "notes": "Permafrost: nearby melee allies' attacks add stacks; at four stacks she can stun the target for 1 second."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block; Cleanse/QSS removes the stun.",
+    "notes": "Glacial Prison: a bola that stuns the first champion hit, longer if it travels far; it then creates a slowing storm around the target."
+   }
+  },
+  "windowAgainst": "Sejuani's window is after Arctic Assault is used: she has no dash left to follow or escape. Kite her and avoid trading with melee allies around her, since that builds Permafrost.",
+  "checks": [
+   "Does Sejuani go in with melee allies so Permafrost stacks build?",
+   "Does Sejuani hold Glacial Prison for the main target instead of the first one in range?",
+   "Does the enemy team poke off Frost Armor before her engage?"
+  ]
+ }
+}

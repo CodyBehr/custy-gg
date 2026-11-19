@@ -1,0 +1,291 @@
+{
+ "id": 99,
+ "alias": "Lux",
+ "name": "Lux",
+ "title": "the Lady of Luminosity",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 580,
+  "hpPerLevel": 99,
+  "ad": 54,
+  "adPerLevel": 3.3,
+  "armor": 21,
+  "armorPerLevel": 5.2,
+  "attackSpeed": 0.669,
+  "attackSpeedPerLevel": 3,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Light Binding",
+   "cooldown": null,
+   "cost": 50,
+   "costType": null,
+   "range": 1175.0,
+   "description": "Lux fires a ball of light, Rooting the first two enemies for 2 seconds and dealing 80/120/160/200/240 + 0.75\u00d7AP magic damage to each.",
+   "summary": "Lux releases a sphere of light that binds and deals damage to up to two enemy units.",
+   "values": {
+    "BaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "APRatio": 0.75,
+    "RootDuration": 2
+   },
+   "formulas": {
+    "TotalDamageTT": "80/120/160/200/240 + 0.75\u00d7AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "W": {
+   "name": "Prismatic Barrier",
+   "cooldown": [
+    12,
+    11.5,
+    11,
+    10.5,
+    10
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 1150.0,
+   "description": "Lux throws her wand, granting 40/55/70/85/100 + 0.4\u00d7AP Shield for 2.5 seconds to allies it passes through. Then it returns, granting the same Shield on its return.",
+   "summary": "Lux throws her wand and bends the light around any friendly target it touches, protecting them from enemy damage.",
+   "values": {
+    "BaseShieldAmount": [
+     40,
+     55,
+     70,
+     85,
+     100
+    ],
+    "APRatio": 0.4,
+    "ShieldDuration": 2.5
+   },
+   "formulas": {
+    "TotalShieldTT": "40/55/70/85/100 + 0.4\u00d7AP"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Lucent Singularity",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": [
+    80,
+    90,
+    100,
+    110,
+    110
+   ],
+   "costType": null,
+   "range": 1100.0,
+   "description": "Lux creates a light zone that Slows by 25/30/35/40/45% and reveals the area. After 5 seconds or on Recasting this Ability, it detonates, dealing 65/115/165/215/265 + 0.8\u00d7AP magic damage and Slowing for an additional 1 second.",
+   "summary": "Fires an anomaly of twisted light to an area, which slows nearby enemies. Lux can detonate it to damage enemies in the area of effect.",
+   "values": {
+    "VisionRadius": 650,
+    "SlowLingerDuration": 1,
+    "SlowPercent": [
+     25,
+     30,
+     35,
+     40,
+     45
+    ],
+    "SlowZoneDuration": 5,
+    "BaseDamage": [
+     65,
+     115,
+     165,
+     215,
+     265
+    ]
+   },
+   "formulas": {
+    "TotalDamageTT": "65/115/165/215/265 + 0.8\u00d7AP",
+    "{ee9714e4}": "(25/30/35/40/45) \u00d7 -0.01"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Final Spark",
+   "cooldown": [
+    60,
+    50,
+    40
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 3340.0,
+   "description": "Lux fires a dazzling ray of light, dealing 300/400/500 + 1.2\u00d7AP magic damage to all enemies in a line.",
+   "summary": "After gathering energy, Lux fires a beam of light that deals damage to all targets in the area. In addition, triggers Lux's passive ability and refreshes the Illumination debuff duration.",
+   "values": {
+    "Damage": [
+     300,
+     400,
+     500
+    ],
+    "ResetPercent": [
+     0.3,
+     0.4,
+     0.5
+    ],
+    "ResetAssistWindow": 1.75
+   },
+   "formulas": {
+    "TotalDamage": "300/400/500 + 1.2\u00d7AP"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Illumination",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Lux's damaging spells charge the target with energy for a few seconds. Lux's next attack ignites the energy, dealing bonus magic damage (depending on Lux's level) to the target.",
+   "summary": "Lux's damaging spells charge the target with energy for a few seconds. Lux's next attack ignites the energy, dealing bonus magic damage (depending on Lux's level) to the target.",
+   "values": {
+    "DebuffDuration": 6,
+    "APRatio": 0.35
+   },
+   "formulas": {
+    "TotalDamage": "? + 0.35\u00d7AP"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Lux is a long-range mage who roots with Light Binding and finishes targets with Final Spark. She plays mid or support, poking from far away and punishing anyone who walks into her skillshots.",
+  "positions": [
+   "MIDDLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Light Binding roots the first two enemies for a long time, enough to kill a target.",
+   "Very long range: Final Spark is a laser with a huge range and short cooldown for an ultimate.",
+   "Lucent Singularity slows an area and reveals it, which zones and gives vision.",
+   "Prismatic Barrier shields allies twice, going out and back.",
+   "Strong burst: a landed Q into E, R and passive procs kills squishy targets."
+  ],
+  "weaknesses": [
+   "Immobile: no dash or blink, so a dive kills her.",
+   "Damage depends on landing skillshots; a missed Q leaves her with no CC.",
+   "Squishy.",
+   "Light Binding can be blocked by minions and projectile blocks.",
+   "Weak against champions who can get to her quickly, such as assassins."
+  ],
+  "curve": {
+   "lvl1": "okay \u2013 E poke and passive auto attacks; not a strong all-in",
+   "lvl2": "good \u2013 Q root into E is a real kill threat with a jungler or ADC",
+   "lvl3": "good \u2013 full combo with W shield",
+   "lvl6": "strong \u2013 Final Spark extends her range and finishes kills",
+   "items": "medium \u2013 first item: Luden's Companion or Malignance gives burst and ultimate haste; Zhonya's Hourglass for safety",
+   "late": "good \u2013 stays a strong pick mage with long range"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Lux wants Q and E to trade, and her kill threat jumps at 6 with Final Spark. Her power depends on landing Light Binding.",
+  "waveClear": "Good: E clears waves from range.",
+  "sustain": "Low: no healing; W shield only.",
+  "mobility": "Very low: no dash.",
+  "range": "long-ranged",
+  "keyAbilities": {
+   "trading": "Q (Light Binding) root into E and R",
+   "engage": "E (Lucent Singularity) to poke and zone",
+   "escape": "W (Prismatic Barrier) shield on herself and allies",
+   "answers": "None. Lux has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Illumination: her damaging spells mark the target, and her next attack ignites it for bonus damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, stand behind minions, or block with a projectile block; Cleanse/QSS removes the root.",
+    "notes": "Light Binding: a missile that roots the first two enemies hit for 2 seconds."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Prismatic Barrier: her wand shields allies on the way out and back."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Walk out of the zone before it detonates.",
+    "notes": "Lucent Singularity: a zone that slows and reveals, then detonates on recast or after 5 seconds."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Final Spark: a long laser that hits all enemies in a line. Not a missile; wind walls do not stop it."
+   }
+  },
+  "windowAgainst": "Lux's window is right after she misses Light Binding: walk up and all-in, because she has no other CC except E's slow and no escape.",
+  "checks": [
+   "Does Lux land Q before using E and R?",
+   "Does Lux keep away from divers while Q is on cooldown?",
+   "Do enemies stand behind minions against Light Binding?"
+  ]
+ }
+}

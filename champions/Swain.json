@@ -1,0 +1,343 @@
+{
+ "id": 50,
+ "alias": "Swain",
+ "name": "Swain",
+ "title": "the Noxian Grand General",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 595,
+  "hpPerLevel": 99,
+  "ad": 58,
+  "adPerLevel": 2.7,
+  "armor": 23,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.11,
+  "range": 525,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Death's Hand",
+   "cooldown": [
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    60
+   ],
+   "costType": null,
+   "range": 750.0,
+   "description": "Swain unleashes 5 eldritch bolts, dealing 60/90/120/150/180 + 0.45×AP magic damage plus (60/90/120/150/180 + 0.45×AP) × 0.25 magic damage per bolt past the first (max (60/90/120/150/180 + 0.45×AP) × 2 magic damage).",
+   "summary": "Swain unleashes several bolts of eldritch power that pierce through enemies. Enemies hit take more damage for each bolt they are struck by.",
+   "values": {
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "FirstBoltAPRatio": 0.45,
+    "ExtraBoltRatio": 0.25,
+    "BoundaryCheckRange": 725,
+    "MaxDamageMultiTOOLTIP": 2
+   },
+   "formulas": {
+    "InitialDamage": "60/90/120/150/180 + 0.45×AP",
+    "ExtraBoltDamage": "(60/90/120/150/180 + 0.45×AP) × 0.25",
+    "MaxDamage": "(60/90/120/150/180 + 0.45×AP) × 2"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Vision of Empire",
+   "cooldown": [
+    22,
+    21,
+    20,
+    19,
+    18
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    80
+   ],
+   "costType": null,
+   "range": 5500.0,
+   "description": "Swain opens a demon eye, revealing a location for 1.5 seconds, then deals 70/115/160/205/250 + 0.6×AP magic damage and Slows by 50% for 1.5 seconds. Champions hit grant Swain a Soul Fragment and are revealed for 6 seconds.",
+   "summary": "Swain opens a demon eye that deals damage and slows enemies. Champions hit are revealed and also grant Swain a Soul Fragment.",
+   "values": {
+    "BaseDamage": [
+     70,
+     115,
+     160,
+     205,
+     250
+    ],
+    "APRatio": 0.6,
+    "MinionMod": 0.5,
+    "Slow": -0.5,
+    "SlowDuration": 1.5,
+    "RevealDuration": 6,
+    "EffectRadius": 325,
+    "VisionRadius": 420
+   },
+   "formulas": {
+    "TotalDamage": "70/115/160/205/250 + 0.6×AP",
+    "MinionDamage": "(70/115/160/205/250 + 0.6×AP) × 0.5"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Nevermove",
+   "cooldown": [
+    12,
+    11.5,
+    11,
+    10.5,
+    10
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 850.0,
+   "description": "Swain launches a wave of demonic power that returns, detonating on the first enemy hit to deal 90/130/170/210/250 + 0.7×AP magic damage and Root enemies in the area for 1.5 seconds. Rooting a champion allows Swain to reactivate this ability to pull all champions Rooted by Nevermove toward him, gaining a Soul Fragment for each.",
+   "summary": "Swain launches a wave of demonic power forward. It then returns to Swain and roots enemies it hits. Swain can then choose to pull all rooted champions closer. This ability has a shorter cooldown during Demonic Ascension.",
+   "values": {
+    "E2Damage": [
+     90,
+     130,
+     170,
+     210,
+     250
+    ],
+    "E2Ratio": 0.7,
+    "RootDuration": 1.5,
+    "PullDistance": 290,
+    "CooldownRefund": 0.2,
+    "ExplosionRadius": 205
+   },
+   "formulas": {
+    "SecondaryDamage": "90/130/170/210/250 + 0.7×AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "R": {
+   "name": "Demonic Ascension",
+   "cooldown": 120,
+   "cost": 100,
+   "costType": null,
+   "range": 650.0,
+   "description": "Swain frees the demon, which deals 15/25/35 + 0.04×AP magic damage and drains 15/30/45 + 0.05×AP + 0.015×bonus max HP Health per second from nearby enemies. His Demonic Energy depletes over time but can be recharged indefinitely by draining enemy Champions and is fully restored on Champion takedowns. After 2 seconds and every 8 seconds thereafter, Swain can cast Demonflare while transformed, which deals 150/250/350 + 0.4×AP magic damage and Slows enemies by 50%, decaying over 1.5s.",
+   "summary": "Swain transforms into a demon and drains health from nearby enemy champions, minions, and neutral monsters. Swain can cast Demonflare to decimate and slow nearby enemies with a nova of soulfire. This form is indefinite as long as Swain drains enemy champions.",
+   "values": {
+    "DamagePerSecond": [
+     15,
+     25,
+     35
+    ],
+    "DamageAPRatio": 0.04,
+    "HealPerSecond": [
+     15,
+     30,
+     45
+    ],
+    "HealAPRatio": 0.05,
+    "HealHPRatio": 0.015,
+    "MinionMonsterHealReduction": 0.1,
+    "DemonPowerMax": 50,
+    "DemonPowerDegen": 10,
+    "DemonPowerRegen": 20,
+    "DemonflareDamageBase": [
+     150,
+     250,
+     350
+    ],
+    "DemonflareDamageRatio": 0.4,
+    "DemonflareSlowAmount": 0.5,
+    "DemonflareSlowDuration": 1.5,
+    "AmpTime": 5,
+    "DegenAmpAmount": 15,
+    "DemonflareCastDelay": 2,
+    "MaxDemonflareCast": 100,
+    "TimeBetweenTicks": 0.5,
+    "DemonflareCooldownTooltip": 8
+   },
+   "formulas": {
+    "DamageCalc": "15/25/35 + 0.04×AP",
+    "HealingCalc": "15/30/45 + 0.05×AP + 0.015×bonus max HP",
+    "DemonflareDamageTotal": "150/250/350 + 0.4×AP",
+    "MinionMonsterHeal": "(15/30/45 + 0.05×AP + 0.015×bonus max HP) × 0.1"
+   },
+   "tags": [
+    "heal",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Ravenous Flock",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Swain's ravens collect Soul Fragments that heal him and permanently increase his maximum health.",
+   "summary": "Swain's ravens collect Soul Fragments that heal him and permanently increase his maximum health.",
+   "values": {
+    "SoulCollectionRange": 1100,
+    "HealthIncrement": 15
+   },
+   "formulas": {
+    "PassiveHealPercent": "0.06–0.06 (by level)",
+    "PassiveHealCalculated": "(0.06–0.06 (by level)) × 1×max HP",
+    "MaxHealthGained": "?"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Drain-tank mage who roots with E and pulls rooted champions in, then sustains through fights in R. Wins extended fights with healing and area damage.",
+  "positions": [
+   "UTILITY",
+   "MIDDLE",
+   "TOP",
+   "BOTTOM"
+  ],
+  "strengths": [
+   "E root + pull sets up picks",
+   "R drains and heals in long fights",
+   "Passive soul fragments: permanent max health and heals",
+   "Long-range W reveals and slows"
+  ],
+  "weaknesses": [
+   "Short range in R, kited by long-range poke",
+   "Immobile: no dash",
+   "Relies on E to start fights",
+   "Healing reduction cuts his R sustain"
+  ],
+  "curve": {
+   "lvl1": "medium – E root or Q",
+   "lvl2": "medium – E root + Q, but short trades only",
+   "lvl3": "strong – E–Q–W combo",
+   "lvl6": "strong – R drain fights",
+   "items": "strong – first item (Liandry's/Rylai's or tank)",
+   "late": "medium – frontline mage"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants E root plus Q damage; R is the big spike.",
+  "waveClear": "medium – Q, R later",
+  "sustain": "high – passive heals, R drain",
+  "mobility": "low – no dash",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Collects soul fragments: heal + permanent max health."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Short-range piercing bolts; more damage per bolt hit."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Long-range delayed eye: damage, slow, reveal."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Wave out and back roots; recast pulls rooted champions (pull)."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Drain form; Demonflare nova slows."
+   }
+  },
+  "windowAgainst": "E down: he can't start fights; kite him outside R range.",
+  "checks": [
+   "Q bolts treated as not projectiles; E wave treated as a projectile (blockable)."
+  ]
+ }
+}

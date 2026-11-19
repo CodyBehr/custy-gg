@@ -1,0 +1,350 @@
+{
+ "id": 58,
+ "alias": "Renekton",
+ "name": "Renekton",
+ "title": "the Butcher of the Sands",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 660,
+  "hpPerLevel": 111,
+  "ad": 69,
+  "adPerLevel": 4.15,
+  "armor": 35,
+  "armorPerLevel": 5.2,
+  "attackSpeed": 0.665,
+  "attackSpeedPerLevel": 2.75,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Cull the Meek",
+   "cooldown": 7,
+   "cost": null,
+   "costType": null,
+   "range": 325.0,
+   "description": "Renekton swings his blade, dealing 60/90/120/150/180 + 1×bonus AD physical damage and restoring 2/3/4/5/6 + 0.02×bonus AD Health per non-champion and 12/20/28/36/44 + 0.17×bonus AD per champion hit. He also generates 2.5 Fury per non-champion and 10 Fury per champion. Fury Bonus: Damage is increased to 90/135/180/225/270 + 1.4×bonus AD physical damage and healing is increased to (2/3/4/5/6 + 0.02×bonus AD) × 3 Health against non-champions and (12/20/28/36/44 + 0.17×bonus AD) × 3 Health against champions. Does not generate any Fury.",
+   "summary": "Renekton swings his blade, dealing moderate physical damage to all targets around him, and heals for a small portion of the damage dealt. If he has more than 50 Fury, his damage and heal are increased.",
+   "values": {
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "BaseADRatio": 1,
+    "BaseMinionHeal": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "MinionHealADRatio": 0.02,
+    "ChampHeal": [
+     12,
+     20,
+     28,
+     36,
+     44
+    ],
+    "ChampionHealADRatio": 0.17,
+    "BasicHealCap": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "EmpoweredBaseDamage": [
+     90,
+     135,
+     180,
+     225,
+     270
+    ],
+    "EmpoweredADRatio": 1.4,
+    "EmpoweredHealCap": [
+     200,
+     300,
+     400,
+     500,
+     600
+    ],
+    "EmpoweredHealMultiplier": 3,
+    "Range": 400,
+    "UltimateRangeMod": 1.2,
+    "MinionFuryGain": 2.5,
+    "ChampionFuryGain": 10,
+    "FuryGainCap": 30
+   },
+   "formulas": {
+    "BasicDamage": "60/90/120/150/180 + 1×bonus AD",
+    "EmpDamage": "90/135/180/225/270 + 1.4×bonus AD",
+    "NonChampHealing": "2/3/4/5/6 + 0.02×bonus AD",
+    "ChampHealing": "12/20/28/36/44 + 0.17×bonus AD",
+    "EmpNonChampHealing": "(2/3/4/5/6 + 0.02×bonus AD) × 3",
+    "EmpChampHealing": "(12/20/28/36/44 + 0.17×bonus AD) × 3"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Ruthless Predator",
+   "cooldown": [
+    16,
+    14,
+    12,
+    10,
+    8
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 300.0,
+   "description": "Renekton's next Attack strikes twice, Stunning for 0.75 seconds and dealing a total of (5/20/35/50/65 + 0.75×AD) × 2 physical damage. Hitting a champion generates an additional 10 Fury. Fury Bonus: Renekton Attacks 3 times instead, destroying Shields before dealing (5/20/35/50/65 + 0.75×AD) × 3 physical damage and Stunning for 1.5 seconds. Does not generate any Fury.",
+   "summary": "Renekton slashes his target twice, dealing moderate physical damage and stuns them for 0.75 seconds. If Renekton has more than 50 Fury, he slashes his target three times, destroying damage shields on the target, dealing high physical damage, and stunning them for 1.5 seconds.",
+   "values": {
+    "BaseDamagePerHit": [
+     5,
+     20,
+     35,
+     50,
+     65
+    ],
+    "TotalADPerHit": 0.75,
+    "StunDuration": 0.75,
+    "EnragedStunDuration": 1.5,
+    "BonusFuryVsChamps": 10,
+    "BuffDuration": 6
+   },
+   "formulas": {
+    "BasicTotalDamage": "(5/20/35/50/65 + 0.75×AD) × 2",
+    "EmpTotalDamage": "(5/20/35/50/65 + 0.75×AD) × 3",
+    "HitDamage": "5/20/35/50/65 + 0.75×AD"
+   },
+   "tags": [
+    "empowered attack",
+    "shield",
+    "stun"
+   ]
+  },
+  "E": {
+   "name": "Slice and Dice",
+   "cooldown": [
+    16,
+    14.5,
+    13,
+    11.5,
+    10
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 450.0,
+   "description": "Renekton dashes, dealing 40/70/100/130/160 + 0.9×bonus AD physical damage. He generates 2 Fury per non-champion and 10 Fury per champion hit. Hitting at least one enemy allows Renekton to Recast this Ability once for 4 seconds. Fury Bonus: The Recast dash deals 70/115/160/205/250 + 1.35×bonus AD physical damage instead and removes 25/27.5/30/32.5/35% Armor for 4 seconds. Does not generate Fury.",
+   "summary": "Renekton dashes, dealing damage to units along the way. Empowered, Renekton deals bonus damage and reduces the Armor of units hit.",
+   "values": {
+    "BaseDamage": [
+     40,
+     70,
+     100,
+     130,
+     160
+    ],
+    "BaseADRatio": 0.9,
+    "EnragedBaseDamage": [
+     70,
+     115,
+     160,
+     205,
+     250
+    ],
+    "EnragedADRatio": 1.35,
+    "EnragedArmorShred": [
+     25,
+     27.5,
+     30,
+     32.5,
+     35
+    ],
+    "ShredTimer": 4,
+    "MinionRageGeneration": 2,
+    "ChampionRageGeneration": 10,
+    "FuryMax": 30,
+    "DiceTimer": 4,
+    "BaseDashSpeed": 750
+   },
+   "formulas": {
+    "BasicDamage": "40/70/100/130/160 + 0.9×bonus AD",
+    "EmpDamage": "70/115/160/205/250 + 1.35×bonus AD",
+    "DashSpeed": "750 + 1×move speed"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Dominus",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 20.0,
+   "description": "Renekton surrounds himself with dark energies for 15 seconds, gaining 300/500/700 max Health and 20 Fury. While active, he deals 60/150/240 + 0.1×AP + 0.1×bonus AD magic damage and gains 5 Fury per second.",
+   "summary": "Renekton transforms into the Tyrant form, gaining bonus Health and dealing damage to enemies around him. While in this form, Renekton gains Fury periodically.",
+   "values": {
+    "HealthGain": [
+     300,
+     500,
+     700
+    ],
+    "AuraDamagePerSecond": [
+     60,
+     150,
+     240
+    ],
+    "FuryPerSecond": 5,
+    "FuryOnCast": 20,
+    "BuffDuration": 15,
+    "TickRate": 0.5
+   },
+   "formulas": {
+    "TotalDamagePerSecond": "60/150/240 + 0.1×AP + 0.1×bonus AD"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Reign of Anger",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Renekton's attacks generate Fury, increased when he is low on life. This Fury can empower his abilities with bonus effects.",
+   "summary": "Renekton's attacks generate Fury, increased when he is low on life. This Fury can empower his abilities with bonus effects.",
+   "values": {
+    "FuryPerAttack": 5,
+    "FuryIncreasePercent": 0.5,
+    "LowHealthPercentThreshold": 0.5,
+    "InCombatDuration": 12,
+    "FuryCost": 50
+   },
+   "formulas": {},
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Early lane bully who builds Fury from attacks; at 50 Fury his next ability is empowered. Wins lane with E–W–Q combos and Q sustain, then falls off if he can't snowball.",
+  "positions": [
+   "TOP",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "E dash, then recast for a second dash, gives strong engage and escape",
+   "W empowered attack stun (longer with Fury) locks down a target",
+   "Q spin heals, more with Fury",
+   "R gives bonus health and Fury aura",
+   "Very strong first-item spike"
+  ],
+  "weaknesses": [
+   "Level 1 isn't his strongest (Fury is hard to build)",
+   "Falls off later",
+   "W is parried by Fiora W and dodged by Jax E",
+   "Predictable combo",
+   "Weak when E is down"
+  ],
+  "curve": {
+   "lvl1": "medium – low Fury",
+   "lvl2": "medium",
+   "lvl3": "strong – E-W-Q",
+   "lvl6": "strong – R",
+   "items": "strong – first item",
+   "late": "weak"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Usually wants level 3 before trading: his kit revolves around all three abilities and Fury (reviewer).",
+  "waveClear": "very good (Q)",
+  "sustain": "medium (Q heal)",
+  "mobility": "high (E twice)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "W",
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E",
+    "W"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Fury from attacks; 50 Fury empowers the next ability."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Spin, heals; more with Fury."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Empowered attack: dodged by Jax E, parried by Fiora W (stun → Renekton stunned)."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash; recast for a second dash."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Health and aura."
+   }
+  },
+  "windowAgainst": "Low Fury, or W/E down.",
+  "checks": []
+ }
+}

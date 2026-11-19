@@ -1,0 +1,360 @@
+{
+ "id": 240,
+ "alias": "Kled",
+ "name": "Kled",
+ "title": "the Cantankerous Cavalier",
+ "classes": [
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 410,
+  "hpPerLevel": 84,
+  "ad": 65,
+  "adPerLevel": 3.5,
+  "armor": 35,
+  "armorPerLevel": 5.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3.5,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Bear Trap on a Rope",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 800.0,
+   "description": "Mounted: Kled throws a bear trap that deals 30/55/80/105/130 + 0.6\u00d7bonus AD physical damage and hooks onto the first enemy champion or large jungle monster hit. If Kled stays near a hooked enemy for 1.75 seconds, he yanks out the trap, dealing (30/55/80/105/130 + 0.6\u00d7bonus AD) \u00d7 2 physical damage, Pulling them, and Slowing by 30/35/40/45/50% for 2.5 seconds.",
+   "summary": "Kled throws a bear trap that damages and hooks an enemy champion. If shackled for a short duration, the target takes additional physical damage and is yanked toward Kled. When dismounted, this ability is replaced by Pocket Pistol, a ranged gun blast that knocks back Kled and restores courage.",
+   "values": {
+    "GrievousAmount": 0.4,
+    "GrievousDuration": 5,
+    "SlowAmount": [
+     -0.3,
+     -0.35,
+     -0.4,
+     -0.45,
+     -0.5
+    ],
+    "SlowDuration": 2.5,
+    "CouragePerPellet": 5,
+    "DismountedBaseDamage": [
+     35,
+     50,
+     65,
+     80,
+     95
+    ],
+    "FirstHitBaseDamage": [
+     30,
+     55,
+     80,
+     105,
+     130
+    ],
+    "TetherPopTime": 1.75,
+    "TetherPopDamageMultiplier": 2,
+    "MinionDamageMultiplier": 1.5,
+    "MissileSpawnCheckRadius": 60
+   },
+   "formulas": {
+    "TotalDamage": "30/55/80/105/130 + 0.6\u00d7bonus AD",
+    "TotalYankDamage": "(30/55/80/105/130 + 0.6\u00d7bonus AD) \u00d7 2",
+    "DismountedQDamage": "35/50/65/80/95 + 0.65\u00d7bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Violent Tendencies",
+   "cooldown": [
+    13,
+    12,
+    11,
+    10,
+    9
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 0.0,
+   "description": "Passive: Kled's next Attack grants 150% Attack Speed for four Attacks or 4 seconds. The fourth hit deals an additional 20/30/40/50/60 plus (4.5/5/5.5/6/6.5 + 0.02\u00d7bonus AD + 0.004\u00d7bonus max HP) \u00d7 0.01 max Health physical damage.",
+   "summary": "Kled gains massive attack speed for four attacks. The fourth attack deals more damage.",
+   "values": {
+    "WCooldown": [
+     13,
+     12,
+     11,
+     10,
+     9
+    ],
+    "ChampCooldownRefund": 1.5,
+    "NonChampCooldownRefund": 0.5,
+    "AttackSpeed": 1.5,
+    "4HitMaxHealthDamage": [
+     4.5,
+     5,
+     5.5,
+     6,
+     6.5
+    ],
+    "BaseFlatDamage": [
+     20,
+     30,
+     40,
+     50,
+     60
+    ],
+    "ActiveDuration": 4,
+    "MonsterCap": 200
+   },
+   "formulas": {
+    "PercentDamage": "(4.5/5/5.5/6/6.5 + 0.02\u00d7bonus AD + 0.004\u00d7bonus max HP) \u00d7 0.01"
+   },
+   "tags": [
+    "attack speed",
+    "empowered attack",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Jousting",
+   "cooldown": [
+    13,
+    12,
+    11,
+    10,
+    9
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 550.0,
+   "description": "Kled dashes, dealing 35/60/85/110/135 + 0.55\u00d7bonus AD physical damage to enemies he passes through, pulling minions and small monsters towards him. If this Ability hits an enemy champion or large jungle monster, Kled gains 50% Move Speed for 1 second(s) and can Recast within 3 seconds to dash back through the same target.",
+   "summary": "Kled dashes, dealing physical damage and gaining a short burst of speed. Kled can cast this ability again to dash back through his initial target, dealing the same damage.",
+   "values": {
+    "DashSpeed": 600,
+    "BaseDamage": [
+     35,
+     60,
+     85,
+     110,
+     135
+    ],
+    "MoveSpeed": 0.5,
+    "MoveSpeedDuration": 1,
+    "RecastWindow": 3,
+    "PassthroughDistance": 350,
+    "TetherRange": 700
+   },
+   "formulas": {
+    "TotalDamage": "35/60/85/110/135 + 0.55\u00d7bonus AD"
+   },
+   "tags": [
+    "dash",
+    "move speed"
+   ]
+  },
+  "R": {
+   "name": "Chaaaaaaaarge!!!",
+   "cooldown": [
+    140,
+    125,
+    110
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 3500.0,
+   "description": "Kled charges toward an area, leaving a trail that grants allies increasing Move Speed. While charging and for 2 seconds after Kled gains up to 200/300/400 + 3\u00d7bonus AD Shield. Skaarl rams the first enemy champion encountered, dealing (4/6/8 + 0.03\u00d7bonus AD) \u00d7 0.01 to (4/6/8 + 0.03\u00d7bonus AD) \u00d7 0.03 max Health magic damage (based on distance travelled) and briefly Knocking Back.",
+   "summary": "Kled and Skaarl charge to a location, leaving a speed-granting trail behind them and gaining a shield. Skaarl locks onto and rams the first enemy champion encountered.",
+   "values": {
+    "ShieldCapBase": [
+     200,
+     300,
+     400
+    ],
+    "PercentHPBase": [
+     4,
+     6,
+     8
+    ],
+    "DashAreaRange": 700,
+    "BackwardsCheckRange": 150,
+    "AreaTriggerRadius": 500,
+    "TOOLTIPRange": [
+     3500,
+     4000,
+     4500
+    ],
+    "SecondsToMaxPower": 3
+   },
+   "formulas": {
+    "{31b91b32}": "3\u00d7bonus AD",
+    "{598e3ed3}": "4/6/8 + 0.03\u00d7bonus AD",
+    "MaximumShield": "200/300/400 + 3\u00d7bonus AD",
+    "MaximumChargeDamage": "(4/6/8 + 0.03\u00d7bonus AD) \u00d7 0.03",
+    "MinimumDamageTooltip": "(4/6/8 + 0.03\u00d7bonus AD) \u00d7 0.01"
+   },
+   "tags": [
+    "airborne",
+    "heal",
+    "move speed",
+    "shield"
+   ]
+  },
+  "Passive": {
+   "name": "Skaarl, the Cowardly Lizard",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Kled rides his trusty steed, Skaarl, who takes damage for him. When Skaarl's health depletes, Kled dismounts. While dismounted, Kled's abilities change and he deals less damage to champions. Kled can restore Skaarl's courage by fighting enemies. At maximum courage, Kled remounts with a portion of Skaarl's health.",
+   "summary": "Kled rides his trusty steed, Skaarl, who takes damage for him. When Skaarl's health depletes, Kled dismounts. While dismounted, Kled's abilities change and he deals less damage to champions. Kled can restore Skaarl's courage by fighting enemies. At maximum courage, Kled remounts with a portion of Skaarl's health.",
+   "values": {
+    "CourageVsChamps": 15,
+    "CourageVsOther": 5,
+    "CourageLastHit": 5,
+    "DismountedResistRatio": 0.01,
+    "DismountedMSPenalty": 40,
+    "RemountDashDuration": 0.25,
+    "MountReturnTime": 0.25,
+    "DismountInvulnWindow": 0.5,
+    "DismountDistanceBase": 200,
+    "DismountSpeedRadius": 1200,
+    "ResistBonusPerEnemy": 0.3,
+    "ResistBonusRange": 1400,
+    "MountCD": 30
+   },
+   "formulas": {
+    "DismountedMS": "70+ (by level)",
+    "SkaarlHealth": "400\u20131400 (by level)",
+    "SkaarlRemountHealth": "0.4+ (by level)",
+    "DismountedResistBonus": "4 + 0.01\u00d7bonus max HP",
+    "MountCooldown": "30",
+    "DismountedResistBonusMax": "(4 + 0.01\u00d7bonus max HP) \u00d7 2.5",
+    "DismountedAttackPenalty": "0.15+ (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Kled is a fighter who rides Skaarl, a lizard with her own health bar, and dismounts when she runs out. He plays top, hooks enemies with Bear Trap on a Rope, and starts fights with Chaaaaaaaarge!!!.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Skaarl is a second health bar, so he survives more damage than it looks.",
+   "Bear Trap on a Rope hooks and pulls, a strong engage.",
+   "Jousting dashes through enemies and can be recast to dash back.",
+   "Chaaaaaaaarge!!! leads his team into a fight with move speed and a shield.",
+   "Strong all-in duelist early."
+  ],
+  "weaknesses": [
+   "Melee: kiting stops him.",
+   "Weak while dismounted.",
+   "Q yank needs him to stay near the hooked target.",
+   "Falls off late against tanky teams.",
+   "No ranged pressure."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 mounted all-in with Skaarl's health bar beats most top laners",
+   "lvl2": "strong \u2013 Q hook then yank drags the target into him",
+   "lvl3": "strong \u2013 E dash and recast completes the all-in",
+   "lvl6": "very strong \u2013 Chaaaaaaaarge!!! starts fights from far away with a shield",
+   "items": "medium \u2013 first item: Black Cleaver, Sundered Sky or Eclipse",
+   "late": "okay \u2013 engage tool, weaker late"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Kled is strong from level 1 and wants to all-in early.",
+  "waveClear": "Okay: E clears waves.",
+  "sustain": "Okay: Skaarl absorbs damage.",
+  "mobility": "Good: E dash and R charge.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "Q (Bear Trap) into E (Jousting)",
+   "engage": "R (Chaaaaaaaarge!!!) engage",
+   "escape": "E (Jousting) dash",
+   "answers": "None. Kled has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Skaarl, the Cowardly Lizard: Skaarl takes damage for him; Kled dismounts when she runs out and remounts with courage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block; walk away from Kled before the yank.",
+    "notes": "Bear Trap on a Rope: hooks the first champion hit; if he stays close, yanks (pulls) and slows."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "Jax E dodges; Fiora W parries.",
+    "notes": "Violent Tendencies: next attack grants attack speed; fourth hit deals % max HP damage."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Jousting: a dash, recastable through the same target."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Dodge sideways.",
+    "notes": "Chaaaaaaaarge!!!: a long charge that gives a shield and knocks back the first champion."
+   }
+  },
+  "windowAgainst": "Kled's window is when he is dismounted: he is much weaker until Skaarl returns.",
+  "checks": [
+   "Does Kled hook before going in?",
+   "Does Kled use R to engage?",
+   "Does the enemy team dismount Kled?"
+  ]
+ }
+}

@@ -1,0 +1,346 @@
+{
+ "id": 3,
+ "alias": "Galio",
+ "name": "Galio",
+ "title": "the Colossus",
+ "classes": [
+  "tank",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 126,
+  "ad": 59,
+  "adPerLevel": 3.5,
+  "armor": 24,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1.5,
+  "range": 150,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Winds of War",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    80
+   ],
+   "costType": null,
+   "range": 825.0,
+   "description": "Galio fires two windblasts that deal 70/105/140/175/210 + 0.7×AP magic damage each. When the windblasts meet, they combine into a tornado that deals (85f4c0e9) × 4% max Health magic damage over 2 seconds.",
+   "summary": "Galio fires two windblasts that converge into a large tornado that deals damage over time.",
+   "values": {
+    "BaseDamage": [
+     70,
+     105,
+     140,
+     175,
+     210
+    ],
+    "SuperQDuration": 2,
+    "SuperQMonsterMaxDamage": 50,
+    "SuperQBasePercentage": 2,
+    "TornadoTicks": 4
+   },
+   "formulas": {
+    "QMissileDamage": "70/105/140/175/210 + 0.7×AP",
+    "{85f4c0e9}": "2 + 0.01×AP",
+    "PercentSuperQDamageTT": "(85f4c0e9) × 4",
+    "SuperQMonsterMaxDamageTotal": "(50 × 4)"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Shield of Durand",
+   "cooldown": [
+    18,
+    17,
+    16,
+    15,
+    14
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 275.0,
+   "description": "Passive: Galio gains a 0.08/0.11/0.14/0.17/0.2×max HP Magic Shield after not taking damage for 12+ (by level) seconds. Begin Charging: Galio reduces incoming magic damage by (0.25/0.3/0.35/0.4/0.45 + APRatio×AP + 0.001×bonus MR + HPRatio×bonus max HP) × 1 and incoming physical damage by ((0.25/0.3/0.35/0.4/0.45 + APRatio×AP + 0.001×bonus MR + HPRatio×bonus max HP) × 1) × 0.5 and Slows himself by 15%. Release: Galio Taunts enemy champions for between 0.5 to 1.5 seconds, deals between 20/30/40/50/60 + 0.3×AP and (20/30/40/50/60 + 0.3×AP) × 3 magic damage, and refreshes the damage reduction for 2 seconds. Taunt duration, damage, and range increase with charge time.",
+   "summary": "Galio charges a defensive stance, moving slowly. Upon releasing the charge, Galio will taunt and damage nearby enemies.",
+   "values": {
+    "MinimumWBaseDamage": [
+     20,
+     30,
+     40,
+     50,
+     60
+    ],
+    "MaximumWBaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "PassiveShieldHealthRatio": [
+     0.08,
+     0.11,
+     0.14,
+     0.17,
+     0.2
+    ],
+    "MRRatio": 0.001,
+    "PhysicalDRPercent": 0.5,
+    "DamageReductionBase": [
+     0.25,
+     0.3,
+     0.35,
+     0.4,
+     0.45
+    ],
+    "MaxChargeDuration": 2,
+    "SelfSlowPercent": 15,
+    "CCDurationMin": 0.5,
+    "HpRatio": 0.0,
+    "CCDurationMax": 1.5,
+    "DRLingerDuration": 2,
+    "ApRatio": 0.0,
+    "BaseDamage": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "BaseApRatio": 0.6
+   },
+   "formulas": {
+    "TotalPassiveShield": "0.08/0.11/0.14/0.17/0.2×max HP",
+    "MagicDamageReduction": "(0.25/0.3/0.35/0.4/0.45 + APRatio×AP + 0.001×bonus MR + HPRatio×bonus max HP) × 1",
+    "PhysicalDamageReduction": "((0.25/0.3/0.35/0.4/0.45 + APRatio×AP + 0.001×bonus MR + HPRatio×bonus max HP) × 1) × 0.5",
+    "MinTotalDamage": "20/30/40/50/60 + 0.3×AP",
+    "MaxTotalDamage": "(20/30/40/50/60 + 0.3×AP) × 3",
+    "PassiveShieldOOCTimer": "12+ (by level)",
+    "{7a7521c1}": "((0.25/0.3/0.35/0.4/0.45 + APRatio×AP + 0.001×bonus MR + HPRatio×bonus max HP) × 1) × 100",
+    "{c9a870dd}": "((0.25/0.3/0.35/0.4/0.45 + APRatio×AP + 0.001×bonus MR + HPRatio×bonus max HP) × 1) × 50"
+   },
+   "tags": [
+    "damage reduction",
+    "shield",
+    "slow",
+    "taunt"
+   ]
+  },
+  "E": {
+   "name": "Justice Punch",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 650.0,
+   "description": "Galio lunges forward with a mighty blow, Knocking Up for 0.75 seconds and dealing 100/135/170/205/240 + 1×AP magic damage to the first champion hit. Other enemies in the way take (100/135/170/205/240 + 1×AP) × 0.8 magic damage. Galio's dash stops on hitting terrain.",
+   "summary": "Galio will briefly step back and charge, knocking up the first enemy champion he encounters.",
+   "values": {
+    "BaseDamage": [
+     100,
+     135,
+     170,
+     205,
+     240
+    ],
+    "KnockupDuration": 0.75,
+    "MinRange": 250
+   },
+   "formulas": {
+    "TotalDamage": "100/135/170/205/240 + 1×AP",
+    "PVEDamage": "(100/135/170/205/240 + 1×AP) × 0.8"
+   },
+   "tags": [
+    "airborne",
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Hero's Entrance",
+   "cooldown": [
+    180,
+    160,
+    140
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 4000.0,
+   "description": "Galio designates an allied champion's position as his landing spot, granting all allied champions in the area Shield of Durand's passive Shield for 5 seconds. Galio then flies to his landing zone. When Galio lands, he Knocks Up for 0.75 seconds and deals 150/250/350 + 0.7×AP + 1×bonus MR magic damage.",
+   "summary": "Galio designates an ally's position as his landing spot, granting all allies in the area a magic shield. After a delay Galio smashes down location, knocking up nearby enemies.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "StunDurationOuter": 0.75,
+    "TemporaryWShieldDuration": 5
+   },
+   "formulas": {
+    "TotalDamage": "150/250/350 + 0.7×AP + 1×bonus MR"
+   },
+   "tags": [
+    "airborne",
+    "shield"
+   ]
+  },
+  "Passive": {
+   "name": "Colossal Smash",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every few seconds, Galio's next basic attack deals bonus magic damage in an area.",
+   "summary": "Every few seconds, Galio's next basic attack deals bonus magic damage in an area.",
+   "values": {
+    "ChargeRatePerHit": 3,
+    "PassiveCooldown": 5
+   },
+   "formulas": {
+    "TotalDamage": "15–115 (by level) + 1×AD + 0.4×AP + 0.6×bonus MR",
+    "PassiveCooldownModified": "(? × 5)"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Anti-mage tank who taunts with W, knocks up with E and joins fights across the map with R.",
+  "positions": [
+   "MIDDLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Strong against magic-damage lanes (W reduction, magic shield)",
+   "Area taunt on W",
+   "Global-ish R to join fights",
+   "Good waveclear with Q"
+  ],
+  "weaknesses": [
+   "Weak against physical damage",
+   "Low sustained damage",
+   "E can be stopped by champions (knocked back on hit)",
+   "Mana-hungry early"
+  ],
+  "curve": {
+   "lvl1": "medium – passive poke",
+   "lvl2": "medium",
+   "lvl3": "medium-strong – E+W",
+   "lvl6": "strong – R map plays",
+   "items": "first AP/MR item",
+   "late": "strong engage"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs E to engage into W taunt.",
+  "waveClear": "good – Q",
+  "sustain": "low",
+  "mobility": "E dash, R long-range jump",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "P"
+   ],
+   "engage": [
+    "E",
+    "W",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "P": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Periodic area empowered attack"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": "none",
+    "notes": "Two windblasts; tornado if they meet"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "taunt",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "none",
+    "notes": "Charge reduces damage (mostly magic); release taunts"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "none",
+    "notes": "Dash; knocks up first champion; stops on champion collision"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "none",
+    "notes": "Shield allies in area, then land and knock up"
+   }
+  },
+  "windowAgainst": "When W is down (no taunt / damage reduction) or after E.",
+  "checks": []
+ }
+}

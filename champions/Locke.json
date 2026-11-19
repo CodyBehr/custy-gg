@@ -1,0 +1,370 @@
+{
+ "id": 805,
+ "alias": "Locke",
+ "name": "Locke",
+ "title": "the Ashen Exorcist",
+ "classes": [
+  "assassin",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 109,
+  "ad": 58,
+  "adPerLevel": 3,
+  "armor": 32,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.688,
+  "attackSpeedPerLevel": 3.3,
+  "range": 125,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Ritual Nails",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 950.0,
+   "description": "Locke readies a set of Soul Nails to throw, dealing 40/48/56/64/72 + 0.2×AP magic damage and marking enemies hit. Nails apply a 25/25/60% Slow for 1/1/2 seconds, stacking with the amount of nails hit. Attacking the enemy consumes the Soul Nails, dealing 0.25/0.275/0.3/0.325/0.35×AP + 15/22/29/36/43 magic damage per stack, increased by 20% and 40% for two and three nails respectively.",
+   "summary": "Locke readies a set of Soul Nails to throw, dealing damage to and marking enemies hit. Locke can consume the marks to deal bonus damage with his attacks.",
+   "values": {
+    "BaseMissileDamage": [
+     40,
+     48,
+     56,
+     64,
+     72
+    ],
+    "Duration": 4,
+    "Ammo": 3,
+    "MaxStacks": 3,
+    "NailDuration": 4,
+    "SlowAmount1": 0.25,
+    "SlowAmount2": 0.25,
+    "SlowAmount3": 0.6,
+    "SlowDuration1": 1,
+    "SlowDuration2": 1,
+    "SlowDuration3": 2,
+    "MarkDamage": [
+     15,
+     22,
+     29,
+     36,
+     43
+    ],
+    "MarkRatio": [
+     0.25,
+     0.275,
+     0.3,
+     0.325,
+     0.35
+    ],
+    "TwoMarkBonusPercent": 20,
+    "ThreeMarkBonusPercent": 40,
+    "QMissileMinionMod": 1,
+    "QMarkMinionMod": 1
+   },
+   "formulas": {
+    "MissileDamage": "40/48/56/64/72 + 0.2×AP",
+    "NailDamage": "0.25/0.275/0.3/0.325/0.35×AP + 15/22/29/36/43",
+    "AmmoCooldownReset": "0.1–0.4 (by level)"
+   },
+   "tags": [
+    "projectile",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Soul Ignition",
+   "cooldown": [
+    20,
+    18,
+    16,
+    14,
+    12
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 250.0,
+   "description": "Locke ignites his own soul, gaining 0.4–0.7 (by level) Attack Speed and 0.4 + 0.0×AP Move Speed that decays over 1 + 1 seconds. For 5 seconds, he suffers 2% current Health true damage per second but Heals back the last 40/60/80/100/120 + 1×AP damage taken, and an additional 20–200 (by level) + 0.2×AP Health based on missing Health and time passed, up to a maximum of ? + 0.6×AP Health remaining. Can be Recast to end early.",
+   "summary": "Locke ignites his soul, gaining Attack Speed and Move Speed, and dealing damage to himself. At the end of the duration, Locke will heal back a portion of the damage he takes during the effect.",
+   "values": {
+    "BaseMoveSpeed": 0.4,
+    "BaseDuration": 5,
+    "Radius": 250,
+    "BaseDamageRestoreAmount": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "HealthCost": 0.02,
+    "DecayTime": 1,
+    "MinMoveSpeed": 0.2,
+    "TimeMaxPower": 1,
+    "HealCapAPRatio": 0.6,
+    "HealCapLevel1Value": 100,
+    "HealCapLevel18Value": 500,
+    "BaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "Duration": 6,
+    "MinDashRange": 100
+   },
+   "formulas": {
+    "MoveSpeed": "0.4 + 0.0×AP",
+    "DamageRestoreAmount": "40/60/80/100/120 + 1×AP",
+    "Duration": "5",
+    "AttackSpeed": "0.4–0.7 (by level)",
+    "MaxHealingThreshold": "? + 0.6×AP",
+    "AdditionalHeal": "20–200 (by level) + 0.2×AP",
+    "DecayTimeHelper": "1 + 1",
+    "Damage": "80/120/160/200/240 + 0.5×AP"
+   },
+   "tags": [
+    "attack speed",
+    "execute",
+    "heal",
+    "move speed",
+    "true damage"
+   ]
+  },
+  "E": {
+   "name": "Ashen Pursuit",
+   "cooldown": null,
+   "cost": [
+    40,
+    50,
+    60,
+    70,
+    80
+   ],
+   "costType": null,
+   "range": 425.0,
+   "description": "Locke teleports to a location, dealing 40/55/70/85/100 + 0.5×AP magic damage to nearby enemies on arrival. On his next Attack, he dashes to his target, dealing 40/60/80/100/120 + 0.4×AP magic damage to all enemies in his path. Each hit consumes Soul Nails. If Locke scores a takedown, the Cooldown of this Ability is reset.",
+   "summary": "Locke teleports to a location before dashing to attack his next target, dealing damage to enemies passed through.",
+   "values": {
+    "BaseOnHitDamage": [
+     40,
+     55,
+     70,
+     85,
+     100
+    ],
+    "MinCastRange": 150,
+    "Radius": 100,
+    "BaseDashDamage": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "BonusRange": 275,
+    "E2AttackDelay": 0.1,
+    "APRatio": 0.4
+   },
+   "formulas": {
+    "OnHitDamage": "40/55/70/85/100 + 0.5×AP",
+    "DashDamage": "40/60/80/100/120 + 0.4×AP"
+   },
+   "tags": [
+    "blink",
+    "dash",
+    "empowered attack"
+   ]
+  },
+  "R": {
+   "name": "Purgatory",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1000.0,
+   "description": "Locke throws a binding artifact to a location, dealing 150/225/300 + 0.6×AP magic damage and Slowing enemies in the area by 99%, decaying over 2 seconds. The artifact marks enemies hit for 5 seconds, sealing away marked enemy champions brought below (varies), and resetting the duration of the mark on other affected champions. After the duration ends, if at least one champion was sealed, the artifact lands on the ground. Locke can pick up the artifact to permanently increase its execution threshold by 0.5%, and refund 20% of his total Cooldown, for each champion sealed.",
+   "summary": "Locke throws a binding artifact that deals damage and potentially executes enemies hit. Locke gains additional power for sealing away enemy champions.",
+   "values": {
+    "BaseDamage": [
+     150,
+     225,
+     300
+    ],
+    "SlowDuration": 2,
+    "Radius": 400,
+    "SlowAmount": 0.99,
+    "ExecutionThreshold": [
+     0.1,
+     0.11,
+     0.12
+    ],
+    "Duration": 5,
+    "CooldownReduction": 20,
+    "AbilityHastePerStack": 6,
+    "Anim_BiteTime": 0.39,
+    "ExecuteThresholdPerStack": 0.005
+   },
+   "formulas": {
+    "Damage": "150/225/300 + 0.6×AP",
+    "ExecuteBonusCalc": "?",
+    "{6c540a3a}": "0.1/0.11/0.12 + ?"
+   },
+   "tags": [
+    "execute",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Silver Stake",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Locke's attacks deal additional magic damage On-Hit, increased based on enemy missing Health.",
+   "summary": "Locke's attacks deal additional magic damage On-Hit, increased based on enemy missing Health.",
+   "values": {
+    "MinOnHitStartValue": 5,
+    "MinOnHitEndValue": 40,
+    "MaxOnHitStartValue": 10,
+    "MaxOnHitEndValue": 80
+   },
+   "formulas": {
+    "MinOnHitDamage": "? + 0.1×AP",
+    "MaxOnHitDamage": "? + 0.2×AP"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "New melee AP assassin who marks with Q nails, then E teleports and dashes in to cash them with attacks; R seals low-health champions.",
+  "positions": [
+   "MIDDLE"
+  ],
+  "strengths": [
+   "burst by consuming Soul Nails with attacks",
+   "E teleport + dash engage, resets on takedown",
+   "R area 99% slow and execute seal",
+   "W attack speed and self-heal"
+  ],
+  "weaknesses": [
+   "W costs his own health",
+   "melee range",
+   "needs Q marks for damage",
+   "kit details still new: verify"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "medium",
+   "lvl3": "strong – Q/E combo",
+   "lvl6": "strong – R",
+   "items": "strong – AP item",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs Q marks + E engage (level 3) for real trades.",
+  "waveClear": "medium",
+  "sustain": "medium (W heal back)",
+  "mobility": "high (E)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E",
+    "Passive"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "On-hit missing-health damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Nails slow and mark; consumed by attacks."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Self true damage over time, heals back."
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Teleport, then next attack dashes to target."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Area slow; seals champions below an execute threshold."
+   }
+  },
+  "windowAgainst": "E down: no engage or escape.",
+  "checks": [
+   "New champion: everything here is read from Riot's text, not from experience",
+   "Q projectile?",
+   "R seal = execute"
+  ]
+ }
+}

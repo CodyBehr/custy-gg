@@ -1,0 +1,311 @@
+{
+ "id": 497,
+ "alias": "Rakan",
+ "name": "Rakan",
+ "title": "The Charmer",
+ "classes": [
+  "support"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 2,
+  "crowdControl": 3,
+  "mobility": 3,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 99,
+  "ad": 62,
+  "adPerLevel": 3.5,
+  "armor": 30,
+  "armorPerLevel": 4.9,
+  "attackSpeed": 0.635,
+  "attackSpeedPerLevel": 3,
+  "range": 300,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Gleaming Quill",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": 45,
+   "costType": null,
+   "range": 850.0,
+   "description": "Rakan flings a magical feather that deals 70/115/160/205/250 + 0.7×AP magic damage to the first enemy hit. If the feather hits a champion or epic jungle monster, Rakan restores 40–210 (by level) + 0.55×AP Health to himself and nearby allies after 3 seconds or when he touches an allied champion.",
+   "summary": "Flings a magical feather that deals magic damage. Striking a champion or epic monster enables Rakan to heal his allies.",
+   "values": {
+    "BaseDamage": [
+     70,
+     115,
+     160,
+     205,
+     250
+    ],
+    "HealDelay": 3,
+    "BaseCDActual": [
+     11,
+     10,
+     9,
+     8,
+     7
+    ],
+    "DamageAPRatio": 0.7,
+    "HealAPRatio": 0.55
+   },
+   "formulas": {
+    "TotalDamage": "70/115/160/205/250 + 0.7×AP",
+    "TotalHeal": "40–210 (by level) + 0.55×AP",
+    "{b88e1204}": "(11/10/9/8/7 × ?)"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Grand Entrance",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "Rakan dashes, then spirals into the air, Knocking Up for 1 second and dealing 70/120/170/220/270 + 0.8×AP magic damage.",
+   "summary": "Dashes to a location, knocking up nearby enemies on arrival.",
+   "values": {
+    "BaseDashSpeed": 1700,
+    "BaseDamage": [
+     70,
+     120,
+     170,
+     220,
+     270
+    ],
+    "KnockupDuration": 1
+   },
+   "formulas": {
+    "TotalDamage": "70/120/170/220/270 + 0.8×AP"
+   },
+   "tags": [
+    "airborne",
+    "dash"
+   ]
+  },
+  "E": {
+   "name": "Battle Dance",
+   "cooldown": 0,
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": 650.0,
+   "description": "Rakan dashes to an allied champion, granting them 50/75/100/125/150 + 0.7×AP Shield for 3 seconds. Rakan can Recast this Ability once within 5 seconds.",
+   "summary": "Flies to an allied champion granting them a shield. Can be re-cast for free for a short duration.",
+   "values": {
+    "BaseShield": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "RecastWindow": 5,
+    "Duration": 3,
+    "Cooldown": [
+     20,
+     18,
+     16,
+     14,
+     12
+    ],
+    "BonusDashSpeed": 1150,
+    "XayahBonusDashSpeed": 1250
+   },
+   "formulas": {
+    "TotalShield": "50/75/100/125/150 + 0.7×AP"
+   },
+   "tags": [
+    "dash",
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "The Quickness",
+   "cooldown": [
+    130,
+    110,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 150.0,
+   "description": "Rakan gains 75% Move Speed for 4 seconds. Rakan deals 100/200/300 + 0.5×AP magic damage and Charms enemies for 1/1.25/1.5 second(s) the first time he touches them. The first champion touched grants Rakan 150% decaying Move Speed.",
+   "summary": "Gains Move Speed, charming and dealing magic damage to enemies touched.",
+   "values": {
+    "BaseDamage": [
+     100,
+     200,
+     300
+    ],
+    "Duration": 4,
+    "CharmDuration": [
+     1,
+     1.25,
+     1.5
+    ],
+    "BuffExtensionDuration": 0.25,
+    "InitialCastSpeed": 75,
+    "TouchSpeed": 150,
+    "TouchRadius": 150
+   },
+   "formulas": {
+    "TotalDamageTooltip": "100/200/300 + 0.5×AP"
+   },
+   "tags": [
+    "charm",
+    "move speed"
+   ]
+  },
+  "Passive": {
+   "name": "Fey Feathers",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Rakan periodically gains a shield.",
+   "summary": "Rakan periodically gains a shield.",
+   "values": {
+    "HitCooldown": 1
+   },
+   "formulas": {
+    "TotalShield": "30–225 (by level) + 0.95×AP",
+    "ShieldCooldown": "40+ (by level)"
+   },
+   "tags": [
+    "shield"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Mobile engage support who dashes in with W knock-up and charms with R. Returns to allies with E for a shield.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "W engage",
+   "R charm",
+   "E dash to ally with shield",
+   "Very mobile",
+   "Strong with Xayah"
+  ],
+  "weaknesses": [
+   "Squishy",
+   "Short range",
+   "Low damage",
+   "Predictable W wind-up",
+   "Dies to CC"
+  ],
+  "curve": {
+   "lvl1": "medium – Q heal",
+   "lvl2": "strong – W engage",
+   "lvl3": "strong – E exit",
+   "lvl6": "strong – R charm",
+   "items": "medium – support items",
+   "late": "medium – engage"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Engages from level 2 (W) with E as an exit at 3.",
+  "waveClear": "low",
+  "sustain": "low – Q heal",
+  "mobility": "high – W, E, R",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q"
+   ],
+   "engage": [
+    "W",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Heals allies after hit."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Dash knock-up."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash to ally; shield."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "charm",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Speed and charm."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield."
+   }
+  },
+  "windowAgainst": "W and E down: punish.",
+  "checks": []
+ }
+}

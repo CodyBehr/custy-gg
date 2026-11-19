@@ -1,0 +1,313 @@
+{
+ "id": 161,
+ "alias": "Velkoz",
+ "name": "Vel'Koz",
+ "title": "the Eye of the Void",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 590,
+  "hpPerLevel": 102,
+  "ad": 55,
+  "adPerLevel": 3.142,
+  "armor": 22,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.643,
+  "attackSpeedPerLevel": 1.59,
+  "range": 525,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Plasma Fission",
+   "cooldown": 7,
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": 1050.0,
+   "description": "Vel'Koz shoots a plasma bolt that deals 80/120/160/200/240 + 0.9×AP magic damage and Slows by 70% decaying over 1/1.4/1.8/2.2/2.6 second(s). At the end of its range, on hitting a target, or on Recasting, the bolt splits and fires two new bolts at a 90 degree angle. Killing a unit with this restores 20/22.5/25/27.5/30 Mana.",
+   "summary": "Vel'Koz shoots a bolt of plasma that splits in two on reactivation or upon hitting an enemy. The bolt slows and damages on hit.",
+   "values": {
+    "PassiveStacksToAdd": 1,
+    "BaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "SlowAmount": 0.7,
+    "SlowDuration": [
+     1,
+     1.4,
+     1.8,
+     2.2,
+     2.6
+    ],
+    "SplitTelegraphTime": 0.25,
+    "ManaRefund": 0.5,
+    "TooltipManaRefund": [
+     20,
+     22.5,
+     25,
+     27.5,
+     30
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "80/120/160/200/240 + 0.9×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Void Rift",
+   "cooldown": 1.5,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 1050.0,
+   "description": "Vel'Koz opens a rift to the void, dealing 30/50/70/90/110 + 0.2×AP magic damage. The rift then erupts, dealing 45/75/105/135/165 + 0.25×AP magic damage. This Ability has 2 charges ((varies) second refresh).",
+   "summary": "Vel'Koz opens a rift to the void that deals an initial burst of damage, then explodes for a second burst of damage after a delay.",
+   "values": {
+    "PassiveStacksToAdd": 1,
+    "BaseInitialDamage": [
+     30,
+     50,
+     70,
+     90,
+     110
+    ],
+    "BaseSecondaryDamage": [
+     45,
+     75,
+     105,
+     135,
+     165
+    ]
+   },
+   "formulas": {
+    "InitialDamage": "30/50/70/90/110 + 0.2×AP",
+    "SecondaryDamage": "45/75/105/135/165 + 0.25×AP"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Tectonic Disruption",
+   "cooldown": [
+    12,
+    11.5,
+    11,
+    10.5,
+    10
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 810.0,
+   "description": "Vel'Koz disrupts a nearby area, causing it to explode, Knocking Up for 0.75 seconds and dealing 70/100/130/160/190 + 0.3×AP magic damage. Enemies close to Vel'Koz will be Knocked Back instead of Knocked Up.",
+   "summary": "Vel'Koz causes an area to explode, knocking up enemies, and knocking close enemies slightly away.",
+   "values": {
+    "PassiveStacksToAdd": 1,
+    "BaseDamage": [
+     70,
+     100,
+     130,
+     160,
+     190
+    ],
+    "StunDuration": 0.75,
+    "MoveDistance": 225,
+    "APRatio": 0.3,
+    "MaxDetonationTime": 0.55,
+    "MinDetonationTime": 0.25
+   },
+   "formulas": {
+    "TotalDamage": "70/100/130/160/190 + 0.3×AP"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "R": {
+   "name": "Life Form Disintegration Ray",
+   "cooldown": [
+    100,
+    90,
+    80
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 1575.0,
+   "description": "Vel'Koz channels a ray of energy that follows the cursor, dealing a total of ? + 1.25×AP magic damage over 2.5 seconds and Slowing by (varies)%. Deals true damage instead to enemies recently damaged by Organic Deconstruction. Enemies gain stacks of Deconstruction periodically while in the beam.",
+   "summary": "Vel'Koz unleashes a channelled beam that follows the cursor for 2.5 seconds that deals magic damage. Organic Deconstruction Researches enemy champions causing them to take true damage instead.",
+   "values": {
+    "PassiveStacksToAddPerTick": 1
+   },
+   "formulas": {
+    "TotalDamage": "? + 1.25×AP"
+   },
+   "tags": [
+    "slow",
+    "true damage"
+   ]
+  },
+  "Passive": {
+   "name": "Organic Deconstruction",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Vel'Koz's abilities apply Organic Deconstruction to enemies on hit. If 3 stacks are accumulated, the enemy will take a burst of true damage.",
+   "summary": "Vel'Koz's abilities apply Organic Deconstruction to enemies on hit. If 3 stacks are accumulated, the enemy will take a burst of true damage.",
+   "values": {
+    "Duration": 7,
+    "MaxStacks": 3
+   },
+   "formulas": {
+    "TotalDamage": "0.65×AP + 35–205 (by level)"
+   },
+   "tags": [
+    "true damage"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Long-range artillery mage who stacks true damage with his ability combo and zones with his R beam. Wins by poke and range, not mobility.",
+  "positions": [
+   "MIDDLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Very long-range poke",
+   "True damage passive after 3 ability hits",
+   "E knock-up for picks",
+   "R beam deals huge damage in fights",
+   "Good wave clear with W"
+  ],
+  "weaknesses": [
+   "No mobility",
+   "Skillshot-reliant",
+   "Mana-hungry",
+   "Weak to dive",
+   "R channel can be interrupted"
+  ],
+  "curve": {
+   "lvl1": "medium – Q/W poke",
+   "lvl2": "medium – Q+W poke",
+   "lvl3": "medium – full combo for passive",
+   "lvl6": "strong – R",
+   "items": "strong – Luden's/Malignance",
+   "late": "strong – teamfight burst"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs 3 abilities to proc passive true damage.",
+  "waveClear": "good – W",
+  "sustain": "none",
+  "mobility": "none",
+  "range": "long-ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Splits on recast; slows."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Delayed line, two hits."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Delayed area knock-up."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Channel beam; interrupted by crowd control."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "True damage after 3 hits."
+   }
+  },
+  "windowAgainst": "E down: engage freely; he can't peel.",
+  "checks": []
+ }
+}

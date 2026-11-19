@@ -1,0 +1,271 @@
+{
+ "id": 143,
+ "alias": "Zyra",
+ "name": "Zyra",
+ "title": "Rise of the Thorns",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 574,
+  "hpPerLevel": 93,
+  "ad": 53,
+  "adPerLevel": 3.2,
+  "armor": 29,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.681,
+  "attackSpeedPerLevel": 2.11,
+  "range": 575,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Deadly Spines",
+   "cooldown": [
+    7,
+    6.5,
+    6,
+    5.5,
+    5
+   ],
+   "cost": 55,
+   "costType": null,
+   "range": 800.0,
+   "description": "Zyra causes thick vines to spread and explode into spines, dealing 60/100/140/180/220 + 0.65\u00d7AP magic damage. If this Ability is cast near a Seed, the Seed grows into a Thorn Spitter that deals @spell.ZyraP:PlantDamage@ magic damage and lasts @spell.ZyraP:PlantDuration@ seconds. Thorn Spitters have 575 range.",
+   "summary": "Thick vines spread through the ground and explode into spines, dealing magic damage to enemies within the area. If cast near a seed, Deadly Spines grows a Thorn Spitter plant, which fires at enemies from afar.",
+   "values": {
+    "BaseDamage": [
+     60,
+     100,
+     140,
+     180,
+     220
+    ]
+   },
+   "formulas": {
+    "InitialDamage": "60/100/140/180/220 + 0.65\u00d7AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Rampant Growth",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": 850.0,
+   "description": "Zyra plants a Seed that lasts 60 seconds. These Seeds grant True Sight of enemy champions that step on them for 2 seconds, but are still destroyed. This Ability has 2 charges with a (varies) second recharge time. Killing an enemy minion or monster reduces the recharge time by 35%. Champion takedowns reduce the recharge time by 100% instead.",
+   "summary": "Zyra plants a seed, lasting up to 60 seconds. Deadly Spines and Grasping Roots cast near seeds will turn them into plants who fight for Zyra. Zyra can store multiple seeds at once, and killing enemies reduces Rampant Growth's recharge time.",
+   "values": {
+    "KillAmmoRefundMinion": 0.35,
+    "KillAmmoRefundChamp": 1,
+    "VisionGranted": 2,
+    "SeedDuration": 60
+   },
+   "formulas": {},
+   "tags": []
+  },
+  "E": {
+   "name": "Grasping Roots",
+   "cooldown": 11,
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    95
+   ],
+   "costType": null,
+   "range": 1100.0,
+   "description": "Zyra sends vines forward, Rooting for 1/1.25/1.5/1.75/2 second(s) and dealing 60/95/130/165/200 + 0.6\u00d7AP magic damage. If this Ability passes near a Seed, the Seed grows into a Vine Lasher that deals @spell.ZyraP:PlantDamage@ magic damage and lasts @spell.ZyraP:PlantDuration@ seconds. Vine Lashers have 400 range, and their Attacks Slow by 30% for 2 seconds. The Slow from multiple Vine Lashers stacks up to 2 times.",
+   "summary": "Zyra sends forth vines through the ground to ensnare her target, dealing damage and rooting enemies they come across. If cast near a seed, Grasping Roots grows a Vine Lasher, whose short range attacks reduce enemy Move Speed.",
+   "values": {
+    "MaxSlowStacks": 2,
+    "PheromoneDuration": 4,
+    "RootDuration": [
+     1,
+     1.25,
+     1.5,
+     1.75,
+     2
+    ],
+    "BaseDamage": [
+     60,
+     95,
+     130,
+     165,
+     200
+    ],
+    "SlowAmountPlantAttack": 30,
+    "SlowDurationPlantAttack": 2
+   },
+   "formulas": {
+    "TotalDamage": "60/95/130/165/200 + 0.6\u00d7AP"
+   },
+   "tags": [
+    "root",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Stranglethorns",
+   "cooldown": [
+    110,
+    100,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 700.0,
+   "description": "Zyra summons the fury of nature, growing a twisted thicket that deals 200/300/400 + 0.7\u00d7AP magic damage. After 2 seconds, the vines snap upwards, Knocking Up for 1 second. Zyra's plants within the thicket become enraged, resetting their duration, gaining 50% Health and Attacking for 50% bonus damage.",
+   "summary": "Zyra summons a twisted thicket at her target location, dealing damage to enemies as it expands and knocking them airborne as it contracts. Plants within the thicket are enraged.",
+   "values": {
+    "PlantDamageBonus": 50,
+    "KnockupDuration": 1,
+    "EnragedBonusHealthPercent": 0.5,
+    "BaseDamage": [
+     200,
+     300,
+     400
+    ],
+    "EnragePlantsBonusDamage": 150
+   },
+   "formulas": {
+    "TotalDamage": "200/300/400 + 0.7\u00d7AP"
+   },
+   "tags": [
+    "airborne",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Garden of Thorns",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Seeds spawn around Zyra periodically, becoming faster with level. Zyra can cast Deadly Spines or Grasping Roots near seeds to grow plants, who fight for Zyra.",
+   "summary": "Seeds spawn around Zyra periodically, becoming faster with level. Zyra can cast Deadly Spines or Grasping Roots near seeds to grow plants, who fight for Zyra.",
+   "values": {
+    "PlantDuration": 8,
+    "PlantBaseDmg": 12,
+    "PlantLvlScaling": 4,
+    "APRatio": 0.2
+   },
+   "formulas": {
+    "SeedCooldown": "13.6\u20139.05 (by level)",
+    "PlantDamage": "15\u201375 (by level) + 0.2\u00d7AP",
+    "monstermod": "50\u2013100 (by level)",
+    "{c951f1e1}": "50+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Zyra is a ranged control mage who grows plants from seeds and makes them fight for her, zoning lanes and teamfights with Deadly Spines and Grasping Roots. She plays as an artillery support or mid laner whose damage comes partly from plants the enemy has to walk around or kill.",
+  "positions": [
+   "UTILITY",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Very strong lane pressure from level 1: a Deadly Spines poke plus the plant it spawns wins most early trades.",
+   "Grasping Roots into seeds gives a long root and extra plant damage that sets up her jungler or ADC.",
+   "Stranglethorns is a big area knock-up that can win a teamfight on its own in a choke or around an objective.",
+   "Plants zone the area: enemies fighting inside a seed field take a lot of extra damage.",
+   "Builds damage as support and still matters, so she scales into a real threat."
+  ],
+  "weaknesses": [
+   "Immobile: no dash or blink, so a landed engage or a flank usually kills her.",
+   "Squishy, with almost no self-peel apart from Grasping Roots.",
+   "Seeds are visible and can be stepped on or played around; poor seed placement wastes most of her damage.",
+   "Plants are bad at taking objectives and die fast to splash damage and towers.",
+   "Long cooldowns early: a missed E leaves her open to an all-in for several seconds."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 Q plus the spine plant out-trades nearly every level-1 support; she should poke from the first wave",
+   "lvl2": "strong \u2013 Q+E gives root into plant damage, a real kill threat with an aggressive ADC",
+   "lvl3": "strong \u2013 full combo (E, Q, W seeds) puts out a lot of damage from range",
+   "lvl6": "very strong \u2013 Stranglethorns turns any 2v2 or dive into a won fight",
+   "items": "medium \u2013 first item: Liandry's Torment or Luden's Companion makes plants and abilities burn tanks; Rylai's adds slows to everything",
+   "late": "good \u2013 stays a strong zone-control mage, but needs a frontline because she has no escape"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Zyra is strongest early through her plants, and the main question for her lane is whether she lands E. Track Grasping Roots: when it is down, she cannot stop an engage.",
+  "waveClear": "Good: Q and seeds clear waves from range, and plants help push.",
+  "sustain": "Low: no healing of her own; relies on items and her ADC backing.",
+  "mobility": "Very low: no dashes; walks only.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Deadly Spines) poke with a W seed underneath to spawn a plant",
+   "engage": "E (Grasping Roots) into Q, with seeds placed on the root path",
+   "escape": "R (Stranglethorns) through a choke or onto a dive",
+   "answers": "None. Zyra has no spell shield or dodge; she relies on ally peel."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Garden of Thorns: seeds spawn on their own over time. Enemies stepping on a seed destroy it, so walking over seeds denies plants."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Deadly Spines: a delayed area burst, not a missile. A seed in the area grows a ranged Thorn Spitter plant."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Rampant Growth: places a seed. Charges grow with level; seeds feed both Q and E plants."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block it with a projectile block (Yasuo W, Samira W, Braum E).",
+    "notes": "Grasping Roots: vines travel along the ground and root the first champions hit; seeds in the path become Vine Lashers that slow. Treated as a missile skillshot, so wind walls block it."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Walk out of the circle before the knock-up lands (about 2 seconds). It cannot be cleansed once it hits.",
+    "notes": "Stranglethorns: a growing thicket that empowers her plants and knocks up enemies inside it after a delay."
+   }
+  },
+  "windowAgainst": "Zyra's window is when Grasping Roots has just been used or missed: walk up and all-in, because she has no other way to stop you. Fight away from seed fields and stand behind minions so her E hits a minion first.",
+  "checks": [
+   "Is Zyra placing seeds where her E and Q will land, rather than randomly?",
+   "Does Zyra stand back after missing E instead of trading into an all-in?",
+   "Do enemies avoid fighting on top of her seed fields?"
+  ]
+ }
+}

@@ -1,0 +1,287 @@
+{
+ "id": 121,
+ "alias": "Khazix",
+ "name": "Kha'Zix",
+ "title": "the Voidreaver",
+ "classes": [
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 643,
+  "hpPerLevel": 99,
+  "ad": 60,
+  "adPerLevel": 3.1,
+  "armor": 32,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.668,
+  "attackSpeedPerLevel": 2.7,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Taste Their Fear",
+   "cooldown": 4,
+   "cost": 20,
+   "costType": null,
+   "range": 325.0,
+   "description": "Kha'Zix slashes a nearby enemy, dealing @spell.KhazixQ:BaseDamage@ physical damage. This deals @spell.KhazixQ:IsoDamage@ damage instead to enemies Isolated from their allies.",
+   "summary": "Deals physical damage to the target. Damage increased on Isolated targets. If he chooses to Evolve Reaper Claws, this refunds a percent of it's cooldown against Isolated targets. Kha'Zix also gains increased range on his basic attacks and Taste Their Fear.",
+   "values": {
+    "EvolutionIsolationCDRPercentage": 45,
+    "BonusADRatio": 1.05
+   },
+   "formulas": {
+    "{ba2719ef}": "1",
+    "{8b6fe763}": "0",
+    "IsEvolved": "",
+    "BaseDamage": "? + 1.05×bonus AD",
+    "IsoDamage": "(? + 1.05×bonus AD) × 2.1"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Void Spike",
+   "cooldown": 9,
+   "cost": [
+    60,
+    65,
+    70,
+    75,
+    80
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Kha'Zix fires a spike dealing ? + 1×bonus AD physical damage to the first enemy hit in a small area. If Kha'Zix is inside the area, he restores 55/75/95/115/135 + 0.5×AP Health",
+   "summary": "Kha'Zix fires exploding spikes that deal physical damage to enemies hit. Kha'Zix is healed if he is also within the explosion radius. If he chooses to Evolve Spike Racks, Void Spike now fires three spikes in a cone, slow enemies hit, and reveals enemy champions hit for 2 seconds. Isolated targets are slowed for extra.",
+   "values": {
+    "BaseHeal": [
+     55,
+     75,
+     95,
+     115,
+     135
+    ],
+    "HealAPRatio": 0.5,
+    "SlowPercentage": 40,
+    "SlowDuration": 2.25,
+    "IsolatedSlowPercentage": 60,
+    "IsolatedSlowDuration": 2.25
+   },
+   "formulas": {
+    "{ba2719ef}": "1",
+    "{8b6fe763}": "0",
+    "IsEvolved": "",
+    "BaseDamage": "? + 1×bonus AD",
+    "HealAmount": "55/75/95/115/135 + 0.5×AP"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Leap",
+   "cooldown": [
+    20,
+    18,
+    16,
+    14,
+    12
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 700.0,
+   "description": "Kha'Zix leaps, dealing ? + 0.4×bonus AD physical damage upon landing.",
+   "summary": "Kha'Zix leaps to an area, dealing physical damage upon landing. If he chooses to Evolve Wings, Leap's range increases and the cooldown resets on champion kill or assist.",
+   "values": {
+    "EvolvedLeapRange": 1000,
+    "BaseDamage": [
+     65,
+     100,
+     135,
+     170,
+     205
+    ],
+    "ADRatio": 0.4
+   },
+   "formulas": {
+    "{ba2719ef}": "1",
+    "{8b6fe763}": "0",
+    "IsEvolved": "",
+    "TotalDamage": "? + 0.4×bonus AD"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Void Assault",
+   "cooldown": [
+    100,
+    85,
+    70
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Active: Kha'Zix becomes Invisible for 1.25 seconds and gains 40% Move Speed. Kha'zix may Recast this Ability once within 12 seconds. Passive: Leveling up this Ability allows Kha'zix to Evolve one of his Abilities, granting it additional effects.Taste Their Fear: Gain Ability range, Attack range, and lowers Cooldown by @spell.KhazixQ:Effect4Amount@% against Isolated targets.Void Spike: Fires 3 spikes and Slows by @spell.KhazixW:Effect3Amount@%, increased against Isolated targets.Leap: Increased range and refreshes Cooldown on champion takedown.Void Assault: Invisibility duration lasts 2 seconds and gains second Recast.",
+   "summary": "Each rank allows Kha'Zix to evolve one of his abilities, giving it a unique additional effect. When activated, Kha'Zix becomes Invisible, triggering Unseen Threat and increasing Move Speed. If he chooses to Evolve Adaptive Cloaking, Void Assault gains increased Invisibility duration, and an additional use.",
+   "values": {
+    "StealthDuration": 1.25,
+    "RecastWindow": 12,
+    "BonusMovementSpeedPercent": 0.4,
+    "EvolutionsAvailable": [
+     1,
+     2,
+     3
+    ],
+    "EvolvedStealthDuration": 2,
+    "RecastCD": 2,
+    "NumberOfCasts": 2,
+    "EvolvedNumberOfCasts": 3
+   },
+   "formulas": {
+    "{ba2719ef}": "1",
+    "{8b6fe763}": "0",
+    "IsEvolved": ""
+   },
+   "tags": [
+    "dash",
+    "move speed",
+    "slow",
+    "stealth"
+   ]
+  },
+  "Passive": {
+   "name": "Unseen Threat",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Nearby enemies that are Isolated from their allies are marked. Kha'Zix's abilities have interactions with Isolated targets. When Kha'Zix is not visible to the enemy team, he gains Unseen Threat, causing his next basic attack against an enemy champion to deal bonus magic damage and slow them for a few seconds.",
+   "summary": "Nearby enemies that are Isolated from their allies are marked. Kha'Zix's abilities have interactions with Isolated targets. When Kha'Zix is not visible to the enemy team, he gains Unseen Threat, causing his next basic attack against an enemy champion to deal bonus magic damage and slow them for a few seconds.",
+   "values": {
+    "SlowAmount": 0.25,
+    "SlowDuration": 2,
+    "IsolationRange": 375,
+    "BonusADRatio": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "? + 0.5×bonus AD"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Assassin jungler who deals huge Q damage to isolated targets and evolves one ability per R rank. Wins by picking off lone champions and chaining E leap resets on takedowns.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Q deals much more damage to isolated targets (no allies nearby)",
+   "E leap resets on takedowns: chains kills in skirmishes",
+   "R camouflage for flanks, invisibility to escape, and evolutions (longer Q/E range, W slow, longer camo)",
+   "Unseen Threat passive: bonus damage and slow when attacking from brush/out of vision",
+   "Strong early invades and skirmishes"
+  ],
+  "weaknesses": [
+   "Weak against grouped teams: isolation damage disappears",
+   "Squishy: dies to crowd control once he leaps in",
+   "No hard crowd control (only slows)",
+   "Item-dependent burst; falls off against tanks",
+   "Predictable once vision covers the flanks"
+  ],
+  "curve": {
+   "lvl1": "medium – Q isolated damage in invades",
+   "lvl2": "medium – Q + W slow",
+   "lvl3": "strong – E leap ganks and isolated picks",
+   "lvl6": "strong – first evolution (usually Q or E) + camouflage",
+   "items": "strong – first lethality item (Profane Hydra or Youmuu's/Opportunity)",
+   "late": "medium – one-shots isolated carries, weak into grouped teams"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs E to reach and isolate a target; R evolutions decide his power spikes (6, 11, 16).",
+  "waveClear": "good – W + Q",
+  "sustain": "low – W heal (more from brush)",
+  "mobility": "high – E leap (resets on takedowns), R camouflage",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E",
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "From out of enemy vision: next attack deals bonus magic damage and slows (dodgeable by Jax E)."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Point-and-click slash; bonus damage on isolated targets."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Spikes: damage, heal; evolved fires a slowing spread."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Leap; resets on takedowns."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Camouflage; grants evolution points."
+   }
+  },
+  "windowAgainst": "Stay grouped so his Q isn't isolated. After E is spent he can't escape: crowd control him.",
+  "checks": []
+ }
+}

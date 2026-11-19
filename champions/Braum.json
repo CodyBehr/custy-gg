@@ -1,0 +1,339 @@
+{
+ "id": 201,
+ "alias": "Braum",
+ "name": "Braum",
+ "title": "the Heart of the Freljord",
+ "classes": [
+  "tank",
+  "support"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 2,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 112,
+  "ad": 55,
+  "adPerLevel": 3.2,
+  "armor": 35,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.644,
+  "attackSpeedPerLevel": 3.5,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Winter's Bite",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": [
+    50,
+    55,
+    60,
+    65,
+    70
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Braum propels freezing ice from his shield, dealing 75/120/165/210/255 + 0.025×max HP magic damage to the first enemy hit and Slowing them by 70% decaying over 2 seconds. Applies a stack of Concussive Blows.",
+   "summary": "Braum propels freezing ice from his shield, slowing and dealing magic damage. Applies a stack of Concussive Blows.",
+   "values": {
+    "BaseDamage": [
+     75,
+     120,
+     165,
+     210,
+     255
+    ],
+    "MaxHPDamageValue": 0.025,
+    "InitialSlow": 70,
+    "MinSlow": 30,
+    "SlowDuration": 2,
+    "MissileRange": 1050,
+    "DebuffDuration": 4
+   },
+   "formulas": {
+    "TotalDamage": "75/120/165/210/255 + 0.025×max HP"
+   },
+   "tags": [
+    "shield",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Stand Behind Me",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 650.0,
+   "description": "Braum leaps to an allied champion or minion. On arrival, Braum grants the target 20/25/30/35/40 + 0.12×bonus armor Armor and 20/25/30/35/40 + 0.12×bonus MR Magic Resist for 3 seconds. Braum grants himself 20/25/30/35/40 + 0.36×bonus armor Armor and 20/25/30/35/40 + 0.36×bonus MR Magic Resist for the same duration.",
+   "summary": "Braum leaps to a target allied champion or minion. On arrival, Braum and the ally gain Armor and Magic Resist for a few seconds.",
+   "values": {
+    "RangedDamageThreshold": 400,
+    "AllyArmorPercent": 0.12,
+    "BraumArmorPercent": 0.36,
+    "BaseResists": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "Duration": 3,
+    "BonusDashSpeed": 750
+   },
+   "formulas": {
+    "GrantedAllyArmor": "20/25/30/35/40 + 0.12×bonus armor",
+    "GrantedAllyMR": "20/25/30/35/40 + 0.12×bonus MR",
+    "GrantedBraumArmor": "20/25/30/35/40 + 0.36×bonus armor",
+    "GrantedBraumMR": "20/25/30/35/40 + 0.36×bonus MR"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "E": {
+   "name": "Unbreakable",
+   "cooldown": [
+    16,
+    14,
+    12,
+    10,
+    8
+   ],
+   "cost": [
+    35,
+    40,
+    45,
+    50,
+    55
+   ],
+   "costType": null,
+   "range": 25000.0,
+   "description": "Braum raises his shield for 3/3.25/3.5/3.75/4 seconds, intercepting enemy missiles from the chosen direction, causing them to hit Braum and then be destroyed. The first missile Braum blocks deals no damage, and subsequent projectiles deal 35/40/45/50/55% reduced damage. Braum gains 10% Move Speed while his shield is raised.",
+   "summary": "Braum raises his shield in a direction for several seconds, intercepting all projectiles causing them to hit him and be destroyed. He negates the damage of the first attack completely and reduces the damage of all subsequent attacks from this direction.",
+   "values": {
+    "RangedReflect": 0.15,
+    "ShieldHoldDuration": [
+     3,
+     3.25,
+     3.5,
+     3.75,
+     4
+    ],
+    "ShieldFacingDRAmount": [
+     35,
+     40,
+     45,
+     50,
+     55
+    ],
+    "MoveSpeedPercent": 10
+   },
+   "formulas": {},
+   "tags": [
+    "move speed",
+    "projectile",
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Glacial Fissure",
+   "cooldown": [
+    130,
+    115,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1250.0,
+   "description": "Braum slams the ground sending forth a fissure that Knocks Up enemies in its path and nearby Braum, and deals 150/250/350 + 0.6×AP magic damage. The first target hit is Knocked Up for between 0.6 and 1/1.5/2 seconds, increasing with distance from Braum. All others hit are Knocked Up for 0.6 seconds. The fissure also creates a zone for 4 seconds, that Slows by 40/50/60%.",
+   "summary": "Braum slams the ground, knocking up enemies nearby and in a line in front of him. A fissure is left along the line that slows enemies.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "KnockupDuration": 0.6,
+    "FirstKnockupDuration": [
+     1,
+     1.5,
+     2
+    ],
+    "MoveSpeedMod": [
+     40,
+     50,
+     60
+    ],
+    "SlowZoneDuration": 4,
+    "SlowDebuffDuration": 0.25,
+    "MinKnockup": 0.6,
+    "MaxKnockup": [
+     1,
+     1.5,
+     2
+    ],
+    "MaxKnockupRatio": 0.9
+   },
+   "formulas": {
+    "TotalDamage": "150/250/350 + 0.6×AP"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Concussive Blows",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Braum's basic attacks apply Concussive Blows. Once the first stack is applied, ally basic attacks also stack Concussive Blows. Upon reaching 4 stacks, the target is stunned and takes magic damage. For the next few seconds they cannot receive new stacks, but take bonus magic damage from Braum's attacks.",
+   "summary": "Braum's basic attacks apply Concussive Blows. Once the first stack is applied, ally basic attacks also stack Concussive Blows. Upon reaching 4 stacks, the target is stunned and takes magic damage. For the next few seconds they cannot receive new stacks, but take bonus magic damage from Braum's attacks.",
+   "values": {
+    "StackDuration": 4,
+    "StackCap": 4,
+    "AlreadyStunnedDamageAmp": 0.4
+   },
+   "formulas": {
+    "TotalDamage": "?",
+    "OnHitDamage": "(?) × 0.4",
+    "StunCD": "8+ (by level)",
+    "StunDuration": "1.25+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Protective tank support who stacks stuns with his passive and blocks projectiles with his shield.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "E blocks all projectiles in front of him",
+   "Passive stacks into a stun with his ADC",
+   "Q slow + passive make strong level 2 all-ins",
+   "R knock-up line for engage or peel"
+  ],
+  "weaknesses": [
+   "Low damage",
+   "Short range; kitable",
+   "E can't stop non-projectile abilities",
+   "Needs a carry who attacks to proc passive"
+  ],
+  "curve": {
+   "lvl1": "strong – passive stun with ADC autos",
+   "lvl2": "strong – Q slow + passive",
+   "lvl3": "strong",
+   "lvl6": "strong – R knock-up",
+   "items": "support item, tank items",
+   "late": "great peel"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Passive stun works from level 1 with an attacking partner.",
+  "waveClear": "poor",
+  "sustain": "none",
+  "mobility": "W dash to ally",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "P"
+   ],
+   "engage": [
+    "Q",
+    "R"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": [
+    "E"
+   ]
+  },
+  "abilityMechanics": {
+   "P": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "none",
+    "notes": "4 stacks from Braum/ally attacks = stun; then immune to it briefly"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "none",
+    "notes": "Skillshot slow, applies passive stack"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Dash to ally, bonus resists for both"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "projectile block",
+    "notes": "Blocks the first projectile fully, reduces damage from that direction"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "none",
+    "notes": "Line knock-up, leaves slowing field"
+   }
+  },
+  "windowAgainst": "When E is down (projectile poke lands) or Q is down.",
+  "checks": []
+ }
+}

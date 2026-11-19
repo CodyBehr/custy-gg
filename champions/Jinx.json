@@ -1,0 +1,311 @@
+{
+ "id": 222,
+ "alias": "Jinx",
+ "name": "Jinx",
+ "title": "the Loose Cannon",
+ "classes": [
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 105,
+  "ad": 59,
+  "adPerLevel": 3,
+  "armor": 26,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1,
+  "range": 525,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Switcheroo!",
+   "cooldown": 0.9,
+   "cost": 20,
+   "costType": null,
+   "range": 600.0,
+   "description": "Jinx swaps weapons between Fishbones the rocket launcher and Pow-Pow the minigun. While using the rocket launcher, Jinx's Attacks deal 1.1×AD physical damage to the target and nearby enemies, gain 100/125/150/175/200 range, cost Mana, and scale 10% less with bonus Attack Speed. While using the minigun, Jinx's Attacks grant Attack Speed for 2.5 seconds, stacking up to 3 times (+30/55/80/105/130% %i:scaleAS% max).",
+   "summary": "Jinx modifies her basic attacks by swapping between Pow-Pow, her minigun and Fishbones, her rocket launcher. Attacks with Pow-Pow grant Attack Speed, while attacks with Fishbones deal area of effect damage, gain increased range, but drain Mana and attack slower.",
+   "values": {
+    "RocketAoERadius": 250,
+    "RocketBonusRange": [
+     100,
+     125,
+     150,
+     175,
+     200
+    ],
+    "MinigunAttackSpeedMax": [
+     30,
+     55,
+     80,
+     105,
+     130
+    ],
+    "MinigunAttackSpeedDuration": 2.5,
+    "MinigunAttackSpeedStacks": 3,
+    "RocketTAD": 1.1,
+    "RocketASPDPenalty": 0.1
+   },
+   "formulas": {
+    "RocketDamage": "1.1×AD"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  },
+  "W": {
+   "name": "Zap!",
+   "cooldown": [
+    8,
+    7,
+    6,
+    5,
+    4
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": 1450.0,
+   "description": "Jinx fires a shock blast that deals 10/60/110/160/210 + 1.4×AD physical damage to the first enemy hit, Slows them by 40/50/60/70/80%, and reveals them for 2 seconds.",
+   "summary": "Jinx uses Zapper, her shock pistol, to fire a blast that deals damage to the first enemy hit, slowing and revealing it.",
+   "values": {
+    "JinxLowEndWCastTime": 0.4,
+    "JinxWASpeedCastTimeScalarPerHundrethSecond": 0.08,
+    "Damage": [
+     10,
+     60,
+     110,
+     160,
+     210
+    ],
+    "SlowPercent": [
+     40,
+     50,
+     60,
+     70,
+     80
+    ],
+    "SlowDuration": 2,
+    "ADRatio": 1.4
+   },
+   "formulas": {
+    "TotalDamage": "10/60/110/160/210 + 1.4×AD"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Flame Chompers!",
+   "cooldown": [
+    24,
+    20.5,
+    17,
+    13.5,
+    10
+   ],
+   "cost": 90,
+   "costType": null,
+   "range": 925.0,
+   "description": "Jinx tosses out 3 chompers that last for 5 seconds. They explode on contact with enemy champions, Rooting them for 1.5 seconds and dealing 90/140/190/240/290 + 1×AP magic damage to nearby enemies.",
+   "summary": "Jinx throws out a line of snare grenades that explode after 5 seconds, lighting enemies on fire. Flame Chompers will bite enemy champions who walk over them, rooting them in place.",
+   "values": {
+    "Damage": [
+     90,
+     140,
+     190,
+     240,
+     290
+    ],
+    "RootDuration": 1.5,
+    "GrenadeDuration": 5,
+    "GrenadeArmTime": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "90/140/190/240/290 + 1×AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "R": {
+   "name": "Super Mega Death Rocket!",
+   "cooldown": [
+    85,
+    65,
+    45
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Jinx fires a rocket that explodes on the first enemy champion hit, dealing 20/35/50 + 0.12×bonus AD to 200/350/500 + 1.2×bonus AD + 25/30/35% missing Health physical damage, gaining damage over the first second of travel time. Nearby enemies take 80% Damage. Missing Health damage cannot exceed 1200 against Monsters.",
+   "summary": "Jinx fires a super rocket across the map that gains damage as it travels. The rocket will explode upon colliding with an enemy champion, dealing damage to it and surrounding enemies based on their missing Health.",
+   "values": {
+    "BaseDamage": [
+     20,
+     35,
+     50
+    ],
+    "MaxDamage": [
+     200,
+     350,
+     500
+    ],
+    "PercentDamage": [
+     25,
+     30,
+     35
+    ],
+    "AoEDamageMult": 0.8,
+    "MonsterExecuteMax": 1200,
+    "AoERadius": 400
+   },
+   "formulas": {
+    "DamageFloor": "20/35/50 + 0.12×bonus AD",
+    "DamageMax": "200/350/500 + 1.2×bonus AD"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Get Excited!",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Jinx receives massively increased Move Speed and Attack Speed whenever she helps kill or destroy an enemy champions epic jungle monster, or structure.",
+   "summary": "Jinx receives massively increased Move Speed and Attack Speed whenever she helps kill or destroy an enemy champions epic jungle monster, or structure.",
+   "values": {
+    "BuffDuration": 6,
+    "ASBuff": 25,
+    "MSBuff": 175,
+    "MSDecayRate": 0.875,
+    "AssistMarkerDuration": 3
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed",
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Hyper-carry marksman who swaps between a minigun (attack speed) and rockets (range and area damage). Wins teamfights by snowballing Get Excited move/attack speed off takedowns.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "Get Excited: big move and attack speed after takedowns, chain resets",
+   "Rockets give extra range and area damage",
+   "E Flame Chompers root anyone stepping on them; strong anti-dive",
+   "W long-range slow + reveal",
+   "R global execute based on missing health"
+  ],
+  "weaknesses": [
+   "No dash: dies to engage and dives",
+   "Weak early, especially versus all-in lanes",
+   "Rockets cost mana",
+   "Needs items to carry",
+   "W cast time is long and telegraphed"
+  ],
+  "curve": {
+   "lvl1": "medium – rocket poke + minigun trades",
+   "lvl2": "medium – W slow + rockets",
+   "lvl3": "medium – E traps add anti-gank/anti-dive",
+   "lvl6": "strong – global R executes",
+   "items": "strong – Kraken Slayer or Yun Tal, big spike with Infinity Edge",
+   "late": "strong – hyper-carry with resets"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Pokes with rockets early; real power comes with 2-3 items and Get Excited resets.",
+  "waveClear": "good – rocket splash",
+  "sustain": "low – lifesteal from items",
+  "mobility": "low – passive move speed only",
+  "range": "long-ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "W"
+   ],
+   "escape": [
+    "E",
+    "Passive"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Takedowns grant big move and attack speed."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Swaps minigun (attack speed stacks) and rockets (range, area, mana)."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Zap: long-range shot, slow + reveal."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Chompers root champions who step on them."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Global rocket; damage scales with distance and missing health."
+   }
+  },
+  "windowAgainst": "Before Get Excited triggers, and after E is spent: dive her.",
+  "checks": []
+ }
+}

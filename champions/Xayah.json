@@ -1,0 +1,297 @@
+{
+ "id": 498,
+ "alias": "Xayah",
+ "name": "Xayah",
+ "title": "the Rebel",
+ "classes": [
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 107,
+  "ad": 60,
+  "adPerLevel": 3.5,
+  "armor": 25,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 3.9,
+  "range": 525,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Double Daggers",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": 35,
+   "costType": null,
+   "range": 400.0,
+   "description": "Xayah throws two daggers, dealing 45/60/75/90/105 + 0.5×bonus AD physical damage each and leaving two Feathers. Targets hit after the first take (45/60/75/90/105 + 0.5×bonus AD) × 0.5 damage from each dagger.",
+   "summary": "Xayah throws two damaging daggers that also drop Feathers she can recall.",
+   "values": {
+    "BaseDamage": [
+     45,
+     60,
+     75,
+     90,
+     105
+    ],
+    "MultiHitRatio": 0.5,
+    "StartingCastTime": 0.25,
+    "MinCastTime": 0.1,
+    "ASpeedCastTimeScalarPerHundrethSecond": 0.07,
+    "Missile1DelayTime": 0.334,
+    "Missile2DelayTime": 0.584,
+    "Missile1DelaySpeed": 3500,
+    "Missile2DelaySpeed": 3500
+   },
+   "formulas": {
+    "TotalDamage": "45/60/75/90/105 + 0.5×bonus AD",
+    "MultiHitDamage": "(45/60/75/90/105 + 0.5×bonus AD) × 0.5"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Deadly Plumage",
+   "cooldown": [
+    18,
+    17,
+    16,
+    15,
+    14
+   ],
+   "cost": [
+    55,
+    50,
+    45,
+    40,
+    35
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Xayah creates a storm of blades for 4 seconds that grants her 35/40/45/50/55% Attack Speed and cause her Attacks to fire a secondary blade that deals 25% damage. When the secondary blade hits a champion, she grants herself 30% Move Speed for 1.5 seconds. If Rakan is nearby he will also gain the effects of this Ability, except he gains Move Speed when Xayah strikes a target.",
+   "summary": "Xayah creates a storm of blades that increase her Attack Speed and damage while also granting her Move Speed if she attacks a champion.",
+   "values": {
+    "BonusDamagePercent": 25,
+    "WAttackSpeedAmount": [
+     35,
+     40,
+     45,
+     50,
+     55
+    ],
+    "WAttackSpeedDuration": 4,
+    "WMoveSpeedAmount": 30,
+    "WMoveSpeedDuration": 1.5,
+    "WRakanSeekDistance": 1000
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Bladecaller",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": 20,
+   "costType": null,
+   "range": 2000.0,
+   "description": "Xayah calls all Feathers back to her, dealing (50/65/80/95/110 + BADRatio×bonus AD) × (1 + (0.5×crit × (1×stat + -1))) physical damage each. If 3 or more Feathers hit an enemy, they are Rooted for 1.25 seconds.",
+   "summary": "Xayah calls back all her dropped Feathers dealing damage and rooting enemies.",
+   "values": {
+    "BaseDamage": [
+     50,
+     65,
+     80,
+     95,
+     110
+    ],
+    "bADRatio": 0.4,
+    "CritRatio": 0.5,
+    "FeatherFalloff": 0.05,
+    "MinionMultiplier": 0.5,
+    "FeatherThreshold": 3,
+    "RootDuration": 1.25,
+    "FeatherReturnDelay": 0.25
+   },
+   "formulas": {
+    "FeatherDamage": "(50/65/80/95/110 + BADRatio×bonus AD) × (1 + (0.5×crit × (1×stat + -1)))",
+    "MinionDamage": "((50/65/80/95/110 + BADRatio×bonus AD) × (1 + (0.5×crit × (1×stat + -1)))) × 0.5"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "R": {
+   "name": "Featherstorm",
+   "cooldown": [
+    140,
+    120,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 450.0,
+   "description": "Xayah leaps into the air becoming Untargetable and Ghosted for 1.5 seconds before raining down daggers that deal 200/300/400 + 1×bonus AD physical damage and leave behind a line of Feathers.",
+   "summary": "Xayah leaps into the air becoming untargetable and throwing out a fan of daggers, dropping Feathers she can recall.",
+   "values": {
+    "RBaseDamage": [
+     200,
+     300,
+     400
+    ],
+    "RAttackDelay": 1,
+    "RUntargetable": 1.25
+   },
+   "formulas": {
+    "Damage": "200/300/400 + 1×bonus AD"
+   },
+   "tags": [
+    "dash",
+    "untargetable"
+   ]
+  },
+  "Passive": {
+   "name": "Clean Cuts",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "After using an ability, Xayah's next basic attacks will hit all targets along their path and leave a Feather.",
+   "summary": "After using an ability, Xayah's next basic attacks will hit all targets along their path and leave a Feather.",
+   "values": {
+    "PFeatherDuration": 6,
+    "PFeatherSpacingMin": 25,
+    "PFeatherSpacingMax": 40,
+    "PDamageFalloffMax": 0.55,
+    "PEmpoweredDuration": 8,
+    "PStacksPerCast": 3,
+    "PStackMax": 5,
+    "PDamageFalloffMin": 0.35,
+    "PDamageFalloffMid": 0.45
+   },
+   "formulas": {},
+   "tags": [
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Marksman who leaves feathers on the ground and recalls them with E. Wins fights by rooting enemies with E and dodging engage with R's untargetable.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "E recall roots targets hit by 3+ feathers",
+   "R untargetable dodges engage and targeted abilities",
+   "W attack speed burst",
+   "Self-peel without a dash",
+   "Synergy with Rakan"
+  ],
+  "weaknesses": [
+   "Weak early wave clear",
+   "Short range compared to some ADCs",
+   "Feathers must be set up before E roots",
+   "No dash; R is her only escape"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "medium",
+   "lvl3": "strong – root combo",
+   "lvl6": "strong – R",
+   "items": "strong – crit items",
+   "late": "strong"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Her root combo needs Q/W feathers plus E recall.",
+  "waveClear": "medium – Q",
+  "sustain": "low",
+  "mobility": "low – R only",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "W",
+    "E"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "R"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attacks leave feathers."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Two daggers; leave feathers."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attack speed; attacks leave extra feathers."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Recalls feathers; 3+ feathers root."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "untargetable",
+    "notes": "Jumps, untargetable; throws feathers."
+   }
+  },
+  "windowAgainst": "R down and no feathers on the ground: engage her.",
+  "checks": [
+   "Whether Jax E/blinds stop W's extra feathers (they come from attacks)."
+  ]
+ }
+}

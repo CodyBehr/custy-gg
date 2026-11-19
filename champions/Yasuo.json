@@ -1,0 +1,301 @@
+{
+ "id": 157,
+ "alias": "Yasuo",
+ "name": "Yasuo",
+ "title": "the Unforgiven",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 590,
+  "hpPerLevel": 110,
+  "ad": 60,
+  "adPerLevel": 2.5,
+  "armor": 32,
+  "armorPerLevel": 4.6,
+  "attackSpeed": 0.697,
+  "attackSpeedPerLevel": 3.5,
+  "range": 175,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Steel Tempest",
+   "cooldown": 4,
+   "cost": null,
+   "costType": null,
+   "range": 475.0,
+   "description": "Yasuo thrusts, dealing 20/45/70/95/120 + 1×AD physical damage. If he hits, he gains a stack for 6 seconds. While he has 2 stacks, his next use of this Ability fires a whirlwind from range, dealing the same damage and Knocking Up for 1 second. If used while dashing, this Ability strikes in a circle rather than a stab.",
+   "summary": "Thrusts forward, damaging all enemies in a line. On hit, grants a stack of Gathering Storm for a few seconds. At 2 stacks, Steel Tempest fires a whirlwind that knocks Airborne. Steel Tempest is treated as a basic attack and scales with all the same things.",
+   "values": {
+    "BaseDamage": [
+     20,
+     45,
+     70,
+     95,
+     120
+    ],
+    "StabRange": 450,
+    "TornadoRange": 1100,
+    "Cooldown": 4,
+    "StabWidth": 80,
+    "SpinWidth": 260,
+    "GatheringStormDuration": 6,
+    "KnockUpDurationTOOLTIPONLY": 1,
+    "ADRatio": 1
+   },
+   "formulas": {
+    "TotalDamage": "20/45/70/95/120 + 1×AD",
+    "TotalDamageCrit": "20/45/70/95/120 + 1×stat×AD"
+   },
+   "tags": [
+    "airborne",
+    "dash"
+   ]
+  },
+  "W": {
+   "name": "Wind Wall",
+   "cooldown": [
+    25,
+    23,
+    21,
+    19,
+    17
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 400.0,
+   "description": "Yasuo creates a drifting wall of wind that blocks all enemy projectiles for 4 seconds.",
+   "summary": "Creates a moving wall that blocks all enemy projectiles for 4 seconds.",
+   "values": {
+    "WallLife": 4,
+    "Width": [
+     320,
+     390,
+     460,
+     530,
+     600
+    ],
+    "TravelRange": 450,
+    "BubbleRadius": 300,
+    "Thickness": 100
+   },
+   "formulas": {},
+   "tags": [
+    "projectile"
+   ]
+  },
+  "E": {
+   "name": "Sweeping Blade",
+   "cooldown": [
+    0.5,
+    0.4,
+    0.3,
+    0.2,
+    0.1
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 475.0,
+   "description": "Yasuo dashes through a target, dealing 70/85/100/115/130 + 0.2×bonus AD + 0.6×AP magic damage. Each use of this Ability grants (70/85/100/115/130 + 0.2×bonus AD + 0.6×AP) × 0.25 bonus damage to subsequent uses for 5 seconds, stacking up to 4 times. This Ability has a 10/9/8/7/6 second per-target Cooldown.",
+   "summary": "Dashes through target enemy, dealing magic damage. Each cast increases subsequent dash's damage, up to a max amount. Cannot be re-cast on the same enemy for a few seconds. If Steel Tempest is cast while dashing, it will strike as a circle.",
+   "values": {
+    "MaxStacks": 4,
+    "StackDuration": 5,
+    "BaseDamage": [
+     70,
+     85,
+     100,
+     115,
+     130
+    ],
+    "APRatio": 0.6,
+    "ADRatio": 0.2,
+    "PerTargetCooldown": [
+     10,
+     9,
+     8,
+     7,
+     6
+    ],
+    "BaseDashSpeed": 750
+   },
+   "formulas": {
+    "TotalDamage": "70/85/100/115/130 + 0.2×bonus AD + 0.6×AP",
+    "BonusDamagePerStack": "(70/85/100/115/130 + 0.2×bonus AD + 0.6×AP) × 0.25"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Last Breath",
+   "cooldown": [
+    70,
+    50,
+    30
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 1400.0,
+   "description": "Yasuo teleports to an Airborne enemy champion, dealing 200/350/500 + 1.5×bonus AD physical damage and holding all nearby Airborne enemies up for an additional 1 second. Yasuo also gains maximum Flow, but loses all Steel Tempest stacks. Afterwards, Yasuo's critical strikes ignore 60% bonus Armor for 15 seconds.",
+   "summary": "Blinks to an Airborne enemy champion, dealing physical damage and holding all Airborne enemies in the area in the air. Grants maximum Flow but resets all stacks of Gathering Storm. For a moderate time afterwards, Yasuo's critical strikes gain significant Bonus Armor Penetration.",
+   "values": {
+    "RBaseDamage": [
+     200,
+     350,
+     500
+    ],
+    "RPercentArmorPen": 60,
+    "RBuffDuration": 15,
+    "RKnockupDuration": 1,
+    "RRadius": 400,
+    "RCastSearchRadius": 1100
+   },
+   "formulas": {
+    "Damage": "200/350/500 + 1.5×bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "blink"
+   ]
+  },
+  "Passive": {
+   "name": "Way of the Wanderer",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Yasuo's Critical Strike Chance is increased. Additionally, Yasuo builds toward a shield whenever he is moving. The shield triggers when he takes damage from a champion or monster.",
+   "summary": "Yasuo's Critical Strike Chance is increased. Additionally, Yasuo builds toward a shield whenever he is moving. The shield triggers when he takes damage from a champion or monster.",
+   "values": {
+    "YasuoCritToAD": 50,
+    "CritChanceMultiplier": 1,
+    "CritDamageMod": 0.95
+   },
+   "formulas": {
+    "ShieldValue": "125–600 (by level)",
+    "{74ce5438}": "55+ (by level)",
+    "CurrentCritDamage": "1×stat"
+   },
+   "tags": [
+    "shield"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Melee crit carry who stacks Q for a knock-up tornado, dashes through units with E and blocks projectiles with W. Wins with knock-up combos and mobility through minion waves.",
+  "positions": [
+   "MIDDLE",
+   "TOP",
+   "BOTTOM"
+  ],
+  "strengths": [
+   "W wind wall blocks all enemy projectiles",
+   "Very mobile through waves with E",
+   "Passive shield wins short trades",
+   "R off any knock-up (his or allies')"
+  ],
+  "weaknesses": [
+   "Squishy early and item-dependent",
+   "Weak to point-and-click crowd control and non-projectile damage",
+   "E can't recast on the same target for a while: limited without minions",
+   "Predictable Q3 tornado"
+  ],
+  "curve": {
+   "lvl1": "medium – Q + passive shield",
+   "lvl2": "strong – E + Q",
+   "lvl3": "strong – W",
+   "lvl6": "strong – R",
+   "items": "strong – Berserker's Greaves + first crit item (Infinity Edge/Yun Tal); passive doubles crit chance",
+   "late": "strong – crit scaling, W blocks marksmen, R off ally knock-ups"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Wants E to dash in with Q (E-Q).",
+  "waveClear": "good – Q",
+  "sustain": "low – passive shield only",
+  "mobility": "high – E dashes",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield builds while moving; triggers when hit. Crit chance doubled."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Treated as a basic attack (on-hit). Q3 fires a whirlwind (projectile) that knocks up."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "projectile block",
+    "notes": "Wind wall blocks all enemy projectiles for 4 s."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash through a target; can't recast on the same unit for a while."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Blinks to an airborne champion and keeps them airborne."
+   }
+  },
+  "windowAgainst": "W down (skillshots land) or passive shield used; fight away from minions so E has no targets.",
+  "checks": [
+   "Q is treated as a basic attack per Riot's text; whether Jax E dodges it is unconfirmed (isAttack false)."
+  ]
+ }
+}

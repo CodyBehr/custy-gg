@@ -1,0 +1,333 @@
+{
+ "id": 16,
+ "alias": "Soraka",
+ "name": "Soraka",
+ "title": "the Starchild",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 605,
+  "hpPerLevel": 88,
+  "ad": 50,
+  "adPerLevel": 3,
+  "armor": 32,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.14,
+  "range": 550,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Starcall",
+   "cooldown": [
+    8,
+    7,
+    6,
+    5,
+    4
+   ],
+   "cost": [
+    50,
+    55,
+    60,
+    65,
+    65
+   ],
+   "costType": null,
+   "range": 810.0,
+   "description": "Soraka calls down a star, dealing 85/120/155/190/225 + 0.35×AP magic damage and Slowing by 30% for 1.5 seconds. Hitting an enemy champion grants Soraka Rejuvenation, which restores (varies) Health over 2.5 seconds and grants 20/22.5/25/27.5/30% Move Speed decaying over the same duration.",
+   "summary": "A star falls from the sky at the target location dealing magic damage and slowing enemies. If an enemy champion is hit by Starcall, Soraka recovers Health.",
+   "values": {
+    "BaseDamage": [
+     85,
+     120,
+     155,
+     190,
+     225
+    ],
+    "BaseHoT": [
+     60,
+     75,
+     90,
+     105,
+     120
+    ],
+    "HotDuration": 2.5,
+    "MoveSpeedSlow": 0.3,
+    "SlowDuration": 1.5,
+    "MoveSpeedHaste": [
+     0.2,
+     0.225,
+     0.25,
+     0.275,
+     0.3
+    ],
+    "MoveSpeedDuration": 2.5,
+    "HealAPRatio": 0.3
+   },
+   "formulas": {
+    "TotalDamage": "85/120/155/190/225 + 0.35×AP",
+    "TotalHot": "BaseHot + 0.3×AP"
+   },
+   "tags": [
+    "heal",
+    "move speed",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Astral Infusion",
+   "cooldown": [
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    60
+   ],
+   "costType": null,
+   "range": 550.0,
+   "description": "Soraka restores 90/110/130/150/170 + 0.5×AP Health to another allied champion. If Soraka is affected by Rejuvenation, the Health cost will be reduced by 80/85/90/95/100%, and the target will gain Rejuvenation for @Spell.SorakaQ:HoTDuration@ seconds.",
+   "summary": "Soraka sacrifices a portion of her own health to heal another friendly champion.",
+   "values": {
+    "BaseHeal": [
+     90,
+     110,
+     130,
+     150,
+     170
+    ],
+    "PercentHealthCost": 0.1,
+    "MinimumPercentHealth": 0.05,
+    "PercentHealthCostRefund": [
+     0.8,
+     0.85,
+     0.9,
+     0.95,
+     1
+    ]
+   },
+   "formulas": {
+    "TotalHeal": "90/110/130/150/170 + 0.5×AP",
+    "MinimumHealth": "0.05×max HP"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Equinox",
+   "cooldown": [
+    20,
+    19,
+    18,
+    17,
+    16
+   ],
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    90
+   ],
+   "costType": null,
+   "range": 925.0,
+   "description": "Soraka creates a starfield that deals 70/95/120/145/170 + 0.4×AP magic damage to champions. The field lingers for 1.5 seconds, Silencing enemies inside. When the zone disappears, champions inside the zone are Rooted for 1/1.25/1.5/1.75/2 second(s) and take 70/95/120/145/170 + 0.4×AP magic damage.",
+   "summary": "Creates a zone at a location that silences all enemies inside. When the zone expires, all enemies still inside are rooted.",
+   "values": {
+    "BaseDamage": [
+     70,
+     95,
+     120,
+     145,
+     170
+    ],
+    "RootDuration": [
+     1,
+     1.25,
+     1.5,
+     1.75,
+     2
+    ],
+    "RootDelay": 1.5
+   },
+   "formulas": {
+    "TotalDamage": "70/95/120/145/170 + 0.4×AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "R": {
+   "name": "Wish",
+   "cooldown": [
+    150,
+    135,
+    120
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 25000.0,
+   "description": "Soraka calls upon divine powers, restoring 150/250/350 + 0.5×AP Health to all allied champions, regardless of distance. Healing is increased to (150/250/350 + 0.5×AP) × (1 + 0.5) on targets below 40% Health.",
+   "summary": "Soraka fills her allies with hope, instantly restoring health to herself and all allied champions.",
+   "values": {
+    "BaseHeal": [
+     150,
+     250,
+     350
+    ],
+    "HealingAmpForLowHealthAllies": 0.5
+   },
+   "formulas": {
+    "HealingCalc": "150/250/350 + 0.5×AP",
+    "AmpedHealing": "(150/250/350 + 0.5×AP) × (1 + 0.5)"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Salvation",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Soraka runs faster towards nearby low health allies.",
+   "summary": "Soraka runs faster towards nearby low health allies.",
+   "values": {
+    "MovementSpeed": 0.9,
+    "HealthThreshold": 0.4
+   },
+   "formulas": {},
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Healing support who pokes with Q to fuel W heals on allies. Silences with E and saves from anywhere with R.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "Huge sustain for lane",
+   "E silence zone stops dashes/spells",
+   "Global heal R",
+   "Q poke + self heal",
+   "Hard to all-in through"
+  ],
+  "weaknesses": [
+   "Squishy and immobile",
+   "W costs her own health",
+   "Easy pick target",
+   "Grievous Wounds hurts",
+   "Low damage"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "strong – W heal",
+   "lvl3": "strong – E silence",
+   "lvl6": "strong – global R",
+   "items": "medium – Moonstone/Redemption heal power",
+   "late": "medium – sustain, fragile"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Pokes with Q; heals through trades.",
+  "waveClear": "low",
+  "sustain": "excellent",
+  "mobility": "low",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Delayed star; hitting a champion gives her heal over time."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Heals an ally at cost of her health."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "silence",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Silences inside; roots those still in when it ends."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Global heal."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Speed toward low allies."
+   }
+  },
+  "windowAgainst": "Grievous Wounds and all-in on her directly; she has no escape.",
+  "checks": []
+ }
+}

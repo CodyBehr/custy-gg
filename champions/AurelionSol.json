@@ -1,0 +1,404 @@
+{
+ "id": 136,
+ "alias": "AurelionSol",
+ "name": "Aurelion Sol",
+ "title": "The Star Forger",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 90,
+  "ad": 58,
+  "adPerLevel": 3.2,
+  "armor": 22,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1.5,
+  "range": 550,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Breath of Light",
+   "cooldown": 3,
+   "cost": [
+    40,
+    45,
+    50,
+    55,
+    60
+   ],
+   "costType": null,
+   "range": 750.0,
+   "description": "Aurelion Sol breathes starfire for up to 3.25/3.25/3.25/3.25/9999 seconds, dealing 45/60/75/90/105 + 0.55×AP magic damage per second to the first enemy hit and 50% of the damage to surrounding enemies. Each full second of breath on the same enemy deals a burst of 60/70/80/90/100 + 0.3×AP magic damage plus ? max Health magic damage and absorbs 2 Stardust if they are a champion.",
+   "summary": "Aurelion Sol channels his dragon breath for a few seconds, damaging the first enemy hit and splashing reduced damage onto nearby enemies. Each second the breath is channeled directly at an enemy will deal bonus damage, which is improved by the amount of Stardust that's been collected. This ability collects Stardust if the target is a champion.",
+   "values": {
+    "AngularDegreesPerSec": 180,
+    "BeamWidth": 140,
+    "MaxChannelDuration": [
+     3.25,
+     3.25,
+     3.25,
+     3.25,
+     9999
+    ],
+    "BurstAfter": 1,
+    "ManaCostPerSecond": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "RankDamagePerSecond": [
+     45,
+     60,
+     75,
+     90,
+     105
+    ],
+    "APPerSecond": 0.55,
+    "RankBurstDamage": [
+     60,
+     70,
+     80,
+     90,
+     100
+    ],
+    "BurstAPRatio": 0.3,
+    "BeamSegments": 6,
+    "WProcCooldown": 1,
+    "QMassStolen": 2,
+    "DistancePerMass": 0.375,
+    "QMaxHealthTrueDamagePerStack": 0.0,
+    "MonsterDamageCap": 300,
+    "AOEModifier": 0.5
+   },
+   "formulas": {
+    "DamagePerSecond": "45/60/75/90/105 + 0.55×AP",
+    "BurstDamage": "60/70/80/90/100 + 0.3×AP",
+    "BurstBonusTrueDamageToChamps": "?",
+    "LevelBasedRangeScaling": "750+ (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Astral Flight",
+   "cooldown": [
+    22,
+    20.5,
+    19,
+    17.5,
+    16
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 1500.0,
+   "description": "Aurelion Sol flies in a direction. While flying, Breath of Light has no Cooldown, no max channel duration, and its flat damage is increased by 8/9/10/11/12%. Takedowns on champions within 3 seconds of damaging them refunds 90% of this Ability's Cooldown. Recast: End flight early.",
+   "summary": "Aurelion Sol flies over terrain in a targeted direction. While in this state, he can cast other abilities. Breath of Light no longer has a cooldown or maximum channel duration and deals increased damage while flying. Astral Flight's remaining cooldown is reduced whenever an enemy champion dies after being recently damaged by Aurelion Sol. Stardust increases Astral Flight's maximum range.",
+   "values": {
+    "TrueDamageBonus": [
+     0.08,
+     0.09,
+     0.1,
+     0.11,
+     0.12
+    ],
+    "BaseMS": 340,
+    "BaseCruiseMS": 340,
+    "DistancePerMass": 7.5,
+    "ResetWindow": 3,
+    "TakedownCooldownMultiplier": 0.1,
+    "TooltipTakedownCooldownMultiplier": 90,
+    "FakeCastTime": 0.375,
+    "OverrideECastRange": 1100,
+    "CD": [
+     22,
+     20.5,
+     19,
+     17.5,
+     16
+    ]
+   },
+   "formulas": {
+    "DashSpeed": "340 + 1×move speed",
+    "{70212d39}": "(ffd78035) × 0.5",
+    "{ffd78035}": "340 + 1×move speed",
+    "{e3ddb2ca}": "0.8–1.2 (by level)"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Singularity",
+   "cooldown": 12,
+   "cost": 90,
+   "costType": null,
+   "range": 750.0,
+   "description": "Aurelion Sol summons a black hole, dealing 10/16/22/28/34 + 0.12/0.13/0.14/0.15/0.16×AP magic damage per second and Dragging enemies towards the center for 5 seconds. Enemies in the center below 5 + ?% max Health die instantly. The black hole absorbs Stardust when enemies die within it and each second an enemy champion is inside.",
+   "summary": "Aurelion Sol summons a black hole, damaging enemies and slowly pulling them toward its center. This ability grants Stardust each time an enemy dies within the black hole and for each second an enemy champion is caught inside it. The center of the black hole executes enemies who are below a certain percentage of their maximum health. Stardust increases Singularity's area as well as the execution threshold.",
+   "values": {
+    "ChampionMassPerSecond": 1,
+    "MinionMassDeath": 1,
+    "LargeMinionCountBonus": 2,
+    "LargeMonsterCountBonus": 2,
+    "ChampionCountBonus": 2,
+    "EpicMonsterCountBonus": 2,
+    "StartingRadius": 275,
+    "StartingInnerRadius": 120,
+    "GrowthBreakPoint": 1,
+    "StartingGravity": 150,
+    "NonChampGravity": 300,
+    "Duration": 5,
+    "BaseDamagePerSecond": [
+     10,
+     16,
+     22,
+     28,
+     34
+    ],
+    "DamageperSecondAPRatio": [
+     0.12,
+     0.13,
+     0.14,
+     0.15,
+     0.16
+    ],
+    "BaseExecutionThreshold": 5,
+    "ExecutionGrowthPerBreakpoint": 0.026,
+    "OuterRadiusAreaPerStack": 900,
+    "InnerRadiusAreaPerStack": 180,
+    "PI": 3.142,
+    "InversePI": 0.318,
+    "DamageAPRatioTT": [
+     0.6,
+     0.65,
+     0.7,
+     0.75,
+     0.8
+    ]
+   },
+   "formulas": {
+    "DamagePerSecond": "10/16/22/28/34 + 0.12/0.13/0.14/0.15/0.16×AP",
+    "{b0a79c98}": "275 + ?",
+    "CurrentExecutionThreshold": "5 + ?",
+    "{57c521f0}": "150 + ?",
+    "{7741d788}": "120+ (by level)",
+    "LevelBasedRangeScaling": "750+ (by level)",
+    "{5dfac189}": "((275 × (275 × 3.142)) + ?) × 0.318",
+    "{94f76880}": "(5dfac189) × 0.2"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "R": {
+   "name": "Falling Star / The Skies Descend",
+   "cooldown": [
+    120,
+    110,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1250.0,
+   "description": "Aurelion Sol plucks a star from the heavens and crashes it into the earth, dealing 150/250/350 + 0.75×AP magic damage, Stunning enemies 1 second, and absorbing 5 Stardust for each champion hit. Gathering 75 Stardust transforms the next Falling Star into The Skies Descend. The Skies Descend: Aurelion Sol drags a constellation's worth of fury down from the cosmos, dealing (150/250/350 + 0.75×AP) × 1.25 magic damage in a larger area, Knocking Up enemies hit for 1 second, and unleashing a massive shockwave that deals (150/250/350 + 0.75×AP) × 0.9 magic damage to champions and Epic Monsters and Slows all enemies hit by 50% for 1 second.",
+   "summary": "Falling Star: Aurelion Sol crashes a star into the earth. This impact deals magic damage and stuns enemies while also granting Stardust for each enemy champion it hits. Gathering enough Stardust transforms Aurelion Sol's next Falling Star into The Skies Descend. The Skies Descend: Aurelion Sol drags a giant star down from the heavens with an increased impact zone and increased damage, knocking up enemies rather than stunning them. A shockwave then spreads from the edge of the impact zone, which damages and slows the enemies it hits. Stardust increases the impact area of both Falling Star and The Skies Descend.",
+   "values": {
+    "CalamityStacks": 75,
+    "StartingRadius": 275,
+    "SkiesDescendStartingRadius": 550,
+    "CalamitySizeBonus": 2,
+    "MassStolen": 5,
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "APRatio": 0.75,
+    "StunDuration": 1,
+    "R2DamageRatio": 1.25,
+    "ShockwaveDamageRatio": 0.9,
+    "ShockwaveSlow": 0.5,
+    "AreaPerPassiveStack": 900,
+    "PI": 3.142,
+    "InversePI": 0.318,
+    "BaseDamageCenter": [
+     300,
+     500,
+     700
+    ],
+    "APRatioCenter": 0.6,
+    "MinDamageAtEdge": 0.35,
+    "MinStunAtEdge": 0.333,
+    "CalamityBaseDamage": [
+     250,
+     350,
+     450
+    ],
+    "CalamityAPRatio": 1,
+    "AreaPerPassiveStacks": 1500
+   },
+   "formulas": {
+    "MaxDamageTooltip": "150/250/350 + 0.75×AP",
+    "R2Damage": "(150/250/350 + 0.75×AP) × 1.25",
+    "ShockwaveDamage": "(150/250/350 + 0.75×AP) × 0.9",
+    "{1d7ce9ef}": "((275 × (275 × 3.142)) + ?) × 0.318",
+    "MinDamageTooltip": "150/250/350 + 0.75×AP",
+    "{047a61eb}": "250/350/450 + 1×AP",
+    "{06c03ad2}": "((275 × (275 × (2 × 3.142))) + ?) × 0.318"
+   },
+   "tags": [
+    "airborne",
+    "slow",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Cosmic Creator",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Aurelion Sol's damaging Abilities break down enemies into stacks of Stardust, which permanently improves each of his abilities.",
+   "summary": "Aurelion Sol's damaging Abilities break down enemies into stacks of Stardust, which permanently improves each of his abilities.",
+   "values": {
+    "QMaxHealthTrueDamagePerStack": 0.0,
+    "BaseExecutionThreshold": 5,
+    "ExecutionGrowthPerBreakpoint": 0.026
+   },
+   "formulas": {
+    "QPassiveScaling": "?",
+    "EPassiveScalingExecute": "?",
+    "ExecuteHealthThreshold": "((5 × 0.01) + (? × 0.01))×max HP"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Scaling battle mage who gathers Stardust to permanently upgrade abilities, then controls fights with breath, black hole and falling stars.",
+  "positions": [
+   "mid"
+  ],
+  "strengths": [
+   "Infinite scaling via Stardust",
+   "Long-range waveclear and zone control",
+   "W flight for roaming and escapes over terrain",
+   "R knock-up/stun teamfight control"
+  ],
+  "weaknesses": [
+   "Weak early, needs time to stack",
+   "Breath is a channel: punished by hard engage",
+   "Immobile while channeling Q",
+   "Short-ranged Q compared to other mages"
+  ],
+  "curve": {
+   "lvl1": "weak – low damage before stacks",
+   "lvl2": "weak",
+   "lvl3": "medium – E black hole + Q",
+   "lvl6": "medium – R stun",
+   "items": "strong – first item and Stardust",
+   "late": "strong – very high scaling"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Plays for stacks and farm early; trades are opportunistic.",
+  "waveClear": "good – Q splash and E",
+  "sustain": "low",
+  "mobility": "high with W flight (terrain)",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Channeled breath, first enemy hit with splash; interruptible by hard CC"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Flies over terrain; Q has no cooldown while flying"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Black hole slowly pulls toward center; executes inside center (check)"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Falling Star stuns; upgraded version knocks up and adds a shockwave"
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Stardust stacks"
+   }
+  },
+  "windowAgainst": "W down (no escape) or while channeling Q: hard engage.",
+  "checks": [
+   "E pull classified as airborne per Riot tags; confirm it counts as immobilizing"
+  ]
+ }
+}

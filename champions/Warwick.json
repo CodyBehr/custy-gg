@@ -1,0 +1,344 @@
+{
+ "id": 19,
+ "alias": "Warwick",
+ "name": "Warwick",
+ "title": "the Uncaged Wrath of Zaun",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kMixed",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 99,
+  "ad": 65,
+  "adPerLevel": 2.5,
+  "armor": 33,
+  "armorPerLevel": 4.4,
+  "attackSpeed": 0.638,
+  "attackSpeedPerLevel": 2,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Jaws of the Beast",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": [
+    85,
+    90,
+    95,
+    100,
+    100
+   ],
+   "costType": null,
+   "range": 365.0,
+   "description": "Tap: Warwick lunges forward and bites, dealing 1.2×AD + 1×AP plus 6/7/8/9/10% max Health magic damage and healing for 25/37.5/50/62.5/75% of the damage dealt. Hold: Warwick lunges and clamps his jaws on the target, leaping behind them. While clamped, Warwick follows all movement of the target. After releasing his hold, he does the same damage and healing.",
+   "summary": "Warwick lunges forward and bites his target, dealing damage based on their maximum health and healing for damage dealt.",
+   "values": {
+    "TargetPercentHPDamage": [
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "ADRatio": 1.2,
+    "BiteZoneLength": 450,
+    "HPDamageCap": [
+     150,
+     165,
+     180,
+     195,
+     210
+    ],
+    "APRatio": 1,
+    "LifestealPercent": [
+     25,
+     37.5,
+     50,
+     62.5,
+     75
+    ],
+    "CheatLength": 200,
+    "CheatLengthMoveBlock": 300,
+    "QCastRangeOverride": 425
+   },
+   "formulas": {
+    "BaseBiteDamage": "1.2×AD + 1×AP"
+   },
+   "tags": [
+    "dash",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Blood Hunt",
+   "cooldown": [
+    80,
+    70,
+    60,
+    50,
+    40
+   ],
+   "cost": 55,
+   "costType": null,
+   "range": 4000.0,
+   "description": "Passive: Warwick can sense champions below 50% Health, gaining 35/42.5/50/57.5/65% Move Speed towards them. Spells and attacks against enemies below 50% Health grant 70/80/90/100/110% Attack Speed. These effects are increased by 200% against enemies below 25% Health. Active: Warwick can briefly sense all enemies, and gains this Ability's passive effect against the closest champion for 8 seconds, regardless of Health. If no champions are found, this Ability's cooldown is reduced by 30%.",
+   "summary": "Warwick senses enemies below 50% health, gaining Move Speed toward and attack speed against them. When they fall below 25% health, he frenzies and these bonuses triple.",
+   "values": {
+    "PassiveASBonus": [
+     70,
+     80,
+     90,
+     100,
+     110
+    ],
+    "Duration": 8,
+    "MoveSpeedBonus": [
+     15,
+     20,
+     25,
+     30,
+     35
+    ],
+    "PassiveMSBonus": [
+     35,
+     42.5,
+     50,
+     57.5,
+     65
+    ],
+    "NoTargetCDReduction": 0.7,
+    "PassiveASDuration": 1.25,
+    "FirstHPThreshold": 0.5,
+    "SecondHPThreshold": 0.25,
+    "MSBonus": [
+     35,
+     42.5,
+     50,
+     57.5,
+     65
+    ],
+    "ASBonus": [
+     70,
+     80,
+     90,
+     100,
+     110
+    ]
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed",
+    "heal",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Primal Howl",
+   "cooldown": [
+    15,
+    14,
+    13,
+    12,
+    11
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 375.0,
+   "description": "Warwick gains 35/40/45/50/55% damage reduction for 2.75 seconds. After it ends, Warwick howls, Fearing nearby enemies for 1 second. Warwick can Recast to end the Ability early.",
+   "summary": "Warwick gains damage reduction for 2.5 seconds. At the end, or if re-activated, he howls, causing nearby enemies to flee for 1 second.",
+   "values": {
+    "DRAmount": [
+     35,
+     40,
+     45,
+     50,
+     55
+    ],
+    "DRDuration": 2.75,
+    "RecastDelay": 1,
+    "FearDuration": 1,
+    "DRDurationTooltipOnly": 2.5
+   },
+   "formulas": {},
+   "tags": [
+    "damage reduction",
+    "fear"
+   ]
+  },
+  "R": {
+   "name": "Infinite Duress",
+   "cooldown": [
+    110,
+    90,
+    70
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Warwick leaps a huge distance that scales with his Move Speed, Suppressing the first champion he collides with while he channels for 1.5 seconds. He attacks that champion 3 times over the duration, dealing 175/350/525 + 1.67×bonus AD magic damage. Warwick heals for 100% of all damage dealt during the channel.",
+   "summary": "Warwick leaps in a direction (scaling with his bonus Move Speed), suppressing the first champion he collides with for 1.5 seconds.",
+   "values": {
+    "RDuration": 1.5,
+    "RBaseDamage": [
+     175,
+     350,
+     525
+    ]
+   },
+   "formulas": {
+    "DamageCumulative": "175/350/525 + 1.67×bonus AD"
+   },
+   "tags": [
+    "dash",
+    "heal",
+    "move speed",
+    "suppression"
+   ]
+  },
+  "Passive": {
+   "name": "Eternal Hunger",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Warwick's basic attacks deal bonus magic damage. If Warwick is below 50% health, he heals the same amount. If Warwick is below 25% health, this healing triples.",
+   "summary": "Warwick's basic attacks deal bonus magic damage. If Warwick is below 50% health, he heals the same amount. If Warwick is below 25% health, this healing triples.",
+   "values": {
+    "HealingThreshold": 0.5,
+    "EmpoweredHealingThreshold": 0.25,
+    "HealingRatio": 1,
+    "EmpoweredHealingRatio": 2.5,
+    "HealthRestoreSlushTime": 1.55,
+    "ADRatio": 0.15,
+    "APRatio": 0.1
+   },
+   "formulas": {
+    "OnHitDamage": "6–55 (by level) + 0.15×bonus AD + 0.1×AP"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Hunting jungler (also top) who gets faster and stronger against low-health enemies. Wins duels through attack healing at low health, and catches targets with R suppression.",
+  "positions": [
+   "JUNGLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Passive: attacks deal bonus damage and heal him below 50% health (triple below 25%)",
+   "Q bite heals; held, it latches on and follows the target's dashes",
+   "E gives 35–55% damage reduction for 2.75 s, then fears nearby enemies",
+   "R leaps a huge distance and suppresses the first champion for 1.5 s while healing",
+   "W gives big move and attack speed against targets below 50% health"
+  ],
+  "weaknesses": [
+   "Kited by ranged champions when R is down",
+   "R leap is a skillshot: it stops on the first champion it hits, so a tank can body-block it",
+   "Anti-heal cuts his sustain a lot",
+   "Falls off late against tanks and teamfights"
+  ],
+  "curve": {
+   "lvl1": "strong – passive heal, strong first clear",
+   "lvl2": "strong – Q+passive duel",
+   "lvl3": "strong – full kit",
+   "lvl6": "strong – R picks",
+   "items": "strong – BotRK / Titanic Hydra",
+   "late": "medium – falls off"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Strong duelist from level 1: passive heal below 50% plus Q bite.",
+  "waveClear": "good",
+  "sustain": "high – passive and Q heals",
+  "mobility": "high – W speed vs low-health targets, R leap",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "R",
+    "Q"
+   ],
+   "escape": [
+    "E",
+    "Q"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bonus magic damage on attacks; heals below 50% health."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Lunge and bite with % max health damage and heal; hold to latch and follow."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Speed toward and attack speed against targets below 50% health."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "fear",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Damage reduction, then a 1 s fear around him."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "suppression",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Leap; suppresses first champion 1.5 s; heals 100% of damage."
+   }
+  },
+  "windowAgainst": "E or R on cooldown; kite him before he's low enough for passive heals.",
+  "checks": [
+   "Exact interaction of R with spell shields and parries."
+  ]
+ }
+}

@@ -1,0 +1,330 @@
+{
+ "id": 267,
+ "alias": "Nami",
+ "name": "Nami",
+ "title": "the Tidecaller",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 560,
+  "hpPerLevel": 88,
+  "ad": 54,
+  "adPerLevel": 3.1,
+  "armor": 29,
+  "armorPerLevel": 5.2,
+  "attackSpeed": 0.644,
+  "attackSpeedPerLevel": 2.61,
+  "range": 550,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Aqua Prison",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 875.0,
+   "description": "Nami hurls a bubble, Stunning for 1.5 seconds and dealing 90/145/200/255/310 + 0.5×AP magic damage.",
+   "summary": "Sends a bubble to a target area, dealing damage and stunning all enemies on impact.",
+   "values": {
+    "BaseDamage": [
+     90,
+     145,
+     200,
+     255,
+     310
+    ],
+    "APRatio": 0.5,
+    "StunDuration": 1.5
+   },
+   "formulas": {
+    "TotalDamageTT": "90/145/200/255/310 + 0.5×AP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Ebb and Flow",
+   "cooldown": null,
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    90
+   ],
+   "costType": null,
+   "range": 725.0,
+   "description": "Nami unleashes a stream of water that bounces between allied and enemy champions. Each champion can only be hit once, and it hits up to 3 targets.Restores 55/80/105/130/155 + 0.4×AP Health to allies and will bounce to a nearby enemy champion. Deals 60/95/130/165/200 + 0.5×AP magic damage to enemies and will bounce to a nearby allied champion. The damage and healing value is modified by (-20 + 0.15×AP) × 0.01 each bounce.",
+   "summary": "Unleashes a stream of water that bounces back and forth between allied and enemy champions, healing allies and damaging enemies.",
+   "values": {
+    "BaseDamage": [
+     60,
+     95,
+     130,
+     165,
+     200
+    ],
+    "BaseHeal": [
+     55,
+     80,
+     105,
+     130,
+     155
+    ],
+    "DamageAPRatio": 0.5,
+    "HealAPRatio": 0.4,
+    "BounceRatio": -20,
+    "BounceRatioScaling": 0.15,
+    "MaxTargets": 3
+   },
+   "formulas": {
+    "TotalDamage": "60/95/130/165/200 + 0.5×AP",
+    "TotalHeal": "55/80/105/130/155 + 0.4×AP",
+    "BounceScaling": "(-20 + 0.15×AP) × 0.01"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Tidecaller's Blessing",
+   "cooldown": 11,
+   "cost": [
+    60,
+    65,
+    70,
+    75,
+    80
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Nami empowers an allied champion's next 3 Attacks and Abilities for 6 seconds, causing them to Slow their targets by (15/20/25/30/35 + 0.05×AP) × 0.01 for 1s and deal an additional 20/35/50/65/80 + 0.2×AP magic damage.",
+   "summary": "Empowers an allied champion for a short duration. The ally's basic attacks and spells deal bonus magic damage and slow the target.",
+   "values": {
+    "BaseDamage": [
+     20,
+     35,
+     50,
+     65,
+     80
+    ],
+    "DamageRatio": 0.2,
+    "BaseSlow": [
+     15,
+     20,
+     25,
+     30,
+     35
+    ],
+    "SlowRatio": 0.05,
+    "SlowDuration": 1,
+    "HitCount": 3,
+    "BuffDuration": 6
+   },
+   "formulas": {
+    "AoeMod": "0.33–0.66 (by level)",
+    "TotalDamage": "20/35/50/65/80 + 0.2×AP",
+    "TotalSlow": "(15/20/25/30/35 + 0.05×AP) × 0.01"
+   },
+   "tags": [
+    "empowered attack",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Tidal Wave",
+   "cooldown": [
+    120,
+    110,
+    100
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 2550.0,
+   "description": "Nami summons a tidal wave, Knocking Up for 0.5 seconds, Slowing by 70%, and dealing 150/250/350 + 0.6×AP magic damage. The duration of the Slow increases based on distance the wave traveled, up to 4 seconds. Allies hit by the wave gain double the effect of Surging Tides.",
+   "summary": "Summons a massive Tidal Wave that knocks up, slows, and damages enemies. Allies hit gain double the effect of Surging Tides.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "PassiveUpdateAreaLength": 200,
+    "KnockupDuration": 0.5,
+    "MinSlowDuration": 2,
+    "MaxSlowDuration": 4,
+    "DistToSlowRatio": 0.002,
+    "SlowAmount": 70
+   },
+   "formulas": {
+    "TotalDamage": "150/250/350 + 0.6×AP"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Surging Tides",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "When Nami's Abilities hit allied champions they gain Move Speed for a short duration.",
+   "summary": "When Nami's Abilities hit allied champions they gain Move Speed for a short duration.",
+   "values": {
+    "FlatMS": 100,
+    "BuffDuration": 1.5,
+    "UltMult": 2
+   },
+   "formulas": {
+    "TotalMSBonus": "100 + 0.25×AP"
+   },
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Enchanter support who trades with W bounces and empowers her carry's attacks with E. Q bubble picks and R wave engages or peels.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "Q bubble is a long stun that sets up kills",
+   "W heals her ally and damages an enemy in one cast",
+   "E makes her carry's next 3 hits slow and deal bonus damage",
+   "R wave knocks up a whole line for engage or disengage",
+   "Strong level 2 trading with W+E"
+  ],
+  "weaknesses": [
+   "Q is slow and easy to sidestep",
+   "Squishy with no dash",
+   "Damage depends on a nearby ally for E and W bounces",
+   "Mana-hungry if she spams W",
+   "Weak to hard engage once Q is down"
+  ],
+  "curve": {
+   "lvl1": "medium – W poke-heal",
+   "lvl2": "strong – W+E empowered trades",
+   "lvl3": "strong – Q bubble kill threat",
+   "lvl6": "strong – R wave engage",
+   "items": "medium – enchanter items (Moonstone/Ardent) boost team, not her",
+   "late": "medium – utility, Q picks"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Buff carry with E for trades.",
+  "waveClear": "low – no AoE farm tool besides R",
+  "sustain": "medium – W heals ally (and herself on bounce)",
+  "mobility": "low – passive move speed on allies only",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "W",
+    "E"
+   ],
+   "engage": [
+    "Q",
+    "R"
+   ],
+   "escape": [
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Ground-targeted bubble with delay: suspends then stuns 1.5 s. Move sideways on cast."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bounces ally→enemy→ally, up to 3 targets. Stand away from your allies to avoid the bounce."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Ally's next 3 attacks/abilities slow and deal bonus damage. Back off when her carry glows."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Slow wave; knock-up and slow. Slow lasts longer the farther it traveled."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Allies hit by her abilities gain move speed."
+   }
+  },
+  "windowAgainst": "Q on cooldown: no pick threat; all-in her or her carry.",
+  "checks": [
+   "Q tagged airborne + stun (bubble suspends target)"
+  ]
+ }
+}

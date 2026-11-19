@@ -1,0 +1,307 @@
+{
+ "id": 895,
+ "alias": "Nilah",
+ "name": "Nilah",
+ "title": "the Joy Unbound",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 570,
+  "hpPerLevel": 101,
+  "ad": 58,
+  "adPerLevel": 2,
+  "armor": 27,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.697,
+  "attackSpeedPerLevel": 1.25,
+  "range": 225,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Formless Blade",
+   "cooldown": 4,
+   "cost": 30,
+   "costType": null,
+   "range": 600.0,
+   "description": "Passive: Nilah gains 0.3×crit Armor Penetration, and her Attacks against champions restore 0.2×crit damage dealt as Health. Overhealing from this is converted into a Shield for 4 seconds. Active: Nilah cracks her whip-blade, dealing (0/10/20/30/40 + 1×AD) × (1 + (0.7×crit × (1×stat + -1))) physical damage. If an enemy unit or structure is hit, Nilah gains 125 Attack Range and 10–60 (by level)% Attack Speed, and her Attacks hit in a cone for 4 seconds.",
+   "summary": "With a snap of her whip-blade, Nilah damages any enemies she hits in a straight line in her chosen direction. This action extends her attack range for a short duration.",
+   "values": {
+    "BaseDamage": [
+     0,
+     10,
+     20,
+     30,
+     40
+    ],
+    "CheatingThreshold": 20,
+    "QADRatio": 1,
+    "CastRange": 600,
+    "CritHealScalar": 0.2,
+    "CritArmorPenScalar": 0.3,
+    "MinionMod": 0.33,
+    "BuffDuration": 4,
+    "RangeIncrease": 125,
+    "MonsterMod": 1,
+    "ShieldDuration": 4,
+    "ActiveCritScaling": 0.7
+   },
+   "formulas": {
+    "DamageCalc": "(0/10/20/30/40 + 1×AD) × (1 + (0.7×crit × (1×stat + -1)))",
+    "AttackTotalDamageTooltip": "1×AD",
+    "BonusAttackSpeedCalc": "10–60 (by level)",
+    "CritLifesteal": "0.2×crit",
+    "CritArmorPen": "0.3×crit"
+   },
+   "tags": [
+    "attack speed",
+    "heal",
+    "shield"
+   ]
+  },
+  "W": {
+   "name": "Jubilant Veil",
+   "cooldown": [
+    26,
+    25,
+    24,
+    23,
+    22
+   ],
+   "cost": [
+    45,
+    30,
+    15,
+    0,
+    0
+   ],
+   "costType": null,
+   "range": 150.0,
+   "description": "Nilah envelops herself in mist for 2.25 seconds, becoming Ghosted, gaining 15/17.5/20/22.5/25% Move Speed, dodging Attacks, and reducing magic damage taken by 25%. While active, touching allied champions envelops them in mist, granting the same benefits for 1.5 seconds.",
+   "summary": "Nilah envelops herself in mist, increasing her movement speed and allowing her to gracefully dodge all incoming attacks. Any allies she touches during the mist's duration will also gain this effect.",
+   "values": {
+    "MoveSpeedPercent": [
+     0.15,
+     0.175,
+     0.2,
+     0.225,
+     0.25
+    ],
+    "BaseDuration": 2.25,
+    "ShareBaseDuration": 1.5,
+    "ExtensionBonus": 0.75,
+    "AreaTriggerSize": 150,
+    "MagicDamageReduction": 0.25
+   },
+   "formulas": {},
+   "tags": [
+    "dodge",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Slipstream",
+   "cooldown": 0.5,
+   "cost": 40,
+   "costType": null,
+   "range": 550.0,
+   "description": "Nilah dashes through a unit, dealing 60/70/80/90/100 + 0.2×bonus AD physical damage to any enemies she passes through.",
+   "summary": "Nilah enthusiastically dashes toward her target, dealing damage to any enemies she passes through on the way.",
+   "values": {
+    "BaseDamage": [
+     60,
+     70,
+     80,
+     90,
+     100
+    ],
+    "DashSpeed": 2200,
+    "DashTotalDistance": 600
+   },
+   "formulas": {
+    "DashDamage": "60/70/80/90/100 + 0.2×bonus AD"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Apotheosis",
+   "cooldown": [
+    110,
+    95,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 400.0,
+   "description": "Nilah whirls her whip-blade, dealing (15/25/35 + 0.1×bonus AD) × 4 physical damage over 1 second, then finishes with a burst of 125/225/325 + 1×bonus AD physical damage that also Pulls nearby enemies toward her. Apotheosis heals Nilah and her nearby allies for 0.2 + 0.1×crit (+@spell.NilahQ:CritLifesteal@ Formless Blade) of the damage dealt to enemy champions, converting any overhealing into a Shield for 6 seconds.",
+   "summary": "Twirling her whip-blade in joyful exuberance, Nilah deals damage to enemies around her before pulling them closer with her weapon.",
+   "values": {
+    "Duration": 6,
+    "DamageBase": [
+     125,
+     225,
+     325
+    ],
+    "ShieldBase": [
+     65,
+     115,
+     165
+    ],
+    "DamagePerTick": [
+     15,
+     25,
+     35
+    ],
+    "OtherHealingPercent": 0.1,
+    "Microslow": -0.1,
+    "NumTicks": 6,
+    "TickDelay": 0.2
+   },
+   "formulas": {
+    "DamageCalc": "125/225/325 + 1×bonus AD",
+    "ShieldCalc": "65/115/165 + 1×bonus AD",
+    "DamagePerTickCalc": "15/25/35 + 0.1×bonus AD",
+    "DamagePerTickCalcTooltip": "(15/25/35 + 0.1×bonus AD) × 4",
+    "ChampHealingPercent": "0.2 + 0.1×crit"
+   },
+   "tags": [
+    "airborne",
+    "heal",
+    "shield"
+   ]
+  },
+  "Passive": {
+   "name": "Joy Unending",
+   "cooldown": 9,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Nilah gains increased experience from last-hitting minions along with the ability to enhance and share nearby healing and shielding from her allies.",
+   "summary": "Nilah gains increased experience from last-hitting minions along with the ability to enhance and share nearby healing and shielding from her allies.",
+   "values": {
+    "ExperiencePercentage": 0.5,
+    "HealDistance": 1000,
+    "ShieldIncrease": 0.15,
+    "HealingIncrease": 0.075,
+    "ShieldMaxDuration": 4
+   },
+   "formulas": {},
+   "tags": [
+    "heal",
+    "shield"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Melee marksman who gains extra experience from minions and amplifies healing and shielding from allies. Wins lane by out-leveling and all-ining with E dashes, W dodge and R pull.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "W dodges basic attacks and reduces magic damage, beating auto-attack marksmen in trades",
+   "Bonus XP from passive means level spikes come first",
+   "E has two charges of dash through units for all-ins",
+   "R pull and heal win close all-ins",
+   "Synergy with healing and shielding supports"
+  ],
+  "weaknesses": [
+   "Melee range: poked out by long-range lanes",
+   "Vulnerable when W and E are down",
+   "Weak against hard crowd control (no cleanse)",
+   "Needs a supportive enchanter to be strongest"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "strong – all-in with support",
+   "lvl3": "strong – W dodge",
+   "lvl6": "strong – R pull",
+   "items": "strong – crit items",
+   "late": "medium-strong"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Wants to all-in at level 2 or after hitting levels first via passive XP.",
+  "waveClear": "medium – Q line",
+  "sustain": "medium – Q lifesteal-like healing, ally heals",
+  "mobility": "medium – E dashes",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "E",
+    "W"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Extra XP from last hits; enhances nearby ally heals/shields."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Whip line; passive armor pen and healing from attacks."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "dodge",
+    "notes": "Dodges attacks, ghosted, takes 25% less magic damage; shares to allies."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash through a unit, 2 charges."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Spins then pulls nearby enemies; heals."
+   }
+  },
+  "windowAgainst": "W down (22–26 s) or E charges spent: trade with attacks then.",
+  "checks": [
+   "Whether R's pull counts as airborne (I set airborne)."
+  ]
+ }
+}

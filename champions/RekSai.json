@@ -1,0 +1,370 @@
+{
+ "id": 421,
+ "alias": "RekSai",
+ "name": "Rek'Sai",
+ "title": "the Void Burrower",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 99,
+  "ad": 62,
+  "adPerLevel": 3,
+  "armor": 35,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.667,
+  "attackSpeedPerLevel": 2,
+  "range": 175,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Queen's Wrath / Prey Seeker",
+   "cooldown": [
+    4,
+    3.5,
+    3,
+    2.5,
+    2
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 325.0,
+   "description": "Unburrowed: Rek'Sai's next 3 Attacks within 3 seconds gain 35% Attack Speed and deal an additional 0.3/0.35/0.4/0.45/0.5×AD physical damage to nearby enemies. Attacks refresh the duration of this Ability.",
+   "summary": "Rek'Sai's next 3 basic attacks deal bonus Physical Damage to nearby enemies. While Burrowed, Rek'Sai launches a burst of void-charged earth that damages and reveals enemies hit.",
+   "values": {
+    "BuffDuration": 3,
+    "UnburrowedBaseDamage": [
+     5,
+     10,
+     15,
+     20,
+     25
+    ],
+    "UnburrowedADRatio": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "AoERange": 300,
+    "AttackSpeed": 0.35,
+    "BurrowedBaseDamage": [
+     50,
+     80,
+     110,
+     140,
+     170
+    ],
+    "BurrowedBonusADRatio": 0.25,
+    "BurrowedAPRatio": 0.7,
+    "BurrowedCooldown": [
+     12,
+     11.5,
+     11,
+     10.5,
+     10
+    ],
+    "BurrowedAoE": 200,
+    "BurrowedDebuffDuration": 5
+   },
+   "formulas": {
+    "TotalDamageTooltip": "0.3/0.35/0.4/0.45/0.5×AD",
+    "BurrowDamageTooltip": "50/80/110/140/170 + 0.25×bonus AD + 0.7×AP"
+   },
+   "tags": [
+    "attack speed",
+    "empowered attack"
+   ]
+  },
+  "W": {
+   "name": "Burrow / Un-burrow",
+   "cooldown": 4,
+   "cost": null,
+   "costType": null,
+   "range": 1650.0,
+   "description": "Unburrowed: Rek'Sai burrows into the ground, gaining access to new Abilities but cannot Attack. She gains 5/10/15/20/25 Move Speed, 65% reduced vision range, and nearby enemies that move and are otherwise unseen will have their positions revealed to Rek'sai and her allies.",
+   "summary": "Rek'Sai burrows into the ground, gaining new abilities and increased Move Speed. Her vision range is reduced and she cannot use basic attacks. While Burrowed, Rek'Sai may cast Unburrow to knock up and damage nearby enemies.",
+   "values": {
+    "BaseDamage": [
+     30,
+     55,
+     80,
+     105,
+     130
+    ],
+    "ADRatio": 0.5,
+    "APRatio": 0.8,
+    "KnockupDuration": 1,
+    "KnockupImmunity": [
+     10,
+     9,
+     8,
+     7,
+     6
+    ],
+    "ChampKnockbackRange": 250,
+    "OtherKnockbackRange": 175,
+    "KnockbackDuration": 0.3,
+    "Slow": [
+     -0.3,
+     -0.35,
+     -0.4,
+     -0.45,
+     -0.5
+    ],
+    "SlowDuration": 1.25,
+    "VisionRadiusMod": -0.65,
+    "KnockupRange": 220,
+    "LockoutTime": 0.15,
+    "SearchRange": 1500,
+    "TremorTickTime": 1,
+    "DistanceCheck": 85,
+    "BurrowedMoveSpeed": [
+     5,
+     10,
+     15,
+     20,
+     25
+    ]
+   },
+   "formulas": {
+    "UnburrowDamage": "30/55/80/105/130 + 0.8×AP"
+   },
+   "tags": [
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Furious Bite / Tunnel",
+   "cooldown": 6,
+   "cost": null,
+   "costType": null,
+   "range": 250.0,
+   "description": "Unburrowed: Rek'Sai bites a target, dealing @spell.RekSaiE:BaseDamageCalculation@ physical damage. At max Fury, the bite deals @spell.RekSaiE:EmpoweredDamageCalculation@ true damage instead.",
+   "summary": "Rek'Sai bites her target, dealing physical damage, or bonus true damage if she has max Fury. While Burrowed, Rek'Sai creates a re-usable, long lasting tunnel. Enemies can destroy it by standing on top of either entrance.",
+   "values": {
+    "BaseDamage": [
+     70,
+     95,
+     120,
+     145,
+     170
+    ],
+    "BonusAD": 0.6,
+    "EmpoweredRatio": 1.2,
+    "DashDistance": 850,
+    "MinimumRange": 850,
+    "DashSpeedBase": 500,
+    "DashSpeedMod": 1,
+    "MaximumTunnels": 8,
+    "TunnelDurationMinutes": 10,
+    "TunnelReuseCooldown": [
+     6,
+     5,
+     4,
+     3,
+     2
+    ],
+    "DashCooldown": [
+     18,
+     17,
+     16,
+     15,
+     14
+    ],
+    "TunnelTimeRatio": 0.65
+   },
+   "formulas": {
+    "BaseDamageCalculation": "70/95/120/145/170 + 0.6×bonus AD",
+    "EmpoweredDamageCalculation": "(70/95/120/145/170 + 0.6×bonus AD) × 1.2",
+    "DashSpeed": "500 + 1×move speed",
+    "{009db1c8}": "(10) × 60",
+    "{438d87f9}": "(500 + 1×move speed) × 0.65"
+   },
+   "tags": [
+    "true damage"
+   ]
+  },
+  "R": {
+   "name": "Void Rush",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 1500.0,
+   "description": "Rek'Sai targets an enemy damaged by her in the last 5 seconds and then dives underground, becoming Untargetable. Moments later, she leaps unstoppably at her target, dealing 150/250/350 + 1×bonus AD plus 15/20/25% max Health physical damage and resets the cooldown of Burrow / Un-burrow.",
+   "summary": "Rek'Sai passively marks targets by damaging them. She can activate this ability to become briefly untargetable and lunge at a marked target for heavy damage based on their maximum health.",
+   "values": {
+    "TravelDistancePercent": 0.4,
+    "ExtraDistance": 125,
+    "LeapMovementSpeed": 1400,
+    "VODistance": 4000,
+    "DamageCheckRadius": 1000,
+    "PreyMarkDuration": 5,
+    "RBaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "PercentHealthDamage": [
+     15,
+     20,
+     25
+    ],
+    "CastBuffDuration": 1.1,
+    "ADRatio": 1,
+    "PercentMissingHealthDamage": [
+     25,
+     30,
+     35
+    ]
+   },
+   "formulas": {
+    "RBaseDamageCalc": "150/250/350 + 1×bonus AD"
+   },
+   "tags": [
+    "dash",
+    "heal",
+    "untargetable"
+   ]
+  },
+  "Passive": {
+   "name": "Fury of the Xer'Sai",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Rek'Sai generates Fury by Attacking and hitting with basic Abilities. She consumes this Fury while Burrowed to restore health.",
+   "summary": "Rek'Sai generates Fury by Attacking and hitting with basic Abilities. She consumes this Fury while Burrowed to restore health.",
+   "values": {
+    "FuryFromAttacks": 25,
+    "FuryFromAbilities": 25,
+    "FuryMinionMod": 0.16,
+    "HealDuration": 3,
+    "PauseDuration": 5,
+    "HealPercentStartValue": 0.09,
+    "HealPercentEndValue": 0.2
+   },
+   "formulas": {
+    "HealAmount": "?×max HP"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Burrowing jungler who tracks enemies through tremors and dashes through the ground. Wins ganks with the unburrow knock-up and finishes targets with the R untargetable dash.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Unburrow (W) knocks up nearby enemies",
+   "Burrowed movement and tunnels give fast clears and ganks",
+   "Tremor sense shows nearby enemies",
+   "R makes her untargetable while dashing to the target",
+   "Strong early skirmish"
+  ],
+  "weaknesses": [
+   "Falls off late",
+   "Fury-based; weak when out of Fury",
+   "Knock-up only from unburrow; easy to dodge",
+   "Vulnerable without vision on tunnels"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "strong",
+   "lvl3": "strong – ganks",
+   "lvl6": "strong – R",
+   "items": "strong – Black Cleaver / Eclipse",
+   "late": "weak"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants Q, W and E for clear and ganks.",
+  "waveClear": "good – Q",
+  "sustain": "medium – passive healing while burrowed",
+  "mobility": "high – tunnels, E",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "W",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Fury; heals while burrowed."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Next attacks empowered; burrowed version is a ranged shot."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Unburrow knocks up."
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bite (true damage at max Fury)."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "untargetable",
+    "notes": "Dashes to marked target, untargetable."
+   }
+  },
+  "windowAgainst": "Out of Fury or W on cooldown.",
+  "checks": [
+   "Burrowed Q projectile blockability."
+  ]
+ }
+}

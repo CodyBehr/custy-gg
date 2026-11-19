@@ -1,0 +1,309 @@
+{
+ "id": 86,
+ "alias": "Garen",
+ "name": "Garen",
+ "title": "The Might of Demacia",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 1,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 690,
+  "hpPerLevel": 98,
+  "ad": 69,
+  "adPerLevel": 4.5,
+  "armor": 38,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3.65,
+  "range": 175,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Decisive Strike",
+   "cooldown": 8,
+   "cost": null,
+   "costType": null,
+   "range": 300.0,
+   "description": "Garen removes all Slowing effects on him and gains 35% Move Speed for 1.4/1.95/2.5/3.05/3.6 second(s). His next Attack Silences for 1.5 seconds and does 30/60/90/120/150 + 1.5×AD physical damage.",
+   "summary": "Garen gains a burst of Move Speed, breaking free of all slows affecting him. His next attack strikes a vital area of his foe, dealing bonus damage and silencing them.",
+   "values": {
+    "BaseDamage": [
+     30,
+     60,
+     90,
+     120,
+     150
+    ],
+    "SilenceDuration": 1.5,
+    "MovementSpeedDuration": [
+     1.4,
+     1.95,
+     2.5,
+     3.05,
+     3.6
+    ],
+    "MovementSpeedAmount": 0.35,
+    "AttackWindow": 4.5,
+    "tADRatio": 1.5
+   },
+   "formulas": {
+    "TotalDamage": "30/60/90/120/150 + 1.5×AD"
+   },
+   "tags": [
+    "empowered attack",
+    "move speed",
+    "silence",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Courage",
+   "cooldown": [
+    22,
+    19.5,
+    17,
+    14.5,
+    12
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 0.0,
+   "description": "Passive: Garen has ? bonus Armor and ? bonus Magic Resist. Killing units permanently grants 0.2 resists, up to a max of 30. Active: Garen steels his courage for 4 seconds, reducing incoming damage by 25/29.0/33/37/41%. He also gains 65/85/105/125/145 + 0.18×bonus max HP Shield and 60% Tenacity for 0.75 seconds.",
+   "summary": "Garen passively increases his Armor and Magic Resist by killing enemies. He may also activate this ability to give him a shield and tenacity for a brief moment followed by a lesser amount of damage reduction for a longer duration.",
+   "values": {
+    "BuffCounterPerKill": 1,
+    "ResistGainOnKill": 0.2,
+    "ResistGainOnKillTooltip": 0.2,
+    "ResistMax": 30,
+    "DRPercent": [
+     0.25,
+     0.29,
+     0.33,
+     0.37,
+     0.41
+    ],
+    "DRDuration": 4,
+    "UpfrontTenacity": 0.6,
+    "UpfrontDuration": 0.75,
+    "LargeMonsterStacks": 1,
+    "EpicMonsterStacks": 1,
+    "ShieldHealthRatio": 0.18,
+    "BaseShield": [
+     65,
+     85,
+     105,
+     125,
+     145
+    ]
+   },
+   "formulas": {
+    "TotalShield": "65/85/105/125/145 + 0.18×bonus max HP",
+    "ResistsForTooltip": "?"
+   },
+   "tags": [
+    "shield",
+    "tenacity"
+   ]
+  },
+  "E": {
+   "name": "Judgment",
+   "cooldown": [
+    9,
+    8.25,
+    7.5,
+    6.75,
+    6
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 325.0,
+   "description": "Garen rapidly spins his sword for 3 seconds, dealing 4/7/10/13/16 + 0.4/0.43/0.46/0.49/0.52×AD physical damage (varies) times over the duration. The nearest enemy takes 25% increased damage. Champions hit by 6 strikes lose 25% Armor for 6 seconds. Recast: Garen ends this Ability early.",
+   "summary": "Garen rapidly spins his sword around his body, dealing physical damage to nearby enemies.",
+   "values": {
+    "NumTicks": 7,
+    "ASPerTick": 0.25,
+    "BaseDamagePerTick": [
+     4,
+     7,
+     10,
+     13,
+     16
+    ],
+    "ADRatioPerTick": [
+     0.4,
+     0.43,
+     0.46,
+     0.49,
+     0.52
+    ],
+    "ShredDuration": 6,
+    "StacksToShred": 6,
+    "Duration": 3,
+    "ShredAmount": 0.25,
+    "NearestEnemyBonus": 0.25,
+    "CritMod": 0.3
+   },
+   "formulas": {
+    "TotalDamage": "4/7/10/13/16 + 0.4/0.43/0.46/0.49/0.52×AD",
+    "CriticalDamage": "(4/7/10/13/16 + 0.4/0.43/0.46/0.49/0.52×AD) × (1 + (0.3 × (1×stat + -1)))",
+    "NumberOfStrikes": "7"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Demacian Justice",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 400.0,
+   "description": "Garen calls upon the might of Demacia to slay his enemy, dealing 125/200/275 plus 25/30/35% missing Health true damage.",
+   "summary": "Garen calls upon the might of Demacia to attempt to execute an enemy champion.",
+   "values": {
+    "BaseDamage": [
+     125,
+     200,
+     275
+    ],
+    "ExecuteDamage": [
+     0.25,
+     0.3,
+     0.35
+    ],
+    "RevealDuration": 1
+   },
+   "formulas": {},
+   "tags": [
+    "execute",
+    "heal",
+    "true damage"
+   ]
+  },
+  "Passive": {
+   "name": "Perseverance",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "If Garen has not recently been struck by damage or enemy abilities, he regenerates a percentage of his total health each second.",
+   "summary": "If Garen has not recently been struck by damage or enemy abilities, he regenerates a percentage of his total health each second.",
+   "values": {
+    "DamageTimer": 8
+   },
+   "formulas": {
+    "RegenCalc": "(1.5+ (by level)) × 0.01"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Durable, simple bruiser who wins short trades with Q silence + E spin, sustains out of combat and executes with R.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "strong level 1–3 trades if Q lands",
+   "no mana",
+   "out-of-combat sustain",
+   "W damage reduction + tenacity",
+   "simple execute"
+  ],
+  "weaknesses": [
+   "no dash, easily kited",
+   "falls off against ranged champions and tanks",
+   "short range",
+   "Q is dodged/parried by Jax E and Fiora W"
+  ],
+  "curve": {
+   "lvl1": "medium – Q",
+   "lvl2": "medium",
+   "lvl3": "strong – Q+E+W",
+   "lvl6": "strong – R execute",
+   "items": "strong – first item",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Strong with Q alone early, but wants Q+E+W (level 3) for real trades.",
+  "waveClear": "good (E)",
+  "sustain": "high (passive out of combat)",
+  "mobility": "low (Q move speed only)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "Q"
+   ],
+   "escape": [],
+   "answers": [
+    "W",
+    "Q"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Regen when not recently damaged."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "silence",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Next attack silences; removes slows on cast. Dodged by Jax E, parried by Fiora W (silence is not immobilizing)."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "damage reduction + tenacity + shield",
+    "notes": "Tenacity doesn't reduce airborne (e.g. Darius E pull)."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Spin; area damage (Jax E takes reduced damage); not an attack."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Execute, true damage; can be parried by Fiora W."
+   }
+  },
+  "windowAgainst": "W down, or Q down (no silence, no slow cleanse).",
+  "checks": []
+ }
+}

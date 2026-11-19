@@ -1,0 +1,310 @@
+{
+ "id": 142,
+ "alias": "Zoe",
+ "name": "Zoe",
+ "title": "the Aspect of Twilight",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 106,
+  "ad": 58,
+  "adPerLevel": 3.3,
+  "armor": 21,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2.5,
+  "range": 550,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Paddle Star!",
+   "cooldown": [
+    8.5,
+    8,
+    7.5,
+    7,
+    6.5
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Zoe fires a star that deals increasing damage the further it travels to the first enemy hit and surrounding enemies -- between 50/80/110/140/170 + 2+ (by level) + 0.6×AP to (50/80/110/140/170 + 2+ (by level) + 0.6×AP) × 2.5 magic damage. Zoe can Recast this Ability to redirect the missile to a new position near Zoe.",
+   "summary": "Zoe fires a missile that she can redirect in flight. Deals more damage the longer it flies in a straight line.",
+   "values": {
+    "BaseDamage": [
+     50,
+     80,
+     110,
+     140,
+     170
+    ],
+    "APRatio": 0.6,
+    "MinionDamageMod": 1
+   },
+   "formulas": {
+    "TotalDamageTooltip": "50/80/110/140/170 + 2+ (by level) + 0.6×AP",
+    "MaxDamageTooltip": "(50/80/110/140/170 + 2+ (by level) + 0.6×AP) × 2.5"
+   },
+   "tags": [
+    "projectile"
+   ]
+  },
+  "W": {
+   "name": "Spell Thief",
+   "cooldown": 0.25,
+   "cost": null,
+   "costType": null,
+   "range": 3000.0,
+   "description": "Passive: Enemies drop spell shards when casting a Summoner Spell or using an Active Item. Specific minions also drop a spell shard when Zoe or a nearby ally kills them. Zoe can pick up this shard to cast that ability once. Passive: When Zoe casts this Ability or any Summoner Spell, she gains 30/40/50/60/70% Move Speed for 2/2.25/2.5/2.75/3 seconds and tosses 3 missiles at the target she Attacked most recently. These missiles deal 15/25/35/45/55 + 0.1×AP magic damage each. Active: Cast the Ability from a spell shard Zoe has picked up.",
+   "summary": "Zoe can pick up the remnants of enemy summoner spell and active item casts and cast them once herself. Whenever she casts a summoner spell, she gains 3 missiles that fire at the nearest target.",
+   "values": {
+    "TotalBaseDamage": [
+     15,
+     25,
+     35,
+     45,
+     55
+    ],
+    "TotalAPRatio": 0.1,
+    "MoveSpeedMod": [
+     0.3,
+     0.4,
+     0.5,
+     0.6,
+     0.7
+    ],
+    "MoveSpeedDuration": [
+     2,
+     2.25,
+     2.5,
+     2.75,
+     3
+    ],
+    "DurationOfSummonerCanCast": 60,
+    "MovementSpeed": [
+     0.3,
+     0.4,
+     0.5,
+     0.6,
+     0.7
+    ],
+    "MSDuration": [
+     2,
+     2.25,
+     2.5,
+     2.75,
+     3
+    ]
+   },
+   "formulas": {
+    "MissileDamageTooltip": "15/25/35/45/55 + 0.1×AP"
+   },
+   "tags": [
+    "move speed",
+    "projectile"
+   ]
+  },
+  "E": {
+   "name": "Sleepy Trouble Bubble",
+   "cooldown": [
+    18,
+    17,
+    16,
+    15,
+    14
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 800.0,
+   "description": "Zoe dropkicks a bubble that deals 70/110/150/190/230 + 0.45×AP magic damage, lingering as a trap if it hits nothing. The bubble's range is extended when flying over terrain. If either the bubble or trap hits an enemy champion she refreshes 16/19.5/23/26.5/30% of her cooldown. After a delay, the victim falls Asleep and have their Magic Resist reduced by 30% for 2 seconds. Attacks and Ability hits wake them up but deal double damage, up to 70/110/150/190/230 + 0.45×AP true damage.",
+   "summary": "Causes the target to become drowsy, then fall asleep. While asleep, the target's Magic Resist is reduced. The first source of damage that breaks the sleep is doubled, up to a cap.",
+   "values": {
+    "PercentPen": 0.3,
+    "BaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "CooldownRefresh": [
+     0.16,
+     0.195,
+     0.23,
+     0.265,
+     0.3
+    ],
+    "TrapLife": 5,
+    "DrowsySlow": [
+     0.1,
+     0.15,
+     0.2,
+     0.25,
+     0.3
+    ],
+    "DrowsyDuration": 1.4,
+    "SleepDuration": 2.25,
+    "BrittleLinger": 1
+   },
+   "formulas": {
+    "TotalDamageTooltip": "70/110/150/190/230 + 0.45×AP",
+    "BreakDamageTooltip": "70/110/150/190/230 + 0.45×AP"
+   },
+   "tags": [
+    "sleep",
+    "true damage"
+   ]
+  },
+  "R": {
+   "name": "Portal Jump",
+   "cooldown": [
+    11,
+    8,
+    5
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 575.0,
+   "description": "Zoe teleports to a nearby position for 1 second. Afterwards, she teleports back. Zoe can use Abilities and Attack, but can't move during this time.",
+   "summary": "Blink to a nearby position for 1 second. Then blink back.",
+   "values": {},
+   "formulas": {},
+   "tags": [
+    "blink"
+   ]
+  },
+  "Passive": {
+   "name": "More Sparkles!",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Zoe's next basic attack after casting a spell deals bonus magic damage.",
+   "summary": "Zoe's next basic attack after casting a spell deals bonus magic damage.",
+   "values": {
+    "APRatio": 0.2,
+    "WPickupDurationMinion": 20,
+    "WPickupDurationChampion": 40
+   },
+   "formulas": {
+    "PassiveDamage": "16+ (by level) + 0.2×AP"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Long-range burst mage whose Paddle Star deals more damage the farther it travels and whose Sleepy Bubble sets up one-shots. Plays from range and steals summoners.",
+  "positions": [
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Huge long-range Q burst",
+   "E bubble: drowsy then sleep, sets up a kill",
+   "W steals summoner spells and item actives",
+   "R portal repositions Q",
+   "Pick potential from fog"
+  ],
+  "weaknesses": [
+   "Very squishy",
+   "Skillshot-reliant",
+   "Short-range escape only",
+   "Falls off if behind",
+   "Weak to dive and all-in"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "medium – Q+W shards",
+   "lvl3": "strong – E+Q burst",
+   "lvl6": "strong – R extends Q",
+   "items": "strong – Luden's/Shadowflame",
+   "late": "medium – one-shot picks only"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs E to set up big Q.",
+  "waveClear": "medium",
+  "sustain": "none",
+  "mobility": "medium – R blink",
+  "range": "long-ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "R",
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Damage rises with distance."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Picks up summoner spell shards."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "sleep",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Drowsy then sleep; damage wakes them."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Blink and return after 1 s."
+   },
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Next attack after an ability deals bonus magic damage."
+   }
+  },
+  "windowAgainst": "E down: walk up and all-in; she has little escape.",
+  "checks": []
+ }
+}

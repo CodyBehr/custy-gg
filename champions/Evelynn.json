@@ -1,0 +1,362 @@
+{
+ "id": 28,
+ "alias": "Evelynn",
+ "name": "Evelynn",
+ "title": "Agony's Embrace",
+ "classes": [
+  "assassin",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 642,
+  "hpPerLevel": 98,
+  "ad": 61,
+  "adPerLevel": 3,
+  "armor": 37,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.667,
+  "attackSpeedPerLevel": 2.1,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Hate Spike",
+   "cooldown": 4,
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Evelynn strikes with her Lasher, dealing 25/30/35/40/45 + 0.25×AP magic damage to the first enemy hit and causing Evelynn's next 3 Attacks or Abilities on that unit to deal an additional 15/25/35/45/55 + 0.25×AP magic damage. Evelynn can Recast this Ability up to 3 times. Recast: Evelynn fires spikes through the nearest enemy, dealing 25/30/35/40/45 + 0.25×AP magic damage to all enemies hit.",
+   "summary": "Evelynn strikes out with her Lasher, dealing damage to the first unit hit. Then, Evelynn can shoot a line of spikes at nearby foes a few times.",
+   "values": {
+    "MissileBaseDamage": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "BonusDamageBase": [
+     15,
+     25,
+     35,
+     45,
+     55
+    ],
+    "CooldownRefund": 0.5,
+    "HateSpikeBaseDamage": [
+     25,
+     30,
+     35,
+     40,
+     45
+    ],
+    "BonusDamageAPRatio": 0.25,
+    "HateSpikeAPRatio": 0.25,
+    "QStackCount": 3,
+    "FakeCD": 4
+   },
+   "formulas": {
+    "MissileDamage": "25/30/35/40/45 + 0.25×AP",
+    "TotalBonusDamage": "15/25/35/45/55 + 0.25×AP"
+   },
+   "tags": [
+    "empowered attack",
+    "projectile"
+   ]
+  },
+  "W": {
+   "name": "Allure",
+   "cooldown": [
+    15,
+    14,
+    13,
+    12,
+    11
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    110
+   ],
+   "costType": null,
+   "range": 1200.0,
+   "description": "Evelynn marks a champion or monster for 5 seconds. If Evelynn hits the target with an Attack or Ability, she will expunge the mark, refund its cost, and Slow the target by 45% for 0.75 seconds. If the mark lasts at least 2.5 seconds, expunging it has extra effects:Against champions: Charms them for 1.25/1.5/1.75/2/2.25 second(s) and removes 35/37.5/40/42.5/45% Magic Resist for 4 seconds.Against monsters: Charms them for 3/3.25/3.5/3.75/4 seconds and deals 250/300/350/400/450 + 0.6×AP magic damage.",
+   "summary": "Evelynn curses her target, causing her next attack or spell after a delay to charm her target and reduce their magic resist.",
+   "values": {
+    "CharmDuration": [
+     1.25,
+     1.5,
+     1.75,
+     2,
+     2.25
+    ],
+    "MonsterCharm": [
+     3,
+     3.25,
+     3.5,
+     3.75,
+     4
+    ],
+    "MRShred": [
+     0.35,
+     0.375,
+     0.4,
+     0.425,
+     0.45
+    ],
+    "ShredDuration": 4,
+    "MonsterDamage": [
+     250,
+     300,
+     350,
+     400,
+     450
+    ],
+    "SlowAmount": 0.45,
+    "SlowDuration": 0.75,
+    "MonsterExtraCharm": 2,
+    "SlowDuringCharm": -0.45,
+    "ActualCD": [
+     15,
+     14,
+     13,
+     12,
+     11
+    ],
+    "BuffDuration": 5,
+    "NonCharmSlowDuration": 1.5
+   },
+   "formulas": {
+    "MonsterDamageTotalTOOLTIP": "250/300/350/400/450 + 0.6×AP"
+   },
+   "tags": [
+    "charm",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Whiplash",
+   "cooldown": 8,
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    60
+   ],
+   "costType": null,
+   "range": 210.0,
+   "description": "Evelynn whips an enemy, dealing 60/90/120/150/180 plus (3 + 0.015×AP) × 0.01 max Health magic damage. Evelynn gains 30/35/40/45/50% Move Speed for 2 seconds. Entering Demon Shade refreshes this Ability's cooldown and empowers it. When this Ability is empowered, Evelynn dashes to the target and deals 80/120/160/200/240 plus (4 + 0.025×AP) × 0.01 max Health magic damage to her target and everyone she passes through instead.",
+   "summary": "Evelynn whips her target with her Lasher, dealing damage. She then gains Move Speed for a short duration.",
+   "values": {
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "EmpoweredDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "BasePercentHealth": 3,
+    "EmpoweredPercentHealth": 4,
+    "MonsterCap": 450,
+    "SpeedAmount": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "SpeedDuration": 2,
+    "MoveSpeed": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "MSDuration": 2,
+    "MonsterDamageCamp": 450
+   },
+   "formulas": {
+    "PercentHealthBaseTOOLTIP": "(3 + 0.015×AP) × 0.01",
+    "PercentHealthEmpoweredTOOLTIP": "(4 + 0.025×AP) × 0.01"
+   },
+   "tags": [
+    "dash",
+    "heal",
+    "move speed"
+   ]
+  },
+  "R": {
+   "name": "Last Caress",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Evelynn unleashes her demonic energy, dealing heavy damage, becoming Untargetable and teleporting backwards. She deals 125/250/375 + 0.75×AP magic damage, increased to (125/250/375 + 0.75×AP) × 2.4 against enemies below 30% Health. Upon cast, set Demon Shade to a 1.25 second cooldown.",
+   "summary": "Evelynn briefly goes untargetable and decimates the area in front of her before warping backwards a long distance.",
+   "values": {
+    "CritMultiplier": 2.4,
+    "PassiveReset": 1.25,
+    "BaseDamage": [
+     125,
+     250,
+     375
+    ],
+    "CritBonus": 1.4,
+    "CritTreshold": 0.3
+   },
+   "formulas": {
+    "Damage": "125/250/375 + 0.75×AP",
+    "CritDamage": "(125/250/375 + 0.75×AP) × 2.4"
+   },
+   "tags": [
+    "blink",
+    "heal",
+    "untargetable"
+   ]
+  },
+  "Passive": {
+   "name": "Demon Shade",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "When out of combat, Evelynn enters Demon Shade. Demon Shade heals Evelynn when she is low on health and grants Camouflage after level 6.",
+   "summary": "When out of combat, Evelynn enters Demon Shade. Demon Shade heals Evelynn when she is low on health and grants Camouflage after level 6.",
+   "values": {
+    "DemonShadeTimer": 4,
+    "StealthDropTimer": 1.5
+   },
+   "formulas": {
+    "HealingThresholdTOOLTIP": "250+ (by level) + 2.5×AP",
+    "HealPerSecondTOOLTIP": "15–150 (by level)"
+   },
+   "tags": [
+    "heal",
+    "stealth"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Camouflaged assassin jungler: from level 6 invisible ganks, charms with a matured W mark, bursts with Q-E and escapes with R.",
+  "positions": [
+   "jungle"
+  ],
+  "strengths": [
+   "Camouflage after 6: unseen ganks",
+   "W charm on a mark held 2.5 s+",
+   "High burst; R execute and untargetable escape",
+   "Strong vs squishies"
+  ],
+  "weaknesses": [
+   "Weak before 6",
+   "Fragile when caught",
+   "Countered by control wards and Oracle Lens",
+   "Struggles vs tanks and early invades"
+  ],
+  "curve": {
+   "lvl1": "weak",
+   "lvl2": "weak",
+   "lvl3": "medium",
+   "lvl6": "strong – camouflage + R",
+   "items": "first AP item",
+   "late": "strong vs squishies"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Farms to 6; first ganks usually come after camouflage.",
+  "waveClear": "medium in jungle",
+  "sustain": "low – Demon Shade heal when low",
+  "mobility": "medium (E dash empowered, R blink)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "Q spikes + E",
+   "engage": "W charm mark",
+   "escape": "R untargetable blink",
+   "answers": null
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Demon Shade: camouflage from 6, heal when low"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "first hit is a skillshot; marks next 3 hits"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "charm",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "mark matures after 2.5 s into charm"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "point-and-click; empowered version dashes"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "untargetable, blinks backwards; bonus damage below 30%"
+   }
+  },
+  "windowAgainst": "R used (no escape) or revealed before 6.",
+  "checks": [
+   "E tag 'heal' from auto-tagger likely wrong"
+  ]
+ }
+}

@@ -1,0 +1,302 @@
+{
+ "id": 122,
+ "alias": "Darius",
+ "name": "Darius",
+ "title": "the Hand of Noxus",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 652,
+  "hpPerLevel": 114,
+  "ad": 64,
+  "adPerLevel": 5,
+  "armor": 37,
+  "armorPerLevel": 5.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1,
+  "range": 175,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Decimate",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": [
+    30,
+    35,
+    40,
+    45,
+    50
+   ],
+   "costType": null,
+   "range": 1.0,
+   "description": "Darius hefts his axe then swings it around, dealing 50/80/110/140/170 + (100/110/120/130/140 × 0.01)×AD physical damage with the edge and (50/80/110/140/170 + (100/110/120/130/140 × 0.01)×AD) × 0.35 damage with the handle. Enemies hit with the handle do not take a Hemorrhage stack. Darius restores 17% missing Health per enemy champion and large jungle monster hit with the edge, up to a max of 51%.",
+   "summary": "Darius winds up and swings his axe in a wide circle. Enemies struck by the blade take more damage than those struck by the handle. Darius heals based on enemy champions and large monsters hit by the blade.",
+   "values": {
+    "MissingHealthHeal": 17,
+    "TotalADRatio": [
+     100,
+     110,
+     120,
+     130,
+     140
+    ],
+    "BaseDamage": [
+     50,
+     80,
+     110,
+     140,
+     170
+    ],
+    "InnerCircleDamagePercent": 35,
+    "MissingHealPercent": 51
+   },
+   "formulas": {
+    "BladeDamage": "50/80/110/140/170 + (100/110/120/130/140 × 0.01)×AD",
+    "HandleDamage": "(50/80/110/140/170 + (100/110/120/130/140 × 0.01)×AD) × 0.35"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Crippling Strike",
+   "cooldown": 5,
+   "cost": 40,
+   "costType": null,
+   "range": 300.0,
+   "description": "Darius' next Attack deals 1.4/1.45/1.5/1.55/1.6×AD physical damage and Slows by 90% for 1 second. This Ability refunds its Mana cost and reduces its Cooldown by 50% if it kills the target. This Ability triggers spell effects upon dealing damage.",
+   "summary": "Darius's next attack strikes an enemy's crucial artery. As they bleed out, their Move Speed is slowed.",
+   "values": {
+    "SlowPercent": 90,
+    "PercentCDRefund": 50,
+    "ADRatio": [
+     1.4,
+     1.45,
+     1.5,
+     1.55,
+     1.6
+    ],
+    "SlowDuration": 1
+   },
+   "formulas": {
+    "EmpoweredAttackDamage": "1.4/1.45/1.5/1.55/1.6×AD"
+   },
+   "tags": [
+    "empowered attack",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Apprehend",
+   "cooldown": [
+    26,
+    23.5,
+    21,
+    18.5,
+    16
+   ],
+   "cost": [
+    60,
+    50,
+    40,
+    30,
+    20
+   ],
+   "costType": null,
+   "range": 535.0,
+   "description": "Passive: Darius gains 20/25/30/35/40% Armor Penetration. Active: Darius hooks with his axe, Pulling, and Knocking Up and Slowing by 40% for 1 second.",
+   "summary": "Darius hones his axe, passively causing his physical damage to ignore a percentage of his target's Armor. When activated, Darius sweeps up his enemies with his axe's hook and pulls them to him.",
+   "values": {
+    "PassivePercentArmorPen": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "SlowPercent": 40,
+    "SlowDuration": 1
+   },
+   "formulas": {},
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Noxian Guillotine",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": [
+    100,
+    0,
+    0
+   ],
+   "costType": null,
+   "range": 460.0,
+   "description": "Darius leaps to an enemy and strikes a lethal blow, dealing 125/250/375 + 0.75×bonus AD true damage. For each Hemorrhage on the target, this Ability deals an additional 20% damage, up to a max of (125/250/375 + 0.75×bonus AD) × 2 damage. If this kills the target, Darius may Recast this Ability once within 20 seconds. At rank 3, this Ability has no Mana cost and kills refresh the Cooldown completely.",
+   "summary": "Darius leaps to an enemy champion and strikes a lethal blow, dealing true damage. This damage is increased for each stack of Hemorrhage on the target. If Noxian Guillotine is a killing blow, its cooldown is refreshed for a brief duration.",
+   "values": {
+    "RBaseDamage": [
+     125,
+     250,
+     375
+    ],
+    "RDamagePercentPerHemoStack": 0.2,
+    "RRecastDuration": 20
+   },
+   "formulas": {
+    "Damage": "125/250/375 + 0.75×bonus AD",
+    "MaximumDamage": "(125/250/375 + 0.75×bonus AD) × 2"
+   },
+   "tags": [
+    "dash",
+    "true damage"
+   ]
+  },
+  "Passive": {
+   "name": "Hemorrhage",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": null,
+   "description": "Darius' attacks and damaging abilities cause enemies to bleed for physical damage over 5 seconds, stacking up to 5 times. Darius enrages and gains massive Attack Damage when his target reaches max stacks.",
+   "summary": "Darius' attacks and damaging abilities cause enemies to bleed for physical damage over 5 seconds, stacking up to 5 times. Darius enrages and gains massive Attack Damage when his target reaches max stacks.",
+   "values": {
+    "MonsterMod": 2.5,
+    "SecondsPerTick": 1.26,
+    "BleedDuration": 5,
+    "MaxStacks": 5
+   },
+   "formulas": {
+    "BleedDamagePerStack": "13–30 (by level) + 0.3×bonus AD",
+    "NoxianMightBonusAD": "30+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Lane bully who stacks bleeds to 5 for Noxian Might, pulls you back in with E, and resets R on kills.",
+  "positions": [
+   "top"
+  ],
+  "strengths": [
+   "Wins extended trades and all-ins once stacks build",
+   "Q blade heals and punishes melee in range",
+   "E pull stops escapes",
+   "R resets make him a teamfight snowballer"
+  ],
+  "weaknesses": [
+   "No dash; kited by ranged and by champions who space the Q blade",
+   "Mana-hungry early",
+   "Hard to engage when E is down",
+   "Falls off vs ranged-heavy teams"
+  ],
+  "curve": {
+   "lvl1": "strong – W + passive stacking (Q or E start)",
+   "lvl2": "strong – E pull + W",
+   "lvl3": "strong – E-W-Q",
+   "lvl6": "strong – R resets",
+   "items": "first item (Stridebreaker / Trinity class)",
+   "late": "medium – kited"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Strong from level 1; level 2-3 E pull is his main kill window.",
+  "waveClear": "good with Q",
+  "sustain": "medium – Q blade heal",
+  "mobility": "low (no dash; R leap only)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "Q blade, W into passive stacks",
+   "engage": "E pull, W slow",
+   "escape": null,
+   "answers": null
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "bleed stacks; Noxian Might at 5"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "area: blade vs handle; dodge the blade ring"
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "empowered attack: dodged by Jax E"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "pull + knock-up (tenacity doesn't shorten it; parried by Fiora W → Darius stunned)"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "point-and-click true damage execute; resets on kill"
+   }
+  },
+  "windowAgainst": "E on cooldown (16–26 s): he can't pull you back.",
+  "checks": []
+ }
+}

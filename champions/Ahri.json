@@ -1,0 +1,282 @@
+{
+ "id": 103,
+ "alias": "Ahri",
+ "name": "Ahri",
+ "title": "the Nine-Tailed Fox",
+ "classes": [
+  "mage",
+  "assassin"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 590,
+  "hpPerLevel": 104,
+  "ad": 53,
+  "adPerLevel": 3,
+  "armor": 21,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.668,
+  "attackSpeedPerLevel": 2.2,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Orb of Deception",
+   "cooldown": 7,
+   "cost": [
+    65,
+    75,
+    85,
+    95,
+    95
+   ],
+   "costType": null,
+   "range": 970.0,
+   "description": "Ahri throws then pulls back her orb, dealing 35/60/85/110/135 + 0.5×AP magic damage on the way out and 35/60/85/110/135 + 0.5×AP true damage on the way back.",
+   "summary": "Ahri sends out and pulls back her orb, dealing magic damage on the way out and true damage on the way back.",
+   "values": {
+    "BaseDamage": [
+     35,
+     60,
+     85,
+     110,
+     135
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "35/60/85/110/135 + 0.5×AP"
+   },
+   "tags": [
+    "true damage"
+   ]
+  },
+  "W": {
+   "name": "Fox-Fire",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": 30,
+   "costType": null,
+   "range": 700.0,
+   "description": "Ahri releases 3 fox-fires that seek nearby enemies and deal 40/60/80/100/120 + 0.4×AP magic damage, reduced to (40/60/80/100/120 + 0.4×AP) × 0.4 damage beyond the first. She also gains 40% Move Speed decaying over 2 seconds.",
+   "summary": "Ahri gains a brief burst of Move Speed and releases three fox-fires, that lock onto and attack nearby enemies.",
+   "values": {
+    "MovementSpeed": 0.4,
+    "MovementSpeedDuration": 2,
+    "MinionBonusDamageMultiplier": 2,
+    "MinionBonusDamageThreshold": 0.2,
+    "BaseDamage": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "RepeatDamageMod": 0.4,
+    "AcquisitionRange": 550,
+    "BonusAcquisitionRange": 725,
+    "InitialDelay": 0.25,
+    "SecondaryDelay": 0.4,
+    "FlameDuration": 2.5,
+    "OrbitRadius": 150,
+    "APRatio": 0.4
+   },
+   "formulas": {
+    "SingleFireDamage": "40/60/80/100/120 + 0.4×AP",
+    "MultiFireDamage": "(40/60/80/100/120 + 0.4×AP) × 0.4"
+   },
+   "tags": [
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Charm",
+   "cooldown": 12,
+   "cost": 60,
+   "costType": null,
+   "range": 975.0,
+   "description": "Ahri blows a kiss that Charms the first enemy hit for 1.2/1.35/1.5/1.65/1.8 seconds and deals 80/120/160/200/240 + 0.85×AP magic damage.",
+   "summary": "Ahri blows a kiss that damages and charms an enemy it encounters, instantly stopping movement abilities and causing them to walk harmlessly towards her.",
+   "values": {
+    "BaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "SlowPercent": -0.65,
+    "CharmDuration": [
+     1.2,
+     1.35,
+     1.5,
+     1.65,
+     1.8
+    ],
+    "APRatio": 0.85
+   },
+   "formulas": {
+    "TotalDamage": "80/120/160/200/240 + 0.85×AP"
+   },
+   "tags": [
+    "charm"
+   ]
+  },
+  "R": {
+   "name": "Spirit Rush",
+   "cooldown": [
+    140,
+    120,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 450.0,
+   "description": "Ahri nimbly dashes, firing 3 essence bolts at nearby enemies, prioritizing champions. These bolts deal 75/125/175 + rAPCoefficient×AP magic damage each. Spirit Rush can be Recast up to 2 more times within 15 seconds. Consuming a champion's Essence with Essence Theft during this period extends the recast window by up to 10 seconds and grants an additional recast of Spirit Rush (up to 3 stored).",
+   "summary": "Ahri dashes forward and fires essence bolts, damaging nearby enemies. Spirit Rush can be cast up to three times before going on cooldown, and gains additional recasts when taking down enemy champions.",
+   "values": {
+    "RBaseDamage": [
+     75,
+     125,
+     175
+    ],
+    "RMaxTargetsPerCast": 3,
+    "RMaxCasts": 3,
+    "RDashDistance": 500,
+    "RBaseDashSpeed": 1200,
+    "RRecastWindow": 15,
+    "RAcquisitionRange": 600,
+    "RDashCooldown": 1,
+    "RAPCoefficient": 0.35,
+    "RResetCasts": 1,
+    "PDurationExtension": 10
+   },
+   "formulas": {
+    "RCalculatedDamage": "75/125/175 + rAPCoefficient×AP"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "Passive": {
+   "name": "Essence Theft",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "After killing 9 minions or monsters, Ahri heals. After taking down an enemy champion, Ahri heals for a greater amount.",
+   "summary": "After killing 9 minions or monsters, Ahri heals. After taking down an enemy champion, Ahri heals for a greater amount.",
+   "values": {
+    "TakedownWindow": 3,
+    "MaxStacks": 9
+   },
+   "formulas": {
+    "ChampionHeal": "75–165 (by level) + 0.3×AP",
+    "MinionHeal": "35–95 (by level) + 0.2×AP"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Mobile mage-assassin: pokes with Q, picks with E charm, and uses the three R dashes to engage or escape.",
+  "positions": [
+   "mid"
+  ],
+  "strengths": [
+   "E charm sets up kills and catches",
+   "R gives three dashes for all-ins and escapes",
+   "Q true damage on the return; good wave clear",
+   "Safe roaming with W move speed and R"
+  ],
+  "weaknesses": [
+   "Whole kill pattern rests on landing E",
+   "Before 6 she has no dash and is gankable",
+   "Q and E are skillshots blocked by minions or projectile blocks",
+   "Low damage once E is spent"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke, no dash",
+   "lvl2": "medium – Q+E combo",
+   "lvl3": "strong – Q-W-E full combo",
+   "lvl6": "strong – R dashes enable all-ins and roams",
+   "items": "first item (burst + haste)",
+   "late": "medium – pick tool, falls off vs tanks"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Wants E available before committing; level 6 is her biggest spike.",
+  "waveClear": "good – Q passes through the wave twice",
+  "sustain": "low – passive heal from minion and champion takedowns",
+  "mobility": "high after 6 (R dashes), low before",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q poke, E into Q-W",
+   "engage": "E charm, R",
+   "escape": "R dashes, W move speed",
+   "answers": null
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "heal after takedowns"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "out-and-back skillshot, true damage on return"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "seeking fox-fires, prioritise charmed targets"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "charm",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "blocked by minions; key pick tool"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "three dashes over 15 s; bolts auto-target"
+   }
+  },
+  "windowAgainst": "E on cooldown (she can't follow up) or R down after 6 (no escape).",
+  "checks": [
+   "Q tag 'airborne' from the auto-tagger is wrong: Q has no knock-up"
+  ]
+ }
+}

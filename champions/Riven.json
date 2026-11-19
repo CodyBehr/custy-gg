@@ -1,0 +1,291 @@
+{
+ "id": 92,
+ "alias": "Riven",
+ "name": "Riven",
+ "title": "the Exile",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 100,
+  "ad": 64,
+  "adPerLevel": 3,
+  "armor": 33,
+  "armorPerLevel": 4.4,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3.5,
+  "range": 125,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Broken Wings",
+   "cooldown": 13,
+   "cost": null,
+   "costType": null,
+   "range": 275.0,
+   "description": "Riven dashes forward, dealing 45/75/105/135/165 + 0.6/0.65/0.7/0.75/0.8×bonus AD physical damage. She can Recast this Ability twice. The first Recast is the same as the original, but the second has a different effect: Recast: Riven leaps forward and slams, dealing 45/75/105/135/165 + 0.6/0.65/0.7/0.75/0.8×bonus AD physical damage and Knocks Up nearby enemies for 0.75 seconds.",
+   "summary": "Riven lashes out in a series of strikes. This ability can be reactivated three times in a short time frame with the third hit knocking back nearby enemies.",
+   "values": {
+    "BaseDamage": [
+     45,
+     75,
+     105,
+     135,
+     165
+    ],
+    "ADRatio": [
+     0.6,
+     0.65,
+     0.7,
+     0.75,
+     0.8
+    ]
+   },
+   "formulas": {
+    "FirstSlashDamage": "45/75/105/135/165 + 0.6/0.65/0.7/0.75/0.8×bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "dash"
+   ]
+  },
+  "W": {
+   "name": "Ki Burst",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 260.0,
+   "description": "Riven's sword emits a burst of runic energy, dealing 65/95/125/155/185 + 1×bonus AD physical damage and Stunning for 0.75 seconds.",
+   "summary": "Riven emits a Ki Burst, damaging and stunning nearby enemies.",
+   "values": {
+    "StunDuration": 0.75,
+    "BaseDamage": [
+     65,
+     95,
+     125,
+     155,
+     185
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "65/95/125/155/185 + 1×bonus AD"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "E": {
+   "name": "Valor",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 250.0,
+   "description": "Riven quickly dashes and gains 70/95/120/145/170 + 1.1×bonus AD Shield for 1.5 seconds.",
+   "summary": "Riven steps forward a short distance and blocks incoming damage.",
+   "values": {
+    "ShieldAmount": [
+     70,
+     95,
+     120,
+     145,
+     170
+    ],
+    "BaseShieldAmount": [
+     70,
+     95,
+     120,
+     145,
+     170
+    ],
+    "ShieldDuration": 1.5
+   },
+   "formulas": {
+    "TotalShield": "70/95/120/145/170 + 1.1×bonus AD"
+   },
+   "tags": [
+    "dash",
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Blade of the Exile",
+   "cooldown": [
+    120,
+    90,
+    60
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 200.0,
+   "description": "Riven's weapon surges with spiritual energy, granting her 0.2×AD Attack Damage and increased range on damaging Abilities and Attacks for 15 seconds. While active, she can Recast. Recast: Riven fires a wind slash that deals between 100/150/200 + 0.55×bonus AD and 300/450/600 + 1.65×bonus AD physical damage, based on their missing Health.",
+   "summary": "Riven empowers her keepsake weapon with energy, and gains Attack Damage and Range. During this time, she also gains the ability to use Wind Slash, a powerful ranged attack, once.",
+   "values": {
+    "MinBase": [
+     100,
+     150,
+     200
+    ],
+    "MaxBase": [
+     300,
+     450,
+     600
+    ],
+    "Duration": 15,
+    "PercentBonusAD": 0.2,
+    "TooltipAttackRange": 75
+   },
+   "formulas": {
+    "MinDamage": "100/150/200 + 0.55×bonus AD",
+    "MaxDamage": "300/450/600 + 1.65×bonus AD",
+    "BonusAD": "0.2×AD"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Runic Blade",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Riven's abilities charge her blade, and her basic attacks expend charges to deal an additional damage.",
+   "summary": "Riven's abilities charge her blade, and her basic attacks expend charges to deal an additional damage.",
+   "values": {
+    "Charges": 3,
+    "TowerRatio": 0.5,
+    "MonsterBonusDamage": 50
+   },
+   "formulas": {
+    "TotalDamage": "0.3–0.45 (by level)×AD"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Melee skirmisher who weaves attacks between three Q dashes and uses E shield and W stun to win short, fast trades. Snowballs with animation-cancel combos and an execute R wave.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Lots of mobility: three Q dashes + E dash, can cross walls",
+   "W stun and Q3 knock-up give two crowd-control tools in one combo",
+   "Runic Blade empowers attacks after every ability: high burst in short trades",
+   "R grants AD and range, then a wave that deals more damage to low-health targets"
+  ],
+  "weaknesses": [
+   "No mana but no sustain either: relies on Ignite/items in long lanes",
+   "Combo-dependent and mechanically demanding",
+   "Weak once her cooldowns are spent",
+   "Struggles into hard crowd control and tanky lanes that out-sustain her"
+  ],
+  "curve": {
+   "lvl1": "medium – Q + passive trades",
+   "lvl2": "strong – Q + W stun or E shield",
+   "lvl3": "strong – full Q/W/E combo",
+   "lvl6": "strong – R all-ins",
+   "items": "strong – first lethality/bruiser item (e.g. Eclipse/Profane Hydra)",
+   "late": "medium – good split-pusher, falls off vs tanks"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Q W E together make her short trades safe: E shield absorbs the return damage, W stun stops it.",
+  "waveClear": "good – Q and W area damage",
+  "sustain": "low – no self-heal; lifesteal/omnivamp from items",
+  "mobility": "high – Q dashes, E dash",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive",
+    "E"
+   ],
+   "engage": [
+    "Q",
+    "E"
+   ],
+   "escape": [
+    "Q",
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "After each ability, her next attacks deal bonus damage (dodgeable by Jax E)."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Three dashes; the 3rd knocks up. Resets her attack timer."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Instant area stun around her (short range)."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash + shield."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bonus AD and range; recast fires a wave that deals more to low-health targets."
+   }
+  },
+  "windowAgainst": "When her Q charges and E are spent: she can't disengage. Trade when W is down.",
+  "checks": []
+ }
+}

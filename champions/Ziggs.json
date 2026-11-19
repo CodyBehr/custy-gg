@@ -1,0 +1,333 @@
+{
+ "id": 115,
+ "alias": "Ziggs",
+ "name": "Ziggs",
+ "title": "the Hexplosives Expert",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 606,
+  "hpPerLevel": 106,
+  "ad": 55,
+  "adPerLevel": 3.1,
+  "armor": 21,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.656,
+  "attackSpeedPerLevel": 2,
+  "range": 550,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Bouncing Bomb",
+   "cooldown": [
+    6,
+    5.5,
+    5,
+    4.5,
+    4
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 850.0,
+   "description": "Ziggs throws a bouncing bomb that deals 80/130/180/230/280 + 0.6/0.65/0.7/0.75/0.8×AP magic damage.",
+   "summary": "Ziggs throws a bouncing bomb that deals magic damage.",
+   "values": {
+    "BaseDamage": [
+     80,
+     130,
+     180,
+     230,
+     280
+    ],
+    "APRatio": [
+     0.6,
+     0.65,
+     0.7,
+     0.75,
+     0.8
+    ],
+    "MaxRange": 850,
+    "MaxRangeFirstBounce": 325,
+    "MaxRangeSecondBounce": 225,
+    "BombTriggerRange": 180,
+    "ExplosionRadius": 240,
+    "BoundingBoxTrigger": 70
+   },
+   "formulas": {
+    "TotalDamage": "80/130/180/230/280 + 0.6/0.65/0.7/0.75/0.8×AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Satchel Charge",
+   "cooldown": [
+    20,
+    18,
+    16,
+    14,
+    12
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 1000.0,
+   "description": "Ziggs flings an explosive charge that detonates after 4 seconds, or when this ability is Recast. It deals 70/105/140/175/210 + 0.5×AP magic damage to enemies and Knocks them Back. Ziggs is also knocked away, but takes no damage. Satchel Charge will automatically destroy towers below 25/27.5/30/32.5/35% of their Health.",
+   "summary": "Ziggs flings an explosive charge that detonates after a delay, or when this ability is activated again. The explosion deals magic damage to enemies, knocking them away. Ziggs is also knocked away, but takes no damage. Ziggs can use the Satchel to hexplode vulnerable enemy turrets.",
+   "values": {
+    "BaseDamage": [
+     70,
+     105,
+     140,
+     175,
+     210
+    ],
+    "BombDuration": 4,
+    "TurretDestroyPercent": [
+     0.25,
+     0.275,
+     0.3,
+     0.325,
+     0.35
+    ],
+    "KnockbackSpeed": 600,
+    "KnockbackGravity": 50,
+    "KnockbackDistance": 500,
+    "ExplosionRadius": 325,
+    "KnockbackDistanceAlly": 775,
+    "PerceptionBubbleRadius": 400,
+    "PerceptionBubbleDuration": 6,
+    "CherryBonusHaste": 30
+   },
+   "formulas": {
+    "TotalDamage": "70/105/140/175/210 + 0.5×AP"
+   },
+   "tags": [
+    "airborne",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Hexplosive Minefield",
+   "cooldown": 16,
+   "cost": [
+    80,
+    90,
+    100,
+    110,
+    120
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Ziggs scatters proximity mines that detonate on enemy contact, dealing 30/70/110/150/190 + 0.25/0.3/0.35/0.4/0.45×AP magic damage and Slows by 10/20/30/40/50% for 1.5 seconds. Mines last 10 seconds.",
+   "summary": "Ziggs scatters proximity mines that detonate on enemy contact, dealing magic damage and slowing. Successive mine detonations on the same target deal reduced damage.",
+   "values": {
+    "APRatioPerMine": [
+     0.25,
+     0.3,
+     0.35,
+     0.4,
+     0.45
+    ],
+    "Slow": [
+     -0.1,
+     -0.2,
+     -0.3,
+     -0.4,
+     -0.5
+    ],
+    "DamagePerMine": [
+     30,
+     70,
+     110,
+     150,
+     190
+    ],
+    "MineDuration": 10,
+    "SlowDuration": 1.5,
+    "SubsequentMineDamageMod": 0.4,
+    "TriggerRange": 135,
+    "MinePerceptionBubbleSize": 150
+   },
+   "formulas": {
+    "TotalDamage": "30/70/110/150/190 + 0.25/0.3/0.35/0.4/0.45×AP",
+    "ReducedDamage": "(30/70/110/150/190 + 0.25/0.3/0.35/0.4/0.45×AP) × 0.4"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Mega Inferno Bomb",
+   "cooldown": [
+    120,
+    95,
+    70
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 5000.0,
+   "description": "Ziggs hurls his ultimate creation, dealing 300/500/700 + 1×AP magic damage in the center of the blast radius, or (300/500/700 + 1×AP) × 0.65 magic damage at the edge.",
+   "summary": "Ziggs deploys his ultimate creation, the Mega Inferno Bomb, hurling it an enormous distance. Enemies in the primary blast zone take more damage than those farther away.",
+   "values": {
+    "BaseDamage": [
+     300,
+     500,
+     700
+    ],
+    "APRatio": 1,
+    "OuterRingModifier": 0.65,
+    "MaximumRadius": 525,
+    "EmpoweredRadius": 250
+   },
+   "formulas": {
+    "EmpoweredDamage": "300/500/700 + 1×AP",
+    "BlastDamage": "(300/500/700 + 1×AP) × 0.65"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Short Fuse",
+   "cooldown": 18,
+   "cost": 80,
+   "costType": null,
+   "range": null,
+   "description": "Periodically, Ziggs' next basic attack deals bonus magic damage. This cooldown is reduced whenever Ziggs uses an ability.",
+   "summary": "Periodically, Ziggs' next basic attack deals bonus magic damage. This cooldown is reduced whenever Ziggs uses an ability.",
+   "values": {
+    "APRatio": 0.5,
+    "StructureDamageRatio": 1.75
+   },
+   "formulas": {
+    "TotalDamage": "20+ (by level) + 0.5×AP",
+    "SpellCdr": "4+ (by level)",
+    "StructureDamage": "(20+ (by level) + 0.5×AP) × 1.75"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Siege mage who throws bombs from long range. Wins lane by poking with Q and controlling waves, and ends games by taking towers with W.",
+  "positions": [
+   "MIDDLE",
+   "BOTTOM"
+  ],
+  "strengths": [
+   "Q bouncing bomb pokes from long range on a 6–4 s cooldown",
+   "W knocks enemies back, can knock himself away to escape, and destroys towers below 25–35% health",
+   "E minefield slows 10–50% and zones chokes",
+   "R huge-range bomb deals full damage in the center, 65% at the edge",
+   "Passive empowered attack comes back faster each time he uses an ability"
+  ],
+  "weaknesses": [
+   "W self-knock is his only escape; when it's down he's easy to catch",
+   "Everything is a skillshot; mobile champions dodge his damage",
+   "Weak to assassins and hard engage",
+   "Low single-target damage up close"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "medium – Q+E",
+   "lvl3": "strong – full poke and W escape",
+   "lvl6": "strong – R",
+   "items": "strong – Luden's / Malignance",
+   "late": "strong – siege"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Q poke works from level 1; W escape at 3 makes him safe to keep poking.",
+  "waveClear": "excellent – Q and E",
+  "sustain": "low",
+  "mobility": "low – W self-knock",
+  "range": "long-ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E",
+    "W"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Periodic empowered attack; abilities reduce its cooldown."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Bouncing bomb."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Knockback after 4 s or recast; self-knock; executes towers."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Mines slow 1.5 s."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Long-range bomb, less at the edge."
+   }
+  },
+  "windowAgainst": "W on cooldown (20–12 s): he can't escape engage.",
+  "checks": [
+   "Whether projectile blocks stop Q's bounces (lobbed, likely not)."
+  ]
+ }
+}

@@ -1,0 +1,394 @@
+{
+ "id": 233,
+ "alias": "Briar",
+ "name": "Briar",
+ "title": "the Restrained Hunger",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 3,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 625,
+  "hpPerLevel": 95,
+  "ad": 60,
+  "adPerLevel": 2.5,
+  "armor": 30,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.644,
+  "attackSpeedPerLevel": 2,
+  "range": 125,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Head Rush",
+   "cooldown": [
+    13,
+    12,
+    11,
+    10,
+    9
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 475.0,
+   "description": "Briar leaps to a target, Stunning it for 0.85 seconds, dealing 60/85/110/135/160 + 0.6×AP + 0.8×bonus AD physical damage and reducing 10/12.5/15/17.5/20% Armor and Magic Resist for 5 seconds. Briar will stop prioritizing champions if she casts this Ability on a minion or monster during Blood Frenzy.",
+   "summary": "Briar leaps to a unit and hits enemies with The Heel Wheel (of Pain), stunning them and breaking their Armor.",
+   "values": {
+    "BaseDamage": [
+     60,
+     85,
+     110,
+     135,
+     160
+    ],
+    "DashSpeedBase": 600,
+    "ExtraDashSpeedBasedOnDistance": 300,
+    "StunDuration": 0.85,
+    "ShredPercent": [
+     0.1,
+     0.125,
+     0.15,
+     0.175,
+     0.2
+    ],
+    "ShredDuration": 5
+   },
+   "formulas": {
+    "TotalDamage": "60/85/110/135/160 + 0.6×AP + 0.8×bonus AD"
+   },
+   "tags": [
+    "dash",
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Blood Frenzy / Snack Attack",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 350.0,
+   "description": "Briar leaps and enters a Blood Frenzy, self-taunting to the nearest enemy for 5 seconds, prioritizing Champions. While in Blood Frenzy she gains 55.0/65/75/85/95% Attack Speed and 24/33/42/51/60% Move Speed, and her Attacks deal 0.6/0.7/0.8/0.9/1×AD physical damage to enemies surrounding her target. Briar can Recast this Ability to empower her next Attack. It deals 5/20/35/50/65 + 1.05×AD + 9 + 0.025×bonus AD% missing Health physical damage and heals Briar for 0.05×max HP + 24/28.0/32/36/40% of the damage dealt.",
+   "summary": "Briar leaps forward and shatters her pillory, entering a Blood Frenzy that causes her to relentlessly pursue the nearest enemy (prioritizing champions). While frenzied, she gains increased Attack Speed and Move Speed, and her attacks deal damage in an area around her target. Briar can reactivate this ability while frenzied to take a CHOMP out of her target on her next attack, dealing additional damage based on their missing Health, and healing Briar based on the damage she deals.",
+   "values": {
+    "TauntRange": 1000,
+    "MinDashDistance": 75,
+    "MaxDashDistance": 300,
+    "MaxRangeOverWalls": 650,
+    "DashSpeed": 1200,
+    "BerserkDuration": 5,
+    "BerserkAS": [
+     0.55,
+     0.65,
+     0.75,
+     0.85,
+     0.95
+    ],
+    "BerserkMS": [
+     0.24,
+     0.33,
+     0.42,
+     0.51,
+     0.6
+    ],
+    "AttackBonusDamage": [
+     5,
+     20,
+     35,
+     50,
+     65
+    ],
+    "AttackPercentMissingHealth": 9,
+    "AttackHealPercent": [
+     0.24,
+     0.28,
+     0.32,
+     0.36,
+     0.4
+    ],
+    "MaxMonsterDamage": 400,
+    "AoEAttackRadius": 275,
+    "AoEAttackDamagePercent": [
+     0.6,
+     0.7,
+     0.8,
+     0.9,
+     1
+    ],
+    "MonsterAndMinionPercentMod": 0.1
+   },
+   "formulas": {
+    "TotalAttackBonusDamage": "5/20/35/50/65 + 1.05×AD",
+    "TotalAoEDamage": "0.6/0.7/0.8/0.9/1×AD",
+    "TotalAttackPercentMissingHealth": "9 + 0.025×bonus AD",
+    "AttackMaxHPHeal": "0.05×max HP"
+   },
+   "tags": [
+    "attack speed",
+    "dash",
+    "empowered attack",
+    "execute",
+    "heal",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Chilling Scream",
+   "cooldown": 16,
+   "cost": null,
+   "costType": null,
+   "range": 400.0,
+   "description": "Begin Charging: Briar removes Blood Frenzy and gathers energy, gaining 35% damage reduction and restoring 0.1/0.115/0.13/0.145/0.16×max HP Health over 1 second. Release: Briar unleashes a scream that deals up to 80/115/150/185/220 + 1×bonus AD + 1×AP magic damage based on time charged, and Slows by 80% for 0.5 seconds. When fully charged, the scream Knocks Back enemies, dealing 140/215/290/365/440 + 2.4×bonus AD + 2.4×AP magic damage to those who hit a wall and Stunning them for 1.5 seconds.",
+   "summary": "Briar refocuses her mind, removing Blood Frenzy and channeling energy into a powerful scream that damages and slows enemies. While charging, she takes reduced damage and heals for a portion of her max Health. A fully charged scream knocks foes back, dealing additional damage and stunning those who collide with a wall.",
+   "values": {
+    "MaxBaseDamage": [
+     80,
+     115,
+     150,
+     185,
+     220
+    ],
+    "WallHitBaseDamage": [
+     140,
+     215,
+     290,
+     365,
+     440
+    ],
+    "MinMissileRange": 400,
+    "MaxMissileRange": 600,
+    "Width": 380,
+    "RectangleDistanceBehindCaster": 100,
+    "RectangleDistanceInFrontOfCaster": 10,
+    "RKnockupHeight": 2,
+    "RKnockupDuration": 0.5,
+    "RKnockTowardsSpeed": 1800,
+    "WallStunDuration": 1.5,
+    "KnockbackDistance": 575,
+    "SlowPercent": 0.8,
+    "SlowDuration": 0.5,
+    "DRPercent": 35,
+    "HealHPPercent": [
+     0.1,
+     0.115,
+     0.13,
+     0.145,
+     0.16
+    ]
+   },
+   "formulas": {
+    "Damage": "80/115/150/185/220 + 1×bonus AD + 1×AP",
+    "WallHitDamage": "140/215/290/365/440 + 2.4×bonus AD + 2.4×AP",
+    "PercentMaxHPHeal": "0.1/0.115/0.13/0.145/0.16×max HP"
+   },
+   "tags": [
+    "airborne",
+    "damage reduction",
+    "heal",
+    "slow",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Certain Death",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 12000.0,
+   "description": "Briar kicks her pillory's hemolith gemstone and flies to the location of the first champion it hits, marking them as her prey. On landing, she deals 150/250/350 + 1.3×AP magic damage to everything nearby and causes enemies who are not her prey to Flee for 1.5 seconds. She then enters an empowered Blood Frenzy and will pursue her prey until death. During this time, she gains 0.2×AD Armor and Magic Resist, 10/15/20% Lifesteal, and an additional 10/20/30% Move Speed.",
+   "summary": "Briar kicks her pillory's hemolith gemstone, marking the first champion it hits as her prey. She then beelines straight to them, fearing other surrounding enemies upon arriving at her target, and enters a state of complete hemomania. She will pursue her prey until death, gaining the benefits of Blood Frenzy as well as additional Armor, Magic Resistance, Life Steal, and Move Speed.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "HuntDuration": 25000,
+    "FearDuration": 1.5,
+    "FleeSlowPercent": 0.35,
+    "AoERadius": 575,
+    "MinDashSpeed": 2500,
+    "MaxDashSpeed": 5000,
+    "IdealDashTime": 0.5,
+    "LifestealPercent": [
+     0.1,
+     0.15,
+     0.2
+    ],
+    "ResistADRatio": 0.2,
+    "ExtraMoveSpeedPercent": [
+     0.1,
+     0.2,
+     0.3
+    ]
+   },
+   "formulas": {
+    "Damage": "150/250/350 + 1.3×AP",
+    "TotalResists": "0.2×AD"
+   },
+   "tags": [
+    "fear",
+    "move speed"
+   ]
+  },
+  "Passive": {
+   "name": "Crimson Curse",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Briar's attacks and abilities apply a stacking bleed that heals her for a portion of the damage it deals. Perpetually hungry, she gains increased healing based on her missing Health, but lacks innate Health Regeneration.",
+   "summary": "Briar's attacks and abilities apply a stacking bleed that heals her for a portion of the damage it deals. Perpetually hungry, she gains increased healing based on her missing Health, but lacks innate Health Regeneration.",
+   "values": {
+    "BleedDuration": 5,
+    "BleedTickRate": 0.5,
+    "HealPercent": 0.25,
+    "HealShieldPerMissingHPPercent": 0.4,
+    "CurrentHealthPercentCost": 0.05,
+    "BleedPercentAdd": 0.25,
+    "MaxBleedStacks": 5,
+    "PercentOfBleedHealedOnKill": 1.25
+   },
+   "formulas": {
+    "{15da76ad}": "2–10 (by level) + 0.1×bonus AD",
+    "{f06e5a79}": "(15da76ad) × 3",
+    "BleedDamageOverDurationTooltip": "(15da76ad) × 5",
+    "BleedMaxDamageOverDurationTooltip": "(15da76ad) × (5 × 2)",
+    "{b38f3487}": "0.4 + 0.0×bonus max HP",
+    "TotalHealPerMissingHPPercentTooltip": "(b38f3487) × 100"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Self-taunting berserker: W sends her frenzied toward the nearest enemy, healing off bleeds; Q stuns and E charges a knock-back stun.",
+  "positions": [
+   "jungle"
+  ],
+  "strengths": [
+   "Huge healing and attack speed in W frenzy",
+   "Q dash-stun to engage",
+   "R global-ish engage that fears",
+   "Strong early clears and ganks"
+  ],
+  "weaknesses": [
+   "W frenzy taunts herself: can't disengage",
+   "No natural health regen; relies on bleed healing",
+   "Kited by crowd control and range",
+   "Overcommits easily"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "medium",
+   "lvl3": "strong – full kit",
+   "lvl6": "strong – R engage",
+   "items": "first item",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Ganks and trades with the full kit at 3.",
+  "waveClear": "good in jungle",
+  "sustain": "very high in fights, none out of combat",
+  "mobility": "medium (Q, W leap, R)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "W frenzy + Q",
+   "engage": "Q, R",
+   "escape": "E charge to stop frenzy and heal",
+   "answers": null
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "stacking bleed heals her"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "point-and-click leap"
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "frenzy empowers attacks; self-taunt (she can't choose her target)"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "charge for damage reduction and heal; full charge knocks back and stuns into walls"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "fear",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "flies to first champion hit"
+   }
+  },
+  "windowAgainst": "W frenzy just ended or Q down: she has to commit and can be kited.",
+  "checks": [
+   "R projectile blockable by Yasuo W/Braum E?"
+  ]
+ }
+}

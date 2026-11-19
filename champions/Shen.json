@@ -1,0 +1,337 @@
+{
+ "id": 98,
+ "alias": "Shen",
+ "name": "Shen",
+ "title": "the Eye of Twilight",
+ "classes": [
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kMixed",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 99,
+  "ad": 64,
+  "adPerLevel": 3,
+  "armor": 34,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.751,
+  "attackSpeedPerLevel": 3,
+  "range": 125,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Twilight Assault",
+   "cooldown": [
+    8,
+    7.25,
+    6.5,
+    5.75,
+    5
+   ],
+   "cost": [
+    130,
+    120,
+    110,
+    100,
+    90
+   ],
+   "costType": null,
+   "range": 400.0,
+   "description": "Shen recalls his Spirit Blade. Enemies hit by the pull are Slowed by 25/30/35/40/45% while moving away from Shen for the next 2 seconds. Additionally, Shen's next 3 Attacks deal an additional 10+ (by level) plus (2/2.5/3/3.5/4 + 0.015×AP) × 0.01 max Health magic damage. If Shen hit an enemy champion with the Spirit Blade, the damage is increased to 10+ (by level) plus (5/5.5/6/6.5/7 + 0.02×AP) × 0.01 max Health magic damage and he gains 50% Attack Speed for those Attacks.",
+   "summary": "Shen recalls his spirit blade to attack with it, dealing damage based on the target's max health. The attacks are greatly empowered if it collides with an enemy champion, and all collided enemies are slowed while running away from Shen.",
+   "values": {
+    "QBaseOnHitDamage": 10,
+    "QPerLevelOnHitDamage": 6,
+    "QTowerDamageModifier": 1,
+    "QCollisionRadiusStart": 110,
+    "QCollisionRadiusEnd": 130,
+    "MonsterAmp": 1,
+    "BasePercentDamage": [
+     2,
+     2.5,
+     3,
+     3.5,
+     4
+    ],
+    "NumEnhancedAttacks": 3,
+    "SlowPercent": [
+     25,
+     30,
+     35,
+     40,
+     45
+    ],
+    "SlowDuration": 2,
+    "EnhancedPercentDamage": [
+     5,
+     5.5,
+     6,
+     6.5,
+     7
+    ],
+    "MinionDamageCap": [
+     120,
+     140,
+     160,
+     180,
+     200
+    ],
+    "AttackBuffDuration": 8,
+    "SteroidAS": 50,
+    "SteroidDuration": 75
+   },
+   "formulas": {
+    "BaseFlatDamage": "10+ (by level)",
+    "BasePercentHealth": "(2/2.5/3/3.5/4 + 0.015×AP) × 0.01",
+    "EmpPercentHealth": "(5/5.5/6/6.5/7 + 0.02×AP) × 0.01",
+    "TowerDamageCalc": "(10+ (by level)) × 1"
+   },
+   "tags": [
+    "attack speed",
+    "heal",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Spirit's Refuge",
+   "cooldown": [
+    16,
+    14.5,
+    13,
+    11.5,
+    10
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 400.0,
+   "description": "Shen creates a defensive zone at his Spirit Blade for 1.75 seconds. Attacks against allied champions in the zone are blocked. If there are no champions to protect in the zone when it starts, it will wait for up to 2 seconds.",
+   "summary": "Attacks that would hit Shen or his allies near his spirit blade are blocked.",
+   "values": {
+    "ZoneDuration": 1.75,
+    "ZoneDelay": 2
+   },
+   "formulas": {},
+   "tags": []
+  },
+  "E": {
+   "name": "Shadow Dash",
+   "cooldown": [
+    18,
+    16,
+    14,
+    12,
+    10
+   ],
+   "cost": 150,
+   "costType": null,
+   "range": 600.0,
+   "description": "Passive: Dealing damage with Twilight Assault or this Ability recovers (varies) Energy. Active: Shen dashes, Taunting champions and jungle monsters for 1.5 seconds and dealing 60/85/110/135/160 + 0.11×bonus max HP physical damage.",
+   "summary": "Shen dashes in a direction, taunting enemies in his path.",
+   "values": {
+    "BaseDamage": [
+     60,
+     85,
+     110,
+     135,
+     160
+    ],
+    "BonusHPRatio": 0.11,
+    "CCDuration": 1.5,
+    "CollisionPadding": 25,
+    "DepartureCollisionRadius": 125,
+    "ArrivalCollisionRadius": 150,
+    "DashBonusSpeed": 800,
+    "MinimumDistance": 300
+   },
+   "formulas": {
+    "energyrefund": "30+ (by level)",
+    "TauntDamage": "60/85/110/135/160 + 0.11×bonus max HP"
+   },
+   "tags": [
+    "dash",
+    "taunt"
+   ]
+  },
+  "R": {
+   "name": "Stand United",
+   "cooldown": [
+    200,
+    180,
+    160
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 35000.0,
+   "description": "Shen grants an allied champion anywhere on the map between 120/220/320 + 0.15×bonus max HP + 1.35×AP and (120/220/320 + 0.15×bonus max HP + 1.35×AP) × 1.6 Shield based on their missing Health for 5 seconds (max Shield at 60% missing Health). After channeling for 3 seconds, Shen teleports to his ally's location with his Spirit Blade.",
+   "summary": "Shen shields target allied champion from incoming damage, and soon after teleports to their location.",
+   "values": {
+    "ArrivalPersonalSpace": 175,
+    "ArrivalCheckRadiusVisible": 2000,
+    "ArrivalCheckRadiusInvisible": 600,
+    "BaseShieldAmount": [
+     120,
+     220,
+     320
+    ],
+    "ShieldAPRatio": 1.35,
+    "MaxShieldThreshold": 0.4,
+    "MaxShieldMult": 1.6,
+    "ShieldDuration": 5,
+    "ChannelDuration": 3
+   },
+   "formulas": {
+    "Shield": "120/220/320 + 0.15×bonus max HP + 1.35×AP",
+    "MaxShield": "(120/220/320 + 0.15×bonus max HP + 1.35×AP) × 1.6"
+   },
+   "tags": [
+    "blink",
+    "execute",
+    "heal",
+    "shield"
+   ]
+  },
+  "Passive": {
+   "name": "Ki Barrier",
+   "cooldown": 11,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "After casting a spell, Shen gets a shield. Affecting other champions reduces the cooldown of this effect.",
+   "summary": "After casting a spell, Shen gets a shield. Affecting other champions reduces the cooldown of this effect.",
+   "values": {
+    "ShieldDuration": 2.5,
+    "LeashDistanceThreshold": 3500,
+    "LeashPreferredResultDistance": 2250,
+    "DirectionIndicatorMinimumDistance": 150,
+    "PassiveCDFlexAmount": 0.125,
+    "ShieldCooldown": 11,
+    "ShenZedQuestShieldMultiplier": 1.3
+   },
+   "formulas": {
+    "{58a09e24}": "47–120 (by level) + 0.13×bonus max HP",
+    "ShieldCooldownReduction": "4+ (by level)",
+    "{87290189}": "47–101 (by level) + 0.07×bonus max HP",
+    "{7e912bc4}": "(?) × 1.3",
+    "ShieldValue": "",
+    "{a7305d7f}": "(?) × 1.3",
+    "{ff986284}": ""
+   },
+   "tags": [
+    "shield"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Tank top laner who taunts with E and shields an ally anywhere on the map with R, then teleports to them. Wins with global R plays and W blocking enemy attacks.",
+  "positions": [
+   "TOP",
+   "UTILITY"
+  ],
+  "strengths": [
+   "R: global shield on an ally + teleport after channel",
+   "W blocks all attacks against allies in zone",
+   "E dash taunt",
+   "Q Spirit Blade pull for slow + bonus damage attacks",
+   "Strong in lane with energy-based trading"
+  ],
+  "weaknesses": [
+   "Low damage late",
+   "R channel can be interrupted",
+   "Weak side lane split pressure if R is used",
+   "Energy-limited"
+  ],
+  "curve": {
+   "lvl1": "strong – Q trades",
+   "lvl2": "strong – Q + W",
+   "lvl3": "strong – E taunt",
+   "lvl6": "strong – R global",
+   "items": "medium – Sunfire/Hollow Radiance or Titanic Hydra",
+   "late": "strong – global R and peel"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Q empowered attacks win early trades.",
+  "waveClear": "medium – Q",
+  "sustain": "low – passive shield",
+  "mobility": "medium – E dash, R teleport",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield after casting a spell."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Recalls the blade: slow; next 3 attacks deal max-health magic damage."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "dodge",
+    "notes": "Zone at the blade: attacks against allied champions in it are blocked."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "taunt",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Dash; taunts champions."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Global shield on ally; channel then teleport."
+   }
+  },
+  "windowAgainst": "W down: attack freely. Interrupt R channel.",
+  "checks": [
+   "W blocks attacks only, not abilities."
+  ]
+ }
+}

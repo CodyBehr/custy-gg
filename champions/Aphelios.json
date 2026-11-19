@@ -1,0 +1,237 @@
+{
+ "id": 523,
+ "alias": "Aphelios",
+ "name": "Aphelios",
+ "title": "the Weapon of the Faithful",
+ "classes": [
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 102,
+  "ad": 55,
+  "adPerLevel": 2.3,
+  "armor": 26,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.665,
+  "attackSpeedPerLevel": 2.1,
+  "range": 550,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Weapon Abilites",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": 1450.0,
+   "description": "",
+   "summary": "Aphelios has 5 different activated abilities, based on his main-hand weapon: Calibrum (Rifle): Long range shot that marks its target for a long-range follow-up attack. Severum (Scythe Pistol): Run fast while attacking nearby enemies with both weapons. Gravitum (Cannon): Root all enemies slowed by this weapon. Infernum (Flamethrower): Blast enemies in a cone and attack them with your off-hand weapon. Crescendum (Chakram): Deploy a sentry that shoots your off-hand weapon.",
+   "values": {},
+   "formulas": {},
+   "tags": []
+  },
+  "W": {
+   "name": "Phase",
+   "cooldown": 0.8,
+   "cost": null,
+   "costType": null,
+   "range": 250.0,
+   "description": "Swap main-hand and off-hand weapons, equipping Gravitum.",
+   "summary": "Aphelios swaps his main-hand gun with his off-hand gun, replacing his basic attack and activated ability.",
+   "values": {},
+   "formulas": {},
+   "tags": []
+  },
+  "E": {
+   "name": "Weapon Queue System",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": 1000.0,
+   "description": "",
+   "summary": "Aphelios has no third ability. This slot shows the next weapon Alune will give him. Weapon order begins fixed but may change over game time -- when a weapon is out of ammo it goes to the end of the order.",
+   "values": {},
+   "formulas": {},
+   "tags": []
+  },
+  "R": {
+   "name": "Moonlight Vigil",
+   "cooldown": [
+    120,
+    110,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1300.0,
+   "description": "Aphelios fires a concentrated blast of moonlight that explodes when it hits a champion, dealing 125/175/225 + 0.2×bonus AD + 1×AP physical damage to surrounding enemies. Then, Aphelios attacks all champions hit with his main-hand weapon. {{ Spell_ApheliosR_WeaponMod_(varies) }}",
+   "summary": "Fire a concentrated blast of moonlight that explodes on enemy champions. Applies the unique effect of Aphelios' main-hand gun.",
+   "values": {
+    "RBaseDamage": [
+     125,
+     175,
+     225
+    ],
+    "SeverumRHealBonus": [
+     250,
+     350,
+     450
+    ],
+    "CalibrumRMarkBonusDamage": [
+     50,
+     80,
+     110
+    ],
+    "CrescendumRBonusMinis": 5,
+    "InfernumRBonusDamageBase": [
+     50,
+     100,
+     150
+    ],
+    "GravitumRBonusSlowBase": 0.99,
+    "CritDamageMod": 0.3,
+    "GravitumRRootDuration": 1.35
+   },
+   "formulas": {
+    "MaxDamage": "125/175/225 + 0.2×bonus AD + 1×AP",
+    "InfernumRBonusDamage": "50/100/150 + 0.25×bonus AD",
+    "GravitumRBonusSlow": "0.99",
+    "CritDamageModCalc": "1 + (0.3 × (1×crit × (1×stat + -1)))",
+    "InfernumRPenalty": "0.9",
+    "{36ebd3cf}": "1×stat"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "The Hitman and the Seer",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Aphelios wields 5 Lunari Weapons made by his sister Alune. He has access to two at a time: one main-hand and one off-hand. Each weapon has a unique Basic Attack and Ability. Attacks and abilities consume a weapon's ammo. When out of ammo, Aphelios discards the weapon and Alune summons the next of the 5.",
+   "summary": "Aphelios wields 5 Lunari Weapons made by his sister Alune. He has access to two at a time: one main-hand and one off-hand. Each weapon has a unique Basic Attack and Ability. Attacks and abilities consume a weapon's ammo. When out of ammo, Aphelios discards the weapon and Alune summons the next of the 5.",
+   "values": {
+    "MaxRanksPerStat": 6,
+    "ADPerRank": 4,
+    "ASPerRank": 0.09,
+    "APPerRank": 4.5
+   },
+   "formulas": {
+    "AttackSpeed": "?",
+    "AttackSpeedMax": "(6 × 0.09)",
+    "AttackDamage": "?",
+    "AttackDamageMax": "(6 × 4)",
+    "ArPenBonus": "?",
+    "ArPenBonusMax": "(6 × 4.5)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Weapon-swapping hypercarry marksman; strength depends on which two of five guns he holds, peaking with strong combos and his R.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "Huge damage once items are bought",
+   "Very long range options (Calibrum)",
+   "Strong teamfight R with weapon effects",
+   "Many tools: slow (Gravitum root), heal (Severum), AoE (Infernum)"
+  ],
+  "weaknesses": [
+   "No dash or escape",
+   "Weak early laning and weak level 1",
+   "Weapon order dictates his windows; bad combos are weak",
+   "Mechanically demanding"
+  ],
+  "curve": {
+   "lvl1": "weak – no escape, limited damage",
+   "lvl2": "medium",
+   "lvl3": "medium",
+   "lvl6": "strong – R teamfight",
+   "items": "strong – needs 2–3 items",
+   "late": "strong – hypercarry"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Plays around his current main/off-hand guns; strongest with Calibrum or Infernum combos.",
+  "waveClear": "medium – depends on gun (Infernum good)",
+  "sustain": "medium – Severum lifesteal",
+  "mobility": "low – no dash",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q (gun ability)",
+    "basic attacks"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Gun swaps change his attacks."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Gun-dependent: Calibrum long shot, Gravitum slow then root, Severum, Infernum, Crescendum."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Swap guns."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "No ability: weapon queue."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Blast that applies main-hand gun effect."
+   }
+  },
+  "windowAgainst": "When he has no escape and his Gravitum root is down; early levels.",
+  "checks": [
+   "Q cc depends on weapon; root only from Gravitum: check"
+  ]
+ }
+}

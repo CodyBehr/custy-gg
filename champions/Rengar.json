@@ -1,0 +1,308 @@
+{
+ "id": 107,
+ "alias": "Rengar",
+ "name": "Rengar",
+ "title": "the Pridestalker",
+ "classes": [
+  "assassin",
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 590,
+  "hpPerLevel": 104,
+  "ad": 68,
+  "adPerLevel": 3,
+  "armor": 34,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.667,
+  "attackSpeedPerLevel": 3,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Savagery",
+   "cooldown": 0.25,
+   "cost": null,
+   "costType": null,
+   "range": 450.0,
+   "description": "Rengar's next 2 Attacks gain 40% Attack Speed. The first Attack deals 20/55/90/125/160 + 1\u00d7AD + 0.05\u00d7AD physical damage. Max Ferocity: The first Attack deals 35+ (by level) + 1\u00d7AD + 0.2\u00d7AD physical damage and grants Rengar (50+ (by level)) \u00d7 0.01 Attack Speed for 5 seconds.",
+   "summary": "Rengar's next Attack brutally stabs his target for bonus damage. Ferocity effect: deals increased damage and grants Attack Speed.",
+   "values": {
+    "BaseDamage": [
+     20,
+     55,
+     90,
+     125,
+     160
+    ],
+    "BaseADRatio": 0.05,
+    "BaseADRatioTooltip": 5,
+    "EmpoweredADRatio": 0.2,
+    "TowerMod": 0.6,
+    "ASDuration": 5,
+    "ASBonus": 40,
+    "BuffDuration": 3
+   },
+   "formulas": {
+    "EmpoweredQAS": "(50+ (by level)) \u00d7 0.01",
+    "QBonusDamage": "20/55/90/125/160 + 0.05\u00d7AD",
+    "{d4a43abe}": "35+ (by level) + 0.2\u00d7AD",
+    "{95c7ca04}": "((? \u00d7 0.6))",
+    "{f2ca2500}": "((? \u00d7 0.6))",
+    "QTotalDamage": "20/55/90/125/160 + 1\u00d7AD + 0.05\u00d7AD",
+    "EmpoweredQTotalDamage": "35+ (by level) + 1\u00d7AD + 0.2\u00d7AD"
+   },
+   "tags": [
+    "attack speed",
+    "empowered attack"
+   ]
+  },
+  "W": {
+   "name": "Battle Roar",
+   "cooldown": 0.25,
+   "cost": null,
+   "costType": null,
+   "range": 450.0,
+   "description": "Rengar roars, dealing 50/80/110/140/170 + 0.8\u00d7AP magic damage to nearby enemies and restoring 50% of the damage taken in the last 1.5 seconds as Health. Max Ferocity: Deals ? + 0.8\u00d7AP magic damage and additionally cleanses Rengar of crowd control.",
+   "summary": "Rengar lets out a battle roar, damaging enemies and healing for some of the recent damage he has taken. Ferocity effect: additionally breaks crowd control effects.",
+   "values": {
+    "BaseDamage": [
+     50,
+     80,
+     110,
+     140,
+     170
+    ],
+    "DamagePercentageHealed": 50,
+    "APRatio": 0.8,
+    "EmpoweredAPRatio": 0.8,
+    "HealingWindow": 1.5,
+    "CCImmuneDuration": 1.5,
+    "MonsterHealingMod": 100
+   },
+   "formulas": {
+    "BonusMonsterDamage": "65\u2013130 (by level)",
+    "TotalDamage": "50/80/110/140/170 + 0.8\u00d7AP",
+    "TotalDamageEmpowered": "? + 0.8\u00d7AP"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Bola Strike",
+   "cooldown": 0.25,
+   "cost": null,
+   "costType": null,
+   "range": 1000.0,
+   "description": "Rengar throws a bola, dealing 55/100/145/190/235 + 0.8\u00d7bonus AD physical damage to the first enemy hit, revealing and Slowing them by 30/45/60/75/90% for 1.75 seconds. Max Ferocity: Deals 50+ (by level) + 0.8\u00d7bonus AD physical damage and Roots for 1.75 seconds.",
+   "summary": "Rengar throws a bola, slowing the first target hit for a short duration. Ferocity effect: roots the target.",
+   "values": {
+    "RevealDuration": 2,
+    "BaseDamage": [
+     55,
+     100,
+     145,
+     190,
+     235
+    ],
+    "SlowAmount": [
+     30,
+     45,
+     60,
+     75,
+     90
+    ],
+    "CCDuration": 1.75,
+    "BonusADRatio": 0.8
+   },
+   "formulas": {
+    "TotalDamage": "55/100/145/190/235 + 0.8\u00d7bonus AD",
+    "TotalEmpoweredDamage": "50+ (by level) + 0.8\u00d7bonus AD"
+   },
+   "tags": [
+    "root",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Thrill of the Hunt",
+   "cooldown": [
+    100,
+    90,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 2500.0,
+   "description": "Passive: Rengar will also leap Attack when Camouflaged. Active: Rengar gains 40/50/60% Move Speed and True Sight in a small area around the nearest enemy champion for 12/16/20 seconds. After 2 seconds, Rengar becomes Camouflaged and can leap without being in Brush. Leaping to the nearest champion deals an additional 1\u00d7AD physical damage, shreds 15/20/25 Armor for 4 seconds, and ends this Ability.",
+   "summary": "Rengar's predatory instincts take over, Camouflaging him and revealing the nearest enemy champion in a large radius around him. During Thrill of the Hunt, Rengar gains Move Speed and he can leap to the tracked enemy without being in brush, reducing their armor.",
+   "values": {
+    "StealthDuration": [
+     12,
+     16,
+     20
+    ],
+    "EnemyDetectionRange": 1600,
+    "SelfVisionRange": [
+     2500,
+     3000,
+     3500
+    ],
+    "SelfRevealRange": 750,
+    "StealthMS": [
+     40,
+     50,
+     60
+    ],
+    "FadeTime": 2,
+    "ArmorShred": [
+     15,
+     20,
+     25
+    ],
+    "ArmorShredDuration": 4,
+    "LeapRange": 725
+   },
+   "formulas": {
+    "BonusDamage": "1\u00d7AD"
+   },
+   "tags": [
+    "dash",
+    "move speed",
+    "stealth"
+   ]
+  },
+  "Passive": {
+   "name": "Unseen Predator",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "While in Brush, Rengar leaps at his target with his basic attack. Rengar generates Ferocity whenever he casts an ability. At Max Ferocity, his next ability is empowered. Killing enemy champions awards trophies on Rengar's Bonetooth Necklace, granting bonus attack damage.",
+   "summary": "While in Brush, Rengar leaps at his target with his basic attack. Rengar generates Ferocity whenever he casts an ability. At Max Ferocity, his next ability is empowered. Killing enemy champions awards trophies on Rengar's Bonetooth Necklace, granting bonus attack damage.",
+   "values": {
+    "MaxFerocity": 4,
+    "InCombatTimer": 10,
+    "InCombatTimerVisual": 10,
+    "EmpoweredMSDuration": 1.5,
+    "RengarPassiveRangeIncrease": 620,
+    "LeapFerocityGeneration": 1,
+    "BonusLeapRange": 620
+   },
+   "formulas": {
+    "EmpoweredMS": "0.3+ (by level)"
+   },
+   "tags": [
+    "dash"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Rengar is a stealth assassin who leaps from brush with Unseen Predator and empowers abilities with Ferocity. He plays jungle or top, picking off isolated targets with Thrill of the Hunt.",
+  "positions": [
+   "JUNGLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Leaps from brush, giving burst and engage without a dash ability.",
+   "Thrill of the Hunt camouflages him and gives move speed and vision, great for picks.",
+   "Empowered Battle Roar cleanses crowd control, so he escapes CC.",
+   "Empowered Bola Strike roots.",
+   "Bonetooth Necklace gives attack damage from kills."
+  ],
+  "weaknesses": [
+   "Weak in teamfights: he picks off single targets.",
+   "Needs brush or R to leap.",
+   "Falls off if he can't get early kills.",
+   "Squishy when built full damage.",
+   "Hard to play well."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 a brush leap with Q bursts at level 1",
+   "lvl2": "strong \u2013 W heals from damage taken in the fight",
+   "lvl3": "strong \u2013 empowered E roots for ganks",
+   "lvl6": "very strong \u2013 Thrill of the Hunt lets him leap without brush",
+   "items": "strong \u2013 first item: Lethality like Youmuu's Ghostblade, or Eclipse",
+   "late": "okay \u2013 picks, weak in teamfights"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Rengar wants all three abilities for his full combo, and becomes a pick threat at 6.",
+  "waveClear": "Good: Q and W clear camps.",
+  "sustain": "Okay: W heal.",
+  "mobility": "High: brush leaps and R move speed.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "Brush leap into Q (Savagery) and E (Bola Strike)",
+   "engage": "R (Thrill of the Hunt) to leap",
+   "escape": "W (Battle Roar) empowered cleanse",
+   "answers": "Empowered Battle Roar cleanses crowd control."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Unseen Predator: leaps from brush with his attack; Ferocity empowers his next ability."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "Jax E dodges; Fiora W parries.",
+    "notes": "Savagery: next two attacks gain attack speed; empowered gives more damage and attack speed."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "Cleanse (empowered)",
+    "notes": "Battle Roar: damage and heal from recent damage; empowered cleanses CC."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block; Cleanse/QSS removes the root.",
+    "notes": "Bola Strike: slows; empowered roots."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Thrill of the Hunt: move speed and vision near the nearest champion, then camouflage and leap."
+   }
+  },
+  "windowAgainst": "Rengar's window is when his Ferocity is empty and he is away from brush: he cannot leap.",
+  "checks": [
+   "Does Rengar fight near brush?",
+   "Does Rengar save empowered W for CC?",
+   "Does the enemy team ward brush?"
+  ]
+ }
+}

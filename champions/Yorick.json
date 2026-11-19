@@ -1,0 +1,362 @@
+{
+ "id": 83,
+ "alias": "Yorick",
+ "name": "Yorick",
+ "title": "Shepherd of Souls",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 650,
+  "hpPerLevel": 114,
+  "ad": 62,
+  "adPerLevel": 5,
+  "armor": 36,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2,
+  "range": 175,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Last Rites",
+   "cooldown": [
+    6,
+    5.5,
+    5,
+    4.5,
+    4
+   ],
+   "cost": 20,
+   "costType": null,
+   "range": 0.0,
+   "description": "Yorick's next Attack deals an additional 30/50/70/90/110 + 0.5×AD physical damage and restores 10+ (by level) plus 6/7/8/9/10% of his missing Health, reduced by 50% against non-Champions. If this Attack hits a Champion or large Monster or kills the target, it leaves a grave. When there are 3 or more graves nearby and this Ability has already been used, Yorick can Recast to raise Mist Walkers from all nearby graves.",
+   "summary": "Yorick deals bonus damage on his next attack and heals himself. If the target is a champion or large monster or if the target dies, a grave will be dug.",
+   "values": {
+    "CherryGhoulPassiveSpawnRate": 8,
+    "BaseDamage": [
+     30,
+     50,
+     70,
+     90,
+     110
+    ],
+    "MissingHealthRatio": [
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "BuffDuration": 5,
+    "HealReduction": 50,
+    "BonusDamageAD": 0.5
+   },
+   "formulas": {
+    "QHeal": "10+ (by level)",
+    "BonusDamage": "30/50/70/90/110 + 0.5×AD"
+   },
+   "tags": [
+    "empowered attack",
+    "execute",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Dark Procession",
+   "cooldown": [
+    20,
+    18,
+    16,
+    14,
+    12
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 600.0,
+   "description": "Yorick summons a wall of spirits blocking enemies' path, but not allies'. The wall has 2/2/3/3/4 Health and disappears after 4 seconds.",
+   "summary": "Yorick summons a destructible wall at target location that will block enemy movement.",
+   "values": {
+    "CircleDuration": 4,
+    "GhoulNumber": 18,
+    "Delay": 0.75,
+    "HPBonus": [
+     0,
+     0,
+     1,
+     1,
+     2
+    ],
+    "WallHealthTooltip": [
+     2,
+     2,
+     3,
+     3,
+     4
+    ]
+   },
+   "formulas": {},
+   "tags": [
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Mourning Mist",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 700.0,
+   "description": "Yorick throws a globule of Black Mist that deals (6/6.5/7/7.5/8 + 0.03×AP) × 0.01 max Health magic damage, Slows by 0.3 for 1.5 seconds and marks champions and monsters for 4 seconds. Marked enemies continuously Awaken nearby graves (but not exceeding the maximum of @Spell.YorickPassive:YorickPassiveGhoulMax@) and suffer 13/16/19/22/25% reduced Armor. Yorick and his summoned units gain 18/21/24/27/30% Move Speed toward the mark. Mist Walkers will leap once at marked enemies that get away from them.",
+   "summary": "Yorick throws a globule of Black Mist that reduces armor, damages, slows and marks enemies. Summoned units gain move speed when moving towards marked targets.",
+   "values": {
+    "SlowAmount": 0.3,
+    "SlowDuration": 1.5,
+    "MarkDuration": 4,
+    "MarkRange": 1500,
+    "HealthDamage": [
+     6,
+     6.5,
+     7,
+     7.5,
+     8
+    ],
+    "HealthAPRatio": 0.03,
+    "MinimumMinionDamage": [
+     70,
+     105,
+     140,
+     175,
+     210
+    ],
+    "MonsterMaxDamage": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "ArmorShred": [
+     0.13,
+     0.16,
+     0.19,
+     0.22,
+     0.25
+    ],
+    "HasteAmount": [
+     0.18,
+     0.21,
+     0.24,
+     0.27,
+     0.3
+    ]
+   },
+   "formulas": {
+    "Calc_MinimumDamage": "70/105/140/175/210 + 1×AP",
+    "Calc_HealthDamage": "(6/6.5/7/7.5/8 + 0.03×AP) × 0.01",
+    "Calc_Slow": "0.3",
+    "Calc_MonsterCapDamage": "50/75/100/125/150 + 1×AP"
+   },
+   "tags": [
+    "dash",
+    "heal",
+    "move speed",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Eulogy of the Isles",
+   "cooldown": [
+    160,
+    130,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 600.0,
+   "description": "Yorick summons the Maiden of the Mist with 1050+ (by level) + 0.6×bonus max HP Health and 50/75/100 + 0.3×bonus AD Magic Attack Damage plus 2/3/4 Mist Walkers. The Maiden automatically raises Mist Walkers from nearby enemy deaths and marks enemy Champions with her attacks. When Yorick damages the Maiden's target, he deals 2/2.5/3% max Health magic damage. After 10 seconds, Yorick can Recast this Ability to free the Maiden, sending her down the nearest lane.",
+   "summary": "Yorick summons the Maiden of the Mist that causes Yorick's attacks against the Maiden's target to deal bonus damage. The Maiden will also automatically raise Walkers from dead enemies.",
+   "values": {
+    "RGhoulNumbers": [
+     2,
+     3,
+     4
+    ],
+    "RBigGhoulBonusAD": [
+     50,
+     75,
+     100
+    ],
+    "RMarkDamagePercent": [
+     2,
+     2.5,
+     3
+    ],
+    "RMarkMaxDamage": 30,
+    "RRadius": 700,
+    "RSummonDelay": 1,
+    "RControlTime": 25000,
+    "MinionDamageTakenModifier": 0.3,
+    "MaidenHealthRatio": 0.6,
+    "MaidenADRatio": 0.3
+   },
+   "formulas": {
+    "YorickBigGhoulHealth": "1050+ (by level) + 0.6×bonus max HP",
+    "YorickBigGhoulDamage": "50/75/100 + 0.3×bonus AD",
+    "YorickMaidenResists": "30+ (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Shepherd of Souls",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "The Cursed Horde: Yorick can summon Mist Walkers to swarm and attack nearby enemies.",
+   "summary": "The Cursed Horde: Yorick can summon Mist Walkers to swarm and attack nearby enemies.",
+   "values": {
+    "YorickPassiveGhoulMax": 4,
+    "YorickGhoulDamageReductionVsTowers": 0.5,
+    "YorickGhoulLeashRange": 1600,
+    "YorickGhoulSpawnDelay": 1,
+    "CherryGhoulHPMod": 0.8,
+    "GhoulADRatio": 0.2,
+    "GraveDuration": 300,
+    "MinionMoveBonus": 40,
+    "MeleeAttackDamageModifier": 2,
+    "MinionDamageTakenMod": 0.6,
+    "ProcDamageModifier": 0.5,
+    "ARAMPassiveSpawnThreshold": 5,
+    "GhoulMonsterDamageMod": 0.6,
+    "GhoulHealthRatio": 0.15,
+    "MonsterDamageTakenMod": 1
+   },
+   "formulas": {
+    "YorickPassiveGhoulHealth": "100–300 (by level) + 0.15×bonus max HP",
+    "YorickPassiveGhoulDamage": "15–100 (by level) + 0.2×bonus AD",
+    "YorickPassiveSpawnThreshold": "8+ (by level)",
+    "AOEDamageModifier": "0.66+ (by level)",
+    "BonusAttackSpeed": "0.08–0.8 (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Split-pushing top laner who raises ghouls from graves and summons the Maiden to siege. He traps enemies with his W cage and wins isolated duels.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Maiden and ghouls push towers quickly",
+   "W cage traps enemies for duels and ganks",
+   "Q heals on missing health",
+   "E slows and sends ghouls at a marked champion",
+   "Strong side-lane pressure"
+  ],
+  "weaknesses": [
+   "Kited by ranged champions",
+   "AoE kills ghouls and Maiden",
+   "Weak in grouped fights",
+   "No dash",
+   "Slow wave clear early"
+  ],
+  "curve": {
+   "lvl1": "medium – Q heal trade",
+   "lvl2": "medium – Q+E",
+   "lvl3": "medium – W cage",
+   "lvl6": "strong – Maiden",
+   "items": "strong – first bruiser item (Sundered Sky/Black Cleaver)",
+   "late": "strong – split push"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Trades with ghouls up and W cage.",
+  "waveClear": "medium – Q graves and ghouls",
+  "sustain": "medium – Q heal on missing health",
+  "mobility": "low – E speed toward marked target",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "W",
+    "E"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Empowered attack heals; creates graves for ghouls."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Ring of spirits blocks enemies; break it with attacks (a few hits)."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Lobbed mist: slows, marks, ghouls chase."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Summons Maiden and Mist Walkers."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Ghouls from graves."
+   }
+  },
+  "windowAgainst": "W on cooldown: he can't trap you; trade and walk away.",
+  "checks": []
+ }
+}

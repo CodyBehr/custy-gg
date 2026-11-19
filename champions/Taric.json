@@ -1,0 +1,274 @@
+{
+ "id": 44,
+ "alias": "Taric",
+ "name": "Taric",
+ "title": "the Shield of Valoran",
+ "classes": [
+  "support",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 645,
+  "hpPerLevel": 99,
+  "ad": 55,
+  "adPerLevel": 3.5,
+  "armor": 40,
+  "armorPerLevel": 4.3,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2,
+  "range": 150,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Starlight's Touch",
+   "cooldown": 3,
+   "cost": 60,
+   "costType": null,
+   "range": 325.0,
+   "description": "Passive: Gain a stack (max 1/2/3/4/5) every 15 seconds and when hitting a Bravado Attack. Active: Consume all stacks to restore 25 + 0.15×AP + 0.01×max HP Health per stack to nearby ally champions ((25 + 0.15×AP + 0.01×max HP) × 1/2/3/4/5 at 1/2/3/4/5 stacks).",
+   "summary": "Heals nearby allied champions based on charges stored. Bravado-empowered attacks grant a charge of Starlight's Touch.",
+   "values": {
+    "Recharge": 15,
+    "HealingPerStackBase": 25,
+    "HealingAPRatio": 0.15,
+    "HealingHPRatio": 0.01,
+    "BaseHealMax": [
+     25,
+     50,
+     75,
+     100,
+     125
+    ],
+    "MaxCharges": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   "formulas": {
+    "StackCooldown": "15",
+    "HealingPerStack": "25 + 0.15×AP + 0.01×max HP",
+    "MaxStackHealing": "(25 + 0.15×AP + 0.01×max HP) × 1/2/3/4/5"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Bastion",
+   "cooldown": 15,
+   "cost": 60,
+   "costType": null,
+   "range": 800.0,
+   "description": "Passive: Taric gains 0.06/0.07/0.08/0.09/0.1×armor Armor and forms a tether between him and the ally bound by this Ability. As long as they are near each other, the ally gains 0.06/0.07/0.08/0.09/0.1×armor Armor and Taric casts all his Abilities from both himself and his linked ally. Active: Taric binds to an ally champion, granting a 7/8/9/10/11% max Health Shield for 2.5 seconds.",
+   "summary": "Passively increase the Armor of Taric and any allied champion with Bastion. Actively shields an ally and grants them Bastion for as long as they remain near Taric. Taric's spells also cast off the ally with Bastion.",
+   "values": {
+    "ArmorBonusPercentage": [
+     0.06,
+     0.07,
+     0.08,
+     0.09,
+     0.1
+    ],
+    "ShieldHPRatio": [
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "ShieldDuration": 2.5,
+    "LeashBreakWarningRange": 1000,
+    "LeashBreakActualRange": 1300
+   },
+   "formulas": {
+    "BonusArmor": "0.06/0.07/0.08/0.09/0.1×armor"
+   },
+   "tags": [
+    "heal",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Dazzle",
+   "cooldown": [
+    16,
+    15,
+    14,
+    13,
+    12
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 610.0,
+   "description": "Taric projects a beam of starlight, bursting after 1 second to deal 90/130/170/210/250 + 0.5×AP + 0.5×bonus armor magic damage and Stun enemies for 1.5 seconds.",
+   "summary": "Taric readies a beam of starlight that, after a brief delay, deals magic damage and stuns enemies.",
+   "values": {
+    "BaseDamage": [
+     90,
+     130,
+     170,
+     210,
+     250
+    ],
+    "StunDuration": 1.5,
+    "ChargeDuration": 1
+   },
+   "formulas": {
+    "TotalDamage": "90/130/170/210/250 + 0.5×AP + 0.5×bonus armor"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Cosmic Radiance",
+   "cooldown": [
+    180,
+    150,
+    120
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 400.0,
+   "description": "Taric calls down protection from the heavens. After 2.5 seconds, nearby ally champions become invulnerable for 2.5 seconds.",
+   "summary": "Pulses cosmic energy onto nearby allied champions after a delay, making them invulnerable for a short duration.",
+   "values": {
+    "InitialDelay": 2.5,
+    "InvulnDuration": 2.5
+   },
+   "formulas": {},
+   "tags": []
+  },
+  "Passive": {
+   "name": "Bravado",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Spellcasts empower Taric's next 2 basic attacks to deal bonus magic damage, reduce his spell cooldowns, and attack in quick succession.",
+   "summary": "Spellcasts empower Taric's next 2 basic attacks to deal bonus magic damage, reduce his spell cooldowns, and attack in quick succession.",
+   "values": {
+    "Duration": 5,
+    "BaseDamageMultiplierForModesBalance": 1,
+    "ArmorDamageValue": 0.15
+   },
+   "formulas": {
+    "TotalDamage": "(25–93 (by level) × 1) + 0.15×bonus armor",
+    "CDR": "(1 + (1 + (? × -1)))"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Durable support who links to an ally with W so his E stun and Q heal also cast from them. Wins fights with layered stuns and a team-wide invulnerability (R) that turns all-ins around.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "R makes nearby allies invulnerable after a short delay: hard counter to all-ins and dives",
+   "W link lets E stun from two angles (Taric and the linked ally)",
+   "Very durable (armor from W, shields) and steady healing from Q",
+   "Bravado: every spell empowers two quick attacks and lowers his cooldowns"
+  ],
+  "weaknesses": [
+   "E has a long wind-up and short range: easy to sidestep and poke him out",
+   "Low damage and no real kill pressure on his own",
+   "Mana-hungry early if he spams Q",
+   "R delay can be played around (back off, then re-engage when it ends)",
+   "Kited by ranged supports with no gap closer"
+  ],
+  "curve": {
+   "lvl1": "medium – E stun with Bravado attacks wins short trades if it lands",
+   "lvl2": "strong – E + W link lets the ally stun too; level 2 all-ins with his ADC",
+   "lvl3": "strong – Q heal sustains the lane after trades",
+   "lvl6": "strong – R invulnerability makes enemy all-ins and dives fail",
+   "items": "medium – support item + a tank or heal/shield item; spikes on ability haste",
+   "late": "strong – R + double stun in teamfights"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Wants W so E can come from his ADC's position as well; level 1 E alone is easy to dodge.",
+  "waveClear": "poor – support, single-target autos",
+  "sustain": "medium – Q heals himself and nearby allies (charges)",
+  "mobility": "low – no dash; relies on the linked ally's position",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "E",
+    "Passive"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bravado: next 2 attacks after a spell hit quickly for bonus magic damage and lower his cooldowns (dodgeable by Jax E)."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Heal on charges, around Taric and the W-linked ally."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Armor + shield; links an ally so Taric's spells also cast from them."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Delayed beam: stuns after a wind-up; also fires from the linked ally."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "invulnerable",
+    "notes": "After a delay, nearby allies become invulnerable for a short time."
+   }
+  },
+  "windowAgainst": "E on cooldown (no stun) or R down; poke him while E is down, and back off during R instead of fighting into it.",
+  "checks": [
+   "E: confirm Taric's beam isn't stopped by projectile blocks (treated as not a projectile)."
+  ]
+ }
+}

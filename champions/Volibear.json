@@ -1,0 +1,379 @@
+{
+ "id": 106,
+ "alias": "Volibear",
+ "name": "Volibear",
+ "title": "the Relentless Storm",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kMixed",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 650,
+  "hpPerLevel": 104,
+  "ad": 65,
+  "adPerLevel": 3.5,
+  "armor": 35,
+  "armorPerLevel": 5.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2,
+  "range": 150,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Thundering Smash",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 300.0,
+   "description": "Volibear gains 0.12/0.155/0.19/0.225/0.26 Move Speed, doubled to 0.24/0.31/0.38/0.45/0.52 towards enemy champions for the next 4 seconds. While active, Volibear's next Attack deals 10/20/30/40/50 + 1\u00d7AD + 1.6\u00d7bonus AD physical damage and Stuns the target for 1 second. Volibear becomes enraged if an enemy Immobilizes him before he Stuns a target, ending the Ability early but refreshing its Cooldown.",
+   "summary": "Volibear gains speed towards enemies, Stunning and damaging the first one he Attacks.",
+   "values": {
+    "BaseDamage": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ],
+    "MinSpeed": [
+     0.12,
+     0.155,
+     0.19,
+     0.225,
+     0.26
+    ],
+    "MaxSpeed": [
+     0.24,
+     0.31,
+     0.38,
+     0.45,
+     0.52
+    ],
+    "Duration": 4,
+    "StunDuration": 1,
+    "BonusADRatio": 1.6,
+    "BonusRange": 25,
+    "BurstSpeed": [
+     20,
+     27.5,
+     35,
+     42.5,
+     50
+    ]
+   },
+   "formulas": {
+    "CalculatedDamage": "10/20/30/40/50 + 1\u00d7AD + 1.6\u00d7bonus AD",
+    "ADRatioTooltip": "1.6\u00d7bonus AD",
+    "MinSpeedCalc": "0.12/0.155/0.19/0.225/0.26",
+    "MaxSpeedCalc": "0.24/0.31/0.38/0.45/0.52",
+    "{10404951}": "1.6\u00d7bonus AD + 10/20/30/40/50"
+   },
+   "tags": [
+    "empowered attack",
+    "immobilizing",
+    "move speed",
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Frenzied Maul",
+   "cooldown": 5,
+   "cost": [
+    25,
+    30,
+    35,
+    40,
+    40
+   ],
+   "costType": null,
+   "range": 325.0,
+   "description": "Volibear mauls an enemy, dealing 5/30/55/80/105 + 1.1\u00d7AD + 0.06\u00d7bonus max HP physical damage and marking them for 8 seconds. If this Ability is used on a marked target, its damage is increased to (5/30/55/80/105 + 1.1\u00d7AD + 0.06\u00d7bonus max HP) \u00d7 (1.5 + 0.002\u00d7bonus AD) and Volibear restores 20/35/50/65/80 plus 0.08/0.11/0.14/0.17/0.2 missing Health.",
+   "summary": "Volibear damages an enemy, applying on-hit effects and marking them. Casting this ability again on the same target deals bonus damage and Heals Volibear.",
+   "values": {
+    "BaseDamage": [
+     5,
+     30,
+     55,
+     80,
+     105
+    ],
+    "HealPercent": [
+     0.08,
+     0.11,
+     0.14,
+     0.17,
+     0.2
+    ],
+    "BonusHealthRatio": 0.06,
+    "MarkDuration": 8,
+    "W2DamageMultiplier": 1.5,
+    "BaseHeal": [
+     20,
+     35,
+     50,
+     65,
+     80
+    ],
+    "MinionAndMonsterMod": 0.5,
+    "W2BonusADDamageMultiplier": 0.002
+   },
+   "formulas": {
+    "TotalDamage": "5/30/55/80/105 + 1.1\u00d7AD + 0.06\u00d7bonus max HP",
+    "EmpoweredDamage": "(5/30/55/80/105 + 1.1\u00d7AD + 0.06\u00d7bonus max HP) \u00d7 (1.5 + 0.002\u00d7bonus AD)",
+    "PercentMissingHealthHealingRatio": "0.08/0.11/0.14/0.17/0.2"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Sky Splitter",
+   "cooldown": 16,
+   "cost": 50,
+   "costType": null,
+   "range": 1200.0,
+   "description": "Volibear summons a thundercloud that fires a lightning bolt, dealing 80/110/140/170/200 + 0.7\u00d7AP plus 11/12/13/14.0/15% max Health magic damage and Slowing by 40% for 2 seconds. If Volibear is inside the blast zone, he gains a 0.75\u00d7AP plus 14.0% max Health Shield for 3 seconds.",
+   "summary": "Volibear summons a lightning bolt at a location, dealing damage and Slowing enemies while granting Volibear a Shield if he's inside the blast radius.",
+   "values": {
+    "SlowAmount": 0.4,
+    "BaseDamage": [
+     80,
+     110,
+     140,
+     170,
+     200
+    ],
+    "PercentDamage": [
+     0.11,
+     0.12,
+     0.13,
+     0.14,
+     0.15
+    ],
+    "ShieldAmount": 0.14,
+    "MonsterDamageCapBase": [
+     150,
+     265,
+     380,
+     495,
+     610
+    ],
+    "ShieldDuration": 3,
+    "APRatio": 0.7,
+    "ShieldAPRatio": 0.75,
+    "SlowDuration": 2
+   },
+   "formulas": {
+    "ShieldValue": "0.14\u00d7max HP + 0.75\u00d7AP",
+    "CalculatedDamage": "80/110/140/170/200 + 0.7\u00d7AP",
+    "APRatioTooltip": "0.7\u00d7AP",
+    "ShieldAPRatioTooltip": "0.75\u00d7AP",
+    "TotalDamageTooltip": "80/110/140/170/200 + 0.7\u00d7AP",
+    "MonsterDamageCap": "150/265/380/495/610 + 0.7\u00d7AP"
+   },
+   "tags": [
+    "heal",
+    "shield",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Stormbringer",
+   "cooldown": [
+    160,
+    135,
+    110
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 550.0,
+   "description": "Volibear transforms and leaps, gaining 175/350/525 Health and 50 Attack Range for the next 12 seconds. Upon landing, Volibear cracks the earth, Disabling nearby towers for 2/3/4 seconds and dealing 300/500/700 + 1.25\u00d7AP + 2.5\u00d7bonus AD physical damage to them. Nearby enemies are Slowed by 50%, decaying over 1 second. Enemies directly underneath Volibear suffer 300/500/700 + 1.25\u00d7AP + 2.5\u00d7bonus AD physical damage.",
+   "summary": "Volibear leaps to a target location, Slowing and damaging enemies beneath him while gaining bonus Health. Enemy towers near his landing location become temporarily disabled.",
+   "values": {
+    "SweetSpotDamage": [
+     300,
+     500,
+     700
+    ],
+    "DashSpeed": 750,
+    "TransformDuration": 12,
+    "HealthAmount": [
+     175,
+     350,
+     525
+    ],
+    "TowerDamage": [
+     300,
+     500,
+     700
+    ],
+    "SlowAmount": 0.5,
+    "SlowDuration": 1,
+    "BonusAttackRange": 50,
+    "TowerDisableDuration": [
+     2,
+     3,
+     4
+    ],
+    "APRatio": 1.25
+   },
+   "formulas": {
+    "ADRatio": "2.5\u00d7bonus AD",
+    "{4402b0fa}": "300/500/700 + 2.5\u00d7bonus AD + 1.25\u00d7AP",
+    "APRatioTooltip": "1.25\u00d7AP",
+    "TowerDamageTooltip": "300/500/700 + 1.25\u00d7AP + 2.5\u00d7bonus AD",
+    "SweetSpotDamageTooltip": "300/500/700 + 1.25\u00d7AP + 2.5\u00d7bonus AD",
+    "{d9a2963e}": "175/350/525"
+   },
+   "tags": [
+    "dash",
+    "heal",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "The Relentless Storm",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Volibear's Attacks and abilities grant Attack Speed, and eventually cause his Attacks to deal bonus magic damage to nearby enemies.",
+   "summary": "Volibear's Attacks and abilities grant Attack Speed, and eventually cause his Attacks to deal bonus magic damage to nearby enemies.",
+   "values": {
+    "PDamageRatio": 0.2,
+    "BounceCounterMax": 5,
+    "APRatio": 0.45,
+    "BuffDuration": 6,
+    "PAttackSpeed": 0.05
+   },
+   "formulas": {
+    "ChainLightningDamage": "11+ (by level) + 0.45\u00d7AP + 0.2\u00d7bonus AD",
+    "AttackSpeedCalc": "0.05 + 0.0\u00d7AP"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Volibear is a bruiser who charges in with Thundering Smash and mauls enemies with Frenzied Maul. He plays top or jungle, wins early duels and dives towers with Stormbringer.",
+  "positions": [
+   "TOP",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Thundering Smash gives a stun and speed to engage or chase.",
+   "Frenzied Maul heals him on a marked target, so he wins trades.",
+   "Stormbringer disables towers, letting him dive.",
+   "Strong early duelist with good tankiness.",
+   "The Relentless Storm passive gives attack speed and chain lightning."
+  ],
+  "weaknesses": [
+   "Short range: he must reach enemies to deal damage.",
+   "His stun is on a basic attack and can be avoided with dashes.",
+   "Falls off late against kiting and high-damage teams.",
+   "Grievous Wounds cuts his healing hard.",
+   "No dashes apart from Stormbringer's leap."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 Q stun and auto attacks give a strong level 1",
+   "lvl2": "strong \u2013 W heals and marks for more trades",
+   "lvl3": "strong \u2013 E slow and shield finish an all-in",
+   "lvl6": "very strong \u2013 Stormbringer dives towers and starts fights",
+   "items": "medium \u2013 first item: Riftmaker or Sunderer Sky for damage; Spirit Visage, Sunfire Aegis for tankiness",
+   "late": "okay \u2013 stays a good diving tank but falls off against kite"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Volibear is strong from level 1, and stronger at 6 with Stormbringer. His power is early, before items for the enemy team.",
+  "waveClear": "Good: W and passive chain lightning clear waves.",
+  "sustain": "High: W heals on a marked target.",
+  "mobility": "Good: Q speed and R leap.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "Q (Thundering Smash) stun into W (Frenzied Maul)",
+   "engage": "R (Stormbringer) to dive towers",
+   "escape": "Q (Thundering Smash) speed to escape",
+   "answers": "None. Volibear has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "The Relentless Storm: stacking attack speed; at max stacks his attacks chain lightning."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Jax E dodges; Fiora W parries.",
+    "notes": "Thundering Smash: move speed toward champions, then his next attack stuns."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Frenzied Maul: point-and-click damage that marks the target. Hitting a marked target again heals him."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Walk out of the area before it lands.",
+    "notes": "Sky Splitter: a lightning bolt that deals % max HP damage, slows, and shields him if he stands in it."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Stormbringer: leaps to a location and disables towers in range. Also slows enemies where he lands."
+   }
+  },
+  "windowAgainst": "Volibear's window is when his Q is on cooldown: kite him, and fight away from towers after 6.",
+  "checks": [
+   "Does Volibear start trades with Q?",
+   "Does Volibear use Stormbringer to dive towers?",
+   "Does Volibear avoid fighting long range kiters?"
+  ]
+ }
+}

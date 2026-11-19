@@ -1,0 +1,329 @@
+{
+ "id": 54,
+ "alias": "Malphite",
+ "name": "Malphite",
+ "title": "Shard of the Monolith",
+ "classes": [
+  "tank",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 665,
+  "hpPerLevel": 104,
+  "ad": 62,
+  "adPerLevel": 4,
+  "armor": 40,
+  "armorPerLevel": 4.95,
+  "attackSpeed": 0.736,
+  "attackSpeedPerLevel": 3.4,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Seismic Shard",
+   "cooldown": 8,
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    95
+   ],
+   "costType": null,
+   "range": 625.0,
+   "description": "Malphite launches a shard of earth at an enemy, dealing 70/120/170/220/270 + 0.6×AP magic damage and Slowing them by 20/25/30/35/40% for 3 seconds. Malphite also steals the amount Slowed, gaining it as Move Speed for 3 seconds.",
+   "summary": "Malphite sends a shard of the earth through the ground at his foe, dealing damage upon impact and stealing Move Speed for 3 seconds.",
+   "values": {
+    "SpeedSteal": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "SlowDuration": 3,
+    "BaseDamage": [
+     70,
+     120,
+     170,
+     220,
+     270
+    ]
+   },
+   "formulas": {
+    "QDamageCalc": "70/120/170/220/270 + 0.6×AP"
+   },
+   "tags": [
+    "move speed",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Thunderclap",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": [
+    35,
+    40,
+    45,
+    50,
+    55
+   ],
+   "costType": null,
+   "range": 400.0,
+   "description": "Passive: Malphite gains 10/15/20/25/30% Armor (%i:scaleArmor%(varies)). This effect is increased to 30/45/60/75/90% (%i:scaleArmor%(varies)) while Granite Shield is active. Active: Malphite's next Attack deals an additional 30/40/50/60/70 + 0.2×AP + 0.15×armor physical damage and creates an aftershock which deals 15/25/35/45/55 + 0.3×AP + 0.15×armor physical damage %i:OnHit% On-Hit in their direction. His Attacks continue to create aftershocks %i:OnHit% On-Hit for the next 5 seconds.",
+   "summary": "Malphite attacks with such force that it creates a sonic boom. For the next few seconds, his attacks create aftershocks in front of him.",
+   "values": {
+    "ThunderclapBuffDuration": 5,
+    "ThunderclapBaseDamage": [
+     30,
+     40,
+     50,
+     60,
+     70
+    ],
+    "ThunderclapSlowDamage": 2,
+    "ThunderclapSplashAP": 0.3,
+    "ThunderclapSplashArmor": 0.15,
+    "ThunderclapBaseDamageAPRatio": 0.2,
+    "ThunderclapBaseDamageArmorRatio": 0.15,
+    "ThunderclapSplashDamage": [
+     15,
+     25,
+     35,
+     45,
+     55
+    ],
+    "BonusArmorPassive": [
+     0.1,
+     0.15,
+     0.2,
+     0.25,
+     0.3
+    ],
+    "BonusArmorPassiveMultiplier": 3,
+    "ThunderClapSplashRange": 400,
+    "MonsterDamageMod": 1.8
+   },
+   "formulas": {
+    "TotalBonusDamage": "30/40/50/60/70 + 0.2×AP + 0.15×armor",
+    "{185669f9}": "(30/40/50/60/70 + 0.2×AP + 0.15×armor) × 2",
+    "ThunderclapSplash": "15/25/35/45/55 + 0.3×AP + 0.15×armor",
+    "{71941255}": "(0.1/0.15/0.2/0.25/0.3 × 3)"
+   },
+   "tags": [
+    "empowered attack",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Ground Slam",
+   "cooldown": 7,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 400.0,
+   "description": "Malphite slams the ground, dealing 60/95/130/165/200 + 0.4×armor + 0.6×AP magic damage and reducing Attack Speed by 30/35/40/45/50% for 3 seconds.",
+   "summary": "Malphite slams the ground, sending out a shockwave that deals magic damage based on his Armor and reduces the Attack Speed of enemies for a short duration.",
+   "values": {
+    "BaseDamage": [
+     60,
+     95,
+     130,
+     165,
+     200
+    ],
+    "ASReduction": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "Duration": 3
+   },
+   "formulas": {
+    "EDamageCalc": "60/95/130/165/200 + 0.4×armor + 0.6×AP"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  },
+  "R": {
+   "name": "Unstoppable Force",
+   "cooldown": [
+    130,
+    115,
+    100
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Malphite charges with the force of a landslide, dashing Unstoppably. At the end of the dash, Malphite Knocks Up for 1.5 seconds and deals 200/300/400 + 0.9×AP magic damage.",
+   "summary": "Malphite launches himself to a location at high speed, damaging enemies and knocking them into the air.",
+   "values": {
+    "BaseDamage": [
+     200,
+     300,
+     400
+    ],
+    "KnockupDuration": 1.5
+   },
+   "formulas": {
+    "TotalDamage": "200/300/400 + 0.9×AP"
+   },
+   "tags": [
+    "airborne",
+    "dash"
+   ]
+  },
+  "Passive": {
+   "name": "Granite Shield",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Malphite is shielded by a layer of rock which absorbs damage up to 10% of his maximum Health. If Malphite has not been hit for a few seconds, this effect recharges.",
+   "summary": "Malphite is shielded by a layer of rock which absorbs damage up to 10% of his maximum Health. If Malphite has not been hit for a few seconds, this effect recharges.",
+   "values": {},
+   "formulas": {
+    "PassiveCooldown": "8+ (by level)",
+    "TotalShield": "0.1×max HP"
+   },
+   "tags": [
+    "heal",
+    "shield"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Armor-stacking tank who engages fights with an unstoppable R knock-up. Wins lanes against AD champions with high armor, Q poke and E attack-speed reduction.",
+  "positions": [
+   "TOP",
+   "UTILITY",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "R: unstoppable dash + area knock-up for engage",
+   "W passive armor, tripled while his Granite Shield is up",
+   "E reduces attack speed of nearby enemies",
+   "Q slow + steals move speed",
+   "Granite Shield passive recharges when he isn't hit"
+  ],
+  "weaknesses": [
+   "Weak against AP and true damage",
+   "Low damage outside R",
+   "Mana-hungry early",
+   "Poke pops his shield",
+   "No escape outside R"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "medium – W empowered attack + Q",
+   "lvl3": "medium – E attack-speed reduction",
+   "lvl6": "strong – R knock-up",
+   "items": "strong – Plated Steelcaps/Thornmail/Frozen Heart against AD",
+   "late": "strong – teamfight engage"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Pokes with Q; real threat from R.",
+  "waveClear": "medium – E",
+  "sustain": "low – passive shield",
+  "mobility": "medium – R dash only",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield of 10% max health; recharges when not hit."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Shard: slow, steals move speed."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Passive armor; active empowers next attack with aftershock."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Ground slam: damage + attack speed reduction."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "unstoppable",
+    "notes": "Unstoppable dash; area knock-up."
+   }
+  },
+  "windowAgainst": "R down: he can't engage. Poke his shield down with AP damage.",
+  "checks": [
+   "Q: shard is point-and-click but travels — confirm projectile blockability."
+  ]
+ }
+}

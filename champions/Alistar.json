@@ -1,0 +1,315 @@
+{
+ "id": 12,
+ "alias": "Alistar",
+ "name": "Alistar",
+ "title": "the Minotaur",
+ "classes": [
+  "tank",
+  "support"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 685,
+  "hpPerLevel": 120,
+  "ad": 62,
+  "adPerLevel": 3.75,
+  "armor": 40,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.125,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Pulverize",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 365.0,
+   "description": "Alistar smashes the ground, Knocking Up enemies for 1 second and dealing 60/100/140/180/220 + 0.8×AP magic damage.",
+   "summary": "Alistar smashes the ground, dealing damage to nearby enemies and tossing them into the air.",
+   "values": {
+    "BaseDamage": [
+     60,
+     100,
+     140,
+     180,
+     220
+    ],
+    "APRatio": 0.8,
+    "AoERadius": 375,
+    "KnockupDuration": 1
+   },
+   "formulas": {
+    "TotalDamage": "60/100/140/180/220 + 0.8×AP"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "W": {
+   "name": "Headbutt",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 650.0,
+   "description": "Alistar rams into an enemy, Knocking them Back and dealing 55/110/165/220/275 + 1×AP magic damage.",
+   "summary": "Alistar rams a target with his head, dealing damage and knocking the target back.",
+   "values": {
+    "KnockBackDistance": 700,
+    "Damage": [
+     55,
+     110,
+     165,
+     220,
+     275
+    ],
+    "StunDuration": 0.75,
+    "KnockUpDuration": 0.75,
+    "APRatio": 1
+   },
+   "formulas": {
+    "TotalDamage": "55/110/165/220/275 + 1×AP"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "E": {
+   "name": "Trample",
+   "cooldown": [
+    12,
+    11.5,
+    11,
+    10.5,
+    10
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 350.0,
+   "description": "Alistar begins trampling the ground, becoming Ghosted and dealing 80/110/140/170/200 + 0.7×AP magic damage over 5 seconds to nearby enemies. Each pulse that damages a champion grants a stack. At 5 stacks, Alistar's next Attack against champions Stuns for 1 second and deals an additional 20+ (by level) magic damage.",
+   "summary": "Alistar tramples nearby enemy units, ignoring unit collision and gaining stacks if he damages an enemy champion. At full stacks Alistar's next basic attack against an enemy champion deals additional magic damage and stuns them.",
+   "values": {
+    "APRatio": 0.7,
+    "TrampleDamage": [
+     80,
+     110,
+     140,
+     170,
+     200
+    ],
+    "BonusAARange": 50,
+    "Duration": 5,
+    "Radius": 350,
+    "MaxStacks": 5,
+    "StunDuration": 1,
+    "ProcDamageBase": 20,
+    "ProcDamageScale": 15,
+    "FullChargeDuration": 5
+   },
+   "formulas": {
+    "TotalDamage": "80/110/140/170/200 + 0.7×AP",
+    "AttackBonusDamage": "20+ (by level)"
+   },
+   "tags": [
+    "empowered attack",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Unbreakable Will",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 1.0,
+   "description": "Alistar immediately cleanses all Disabling effects and takes 55/65/75% reduced damage for 7 seconds.",
+   "summary": "Alistar lets out a wild roar, removing all crowd control effects on himself, and reducing incoming physical and magical damage for the duration.",
+   "values": {
+    "RDuration": 7,
+    "RDamageReduction": [
+     55,
+     65,
+     75
+    ]
+   },
+   "formulas": {},
+   "tags": []
+  },
+  "Passive": {
+   "name": "Triumphant Roar",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Alistar charges his roar by stunning or displacing enemy champions or when nearby enemies die. When fully charged he heals himself all nearby allied champions.",
+   "summary": "Alistar charges his roar by stunning or displacing enemy champions or when nearby enemies die. When fully charged he heals himself all nearby allied champions.",
+   "values": {
+    "AlistarPassiveHealRatio": 0.05,
+    "AlistarPassiveAllyHealRatio": 1.4,
+    "PassiveCooldown": 3,
+    "PassiveMaxStacks": 7,
+    "PassiveStacksChampionKill": 7,
+    "PassiveAllyNumHeal": 15
+   },
+   "formulas": {
+    "BaseHeal": "0.05×max HP",
+    "AllyHeal": "(0.05×max HP) × 1.4"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Engage tank/support who combos W (headbutt) into Q (knock-up) and soaks damage with R.",
+  "positions": [
+   "support"
+  ],
+  "strengths": [
+   "W-Q combo is a reliable point-and-click engage",
+   "Strong peel: knock-back and knock-up interrupt divers",
+   "R cleanses disables and makes him very hard to kill",
+   "Passive heal sustains the lane"
+  ],
+  "weaknesses": [
+   "Combo is mana-heavy early",
+   "Falls off if the team can't follow up",
+   "W-Q needs him to be in range: kiting and slows stop it",
+   "Low damage on his own"
+  ],
+  "curve": {
+   "lvl1": "medium – Q or W alone, no combo",
+   "lvl2": "strong – W-Q combo online, big kill pressure",
+   "lvl3": "strong – E stun adds a third crowd control",
+   "lvl6": "strong – R lets him dive and survive",
+   "items": "tank items and support item upgrades",
+   "late": "strong teamfight engage and peel"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Level 2 is his first big spike (W-Q).",
+  "waveClear": "poor",
+  "sustain": "medium (passive heal)",
+  "mobility": "medium (W is a dash; Flash-W-Q extends range)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "W",
+    "Q"
+   ],
+   "engage": [
+    "W",
+    "Q"
+   ],
+   "escape": [],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Area knock-up around him; airborne, so tenacity doesn't shorten it."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Point-and-click dash into knock-back; usable as peel."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "After 5 champion pulses his next attack stuns: that attack is dodgeable by Jax E."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "cleanse",
+    "notes": "Removes disables on cast and reduces incoming damage."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Heal charged by his crowd control."
+   }
+  },
+  "windowAgainst": "W or Q on cooldown (no combo), or he's out of mana.",
+  "checks": []
+ }
+}

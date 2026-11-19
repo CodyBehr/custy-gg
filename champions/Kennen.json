@@ -1,0 +1,299 @@
+{
+ "id": 85,
+ "alias": "Kennen",
+ "name": "Kennen",
+ "title": "the Heart of the Tempest",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 580,
+  "hpPerLevel": 98,
+  "ad": 48,
+  "adPerLevel": 3.75,
+  "armor": 29,
+  "armorPerLevel": 4.95,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3.4,
+  "range": 550,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Thundering Shuriken",
+   "cooldown": [
+    7,
+    6.25,
+    5.5,
+    4.75,
+    4
+   ],
+   "cost": [
+    55,
+    50,
+    45,
+    40,
+    35
+   ],
+   "costType": null,
+   "range": 950.0,
+   "description": "Kennen throws a shuriken, dealing 75/125/175/225/275 + 0.75×AP magic damage to the first enemy hit.",
+   "summary": "Kennen throws a fast moving shuriken towards a location, causing damage and adding a Mark of the Storm to any opponent that it hits.",
+   "values": {
+    "BaseDamage": [
+     75,
+     125,
+     175,
+     225,
+     275
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "75/125/175/225/275 + 0.75×AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Electrical Surge",
+   "cooldown": [
+    13,
+    11.25,
+    9.5,
+    7.75,
+    6
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 725.0,
+   "description": "Passive: Every 5th Attack deals an additional 35/45/55/65/75 + 0.35×AP + BADRatio×bonus AD magic damage %i:OnHit% On-Hit. Active: Kennen sends out a blast of electricity, dealing 70/95/120/145/170 + 0.8×AP magic damage to nearby enemies affected by Mark of the Storm.",
+   "summary": "Kennen passively deals extra damage and adds a Mark of the Storm to his target every few attacks, and he can activate this ability to damage and add another Mark of the Storm to targets who are already marked.",
+   "values": {
+    "bADRatio": [
+     0.8,
+     0.9,
+     1,
+     1.1,
+     1.2
+    ],
+    "BaseOnHitDamage": [
+     35,
+     45,
+     55,
+     65,
+     75
+    ],
+    "BaseDamageActive": [
+     70,
+     95,
+     120,
+     145,
+     170
+    ],
+    "APRatioActive": 0.8
+   },
+   "formulas": {
+    "TotalDamagePassive": "35/45/55/65/75 + 0.35×AP + BADRatio×bonus AD",
+    "TotalDamageActive": "70/95/120/145/170 + 0.8×AP",
+    "TotalDamagePassiveCrit": "(35/45/55/65/75 + 0.35×AP + BADRatio×bonus AD) × (1.4 + 0.4×bonus stat)"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Lightning Rush",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 170.0,
+   "description": "Kennen turns into a ball of lightning, gaining 100% Move Speed, dealing 80/120/160/200/240 + 0.8×AP magic damage to enemies he passes through, and becoming Ghosted for 2 seconds. If Kennen damages at least one enemy, he gains 40 Energy. After this ability ends, Kennen gains 50/60/70/80/90% Attack Speed for 4 seconds. Critical Strikes extend this duration by 1 second(s). Kennen can Recast to end this Ability early.",
+   "summary": "Kennen morphs into a lightning form, enabling him to pass through units and apply a Mark of the Storm. Kennen gains Move Speed when entering this form, and attack speed when leaving it.",
+   "values": {
+    "BaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "EnergyRefund": 40,
+    "MovementSpeed": 1,
+    "DurationAsBall": 2,
+    "TotalAS": [
+     0.5,
+     0.6,
+     0.7,
+     0.8,
+     0.9
+    ],
+    "DurationAfterBall": 4,
+    "DamageToMinions": 0.65,
+    "DamageRadius": 200,
+    "linger": 0.15,
+    "CritDurationBonus": 1
+   },
+   "formulas": {
+    "TotalDamage": "80/120/160/200/240 + 0.8×AP"
+   },
+   "tags": [
+    "attack speed",
+    "move speed"
+   ]
+  },
+  "R": {
+   "name": "Slicing Maelstrom",
+   "cooldown": 120,
+   "cost": null,
+   "costType": null,
+   "range": 550.0,
+   "description": "Kennen unleashes a magical storm, dealing 40/80/120 + 0.25×AP magic damage to all nearby enemies every 0.5 seconds, and gaining 25/50/75 Armor and 25/50/75 Magic Resist for 3 seconds. Successive hits deal 10% increased damage for each hit the enemy has already suffered.",
+   "summary": "Kennen summons a storm that strikes at nearby enemy champions for magical damage.",
+   "values": {
+    "BaseDamage": [
+     40,
+     80,
+     120
+    ],
+    "APRatio": 0.25,
+    "DamageAmp": 0.1,
+    "KennenRTickRate": 0.5,
+    "KennenRDefenses": [
+     25,
+     50,
+     75
+    ],
+    "KennenRDuration": 3
+   },
+   "formulas": {
+    "PerTickDamageCalculated": "40/80/120 + 0.25×AP"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Mark of the Storm",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Kennen stuns enemies he hits 3 times with his abilities.",
+   "summary": "Kennen stuns enemies he hits 3 times with his abilities.",
+   "values": {
+    "EnergyRestore": 25,
+    "StunDuration": 1.25,
+    "ReducedStunDuration": 0.5,
+    "MarkDuration": 6,
+    "DiminishingReturnDuration": 6
+   },
+   "formulas": {},
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Ranged AP top laner who pokes with Q and stuns with passive marks. Engages with R AoE.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Ranged poke vs melee",
+   "AoE stun R",
+   "E escape",
+   "Energy-based",
+   "Teamfight engage"
+  ],
+  "weaknesses": [
+   "Squishy",
+   "Weak to tanks",
+   "Short range",
+   "Needs R",
+   "Ganks"
+  ],
+  "curve": {
+   "lvl1": "strong – Q poke",
+   "lvl2": "strong – Q+W",
+   "lvl3": "strong – E",
+   "lvl6": "strong – R",
+   "items": "strong – Zhonya",
+   "late": "medium – flank engage"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Pokes melee from level 1.",
+  "waveClear": "medium – W",
+  "sustain": "low",
+  "mobility": "medium – E",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Applies mark."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Strikes marked enemies."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Ghosted speed."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Storm applies marks."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "3 marks stun."
+   }
+  },
+  "windowAgainst": "E on cooldown: no escape.",
+  "checks": []
+ }
+}

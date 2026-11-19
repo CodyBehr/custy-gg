@@ -1,0 +1,305 @@
+{
+ "id": 27,
+ "alias": "Singed",
+ "name": "Singed",
+ "title": "the Mad Chemist",
+ "classes": [
+  "tank",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 650,
+  "hpPerLevel": 96,
+  "ad": 63,
+  "adPerLevel": 3.4,
+  "armor": 34,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.7,
+  "attackSpeedPerLevel": 1.9,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Poison Trail",
+   "cooldown": 0,
+   "cost": 13,
+   "costType": null,
+   "range": 20.0,
+   "description": "Toggle: Singed lays a poisonous trail that deals 20/30/40/50/60 + 0.425×AP magic damage per second.",
+   "summary": "Leaves a trail of poison behind Singed, dealing damage to enemies caught in the path.",
+   "values": {
+    "BaseDamagePerSecond": [
+     20,
+     30,
+     40,
+     50,
+     60
+    ],
+    "APRatioPerSecond": 0.425,
+    "ToggleCooldown": 1,
+    "CloudDuration": 3.25,
+    "PoisonDuration": 2,
+    "TicksPerSecond": 4,
+    "MaxLingerTicks": 8
+   },
+   "formulas": {
+    "DamagePerSecond": "20/30/40/50/60 + 0.425×AP",
+    "ApproximateTotalDamageTooltip": "(20/30/40/50/60 + 0.425×AP) × 4.75"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Mega Adhesive",
+   "cooldown": [
+    17,
+    16,
+    15,
+    14,
+    13
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    100
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Singed hurls a cask of sticky liquid, Grounding and Slowing enemies in the area by 50/55/60/65/70% for 3 seconds.",
+   "summary": "Throws a vial of mega adhesive on the ground, slowing and grounding enemies who walk on it.",
+   "values": {
+    "SlowPercent": [
+     50,
+     55,
+     60,
+     65,
+     70
+    ],
+    "WDuration": 3,
+    "WRadius": 265,
+    "DelayExecute": 0.375
+   },
+   "formulas": {},
+   "tags": [
+    "grounded",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Fling",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    110
+   ],
+   "costType": null,
+   "range": 125.0,
+   "description": "Singed flings an enemy over his shoulder, dealing 50/60/70/80/90 + 0.55×AP plus 6/6.5/7/7.5/8% max Health magic damage. If Singed flings a target into his Mega Adhesive, they are Rooted for 1/1.25/1.5/1.75/2 seconds.",
+   "summary": "Damages target enemy unit and flings them into the air behind Singed. If the target Singed flings lands in his Mega Adhesive, they are also rooted.",
+   "values": {
+    "BaseDamageValue": [
+     50,
+     60,
+     70,
+     80,
+     90
+    ],
+    "RootDuration": [
+     1,
+     1.25,
+     1.5,
+     1.75,
+     2
+    ],
+    "MaxHPDamage": [
+     6,
+     6.5,
+     7,
+     7.5,
+     8
+    ],
+    "FlingDistance": 420,
+    "NonChampionDamageCap": 300
+   },
+   "formulas": {
+    "BaseDamage": "50/60/70/80/90 + 0.55×AP"
+   },
+   "tags": [
+    "heal",
+    "root"
+   ]
+  },
+  "R": {
+   "name": "Insanity Potion",
+   "cooldown": 100,
+   "cost": 100,
+   "costType": null,
+   "range": 20.0,
+   "description": "Singed drinks a potent brew of chemicals, granting him 25/55/85 Ability Power, Armor, Magic Resist, Move Speed, Health Regen, and Mana Regen for 25 seconds. During this effect, Singed's Poison Trail also applies 40% Grievous Wounds for 1 second.",
+   "summary": "Singed drinks a potent brew of chemicals, granting him increased combat stats, and making his Poison Trail apply Grievous Wounds.",
+   "values": {
+    "StatAmount": [
+     25,
+     55,
+     85
+    ],
+    "Duration": 25,
+    "GrievousAmount": 0.4,
+    "GrievousDuration": 1
+   },
+   "formulas": {},
+   "tags": [
+    "heal",
+    "move speed"
+   ]
+  },
+  "Passive": {
+   "name": "Noxious Slipstream",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Singed drafts off nearby champions, gaining a burst of Move Speed when passing them.",
+   "summary": "Singed drafts off nearby champions, gaining a burst of Move Speed when passing them.",
+   "values": {
+    "MSPercent": 0.25,
+    "MSDuration": 2,
+    "PerTargetCD": 8,
+    "TriggerArea": 225
+   },
+   "formulas": {},
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Tank who proxies waves and runs ahead of enemies leaving a poison trail. He flings enemies into his W glue to ground them.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Q poison farms and chips",
+   "E fling into W ground combo",
+   "R gives large stats",
+   "Proxy farm pulls pressure",
+   "Hard to catch with speed"
+  ],
+  "weaknesses": [
+   "Kited by ranged",
+   "Melee E range",
+   "Weak early",
+   "Mana-hungry",
+   "Needs enemies to chase"
+  ],
+  "curve": {
+   "lvl1": "weak – only Q",
+   "lvl2": "medium – Q+E fling",
+   "lvl3": "medium – W+E combo",
+   "lvl6": "strong – R",
+   "items": "strong – Rylai's/tank",
+   "late": "medium – disruption"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Farms with Q; fights with W+E after 3.",
+  "waveClear": "good – Q trail",
+  "sustain": "low – R regen",
+  "mobility": "medium – passive speed and R",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "W",
+    "E"
+   ],
+   "escape": [
+    "Q",
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Poison trail: don't chase him."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "grounded",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Grounds — no dashes inside."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Fling over shoulder; roots if into W (not tagged). Stay out of melee range."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Large stat boost; Q gains grievous wounds."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Move speed when passing champions."
+   }
+  },
+  "windowAgainst": "Don't chase; fight when E is down.",
+  "checks": [
+   "E into W root not tagged"
+  ]
+ }
+}

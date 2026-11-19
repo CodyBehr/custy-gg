@@ -1,0 +1,351 @@
+{
+ "id": 60,
+ "alias": "Elise",
+ "name": "Elise",
+ "title": "the Spider Queen",
+ "classes": [
+  "assassin",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 109,
+  "ad": 55,
+  "adPerLevel": 3,
+  "armor": 30,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1.75,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Neurotoxin / Venomous Bite",
+   "cooldown": 6,
+   "cost": [
+    85,
+    90,
+    95,
+    100,
+    105
+   ],
+   "costType": null,
+   "range": 615.0,
+   "description": "Human Form: Elise injects neurotoxin, dealing 40/70/100/130/160 plus (4 + 0.03×AP) × 0.01 current Health magic damage.",
+   "summary": "Human Form: Deals damage based upon how high the target's Health is. Spider Form: Lunges at an enemy and deals damage based upon how low their Health is.",
+   "values": {
+    "BaseDamage": [
+     40,
+     70,
+     100,
+     130,
+     160
+    ],
+    "MonsterCapDamage": [
+     65,
+     85,
+     105,
+     125,
+     145
+    ],
+    "APRatio": 0.03,
+    "TargetHPDamage": 4,
+    "SpiderBaseDamage": [
+     50,
+     80,
+     110,
+     140,
+     170
+    ]
+   },
+   "formulas": {
+    "HumanPercentHealth": "(4 + 0.03×AP) × 0.01",
+    "MonsterDamageCapCalc": "65/85/105/125/145 + 0.9×AP"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Volatile Spiderling / Skittering Frenzy",
+   "cooldown": 12,
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    110
+   ],
+   "costType": null,
+   "range": 950.0,
+   "description": "Human Form: Elise summons an explosive spider that moves to a location and explodes when it nears an enemy or after 3 seconds. The spider deals @spell.EliseHumanW:TotalDamage@ magic damage.",
+   "summary": "Human Form: Releases a venom-gorged Spiderling that explodes when it nears a target. Spider Form: Elise and her Spiderlings gain Attack Speed.",
+   "values": {
+    "BaseDamage": [
+     60,
+     100,
+     140,
+     180,
+     220
+    ],
+    "APRatio": 0.75,
+    "TimeToExplode": 3,
+    "ExplosionSize": 275
+   },
+   "formulas": {
+    "TotalDamage": "60/100/140/180/220 + 0.75×AP"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Cocoon / Rappel",
+   "cooldown": [
+    12,
+    11.5,
+    11,
+    10.5,
+    10
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 1075.0,
+   "description": "Human Form: Elise fires a cocoon, Stunning and revealing the first enemy hit for 1.6/1.8/2/2.2/2.4 seconds.",
+   "summary": "Human Form: Stuns the first enemy unit hit and reveals them if they are not stealthed. Spider Form: Elise and her Spiderlings ascend into the air and then descend upon target enemy. After descending on an enemy target, Elise's bonus damage and healing from Spider Queen is increased.",
+   "values": {
+    "BaseStunDuration": [
+     1.6,
+     1.8,
+     2,
+     2.2,
+     2.4
+    ],
+    "VisionRadius": 250,
+    "RappelCooldown": [
+     22,
+     21,
+     20,
+     19,
+     18
+    ],
+    "RappelDamageAmp": [
+     40,
+     55,
+     70,
+     85,
+     100
+    ],
+    "StunDuration": [
+     1.6,
+     1.8,
+     2,
+     2.2,
+     2.4
+    ]
+   },
+   "formulas": {
+    "TotalStunDuration": "1.6/1.8/2/2.2/2.4"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Spider Form",
+   "cooldown": 3,
+   "cost": null,
+   "costType": null,
+   "range": 20.0,
+   "description": "Human Form: Elise transforms into a menacing spider, becoming melee, gaining access to Spider Form Abilities and summons all dormant Spiderlings.",
+   "summary": "Transforms into a menacing spider, reducing her attack range in exchange for Move Speed, new abilities, and a Spiderling swarm that will attack her foes.",
+   "values": {
+    "PassiveBonusDamage": [
+     14,
+     24,
+     34
+    ],
+    "PassiveHealing": [
+     6,
+     8,
+     10
+    ],
+    "PassiveMSOnHit": 0.1,
+    "BaseSpiderlingsStored": [
+     2,
+     3,
+     4
+    ],
+    "SpiderlingBaseDamage": [
+     10,
+     20,
+     30
+    ],
+    "SpiderlingAPRatio": 0.15,
+    "SpiderlingBonusResist": [
+     0,
+     20,
+     40
+    ],
+    "SpiderlingArmor": [
+     30,
+     50,
+     70
+    ],
+    "SpiderlingsStoredCap": 20,
+    "SpiderlingMagicResist": [
+     50,
+     70,
+     90
+    ],
+    "SpiderlingDamageTooltipOnly": [
+     10,
+     20,
+     30
+    ],
+    "EliseBiteDamage": [
+     12,
+     22,
+     32
+    ],
+    "SpiderlingCap": [
+     2,
+     3,
+     4
+    ]
+   },
+   "formulas": {
+    "PassiveTotalDamage": "14/24/34 + 0.15×AP",
+    "PassiveTotalHealing": "6/8/10 + 0.08×AP",
+    "SpiderlingTotalDamage": "10/20/30 + 0.15×AP",
+    "{84a53877}": "",
+    "{e5407a95}": "(14/24/34 + 0.15×AP) × (? + 1)",
+    "{60195651}": ""
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Spider Queen",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Human Form: When Elise's abilities hit an enemy, she gains a dormant Spiderling. Spider Form: Basic attacks deal bonus magic damage and restore health to Elise.",
+   "summary": "Human Form: When Elise's abilities hit an enemy, she gains a dormant Spiderling. Spider Form: Basic attacks deal bonus magic damage and restore health to Elise.",
+   "values": {
+    "SpiderlingAPRatio": 0.15,
+    "SpiderlingAoEReduction": 0.75
+   },
+   "formulas": {
+    "{38943004}": "5+ (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Shape-shifting jungler who stuns with human E and bursts with both forms' Qs, ganking early and diving with spider E rappel.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Strong early ganks with E cocoon",
+   "High burst from both Qs",
+   "Spider E rappel dodges point-and-click abilities and repositions",
+   "Fast tower dives"
+  ],
+  "weaknesses": [
+   "Cocoon is a skillshot blocked by minions",
+   "Falls off later",
+   "Squishy in human form",
+   "Punished if E misses"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "strong – both forms' Q",
+   "lvl3": "strong – cocoon ganks",
+   "lvl6": "strong",
+   "items": "first AP item",
+   "late": "weak-medium"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Ganks once cocoon is available (often level 3).",
+  "waveClear": "medium",
+  "sustain": "low – spider attacks heal",
+  "mobility": "spider E rappel, spider W attack speed",
+  "range": "ranged (human) / melee (spider)",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "E"
+   ]
+  },
+  "abilityMechanics": {
+   "P": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Spider form attacks deal bonus damage and heal"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Human: current-HP magic damage; spider: dash bite"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Human: exploding spiderling; spider: attack speed"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "untargetable",
+    "notes": "Human: cocoon skillshot stun; spider: rappel, untargetable in the air"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Swap forms"
+   }
+  },
+  "windowAgainst": "After human E (cocoon) is used or missed.",
+  "checks": [
+   "Spider form ability details not shown in description extract; based on knowledge"
+  ]
+ }
+}

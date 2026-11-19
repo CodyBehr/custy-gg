@@ -1,0 +1,326 @@
+{
+ "id": 31,
+ "alias": "Chogath",
+ "name": "Cho'Gath",
+ "title": "the Terror of the Void",
+ "classes": [
+  "tank",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 644,
+  "hpPerLevel": 94,
+  "ad": 69,
+  "adPerLevel": 4.2,
+  "armor": 38,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 1.44,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Rupture",
+   "cooldown": 6,
+   "cost": 50,
+   "costType": null,
+   "range": 950.0,
+   "description": "Cho'Gath ruptures the ground, Knocking Up enemies for (varies) second, dealing 80/135/190/245/300 + 1×AP magic damage, and Slowing them by (varies)% for (varies) seconds.",
+   "summary": "Ruptures the ground at target location, popping enemy units into the air, dealing damage and slowing them.",
+   "values": {
+    "BaseDamage": [
+     80,
+     135,
+     190,
+     245,
+     300
+    ],
+    "SlowAmountPercentage": 60
+   },
+   "formulas": {
+    "TotalDamageTooltip": "80/135/190/245/300 + 1×AP"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Feral Scream",
+   "cooldown": [
+    11,
+    10.5,
+    10,
+    9.5,
+    9
+   ],
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    95
+   ],
+   "costType": null,
+   "range": 300.0,
+   "description": "Cho'Gath roars, Silencing enemies for (varies) seconds and dealing ? + 0.7×AP magic damage.",
+   "summary": "Cho'Gath unleashes a terrible scream at enemies in a cone, dealing magic damage and Silencing enemies for a few seconds.",
+   "values": {},
+   "formulas": {
+    "TotalDamageTooltip": "? + 0.7×AP"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Vorpal Spikes",
+   "cooldown": [
+    8,
+    7,
+    6,
+    5,
+    4
+   ],
+   "cost": 30,
+   "costType": null,
+   "range": 40.0,
+   "description": "Cho'Gath's next 3 Attacks launch spikes that deal 30/50/70/90/110 + 0.3×AP plus (2.5/2.85/3.2/3.55/3.9 + ?) × 0.01 of the target's max Health magic damage and Slow by 30/35/40/45/50%, decaying over 1.5 seconds.",
+   "summary": "Cho'Gath's attacks release deadly spikes, dealing damage and slowing all enemy units in front of him.",
+   "values": {
+    "BaseDamage": [
+     30,
+     50,
+     70,
+     90,
+     110
+    ],
+    "APRatio": 0.3,
+    "PercentHealthDamage": [
+     2.5,
+     2.85,
+     3.2,
+     3.55,
+     3.9
+    ],
+    "FeastStackMultiplier": 0.5,
+    "MonsterDamageCap": 200,
+    "SlowAmountPercentage": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "SlowDuration": 1.5,
+    "AttackRangeIncrease": 50,
+    "MaximumAttacks": 3,
+    "BuffDuration": 6,
+    "ModifiedMonsterCap": [
+     80,
+     110,
+     140,
+     170,
+     200
+    ]
+   },
+   "formulas": {
+    "FlatDamageCalc": "30/50/70/90/110 + 0.3×AP",
+    "MaxHealthPercentCalc": "(2.5/2.85/3.2/3.55/3.9 + ?) × 0.01"
+   },
+   "tags": [
+    "empowered attack",
+    "heal",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Feast",
+   "cooldown": [
+    80,
+    70,
+    60
+   ],
+   "cost": [
+    100,
+    100,
+    60
+   ],
+   "costType": null,
+   "range": 175.0,
+   "description": "Cho'Gath ravenously feeds on an enemy, dealing 300/475/650 + 0.5×AP + 0.1×bonus max HP true damage to champions or 1200 + 0.5×AP + 0.1×bonus max HP to minions or jungle monsters. If this kills the target, Cho'Gath gains a stack, which causes him to grow in size and gain 80/120/160 max Health. Only 6 stacks can be gained from minions and non-epic jungle monsters.",
+   "summary": "Devours an enemy unit, dealing a high amount of true damage. If the target is killed, Cho'Gath grows, gaining maximum Health.",
+   "values": {
+    "RBaseMonsterDamage": 1200,
+    "RBaseDamage": [
+     300,
+     475,
+     650
+    ],
+    "RHealthPerStack": [
+     80,
+     120,
+     160
+    ],
+    "RMinionMaxStacks": 6,
+    "RStoneplateRatio": 1,
+    "CastRangePerStack": 2.5,
+    "MaxBonusCastRange": 25,
+    "AttackRangePerStack": [
+     4.7,
+     6.2,
+     7.7
+    ],
+    "MaxBonusAttackRange": 75
+   },
+   "formulas": {
+    "RMonsterDamage": "1200 + 0.5×AP + 0.1×bonus max HP",
+    "RDamage": "300/475/650 + 0.5×AP + 0.1×bonus max HP",
+    "BonusAttackRange": "?",
+    "{9f798bd0}": "?"
+   },
+   "tags": [
+    "heal",
+    "true damage"
+   ]
+  },
+  "Passive": {
+   "name": "Carnivore",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Whenever Cho'Gath kills a unit, he recovers Health and Mana. The values restored increase with Cho'Gath's level.",
+   "summary": "Whenever Cho'Gath kills a unit, he recovers Health and Mana. The values restored increase with Cho'Gath's level.",
+   "values": {},
+   "formulas": {
+    "ChogathCarnivoreHeal": "18+ (by level)",
+    "ChogathCarnivoreMana": "4.72+ (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Tanky mage-bruiser who controls with knock-up Q and silence W, grows from R true-damage execute stacks.",
+  "positions": [
+   "top",
+   "mid"
+  ],
+  "strengths": [
+   "Strong area control (Q knock-up, W silence)",
+   "R true damage execute and permanent health",
+   "Good sustain from passive",
+   "Scales into a big frontline"
+  ],
+  "weaknesses": [
+   "Q is slow to land",
+   "No dash, easy to kite",
+   "Mana and cooldown reliant",
+   "Weak to sustained true or %HP damage"
+  ],
+  "curve": {
+   "lvl1": "medium – E spikes and Q poke",
+   "lvl2": "medium",
+   "lvl3": "medium",
+   "lvl6": "strong – R execute",
+   "items": "strong – tank or AP item",
+   "late": "strong – frontline + execute"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Trades around Q landing; R level 6 changes kill threat.",
+  "waveClear": "good – Q and E",
+  "sustain": "medium – passive heal on kills",
+  "mobility": "low",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "E",
+    "Q"
+   ],
+   "engage": [
+    "Q",
+    "W"
+   ],
+   "escape": [],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Delayed ground knock-up, not a missile"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "silence",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Cone silence: stops enemies casting their answer"
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Empowers next attacks with spikes"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Point-and-click true damage; stacks on kill"
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": ""
+   }
+  },
+  "windowAgainst": "Q down = no reliable engage/peel; W down = no silence answer.",
+  "checks": [
+   "W silence tag missing in auto-tags; Riot text says Silencing"
+  ]
+ }
+}

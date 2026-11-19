@@ -1,0 +1,327 @@
+{
+ "id": 119,
+ "alias": "Draven",
+ "name": "Draven",
+ "title": "the Glorious Executioner",
+ "classes": [
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 675,
+  "hpPerLevel": 104,
+  "ad": 64,
+  "adPerLevel": 3.4,
+  "armor": 29,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.679,
+  "attackSpeedPerLevel": 2.7,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Spinning Axe",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": 45,
+   "costType": null,
+   "range": 300.0,
+   "description": "Draven readies a Spinning Axe, causing his next Attack to deal an additional 40/45/50/55/60 + 0.75/0.85/0.95/1.05/1.15\u00d7bonus AD physical damage and ricochet into the air. If Draven catches it, he readies another Spinning Axe. Draven can hold two Spinning Axes at once.",
+   "summary": "Draven's next attack will deal bonus physical damage. This axe will ricochet off the target high up into the air. If Draven catches it, he automatically readies another Spinning Axe. Draven can have two Spinning Axes at once.",
+   "values": {
+    "BaseDamage": [
+     40,
+     45,
+     50,
+     55,
+     60
+    ],
+    "ADScaling": [
+     0.75,
+     0.85,
+     0.95,
+     1.05,
+     1.15
+    ],
+    "DurationTOOLTIP": 6,
+    "AxeDuration": 5.75
+   },
+   "formulas": {
+    "TotalDamage": "40/45/50/55/60 + 0.75/0.85/0.95/1.05/1.15\u00d7bonus AD"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  },
+  "W": {
+   "name": "Blood Rush",
+   "cooldown": 12,
+   "cost": [
+    35,
+    30,
+    25,
+    20,
+    15
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Draven becomes Ghosted, gains 50/55/60/65/70% Move Speed decaying over 1.5 seconds and 20/25/30/35/40% Attack Speed for 3 seconds. When Draven catches a Spinning Axe, this Ability's Cooldown is refreshed.",
+   "summary": "Draven gains increased Move Speed and Attack Speed. The Move Speed bonus decreases rapidly over its duration. Catching a Spinning Axe will refresh the cooldown of Blood Rush.",
+   "values": {
+    "AttackSpeed": [
+     0.2,
+     0.25,
+     0.3,
+     0.35,
+     0.4
+    ],
+    "AttackSpeedDuration": 3,
+    "MoveSpeed": [
+     0.5,
+     0.55,
+     0.6,
+     0.65,
+     0.7
+    ],
+    "MoveSpeedDuration": 1.5,
+    "Temp_MSMod": [
+     50,
+     55,
+     60,
+     65,
+     70
+    ],
+    "Temp_MSDuration": 1.5,
+    "Temp_AS": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "Temp_ASDuration": 3,
+    "Temp_MSDecay": [
+     -0.062,
+     -0.069,
+     -0.075,
+     -0.081,
+     -0.087
+    ]
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Stand Aside",
+   "cooldown": [
+    18,
+    17,
+    16,
+    15,
+    14
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 1050.0,
+   "description": "Draven chucks a sideways axe that deals 75/110/145/180/215 + 0.5\u00d7bonus AD physical damage, Knocks Back, and Slows by 20/25/30/35/40% for 2 seconds.",
+   "summary": "Draven throws his axes, dealing physical damage to targets hit and knocking them aside. Targets hit are slowed.",
+   "values": {
+    "BaseDamage": [
+     75,
+     110,
+     145,
+     180,
+     215
+    ],
+    "SlowAmount": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "SlowDuration": 2,
+    "KnockbackDuration": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "75/110/145/180/215 + 0.5\u00d7bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Whirling Death",
+   "cooldown": [
+    100,
+    90,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 20000.0,
+   "description": "Draven hurls two massive axes that deal 200/300/400 + 1.1/1.3/1.5\u00d7bonus AD physical damage. Upon hitting a champion or Recasting, they reverse direction and return to Draven. The axes deal 5% less damage for each enemy hit, down to a minimum of 50%. If Whirling Death would leave an enemy champion with less health than 100% of Draven's current League of Draven stacks (?), he will execute them.",
+   "summary": "Draven hurls two massive axes to deal physical damage to each unit struck. Whirling Death slowly reverses direction and returns to Draven after striking an enemy champion. Draven may also activate this ability while the axes are in flight to cause it to return early. Deals less damage for each unit hit and resets when the axes reverse direction. Executes enemies who have less health than Draven's number of Adoration stacks.",
+   "values": {
+    "RBaseDamage": [
+     200,
+     300,
+     400
+    ],
+    "RMinDamagePercent": 50,
+    "RDamageReductionPerHit": 0.05,
+    "RCoefficient": [
+     1.1,
+     1.3,
+     1.5
+    ],
+    "RPassiveStacksCoefficient": 1
+   },
+   "formulas": {
+    "RCalculatedDamage": "200/300/400 + 1.1/1.3/1.5\u00d7bonus AD",
+    "RPassiveTrueDamage": "?"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "League of Draven",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Draven gains his fans' Adoration when he catches a Spinning Axe or kills a minion, monster, or tower. Killing enemy champions grants Draven bonus gold based on how much Adoration he has.",
+   "summary": "Draven gains his fans' Adoration when he catches a Spinning Axe or kills a minion, monster, or tower. Killing enemy champions grants Draven bonus gold based on how much Adoration he has.",
+   "values": {
+    "PassiveGoldBase": 25,
+    "PassiveGoldPerStack": 2,
+    "PercentOfStacksLost": 50,
+    "StackGain": 1,
+    "StackGainEnemy": 10,
+    "CherryStacksPerRoundBeforeMultiplier": 10,
+    "CherryStackMultiplier": 5
+   },
+   "formulas": {
+    "DravenPassiveGoldEarned": "?",
+    "DravenPassiveHighestBounty": "?"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Draven is a lane-bully marksman whose Spinning Axes add big damage to his attacks if he catches them. He plays bot lane, snowballs with the bonus gold from League of Draven, and executes low targets with Whirling Death.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "Highest early damage of any ADC: Spinning Axe adds large bonus damage to each attack.",
+   "League of Draven gives extra gold on kills, so he snowballs fast.",
+   "Stand Aside knocks back and slows, a strong peel and engage tool.",
+   "Blood Rush gives Ghosted move speed and attack speed, and refreshes when he catches an axe.",
+   "Whirling Death is a global ultimate that executes low targets."
+  ],
+  "weaknesses": [
+   "Catching axes forces him to move to set spots, which enemies can predict and punish.",
+   "Dropping axes loses most of his damage.",
+   "Weak if he falls behind: he relies on snowballing.",
+   "Short escape: only W move speed.",
+   "Loses Adoration on death."
+  ],
+  "curve": {
+   "lvl1": "very strong \u2013 a caught Spinning Axe out-trades almost every ADC",
+   "lvl2": "very strong \u2013 E knock-back adds an engage and peel",
+   "lvl3": "very strong \u2013 W refresh on caught axes keeps him fast in all-ins",
+   "lvl6": "strong \u2013 Whirling Death executes low targets from anywhere",
+   "items": "strong \u2013 first item: Infinity Edge, The Collector or Bloodthirster",
+   "late": "good \u2013 strong if fed, weaker if behind"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Draven is strongest early, from level 1. He wants to snowball through kills before the late game.",
+  "waveClear": "Good: axes clear waves.",
+  "sustain": "Low: lifesteal from items only.",
+  "mobility": "Okay: W move speed.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Spinning Axe) on auto attacks",
+   "engage": "E (Stand Aside) to engage or peel",
+   "escape": "W (Blood Rush) to chase or escape",
+   "answers": "None. Draven has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "League of Draven: catching axes and killing gives Adoration; kills give bonus gold based on Adoration."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "Jax E dodges; Fiora W parries.",
+    "notes": "Spinning Axe: next attack deals bonus damage and bounces up to be caught."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Blood Rush: Ghosted, move speed and attack speed; catching an axe refreshes it."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block.",
+    "notes": "Stand Aside: axes that knock back and slow."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": "Dodge sideways, or block with a projectile block.",
+    "notes": "Whirling Death: global axes that return; executes low targets."
+   }
+  },
+  "windowAgainst": "Draven's window is when he has to move to catch axes: zone him off the axes, or all-in him when he drops them.",
+  "checks": [
+   "Does Draven catch his axes?",
+   "Does Draven use E to peel?",
+   "Does the enemy zone him off his axes?"
+  ]
+ }
+}

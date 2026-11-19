@@ -1,0 +1,282 @@
+{
+ "id": 26,
+ "alias": "Zilean",
+ "name": "Zilean",
+ "title": "the Chronokeeper",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 574,
+  "hpPerLevel": 96,
+  "ad": 52,
+  "adPerLevel": 3,
+  "armor": 24,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2.13,
+  "range": 550,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Time Bomb",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Zilean tosses a time-delayed bomb that sticks to the first unit which comes within a small area around it. After 3 seconds it detonates, dealing 75/115/165/230/300 + 0.9×AP magic damage. Placing a second bomb on a unit that already has one detonates the first bomb immediately and Stuns enemies in the blast for 1.1/1.2/1.3/1.4/1.5 seconds.",
+   "summary": "Tosses a bomb to target area that sticks to units that come near it (prioritizes Champions). It detonates after 3 seconds, dealing area of effect damage. If a Time Bomb is detonated early by another Time Bomb, it also stuns enemies.",
+   "values": {
+    "BombBaseDamage": [
+     75,
+     115,
+     165,
+     230,
+     300
+    ],
+    "APRatio": 0.9,
+    "StunDuration": [
+     1.1,
+     1.2,
+     1.3,
+     1.4,
+     1.5
+    ],
+    "FuseDuration": 3
+   },
+   "formulas": {
+    "TotalDamage": "75/115/165/230/300 + 0.9×AP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Rewind",
+   "cooldown": [
+    14,
+    12,
+    10,
+    8,
+    6
+   ],
+   "cost": 35,
+   "costType": null,
+   "range": 600.0,
+   "description": "Zilean turns time, reducing his other basic Ability Cooldowns by 10 seconds.",
+   "summary": "Zilean can prepare himself for future confrontations, reducing the cooldowns of his other basic abilities.",
+   "values": {
+    "CooldownReduction": 10,
+    "ManaCost": 35
+   },
+   "formulas": {},
+   "tags": []
+  },
+  "E": {
+   "name": "Time Warp",
+   "cooldown": 15,
+   "cost": 50,
+   "costType": null,
+   "range": 550.0,
+   "description": "Zilean Slows an enemy champion by 40/55/70/85/99% or grants an allied champion 40/55/70/85/99% Move Speed for 2.5 seconds.",
+   "summary": "Zilean bends time around any unit, decreasing an enemy's Move Speed or increasing an ally's Move Speed for a short time.",
+   "values": {
+    "Duration": 2.5,
+    "SpeedAmount": [
+     40,
+     55,
+     70,
+     85,
+     99
+    ]
+   },
+   "formulas": {},
+   "tags": [
+    "move speed",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Chronoshift",
+   "cooldown": [
+    120,
+    90,
+    60
+   ],
+   "cost": [
+    150,
+    175,
+    0
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Zilean grants a protective time rune to an allied champion for 5 seconds. If the target would die, the rune rewinds their timeline, putting them into Stasis for 3 seconds, then reviving them and restoring 600/850/1100 + 2×AP Health.",
+   "summary": "Zilean places a protective time rune on an allied champion, teleporting the champion back in time if they take lethal damage.",
+   "values": {
+    "RBaseHeal": [
+     600,
+     850,
+     1100
+    ],
+    "RDuration": 5,
+    "APRatio": 2,
+    "ReviveStateDuration": 3
+   },
+   "formulas": {
+    "RTotalHeal": "600/850/1100 + 2×AP"
+   },
+   "tags": [
+    "heal",
+    "stasis"
+   ]
+  },
+  "Passive": {
+   "name": "Time In A Bottle",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Zilean stores time as Experience and can grant it to his allies. When he has enough Experience to finish an ally's level up, he can right-click them to impart it. Zilean receives as much Experience as he gives.",
+   "summary": "Zilean stores time as Experience and can grant it to his allies. When he has enough Experience to finish an ally's level up, he can right-click them to impart it. Zilean receives as much Experience as he gives.",
+   "values": {
+    "PassiveCooldown": 120,
+    "GamemodeInteger": 1
+   },
+   "formulas": {
+    "{e359ec0d}": "0.8+ (by level)",
+    "TotalXP": "?",
+    "XPPer5": "(e359ec0d) × 2.5"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Time mage who stuns with double bombs and saves allies with Chronoshift revive. A utility and poke support/mid who scales with ability ranks and cooldowns.",
+  "positions": [
+   "UTILITY",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Double Q bomb stun with W reset",
+   "R revives an ally (or himself) from a lethal hit",
+   "E speeds allies or slows enemies: strong kiting and engage",
+   "Long-range poke and good lane control",
+   "Passive levels up allies faster late"
+  ],
+  "weaknesses": [
+   "Squishy and immobile",
+   "Q is slow and telegraphed: easy to dodge",
+   "Mana-hungry early",
+   "Low burst outside double bomb",
+   "Weak to dive and point-and-click engage"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "medium – E slow/speed",
+   "lvl3": "strong – double bomb stun with W",
+   "lvl6": "strong – R revive",
+   "items": "medium – mana/haste items",
+   "late": "strong – R and E change fights"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs W to land the double bomb stun reliably.",
+  "waveClear": "medium – Q bombs in waves",
+  "sustain": "low",
+  "mobility": "low – E speed only",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E",
+    "Q"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Ground-targeted bomb (not a missile); a second bomb on the same target stuns."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Reduces his other cooldowns: second Q."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Slows an enemy or speeds an ally, point-and-click."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "revive",
+    "notes": "Ally revives on death after a delay: kill them twice or wait out the buff."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Stores XP and gives it to allies."
+   }
+  },
+  "windowAgainst": "W down (no double bomb) or E used: engage then. Bait R before killing the target.",
+  "checks": [
+   "Whether R revive should be modelled as an 'answer' type"
+  ]
+ }
+}

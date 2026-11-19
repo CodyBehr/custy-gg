@@ -1,0 +1,360 @@
+{
+ "id": 518,
+ "alias": "Neeko",
+ "name": "Neeko",
+ "title": "the Curious Chameleon",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 104,
+  "ad": 48,
+  "adPerLevel": 2.5,
+  "armor": 21,
+  "armorPerLevel": 5.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3.5,
+  "range": 550,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Blooming Burst",
+   "cooldown": [
+    9,
+    8.5,
+    8,
+    7.5,
+    7
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    85
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Neeko throws a seed that blooms to deal 60/110/160/210/260 + 0.6\u00d7AP magic damage. If it kills a unit or hits a champion or large monster, it will bloom again, dealing 35/60/85/110/135 + 0.25\u00d7AP magic damage. Max 2 extra blooms.",
+   "summary": "Neeko throws a seed dealing magic damage. The seed blooms again on hitting champions or killing units.",
+   "values": {
+    "SlowAmount": 40,
+    "SlowDuration": 1,
+    "ZoneDamage": [
+     60,
+     110,
+     160,
+     210,
+     260
+    ],
+    "SecondaryDamage": [
+     35,
+     60,
+     85,
+     110,
+     135
+    ],
+    "RepeatDelay": 0.75,
+    "MonsterBonus": [
+     35,
+     50,
+     65,
+     80,
+     95
+    ]
+   },
+   "formulas": {
+    "ExplosionDamage": "60/110/160/210/260 + 0.6\u00d7AP",
+    "SecondDamage": "35/60/85/110/135 + 0.25\u00d7AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Shapesplitter",
+   "cooldown": [
+    16,
+    15,
+    14,
+    13,
+    12
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 900.0,
+   "description": "Passive: Every 3rd Attack deals an additional 30/65/100/135/170 + 0.6\u00d7AP bonus magic damage and increases Neeko's Move Speed by 10/17.5/25/32.5/40% for 1 second. Active: Neeko becomes invisible for 0.5 seconds and projects a clone that lasts 3 seconds. Neeko and the clone gain 20/25/30/35/40% Move Speed for 3 seconds. The clone can be controlled using the Move Pet Click hotkey or by Recasting this Ability. The clone mirrors her spellcasts, emotes, and recall.",
+   "summary": "Neeko passively deals bonus magic damage every third attack, briefly increasing her move speed. Neeko can activate to send a clone in a direction and recast to change the direction of the clone.",
+   "values": {
+    "CloneDuration": 3,
+    "StealthDuration": 0.5,
+    "CloneDamageTimer": 0.75,
+    "Haste": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "HasteDuration": 3,
+    "PassiveDamage": [
+     30,
+     65,
+     100,
+     135,
+     170
+    ],
+    "PassiveHaste": [
+     10,
+     17.5,
+     25,
+     32.5,
+     40
+    ],
+    "PassiveHasteDuration": 1,
+    "MonsterBonus": 75,
+    "APRatio": 0.6
+   },
+   "formulas": {
+    "PassiveBonusDamageCalc": "30/65/100/135/170 + 0.6\u00d7AP"
+   },
+   "tags": [
+    "move speed",
+    "stealth"
+   ]
+  },
+  "E": {
+   "name": "Tangle-Barbs",
+   "cooldown": [
+    12,
+    11.5,
+    11,
+    10.5,
+    10
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    60
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Neeko slings a tangle that deals 80/115/150/185/220 + 0.65\u00d7AP magic damage and Roots for 0.7/0.9/1.1/1.3/1.5 seconds. The tangle becomes empowered after hitting an enemy, growing larger, moving faster, and Rooting for 2/2.25/2.5/2.75/3 seconds.",
+   "summary": "Neeko slings a tangle that damages and roots everything it passes through. If the tangle kills an enemy or passes through a champion, it becomes larger, faster, and roots for longer.",
+   "values": {
+    "Damage": [
+     80,
+     115,
+     150,
+     185,
+     220
+    ],
+    "BaseRootDuration": 0.5,
+    "MinRootDuration": [
+     0.7,
+     0.9,
+     1.1,
+     1.3,
+     1.5
+    ],
+    "TargetsRequiredForMaxValue": 2,
+    "MaxRootDuration": [
+     2,
+     2.25,
+     2.5,
+     2.75,
+     3
+    ],
+    "EmpoweredWidth": 100,
+    "EmpoweredSpeed": 200
+   },
+   "formulas": {
+    "BaseDamage": "80/115/150/185/220 + 0.65\u00d7AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "R": {
+   "name": "Pop Blossom",
+   "cooldown": [
+    120,
+    105,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 600.0,
+   "description": "After a delay Neeko leaps into the air, Knocking Up all nearby enemies for 0.6 seconds. She then crashes down, dealing 150/350/550 + 1.2\u00d7AP magic damage to all nearby enemies and Stunning them for 0.75 seconds. This Ability can be prepared in secret if Neeko is disguised. 0.5 seconds after casting this ability Neeko breaks her disguise.",
+   "summary": "After a short preparation, Neeko leaps into the air, knocking up all nearby enemies. Upon landing, nearby enemies are damaged and stunned. The preparation is hidden if Neeko is disguised.",
+   "values": {
+    "Damage": [
+     150,
+     350,
+     550
+    ],
+    "Duration": 2.5,
+    "StunDuration": 0.75,
+    "ShieldAmount": [
+     75,
+     100,
+     125
+    ],
+    "ShieldDuration": 2,
+    "DelayUntilReveal": 1.25,
+    "DelayUntilExplosion": 0.6,
+    "ShieldPerChampion": [
+     40,
+     60,
+     80
+    ],
+    "SlowAmount": 40,
+    "DelayBeforePassiveRemoval": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "150/350/550 + 1.2\u00d7AP",
+    "BaseShield": "75/100/125 + 0.75\u00d7AP",
+    "ShieldMultiplier": "40/60/80 + 0.4\u00d7AP"
+   },
+   "tags": [
+    "airborne",
+    "dash",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Inherent Glamour",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Neeko can look like an ally champion or as other units on the map. Receiving immobilizing crowd control, casting damaging spells, damaging enemy towers as a non-champion, or your disguise taking damage equal to its healthbar breaks the disguise.",
+   "summary": "Neeko can look like an ally champion or as other units on the map. Receiving immobilizing crowd control, casting damaging spells, damaging enemy towers as a non-champion, or your disguise taking damage equal to its healthbar breaks the disguise.",
+   "values": {
+    "MagicPen": 0.2,
+    "MagicPenDuration": 4,
+    "ChargeTime": 2,
+    "PassiveCooldown": 6
+   },
+   "formulas": {},
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Neeko is a burst mage who disguises herself as allies with Inherent Glamour and roots with Tangle-Barbs. She plays mid or support, setting up picks and ending fights with Pop Blossom.",
+  "positions": [
+   "MIDDLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Tangle-Barbs roots for much longer after it hits a first enemy, so throwing it through a minion still gives a long root.",
+   "Pop Blossom knocks up and then stuns everyone around her, and can be prepared in secret while disguised.",
+   "Inherent Glamour lets her hide as an ally champion or a minion, so enemies don't expect her engage.",
+   "Shapesplitter's clone and brief invisibility trick enemies and help her escape.",
+   "Good wave clear and poke with Blooming Burst."
+  ],
+  "weaknesses": [
+   "Immobile: no dash or blink, only the move speed from Shapesplitter.",
+   "Squishy: dies quickly when caught.",
+   "Pop Blossom has a delay before it lands, so enemies can walk out if they see it coming.",
+   "Tangle-Barbs is a skillshot; missing it leaves her with no hard CC.",
+   "Immobilizing CC breaks her disguise."
+  ],
+  "curve": {
+   "lvl1": "okay \u2013 Q poke and passive attacks, but no all-in",
+   "lvl2": "good \u2013 E root into Q gives a real trade",
+   "lvl3": "good \u2013 full combo with W's passive attack damage",
+   "lvl6": "very strong \u2013 Pop Blossom knocks up then stuns the whole enemy team",
+   "items": "medium \u2013 first item: Luden's Companion or Liandry's Torment; Zhonya's Hourglass for safety",
+   "late": "good \u2013 stays a strong teamfight mage if she can get close"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Neeko wants E and Q to trade, and her real teamfight power comes at 6 with Pop Blossom.",
+  "waveClear": "Good: Q blooms again on kills.",
+  "sustain": "Low: no healing.",
+  "mobility": "Low: no dash; W gives move speed.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "E (Tangle-Barbs) root through a minion, then Q (Blooming Burst)",
+   "engage": "R (Pop Blossom) after walking in disguised",
+   "escape": "W (Shapesplitter) clone and invisibility to escape",
+   "answers": "None. Neeko has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Inherent Glamour: disguises as an ally or another unit; immobilizing CC, casting damaging spells or enough damage breaks it."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Blooming Burst: an area burst that blooms again if it kills a unit or hits a champion or large monster."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shapesplitter: passive every third attack deals bonus damage and gives move speed; active makes her invisible briefly and creates a clone."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block; Cleanse/QSS removes the root.",
+    "notes": "Tangle-Barbs: a missile that roots, and roots for longer after hitting a first enemy."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Walk out before the delay ends; the stun can be cleansed but the knock-up cannot.",
+    "notes": "Pop Blossom: after a delay she knocks up all nearby enemies, then crashes down to stun them."
+   }
+  },
+  "windowAgainst": "Neeko's window is when Tangle-Barbs is on cooldown: she cannot stop an all-in. Keep your distance from unexplained allies or minions that might be her disguise.",
+  "checks": [
+   "Does Neeko throw E through minions for the longer root?",
+   "Does Neeko approach in disguise before using Pop Blossom?",
+   "Does the enemy team walk out of Pop Blossom before it lands?"
+  ]
+ }
+}

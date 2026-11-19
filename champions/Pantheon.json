@@ -1,0 +1,360 @@
+{
+ "id": 80,
+ "alias": "Pantheon",
+ "name": "Pantheon",
+ "title": "the Unbreakable Spear",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 650,
+  "hpPerLevel": 109,
+  "ad": 64,
+  "adPerLevel": 3.3,
+  "armor": 40,
+  "armorPerLevel": 4.95,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2.95,
+  "range": 175,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Comet Spear",
+   "cooldown": [
+    11,
+    10.25,
+    9.5,
+    8.75,
+    8
+   ],
+   "cost": 25,
+   "costType": null,
+   "range": 575.0,
+   "description": "Tap: Pantheon thrusts his spear, dealing 70/100/130/160/190 + 1.15×bonus AD physical damage to enemies hit. Refunds 60% of this Ability's Cooldown. Hold: Pantheon hurls his spear, dealing 70/100/130/160/190 + 1.15×bonus AD + 0.5×AP physical damage to the first enemy hit and 50% less to further targets. This Ability is enhanced against enemies below 20% Health to deal (70/100/130/160/190 + 85/130/175/220/265) + 2.3×bonus AD physical damage instead. Mortal Will Bonus: Deals an additional 20–240 (by level) + 1.15×bonus AD physical damage.",
+   "summary": "Pantheon either thrusts his spear or throws his spear in the chosen direction.",
+   "values": {
+    "HoldDamage": [
+     70,
+     100,
+     130,
+     160,
+     190
+    ],
+    "TapDamage": [
+     70,
+     100,
+     130,
+     160,
+     190
+    ],
+    "CritHealthThreshold": 0.2,
+    "HoldRange": 1200,
+    "DamageFalloff": 0.5,
+    "TapCooldownRefund": 0.6,
+    "HoldExecuteDamage": [
+     85,
+     130,
+     175,
+     220,
+     265
+    ],
+    "SelfSlow": 0.1,
+    "MinTimeHoldCast": 0.35,
+    "MinionDamageMod": 0.7,
+    "ExecuteBaseDamage": [
+     155,
+     230,
+     305,
+     380,
+     455
+    ],
+    "MonsterDamageMod": 0.8
+   },
+   "formulas": {
+    "HoldDamageCalc": "70/100/130/160/190 + 1.15×bonus AD + 0.5×AP",
+    "TapDamageCalc": "70/100/130/160/190 + 1.15×bonus AD",
+    "EmpoweredDamageCalc": "20–240 (by level) + 1.15×bonus AD",
+    "{6fc04dc0}": "85/130/175/220/265 + 1.15×bonus AD",
+    "ExecuteDamageCalcModified": "(70/100/130/160/190 + 85/130/175/220/265) + 2.3×bonus AD"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Shield Vault",
+   "cooldown": [
+    13,
+    12,
+    11,
+    10,
+    9
+   ],
+   "cost": 55,
+   "costType": null,
+   "range": 600.0,
+   "description": "Pantheon leaps on his target, Stunning for 1 second and dealing 0.06/0.065/0.07/0.075/0.08 + 0.0×bonus max HP + 0.0×AP max Health physical damage. Mortal Will Bonus: Pantheon's next Attack strikes 3 times, dealing a total of (1b016817) × 3 physical damage.",
+   "summary": "Pantheon dashes to a target, damaging and stunning them.",
+   "values": {
+    "BaseDamage": 0,
+    "StunDuration": 1,
+    "BuffDuration": 4,
+    "EmpoweredNumHits": 3,
+    "EmpoweredDamageMult": 0.6,
+    "MaxHealthDamage": [
+     0.06,
+     0.065,
+     0.07,
+     0.075,
+     0.08
+    ],
+    "MonsterDamageCap": 150,
+    "MonsterDamageMin": 60,
+    "MaxHealthPer100AP": 0.0
+   },
+   "formulas": {
+    "DamageCalc": "0 + 1×AP",
+    "{1b016817}": "0.4–0.55 (by level)×AD",
+    "EmpoweredDamageMultCalcModified": "(1b016817) × 3",
+    "MaxHealthDamageCalc": "0.06/0.065/0.07/0.075/0.08 + 0.0×bonus max HP + 0.0×AP"
+   },
+   "tags": [
+    "dash",
+    "empowered attack",
+    "heal",
+    "stun"
+   ]
+  },
+  "E": {
+   "name": "Aegis Assault",
+   "cooldown": [
+    22,
+    21,
+    20,
+    19,
+    18
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 400.0,
+   "description": "Pantheon braces his shield and engages enemies in a chosen direction for 1.5 seconds, becoming immune to non-tower damage from that direction and dealing 1×AD physical damage over the duration. After channeling Pantheon slams with his shield, dealing 55/105/155/205/255 + 1.5×bonus AD physical damage. Mortal Will Bonus: When Pantheon slams his shield he gains 5–30 (by level) + 0.025×bonus max HP Armor and 5–30 (by level) + 0.025×bonus max HP Magic Resist for 4 seconds, and 60% Move Speed for 1.5 seconds.",
+   "summary": "Pantheon sets his shield, becoming invulnerable to damage from the front and striking repeatedly with his spear.",
+   "values": {
+    "ShieldDuration": 1.5,
+    "AttacksPerSecond": 4,
+    "ShieldBaseDamage": [
+     55,
+     105,
+     155,
+     205,
+     255
+    ],
+    "SpearStrikesRadius": 525,
+    "ShieldSwipeRadius": 375,
+    "MinionDamageReduction": 0.5,
+    "RecastLockout": 0.3,
+    "SpeedDuration": 1.5,
+    "SpeedAmount": 0.6,
+    "ResistsDuration": 4
+   },
+   "formulas": {
+    "DamageCalc": "1×AD",
+    "ShieldDamageCalc": "55/105/155/205/255 + 1.5×bonus AD",
+    "{e62bc5e9}": "(1×AD) × 0.167",
+    "EmpoweredDamageCalc": "(1×AD) × 1.67",
+    "HealCalc": "40+ (by level) + 1.5×bonus AD",
+    "ResistsCalc": "5–30 (by level) + 0.025×bonus max HP"
+   },
+   "tags": [
+    "move speed",
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Grand Starfall",
+   "cooldown": [
+    180,
+    165,
+    150
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 5500.0,
+   "description": "Passive: Pantheon gains 10/20/30% Armor Penetration. Active: Pantheon gathers his strength to leap high into the air. He throws his spear from above which in a small area deals @spell.PantheonQ:HoldDamageCalc@ physical damage and Slows by 50% for 2 seconds. Pantheon then crashes down as a meteor at the target area. Deals up to 300/500/700 + 1×AP magic damage to enemies in a line (decreased by up to 50% at the edges of the area). This Ability instantly readies Mortal Will.",
+   "summary": "Pantheon composes himself and then leaps into the air, landing at a chosen location as a comet.",
+   "values": {
+    "BaseDamage": [
+     300,
+     500,
+     700
+    ],
+    "EdgeDamageReduction": 0.5,
+    "Radius": 450,
+    "SweetSpotRadius": 125,
+    "CancelCooldown": 30,
+    "SpearSlow": 0.5,
+    "SpearSlowDuration": 2,
+    "ArmorPenetration": [
+     0.1,
+     0.2,
+     0.3
+    ],
+    "APRatio": 1
+   },
+   "formulas": {
+    "DamageCalc": "300/500/700 + 1×AP",
+    "MinDamage": "(300/500/700 + 1×AP) × 0.5"
+   },
+   "tags": [
+    "dash",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Mortal Will",
+   "cooldown": 9,
+   "cost": [
+    100,
+    120,
+    140,
+    160,
+    180
+   ],
+   "costType": null,
+   "range": null,
+   "description": "Every few spells or attacks, Pantheon's next spell is empowered.",
+   "summary": "Every few spells or attacks, Pantheon's next spell is empowered.",
+   "values": {
+    "ActionsToEmpower": 5,
+    "PhalanxDuration": 3,
+    "QDamageAmp": 0.4,
+    "QDamageAmpMelee": 0.7,
+    "OutOfCombatTimer": 15,
+    "QExtraAttacks": 1,
+    "CritThreshold": -1
+   },
+   "formulas": {},
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Early-game warrior who bullies lanes with Q poke and point-and-click W stun. Roams with R to snowball before he falls off.",
+  "positions": [
+   "TOP",
+   "MIDDLE",
+   "UTILITY",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Point-and-click W stun",
+   "Empowered Q/W/E from passive",
+   "E blocks damage from one direction",
+   "R global-ish roam/engage",
+   "Strong level 2–6 kill pressure"
+  ],
+  "weaknesses": [
+   "Falls off late",
+   "Short range outside Q",
+   "E can be flanked",
+   "Must snowball",
+   "Weak to kiting"
+  ],
+  "curve": {
+   "lvl1": "strong – Q poke",
+   "lvl2": "strong – W stun + Q",
+   "lvl3": "strong – E",
+   "lvl6": "strong – R roams",
+   "items": "strong – Eclipse/lethality",
+   "late": "weak – damage falls off"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Strongest early.",
+  "waveClear": "medium – tap Q",
+  "sustain": "low",
+  "mobility": "medium – W leap, R",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "W",
+    "R"
+   ],
+   "escape": [
+    "R"
+   ],
+   "answers": [
+    "E"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Hold to throw a long-range spear; tap refunds cooldown."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Point-and-click leap stun."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "projectile block",
+    "notes": "Blocks non-tower damage from one direction for 1.5 s; get behind him."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Leap and land; slows in area."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Every few spells/attacks empowers next ability."
+   }
+  },
+  "windowAgainst": "W down: he can't lock you; walk at him. Flank E.",
+  "checks": [
+   "E tagged 'projectile block' (directional damage immunity)"
+  ]
+ }
+}

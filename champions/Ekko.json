@@ -1,0 +1,355 @@
+{
+ "id": 245,
+ "alias": "Ekko",
+ "name": "Ekko",
+ "title": "the Boy Who Shattered Time",
+ "classes": [
+  "assassin",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 655,
+  "hpPerLevel": 99,
+  "ad": 58,
+  "adPerLevel": 3,
+  "armor": 32,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.688,
+  "attackSpeedPerLevel": 3.3,
+  "range": 125,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Timewinder",
+   "cooldown": [
+    9,
+    8.5,
+    8,
+    7.5,
+    7
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "costType": null,
+   "range": 1075.0,
+   "description": "Ekko throws a device dealing 80/95/110/125/140 + 0.3×AP magic damage. On hitting a champion or reaching the end of its range, it expands into a field that Slows enemies inside by 40/45/50/55.0/60%. After it expands, Ekko recalls it, dealing 40/65/90/115/140 + 0.7×AP magic damage.",
+   "summary": "Ekko throws a temporal grenade that expands into a time-distortion field upon hitting an enemy champion, slowing and damaging anyone caught inside. After a delay, the grenade rewinds back to Ekko, dealing damage on its return.",
+   "values": {
+    "OutgoingDamage": [
+     80,
+     95,
+     110,
+     125,
+     140
+    ],
+    "ReturnDamage": [
+     40,
+     65,
+     90,
+     115,
+     140
+    ],
+    "SlowPercent": [
+     -0.4,
+     -0.45,
+     -0.5,
+     -0.55,
+     -0.6
+    ],
+    "SlowZoneRadius": 165,
+    "ExpandDuration": 1.75
+   },
+   "formulas": {
+    "InitialDamage": "80/95/110/125/140 + 0.3×AP",
+    "RecallDamage": "40/65/90/115/140 + 0.7×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Parallel Convergence",
+   "cooldown": [
+    22,
+    20,
+    18,
+    16,
+    14
+   ],
+   "cost": [
+    35,
+    40,
+    45,
+    50,
+    50
+   ],
+   "costType": null,
+   "range": 1600.0,
+   "description": "Passive: Ekko's Attacks against enemies below 30% Health deal (3 + 0.03×AP) × 0.01 missing Health magic damage. Active: Ekko launches a chronosphere lasting 1.5 seconds after a delay that Slows enemies inside by 40%. If Ekko enters the sphere, he detonates it, Stunning for 2.25 seconds and gaining 100/120/140/160/180 + 1.5×AP Shield.",
+   "summary": "Ekko's basic attacks deal bonus magic damage to low health enemies. He can cast Parallel Convergence to split the timeline, creating an anomaly after a few seconds that slows enemies caught inside. If Ekko enters the anomaly, he gains shielding and stuns enemies by suspending them in time.",
+   "values": {
+    "BaseOnHitDamage": 3,
+    "BelowHealthThreshold": 0.3,
+    "OnHitMinMinionDamage": 15,
+    "OnHitMaxMinionDamage": 150,
+    "AoERadius": 375,
+    "StunDuration": 2.25,
+    "ShieldBase": [
+     100,
+     120,
+     140,
+     160,
+     180
+    ],
+    "SlowZoneDuration": 1.5,
+    "DelayBeforeDetonation": 3,
+    "DelayBeforeEnemyCanSee": 2,
+    "SlowPercent": 40
+   },
+   "formulas": {
+    "MissingHealthPercent": "(3 + 0.03×AP) × 0.01",
+    "TotalShield": "100/120/140/160/180 + 1.5×AP",
+    "{79b6144b}": "((3 + 0.03×AP) × 0.01) × 1×stat"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "shield",
+    "slow",
+    "stun"
+   ]
+  },
+  "E": {
+   "name": "Phase Dive",
+   "cooldown": [
+    9,
+    8.5,
+    8,
+    7.5,
+    7
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    60
+   ],
+   "costType": null,
+   "range": 325.0,
+   "description": "Ekko dashes and empowers his next Attack to have bonus range, teleport him to his target, and deal an additional 50/75/100/125/150 + 0.4×AP magic damage.",
+   "summary": "Ekko rolls evasively while charging up his Z-Drive. His next attack deals bonus damage and warps reality, teleporting him to his target.",
+   "values": {
+    "BaseDamage": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "DashDistance": 350,
+    "BuffDuration": 3,
+    "AttackRangeIncrease": 300
+   },
+   "formulas": {
+    "TotalDamage": "50/75/100/125/150 + 0.4×AP"
+   },
+   "tags": [
+    "blink",
+    "dash",
+    "empowered attack"
+   ]
+  },
+  "R": {
+   "name": "Chronobreak",
+   "cooldown": [
+    110,
+    80,
+    50
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 850.0,
+   "description": "Ekko turns back time, entering Stasis while teleporting to where he was 4 seconds ago and dealing 200/350/500 + 1.75×AP magic damage to nearby enemies. In addition, Ekko restores 100/150/200 + 0.6×AP Health, increased by 3% for each 1% Health he lost in last 4 seconds.",
+   "summary": "Ekko shatters his timeline, becoming untargetable and rewinding to a more favorable point in time. He returns to whenever he was a few seconds ago, and heals for a percentage of the damage received in that duration. Enemies near his arrival zone take massive damage.",
+   "values": {
+    "Damage": [
+     200,
+     350,
+     500
+    ],
+    "FlatHeal": [
+     100,
+     150,
+     200
+    ],
+    "AoERadius": 375,
+    "PercentHealAmpPerPercentMissingHealth": 3
+   },
+   "formulas": {
+    "TotalDamage": "200/350/500 + 1.75×AP",
+    "TotalBaseHeal": "100/150/200 + 0.6×AP"
+   },
+   "tags": [
+    "blink",
+    "heal",
+    "stasis"
+   ]
+  },
+  "Passive": {
+   "name": "Z-Drive Resonance",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every third attack or damaging spell on the same target deals bonus magic damage, and grants Ekko a burst of speed if the target is a champion.",
+   "summary": "Every third attack or damaging spell on the same target deals bonus magic damage, and grants Ekko a burst of speed if the target is a champion.",
+   "values": {
+    "ModesMultiplier": 1,
+    "MonsterMod": 2.7,
+    "LockoutTime": 4
+   },
+   "formulas": {
+    "BonusMS": "0.5+ (by level)",
+    "ThreeHitDamage": "(30+ (by level) + 0.8×AP) × 1",
+    "SpeedDuration": "2+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Mobile AP assassin/skirmisher who procs his three-hit passive, uses W to stun, and rewinds with R to escape or burst.",
+  "positions": [
+   "mid",
+   "jungle"
+  ],
+  "strengths": [
+   "Strong all-in burst with passive",
+   "R is a near-guaranteed escape and heal",
+   "E blink makes him slippery",
+   "W stun zone controls fights"
+  ],
+  "weaknesses": [
+   "W is slow and telegraphed",
+   "Weak to point-and-click CC",
+   "Falls off if behind",
+   "Relies on Q landing for trades"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "medium",
+   "lvl3": "medium – Q+E+passive trade",
+   "lvl6": "strong – R escape/burst",
+   "items": "strong – first AP item",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants E to apply passive reliably.",
+  "waveClear": "medium – Q",
+  "sustain": "low-medium – R heal",
+  "mobility": "high – E blink, R rewind",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E",
+    "W"
+   ],
+   "escape": [
+    "R",
+    "E"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Grenade out and back"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Delayed zone; stuns if Ekko enters it"
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash, then next attack blinks to target (dodgeable as an attack)"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "untargetable rewind + heal",
+    "notes": "Rewinds to a few seconds ago; damages around arrival"
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Third hit procs (check slow on proc)"
+   }
+  },
+  "windowAgainst": "R down = no escape; punish when he's used E.",
+  "checks": [
+   "E attack part dodgeable by Jax E"
+  ]
+ }
+}

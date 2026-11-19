@@ -1,0 +1,311 @@
+{
+ "id": 133,
+ "alias": "Quinn",
+ "name": "Quinn",
+ "title": "Demacia's Wings",
+ "classes": [
+  "marksman",
+  "assassin"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 565,
+  "hpPerLevel": 107,
+  "ad": 59,
+  "adPerLevel": 3.2,
+  "armor": 28,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.668,
+  "attackSpeedPerLevel": 3.1,
+  "range": 525,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Blinding Assault",
+   "cooldown": [
+    11,
+    10.5,
+    10,
+    9.5,
+    9
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 1025.0,
+   "description": "Quinn orders Valor to dive, making the first enemy hit with Harrier, reducing their vision radius for 1.75 seconds and dealing 65/100/135/170/205 + 0.8/0.85/0.9/0.95/1\u00d7bonus AD + 0.5\u00d7AP physical damage to all surrounding enemies. If the first enemy struck is not a champion, it is Disarmed for 1.75 seconds.",
+   "summary": "Quinn calls Valor to mark an enemy and hinder its vision before damaging all enemies in the immediate area.",
+   "values": {
+    "BaseDamage": [
+     65,
+     100,
+     135,
+     170,
+     205
+    ],
+    "ADRatio": [
+     0.8,
+     0.85,
+     0.9,
+     0.95,
+     1
+    ],
+    "APRatio": 0.5,
+    "VisionReductionRadius": -1000,
+    "VisionReductionDuration": 1.75,
+    "BonusMonsterDmgMult": 1
+   },
+   "formulas": {
+    "TotalDamage": "65/100/135/170/205 + 0.8/0.85/0.9/0.95/1\u00d7bonus AD + 0.5\u00d7AP",
+    "TotalDamageMonster": "(65/100/135/170/205 + 0.8/0.85/0.9/0.95/1\u00d7bonus AD + 0.5\u00d7AP) \u00d7 (1 + 1)"
+   },
+   "tags": [
+    "disarm"
+   ]
+  },
+  "W": {
+   "name": "Heightened Senses",
+   "cooldown": [
+    50,
+    45,
+    40,
+    35,
+    30
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 2100.0,
+   "description": "Passive: Attacking a Harrier target grants Quinn 28.0/41/54/67/80% Attack Speed and 20/25/30/35/40% Move Speed for 2 seconds. Active: Valor reveals a large area nearby for 2 seconds.",
+   "summary": "Passively grants Quinn Attack Speed and Move Speed after she attacks a Harrier target. Activate to have Valor reveal a large area nearby.",
+   "values": {
+    "AttackSpeedBonus": [
+     0.28,
+     0.41,
+     0.54,
+     0.67,
+     0.8
+    ],
+    "CherryBonusHaste": 100,
+    "BuffDuration": 2,
+    "MovespeedAmount": [
+     0.2,
+     0.25,
+     0.3,
+     0.35,
+     0.4
+    ],
+    "VisionRadius": 2100,
+    "VisionDuration": 2
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Vault",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 675.0,
+   "description": "Quinn dashes to an enemy, dealing 40/65/90/115/140 + 0.2\u00d7bonus AD physical damage and marking them with Harrier. Quinn then leaps backwards from the target, slightly Knocking them Back and Slowing them by 50%, decaying over 1.5 seconds.",
+   "summary": "Quinn dashes to an enemy, dealing physical damage and slowing the target's Move Speed. Upon reaching the target, she leaps off the target, briefly interrupting it, and lands near her maximum Attack Range away from the target.",
+   "values": {
+    "SlowAmount": 0.5,
+    "BaseDamage": [
+     40,
+     65,
+     90,
+     115,
+     140
+    ],
+    "SlowDecayTime": 1.5
+   },
+   "formulas": {
+    "TotalDamage": "40/65/90/115/140 + 0.2\u00d7bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "dash",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Behind Enemy Lines",
+   "cooldown": 3,
+   "cost": [
+    25,
+    0,
+    0
+   ],
+   "costType": null,
+   "range": 700.0,
+   "description": "Quinn calls to Valor, pairing up after channeling for 2 seconds gaining 70/100/130% Move Speed and allowing her to Recast this Ability. Attacking or using Blinding Assault or Vault automatically Recasts this Ability. Recast: Quinn and Valor perform an aerial maneuver, dealing 60/90/120 + 0.35\u00d7bonus AD physical damage, marking champions with Harrier, and ending this Ability.",
+   "summary": "Quinn and Valor team up to fly around at great speed. Ending the ability casts Skystrike, which deals damage to nearby enemies and marks champions with Harrier.",
+   "values": {
+    "MovementSpeedMod": [
+     0.7,
+     1,
+     1.3
+    ],
+    "SlowDuration": 3,
+    "HarrierCooldown": 7,
+    "RHarrierMarkDuration": 4.5,
+    "ADRatio": 0.35,
+    "BaseDamage": [
+     60,
+     90,
+     120
+    ]
+   },
+   "formulas": {
+    "Damage": "60/90/120 + 0.35\u00d7bonus AD"
+   },
+   "tags": [
+    "move speed"
+   ]
+  },
+  "Passive": {
+   "name": "Harrier",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Valor, Quinn's Demacian eagle, periodically marks enemies with Harrier. Quinn's first basic attack against Harrier targets will deal bonus physical damage.",
+   "summary": "Valor, Quinn's Demacian eagle, periodically marks enemies with Harrier. Quinn's first basic attack against Harrier targets will deal bonus physical damage.",
+   "values": {
+    "RevealDuration": 4,
+    "ModesPassiveDamageMultiplier": 1,
+    "ADRatio": 0.4
+   },
+   "formulas": {
+    "BonusDamage": "(15\u2013120 (by level) + 0.4\u00d7bonus AD) \u00d7 1",
+    "BonusMonsterDmg": "75"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Quinn is a ranged marksman who plays top lane, bullying melee champions with Harrier procs, Blinding Assault and Vault. She uses Behind Enemy Lines to roam faster than anyone else on the map.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Ranged against melee top laners: she can auto attack them for free as they walk up to farm.",
+   "Blinding Assault shrinks the target's vision, so they cannot see her or her follow-up.",
+   "Vault is a point-and-click dash that knocks back and slows, so it works both for trading and for disengaging.",
+   "Behind Enemy Lines gives a huge amount of move speed, making her one of the best roamers in the game.",
+   "Harrier marks and Heightened Senses give extra damage, attack speed and move speed in short trades."
+  ],
+  "weaknesses": [
+   "Squishy: a melee champion who reaches her usually kills her.",
+   "Weak in teamfights: she is better at split pushing and picks.",
+   "Struggles against tanky champions late, because her damage is mostly burst.",
+   "Vault is her only escape; after using it to trade, she is vulnerable.",
+   "Behind Enemy Lines has a 2-second channel, so she has to plan roams."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 range plus a Harrier proc lets her poke melee champions as they walk up",
+   "lvl2": "strong \u2013 Q blind then autos wins short trades",
+   "lvl3": "strong \u2013 Vault lets her trade then knock the enemy away",
+   "lvl6": "strong \u2013 Behind Enemy Lines lets her roam to other lanes",
+   "items": "medium \u2013 first item: Lethality items like Youmuu's Ghostblade or crit items like Kraken Slayer",
+   "late": "okay \u2013 a good split pusher, but weak in teamfights"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Quinn is strong from level 1 thanks to range against melee champions. At 6 she becomes a roamer; her teamfight value falls off late.",
+  "waveClear": "Good: Q clears waves, and Harrier procs help last-hit.",
+  "sustain": "Low: no healing of her own.",
+  "mobility": "High: Vault dash and Behind Enemy Lines move speed.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Blinding Assault) then auto attacks with Harrier procs",
+   "engage": "E (Vault) to dash in, or to knock back an engage",
+   "escape": "R (Behind Enemy Lines) to roam",
+   "answers": "None. Quinn has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Harrier: Valor marks enemies, and Quinn's next attack against a marked target deals bonus damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "nearsight",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block.",
+    "notes": "Blinding Assault: Valor dives at the first enemy hit, reducing their vision radius and marking them with Harrier."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Heightened Senses: hitting Harrier targets gives attack and move speed; the active reveals a large area."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "None once cast (point and click); Fiora W parries the slow.",
+    "notes": "Vault: a point-and-click dash that marks the target, then she leaps back, slightly knocking them back and slowing them."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Behind Enemy Lines: a 2-second channel, then large move speed; attacking or using Q or E ends it with an area attack."
+   }
+  },
+  "windowAgainst": "Quinn's window is right after she uses Vault to trade: all-in her then, because she has no other escape. In teamfights, focus her because she dies quickly.",
+  "checks": [
+   "Does Quinn use Harrier procs before trading?",
+   "Does Quinn roam with Behind Enemy Lines after pushing her wave?",
+   "Does Quinn keep Vault for escape against all-ins?"
+  ]
+ }
+}

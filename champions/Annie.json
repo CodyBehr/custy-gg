@@ -1,0 +1,323 @@
+{
+ "id": 1,
+ "alias": "Annie",
+ "name": "Annie",
+ "title": "the Dark Child",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 560,
+  "hpPerLevel": 96,
+  "ad": 50,
+  "adPerLevel": 2.65,
+  "armor": 23,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.61,
+  "attackSpeedPerLevel": 1.36,
+  "range": 625,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Disintegrate",
+   "cooldown": 4,
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 625.0,
+   "description": "Annie hurls a fireball, dealing 80/125/170/215/260 + 0.8×AP magic damage. If the target dies, Annie refunds the Mana cost and reduces the Cooldown by 50%.",
+   "summary": "Annie hurls a Mana infused fireball, dealing damage and refunding the Mana cost if it destroys the target.",
+   "values": {
+    "BaseDamage": [
+     80,
+     125,
+     170,
+     215,
+     260
+    ],
+    "APRatio": 0.8
+   },
+   "formulas": {
+    "TotalDamage": "80/125/170/215/260 + 0.8×AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Incinerate",
+   "cooldown": 7,
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    95
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "Annie projects a wave of fire, dealing 70/110/150/190/230 + 0.8×AP magic damage.",
+   "summary": "Annie casts a blazing cone of fire, dealing damage to all enemies in the area.",
+   "values": {
+    "BaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "APRatio": 0.8
+   },
+   "formulas": {
+    "TotalDamage": "70/110/150/190/230 + 0.8×AP"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Molten Shield",
+   "cooldown": null,
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Annie grants an ally champion 60/95/130/165/200 + 0.4×AP Shield for 3 seconds and 0.2–0.5 (by level) Decaying Move Speed for 1.5 seconds. While the shield holds, enemies who hit the shielded ally with an Attack or Ability receive 25/35/45/55/65 + 0.4×AP magic damage once per shield. Tibbers always gains the effects of Molten Shield when summoned.",
+   "summary": "Grants Annie or an ally a shield, a burst of Move Speed, and damages enemies who strike her with attacks or spells.",
+   "values": {
+    "ShieldDuration": 3,
+    "DamageReduction": [
+     13,
+     17,
+     21,
+     25,
+     29
+    ],
+    "DamageReflection": [
+     25,
+     35,
+     45,
+     55,
+     65
+    ],
+    "MovementSpeed": [
+     0.15,
+     0.2,
+     0.25,
+     0.3,
+     0.35
+    ],
+    "MovementSpeedDuration": 1.5,
+    "ShieldAmount": [
+     60,
+     95,
+     130,
+     165,
+     200
+    ],
+    "CastRangeGenerosity": 225
+   },
+   "formulas": {
+    "DamageReturn": "25/35/45/55/65 + 0.4×AP",
+    "MoveSpeedCalc": "0.2–0.5 (by level)",
+    "ShieldBlockTotal": "60/95/130/165/200 + 0.4×AP"
+   },
+   "tags": [
+    "move speed",
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Summon: Tibbers",
+   "cooldown": [
+    130,
+    115,
+    100
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "Passive: Annie gains 10/15/20% Magic Penetration. Annie summons her bear Tibbers, dealing 150/275/400 + 0.75×AP magic damage. For the next 45 seconds, Tibbers burns nearby enemies for 10/15/20 + 0.04×AP magic damage per second. Tibbers becomes enraged when summoned, if Annie stuns an enemy champion, and if Annie dies. When enraged, Tibbers gains 275% Attack Speed and 100% Move Speed decaying over 3 seconds. Recast: Manually issue orders to Tibbers.",
+   "summary": "Annie wills her bear Tibbers to life, dealing damage to units in the area. Tibbers can attack and also burns enemies that stand near him.",
+   "values": {
+    "InitialDamage": [
+     150,
+     275,
+     400
+    ],
+    "AuraDamage": [
+     10,
+     15,
+     20
+    ],
+    "TibbersAttackDamage": [
+     30,
+     50,
+     70
+    ],
+    "TibbersAttackSpeedDecay": -0.1,
+    "TibbersAttackAPRatio": 0.1,
+    "MovespeedBurst": 1,
+    "EnrageDuration": 3,
+    "AvengerEnrageDuration": 10,
+    "TibbersLifetime": 45,
+    "TibbersBonusMS": [
+     0,
+     25,
+     50
+    ],
+    "TibbersModeSpecificHPMod": 1,
+    "RPercentPenBuff": [
+     0.1,
+     0.15,
+     0.2
+    ]
+   },
+   "formulas": {
+    "InitialBurstDamage": "150/275/400 + 0.75×AP",
+    "TibbersAuraDamage": "10/15/20 + 0.04×AP",
+    "TibbersAADamage": "30/50/70 + 0.1×AP",
+    "TibbersTotalHP": "(1275+ (by level) × 1) + 0.5×AP + 1.5×bonus max HP",
+    "TibbersTotalResists": "30+ (by level)"
+   },
+   "tags": [
+    "attack speed",
+    "move speed"
+   ]
+  },
+  "Passive": {
+   "name": "Pyromania",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "After casting 4 spells, Annie's next offensive spell will stun the target. Annie begins the game and respawns with Pyromania available.",
+   "summary": "After casting 4 spells, Annie's next offensive spell will stun the target. Annie begins the game and respawns with Pyromania available.",
+   "values": {
+    "MaxStacks": 4,
+    "StunBaseDuration": 1.25,
+    "StunDurationPerTier": 0.25
+   },
+   "formulas": {
+    "StunDuration": "1.25+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Burst mage whose passive stuns after 4 spells and whose R summons Tibbers. She sets up kills with a stored stun.",
+  "positions": [
+   "MIDDLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Passive stun",
+   "R AoE stun with stored passive",
+   "Point-and-click Q",
+   "E shield",
+   "Burst"
+  ],
+  "weaknesses": [
+   "Short range",
+   "Squishy",
+   "No dash",
+   "Falls off",
+   "Predictable stun"
+  ],
+  "curve": {
+   "lvl1": "medium – Q",
+   "lvl2": "strong – Q+W",
+   "lvl3": "strong – E",
+   "lvl6": "strong – Tibbers",
+   "items": "strong – Luden's/Rabadon's burst",
+   "late": "medium – flash-Tibbers engage"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Plays around the passive stun counter: a stored stun is her trade window.",
+  "waveClear": "good – W",
+  "sustain": "low",
+  "mobility": "low – E speed",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Point-and-click; spell shield blocks it."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Cone."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield and speed."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Tibbers."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Stun after 4 spells."
+   }
+  },
+  "windowAgainst": "Stun not stored: trade.",
+  "checks": []
+ }
+}

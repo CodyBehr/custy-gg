@@ -1,0 +1,341 @@
+{
+ "id": 127,
+ "alias": "Lissandra",
+ "name": "Lissandra",
+ "title": "the Ice Witch",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 110,
+  "ad": 55,
+  "adPerLevel": 2.7,
+  "armor": 22,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.656,
+  "attackSpeedPerLevel": 1.5,
+  "range": 550,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Ice Shard",
+   "cooldown": [
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "cost": [
+    60,
+    65,
+    70,
+    75,
+    80
+   ],
+   "costType": null,
+   "range": 725.0,
+   "description": "Lissandra throws a spear of ice that shatters on the first enemy hit, dealing Damage + 0.75×AP magic damage, Slowing them by 20/24/28.0/32/36% for 1.5 seconds, and also damaging and slowing the enemies behind them.",
+   "summary": "Throws a spear of ice that shatters when it hits an enemy, dealing magic damage and slowing Move Speed. Shards pass through the target, dealing the same damage to other enemies hit.",
+   "values": {
+    "damage": [
+     80,
+     115,
+     150,
+     185,
+     220
+    ],
+    "slowDuration": 1.5,
+    "slowPercentage": [
+     -0.2,
+     -0.24,
+     -0.28,
+     -0.32,
+     -0.36
+    ],
+    "SlowDuration": 1.5,
+    "SlowPercentage": [
+     -0.2,
+     -0.24,
+     -0.28,
+     -0.32,
+     -0.36
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "Damage + 0.75×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Ring of Frost",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 450.0,
+   "description": "Lissandra creates an ice field, Rooting nearby enemies for 1.25/1.35/1.45/1.55/1.65 seconds and dealing 70/105/140/175/210 + 0.7×AP magic damage.",
+   "summary": "Freezes nearby enemies in ice, dealing magic damage and rooting them.",
+   "values": {
+    "BaseDamage": [
+     70,
+     105,
+     140,
+     175,
+     210
+    ],
+    "SnareDuration": [
+     1.25,
+     1.35,
+     1.45,
+     1.55,
+     1.65
+    ],
+    "TargetsToHit": 3,
+    "FreeCastCD": 8
+   },
+   "formulas": {
+    "TotalDamage": "70/105/140/175/210 + 0.7×AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "E": {
+   "name": "Glacial Path",
+   "cooldown": [
+    24,
+    21,
+    18,
+    15,
+    12
+   ],
+   "cost": [
+    85,
+    90,
+    95,
+    100,
+    105
+   ],
+   "costType": null,
+   "range": 1050.0,
+   "description": "Lissandra casts forth an ice claw that deals 70/105/140/175/210 + 0.6×AP magic damage. Lissandra can Recast while the claw travels to teleport to its location.",
+   "summary": "Lissandra creates an ice claw that deals magic damage. Reactivating this ability transports Lissandra to the claw's current location.",
+   "values": {
+    "BaseDamage": [
+     70,
+     105,
+     140,
+     175,
+     210
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "70/105/140/175/210 + 0.6×AP"
+   },
+   "tags": [
+    "blink"
+   ]
+  },
+  "R": {
+   "name": "Frozen Tomb",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 550.0,
+   "description": "Lissandra encases herself or an enemy champion in ice. Enemies are Stunned for 1.5 seconds. When self cast, Lissandra enters Stasis for 2.5 seconds and restores 100/150/200 + 0.55×AP Health, increased by 1% for each 1% missing Health. In either case, dark ice eminates from the target, dealing 150/250/350 + 0.75×AP magic damage. The ice persists for 3 seconds, Slowing enemies by 45/60/75%.",
+   "summary": "If cast on an enemy champion, the target is frozen solid, stunning it. If cast on Lissandra, she encases herself in dark ice, healing herself while becoming untargetable and invulnerable. Dark ice then emanates from the target dealing magic damage to enemies and slowing Move Speed.",
+   "values": {
+    "APRatio": 0.75,
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "SlowAmount": [
+     -0.45,
+     -0.6,
+     -0.75
+    ],
+    "SlowDuration": 3,
+    "EnemyCastDuration": 1.5,
+    "SelfCastDuration": 2.5,
+    "SelfCastFlatHeal": [
+     100,
+     150,
+     200
+    ],
+    "SelfCastMissingHPRatio": 1,
+    "SelfCastMissingHPPerAbove": 1,
+    "StartingAoESize": 292,
+    "PercentMissingHPRatio": 0.55
+   },
+   "formulas": {
+    "CalculatedDamage": "150/250/350 + 0.75×AP",
+    "HealAmount": "100/150/200 + 0.55×AP"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "slow",
+    "stasis",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Iceborn Subjugation",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "When an enemy champion dies near Lissandra they become a Frozen Thrall. Frozen Thralls slow nearby enemies and then, after a delay, shatter from the intense cold, dealing magic damage to nearby targets.",
+   "summary": "When an enemy champion dies near Lissandra they become a Frozen Thrall. Frozen Thralls slow nearby enemies and then, after a delay, shatter from the intense cold, dealing magic damage to nearby targets.",
+   "values": {
+    "MoveSpeedMod": -0.25,
+    "ExplosionDelay": 4,
+    "Range": 1350,
+    "Radius": 450
+   },
+   "formulas": {
+    "TotalDamage": "120+ (by level) + 0.5×AP"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Control mage who roots with W and teleports with E. R freezes an enemy or puts her in stasis.",
+  "positions": [
+   "MIDDLE"
+  ],
+  "strengths": [
+   "W root",
+   "E teleport",
+   "R stun or self stasis",
+   "Teamfight",
+   "Wave clear"
+  ],
+  "weaknesses": [
+   "Short W range",
+   "Low damage",
+   "Mana",
+   "Weak early",
+   "Poke"
+  ],
+  "curve": {
+   "lvl1": "medium – Q",
+   "lvl2": "medium – W",
+   "lvl3": "strong – E",
+   "lvl6": "strong – R",
+   "items": "strong – Zhonya's/Malignance",
+   "late": "medium – engage/peel"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Strongest once W root and E are both up.",
+  "waveClear": "good – Q",
+  "sustain": "low – R self heal",
+  "mobility": "medium – E",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q"
+   ],
+   "engage": [
+    "E",
+    "W",
+    "R"
+   ],
+   "escape": [
+    "E",
+    "R"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Shatters."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Root nearby."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Teleport recast."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "stasis",
+    "notes": "Self stasis."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Thralls."
+   }
+  },
+  "windowAgainst": "W and E down: dive.",
+  "checks": []
+ }
+}

@@ -1,0 +1,328 @@
+{
+ "id": 888,
+ "alias": "Renata",
+ "name": "Renata Glasc",
+ "title": "the Chem-Baroness",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 545,
+  "hpPerLevel": 94,
+  "ad": 49,
+  "adPerLevel": 3,
+  "armor": 27,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.11,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Handshake",
+   "cooldown": 16,
+   "cost": 80,
+   "costType": null,
+   "range": 900.0,
+   "description": "Renata sends out a missile from her arm, Rooting the first enemy hit for 1 second and dealing 80/125/170/215/260 + 0.8\u00d7AP magic damage. Recast: Renata Pulls the enemy in a direction, dealing 80/125/170/215/260 + 0.8\u00d7AP magic damage to enemies they are thrown into and Stunning for 0.5 seconds if the thrown enemy is a champion.",
+   "summary": "Renata sends out a missile rooting the first enemy hit, and can recast the ability to throw the unit in a direction.",
+   "values": {
+    "Damage": [
+     80,
+     125,
+     170,
+     215,
+     260
+    ],
+    "RootDuration": 1,
+    "SelfSlow": -0.3,
+    "StunDuration": 0.5,
+    "PullDistance": 275,
+    "APRatio": 0.8
+   },
+   "formulas": {
+    "TotalDamage": "80/125/170/215/260 + 0.8\u00d7AP"
+   },
+   "tags": [
+    "airborne",
+    "projectile",
+    "root",
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Bailout",
+   "cooldown": [
+    28,
+    27,
+    26,
+    25,
+    24
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 800.0,
+   "description": "Renata infuses an ally champion, granting (10/15/20/25/30 + 0.01\u00d7AP) \u00d7 0.01 Attack Speed and (10/12.5/15/17.5/20 + 0.01\u00d7AP) \u00d7 0.01 Move Speed towards enemies, increasing to (10/15/20/25/30 + 0.01\u00d7AP) \u00d7 0.02 Attack Speed and (10/12.5/15/17.5/20 + 0.01\u00d7AP) \u00d7 0.02 Move Speed over 5 seconds. Takedowns refresh the duration of the buff. If the ally would die, they instead return to full Health, which then decays over 3 seconds. If they get a Takedown while decaying, they will be set to 20% max Health and stop decaying. The Champion's death can be delayed by healing or similar effects while in the decaying state, but cannot be prevented unless the Champion gets a Takedown. Champions can only delay their death once.",
+   "summary": "Renata buffs an allied champion to fight harder, delaying their death and potentially saving them if they get a takedown.",
+   "values": {
+    "Duration": 5,
+    "BonusAttackSpeed": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "BonusMoveSpeed": [
+     10,
+     12.5,
+     15,
+     17.5,
+     20
+    ],
+    "APToPercentRatio": 0.01,
+    "TriumphPercent": 20,
+    "TicksBeforeDeath": 10,
+    "MaxStatMultiplier": 2,
+    "TicksPerSecond": 4,
+    "TagDuration": 6
+   },
+   "formulas": {
+    "ASCalc": "(10/15/20/25/30 + 0.01\u00d7AP) \u00d7 0.01",
+    "MSCalc": "(10/12.5/15/17.5/20 + 0.01\u00d7AP) \u00d7 0.01",
+    "{85d7d7f0}": "(10) \u00d7 0.25",
+    "FinalASCalc": "(10/15/20/25/30 + 0.01\u00d7AP) \u00d7 0.02",
+    "FinalMSCalc": "(10/12.5/15/17.5/20 + 0.01\u00d7AP) \u00d7 0.02"
+   },
+   "tags": [
+    "attack speed",
+    "heal",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Loyalty Program",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": [
+    80,
+    90,
+    100,
+    110,
+    120
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Renata sends out a pair of chemtech missiles, dealing 65/95/125/155/185 + 0.55\u00d7AP magic damage and Slowing surrounding enemies and enemies hit by 30% for 2 seconds. Allies hit gain 50/65/80/95/110 + 0.5\u00d7AP Shield for 3 seconds.",
+   "summary": "Renata sends out a pair of chemtech missiles, shielding allies and damaging and slowing enemies hit.",
+   "values": {
+    "Damage": [
+     65,
+     95,
+     125,
+     155,
+     185
+    ],
+    "SlowPercent": 30,
+    "ShieldValue": [
+     50,
+     65,
+     80,
+     95,
+     110
+    ],
+    "ShieldDuration": 3,
+    "SlowDuration": 2,
+    "InitialAoE": 325,
+    "EndAoE": 225,
+    "ShieldAPRatio": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "65/95/125/155/185 + 0.55\u00d7AP",
+    "{fe737c05}": "(30) \u00d7 0.01",
+    "ShieldCalc": "50/65/80/95/110 + 0.5\u00d7AP"
+   },
+   "tags": [
+    "projectile",
+    "shield",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Hostile Takeover",
+   "cooldown": [
+    150,
+    130,
+    110
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 2000.0,
+   "description": "Renata sends out a wave of chemicals, Berserking enemies for 1.25/1.75/2.25 seconds, causing them to Attack the nearest unit, prioritizing their allies. While Berserk, enemies gain 100% Attack Speed.",
+   "summary": "Renata sends out a wave of chemicals, causing any enemies hit to go Berserk.",
+   "values": {
+    "BerserkDuration": [
+     1.25,
+     1.75,
+     2.25
+    ],
+    "BonusAttackSpeed": 1
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed",
+    "berserk"
+   ]
+  },
+  "Passive": {
+   "name": "Leverage",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Renata's Attacks deal bonus damage and mark enemies. Renata's allies can damage marked enemies to deal bonus damage.",
+   "summary": "Renata's Attacks deal bonus damage and mark enemies. Renata's allies can damage marked enemies to deal bonus damage.",
+   "values": {
+    "PercentAmp": 0.1,
+    "APToPercentRatio": 0.0,
+    "MonsterDamageCap": 150,
+    "PassiveDuration": 6
+   },
+   "formulas": {
+    "PercentAmpCalc": "0.01+ (by level) + 0.0\u00d7AP",
+    "PercentAmpCalcSelf": "0.01+ (by level) + 0.0\u00d7AP"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Renata Glasc is an enchanter support who roots enemies with Handshake and saves allies with Bailout. She plays support, turning teamfights with Hostile Takeover's berserk.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "Handshake roots and then pulls the target into allies, stunning both champions.",
+   "Bailout saves allies from death briefly, returning them to full health that then decays.",
+   "Hostile Takeover berserks enemies, making them attack their own allies.",
+   "Loyalty Program slows enemies and shields allies.",
+   "Leverage passive marks enemies for bonus ally damage."
+  ],
+  "weaknesses": [
+   "Weak early: low damage and squishy.",
+   "Handshake is a skillshot; missing it leaves her with no CC.",
+   "Immobile: no dash.",
+   "Bailout only saves allies who can get a kill or escape before it decays.",
+   "Weak against poke lanes."
+  ],
+  "curve": {
+   "lvl1": "okay \u2013 Q root is her only threat",
+   "lvl2": "good \u2013 Q root plus E slow sets up her ADC",
+   "lvl3": "good \u2013 W Bailout saves her ADC in all-ins",
+   "lvl6": "very strong \u2013 Hostile Takeover berserks the enemy into hitting each other",
+   "items": "weak \u2013 first item: Moonstone Renewer or Shurelya's Battlesong",
+   "late": "strong \u2013 teamfight ultimate"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Renata is strongest at 6 with Hostile Takeover, and her W makes teamfights much safer.",
+  "waveClear": "Low: she should not push waves.",
+  "sustain": "Okay: E shield.",
+  "mobility": "Low: no dash.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Handshake) root then throw",
+   "engage": "R (Hostile Takeover) berserk",
+   "escape": "W (Bailout) to save allies",
+   "answers": "None. Renata has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Leverage: her attacks mark enemies, and allies deal bonus damage to marked targets."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block; Cleanse/QSS removes the root.",
+    "notes": "Handshake: roots the first enemy hit; recast pulls/throws them, stunning champions they hit."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bailout: attack and move speed for an ally; if they would die, they return to full health that decays unless they get a takedown."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block.",
+    "notes": "Loyalty Program: missiles that slow enemies and shield allies."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "berserk",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways or stand away from her; berserk is not immobilizing.",
+    "notes": "Hostile Takeover: a wave that berserks enemies, making them attack nearby units, prioritising their allies."
+   }
+  },
+  "windowAgainst": "Renata's window is before 6 or when Handshake is on cooldown: she can't stop an all-in.",
+  "checks": [
+   "Does Renata land Q before throwing?",
+   "Does Renata use W on the right ally?",
+   "Does the enemy team stand apart against Hostile Takeover?",
+   "Check if berserk from Hostile Takeover can be removed by Cleanse/QSS."
+  ]
+ }
+}

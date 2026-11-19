@@ -1,0 +1,345 @@
+{
+ "id": 901,
+ "alias": "Smolder",
+ "name": "Smolder",
+ "title": "the Fiery Fledgling",
+ "classes": [
+  "marksman",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 575,
+  "hpPerLevel": 100,
+  "ad": 58,
+  "adPerLevel": 2.3,
+  "armor": 24,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.638,
+  "attackSpeedPerLevel": 4,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Super Scorcher Breath",
+   "cooldown": [
+    5.5,
+    5,
+    4.5,
+    4,
+    3.5
+   ],
+   "cost": 25,
+   "costType": null,
+   "range": 550.0,
+   "description": "Smolder belches flame, dealing (60/70/80/90/100 + 1.3\u00d7bonus AD) \u00d7 (1 + (0.75\u00d7crit \u00d7 (-1 + 1\u00d7stat))) physical damage + @spell.SmolderP:Passive_QDamageIncrease@ magic damage. If the target dies, Smolder refunds 15 Mana, once per cast. Based on stacks of Dragon Practice, this Ability evolves to gain the following effects:25 Stacks: Damages all enemies surrounding the target.125 Stacks: Sends 2 + ? explosions beyond the target that deal 50% of this Ability's damage.225 Stacks: Burns the target, dealing 0.0\u00d7bonus AD + ? max Health true damage over 3 seconds. Enemy champions that drop below (6.5) \u00d7 0.01 total health while burning are killed instantly.",
+   "summary": "Smolder breathes fire on an enemy. As he gains more stacks, this ability becomes more powerful.",
+   "values": {
+    "BaseDamage": [
+     60,
+     70,
+     80,
+     90,
+     100
+    ],
+    "ADRatio": 1.3,
+    "StackTier1": 25,
+    "StackTier2": 125,
+    "StackTier3": 225,
+    "Tier1_ExplosionRadius": 285,
+    "Tier2_BlowbackDistance": 500,
+    "Tier2_BlowbackAmountBase": 2,
+    "Tier2_BlowbackExplosionRadius": 150,
+    "Tier2_BlowbackSpreadAngle": 15,
+    "Tier3_TrueDamagePercent": 0.01,
+    "Tier3_MonsterCap": 300,
+    "CritRatio": 0.75,
+    "LifestealMod": 0.5,
+    "Tier3_ExecuteThresholdStart": 6.5,
+    "Tier3_DotLength": 3,
+    "Tier2_BlowbackPercentageDamage": 50,
+    "minionmod": 1,
+    "Tier3_Burn_Stack_Mult": 0.0,
+    "ManaRestore": 15
+   },
+   "formulas": {
+    "TotalDamage": "(60/70/80/90/100 + 1.3\u00d7bonus AD) \u00d7 (1 + (0.75\u00d7crit \u00d7 (-1 + 1\u00d7stat)))",
+    "Tier2_NumberOfBlowback": "2 + ?",
+    "Tier3_ExecuteThreshold": "(6.5) \u00d7 0.01",
+    "Tier3_Burn": "0.0\u00d7bonus AD + ?"
+   },
+   "tags": [
+    "heal",
+    "true damage"
+   ]
+  },
+  "W": {
+   "name": "Achooo!",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 1500.0,
+   "description": "Smolder lets out an adorable flaming sneeze, dealing 60/70/80/90/100 + 0.6\u00d7bonus AD physical damage and Slowing by 35% for 1.5 seconds. Hitting champions causes an explosion, dealing 25/50/75/100/125 + 0.5\u00d7bonus AD + 0.8\u00d7AP physical + @spell.SmolderP:Passive_WDamageIncrease@ magic damage.",
+   "summary": "Smolder lets out an adorable flaming sneeze that explodes when hitting enemy champions.",
+   "values": {
+    "BaseDamage": [
+     60,
+     70,
+     80,
+     90,
+     100
+    ],
+    "HitADRatio": 0.6,
+    "ExplosionBaseDamage": [
+     25,
+     50,
+     75,
+     100,
+     125
+    ],
+    "ExplosionRadius": 385,
+    "SlowAmount": 0.35,
+    "SlowDuration": 1.5,
+    "ExplosionDamageMult": 1,
+    "ExplosionDamageMultihitPenalty": 0.75,
+    "MinionMod": 1
+   },
+   "formulas": {
+    "InitialDamage": "60/70/80/90/100 + 0.6\u00d7bonus AD",
+    "ExplosionDamage": "25/50/75/100/125 + 0.5\u00d7bonus AD + 0.8\u00d7AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Flap, Flap, Flap",
+   "cooldown": [
+    24,
+    22,
+    20,
+    18,
+    16
+   ],
+   "cost": 65,
+   "costType": null,
+   "range": 700.0,
+   "description": "Smolder takes flight, gaining 75% Move Speed and ignoring terrain for 1.25 seconds. While flying, Smolder bombards the lowest Health enemy 5 + ? (rounded down) times for 10/15/20/25/30 + 0.3\u00d7AD physical damage + @spell.SmolderP:EBonusDamage@ magic damage per hit.",
+   "summary": "Smolder takes flight ignoring terrain and bombarding the lowest health enemy.",
+   "values": {
+    "Duration": 1.25,
+    "MoveSpeed": 0.75,
+    "NumOfAttacksBase": 5,
+    "BaseDamage": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "ADRatio": 0.3,
+    "Range": 700,
+    "NumAttackStackRatio": 0.01
+   },
+   "formulas": {
+    "TotalNumberOfAttacks": "5 + ?",
+    "DamagePerHit": "10/15/20/25/30 + 0.3\u00d7AD"
+   },
+   "tags": [
+    "heal",
+    "move speed"
+   ]
+  },
+  "R": {
+   "name": "MMOOOMMMM!",
+   "cooldown": [
+    120,
+    110,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 4200.0,
+   "description": "Smolder's mom breathes fire from above, dealing 150/250/350 + 1\u00d7bonus AD + 1\u00d7AP physical damage. Enemies in the center take (150/250/350 + 1\u00d7bonus AD + 1\u00d7AP) \u00d7 1.5 physical damage instead and are Slowed by 40% for 2 seconds. Smolder's mom heals her son for 100/175/250 + 0.75\u00d7bonus AD + 0.75\u00d7AP Health if she hits him.",
+   "summary": "Smolder calls his mom to breath fire from above, dealing extra damage and slowing enemies in the center of her fire.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "ADRatio": 1,
+    "MomDistBehindOffset": 600,
+    "SlowDuration": 2,
+    "SlowAmount": 0.4,
+    "MomSpawnDelay": 1,
+    "SweetspotPercentageIncrease": 1.5,
+    "MomHeal": [
+     100,
+     175,
+     250
+    ],
+    "SoundDistanceBehindSmolder": 100,
+    "SoundDistanceBehindSmolderSelfOnly": 1000,
+    "LingeringSimmerSoundAmount": 3,
+    "LingeringSimmerSoundOffset": 1500,
+    "MissileLandingSound": 500,
+    "VFXNorthAngleReplacement": 90,
+    "LingeringSimmerSoundDelay": 1,
+    "MinionMod": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "150/250/350 + 1\u00d7bonus AD + 1\u00d7AP",
+    "TooltipOnly_TotalSweetspotDamage": "(150/250/350 + 1\u00d7bonus AD + 1\u00d7AP) \u00d7 1.5",
+    "MomHealCalc": "100/175/250 + 0.75\u00d7bonus AD + 0.75\u00d7AP"
+   },
+   "tags": [
+    "heal",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Dragon Practice",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Hitting champions with Abilities and killing enemies with Super Scorcher Breath grants a stack of Dragon Practice. Stacks increase the damage of Smolders basic Abilities.",
+   "summary": "Hitting champions with Abilities and killing enemies with Super Scorcher Breath grants a stack of Dragon Practice. Stacks increase the damage of Smolders basic Abilities.",
+   "values": {
+    "QCritRatio": 1.4,
+    "QDamagePerStack": 0.25,
+    "WDamagePerStack": 0.55,
+    "EDamagePerStack": 0.08,
+    "EStacksPerAttackTooltip": 100
+   },
+   "formulas": {
+    "Passive_QDamageIncrease": "(?) \u00d7 (1 + (1.4\u00d7crit \u00d7 (-1 + 1\u00d7stat)))",
+    "Passive_WDamageIncrease": "?",
+    "TooltipOnly_QStacks": "?",
+    "TooltipOnly_QCritMultiplier": "?",
+    "EBonusDamage": "(?) \u00d7 (1 + (0.75\u00d7crit \u00d7 (-1 + 1\u00d7stat)))"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Smolder is a scaling marksman who stacks Dragon Practice with Super Scorcher Breath and abilities, getting stronger as he gains stacks. He plays bot lane, and his ultimate MMOOOMMMM! slows enemies and can heal him.",
+  "positions": [
+   "BOTTOM",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Huge late-game scaling: Dragon Practice stacks keep increasing his damage, and Q gains area damage and explosions at high stacks.",
+   "Q executes minions and enemies to gain stacks, so he gets stronger just by farming.",
+   "Flap, Flap, Flap lets him fly over walls with move speed, a strong escape.",
+   "MMOOOMMMM! is a long-range area attack that slows and can heal him if it hits him.",
+   "Achooo! slows and explodes on champions, a good poke and peel tool."
+  ],
+  "weaknesses": [
+   "Weak early: his damage depends on stacks he hasn't built yet.",
+   "Short range compared to other ADCs.",
+   "Needs time and farm to become strong.",
+   "E is his only escape; once used he is vulnerable.",
+   "Struggles against early aggression."
+  ],
+  "curve": {
+   "lvl1": "weak \u2013 low damage early; he wants to farm Q stacks safely",
+   "lvl2": "weak \u2013 still low damage; W poke only",
+   "lvl3": "okay \u2013 E gives him an escape",
+   "lvl6": "okay \u2013 R gives a long-range slow and heal, but damage is still low",
+   "items": "medium \u2013 first item: Essence Reaver or Navori Flickerblade with Infinity Edge; his stacks matter more than items",
+   "late": "very strong \u2013 one of the best late-game damage dealers"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Smolder is weak early and gets stronger as he stacks Dragon Practice. His real power comes later in the game.",
+  "waveClear": "Good once stacked: Q explodes at high stacks.",
+  "sustain": "Low: R heals him if it hits him.",
+  "mobility": "Good: E flight over walls.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Super Scorcher Breath) to stack and deal damage",
+   "engage": "W (Achooo!) slow and poke",
+   "escape": "E (Flap, Flap, Flap) to escape",
+   "answers": "None. Smolder has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dragon Practice: hitting champions with abilities and killing with Q give stacks that increase his ability damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Super Scorcher Breath: single-target damage that evolves at higher stacks into area damage and explosions."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block.",
+    "notes": "Achooo!: a sneeze that slows, and explodes on champions for extra damage."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Flap, Flap, Flap: flies over terrain with move speed, attacking the lowest-health enemy."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Walk out of the center.",
+    "notes": "MMOOOMMMM!: a long-range breath; the center slows more and deals more damage, and it heals Smolder if it hits him."
+   }
+  },
+  "windowAgainst": "Smolder's window is early, before stacks: punish him then, because he has little damage and only E to escape.",
+  "checks": [
+   "Does Smolder farm Q stacks safely early?",
+   "Does Smolder save E for escape?",
+   "Does the enemy team punish him early before he scales?"
+  ]
+ }
+}

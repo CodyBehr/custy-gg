@@ -1,0 +1,300 @@
+{
+ "id": 42,
+ "alias": "Corki",
+ "name": "Corki",
+ "title": "the Daring Bombardier",
+ "classes": [
+  "marksman",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 100,
+  "ad": 52,
+  "adPerLevel": 2.5,
+  "armor": 27,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.644,
+  "attackSpeedPerLevel": 2.8,
+  "range": 550,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Phosphorus Bomb",
+   "cooldown": [
+    9,
+    8.5,
+    8,
+    7.5,
+    7
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    80
+   ],
+   "costType": null,
+   "range": 825.0,
+   "description": "Corki lobs a bomb, dealing 60/105/150/195/240 + 1.25×bonus AD + 1×AP magic damage. The area and champions hit are revealed for 6 seconds.",
+   "summary": "Corki fires a flash bomb at a target location, dealing magic damage to enemies in the area. This attack additionally reveals units in the area for a duration.",
+   "values": {
+    "BaseDamage": [
+     60,
+     105,
+     150,
+     195,
+     240
+    ],
+    "RevealDuration": 6,
+    "ADRatio": 1.25,
+    "APRatio": 1
+   },
+   "formulas": {
+    "TotalDamage": "60/105/150/195/240 + 1.25×bonus AD + 1×AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Valkyrie",
+   "cooldown": [
+    20,
+    18,
+    16,
+    14,
+    12
+   ],
+   "cost": [
+    85,
+    90,
+    95,
+    100,
+    100
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "Corki flies over and scorches a path, burning it for 2.5 seconds. Enemies in the fire take up to 150/225/300/375/450 + 1.5×AP + 2×bonus AD magic damage over the duration.",
+   "summary": "Corki flies a short distance, dropping bombs that create a trail of fire that damages opponents who remain in it.",
+   "values": {
+    "BaseDamage": [
+     150,
+     225,
+     300,
+     375,
+     450
+    ],
+    "APRatio": 1.5,
+    "TrailDuration": 2.5,
+    "TicksPerSecond": 2,
+    "MaximumTicks": 5,
+    "DamageRadius": 200,
+    "DashSpeedBase": 650,
+    "DashSpeedRatio": 1,
+    "MinimumRange": 300,
+    "MaximumRange": 600,
+    "ADRatio": 2
+   },
+   "formulas": {
+    "MaximumDamage": "150/225/300/375/450 + 1.5×AP + 2×bonus AD",
+    "DashSpeed": "650 + 1×move speed"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Gatling Gun",
+   "cooldown": 12,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "Corki fires a gatling gun in front of him, dealing 80/130/180/230/280 + 2.4×bonus AD physical damage over 4 seconds and shredding up to 12/14/16/18/20 Armor and Magic Resist.",
+   "summary": "Corki's gatling gun rapidly fires in a cone in front of him, dealing damage and reducing enemy Armor and Magic Resist.",
+   "values": {
+    "BaseDamage": [
+     80,
+     130,
+     180,
+     230,
+     280
+    ],
+    "ADRatio": 2.4,
+    "SprayDuration": 4,
+    "TicksPerSecond": 4,
+    "ShredMax": [
+     -12,
+     -14,
+     -16,
+     -18,
+     -20
+    ],
+    "ShredCap": 4,
+    "ShredDuration": 2
+   },
+   "formulas": {
+    "TotalDamage": "80/130/180/230/280 + 2.4×bonus AD"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Missile Barrage",
+   "cooldown": 2,
+   "cost": 35,
+   "costType": null,
+   "range": 1225.0,
+   "description": "Corki fires a missile that explodes on the first enemy hit, dealing 100/190/280 + 0.9×bonus AD physical damage to surrounding enemies. Every third missile instead deals (100/190/280 + 0.9×bonus AD) × 2 physical damage. This Ability has up to 4 charges. Basic attacks against champions reduce the time between charges by (1 + 2×crit) × 2 seconds on hit.",
+   "summary": "Corki fires a missile toward his target location that explodes on impact, dealing damage to enemies in an area. Corki stores missiles over time, up to a maximum. Every 3rd missile fired will be a Big One, dealing extra damage.",
+   "values": {
+    "BaseDamage": [
+     100,
+     190,
+     280
+    ],
+    "ADRatio": 0.9,
+    "RBaseMissileRadius": 200,
+    "RBigOneMissileRadius": 300,
+    "RBigOneMultiplier": 2,
+    "CDReductionOnHit": 2,
+    "MaxAmmoTOOLTIP": 4,
+    "AmmoWhenLearned": 2
+   },
+   "formulas": {
+    "RSmallMissileDamage": "100/190/280 + 0.9×bonus AD",
+    "RBigMissileDamage": "(100/190/280 + 0.9×bonus AD) × 2",
+    "AttackRefund": "(1 + 2×crit) × 2"
+   },
+   "tags": [
+    "projectile"
+   ]
+  },
+  "Passive": {
+   "name": "Hextech Munitions",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "A percentage of Corki's basic attack damage is dealt as bonus true damage.",
+   "summary": "A percentage of Corki's basic attack damage is dealt as bonus true damage.",
+   "values": {
+    "AttackConversion": 0.2,
+    "InitialCD": 10,
+    "PackageDuration": 45,
+    "BonusMS": 0.4,
+    "SubsequentCD": 5
+   },
+   "formulas": {
+    "BasicAttackTOOLTIP": "0.2×AD",
+    "CriticalStrikeTOOLTIP": "(0.2×AD) × 1×stat"
+   },
+   "tags": [
+    "true damage"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Poke-heavy mage-marksman who chips with Q and R missiles and deals true damage on attacks. Every few minutes he picks up The Package for a long-range W engage.",
+  "positions": [
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Long-range R missile poke on a short cooldown",
+   "Passive turns part of his attack damage into true damage",
+   "E shreds armor and magic resist",
+   "W dash for escapes; Package W for engages",
+   "Strong mid-game teamfight damage"
+  ],
+  "weaknesses": [
+   "Weak level 1–3 against strong early laners",
+   "Short W is his only escape until Package",
+   "Squishy",
+   "Mana-hungry before Trinity/Sheen",
+   "All-in damage needs items"
+  ],
+  "curve": {
+   "lvl1": "weak – only Q and attacks",
+   "lvl2": "medium – Q+E",
+   "lvl3": "medium – W escape",
+   "lvl6": "strong – R poke",
+   "items": "strong – Trinity Force/Sheen",
+   "late": "strong – sustained poke"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Trades mostly with Q/R poke; all-ins after first item.",
+  "waveClear": "good – Q and E",
+  "sustain": "low",
+  "mobility": "medium – W dash, Package W",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "R",
+    "E"
+   ],
+   "engage": [
+    "W"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Lobbed bomb; reveals area. Watch the landing circle."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash leaving fire behind. Package version knocks back (not in description)."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Front-cone gatling; shreds resists over 4 s. Step out of the cone."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Missile hits first enemy; every 3rd is bigger. Hide behind minions."
+   },
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Part of attack damage dealt as true damage."
+   }
+  },
+  "windowAgainst": "Before 6 and when W is down: all-in, he can't escape.",
+  "checks": [
+   "Package W knock-back not in description (not tagged)"
+  ]
+ }
+}

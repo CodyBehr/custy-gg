@@ -1,0 +1,296 @@
+{
+ "id": 29,
+ "alias": "Twitch",
+ "name": "Twitch",
+ "title": "the Plague Rat",
+ "classes": [
+  "marksman",
+  "assassin"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 98,
+  "ad": 59,
+  "adPerLevel": 3,
+  "armor": 27,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.679,
+  "attackSpeedPerLevel": 3,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Ambush",
+   "cooldown": 16,
+   "cost": 40,
+   "costType": null,
+   "range": 20.0,
+   "description": "Twitch Camouflages and gains 10% Move Speed for 10/11/12/13/14 seconds. The Move Speed increases to 30% while near an enemy champion that can't see him. After exiting Camouflage, Twitch gains 40/45/50/55.0/60% Attack Speed for 6 seconds. When an enemy champion dies while afflicted with Venom, this Ability's Cooldown is refreshed.",
+   "summary": "Twitch becomes Camouflaged for a short duration and gains Move Speed. When leaving Camouflage, Twitch gains Attack Speed for a short duration. When an enemy champion with Deadly Venom dies, Ambush's cooldown is reset.",
+   "values": {
+    "AttackSpeedMod": [
+     0.4,
+     0.45,
+     0.5,
+     0.55,
+     0.6
+    ],
+    "AttackSpeedDuration": 6,
+    "StealthDuration": [
+     10,
+     11,
+     12,
+     13,
+     14
+    ],
+    "MaxFadeTime": 1,
+    "StealthDetectionRange": 500,
+    "MoveSpeedMod": 10,
+    "HiddenSpeed": 30,
+    "MoveBonusRange": 1000
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed",
+    "move speed",
+    "stealth"
+   ]
+  },
+  "W": {
+   "name": "Venom Cask",
+   "cooldown": [
+    13,
+    12,
+    11,
+    10,
+    9
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 950.0,
+   "description": "Twitch hurls a cask that adds a stack of Deadly Venom to all enemies struck and leaves behind a toxic cloud that persists for 3 seconds. Enemies that remain within the cloud are Slowed by 30/35/40/45/50 + 0.06×AP% and receive an additional stack of Deadly Venom each second.",
+   "summary": "Twitch hurls a cask of venom that explodes in an area, slowing targets and applying deadly venom to the target.",
+   "values": {
+    "BaseSlowAmount": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "Duration": 3,
+    "AoERadius": 300,
+    "SlowAPRatio": 0.06
+   },
+   "formulas": {
+    "TotalSlowAmount": "30/35/40/45/50 + 0.06×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Contaminate",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "costType": null,
+   "range": 1200.0,
+   "description": "Deals 20/30/40/50/60 physical damage to all nearby enemies affected by Deadly Venom, plus an additional 15/20/25/30/35 + 0.35×bonus AD physical damage and 0.35×AP magical damage per stack of Deadly Venom. Max Damage: 20/30/40/50/60 + (6 × 15/20/25/30/35) + (0.35 × 6)×bonus AD physical damage and (0.35×AP) × 6 magical damage.",
+   "summary": "Twitch wreaks further havoc on poisoned enemies with a blast of his vile diseases.",
+   "values": {
+    "BaseDamage": [
+     20,
+     30,
+     40,
+     50,
+     60
+    ],
+    "BasePhysicalDamagePerStack": [
+     15,
+     20,
+     25,
+     30,
+     35
+    ],
+    "bADRatioPerStack": 0.35,
+    "APRatioPerStack": 0.35,
+    "MaxStacks": 6
+   },
+   "formulas": {
+    "PhysicalDamagePerStack": "15/20/25/30/35 + 0.35×bonus AD",
+    "MagicDamagePerStack": "0.35×AP",
+    "MaxPhysicalDamage": "20/30/40/50/60 + (6 × 15/20/25/30/35) + (0.35 × 6)×bonus AD",
+    "MaxMagicDamage": "(0.35×AP) × 6"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Spray and Pray",
+   "cooldown": 90,
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 1200.0,
+   "description": "Twitch unleashes his crossbow, gaining 300 Attack Range and 30/45/60 Attack Damage, and causing his Attacks to become piercing bolts for 6 seconds. These bolts hit all enemies they pass through, but deal 10% less damage to subsequent targets, down to a minimum of 60% damage.",
+   "summary": "Twitch unleashes the full power of his crossbow, shooting bolts over a great distance that pierce all enemies caught in their path.",
+   "values": {
+    "BonusRange": 300,
+    "FallOffDamage": 0.1,
+    "MinimumFallOffDamage": 0.6,
+    "BonusAD": [
+     30,
+     45,
+     60
+    ],
+    "Duration": 6,
+    "OvershootMult": 0.3,
+    "OvershootMin": 250
+   },
+   "formulas": {},
+   "tags": []
+  },
+  "Passive": {
+   "name": "Deadly Venom",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Twitch's basic attacks infect the target %i:OnHit% On-Hit, dealing true damage each second.",
+   "summary": "Twitch's basic attacks infect the target %i:OnHit% On-Hit, dealing true damage each second.",
+   "values": {
+    "Duration": 6,
+    "MaxStacks": 6,
+    "APRatio": 0.03
+   },
+   "formulas": {
+    "DamagePerSecond": "1+ (by level) + 0.03×AP",
+    "DamagePerSecondMax": "(1+ (by level) + 0.03×AP) × 6",
+    "DamageMaxTotal": "(1+ (by level) + 0.03×AP) × (6 × 6)"
+   },
+   "tags": [
+    "true damage"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Hyper-scaling marksman who stacks Deadly Venom on attacks and uses Camouflage (Q) to flank. Wins teamfights from stealth with R's long-range piercing attacks and Contaminate (E).",
+  "positions": [
+   "BOTTOM",
+   "JUNGLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Camouflage flanks and surprise engages",
+   "R: very long-range piercing attacks in teamfights",
+   "Venom stacks + E burst",
+   "Strong late game with items"
+  ],
+  "weaknesses": [
+   "Weak early laning, short range without R",
+   "No dash: dies to engage once revealed",
+   "Relies on Camouflage timing; easy to punish on cooldown",
+   "Item-dependent"
+  ],
+  "curve": {
+   "lvl1": "weak – short range, low damage",
+   "lvl2": "medium – W slow + venom",
+   "lvl3": "medium – E burst on stacked targets",
+   "lvl6": "strong – R",
+   "items": "strong – Blade of the Ruined King or Kraken Slayer, big at Guinsoo's/2-3 items",
+   "late": "strong – hyper-carry"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs stacks + E to trade; plays safe early and scales.",
+  "waveClear": "medium – W/E, R piercing later",
+  "sustain": "low – lifesteal from items",
+  "mobility": "low – Q move speed + Camouflage only",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Passive",
+    "E"
+   ],
+   "engage": [
+    "Q"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attacks apply stacking true damage over time."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Camouflage + move speed; attack speed on exit; resets on venom kills."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Cask: area slow, applies venom."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Deals damage per venom stack to all poisoned enemies in range."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Long range; attacks pierce all enemies in a line."
+   }
+  },
+  "windowAgainst": "Q down (no stealth flank) or early levels before items: walk at him.",
+  "checks": [
+   "W cask treated as not a projectile; confirm whether Yasuo W blocks it."
+  ]
+ }
+}

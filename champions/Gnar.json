@@ -1,0 +1,392 @@
+{
+ "id": 150,
+ "alias": "Gnar",
+ "name": "Gnar",
+ "title": "the Missing Link",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 540,
+  "hpPerLevel": 79,
+  "ad": 60,
+  "adPerLevel": 3.2,
+  "armor": 32,
+  "armorPerLevel": 3.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 6,
+  "range": 175,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Boomerang Throw / Boulder Toss",
+   "cooldown": [
+    16,
+    14.5,
+    13,
+    11.5,
+    10
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 1100.0,
+   "description": "Mini Gnar: Gnar throws a boomerang that deals @spell.GnarQ:MiniTotalDamage@ physical damage and Slows by @spell.GnarQ:SlowAmount*100@% for @spell.GnarQ:SlowDuration@ seconds. The boomerang returns after hitting an enemy, dealing reduced damage to subsequent targets. Each enemy can only be hit once. Catching the boomerang reduces its Cooldown by @spell.GnarQ:MiniCDRefund*100@%.",
+   "summary": "Gnar throws a boomerang that damages and slows enemies it hits before returning to him. If he catches the boomerang its cooldown is reduced. Mega Gnar instead throws a boulder that stops on the first unit hit, damaging and slowing everything nearby. It can then be picked up to reduce the cooldown.",
+   "values": {
+    "MiniBaseDamage": [
+     5,
+     45,
+     85,
+     125,
+     165
+    ],
+    "SlowAmount": [
+     0.15,
+     0.2,
+     0.25,
+     0.3,
+     0.35
+    ],
+    "MiniSubsequentMult": 0.5,
+    "MiniCDRefund": 0.4,
+    "SlowDuration": 2,
+    "MiniReturnRange": 3000,
+    "MegaBaseDamage": [
+     45,
+     90,
+     135,
+     180,
+     225
+    ],
+    "MegaPickupAndLolipopRadius": 200,
+    "MegaBoulderLifetime": 6,
+    "MegaCDRefund": 0.7,
+    "MegaAoERadius": 280,
+    "MegaSlowAmount": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "MegaSlowDuration": 2
+   },
+   "formulas": {
+    "MiniTotalDamage": "5/45/85/125/165 + 1.35×AD",
+    "{4b371c72}": "(5/45/85/125/165 + 1.35×AD) × 0.5",
+    "MegaTotalDamage": "45/90/135/180/225 + 1.5×AD"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Hyper / Wallop",
+   "cooldown": 7,
+   "cost": null,
+   "costType": null,
+   "range": 0.0,
+   "description": "Mini Gnar Passive: Every third Attack or Ability on the same enemy deals an additional @spell.GnarW:MiniTotalDamage@ plus @spell.GnarW:MiniPercentHPDamage*100@% max Health magic damage and grants @spell.GnarR:RHyperMovementSpeedPercent@% Move Speed decaying over @spell.GnarW:MiniHasteDuration@ seconds.",
+   "summary": "Gnar's attacks and spells hype him up, dealing bonus damage and granting him Move Speed. Mega Gnar is too enraged to be hyper and instead can rear up on his hind legs and smash down on the area in front of him, stunning enemies in an area.",
+   "values": {
+    "MiniBaseDamage": [
+     0,
+     10,
+     20,
+     30,
+     40
+    ],
+    "MiniPercentHPDamage": [
+     0.06,
+     0.08,
+     0.1,
+     0.12,
+     0.14
+    ],
+    "MiniHasteDuration": 3,
+    "MiniMarkDuration": 3.5,
+    "MiniMonsterCap": 300,
+    "MegaBaseDamage": [
+     45,
+     75,
+     105,
+     135,
+     165
+    ],
+    "MegaStunDuration": 1.25,
+    "MegaLength": 550,
+    "MegaWidth": 200,
+    "MiniMaxStacks": 2
+   },
+   "formulas": {
+    "MiniTotalDamage": "0/10/20/30/40 + 1×AP",
+    "MegaTotalDamage": "45/75/105/135/165 + 1×AD"
+   },
+   "tags": [
+    "heal",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Hop / Crunch",
+   "cooldown": [
+    22,
+    19.5,
+    17,
+    14.5,
+    12
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 475.0,
+   "description": "Mini Gnar: Gnar leaps, gaining @spell.GnarE:MinibAS*100@% Attack Speed for @spell.GnarE:MiniASDuration@ seconds. If Gnar lands on a unit he will bounce off it, traveling further. Bouncing off an enemy deals @spell.GnarE:MiniTotalDamage@ physical damage and briefly Slows by @spell.GnarE:MoveSpeedMod*-100@%.",
+   "summary": "Gnar leaps to a location and bounces off the head of any unit he lands on, traveling further. Mega Gnar is too large to bounce and instead lands with earth-shattering force, dealing damage in an area around him.",
+   "values": {
+    "MinibAS": [
+     0.4,
+     0.45,
+     0.5,
+     0.55,
+     0.6
+    ],
+    "MiniASDuration": 6,
+    "MiniDamage": [
+     50,
+     85,
+     120,
+     155,
+     190
+    ],
+    "MiniRange": 475,
+    "MiniBounceRange": 525,
+    "MoveSpeedMod": -0.8,
+    "SlowDuration": 0.5,
+    "MegaDamage": [
+     80,
+     115,
+     150,
+     185,
+     220
+    ],
+    "MegaRange": 675,
+    "MegaSlowAoE": 200,
+    "MegaDamageAoE": 375,
+    "TravelTime": 0.6,
+    "MiniTotalDamageHPRatio": 0.06,
+    "MegaTotalDamageHPRatio": 0.06
+   },
+   "formulas": {
+    "MiniTotalDamage": "50/85/120/155/190 + 0.06×max HP",
+    "MegaTotalDamage": "80/115/150/185/220 + 0.06×max HP"
+   },
+   "tags": [
+    "attack speed",
+    "dash",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "GNAR!",
+   "cooldown": [
+    90,
+    60,
+    30
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 590.0,
+   "description": "Mini Gnar Passive: Increase Hyper's Move Speed. Mega Gnar: Gnar tosses nearby enemies, dealing 200/300/400 + 1×AP + 0.5×bonus AD physical damage, Knocking Back, and Slowing them by 45% for 1.25/1.5/1.75 seconds. Enemies that hit a wall instead take (200/300/400 + 1×AP + 0.5×bonus AD) × (150 × 0.01) physical damage and are Stunned.",
+   "summary": "Mega Gnar throws everything around him in a chosen direction, dealing damage and slowing them. Any enemy that hits a wall is stunned and takes bonus damage.",
+   "values": {
+    "RBaseDamage": [
+     200,
+     300,
+     400
+    ],
+    "RHyperMovementSpeedPercent": [
+     40,
+     60,
+     80
+    ],
+    "RCCDuration": [
+     1.25,
+     1.5,
+     1.75
+    ],
+    "RAoESize": 475,
+    "RKnockbackDistance": 500,
+    "RSlowPercent": 45,
+    "RWallHitDamageMultiplier": 150
+   },
+   "formulas": {
+    "Damage": "200/300/400 + 1×AP + 0.5×bonus AD",
+    "WallDamage": "(200/300/400 + 1×AP + 0.5×bonus AD) × (150 × 0.01)"
+   },
+   "tags": [
+    "airborne",
+    "move speed",
+    "slow",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Rage Gene",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "While in combat Gnar generates Rage. At maximum Rage his next ability will transform him into Mega Gnar, granting increased survivability and access to new spells.",
+   "summary": "While in combat Gnar generates Rage. At maximum Rage his next ability will transform him into Mega Gnar, granting increased survivability and access to new spells.",
+   "values": {
+    "MegaHealthStartingValue": 100,
+    "MegaHealthEndingValue": 831,
+    "TiredDuration": 15
+   },
+   "formulas": {
+    "TotalAttackRange": "None–100 (by level)",
+    "TotalMS": "None+ (by level)",
+    "TotalAS": "0.055–0.99 (by level)",
+    "TotalMegaGnarHealth": "?",
+    "TotalMegaGnarArmor": "3.5–54.5 (by level)",
+    "TotalMegaGnarMR": "3.5–63 (by level)",
+    "TotalMegaGnarAD": "6–48.5 (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Ranged/melee transform top laner: mini Gnar kites with boomerang poke; Mega Gnar brings stuns and a wall-slam R.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Mini Gnar kites melee champions with Q and W procs",
+   "Mega Gnar teamfight R (stun into walls)",
+   "E hop for escape",
+   "Strong poke in lane"
+  ],
+  "weaknesses": [
+   "Rage management: transforms at bad times",
+   "Mini Gnar squishy if caught",
+   "Mega Gnar is slow and immobile",
+   "Weak if behind"
+  ],
+  "curve": {
+   "lvl1": "strong – ranged autos + W proc vs melee",
+   "lvl2": "strong",
+   "lvl3": "strong",
+   "lvl6": "strong – Mega R",
+   "items": "medium",
+   "late": "medium – teamfight dependent"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Ranged early; trade timing depends on rage bar.",
+  "waveClear": "medium",
+  "sustain": "low",
+  "mobility": "medium – E hop",
+  "range": "short-ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W passive",
+    "basic attacks"
+   ],
+   "engage": [
+    "Mega W",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Rage -> Mega Gnar transformation."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Boomerang/boulder, slows."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Mini: third hit proc (attack-based). Mega: Wallop stun."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Hop; Mega Crunch damages/slows (check)."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Knocks enemies back; stuns if they hit a wall."
+   }
+  },
+  "windowAgainst": "Mini Gnar at full rage about to transform? Fight Mini when E is down; avoid Mega near walls.",
+  "checks": [
+   "Mega E slow: check"
+  ]
+ }
+}

@@ -1,0 +1,332 @@
+{
+ "id": 887,
+ "alias": "Gwen",
+ "name": "Gwen",
+ "title": "The Hallowed Seamstress",
+ "classes": [
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 115,
+  "ad": 63,
+  "adPerLevel": 3,
+  "armor": 39,
+  "armorPerLevel": 4.9,
+  "attackSpeed": 0.69,
+  "attackSpeedPerLevel": 2.25,
+  "range": 150,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Snip Snip!",
+   "cooldown": [
+    6.5,
+    5.75,
+    5,
+    4.25,
+    3.5
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 450.0,
+   "description": "Passive: Gwen gains 1 stack when she hits an enemy with an attack (max 4, lasts 6 seconds). Active: Consumes stacks. Gwen snips once for 10/14/18/22/26 + 0.05×AP magic damage, snips again for each ammo consumed, and then snips a final time for 60/85/110/135/160 + 0.35×AP magic damage. The center of each strikes converts 50% of the damage into true damage instead and applies A Thousand Cuts to enemies hit. Deals 80% damage to minions. Minions below 20% health take 1000% bonus damage instead of reduced damage.",
+   "summary": "Gwen snips her scissors in a cone up to 6 times dealing magic damage. Gwen deals true damage to units in the center and applies her passive to them on each snip.",
+   "values": {
+    "InitialArcLength": 475,
+    "SwipeDamageBase": [
+     60,
+     85,
+     110,
+     135,
+     160
+    ],
+    "MiniDamageRatio": 0.2,
+    "APRatio": 0.35,
+    "BuffDuration": 6,
+    "MiniSwipeBaseDamage": [
+     10,
+     14,
+     18,
+     22,
+     26
+    ],
+    "TrueDamageConversion": 0.5,
+    "ExecuteBonus": 1000,
+    "MinionMod": 0.8,
+    "ExecuteThreshold": 0.2,
+    "MiniSwipeAPRatio": 0.05
+   },
+   "formulas": {
+    "FinalSwipeDamage": "60/85/110/135/160 + 0.35×AP",
+    "MiniSwipeDamage": "10/14/18/22/26 + 0.05×AP",
+    "MaxDamage": "((60/85/110/135/160 + 0.35×AP) + (0.05×AP × 5) + (10/14/18/22/26 × 5))"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "true damage"
+   ]
+  },
+  "W": {
+   "name": "Hallowed Mist",
+   "cooldown": [
+    22,
+    21,
+    20,
+    19,
+    18
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 0.0,
+   "description": "Gwen summons the Hallowed Mist, making her Untargetable to all enemies (except towers) outside the zone for 4 seconds or until she leaves it. While in the Mist, Gwen gains 22/24/26/28/30 + 0.07×AP Armor and Magic Resist. Gwen can Recast this Ability once to call the Mist to her. This will automatically Recast the first time Gwen attempts to leave the zone.",
+   "summary": "Gwen summons mist that protects her from enemies outside of it. She can only be targeted by enemies who enter the mist.",
+   "values": {
+    "ZoneDuration": 4,
+    "ZoneRadius": 370,
+    "ZonePullSpeed": 2000,
+    "PullOffset": 75,
+    "ZoneWallOffset": -100,
+    "NewDashCooldown": 2,
+    "RecastDelay": 0.5,
+    "BaseResists": [
+     22,
+     24,
+     26,
+     28,
+     30
+    ],
+    "DashTargetForgiveness": 125
+   },
+   "formulas": {
+    "TotalResists": "22/24/26/28/30 + 0.07×AP"
+   },
+   "tags": [
+    "untargetable"
+   ]
+  },
+  "E": {
+   "name": "Skip 'n Slash",
+   "cooldown": [
+    13,
+    12.5,
+    12,
+    11.5,
+    11
+   ],
+   "cost": 35,
+   "costType": null,
+   "range": 400.0,
+   "description": "Gwen dashes and empowers her Attacks for 4 seconds. Empowered Attacks gain (30/42.5/55/67.5/80) × 0.01 Attack Speed, 15 + 0.2×AP magic damage %i:OnHit% On-Hit, 75 range, and the first one to hit an enemy refunds 25/35/45/55.0/65% of this Ability's Cooldown.",
+   "summary": "Gwen dashes a short distance then gains Attack Speed, attack range, and magic damage On-Hit for a few seconds. If she hits an enemy during that time, this Ability's cooldown is partially refunded.",
+   "values": {
+    "DashRange": 350,
+    "DashSpeed": 800,
+    "WallCheatDistance": 100,
+    "BuffDuration": 4,
+    "BaseAttackSpeed": [
+     30,
+     42.5,
+     55,
+     67.5,
+     80
+    ],
+    "CDRefund": [
+     0.25,
+     0.35,
+     0.45,
+     0.55,
+     0.65
+    ],
+    "BonusAttackRange": 75,
+    "BaseDamage": 15
+   },
+   "formulas": {
+    "BonusAttackSpeed": "(30/42.5/55/67.5/80) × 0.01",
+    "OnHitDamage": "15 + 0.2×AP"
+   },
+   "tags": [
+    "attack speed",
+    "dash",
+    "empowered attack"
+   ]
+  },
+  "R": {
+   "name": "Needlework",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1200.0,
+   "description": "First Cast: Hurl a needle that deals 30/50/70 + 0.1×AP magic damage, Slows by 40/50/60% for 1.5 seconds, and applies A Thousand Cuts to all enemies hit. Gwen can Recast this ability up to 2 additional times within 6 seconds (1s cooldown between casts). Second Cast: Fire three needles to deal (30/50/70 + 0.1×AP) × 3 magic damage Third Cast: Fire five needles to deal (30/50/70 + 0.1×AP) × 5 magic damage",
+   "summary": "Gwen hurls a needle that slows enemies hit, deals magic damage, and applies A Thousand Cuts to champions hit. This ability can be cast up to two more times, with each cast throwing additional needles and dealing more damage.",
+   "values": {
+    "DebuffDuration": 1.5,
+    "SlowAmount": 0.15,
+    "BaseDamage": [
+     30,
+     50,
+     70
+    ],
+    "InitialSlow": [
+     -0.4,
+     -0.5,
+     -0.6
+    ],
+    "SubsequentSlow": [
+     -0.15,
+     -0.2,
+     -0.25
+    ],
+    "LockoutTime": 1
+   },
+   "formulas": {
+    "TotalDamage": "30/50/70 + 0.1×AP",
+    "MaxDamage": "(30/50/70 + 0.1×AP) × 9",
+    "TotalDamage3": "(30/50/70 + 0.1×AP) × 3",
+    "TotalDamage5": "(30/50/70 + 0.1×AP) × 5"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "A Thousand Cuts",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Gwen's attacks deal bonus magic damage based on the targets health. She heals for a portion of the damage dealt to champions by this effect.",
+   "summary": "Gwen's attacks deal bonus magic damage based on the targets health. She heals for a portion of the damage dealt to champions by this effect.",
+   "values": {
+    "ExecuteThreshold": 0.4
+   },
+   "formulas": {
+    "HealingPercent": "0.67",
+    "{540bce84}": "1 + 0.006×AP",
+    "HealCap": "12–40 (by level) + 0.07×AP",
+    "PercentHealth1000Cuts": "(540bce84) × 0.01",
+    "MonsterDamageCap": "3 + 0.05×AP",
+    "PassiveMaxQTooltip": "(540bce84) × 0.06",
+    "PassiveMaxRTooltip": "(540bce84) × 0.09",
+    "{4197830d}": "(540bce84) × 0.03",
+    "{4097817a}": "(540bce84) × 0.05",
+    "{5bade13c}": "?",
+    "ExecuteDamage": "8–30 (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "AP skirmisher who stacks Q with attacks and fights inside W mist, where attackers outside can't reach her.",
+  "positions": [
+   "TOP",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "W mist makes her untargetable to enemies outside it",
+   "True damage at Q's center",
+   "Strong extended trades and scaling",
+   "Good against tanks (current-health/max-health damage)"
+  ],
+  "weaknesses": [
+   "Weak early before items",
+   "Mist can be stepped into",
+   "Short range; kited by ranged",
+   "Needs stacks for Q damage"
+  ],
+  "curve": {
+   "lvl1": "weak-medium",
+   "lvl2": "medium",
+   "lvl3": "medium – full kit",
+   "lvl6": "strong – R needles",
+   "items": "first AP item big spike",
+   "late": "strong"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Trades around Q stacks + E dash + W; weak before first item.",
+  "waveClear": "good – Q area",
+  "sustain": "medium – passive heal on champions",
+  "mobility": "E dash",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "P": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Attacks deal max-health magic damage and heal vs champions"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Stacks from attacks; center deals true damage"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "untargetable",
+    "notes": "Untargetable to enemies outside the mist (except towers); step into it to hit her"
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Dash; empowers attacks with range and attack speed"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "none",
+    "notes": "Needles, recast up to 2 more times"
+   }
+  },
+  "windowAgainst": "When W is down, or by stepping into her mist.",
+  "checks": []
+ }
+}

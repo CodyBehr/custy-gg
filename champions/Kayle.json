@@ -1,0 +1,332 @@
+{
+ "id": 10,
+ "alias": "Kayle",
+ "name": "Kayle",
+ "title": "the Righteous",
+ "classes": [
+  "marksman",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 1,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 670,
+  "hpPerLevel": 92,
+  "ad": 50,
+  "adPerLevel": 2.5,
+  "armor": 26,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1.5,
+  "range": 175,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Radiant Blast",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    100
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Kayle fires a celestial sword that stops on the first enemy hit, dealing 60/90/120/150/180 + 0.5\u00d7AP + 0.6\u00d7bonus AD magic damage, Slowing by 25/30/35/40/45% for 2 seconds, and removing 15% Armor and Magic Resist for 4 seconds from the target and enemies behind them.",
+   "summary": "Kayle conjures a portal, summoning a celestial sword that pierces through enemies, slowing, damaging, and reducing the resistances of all hit.",
+   "values": {
+    "ManaRefundPercent": 0.5,
+    "CastDelay": 0.25,
+    "Damage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "SlowPercent": [
+     25,
+     30,
+     35,
+     40,
+     45
+    ],
+    "SlowDuration": 2,
+    "ShredPercent": 15,
+    "ShredDuration": 4,
+    "ExplosionLeftRightDist": 150,
+    "ExplosionLeftRightWidth": 125,
+    "ExplosionForwardDist": 400,
+    "ExplosionBackwardDist": 100,
+    "ExplosionForwardBackWidth": 90,
+    "ExplosionCenterAoERadius": 100,
+    "ExplosionForwardOffset": 100
+   },
+   "formulas": {
+    "TotalDamage": "60/90/120/150/180 + 0.5\u00d7AP + 0.6\u00d7bonus AD"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Celestial Blessing",
+   "cooldown": 15,
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    90
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Kayle infuses herself and an allied champion with light, restoring 55/80/105/130/155 + 0.25\u00d7AP Health and granting 0.24/0.28/0.32/0.36/0.4 + 0.001\u00d7AP Move Speed for 2 seconds.",
+   "summary": "Blessed by the divine, Kayle heals and grants Move Speed to herself and the nearest ally.",
+   "values": {
+    "Heal": [
+     55,
+     80,
+     105,
+     130,
+     155
+    ],
+    "Haste": [
+     0.24,
+     0.28,
+     0.32,
+     0.36,
+     0.4
+    ],
+    "HasteDuration": 2
+   },
+   "formulas": {
+    "TotalHeal": "55/80/105/130/155 + 0.25\u00d7AP",
+    "TotalHaste": "0.24/0.28/0.32/0.36/0.4 + 0.001\u00d7AP"
+   },
+   "tags": [
+    "heal",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Starfire Spellblade",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 550.0,
+   "description": "Passive: Attacks deal an additional 15/20/25/30/35 + 0.2\u00d7AP + 0.1\u00d7bonus AD magic damage. Active: Kayle's next attack becomes ranged and deals an additional (8/8.5/9/9.5/10 + 0.015\u00d7AP) \u00d7 0.01 missing Health magic damage. This attack upgrades when Kayle reaches Level @Spell.KaylePassive:LevelForPassiveRank2@, causing it to explode when it hits the target, dealing damage to nearby enemies.",
+   "summary": "Passive: Kayle's celestial sword, Virtue, deals bonus magic damage to enemies she attacks. Active: Kayle's next attack smites her target with celestial fire, dealing bonus damage proportionate to their missing health.",
+   "values": {
+    "PassiveDamage": [
+     15,
+     20,
+     25,
+     30,
+     35
+    ],
+    "ActiveExecutePercent": [
+     8,
+     8.5,
+     9,
+     9.5,
+     10
+    ],
+    "MaxExecuteVsMonsters": 400,
+    "ExplosionRadius": 350,
+    "BuffDuration": 5,
+    "PassiveAPRatio": 0.2,
+    "PassiveBonusADRatio": 0.1
+   },
+   "formulas": {
+    "{266027bf}": "1\u00d7AD",
+    "EPassiveTotalDamage": "15/20/25/30/35 + 0.2\u00d7AP + 0.1\u00d7bonus AD",
+    "ActiveTotalExecuteDamage": "(8/8.5/9/9.5/10 + 0.015\u00d7AP) \u00d7 0.01"
+   },
+   "tags": [
+    "empowered attack",
+    "execute",
+    "heal"
+   ]
+  },
+  "R": {
+   "name": "Divine Judgment",
+   "cooldown": [
+    160,
+    120,
+    80
+   ],
+   "cost": [
+    50,
+    0,
+    0
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Kayle makes an allied champion Invulnerable for 2.5 seconds and then purifies the area around them, dealing 200/300/400 + 0.7\u00d7AP + 1\u00d7bonus AD magic damage to nearby enemies.",
+   "summary": "Kayle makes an ally invulnerable and calls upon former Aspects of Justice to purify the area around her target with a holy rain of swords.",
+   "values": {
+    "Damage": [
+     200,
+     300,
+     400
+    ],
+    "InvulnDuration": 2.5,
+    "AoERadius": [
+     675,
+     675,
+     775
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "200/300/400 + 0.7\u00d7AP + 1\u00d7bonus AD"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Divine Ascent",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Kayle's attacks are empowered by the heavens as she levels up and spends skill points. Her wings are lit aflame as she progressively gains Attack Speed, Move Speed, Attack Range, and waves of fire on her attacks.",
+   "summary": "Kayle's attacks are empowered by the heavens as she levels up and spends skill points. Her wings are lit aflame as she progressively gains Attack Speed, Move Speed, Attack Range, and waves of fire on her attacks.",
+   "values": {
+    "LevelForPassiveRank0": 1,
+    "LevelForPassiveRank1": 6,
+    "LevelForPassiveRank2": 11,
+    "LevelForPassiveRank3": 16,
+    "UpgradedAttackRange": 525,
+    "FinalAttackRange": 625,
+    "MSTowardsEnemy": 0.1,
+    "MSTowardsEnemyRadius": 2000,
+    "EnrageMaxStacks": 5,
+    "EnrageDuration": 5,
+    "EnrageASPerStack": 6,
+    "PassiveWaveAPRatio": 0.25,
+    "PassiveWaveBonusADRatio": 0.1
+   },
+   "formulas": {
+    "EnrageTotalASPerStack": "6",
+    "PassiveWaveDamage": "20+ (by level) + 0.25\u00d7AP + 0.1\u00d7bonus AD"
+   },
+   "tags": [
+    "attack speed",
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Kayle is a scaling hybrid who starts as a weak melee fighter and becomes a ranged powerhouse as she levels. She plays top, survives the early game, and protects allies with Divine Judgment.",
+  "positions": [
+   "TOP",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Huge late-game scaling: gains range and waves of fire as she levels.",
+   "Divine Judgment makes an ally invulnerable.",
+   "Radiant Blast slows and shreds armor and magic resist.",
+   "Celestial Blessing heals and gives move speed.",
+   "Starfire Spellblade adds magic damage to every attack."
+  ],
+  "weaknesses": [
+   "Very weak early: melee range and low damage until her passive gives range.",
+   "No escape apart from W move speed.",
+   "Needs many levels to become strong, so a lost lane hurts her badly.",
+   "Easily bullied by ranged and early-game top laners.",
+   "Squishy late, so she relies on Divine Judgment to survive dives."
+  ],
+  "curve": {
+   "lvl1": "weak \u2013 melee range and low damage, easy to bully",
+   "lvl2": "weak \u2013 Q slow helps escape, but she still can't trade",
+   "lvl3": "weak \u2013 W heal and speed help survive, not fight",
+   "lvl6": "okay \u2013 Divine Judgment saves an ally or herself; her range grows with levels",
+   "items": "strong \u2013 first item: Nashor's Tooth and Rabadon's Deathcap",
+   "late": "very strong \u2013 ranged hyper carry"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Kayle is weak early and gets stronger with levels. Her real power is late.",
+  "waveClear": "Good after levels: waves of fire.",
+  "sustain": "Okay: W heals.",
+  "mobility": "Okay: W move speed.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "E (Starfire Spellblade) ranged attack",
+   "engage": "Q (Radiant Blast) slow and shred",
+   "escape": "R (Divine Judgment) to protect",
+   "answers": "Divine Judgment makes an ally invulnerable."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Divine Ascent: gains attack speed, move speed, range and waves of fire as she levels."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block with a projectile block.",
+    "notes": "Radiant Blast: slows and shreds armor and magic resist."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Celestial Blessing: heal and move speed."
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "Jax E dodges; Fiora W parries.",
+    "notes": "Starfire Spellblade: next attack becomes ranged and deals % missing HP damage."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "Invulnerable",
+    "notes": "Divine Judgment: makes an ally invulnerable, then deals area damage."
+   }
+  },
+  "windowAgainst": "Kayle's window is early: all-in her, because she is weak before levels.",
+  "checks": [
+   "Does Kayle farm safely early?",
+   "Does Kayle use R to save allies?",
+   "Does the enemy team pressure her early?"
+  ]
+ }
+}

@@ -1,0 +1,307 @@
+{
+ "id": 104,
+ "alias": "Graves",
+ "name": "Graves",
+ "title": "the Outlaw",
+ "classes": [
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 625,
+  "hpPerLevel": 106,
+  "ad": 66,
+  "adPerLevel": 4,
+  "armor": 33,
+  "armorPerLevel": 4.6,
+  "attackSpeed": 0.475,
+  "attackSpeedPerLevel": 3,
+  "range": 425,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "End of the Line",
+   "cooldown": [
+    13,
+    11.25,
+    9.5,
+    7.75,
+    6
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 925.0,
+   "description": "Graves fires a powder round dealing 50/75/100/125/150 + 0.55\u00d7bonus AD physical damage. After 1 second or after colliding with terrain, it detonates, dealing 80/125/170/215/260 + 0.45/0.6/0.75/0.9/1.05\u00d7bonus AD physical damage along the travel path again and to enemies near the blast.",
+   "summary": "Graves fires an explosive shell that detonates after 1 second, or after colliding with terrain.",
+   "values": {
+    "BaseDamage": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "FirstADRatio": 0.55,
+    "BaseDetonationDamage": [
+     80,
+     125,
+     170,
+     215,
+     260
+    ],
+    "bADDetonationRatio": [
+     0.45,
+     0.6,
+     0.75,
+     0.9,
+     1.05
+    ],
+    "TerrainCollisionDelay": 0.2
+   },
+   "formulas": {
+    "TotalDamage": "50/75/100/125/150 + 0.55\u00d7bonus AD",
+    "TotalDetonationDamage": "80/125/170/215/260 + 0.45/0.6/0.75/0.9/1.05\u00d7bonus AD"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Smoke Screen",
+   "cooldown": [
+    26,
+    24,
+    22,
+    20,
+    18
+   ],
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    95
+   ],
+   "costType": null,
+   "range": 950.0,
+   "description": "Graves creates a cloud of black smoke for 4 seconds, Slowing enemies inside by 50% and blocking their vision outside the area. The initial impact deals 60/110/160/210/260 + 0.6\u00d7AP magic damage.",
+   "summary": "Graves fires a smoke canister at the target area creating a cloud of smoke that reduces sight range. Enemies caught in the initial impact are dealt magic damage and have their Move Speed reduced briefly.",
+   "values": {
+    "BaseDamage": [
+     60,
+     110,
+     160,
+     210,
+     260
+    ],
+    "SlowAmount": 50,
+    "SmokeRadius": 200,
+    "SmokeDuration": 4,
+    "SlowDuration": 0.5
+   },
+   "formulas": {
+    "ImpactDamage": "60/110/160/210/260 + 0.6\u00d7AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Quickdraw",
+   "cooldown": [
+    16,
+    15,
+    14,
+    13,
+    12
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 425.0,
+   "description": "Graves dashes and reloads one Shell into his shotgun. He also gains a stack for 4 seconds (max 8 stacks) or two stacks if he dashes towards an enemy champion. Stacks grant him 7/10/13/16/19 Armor and (7/10/13/16/19) \u00d7 0.5 Magic Resist. Stacks are refreshed when damaging a non-minion. Each bullet hit from Graves' Attacks reduces this Ability's Cooldown by 0.5 seconds.",
+   "summary": "Graves dashes forward gaining an Armor and Magic Resist boost for several seconds. If Graves dashes towards an enemy champion, gain two stacks of True Grit instead. Hitting enemies with basic attacks lowers the cooldown of this skill and refreshes the resistance boost.",
+   "values": {
+    "ArmorPerStack": [
+     7,
+     10,
+     13,
+     16,
+     19
+    ],
+    "MRGrantPercent": 0.5,
+    "BuffDuration": 4,
+    "CooldownPerHit": 0.5,
+    "MaxStacks": 8,
+    "DashSpeed": 750,
+    "DashMaxDistance": 375,
+    "DashMinDistance": 275,
+    "DashAngle": 60
+   },
+   "formulas": {
+    "MRGrant": "(7/10/13/16/19) \u00d7 0.5"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Collateral Damage",
+   "cooldown": [
+    100,
+    80,
+    60
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Graves fires an explosive cartridge, blasting himself backwards. The cartridge deals 275/425/575 + 1.5\u00d7bonus AD physical damage to the first enemy hit. After hitting an enemy champion or reaching the end of its range, the cartridge explodes outward, dealing 200/320/440 + 1.2\u00d7bonus AD physical damage.",
+   "summary": "Graves fires an explosive shell dealing heavy damage to the first champion it hits. After hitting a champion or reaching the end of its range, the shell explodes dealing damage in a cone.",
+   "values": {
+    "RBaseDamage": [
+     275,
+     425,
+     575
+    ],
+    "RFalloffDamage": [
+     200,
+     320,
+     440
+    ],
+    "RKnockbackDistance": 400
+   },
+   "formulas": {
+    "Damage": "275/425/575 + 1.5\u00d7bonus AD",
+    "FalloffDamage": "200/320/440 + 1.2\u00d7bonus AD"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "New Destiny",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Graves' shotgun has some unique properties. He must reload when he runs out of ammo. Attacks fire 4 bullets, which cannot pass through units. Non-champions struck by multiple bullets are knocked back.",
+   "summary": "Graves' shotgun has some unique properties. He must reload when he runs out of ammo. Attacks fire 4 bullets, which cannot pass through units. Non-champions struck by multiple bullets are knocked back.",
+   "values": {
+    "CritDamageRatio": 0.5,
+    "StructureDamageReduction": 0.25
+   },
+   "formulas": {
+    "SingleBulletDamage": "?\u00d7AD",
+    "MultiBulletDamage": "(?\u00d7AD) \u00d7 0.333",
+    "CritDamageMult": "(0.5 \u00d7 (-1 + 1\u00d7stat))",
+    "{549cda4d}": "1\u00d7stat"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Graves is a ranged jungler with a shotgun whose attacks fire several bullets that cannot pass through units. He clears fast, duels well thanks to Quickdraw's armor stacks, and bursts targets with End of the Line and Collateral Damage.",
+  "positions": [
+   "JUNGLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Very fast, healthy clear: shotgun attacks hit whole camps and Quickdraw gives armor.",
+   "Strong duelist: Quickdraw stacks give armor and magic resist, and each bullet hit lowers its cooldown.",
+   "Smoke Screen slows and blocks vision outside the cloud, so enemies can't target him well.",
+   "Big burst with End of the Line and Collateral Damage.",
+   "Can invade and take camps from the enemy jungler."
+  ],
+  "weaknesses": [
+   "Short range for a ranged champion; he must get close to deal full damage.",
+   "Bullets stop on the first unit, so minions and tanks absorb his damage.",
+   "Reloading after two attacks leaves gaps in his damage.",
+   "Falls off against tanky teams late.",
+   "Weak against hard CC and long-range kiting."
+  ],
+  "curve": {
+   "lvl1": "good \u2013 shotgun clear and duelling from level 1",
+   "lvl2": "strong \u2013 Q burst plus E armor wins skirmishes",
+   "lvl3": "strong \u2013 W smoke slows for ganks",
+   "lvl6": "very strong \u2013 Collateral Damage adds burst and an escape",
+   "items": "medium \u2013 first item: Lethality like Youmuu's Ghostblade or crit with Infinity Edge",
+   "late": "good \u2013 keeps burst, weaker against tanks"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Graves wants Q and E to duel. He is strongest in the early and mid game, and invades well.",
+  "waveClear": "Good: shotgun attacks hit whole camps and waves.",
+  "sustain": "Okay: no healing of his own; armor from E.",
+  "mobility": "Good: E dash and R knock-back on himself.",
+  "range": "short-ranged",
+  "keyAbilities": {
+   "trading": "Q (End of the Line) with auto attacks",
+   "engage": "W (Smoke Screen) slow and vision block",
+   "escape": "E (Quickdraw) dash, or R (Collateral Damage) knock-back to escape",
+   "answers": "None. Graves has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "New Destiny: attacks fire four bullets that can't pass through units; reloads after two attacks."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": "Dodge sideways, or block with a projectile block.",
+    "notes": "End of the Line: a round that detonates after a second or on hitting terrain."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "nearsight",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Walk out of the cloud.",
+    "notes": "Smoke Screen: slows and blocks vision outside the cloud."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Quickdraw: dash and reload, with armor and magic resist stacks."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": "Dodge sideways, or block with a projectile block.",
+    "notes": "Collateral Damage: fires a cartridge and blasts himself backwards; explodes outward on hit."
+   }
+  },
+  "windowAgainst": "Graves's window is when he has to reload or E is on cooldown: all-in him then, and fight him from range.",
+  "checks": [
+   "Does Graves use E to stack armor before fighting?",
+   "Does Graves use Smoke Screen to block vision in fights?",
+   "Does the enemy fight Graves from range?"
+  ]
+ }
+}

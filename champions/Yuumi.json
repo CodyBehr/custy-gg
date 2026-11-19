@@ -1,0 +1,408 @@
+{
+ "id": 350,
+ "alias": "Yuumi",
+ "name": "Yuumi",
+ "title": "the Magical Cat",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 500,
+  "hpPerLevel": 69,
+  "ad": 49,
+  "adPerLevel": 3.1,
+  "armor": 25,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1,
+  "range": 425,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Prowling Projectile",
+   "cooldown": 6.5,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 25000.0,
+   "description": "Yuumi summons an errant missile that deals 60/95/130/165/200 + 0.2\u00d7AP magic damage to the first enemy and Slows the target for 20%. If cast while Attached, Yuumi can control the missile using her mouse for a short period before it accelerates in a straight line. The accelerated missile deals 80/135/190/245/300 + 0.3\u00d7AP magic damage and Slows the target for 50/53/56/59/62% for 2 seconds, instead. Best Friend Bonus: Prowling Projectile's Slow will always be enhanced and hitting an enemy champion also grants them 0.05\u00d7AP + 10/12/14/16/18 magic damage On-Hit %i:OnHit% for 5 seconds. The bonus On-Hit damage can be increased by 75% based her ally's Critical Strike Chance.",
+   "summary": "Yuumi fires a missile, dealing damage and slowing first target hit. It deals bonus damage and an enchanced slow if it takes at least 1.35 seconds to get to its target. While on her Best Friend, the slow is always enhanced and grants bonus On-Hit damage to her ally. While Attached, the missile can be controlled with your cursor for a brief period.",
+   "values": {
+    "MissileDamage": [
+     60,
+     95,
+     130,
+     165,
+     200
+    ],
+    "SlowAmount": 20,
+    "SlowDuration": 1,
+    "TimeToAfterburners": 1.35,
+    "MissileLifetime": 1.85,
+    "StartingSpeed": 650,
+    "AfterburnerSpeed": 950,
+    "InitialTimeDelay": 0.2,
+    "MissileStartingOffset": 75,
+    "EmpoweredSlowAmount": [
+     50,
+     53,
+     56,
+     59,
+     62
+    ],
+    "EmpoweredSlowDuration": 2,
+    "EmpoweredMissileDamage": [
+     80,
+     135,
+     190,
+     245,
+     300
+    ],
+    "OnHitBase": [
+     10,
+     12,
+     14,
+     16,
+     18
+    ],
+    "AllyCritChanceMaxAmp": 0.75,
+    "BuffDuration": 5,
+    "APRatio": 0.2,
+    "EmpoweredAPRatio": 0.3,
+    "MSDuration": 2,
+    "MSAmount": [
+     35,
+     40,
+     45,
+     50,
+     55
+    ],
+    "HealAmountMin": [
+     35,
+     45,
+     55,
+     65,
+     75
+    ],
+    "HealAmountMultiplier": 2,
+    "MaxHealThreshold": 0.2
+   },
+   "formulas": {
+    "TotalMissileDamage": "60/95/130/165/200 + 0.2\u00d7AP",
+    "TotalMissileDamageEmpowered": "80/135/190/245/300 + 0.3\u00d7AP",
+    "OnHitDamageCalc": "0.05\u00d7AP + 10/12/14/16/18",
+    "MinAmountToHeal": "35/45/55/65/75 + 0.2\u00d7AP"
+   },
+   "tags": [
+    "projectile",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "You and Me!",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Passive: While on her Best Friend, Yuumi gains an additional 4/5/6/7.0/8% Heal & Shield Power and her ally also restores 3/4/5/6/7 + 0.03\u00d7AP health On-Hit %i:OnHit%. Active: Yuumi dashes to an ally champion and Attaches to them. While Yuumi is Attached, she follows her partner's movement and is Untargetable except from towers. Immobilizing effects on Yuumi place this Ability on a 5 second Cooldown.",
+   "summary": "Yuumi dashes to a target ally, becoming untargetable from everything except turrets. While on her Best Friend, she gains Heal & Shield Power and grants her Ally On-Hit healing.",
+   "values": {
+    "DashSpeed": [
+     1300,
+     1350,
+     1400,
+     1450,
+     1500
+    ],
+    "CastForgivenessRange": 200,
+    "CastRange": 700,
+    "MaxBonusHealShieldPower": 0.15,
+    "BaseHealthOnHit": [
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "HealAndShieldPower": [
+     0.04,
+     0.05,
+     0.06,
+     0.07,
+     0.08
+    ],
+    "MinBonusHealShieldPower": 0.05,
+    "AdaptiveStatSharing": [
+     0.12,
+     0.14,
+     0.16,
+     0.18,
+     0.2
+    ],
+    "FlatAdaptiveStats": [
+     12,
+     14,
+     16,
+     18,
+     20
+    ]
+   },
+   "formulas": {
+    "AttachCooldown": "10+ (by level)",
+    "CCAttachLockout": "5",
+    "HealthOnHit": "3/4/5/6/7 + 0.03\u00d7AP"
+   },
+   "tags": [
+    "dash",
+    "heal",
+    "immobilizing",
+    "shield",
+    "untargetable"
+   ]
+  },
+  "E": {
+   "name": "Zoomies",
+   "cooldown": null,
+   "cost": [
+    90,
+    100,
+    110,
+    120,
+    130
+   ],
+   "costType": null,
+   "range": 500.0,
+   "description": "Yuumi shields herself, blocking 65/90/115/140/165 + 0.4\u00d7AP damage and gains 25/27.5/30/32.5/35 + 0.08\u00d7AP% Attack Speed for 3 seconds. While the shield persists, the target also gains 20% Move Speed. If Yuumi is Attached, this Ability affects her ally instead and also restores 20/24/28/32/36 Mana to them, increased by up to 100% based on the target's missing Mana.",
+   "summary": "Shields Yuumi and boosts Move Speed and Attack Speed. If she's attached, she passes it to her ally instead.",
+   "values": {
+    "MSDuration": 3,
+    "MSAmount": 20,
+    "AttackSpeedAmount": [
+     25,
+     27.5,
+     30,
+     32.5,
+     35
+    ],
+    "BaseShielding": [
+     65,
+     90,
+     115,
+     140,
+     165
+    ],
+    "ManaRestore": [
+     20,
+     24,
+     28,
+     32,
+     36
+    ],
+    "MaxManaPercIncrease": 1,
+    "APRatio": 0.4
+   },
+   "formulas": {
+    "TotalShielding": "65/90/115/140/165 + 0.4\u00d7AP",
+    "TotalAttackSpeed": "25/27.5/30/32.5/35 + 0.08\u00d7AP"
+   },
+   "tags": [
+    "attack speed",
+    "move speed",
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Final Chapter",
+   "cooldown": [
+    120,
+    110,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1100.0,
+   "description": "Yuumi channels for 3.5 seconds, launching 5 magical waves affecting both teams. If initially cast while Attached, Yuumi can steer the waves to follow her mouse. Enemies struck are dealt 75/125/175 + 0.25\u00d7AP magic damage and Slowed by 10% for 1.25 seconds, increased by 10% per wave hit. Ally champions are healed for 30/50/70 + 0.12\u00d7AP health per wave. Excess healing is converted to a Shield instead. Best Friend Bonus: For her Best Friend, the heal is increased to (30/50/70 + 0.12\u00d7AP) \u00d7 ? health. Casting You and Me! will locks the waves in the current direction. Yuumi can move and cast Zoomies while channeling.",
+   "summary": "Yuumi channels five waves that damage enemies and heal allies. Yuumi can move, attach, and cast Zoomies! while channeling. While on her Best Friend, this spell also follows her mouse.",
+   "values": {
+    "UltLength": 1300,
+    "BaseMissileDamage": [
+     75,
+     125,
+     175
+    ],
+    "MultiMissileReduction": 0.25,
+    "CCDuration": 1.25,
+    "UltDuration": 3.5,
+    "NumberOfWaves": 5,
+    "WavesToRoot": 3,
+    "TimeBetweenWaves": 0.75,
+    "MissileSlowPercent": -0.4,
+    "SpaceBehindWave": 200,
+    "BaseHealPerWave": [
+     30,
+     50,
+     70
+    ],
+    "BaseSlow": -0.1,
+    "BonusSlowPerWave": -0.1,
+    "OvershieldBonusDuration": 1.5,
+    "DegreesPerTick": 10
+   },
+   "formulas": {
+    "TotalMissileDamage": "75/125/175 + 0.25\u00d7AP",
+    "TotalSingleTargetDamage": "(75/125/175 + 0.25\u00d7AP) \u00d7 (1 + ((5 + -1) \u00d7 0.25))",
+    "MultiMissileTotal": "(75/125/175 + 0.25\u00d7AP) \u00d7 0.25",
+    "TotalHealPerWave": "30/50/70 + 0.12\u00d7AP",
+    "EnhancedHealPerWave": "(30/50/70 + 0.12\u00d7AP) \u00d7 ?",
+    "AllyHealingPerc": "1.3+ (by level)"
+   },
+   "tags": [
+    "heal",
+    "shield",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Feline Friendship",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Periodically, when Yuumi strikes a champion with an attack or ability, she restores health to herself and the next ally she Attaches to. While Attached, Yuumi generates a special bond with her allies. The ally with the strongest bond enhances Yuumi's abilities while she is Attached to them.",
+   "summary": "Periodically, when Yuumi strikes a champion with an attack or ability, she restores health to herself and the next ally she Attaches to. While Attached, Yuumi generates a special bond with her allies. The ally with the strongest bond enhances Yuumi's abilities while she is Attached to them.",
+   "values": {
+    "TakedownCompanionship": 2,
+    "HealDelayTime": 4,
+    "MinionKillCompanionship": 2,
+    "PityTimer": 6
+   },
+   "formulas": {
+    "PassiveCooldown": "20+ (by level)",
+    "{656dde8a}": "50+ (by level)",
+    "HealAmount": "20\u2013110 (by level) + 0.3\u00d7AP"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Yuumi is an enchanter support who attaches to an ally and becomes untargetable, giving shields, heals and attack speed while firing Prowling Projectiles. She is almost impossible to kill while attached, but her own damage and crowd control are low.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "Untargetable while attached with You and Me, so she is very hard to kill.",
+   "Shields, heals and attack speed make a fed ally much stronger.",
+   "Prowling Projectile is a slowing poke she can steer, even while attached.",
+   "Final Chapter gives repeated waves that slow and then root when they hit three times.",
+   "Good with a strong carry who likes long fights."
+  ],
+  "weaknesses": [
+   "Very weak when separated from an ally: low stats and no escape.",
+   "Low lane pressure: she cannot all-in or set up kills alone.",
+   "Hard CC only comes from Final Chapter's root after several hits.",
+   "The ally she is attached to becomes the target; if they die, she has nowhere to go.",
+   "Does very little against strong early lanes that kill her ally."
+  ],
+  "curve": {
+   "lvl1": "weak \u2013 low damage; can poke with Q but cannot all-in",
+   "lvl2": "weak \u2013 still low pressure; she mainly shields and pokes",
+   "lvl3": "okay \u2013 can poke and heal; does not win all-ins",
+   "lvl6": "okay \u2013 Final Chapter roots and slows, making it easier for her ally to fight",
+   "items": "medium \u2013 first item: Moonstone Renewer or Echoes of Helia for healing; Staff of Flowing Water and Ardent Censer for attack speed",
+   "late": "strong \u2013 a fed carry with Yuumi on them is hard to kill and does a lot of damage"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Yuumi has little lane pressure; her value is in keeping her ally alive and making them stronger, especially after 6 and items. Fight her ally when she has to detach or after she has used her heal.",
+  "waveClear": "Very low: she cannot clear waves on her own.",
+  "sustain": "High: Zoomies heal and shield her ally.",
+  "mobility": "High while attached; very low when detached.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Prowling Projectile) poke while attached",
+   "engage": "R (Final Chapter) to slow and root the enemy team",
+   "escape": "W (You and Me) to stay untargetable on an ally",
+   "answers": "Untargetable while attached with W."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Feline Friendship: hitting a champion with an attack or ability periodically heals her and the next ally she attaches to; her best-bonded ally empowers her."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block it with a projectile block.",
+    "notes": "Prowling Projectile: a missile she can steer while attached. Deals more damage and slows more after travelling for a while."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "Untargetable while attached",
+    "notes": "You and Me: dashes to an ally and attaches, becoming untargetable. Killing the ally or forcing her to detach exposes her."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Zoomies: a shield and attack speed with move speed while the shield holds; when attached it goes to her ally and restores their mana."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Walk out of the waves, or use Cleanse/QSS for the root. The root is reduced by tenacity.",
+    "notes": "Final Chapter: a 3.5-second channel of five waves she can steer while attached; enemies are damaged and slowed more per wave hit, allies are healed per wave. The root after three hits is not in the description text shown."
+   }
+  },
+  "windowAgainst": "Yuumi's window is when she is detached or her ally is low: focus her ally, who is the real threat, and punish Yuumi whenever she leaves the ally.",
+  "checks": [
+   "Does Yuumi stay attached to an ally during dangerous moments?",
+   "Does the enemy team target Yuumi's ally rather than trying to reach Yuumi?",
+   "Does Yuumi land Final Chapter roots by hitting three waves?",
+   "Check whether Final Chapter roots after three hits; the description shown only lists damage, slow and heals."
+  ]
+ }
+}

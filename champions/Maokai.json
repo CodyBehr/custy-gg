@@ -1,0 +1,361 @@
+{
+ "id": 57,
+ "alias": "Maokai",
+ "name": "Maokai",
+ "title": "the Twisted Treant",
+ "classes": [
+  "tank",
+  "support"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 665,
+  "hpPerLevel": 109,
+  "ad": 64,
+  "adPerLevel": 3.3,
+  "armor": 35,
+  "armorPerLevel": 5.2,
+  "attackSpeed": 0.8,
+  "attackSpeedPerLevel": 2.125,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Bramble Smash",
+   "cooldown": [
+    7,
+    6.5,
+    6,
+    5.5,
+    5
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 600.0,
+   "description": "Maokai smashes his fist into the ground, dealing 75/120/165/210/255 + 0.5×AP plus 2.5/3/3.5/4/4.5% max Health magic damage and briefly Slowing. Nearby enemies are also Knocked Back.",
+   "summary": "Maokai knocks back nearby enemies with a shockwave, dealing magic damage and slowing them.",
+   "values": {
+    "BaseDamage": [
+     75,
+     120,
+     165,
+     210,
+     255
+    ],
+    "SlowAmount": 0.99,
+    "SlowDuration": 0.25,
+    "LolipopRadius": 325,
+    "KnockbackSpeed": 950,
+    "KnockbackDistance": 400,
+    "BasePercentHealth": [
+     0.025,
+     0.03,
+     0.035,
+     0.04,
+     0.045
+    ],
+    "NonChampMax": 9999,
+    "BonusMonsterDamage": [
+     150,
+     160,
+     170,
+     180,
+     190
+    ],
+    "APRatio": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "75/120/165/210/255 + 0.5×AP",
+    "TotalPercentHealth": "0.025/0.03/0.035/0.04/0.045"
+   },
+   "tags": [
+    "airborne",
+    "heal",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Twisted Advance",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 525.0,
+   "description": "Maokai transforms into a moving mass of roots, becoming Untargetable and dashing to an enemy. Upon arrival, he Roots the enemy for 1/1.1/1.2/1.3/1.4 second(s) and deals 60/85/110/135/160 + 0.4×AP magic damage.",
+   "summary": "Maokai contorts into a mass of moving roots, becoming untargetable and dashing to the target. Upon arrival, he roots the target.",
+   "values": {
+    "BaseDamage": [
+     60,
+     85,
+     110,
+     135,
+     160
+    ],
+    "RootDuration": [
+     1,
+     1.1,
+     1.2,
+     1.3,
+     1.4
+    ],
+    "DashSpeed": 1300
+   },
+   "formulas": {
+    "TotalDamage": "60/85/110/135/160 + 0.4×AP"
+   },
+   "tags": [
+    "dash",
+    "root",
+    "untargetable"
+   ]
+  },
+  "E": {
+   "name": "Sapling Toss",
+   "cooldown": [
+    18,
+    17,
+    16,
+    15,
+    14
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    80
+   ],
+   "costType": null,
+   "range": 1100.0,
+   "description": "Maokai flings a sapling, which stands watch for 30 seconds. Saplings chase nearby enemies, detonating on arrival to deal 50/75/100/125/150 + BaseApRatio×AP + 0.05×bonus max HP magic damage and Slow surrounding enemies by 45% for 2 seconds. Sap Magic's Cooldown is reduced by an additional 4 seconds if the sapling hits an enemy champion or epic monster. If placed in brush, Saplings instead last for 30 + 0.015×bonus max HP seconds and cause a larger explosion, dealing 100/150/200/250/300 + 0.5×AP + 0.1×bonus max HP magic damage over 2 seconds and Slowing enemies by 0.45 + 0.0×AP + (0.01 × 0.01)×bonus max HP.",
+   "summary": "Maokai flings a sapling to the target area to stand guard. More effective in brush.",
+   "values": {
+    "SaplingDuration": 30,
+    "BaseDamage": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "GrowthDuration": 0.5,
+    "SlowAmount": 0.45,
+    "SlowDuration": 2,
+    "EmpoweredDoTDuration": 2,
+    "EmpoweredBaseDamage": [
+     100,
+     150,
+     200,
+     250,
+     300
+    ],
+    "SaplingDetectionRadius": 550,
+    "BaseEmpoweredSlowAmount": 0.45,
+    "MaxTraps": 25000,
+    "BaseAPRatio": 0.25,
+    "EmpoweredAPRatio": 0.5
+   },
+   "formulas": {
+    "EmpoweredSaplingDuration": "30 + 0.015×bonus max HP",
+    "TotalDamage": "50/75/100/125/150 + BaseApRatio×AP + 0.05×bonus max HP",
+    "TotalEmpoweredDamage": "100/150/200/250/300 + 0.5×AP + 0.1×bonus max HP",
+    "EmpoweredSlowAmount": "0.45 + 0.0×AP + (0.01 × 0.01)×bonus max HP",
+    "SaplingMoveSpeed": "400+ (by level)"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Nature's Grasp",
+   "cooldown": [
+    130,
+    110,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 3000.0,
+   "description": "Maokai summons a colossal wave of brambles and thorns, Rooting enemies for 0.75 to 2.25 seconds, increasing with distance travelled, and dealing 150/225/300 + 0.75×AP magic damage. Hitting a champion gives Maokai 40/50/60% Move Speed, decaying over 2 seconds.",
+   "summary": "Maokai summons a colossal wall of brambles and thorns that slowly advances forwards, damaging and rooting any enemies in the path.",
+   "values": {
+    "MinRootDuration": 0.75,
+    "MaxRootDuration": 2.25,
+    "BaseDamage": [
+     150,
+     225,
+     300
+    ],
+    "MoveHaste": [
+     0.4,
+     0.5,
+     0.6
+    ],
+    "HasteDuration": 2,
+    "RootDuration": 0.6
+   },
+   "formulas": {
+    "TotalDamage": "150/225/300 + 0.75×AP"
+   },
+   "tags": [
+    "move speed",
+    "root"
+   ]
+  },
+  "Passive": {
+   "name": "Sap Magic",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Maokai's basic attack also heals him and deals additional damage on a moderate cooldown. Each time Maokai casts a spell or is struck by an enemy's spell, this cooldown is reduced.",
+   "summary": "Maokai's basic attack also heals him and deals additional damage on a moderate cooldown. Each time Maokai casts a spell or is struck by an enemy's spell, this cooldown is reduced.",
+   "values": {
+    "PassiveCooldownReduction": 4,
+    "PassiveHealthThreshold": 0.95,
+    "JungPassCooldownReduction": 1.5
+   },
+   "formulas": {
+    "PassiveCooldown": "30–20 (by level)",
+    "PassiveHealingTotal": "0.04+ (by level)×max HP"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Tank who engages with an untargetable W root and controls fights with saplings and R wave. His passive heals him on attack.",
+  "positions": [
+   "UTILITY",
+   "TOP",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "W is an untargetable dash that roots",
+   "R long root wave",
+   "Saplings give vision/poke",
+   "Passive sustain",
+   "Tanky"
+  ],
+  "weaknesses": [
+   "Low damage",
+   "Kitable",
+   "Mana-hungry",
+   "Short W range",
+   "Weak scaling"
+  ],
+  "curve": {
+   "lvl1": "medium – Q",
+   "lvl2": "strong – W root",
+   "lvl3": "strong – E saplings",
+   "lvl6": "strong – R wave",
+   "items": "medium – tank items",
+   "late": "medium – engage"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Trades with W root + Q.",
+  "waveClear": "medium – E saplings",
+  "sustain": "high – passive heal on attack",
+  "mobility": "low – W only",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "W",
+    "R"
+   ],
+   "escape": [],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "knockback",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Knocks back nearby."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "untargetable",
+    "notes": "Untargetable dash then root."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Saplings chase."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Root longer with distance."
+   },
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Heal on attack."
+   }
+  },
+  "windowAgainst": "W on cooldown: he can't engage.",
+  "checks": []
+ }
+}

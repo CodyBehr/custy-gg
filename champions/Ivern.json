@@ -1,0 +1,336 @@
+{
+ "id": 427,
+ "alias": "Ivern",
+ "name": "Ivern",
+ "title": "the Green Father",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 99,
+  "ad": 50,
+  "adPerLevel": 3,
+  "armor": 27,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.644,
+  "attackSpeedPerLevel": 3.4,
+  "range": 475,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Rootcaller",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 1125.0,
+   "description": "Ivern conjures a vine dealing 80/125/170/215/260 + 0.7×AP magic damage and Rooting the first enemy hit for 1.6/1.7/1.8/1.9/2 seconds. Allies that Attack a Rooted enemy dash into Attack Range. Recast: Ivern dashes directly onto the Rooted enemy. Hitting non-epic monsters reduces Rootcaller's cooldown by 50%.",
+   "summary": "Ivern conjures a vine, dealing damage and rooting enemy targets hit. Ivern's allies can dash to the rooted target.",
+   "values": {
+    "DashSpeed": 1500,
+    "BaseDamage": [
+     80,
+     125,
+     170,
+     215,
+     260
+    ],
+    "RootDuration": [
+     1.6,
+     1.7,
+     1.8,
+     1.9,
+     2
+    ],
+    "APRatio": 0.7
+   },
+   "formulas": {
+    "TotalDamage": "80/125/170/215/260 + 0.7×AP"
+   },
+   "tags": [
+    "dash",
+    "root"
+   ]
+  },
+  "W": {
+   "name": "Brushmaker",
+   "cooldown": 0.5,
+   "cost": 30,
+   "costType": null,
+   "range": 1150.0,
+   "description": "Passive: While in brush and for 3 seconds after leaving, Ivern's Attacks deal an additional 20/27.5/35/42.5/50 + 0.2×AP magic damage. Nearby allies will gain this effect for 1.5 seconds and deal 10/15/20/25/30 + 0.1×AP magic damage. Active: Ivern grows a patch of Brush, revealing the area for 8 seconds. The Brush persists until Ivern's team loses vision within it, or up to 45 seconds.",
+   "summary": "In brush, Ivern and his nearby allies attacks deal bonus magic damage. Ivern can activate this ability to create a patch of brush.",
+   "values": {
+    "BuffDuration": 3,
+    "AllyBuffDuration": 1.5,
+    "BaseDamage": [
+     20,
+     27.5,
+     35,
+     42.5,
+     50
+    ],
+    "AllyBaseDamage": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "RevealDuration": 8,
+    "MaxBrushDuration": 45,
+    "BrushRadius": 190,
+    "BrushSpacing": 90
+   },
+   "formulas": {
+    "TotalDamage": "20/27.5/35/42.5/50 + 0.2×AP",
+    "TotalAllyDamage": "10/15/20/25/30 + 0.1×AP"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Triggerseed",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 750.0,
+   "description": "Ivern grants 75/115/155/195/235 + 0.5×AP Shield to an ally champion or Daisy. After 2 seconds, it bursts, dealing 70/90/110/130/150 + 0.8×AP magic damage and Slowing enemies by 40/45/50/55.0/60% for 2 seconds. If Triggerseed detonates and no enemy champions are hit while the shield still persists, the ally will be shielded for 75/115/155/195/235 + 0.5×AP for 2 seconds.",
+   "summary": "Ivern places a shield on an ally which explodes after a short duration slowing and damaging enemies. The shield refreshes if it hits no enemies.",
+   "values": {
+    "BaseShield": [
+     75,
+     115,
+     155,
+     195,
+     235
+    ],
+    "ShieldAPRatio": 0.5,
+    "BaseDamage": [
+     70,
+     90,
+     110,
+     130,
+     150
+    ],
+    "DamageAPRatio": 0.8,
+    "SlowAmount": [
+     0.4,
+     0.45,
+     0.5,
+     0.55,
+     0.6
+    ],
+    "SlowDuration": 2,
+    "ShieldDuration": 2
+   },
+   "formulas": {
+    "TotalShield": "75/115/155/195/235 + 0.5×AP",
+    "TotalDamage": "70/90/110/130/150 + 0.8×AP"
+   },
+   "tags": [
+    "shield",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Daisy!",
+   "cooldown": [
+    140,
+    130,
+    120
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 600.0,
+   "description": "Ivern summons his sentinel friend Daisy to leap into the fray for 45 seconds. Daisy, Slam!: Daisy's 3rd consecutive Attack on the same champion or epic monster will launch a shockwave, dealing 90/140/190 + 0.5×AP magic damage to all enemies hit as well as Knocking Up for 1 second. This effect can only occur once every 3 seconds. Recast: Instruct Daisy to Attack or move.",
+   "summary": "Ivern summons his Sentinel friend Daisy to fight with him. Re-cast command Daisy to attack or move.",
+   "values": {
+    "SpawnBuffDuration": 5,
+    "MSOnSpawn": 40,
+    "DROnSpawn": 25,
+    "DaisyAS": [
+     30,
+     45,
+     60
+    ],
+    "DaisyAD": [
+     70,
+     100,
+     130
+    ],
+    "DaisyAoeDR": 25,
+    "DaisyDuration": 45,
+    "ShockwaveBaseDamage": [
+     90,
+     140,
+     190
+    ],
+    "ShockwaveCCDuration": 1,
+    "ShockwaveCD": 3
+   },
+   "formulas": {
+    "TotalBonusResists": "30+ (by level)",
+    "TotalDaisyHP": "1000+ (by level) + 0.5×AP",
+    "TotalDaisyAD": "70/100/130 + 0.15×AP",
+    "TotalShockwaveDamage": "90/140/190 + 0.5×AP"
+   },
+   "tags": [
+    "airborne",
+    "dash"
+   ]
+  },
+  "Passive": {
+   "name": "Friend of the Forest",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Ivern cannot attack or be attacked by non-epic monsters. Ivern can create magical groves on jungle camps which grow over time. When the grove is fully grown, Ivern may free the monsters to receive gold and experience.",
+   "summary": "Ivern cannot attack or be attacked by non-epic monsters. Ivern can create magical groves on jungle camps which grow over time. When the grove is fully grown, Ivern may free the monsters to receive gold and experience.",
+   "values": {
+    "LevelForBuffShare": 5,
+    "PickupDuration": 60,
+    "KrugExperience": 58,
+    "KrugGold": 84,
+    "ModeSpeedOverride": 1
+   },
+   "formulas": {
+    "HarvestDuration": "(40+ (by level)) × 1",
+    "HealthCostPercent": "15+ (by level)",
+    "{c6433908}": "20+ (by level)",
+    "HealthTooltip": "(15+ (by level)) × 0.01×max HP",
+    "ManaTooltip": "(c6433908) × ?"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Enchanter jungler who frees camps without attacking and supports allies with shields and roots. His Q root lets allies dash in and Daisy adds damage and a knock-up.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Q root and dash for allies",
+   "E shield and slow",
+   "Daisy knock-up",
+   "W brush control",
+   "Safe clear"
+  ],
+  "weaknesses": [
+   "Low damage",
+   "Weak duels",
+   "Invadable",
+   "Depends on team",
+   "Falls off alone"
+  ],
+  "curve": {
+   "lvl1": "weak – no attack camps",
+   "lvl2": "medium – Q root",
+   "lvl3": "medium – gank",
+   "lvl6": "strong – Daisy",
+   "items": "medium – enchanter",
+   "late": "medium – utility"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Doesn't trade alone; ganks with Q root.",
+  "waveClear": "low",
+  "sustain": "low",
+  "mobility": "medium – Q recast dash",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "E"
+   ],
+   "engage": [
+    "Q",
+    "R"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Root; allies dash in."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Brush."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Shield bursts after 2 s."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Daisy third hit knocks up."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Frees camps."
+   }
+  },
+  "windowAgainst": "Q down: no CC; invade.",
+  "checks": []
+ }
+}

@@ -1,0 +1,351 @@
+{
+ "id": 35,
+ "alias": "Shaco",
+ "name": "Shaco",
+ "title": "the Demon Jester",
+ "classes": [
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kMixed",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 99,
+  "ad": 63,
+  "adPerLevel": 3,
+  "armor": 30,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.694,
+  "attackSpeedPerLevel": 3,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Deceive",
+   "cooldown": [
+    13,
+    12.5,
+    12,
+    11.5,
+    11
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 400.0,
+   "description": "Shaco teleports and becomes Invisible for 2.5/2.75/3/3.25/3.5 seconds. Using Jack In The Box or Hallucinate does not break Invisibility. Shaco's next Attack while Invisible deals an additional 25/35/45/55/65 + 0.6\u00d7bonus AD physical damage. If striking from behind, this Attack critically strikes for (1 + (0.6 \u00d7 (1\u00d7stat + -1))) damage.",
+   "summary": "Shaco becomes Invisible and teleports to target location. His first attack while Invisible is empowered, dealing bonus damage and critically striking if he attacks from behind.",
+   "values": {
+    "BaseDamage": [
+     25,
+     35,
+     45,
+     55,
+     65
+    ],
+    "StealthDuration": [
+     2.5,
+     2.75,
+     3,
+     3.25,
+     3.5
+    ],
+    "CDRefund": 2.5,
+    "ExtraAATime": 0.25,
+    "PseudoCastTime": 0.125,
+    "BonusADRatio": 0.6,
+    "NonCritBackstabMod": 0.6
+   },
+   "formulas": {
+    "TotalDamage": "25/35/45/55/65 + 0.6\u00d7bonus AD",
+    "QCritDamageMod": "(1 + (0.6 \u00d7 (1\u00d7stat + -1)))"
+   },
+   "tags": [
+    "blink",
+    "empowered attack",
+    "stealth"
+   ]
+  },
+  "W": {
+   "name": "Jack In The Box",
+   "cooldown": 15,
+   "cost": [
+    65,
+    60,
+    55,
+    50,
+    50
+   ],
+   "costType": null,
+   "range": 500.0,
+   "description": "Shaco creates a trap that stealths itself after 2 seconds and lasts for 40 + 0.1\u00d7AP seconds. It activates when an enemy comes near or when revealed, Fearing nearby enemy Champions for 0.5/0.75/1/1.25/1.5 seconds, or 2 seconds for minions and jungle monsters. Once activated, the trap fires at all nearby enemies for 5 seconds, dealing 10/15/20/25/30 + 0.12\u00d7AP magic damage, or 25/40/55/70/85 + 0.18\u00d7AP damage if focused on a single target. Jack in the Box's attacks deal an additional 20/35/50/65/80 damage to monsters.",
+   "summary": "Shaco creates a hidden animated Jack-in-the-Box. When triggered, it will fear and attack nearby enemies.",
+   "values": {
+    "AoEBaseDamage": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "STBaseDamage": [
+     25,
+     40,
+     55,
+     70,
+     85
+    ],
+    "MinionFearDuration": 2,
+    "MonsterBonusDamage": [
+     20,
+     35,
+     50,
+     65,
+     80
+    ],
+    "MaxTraps": 25000,
+    "FearDuration": [
+     0.5,
+     0.75,
+     1,
+     1.25,
+     1.5
+    ],
+    "WAoEAPRatio": 0.12,
+    "WSingleTargetAPRatio": 0.18,
+    "BoxDuration": 40,
+    "ArmTime": 2
+   },
+   "formulas": {
+    "AoEDamage": "10/15/20/25/30 + 0.12\u00d7AP",
+    "STDamage": "25/40/55/70/85 + 0.18\u00d7AP",
+    "TrapDuration": "40 + 0.1\u00d7AP"
+   },
+   "tags": [
+    "fear",
+    "stealth"
+   ]
+  },
+  "E": {
+   "name": "Two-Shiv Poison",
+   "cooldown": 8,
+   "cost": 75,
+   "costType": null,
+   "range": 625.0,
+   "description": "Passive: While this Ability is off Cooldown, Shaco's Attacks Slow the target by 20/22.5/25/27.5/30% for 2 seconds. Active: Shaco throws a shiv, dealing 70/95/120/145/170 + 0.8\u00d7bonus AD + 0.6\u00d7AP magic damage and Slowing by 20/22.5/25/27.5/30% for 3 seconds. If the target has less than 30% Health, the shiv deals (70/95/120/145/170 + 0.8\u00d7bonus AD + 0.6\u00d7AP) \u00d7 1.5 damage instead.",
+   "summary": "Shaco's Shivs passively poison targets on hit, slowing their Move Speed. He can throw his Shivs to deal damage and poison the target. The thrown Shiv deals bonus damage if the target is below 30% health.",
+   "values": {
+    "BaseDamage": [
+     70,
+     95,
+     120,
+     145,
+     170
+    ],
+    "ExecuteDamagePercent": 1.5,
+    "ExecuteHealthThreshold": 0.3,
+    "SlowAmount": [
+     -0.2,
+     -0.225,
+     -0.25,
+     -0.275,
+     -0.3
+    ],
+    "SlowDurationPassive": 2,
+    "SlowDurationActive": 3,
+    "APRatio": 0.6,
+    "BonusADRatio": 0.8
+   },
+   "formulas": {
+    "TotalDamage": "70/95/120/145/170 + 0.8\u00d7bonus AD + 0.6\u00d7AP",
+    "TotalExecuteDamage": "(70/95/120/145/170 + 0.8\u00d7bonus AD + 0.6\u00d7AP) \u00d7 1.5"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Hallucinate",
+   "cooldown": [
+    100,
+    90,
+    80
+   ],
+   "cost": [
+    100,
+    100,
+    75
+   ],
+   "costType": null,
+   "range": 200.0,
+   "description": "Shaco briefly disappears, then reappears with a clone that lasts 18 seconds and detonates when it dies, dealing 150/225/300 + 0.7\u00d7AP magic damage and spawning three mini Jack in the Boxes that trigger immediately. The clone deals 60% of Shaco's damage and receives 50% increased damage. Mini Jack in the Boxes deal 10/20/30 + 0.1\u00d7AP magic damage, or 25/50/75 + 0.15\u00d7AP magic damage if firing at only one enemy, and Fear for 1 second.",
+   "summary": "Shaco creates an illusion of himself near him, which can attack nearby enemies (Deals reduced damage to turrets). Upon death, it explodes, spawning three mini Jack in the Boxes and dealing damage to nearby enemies.",
+   "values": {
+    "TeleportRange": 150,
+    "STBaseDamage": [
+     25,
+     50,
+     75
+    ],
+    "AoEBaseDamage": [
+     10,
+     20,
+     30
+    ],
+    "CloneAADamagePercent": 0.6,
+    "CloneIncomingDamagePercent": 0.5,
+    "BoxFearDuration": 1,
+    "ExplosionBaseDamage": [
+     150,
+     225,
+     300
+    ],
+    "BoxArmTime": 2,
+    "BoxLifetime": 6,
+    "CloneLifetime": 18
+   },
+   "formulas": {
+    "STDamage": "25/50/75 + 0.15\u00d7AP",
+    "AoEDamage": "10/20/30 + 0.1\u00d7AP",
+    "ExplosionTotalDamage": "150/225/300 + 0.7\u00d7AP"
+   },
+   "tags": [
+    "fear"
+   ]
+  },
+  "Passive": {
+   "name": "Backstab",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Shaco's basic attacks and Two-Shiv Poison deal additional damage when striking from behind.",
+   "summary": "Shaco's basic attacks and Two-Shiv Poison deal additional damage when striking from behind.",
+   "values": {
+    "PerUnitCD": 3,
+    "MonsterCritMod": 2,
+    "APRatio": 0.4,
+    "CloneMult": 0.75,
+    "ShivSlowAmount": -0.4,
+    "ShredDuration": 4,
+    "ShivExecuteDamagePercent": 1.5,
+    "AttackBonusADRatio": 0.2
+   },
+   "formulas": {
+    "MonsterDamageTooltip": "(2 + 1\u00d7bonus stat)\u00d7AD + 0.4\u00d7AP",
+    "BasicAttackDamage": "20\u201335 (by level) + 0.2\u00d7bonus AD",
+    "ShivDamage": "15\u201350 (by level) + 0.1\u00d7AP",
+    "ShivDamageExecute": "(15\u201350 (by level) + 0.1\u00d7AP) \u00d7 1.5"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Shaco is a stealth assassin jungler who teleports and becomes invisible with Deceive, traps areas with Jack In The Box and confuses enemies with Hallucinate's clone. He plays jungle or support, ganking from invisibility and playing mind games.",
+  "positions": [
+   "JUNGLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Deceive teleports and turns him invisible, so he ganks from unexpected angles.",
+   "Jack In The Box fears and deals damage, strong for counter-jungling and defense.",
+   "Hallucinate's clone confuses enemies and explodes into mini boxes when killed.",
+   "Backstab adds damage from behind, and Deceive's attack critically strikes from behind.",
+   "Two-Shiv Poison slows, and deals more damage to low-health targets."
+  ],
+  "weaknesses": [
+   "Weak against good vision: Control Wards and Oracle Lens reveal him and his boxes.",
+   "Squishy: he dies quickly if caught after Deceive.",
+   "Weak in teamfights: he mostly picks off single targets.",
+   "Falls off if he can't get early kills.",
+   "Hard to play well: his boxes and clone need planning."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 Jack In The Box placement wins camps and invades",
+   "lvl2": "strong \u2013 Deceive into backstab is a burst gank",
+   "lvl3": "strong \u2013 E slow plus box fear make ganks stick",
+   "lvl6": "strong \u2013 Hallucinate's clone confuses fights and explodes into mini boxes",
+   "items": "medium \u2013 first item: Lethality like Youmuu's Ghostblade, or AP with box damage",
+   "late": "okay \u2013 picks off but weak in teamfights"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Shaco is strong early with boxes, and wants to snowball through early ganks.",
+  "waveClear": "Okay: boxes clear camps.",
+  "sustain": "Low: no healing.",
+  "mobility": "High: Q teleport and invisibility.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "Q (Deceive) invisibility into a backstab",
+   "engage": "W (Jack In The Box) fear",
+   "escape": "R (Hallucinate) to confuse",
+   "answers": "Hallucinate briefly makes him disappear."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Backstab: extra damage from behind."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "Jax E dodges the attack; Fiora W parries it.",
+    "notes": "Deceive: teleport, invisibility, and next attack from behind crits."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "fear",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Sweep with Oracle Lens; Cleanse/QSS removes the fear.",
+    "notes": "Jack In The Box: an invisible box that fears and shoots."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Spell shields block it; point and click.",
+    "notes": "Two-Shiv Poison: thrown shiv slows; more damage on low-health targets."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Hallucinate: briefly disappears, then creates a clone that explodes into mini boxes."
+   }
+  },
+  "windowAgainst": "Shaco's window is when Deceive is on cooldown: he has no escape. Use Control Wards and Oracle Lens to deny his ganks.",
+  "checks": [
+   "Does Shaco use boxes to defend camps?",
+   "Does Shaco gank with Deceive?",
+   "Does the enemy team ward against Shaco?",
+   "Check whether Hallucinate's brief disappearance makes Shaco untargetable."
+  ]
+ }
+}

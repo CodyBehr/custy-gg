@@ -1,0 +1,318 @@
+{
+ "id": 17,
+ "alias": "Teemo",
+ "name": "Teemo",
+ "title": "the Swift Scout",
+ "classes": [
+  "marksman",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 615,
+  "hpPerLevel": 104,
+  "ad": 54,
+  "adPerLevel": 3,
+  "armor": 24,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.69,
+  "attackSpeedPerLevel": 3.38,
+  "range": 500,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Blinding Dart",
+   "cooldown": 7,
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    95
+   ],
+   "costType": null,
+   "range": 680.0,
+   "description": "Teemo fires a dart, Blinding the target for 2/2.25/2.5/2.75/3 seconds and dealing 80/125/170/215/260 + 0.7\u00d7AP magic damage.",
+   "summary": "Obscures an enemy's vision with a powerful venom, dealing damage to the target unit and blinding it for the duration.",
+   "values": {
+    "BaseDamage": [
+     80,
+     125,
+     170,
+     215,
+     260
+    ],
+    "APRatio": 0.7,
+    "BlindDuration": [
+     2,
+     2.25,
+     2.5,
+     2.75,
+     3
+    ],
+    "MissChance": 1,
+    "MinionMonsterDurationMod": 2
+   },
+   "formulas": {
+    "CalculatedDamage": "80/125/170/215/260 + 0.7\u00d7AP",
+    "{0f87e4ba}": "(2/2.25/2.5/2.75/3) \u00d7 2"
+   },
+   "tags": [
+    "blind"
+   ]
+  },
+  "W": {
+   "name": "Move Quick",
+   "cooldown": 14,
+   "cost": 40,
+   "costType": null,
+   "range": 20.0,
+   "description": "Passive: Teemo gains 12/16/20/24/28.0% Move Speed while he hasn't been damaged by a champion or turret in the last 5 seconds. Active: Teemo sprints, gaining 24/32/40/48/56.0% Move Speed that is not lost when struck for 3 seconds.",
+   "summary": "Teemo scampers around, passively increasing his Move Speed until he is struck by an enemy champion or turret. Teemo can sprint to gain bonus Move Speed that isn't stopped by being struck for a short time.",
+   "values": {
+    "PassiveMoveSpeedBonus": [
+     0.12,
+     0.16,
+     0.2,
+     0.24,
+     0.28
+    ],
+    "ActiveMoveSpeedBuffDuration": 3,
+    "ActiveMoveSpeedBonus": [
+     0.24,
+     0.32,
+     0.4,
+     0.48,
+     0.56
+    ],
+    "PassiveCooldownOnDamageTaken": 5
+   },
+   "formulas": {},
+   "tags": [
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Toxic Shot",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": 680.0,
+   "description": "Passive: Teemo's Attacks apply poison %i:OnHit% On-Hit, dealing an additional 9/23/37/51/65 + 0.3\u00d7AP + 0.05\u00d7bonus AD magic damage plus (6/12/18/24/30 + 0.1\u00d7AP + 0.025\u00d7bonus AD) \u00d7 4 magic damage over 4 seconds.",
+   "summary": "Each of Teemo's attacks will poison the target %i:OnHit% On-Hit, dealing damage on impact and each second after for 4 seconds.",
+   "values": {
+    "TickBaseDamage": [
+     6,
+     12,
+     18,
+     24,
+     30
+    ],
+    "TickAPRatio": 0.1,
+    "ImpactBaseDamage": [
+     9,
+     23,
+     37,
+     51,
+     65
+    ],
+    "ImpactAPRatio": 0.3,
+    "PoisonDuration": 4,
+    "TickFrequency": 1,
+    "MonsterMod": 1.6,
+    "TickBonusADRatio": 0.025,
+    "ImpactBonusADRatio": 0.05
+   },
+   "formulas": {
+    "TickCalculatedDamage": "6/12/18/24/30 + 0.1\u00d7AP + 0.025\u00d7bonus AD",
+    "ImpactCalculatedDamage": "9/23/37/51/65 + 0.3\u00d7AP + 0.05\u00d7bonus AD",
+    "TotalDotDamage": "(6/12/18/24/30 + 0.1\u00d7AP + 0.025\u00d7bonus AD) \u00d7 4",
+    "{8b70cfd6}": "(9/23/37/51/65 + 0.3\u00d7AP + 0.05\u00d7bonus AD) \u00d7 monstermod",
+    "{938cba49}": "(6/12/18/24/30 + 0.1\u00d7AP + 0.025\u00d7bonus AD) \u00d7 monstermod"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Noxious Trap",
+   "cooldown": 0.25,
+   "cost": [
+    55,
+    35,
+    35
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "Teemo tosses a mushroom trap that detonates when stepped on. The traps Slow by 30/40/50% and deal 200/325/450 + 0.5\u00d7AP magic damage over 4 seconds. Enemies are revealed for the same duration. Traps last 5 minutes and are stealthed. A mushroom tossed onto another mushroom bounces before landing at its position. This Ability has 3/4/5 charges ((varies) second refresh).",
+   "summary": "Teemo throws an explosive poisonous trap using one of the mushrooms stored in his pack. If an enemy steps on the trap, it will release a poisonous cloud, slowing enemies and damaging them over time. If Teemo throws a mushroom onto another mushroom it will bounce, gaining additional range.",
+   "values": {
+    "TriggerRadius": 160,
+    "MaxAmmo": [
+     3,
+     4,
+     5
+    ],
+    "MaxBounceDistance": [
+     360,
+     440,
+     550
+    ],
+    "ArmTime": 1,
+    "MushroomDuration": 5,
+    "BaseDamage": [
+     200,
+     325,
+     450
+    ],
+    "SlowAmount": [
+     30,
+     40,
+     50
+    ],
+    "DebuffDuration": 4,
+    "APRatioPerTick": 0.5,
+    "ExplosionRadius": 450,
+    "MaxTraps": 25000,
+    "MinTossDistanceBounceThreshold": [
+     220,
+     500,
+     500
+    ],
+    "VisionRadius": 210
+   },
+   "formulas": {
+    "TotalDamage": "200/325/450 + 0.5\u00d7AP"
+   },
+   "tags": [
+    "slow",
+    "stealth"
+   ]
+  },
+  "Passive": {
+   "name": "Guerrilla Warfare",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "If Teemo stands still and takes no actions for a short duration, he becomes Invisible indefinitely. If he's in brush, Teemo can enter and maintain his Invisibility while moving. After leaving Invisibility, Teemo gains the Element of Surprise, increasing his Attack Speed for a few seconds.",
+   "summary": "If Teemo stands still and takes no actions for a short duration, he becomes Invisible indefinitely. If he's in brush, Teemo can enter and maintain his Invisibility while moving. After leaving Invisibility, Teemo gains the Element of Surprise, increasing his Attack Speed for a few seconds.",
+   "values": {
+    "AttackSpeedDuration": 5,
+    "StealthCooldownDuration": 1.5
+   },
+   "formulas": {
+    "BonusAttackSpeed": "0.2+ (by level)"
+   },
+   "tags": [
+    "attack speed",
+    "stealth"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Teemo is a ranged top laner who harasses melee champions with Toxic Shot and shuts down auto attackers with Blinding Dart. He controls the map with stealthed Noxious Trap mushrooms.",
+  "positions": [
+   "TOP",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Blinding Dart blinds the target, so auto attackers cannot trade back.",
+   "Toxic Shot adds poison to every attack, so short trades keep dealing damage.",
+   "Ranged against melee champions, with W passive move speed to dodge and kite.",
+   "Noxious Traps slow, damage, and give vision, controlling the map late.",
+   "Guerrilla Warfare makes him invisible while standing still, so he can ambush."
+  ],
+  "weaknesses": [
+   "Squishy: dies quickly when caught.",
+   "No hard CC: his only CC is blind and slow.",
+   "Weak in teamfights compared to other top laners.",
+   "Mushrooms can be cleared by Oracle Lens and control wards.",
+   "Struggles against ranged top laners and champions who can ignore blind."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 range and Toxic Shot against melee champions",
+   "lvl2": "strong \u2013 Blinding Dart stops auto attackers from trading back",
+   "lvl3": "strong \u2013 W active move speed lets him kite melee all-ins",
+   "lvl6": "good \u2013 Noxious Traps zone areas and give vision",
+   "items": "medium \u2013 first item: Nashor's Tooth or Liandry's Torment for AP; or on-hit items",
+   "late": "okay \u2013 zones with mushrooms but is weak in teamfights"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Teemo is strong from level 1 thanks to range and blind against melee champions. Mushrooms make him a map-control threat later.",
+  "waveClear": "Okay: poison on attacks clears waves slowly.",
+  "sustain": "Low: no healing.",
+  "mobility": "Good: W passive and active move speed.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Blinding Dart) blind, then auto attacks with Toxic Shot",
+   "engage": "R (Noxious Trap) to zone areas",
+   "escape": "W (Move Quick) to escape",
+   "answers": "None. Teemo has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Guerrilla Warfare: invisible after standing still or moving through brush; attack speed after leaving invisibility."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "blind",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Cleanse removes blind; point-and-click, so it cannot be dodged.",
+    "notes": "Blinding Dart: a point-and-click blind; stops auto attacks."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Move Quick: passive move speed while not damaged; active doubles it and isn't lost when hit."
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "Jax E dodges; Fiora W parries.",
+    "notes": "Toxic Shot: poison on his attacks."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Sweep with Oracle Lens.",
+    "notes": "Noxious Trap: invisible mushrooms that slow, poison and reveal."
+   }
+  },
+  "windowAgainst": "Teemo's window is when Blinding Dart is on cooldown: he cannot stop auto attacks, and has no escape apart from move speed.",
+  "checks": [
+   "Does Teemo use Blinding Dart against auto attackers?",
+   "Does Teemo place mushrooms where enemies will walk?",
+   "Do enemies sweep mushrooms with Oracle Lens?"
+  ]
+ }
+}

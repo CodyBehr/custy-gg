@@ -1,0 +1,339 @@
+{
+ "id": 112,
+ "alias": "Viktor",
+ "name": "Viktor",
+ "title": "the Herald of the Arcane",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 105,
+  "ad": 53,
+  "adPerLevel": 3,
+  "armor": 23,
+  "armorPerLevel": 4.4,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2.11,
+  "range": 525,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Siphon Power",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": [
+    50,
+    55,
+    60,
+    65,
+    70
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "Viktor blasts an enemy, dealing 60/75/90/105/120 + 0.4×AP magic damage and granting Viktor 30–130 (by level) + 0.2×AP Shield for 2.5 seconds. Viktor's next Attack within 4 seconds deals 20/45/70/95/120 + 0.5×AP + 1×AD magic damage. Upgraded: Grants (30–130 (by level) + 0.2×AP) × 1.6 Shield and Viktor additionally gains 30% Move Speed for 2.5 seconds.",
+   "summary": "Viktor blasts an enemy unit with magic damage, which grants him a shield and empowers his next basic attack. Augment: Siphon Power's shield is increased by 60% and Viktor gains bonus move speed after casting the Ability.",
+   "values": {
+    "MissileDamage": [
+     60,
+     75,
+     90,
+     105,
+     120
+    ],
+    "AABonusDamage": [
+     20,
+     45,
+     70,
+     95,
+     120
+    ],
+    "BuffDuration": 2.5,
+    "MissileAPRatio": 0.4,
+    "HitAPRatio": 0.5,
+    "ShieldManaRatio": 0.08,
+    "ShieldAPRatio": 0.2,
+    "AugmentShieldBonus": 1.6,
+    "AugmentMoveSpeedBonus": 30,
+    "TurretDamageMod": 1
+   },
+   "formulas": {
+    "TotalMissileDamage": "60/75/90/105/120 + 0.4×AP",
+    "AttackTotalDMG": "20/45/70/95/120 + 0.5×AP + 1×AD",
+    "{147c7de9}": "1×AD",
+    "ShieldLevelScaling": "30–130 (by level) + 0.2×AP",
+    "TotalAugmentedShieldValue": "(30–130 (by level) + 0.2×AP) × 1.6"
+   },
+   "tags": [
+    "empowered attack",
+    "move speed",
+    "shield"
+   ]
+  },
+  "W": {
+   "name": "Gravity Field",
+   "cooldown": [
+    17,
+    16,
+    15,
+    14,
+    13
+   ],
+   "cost": 65,
+   "costType": null,
+   "range": 800.0,
+   "description": "Viktor deploys a gravitational imprisonment device for 4 seconds, Slowing enemies inside it by 33/36/39/42/45%. Enemies who remain within its radius for 1.25 seconds are Stunned for 1.5 seconds. Upgraded Passive: Viktor's Abilities Slow by 20% for 1 second.",
+   "summary": "Viktor conjures a heavy gravitational field that slows enemies caught within its radius. Enemies who stay in the field for too long become stunned. Augment: Viktor's spells apply a slow to enemies.",
+   "values": {
+    "SlowPotency": [
+     -33,
+     -36,
+     -39,
+     -42,
+     -45
+    ],
+    "StunDuration": 1.5,
+    "FieldDuration": 4,
+    "StackCadence": 0.5,
+    "StacksForStun": 6,
+    "SlowDuration": 1,
+    "AugmentSlow": 20,
+    "Size": 275
+   },
+   "formulas": {},
+   "tags": [
+    "slow",
+    "stun"
+   ]
+  },
+  "E": {
+   "name": "Hextech Ray",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    100
+   ],
+   "costType": null,
+   "range": 525.0,
+   "description": "Viktor fires a hextech ray in a chosen direction, dealing 70/110/150/190/230 + 0.5×AP magic damage to any enemies it hits. Upgraded: An aftershock follows Hextech Ray, dealing 20/50/80/110/140 + 0.8×AP magic damage.",
+   "summary": "Viktor uses his biomechanical arm to fire a Hextech Ray that cuts across the field in a line, dealing damage to all enemies in its path. Augment: An explosion follows in the Hextech Ray's wake, dealing magic damage.",
+   "values": {
+    "LaserRange": 700,
+    "BaseDamageLaser": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "BaseDamageAftershock": [
+     20,
+     50,
+     80,
+     110,
+     140
+    ],
+    "Delay": 1,
+    "LaserAPRatio": 0.5,
+    "AftershockAPRatio": 0.8,
+    "AftershockMinionMulti": 0.5
+   },
+   "formulas": {
+    "LaserDamage": "70/110/150/190/230 + 0.5×AP",
+    "AftershockDamage": "20/50/80/110/140 + 0.8×AP",
+    "{86b88e5d}": "(20/50/80/110/140 + 0.8×AP) × 0.5"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Arcane Storm",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 700.0,
+   "description": "Viktor conjures an Arcane Storm in an area for 6.5 seconds, which instantly deals 100/175/250 + 0.6×AP magic damage followed by 65/105/145 + 0.35×AP magic damage per second to surrounding enemies. The storm automatically follows champions it has recently damaged. Recast: Viktor can manually move the storm. Upgraded: The storm moves 25% faster. If a champion that the storm has damaged dies, the storm increases its size and its duration by 3 seconds (up to 6 times).",
+   "summary": "Viktor conjures an Arcane Storm on the field, dealing magic damage and interrupting enemy channels. The storm periodically does magic damage to all nearby enemies and can be redirected by Viktor. Augment: The Arcane Storm moves 25% faster, and whenever champions die after taking damage from it, the storm grows and increases in its duration.",
+   "values": {
+    "InitialBurstBaseDamage": [
+     100,
+     175,
+     250
+    ],
+    "SubsequentBurstBaseDamage": [
+     65,
+     105,
+     145
+    ],
+    "StormDuration": 6.5,
+    "TickCadence": 1,
+    "MaxTicks": 6,
+    "MaxStormSpeed": 275,
+    "MinStormSpeed": 200,
+    "MinDistance": 300,
+    "MaxDistance": 1000,
+    "AugmentBoost": 0.25,
+    "StormRadius": 325,
+    "EnhancedSizeMult": 0.4,
+    "EnhancedSlow": 40,
+    "EnhancedSlowDuration": 2,
+    "MaxGrowths": 6,
+    "SubsequentBurstAPRaio": 0.35,
+    "InitialBurstAPRatio": 0.6,
+    "Tooltip_DurationExtension": 3
+   },
+   "formulas": {
+    "InitialBurstDamage": "100/175/250 + 0.6×AP",
+    "SubsequentBurstDamage": "65/105/145 + 0.35×AP",
+    "{d3c6a7eb}": "3"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Glorious Evolution",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Viktor gains Hex Fragments whenever he kills an enemy. With every 100 Hex Fragments he obtains, Viktor permanently augments an active ability. After upgrading all of his basic abilities, he can gather 100 Hex Fragments to augment his ultimate ability.",
+   "summary": "Viktor gains Hex Fragments whenever he kills an enemy. With every 100 Hex Fragments he obtains, Viktor permanently augments an active ability. After upgrading all of his basic abilities, he can gather 100 Hex Fragments to augment his ultimate ability.",
+   "values": {
+    "MinionStacks": 1,
+    "CannonStacks": 10,
+    "ChampionStacks": 20,
+    "EvolutionStackBreakpoint": 100,
+    "ARAMStacksoverTime": 1,
+    "ARAMStackCadence": 5
+   },
+   "formulas": {},
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Control mage who upgrades his abilities with Hex Fragments from kills. Wins lane through E poke and wave control, and fights with the W stun field and R storm.",
+  "positions": [
+   "MIDDLE"
+  ],
+  "strengths": [
+   "E laser pokes and clears waves from long range",
+   "Q gives a shield and an empowered attack for short trades",
+   "W gravity field stuns anyone who stays inside and zones engages",
+   "R storm deals heavy damage over time and follows enemies",
+   "Scales well as abilities get augmented"
+  ],
+  "weaknesses": [
+   "No dash; vulnerable to dives and assassins",
+   "Weak early before augments and items",
+   "W stun is slow (1.25 s delay) and avoidable",
+   "Relies on E landing for damage"
+  ],
+  "curve": {
+   "lvl1": "medium – Q or E poke",
+   "lvl2": "medium",
+   "lvl3": "medium – full kit, low damage",
+   "lvl6": "strong – R",
+   "items": "strong – Lost Chapter / Luden's, Rabadon's",
+   "late": "strong – zone control and DPS"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q shield + empowered attack trades; E poke from range.",
+  "waveClear": "good – E",
+  "sustain": "low – Q shield only",
+  "mobility": "low – none",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "W"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Hex Fragments from kills upgrade abilities."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Targeted bolt; shield; next attack empowered (that attack can be dodged)."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Field slows; stuns targets that stay 1.25 s."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Laser line; upgraded aftershock. Not a missile."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Storm deals damage per second and follows targets."
+   }
+  },
+  "windowAgainst": "W on cooldown (13–17 s): dive him, he has no escape.",
+  "checks": [
+   "Whether Q's bolt is blockable by projectile blocks."
+  ]
+ }
+}

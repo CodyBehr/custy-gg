@@ -1,0 +1,308 @@
+{
+ "id": 25,
+ "alias": "Morgana",
+ "name": "Morgana",
+ "title": "the Fallen",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 104,
+  "ad": 56,
+  "adPerLevel": 3.5,
+  "armor": 25,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1.53,
+  "range": 450,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Dark Binding",
+   "cooldown": null,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 1250.0,
+   "description": "Morgana hurls a blast of starfire that Roots the first enemy hit for 2/2.25/2.5/2.75/3 seconds and deals 80/135/190/245/300 + 0.9×AP magic damage.",
+   "summary": "Morgana binds an enemy in place with dark magic, forcing them to feel the pain they've caused and dealing magic damage.",
+   "values": {
+    "Damage": [
+     80,
+     135,
+     190,
+     245,
+     300
+    ],
+    "RootDuration": [
+     2,
+     2.25,
+     2.5,
+     2.75,
+     3
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "80/135/190/245/300 + 0.9×AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "W": {
+   "name": "Tormented Shadow",
+   "cooldown": 12,
+   "cost": [
+    80,
+    90,
+    100,
+    110,
+    120
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Morgana ignites the ground for 5 seconds, dealing 18/31/44/57/70 + BaseApRatio×AP magic damage per second, increased by up to (18/31/44/57/70 + BaseApRatio×AP) × (1 + 1) based on the targets' missing Health. This Ability's Cooldown is reduced by 5% every time Morgana is healed by Soul Siphon.",
+   "summary": "Morgana casts a cursed shadow on an area, damaging enemies who dare stand in her dark circle. They receive magic damage over time, which increases the lower health they are.",
+   "values": {
+    "BaseDamage": [
+     18,
+     31,
+     44,
+     57,
+     70
+    ],
+    "BaseAPRatio": 0.2,
+    "TickRate": 0.5,
+    "MissingHealthAmpPercent": 1,
+    "WDuration": 5,
+    "CDRefundPercent": 0.05,
+    "MonsterMod": 170
+   },
+   "formulas": {
+    "TotalMinDamage": "18/31/44/57/70 + BaseApRatio×AP",
+    "TotalMaxDamage": "(18/31/44/57/70 + BaseApRatio×AP) × (1 + 1)"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Black Shield",
+   "cooldown": [
+    26,
+    23.5,
+    21,
+    18.5,
+    16
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 800.0,
+   "description": "Morgana grants an ally champion 100/155/210/265/320 + 0.7×AP Magic Shield for 5 seconds. The shield prevents Disabling and Immobilizing effects until it breaks.",
+   "summary": "Morgana anoints an ally with a protective barrier of starfire, which absorbs magical damage and disabling effects until it is broken.",
+   "values": {
+    "ShieldStrength": [
+     100,
+     155,
+     210,
+     265,
+     320
+    ],
+    "ShieldDuration": 5
+   },
+   "formulas": {
+    "TotalShieldStrength": "100/155/210/265/320 + 0.7×AP"
+   },
+   "tags": [
+    "immobilizing",
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Soul Shackles",
+   "cooldown": [
+    120,
+    110,
+    100
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 625.0,
+   "description": "Morgana chains herself to nearby enemy Champions, dealing 200/275/350 + 0.8×AP magic damage and Slowing them by 20%. After 3 seconds, enemies unable to break the chains take an additional 200/275/350 + 0.8×AP magic damage and are Stunned for 1.5/1.75/2 seconds. While casting this Ability, Morgana gains 20/40/60% Move Speed.",
+   "summary": "Morgana unleashes the full force of her Celestial power as she unbinds her wings and hovers above the ground. She lashes chains of dark pain onto nearby enemy champions, gaining Move Speed. The chains slow and deal initial damage and, after a delay, stun those who are unable to break them.",
+   "values": {
+    "Damage": [
+     200,
+     275,
+     350
+    ],
+    "ChainDuration": 3,
+    "StunDuration": [
+     1.5,
+     1.75,
+     2
+    ],
+    "SlowPercent": 20,
+    "HastePercent": [
+     20,
+     40,
+     60
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "200/275/350 + 0.8×AP"
+   },
+   "tags": [
+    "move speed",
+    "slow",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Soul Siphon",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Morgana drains spirit from her enemies, healing as she deals damage to champions, large minions, and medium and larger jungler monsters.",
+   "summary": "Morgana drains spirit from her enemies, healing as she deals damage to champions, large minions, and medium and larger jungler monsters.",
+   "values": {
+    "HealPercent": 18
+   },
+   "formulas": {},
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Control mage and support who roots targets with Q and protects allies with E. Wins fights with R tether stun.",
+  "positions": [
+   "UTILITY",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Q root for 2–3 s",
+   "E magic shield on an ally prevents crowd control until it breaks",
+   "W pool damage, more on low targets",
+   "R tethers nearby enemies; those who stay are stunned 1.5–2 s",
+   "Passive heals from damage"
+  ],
+  "weaknesses": [
+   "Q skillshot; misses hurt",
+   "No dash",
+   "Weak against physical damage",
+   "Low burst outside Q"
+  ],
+  "curve": {
+   "lvl1": "medium – Q",
+   "lvl2": "medium – Q+W",
+   "lvl3": "strong",
+   "lvl6": "strong – R",
+   "items": "strong – Zhonya's",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q+W from level 2.",
+  "waveClear": "good – W",
+  "sustain": "medium – passive",
+  "mobility": "low – R move speed",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "Q",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "E"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Heals from damage dealt."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Root 2–3 s; blockable."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Pool of damage."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "spell shield",
+    "notes": "Ally magic shield; prevents disabling/immobilizing effects until it breaks."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Tether slow; stun after 3 s."
+   }
+  },
+  "windowAgainst": "E on cooldown (26–16 s).",
+  "checks": []
+ }
+}

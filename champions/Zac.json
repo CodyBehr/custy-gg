@@ -1,0 +1,358 @@
+{
+ "id": 154,
+ "alias": "Zac",
+ "name": "Zac",
+ "title": "the Secret Weapon",
+ "classes": [
+  "tank",
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 685,
+  "hpPerLevel": 109,
+  "ad": 60,
+  "adPerLevel": 3.4,
+  "armor": 33,
+  "armorPerLevel": 5.2,
+  "attackSpeed": 0.736,
+  "attackSpeedPerLevel": 1.6,
+  "range": 175,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Stretching Strikes",
+   "cooldown": [
+    14,
+    12.5,
+    11,
+    9.5,
+    8
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 800.0,
+   "description": "Zac stretches his arm out, attaching it to the first enemy hit to deal 60/90/120/150/180 + 0.3\u00d7AP + 0.03\u00d7bonus max HP magic damage and briefly Slow them. Zac's next Attack gains increased range and applies the same damage and Slow. If Zac hits a different enemy with this Attack, he Knocks Up both towards each other. If they collide, they and surrounding enemies take 60/90/120/150/180 + 0.3\u00d7AP + 0.03\u00d7bonus max HP magic damage and are briefly Slowed.",
+   "summary": "Zac stretches an arm, grabbing an enemy. Attacking a different enemy will cause him to throw both targets towards each other.",
+   "values": {
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "APRatio": 0.3,
+    "HealthRatio": 0.03,
+    "HPCost": 0.08,
+    "MissileRange": 800,
+    "SlowAmount": -0.4,
+    "SlowDuration": 0.5,
+    "TetherDuration": 2.5,
+    "TetherFalloffDistance": 900,
+    "MaxSlamDistance": 700,
+    "YankDistance": 300,
+    "CollisionAoE": 300
+   },
+   "formulas": {
+    "TotalDamage": "60/90/120/150/180 + 0.3\u00d7AP + 0.03\u00d7bonus max HP",
+    "MaxDamageTooltip": "(? \u00d7 2)",
+    "HealthCostTooltip": "(0.08 \u00d7 (1\u00d7max HP \u00d7 1\u00d7stat))"
+   },
+   "tags": [
+    "airborne",
+    "empowered attack",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Unstable Matter",
+   "cooldown": 5,
+   "cost": null,
+   "costType": null,
+   "range": 350.0,
+   "description": "Zac's body erupts, dealing 40/50/60/70/80 + (4/5/6/7/8 + 0.03\u00d7AP) \u00d7 0.01 max Health magic damage to nearby enemies. Absorbing Goo reduces this Ability's Cooldown by 1 second.",
+   "summary": "Zac explodes outward towards nearby enemies, dealing a percentage of their maximum health as magic damage.",
+   "values": {
+    "BaseDamage": [
+     40,
+     50,
+     60,
+     70,
+     80
+    ],
+    "APRatioToPercentDamage": 0.03,
+    "BaseMaxHealthDamage": [
+     0.04,
+     0.05,
+     0.06,
+     0.07,
+     0.08
+    ],
+    "HealthPercentTooltip": [
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "HPCost": 0.04,
+    "PercentHealthDamage": [
+     0.04,
+     0.05,
+     0.06,
+     0.07,
+     0.08
+    ],
+    "RefundOnBlobPickup": 1,
+    "MaxMinionDamage": 200
+   },
+   "formulas": {
+    "DisplayPercentDamage": "(4/5/6/7/8 + 0.03\u00d7AP) \u00d7 0.01",
+    "TooltipHealthCost": "(0.04 \u00d7 (1\u00d7max HP \u00d7 1\u00d7stat))"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Elastic Slingshot",
+   "cooldown": [
+    22,
+    19,
+    16,
+    13,
+    10
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 300.0,
+   "description": "Begin Charging: Zac pulls himself taut, charging up a dash over 0.9/1/1.1/1.2/1.3 seconds. Release: Zac launches himself and Knocks Up enemies where he lands for up to (0.5 \u00d7 2) second (based on charge time), dealing them 60/105/150/195/240 + 0.8\u00d7AP magic damage. Zac spawns an extra chunk of Goo for each enemy champion hit.",
+   "summary": "Zac attaches his arms to the ground and stretches back, launching himself forward.",
+   "values": {
+    "BaseDamage": [
+     60,
+     105,
+     150,
+     195,
+     240
+    ],
+    "HPCost": 0.04,
+    "MaxRange": [
+     1200,
+     1350,
+     1500,
+     1650,
+     1800
+    ],
+    "ChannelTime": [
+     0.9,
+     1,
+     1.1,
+     1.2,
+     1.3
+    ],
+    "MinimumStun": 0.5,
+    "MinimumSpeed": 500,
+    "MaximumSpeed": 1350,
+    "DistanceToSpeedRatio": 0.6,
+    "KnockupRadius": 265,
+    "VFXWarningTime": 1
+   },
+   "formulas": {
+    "MaxStun": "(0.5 \u00d7 2)",
+    "Damage": "60/105/150/195/240 + 0.8\u00d7AP",
+    "HealthCostTooltip": "(0.04 \u00d7 (1\u00d7max HP \u00d7 1\u00d7stat))"
+   },
+   "tags": [
+    "airborne",
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Let's Bounce!",
+   "cooldown": [
+    120,
+    105,
+    90
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 300.0,
+   "description": "Zac bounces 4 times. The first bounce to hit each enemy Knocks them back and deals 120/190/260 + 0.4\u00d7AP magic damage. Subsequent bounces deal (120/190/260 + 0.4\u00d7AP) \u00d7 0.5 magic damage and Slow by 20% for 1 second. Zac gains up to 50% Move Speed over time and can cast Unstable Matter while bouncing.",
+   "summary": "Zac bounces four times, knocking up enemies hit and slowing them.",
+   "values": {
+    "Bounces": 4,
+    "TimeBetweenBounces": 1,
+    "KnockupDuration": 1,
+    "BaseDamageBounce": [
+     120,
+     190,
+     260
+    ],
+    "DamageReductionBounce": 0.5,
+    "KnockbackDistance": 250,
+    "KnockbackRange": 300,
+    "BeginningMS": 0.2,
+    "EndingMS": 0.5,
+    "SlowAmount": 0.2,
+    "SlowDuration": 1,
+    "BounceAPRatioTooltip": 0.4
+   },
+   "formulas": {
+    "DamagePerBounce": "120/190/260 + 0.4\u00d7AP",
+    "DamagePerSubsequentBounce": "(120/190/260 + 0.4\u00d7AP) \u00d7 0.5",
+    "DurationTooltip": "(1 \u00d7 (4 + -1))",
+    "MaxDamageTooltip": "0.4\u00d7AP + 120/190/260 + (((120/190/260 + 0.4\u00d7AP) \u00d7 0.5) \u00d7 (4 + -1))"
+   },
+   "tags": [
+    "airborne",
+    "move speed",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Cell Division",
+   "cooldown": 300,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Each time Zac hits an enemy with an ability, he sheds a chunk of himself that can be reabsorbed to restore Health. Upon taking fatal damage, Zac splits into 4 bloblets that attempt to recombine. If any bloblets remain, he will revive with an amount of Health depending on the Health of the surviving bloblets. Each bloblet has a percentage of Zac's maximum Health, Armor and Magic Resistance. This ability has a 5 minute cooldown.",
+   "summary": "Each time Zac hits an enemy with an ability, he sheds a chunk of himself that can be reabsorbed to restore Health. Upon taking fatal damage, Zac splits into 4 bloblets that attempt to recombine. If any bloblets remain, he will revive with an amount of Health depending on the Health of the surviving bloblets. Each bloblet has a percentage of Zac's maximum Health, Armor and Magic Resistance. This ability has a 5 minute cooldown.",
+   "values": {
+    "ReviveCooldown": 300
+   },
+   "formulas": {
+    "HealPercent": "0.04\u20130.08 (by level)",
+    "ReviveBlobletDuration": "8+ (by level)",
+    "TotalHeal": "(0.04\u20130.08 (by level)) \u00d7 1\u00d7max HP"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Zac is a blob tank who engages from long range with Elastic Slingshot and bounces enemies around with Let's Bounce!. He plays jungle or top, collects his own blobs to heal, and revives through Cell Division.",
+  "positions": [
+   "JUNGLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Elastic Slingshot is one of the longest engages in the game, letting him gank from over walls.",
+   "Let's Bounce! knocks back enemies over and over, breaking their formation.",
+   "Cell Division revives him if the blobs survive, so he is hard to kill.",
+   "Healing from collecting his own blobs keeps him in long fights.",
+   "Unstable Matter deals % max HP damage, so he clears and fights well."
+  ],
+  "weaknesses": [
+   "Weak early before he has levels and items; low damage.",
+   "His E charge is slow and visible; enemies can react or dodge.",
+   "Killing his blobs stops the revive and denies healing.",
+   "Grievous Wounds cuts his healing hard.",
+   "Little damage late; mostly a tank and engage champion."
+  ],
+  "curve": {
+   "lvl1": "weak \u2013 low damage; best to farm",
+   "lvl2": "okay \u2013 Q and W give a short trade",
+   "lvl3": "good \u2013 E unlocks long-range ganks",
+   "lvl6": "strong \u2013 Let's Bounce! starts teamfights and wins skirmishes",
+   "items": "medium \u2013 first item: Sunfire Aegis or Heartsteel with Spirit Visage or Jak'Sho for tankiness",
+   "late": "good \u2013 stays a strong engage tank with revive"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Zac wants E to gank, so he usually waits for level 3, and he gets his teamfight power at 6.",
+  "waveClear": "Good: W deals % HP to the camp or wave.",
+  "sustain": "High: picks up his blobs to heal.",
+  "mobility": "High: long E engage over walls.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "E (Elastic Slingshot) engage, then R",
+   "engage": "Q (Stretching Strikes) to slam enemies together",
+   "escape": "R (Let's Bounce!) to break formations",
+   "answers": "None. Zac has no spell shield or dodge; he relies on the Cell Division revive."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Cell Division: when killed he splits into blobs and revives if any survive. Kill the blobs to stop it."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Dodge the stretch; a projectile block stops the arm.",
+    "notes": "Stretching Strikes: the arm sticks to the first enemy and slows; his next attack slows another enemy and knocks both up toward each other."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Unstable Matter: an area blast dealing % max HP damage. Collecting a blob lowers its cooldown."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Dodge sideways, or move away from the landing area while he charges.",
+    "notes": "Elastic Slingshot: a charged dash that knocks up enemies where he lands. The charge is visible."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Spread out; each enemy is knocked back only by the first bounce that hits them, later bounces slow.",
+    "notes": "Let's Bounce!: bounces several times, knocking back and slowing enemies hit."
+   }
+  },
+  "windowAgainst": "Zac's window is when his E is on cooldown or after the revive: he cannot engage again for a while.",
+  "checks": [
+   "Does Zac start fights from long range with E?",
+   "Does Zac pick up blobs during fights to heal?",
+   "Does the enemy team kill his passive blobs?"
+  ]
+ }
+}

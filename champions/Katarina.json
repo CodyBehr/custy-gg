@@ -1,0 +1,284 @@
+{
+ "id": 55,
+ "alias": "Katarina",
+ "name": "Katarina",
+ "title": "the Sinister Blade",
+ "classes": [
+  "assassin",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 672,
+  "hpPerLevel": 108,
+  "ad": 58,
+  "adPerLevel": 3.2,
+  "armor": 32,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2.74,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Bouncing Blade",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 625.0,
+   "description": "Katarina throws a Dagger, dealing 80/115/150/185/220 + 0.4×AP magic damage to the target and 2 nearby enemies. The Dagger then ricochets onto the ground behind the primary target.",
+   "summary": "Katarina throws a Dagger at the target that then bounces to nearby enemies before ricocheting onto the ground.",
+   "values": {
+    "BaseDamage": [
+     80,
+     115,
+     150,
+     185,
+     220
+    ],
+    "BounceOffset": 350,
+    "BounceRadius": 450,
+    "MaxBounces": 2,
+    "QAPRatio": 0.4
+   },
+   "formulas": {
+    "TotalDamage": "80/115/150/185/220 + 0.4×AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Preparation",
+   "cooldown": [
+    15,
+    14,
+    13,
+    12,
+    11
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Katarina tosses a Dagger into the air and gains 50/60/70/80/90% Move Speed decaying over 1.25 seconds.",
+   "summary": "Katarina gains a burst of Move Speed, tossing a Dagger into the air directly above herself.",
+   "values": {
+    "MovespeedDuration": 1.25,
+    "MovespeedAmount": [
+     50,
+     60,
+     70,
+     80,
+     90
+    ]
+   },
+   "formulas": {},
+   "tags": [
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Shunpo",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 725.0,
+   "description": "Katarina blinks in the wink of an eye to the target ally, enemy, or Dagger. If it is an enemy, Katarina strikes for 20/30/40/50/60 + 0.25×AP + 0.4×AD magic damage - otherwise she strikes the nearest enemy in range. Picking up a Dagger will reduce this Ability's Cooldown by (016cd4b3) × (? × 12/11/10/9/8) seconds (0.78+ (by level)). Katarina can blink to any location near the target.",
+   "summary": "Katarina blinks to the target, striking it if its an enemy, or striking the nearest enemy otherwise.",
+   "values": {
+    "BaseDamage": [
+     20,
+     30,
+     40,
+     50,
+     60
+    ],
+    "DataCooldown": [
+     12,
+     11,
+     10,
+     9,
+     8
+    ],
+    "EADRatio": 0.4,
+    "EAPRatio": 0.25
+   },
+   "formulas": {
+    "TotalDamage": "20/30/40/50/60 + 0.25×AP + 0.4×AD",
+    "DaggerCooldownReduction": "(016cd4b3) × (? × 12/11/10/9/8)",
+    "{016cd4b3}": "0.78+ (by level)",
+    "TooltipDaggerReduction": "0.78+ (by level)"
+   },
+   "tags": [
+    "blink"
+   ]
+  },
+  "R": {
+   "name": "Death Lotus",
+   "cooldown": [
+    75,
+    60,
+    45
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 550.0,
+   "description": "Katarina becomes a flurry of blades, rapidly attacking the three nearest enemy champions with a flurry of knives. Each knife deals 25/37.5/50 + 0.19×AP magic damage and ((0.16 × (1 + 3.125×bonus stat)))×bonus AD physical damage, and applies 40% Grievous Wounds for 3 seconds. Total over 2.5 seconds to each enemy: (25/37.5/50 + 0.19×AP) × (6 × 2.5) magic damage and (((0.16 × (1 + 3.125×bonus stat)))×bonus AD) × (6 × 2.5) physical damage.",
+   "summary": "Katarina becomes a flurry of blades, dealing massive magic damage while she channels to the 3 nearest enemy champions.",
+   "values": {
+    "DamagePerTick": [
+     25,
+     37.5,
+     50
+    ],
+    "TicksPerSecond": 6,
+    "Duration": 2.5,
+    "GrievousDuration": 3,
+    "GrievousAmount": 0.4,
+    "OnHitRatio": [
+     0.25,
+     0.3,
+     0.35
+    ],
+    "RAPRatio": 0.19
+   },
+   "formulas": {
+    "DamageCalc": "25/37.5/50 + 0.19×AP",
+    "TotalDamageCalc": "(25/37.5/50 + 0.19×AP) × (6 × 2.5)",
+    "ADDamageCalc": "((0.16 × (1 + 3.125×bonus stat)))×bonus AD",
+    "TotalADDamageCalc": "(((0.16 × (1 + 3.125×bonus stat)))×bonus AD) × (6 × 2.5)"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Voracity",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Whenever an enemy champion dies that Katarina has damaged recently, her remaining ability cooldowns are dramatically reduced. If Katarina picks up a Dagger, she uses it to slash through all nearby enemies, dealing magic damage.",
+   "summary": "Whenever an enemy champion dies that Katarina has damaged recently, her remaining ability cooldowns are dramatically reduced. If Katarina picks up a Dagger, she uses it to slash through all nearby enemies, dealing magic damage.",
+   "values": {
+    "ResetWindow": 3,
+    "ResetCDR": 15,
+    "DaggerRadius": 340,
+    "DaggerDuration": 4,
+    "BonusADRatio": 0.6
+   },
+   "formulas": {
+    "TotalDamage": "? + 0.6×bonus AD + 0.7+ (by level)×AP",
+    "{e1ba6b0f}": "0.78+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Reset assassin who blinks between daggers and units with Shunpo and picks up daggers for area damage. Every takedown lowers her cooldowns, letting her chain kills with a Death Lotus channel.",
+  "positions": [
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Takedowns sharply reduce her basic cooldowns: chains kills in teamfights",
+   "E Shunpo blinks to any unit or dagger (ally, enemy, minion)",
+   "Dagger pickups deal heavy area damage",
+   "R Death Lotus hits several nearby champions and applies anti-heal",
+   "Strong roams with E + W move speed"
+  ],
+  "weaknesses": [
+   "R is a channel: any stun, knock-up or silence cancels it",
+   "Squishy: dies if crowd control lands as she goes in",
+   "Weak against tanks and point-and-click crowd control",
+   "Short-ranged lane; poke mages push her off farm",
+   "No real wave clear early"
+  ],
+  "curve": {
+   "lvl1": "medium – Q dagger poke, weak trades",
+   "lvl2": "medium – Q + W dagger trades",
+   "lvl3": "strong – E onto a dagger: full combo",
+   "lvl6": "strong – R kill threat in all-ins",
+   "items": "strong – first item (Nashor's Tooth for on-hit, or Stormsurge/Rocketbelt for burst)",
+   "late": "strong – reset chains in teamfights, if crowd control is spent"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Q/W/E are needed together for dagger damage; trades before 3 are weak.",
+  "waveClear": "poor – Q bounce and daggers, weak early",
+  "sustain": "low – none",
+  "mobility": "high – E blinks, W move speed, resets",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive",
+    "E"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E",
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Takedowns lower basic cooldowns; picking up a dagger slashes around her."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Point-and-click dagger that bounces, then lands behind the target."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Tosses a dagger into the air; move speed."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Blinks to a unit or dagger and strikes the nearest enemy."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Channel: daggers to the nearest champions, applying on-hit and anti-heal. Interrupted by crowd control."
+   }
+  },
+  "windowAgainst": "Hold a stun, knock-up or silence for her R. Trade into her when E is down.",
+  "checks": []
+ }
+}

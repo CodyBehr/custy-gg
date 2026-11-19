@@ -1,0 +1,329 @@
+{
+ "id": 163,
+ "alias": "Taliyah",
+ "name": "Taliyah",
+ "title": "the Stoneweaver",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 550,
+  "hpPerLevel": 104,
+  "ad": 58,
+  "adPerLevel": 3.3,
+  "armor": 18,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 1.36,
+  "range": 525,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Threaded Volley",
+   "cooldown": [
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "cost": [
+    60,
+    65,
+    70,
+    75,
+    75
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Taliyah hurls 5 rocks, each dealing 55/72.5/90/107.5/125 + 0.5×AP magic damage in an area around the first enemy hit while creating Worked Ground at that area. Subsequent hits against the same enemy deal 60% less damage. Casts on worked ground cost 10 Mana and have 50% less Cooldown, consume the Worked Ground, and hurl a boulder that Slows enemies it hits by 20/25/30/35/40% for 1.5 seconds, dealing (55/72.5/90/107.5/125 + 0.5×AP) × 1.8 magic damage to the primary target. Monsters hit by the boulder are Stunned for 3 seconds.",
+   "summary": "Taliyah throws a volley of rocks in a target direction, moving freely as she casts. This creates Worked Ground below her. If Taliyah casts Threaded Volley on Worked Ground, she consumes the ground to throw a stronger boulder that slows enemies.",
+   "values": {
+    "WorkedGroundCDR": 0.5,
+    "MinimumWorkedGroundCD": 0.75,
+    "BigRockDamageMult": 1.8,
+    "BaseDamage": [
+     55,
+     72.5,
+     90,
+     107.5,
+     125
+    ],
+    "ExtraMissileReducedDamagePercent": 60,
+    "MonsterBonusFlatDamage": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "SlowPercent": [
+     0.2,
+     0.25,
+     0.3,
+     0.35,
+     0.4
+    ],
+    "SlowDuration": 1.5,
+    "MonsterStunDuration": 3,
+    "AoERadius": 175,
+    "AoERadiusBig": 225,
+    "APRatio": 0.5,
+    "GroundExhaustDuration": 30,
+    "BigRockManaCost": 10,
+    "GroundExhaustRadius": 400
+   },
+   "formulas": {
+    "RockDamage": "55/72.5/90/107.5/125 + 0.5×AP",
+    "BigRockDamage": "(55/72.5/90/107.5/125 + 0.5×AP) × 1.8",
+    "MaxDamageTooltip": "(55/72.5/90/107.5/125 + 0.5×AP) × 2.6",
+    "TotalBonusFlatMonsterDamage": "20/25/30/35/40",
+    "{c363b92e}": "(20/25/30/35/40) × 1.8"
+   },
+   "tags": [
+    "slow",
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Seismic Shove",
+   "cooldown": [
+    14,
+    12.5,
+    11,
+    9.5,
+    8
+   ],
+   "cost": [
+    30,
+    20,
+    10,
+    0,
+    0
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Taliyah quakes the earth, Knocking enemies in an area in the chosen direction.",
+   "summary": "Taliyah causes an area of ground to erupt and throws enemies within it in a direction of her choosing.",
+   "values": {
+    "KnockupDelay": 0.5,
+    "ThrowDistance": 400
+   },
+   "formulas": {},
+   "tags": [
+    "airborne"
+   ]
+  },
+  "E": {
+   "name": "Unraveled Earth",
+   "cooldown": 14,
+   "cost": 90,
+   "costType": null,
+   "range": 950.0,
+   "description": "Taliyah scatters loose stones in an area, Slowing enemies hit by 20% and dealing 70/115/160/205/250 + 0.7×AP magic damage. The stones detonate when enemies dash or are Knocked through them, Stunning for the remaining movement duration + 0.75 seconds and dealing 30/45/60/75/90 + 0.3×AP magic damage.",
+   "summary": "Taliyah creates a slowing minefield. If enemies dash through it or are knocked through it, the mines explode and stun them.",
+   "values": {
+    "BaseDamage": [
+     70,
+     115,
+     160,
+     205,
+     250
+    ],
+    "BaseDetonationDamage": [
+     30,
+     45,
+     60,
+     75,
+     90
+    ],
+    "MonsterModPercent": 2.25,
+    "StunDuration": 0.75,
+    "MaxStunDuration": 2,
+    "MineDamageFalloff": 0.25,
+    "DelayBetweenRows": 0.17,
+    "SlowPercent": 0.2,
+    "MineLifetime": 4,
+    "MineRadius": 85
+   },
+   "formulas": {
+    "ScatterDamage": "70/115/160/205/250 + 0.7×AP",
+    "DetonationDamage": "30/45/60/75/90 + 0.3×AP",
+    "MaxDetonationDamageTooltip": "(30/45/60/75/90 + 0.3×AP) × 2.5"
+   },
+   "tags": [
+    "airborne",
+    "dash",
+    "slow",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Weaver's Wall",
+   "cooldown": [
+    180,
+    150,
+    120
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 2500.0,
+   "description": "Taliyah creates a massive earthen wall for 4 seconds. If she immediately Recasts, she will ride along the wall as it unravels. Moving or being immobilized will end the ride. This ability cannot be cast if Taliyah has taken damage from Champions or structures within the last 3 seconds.",
+   "summary": "Taliyah creates a very long wall and then surfs it.",
+   "values": {
+    "DamageLockoutTime": 3,
+    "MaxJumpRange": 700,
+    "MinJumpRange": 150,
+    "MaxJumpRangeOverWalls": 1000,
+    "WallDuration": 4,
+    "WallLength": [
+     2500,
+     4500,
+     6500
+    ],
+    "DCapPassive": 0.1,
+    "MissileSpeed": 2000,
+    "ManaCost": 100
+   },
+   "formulas": {},
+   "tags": []
+  },
+  "Passive": {
+   "name": "Rock Surfing",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Taliyah gains Move Speed near walls.",
+   "summary": "Taliyah gains Move Speed near walls.",
+   "values": {
+    "FallOffTime": 3
+   },
+   "formulas": {
+    "TotalMS": "0.1+ (by level)"
+   },
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Roaming mage with fast Q waveclear and a W–E combo that throws enemies through her minefield for a stun. Wins by pushing and roaming with her R wall.",
+  "positions": [
+   "MIDDLE",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Fast wave clear (Q) and strong roams with R",
+   "W into E: displacement through mines stuns",
+   "Long-range harass with Q",
+   "R wall splits fights or cuts escapes"
+  ],
+  "weaknesses": [
+   "Q on Worked Ground is much weaker: limited sustained damage in one spot",
+   "Immobile in fights apart from R",
+   "Combo-reliant: missed W = little crowd control",
+   "Weak to assassins that reach her"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "medium – W or E",
+   "lvl3": "strong – W–E stun combo",
+   "lvl6": "strong – R roams",
+   "items": "strong – first AP item (Luden's or Malignance) for burst and roams",
+   "late": "medium – zone control and picks"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs W and E together for crowd control.",
+  "waveClear": "good – Q volley",
+  "sustain": "low – none",
+  "mobility": "medium – R wall surf, move speed near walls",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q"
+   ],
+   "engage": [
+    "W",
+    "E"
+   ],
+   "escape": [
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Move speed near walls."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Volley; weaker if cast on Worked Ground."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Delayed eruption that throws enemies in a chosen direction."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Minefield slows; mines explode and stun if enemies dash or are knocked through."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Huge wall she can surf on."
+   }
+  },
+  "windowAgainst": "W down: she has no reliable crowd control; dive her after she uses Q on Worked Ground.",
+  "checks": []
+ }
+}

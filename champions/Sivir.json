@@ -1,0 +1,311 @@
+{
+ "id": 15,
+ "alias": "Sivir",
+ "name": "Sivir",
+ "title": "the Battle Mistress",
+ "classes": [
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 104,
+  "ad": 60,
+  "adPerLevel": 2.5,
+  "armor": 30,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1.6,
+  "range": 500,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Boomerang Blade",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": [
+    60,
+    65,
+    70,
+    75,
+    70
+   ],
+   "costType": null,
+   "range": 1200.0,
+   "description": "Sivir hurls her crossblade like a boomerang, dealing (60/85/110/135/160 + 0.7×bonus AD + 0.6×AP) × (1 + (0.4×crit × (1×stat + -1))) to all enemies it cuts through. Hitting non-champions reduces the damage to subsequent targets, down to a minimum of 40%.",
+   "summary": "Sivir hurls her crossblade like a boomerang, dealing damage each way.",
+   "values": {
+    "BaseDamage": [
+     60,
+     85,
+     110,
+     135,
+     160
+    ],
+    "ADRatio": 0.7,
+    "FallOffRatio": 0.15,
+    "FallOffMinimum": 0.4,
+    "QAttackSpeedCastReductionPercent": 0.5,
+    "QBaseCastTime": 0.25,
+    "QAttackSpeedCastReductionMax": 0.6,
+    "CritRatio": 0.4,
+    "APRatio": 0.6
+   },
+   "formulas": {
+    "TotalDamage": "(60/85/110/135/160 + 0.7×bonus AD + 0.6×AP) × (1 + (0.4×crit × (1×stat + -1)))",
+    "PreCritDamage": "60/85/110/135/160 + 0.7×bonus AD + 0.6×AP",
+    "CritScaling": "0.4×crit"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Ricochet",
+   "cooldown": 12,
+   "cost": 60,
+   "costType": null,
+   "range": 20.0,
+   "description": "For the next 4 seconds, Sivir gains 20/25/30/35/40% Attack Speed and her auto attacks are empowered to bounce to additional surrounding enemies dealing 0.4/0.425/0.45/0.475/0.5×AD physical damage each bounce for up to 8 bounces. These bounces critically strike if the attack generating them does.",
+   "summary": "Sivir's next few basic attacks gain additional attack speed and bounce to nearby targets, dealing reduced damage while bouncing.",
+   "values": {
+    "BounceADRatio": [
+     0.4,
+     0.425,
+     0.45,
+     0.475,
+     0.5
+    ],
+    "BounceAttacks": 3,
+    "BuffDuration": 4,
+    "MaxBounces": 8,
+    "RicochetAttackSpeed": [
+     0.2,
+     0.25,
+     0.3,
+     0.35,
+     0.4
+    ],
+    "MinionDamageMod": 0.65
+   },
+   "formulas": {
+    "BounceDamage": "0.4/0.425/0.45/0.475/0.5×AD",
+    "FirstTargetDamage": "1×AD",
+    "TotalMaxDamage": "(1×AD + (8 × 0.4/0.425/0.45/0.475/0.5×AD))"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  },
+  "E": {
+   "name": "Spell Shield",
+   "cooldown": [
+    24,
+    22.5,
+    21,
+    19.5,
+    18
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 20.0,
+   "description": "Sivir creates a magical barrier for 1.5 seconds that blocks the next incoming enemy Ability. If an ability is blocked, Sivir restores 0.6/0.65/0.7/0.75/0.8×AD + 0.5×AP health and triggers Fleet of Foot.",
+   "summary": "Creates a magical barrier that blocks a single enemy ability cast on Sivir. She receives health and a burst of movement speed if a spell is blocked.",
+   "values": {
+    "HealRatio": [
+     0.6,
+     0.65,
+     0.7,
+     0.75,
+     0.8
+    ],
+    "SpellShieldDuration": 1.5,
+    "HealAPRatio": 0.5
+   },
+   "formulas": {
+    "TotalHeal": "0.6/0.65/0.7/0.75/0.8×AD + 0.5×AP"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "R": {
+   "name": "On The Hunt",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Sivir rallies her nearby allies, granting them 20/25/30% Move Speed for 8/10/12 seconds. Sivir's attacks against champions while On The Hunt reduce the cooldown of her basic abilities by 0.5 seconds. Takedowns on recently damaged enemies refreshes the duration of the hunt.",
+   "summary": "Sivir leads her allies in battle, granting them a surge of Move Speed for a period of time. In addition, Sivir's attacks reduce her spell cooldowns.",
+   "values": {
+    "HuntAttackSpeed": [
+     0.05,
+     0.06,
+     0.07
+    ],
+    "MaxMS": [
+     0.2,
+     0.25,
+     0.3
+    ],
+    "MinMS": [
+     0.3,
+     0.35,
+     0.4
+    ],
+    "MaxMSDuration": [
+     2,
+     3,
+     4
+    ],
+    "UltDuration": [
+     8,
+     10,
+     12
+    ],
+    "AuraRange": 1000,
+    "BuffExtension": [
+     8,
+     10,
+     12
+    ],
+    "DamagedMarkerDuration": 3,
+    "AttackCooldownRefund": 0.5
+   },
+   "formulas": {},
+   "tags": [
+    "move speed"
+   ]
+  },
+  "Passive": {
+   "name": "Fleet of Foot",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Sivir gains a short burst of Move Speed when she attacks an enemy champion.",
+   "summary": "Sivir gains a short burst of Move Speed when she attacks an enemy champion.",
+   "values": {
+    "HasteDuration": 1.5
+   },
+   "formulas": {
+    "FlatMS": "55+ (by level)"
+   },
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Wave-clearing marksman with a boomerang Q, ricocheting W and a spell shield. Safe, scaling ADC who wins through farm and team speed-ups, not lane kills.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "Best-in-class wave clear (W ricochets, Q)",
+   "E spell shield blocks a key ability and refunds mana",
+   "R speeds the whole team for engage or disengage",
+   "Safe scaling into teamfights",
+   "Easy to hold lane vs poke"
+  ],
+  "weaknesses": [
+   "Low kill pressure early",
+   "Short-ish range and no dash",
+   "Weak if E is baited",
+   "Relies on items to deal damage",
+   "Vulnerable to all-in when E is down"
+  ],
+  "curve": {
+   "lvl1": "weak – Q only",
+   "lvl2": "medium – Q+W",
+   "lvl3": "medium – E shield",
+   "lvl6": "medium – R team speed",
+   "items": "strong – crit/Navori items",
+   "late": "strong – wave clear and teamfight bounces"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants E before trading into crowd control lanes.",
+  "waveClear": "good – W ricochet, Q",
+  "sustain": "low – mana from E",
+  "mobility": "low – passive speed",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "R",
+    "E"
+   ],
+   "answers": [
+    "E"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Boomerang hits going out and back."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Next attacks bounce between enemies."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "spell shield",
+    "notes": "Blocks the next enemy ability; doesn't block basic attacks."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Team move speed."
+   },
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Speed after hitting champions."
+   }
+  },
+  "windowAgainst": "E down: throw your key crowd control. Early levels before items.",
+  "checks": [
+   "Current shield duration"
+  ]
+ }
+}

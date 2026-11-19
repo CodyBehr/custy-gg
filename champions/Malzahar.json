@@ -1,0 +1,317 @@
+{
+ "id": 90,
+ "alias": "Malzahar",
+ "name": "Malzahar",
+ "title": "the Prophet of the Void",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 580,
+  "hpPerLevel": 101,
+  "ad": 55,
+  "adPerLevel": 3,
+  "armor": 18,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1.5,
+  "range": 500,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Call of the Void",
+   "cooldown": 6,
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    80
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Malzahar opens two portals to the Void that fire projectiles inward, dealing 70/105/140/175/210 + 0.55×AP magic damage and Silencing for 1/1.25/1.5/1.75/2 second(s).",
+   "summary": "Malzahar opens up two portals to the Void. After a short delay, they fire projectiles that deal Magic Damage and silence enemy champions.",
+   "values": {
+    "BaseDamage": [
+     70,
+     105,
+     140,
+     175,
+     210
+    ],
+    "SilenceDuration": [
+     1,
+     1.25,
+     1.5,
+     1.75,
+     2
+    ],
+    "DelayPostCast": 0.4
+   },
+   "formulas": {
+    "TotalDamageTooltip": "70/105/140/175/210 + 0.55×AP"
+   },
+   "tags": [
+    "projectile"
+   ]
+  },
+  "W": {
+   "name": "Void Swarm",
+   "cooldown": 8,
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    60
+   ],
+   "costType": null,
+   "range": 150.0,
+   "description": "Passive: Malzahar's other Abilities give him a stack when cast (max 2). Active: Malzahar summons a Voidling plus an additional Voidling per stack. Voidlings last 8/8/9/9/10 seconds and deal 12/14/16/18/20 + 5–64.5 (by level) + 0.4×bonus AD + 0.2×AP magic damage each hit.",
+   "summary": "Malzahar summons Voidlings to attack nearby enemies.",
+   "values": {
+    "VoidlingDuration": [
+     8,
+     8,
+     9,
+     9,
+     10
+    ],
+    "VoidlingBaseDamage": [
+     12,
+     14,
+     16,
+     18,
+     20
+    ],
+    "LaneMinionMod": 3,
+    "EpicMonsterMod": 0.5,
+    "StackCap": 2,
+    "ADRatio": 0.4,
+    "SummonDelay": 0.5,
+    "APRatio": 0.2,
+    "StackDuration": 25000,
+    "MaxStacks": 2
+   },
+   "formulas": {
+    "{c2505620}": "5–64.5 (by level)",
+    "VoidlingBonusDamageTooltip": "12/14/16/18/20 + 5–64.5 (by level) + 0.4×bonus AD + 0.2×AP"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Malefic Visions",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    110
+   ],
+   "costType": null,
+   "range": 650.0,
+   "description": "Malzahar inflicts terrible visions, dealing 80/115/150/185/220 + 0.8×AP magic damage over 4 seconds. Applying Call of the Void or Nether Grasp to the victim during this time refreshes the visions. If the victim dies, Malzahar gains ? Mana and the visions spread to the nearest enemy. Malefic Visions executes minions below 10+ (by level) Health.",
+   "summary": "Malzahar infects his target's mind with cruel visions of their demise, dealing damage over time. Using Malzahar's other spells on the target will refresh the visions. If the target dies while afflicted by the visions, they pass on to a nearby enemy unit and Malzahar gains Mana. Malzahar's Voidlings are attracted to affected units.",
+   "values": {
+    "BaseDamage": [
+     80,
+     115,
+     150,
+     185,
+     220
+    ],
+    "SecondsPerTick": 0.25,
+    "Duration": 4
+   },
+   "formulas": {
+    "TotalDamage": "80/115/150/185/220 + 0.8×AP",
+    "ManaRestore": "?",
+    "MinionExecuteThreshold": "10+ (by level)"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "R": {
+   "name": "Nether Grasp",
+   "cooldown": [
+    140,
+    110,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 700.0,
+   "description": "Malzahar Suppresses an enemy champion and deals 125/200/275 + 0.8×AP magic damage over 2.5 seconds. A zone of negative energy is created around his target dealing (2/3/4 + 0.005×AP) × 0.05 max Health magic damage over 5 seconds.",
+   "summary": "Malzahar channels the essence of the Void to suppress an enemy champion over a zone of damaging negative energy.",
+   "values": {
+    "BeamDamage": [
+     125,
+     200,
+     275
+    ],
+    "BeamAPRatio": 0.8,
+    "BeamDamageTicks": 10,
+    "SuppressDuration": 2.5,
+    "NeutralMonsterDamageCap": 120,
+    "ZoneDuration": 5,
+    "MaxHealthDamage": [
+     2,
+     3,
+     4
+    ],
+    "MaxHealthRatio": 0.005,
+    "BeamTetherRange": 1250,
+    "PoolDuration": 5,
+    "CCDuration": 2.5
+   },
+   "formulas": {
+    "ZoneDamageTooltip": "(2/3/4 + 0.005×AP) × 0.05",
+    "TotalDamageTooltip": "125/200/275 + 0.8×AP"
+   },
+   "tags": [
+    "heal",
+    "suppression"
+   ]
+  },
+  "Passive": {
+   "name": "Void Shift",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "When he hasn't recently taken damage or been crowd controlled, Malzahar gains massive damage reduction and crowd control immunity, lingering for a short period after taking damage.",
+   "summary": "When he hasn't recently taken damage or been crowd controlled, Malzahar gains massive damage reduction and crowd control immunity, lingering for a short period after taking damage.",
+   "values": {
+    "DRPercent": 90,
+    "LingerDuration": 0.25
+   },
+   "formulas": {
+    "ShieldCooldown": "30+ (by level)"
+   },
+   "tags": [
+    "damage reduction"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Control mage who silences with Q, stacks voidlings with W, and suppresses one target with R. Wins lanes with push and picks, protected by his passive spell shield.",
+  "positions": [
+   "MIDDLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "R point-and-click suppression: guaranteed lock-down",
+   "Passive: damage reduction + crowd control immunity when not recently hit",
+   "Q silence",
+   "E + W voidlings push waves fast"
+  ],
+  "weaknesses": [
+   "Immobile: no dash",
+   "Passive breaks after taking damage",
+   "R interrupted if Malzahar is crowd controlled",
+   "Weak to quick poke that breaks his passive"
+  ],
+  "curve": {
+   "lvl1": "medium – E push",
+   "lvl2": "medium – E + W",
+   "lvl3": "strong – Q silence + combo",
+   "lvl6": "strong – R suppression",
+   "items": "strong – first AP item (Liandry's or Malignance)",
+   "late": "medium – one R pick"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Pushes waves early; R gives kill pressure from 6.",
+  "waveClear": "good – E + voidlings",
+  "sustain": "low",
+  "mobility": "low – no dash",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "E",
+    "W"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": [
+    "Passive"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "unstoppable",
+    "notes": "When not recently hit or crowd controlled: damage reduction and crowd control immunity."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "silence",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Two portals fire inward; silence."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Summons voidlings."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Damage over time; spreads on death."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "suppression",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Suppresses a champion; negative zone."
+   }
+  },
+  "windowAgainst": "Break his passive with poke, then crowd control him to stop R.",
+  "checks": []
+ }
+}

@@ -1,0 +1,309 @@
+{
+ "id": 96,
+ "alias": "KogMaw",
+ "name": "Kog'Maw",
+ "title": "the Mouth of the Abyss",
+ "classes": [
+  "marksman",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMixed",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 635,
+  "hpPerLevel": 99,
+  "ad": 61,
+  "adPerLevel": 3.1,
+  "armor": 24,
+  "armorPerLevel": 4.45,
+  "attackSpeed": 0.665,
+  "attackSpeedPerLevel": 2.65,
+  "range": 500,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Caustic Spittle",
+   "cooldown": 7,
+   "cost": 40,
+   "costType": null,
+   "range": 1175.0,
+   "description": "Passive: Kog'Maw gains 5/10/15/20/25% Attack Speed. Active: Kog'Maw vomits a corrosive projectile that deals 80/125/170/215/260 + 0.9×AP magic damage to the first enemy hit and shreds 16/20/24/28/32% Armor and Magic Resist for 4 seconds.",
+   "summary": "Kog'Maw launches a corrosive projectile which deals magic damage and corrodes the target's armor and magic resist for a short time. Kog'Maw also gains additional attack speed.",
+   "values": {
+    "AttackSpeed": [
+     0.05,
+     0.1,
+     0.15,
+     0.2,
+     0.25
+    ],
+    "BaseDamage": [
+     80,
+     125,
+     170,
+     215,
+     260
+    ],
+    "APRatio": 0.9,
+    "ShredAmount": [
+     16,
+     20,
+     24,
+     28,
+     32
+    ],
+    "ShredDuration": 4
+   },
+   "formulas": {
+    "TotalDamage": "80/125/170/215/260 + 0.9×AP"
+   },
+   "tags": [
+    "attack speed",
+    "projectile"
+   ]
+  },
+  "W": {
+   "name": "Bio-Arcane Barrage",
+   "cooldown": 17,
+   "cost": 40,
+   "costType": null,
+   "range": 530.0,
+   "description": "Kog'Maw gains 130/150/170/190/210 Attack Range and his Attacks deal an additional (3/3.75/4.5/5.25/6 + 0.015×AP) × 0.01 max Health magic damage %i:OnHit% On-Hit for 8 seconds.",
+   "summary": "Kog'Maw's attacks gain range and deal a percent of the target's maximum health as magic damage %i:OnHit% On-Hit.",
+   "values": {
+    "MaxHealthDamage": [
+     3,
+     3.75,
+     4.5,
+     5.25,
+     6
+    ],
+    "APRatio": 0.015,
+    "Range": [
+     130,
+     150,
+     170,
+     190,
+     210
+    ],
+    "Duration": 8,
+    "MonsterDamageCap": 100
+   },
+   "formulas": {
+    "TotalHealthDamage": "(3/3.75/4.5/5.25/6 + 0.015×AP) × 0.01"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Void Ooze",
+   "cooldown": 12,
+   "cost": [
+    55,
+    70,
+    85,
+    100,
+    110
+   ],
+   "costType": null,
+   "range": 1200.0,
+   "description": "Kog'Maw spits bile, dealing 70/110/150/190/230 + 0.65×AP magic damage and leaving a trail of ooze for 3 seconds. Enemies in the ooze are Slowed by 40/45/50/55/60%.",
+   "summary": "Kog'Maw launches a peculiar ooze which damages all enemies it passes through and leaves a trail which slows enemies who stand on it.",
+   "values": {
+    "BaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "APRatio": 0.65,
+    "SlowAmount": [
+     40,
+     45,
+     50,
+     55,
+     60
+    ],
+    "TrailDuration": 3,
+    "SlowDuration": 0.25
+   },
+   "formulas": {
+    "TotalDamage": "70/110/150/190/230 + 0.65×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Living Artillery",
+   "cooldown": [
+    2,
+    1.5,
+    1
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 1300.0,
+   "description": "Kog'Maw shoots acid at an area, dealing 100/140/180 + 0.35/0.4/0.45×AP + 0.75×bonus AD plus 0.833% per 1% missing Health magic damage and revealing enemies hit for 2 seconds. Enemies below 40% Health instead take (100/140/180 + 0.35/0.4/0.45×AP + 0.75×bonus AD) × 2 magic damage. Subsequent shots within 8 seconds cost an additional 40 Mana (max: 400 Mana).",
+   "summary": "Kog'Maw fires an artillery shell at a great distance dealing magic damage (increased significantly on low health enemies) and revealing non-stealthed targets. Additionally, multiple Living Artilleries in a short period of time cause them to cost additional Mana.",
+   "values": {
+    "Damage": [
+     100,
+     140,
+     180
+    ],
+    "ManaCostDuration": 8,
+    "Range": [
+     130,
+     155,
+     180
+    ],
+    "BaseCost": 40,
+    "ManaCostCap": 400,
+    "VisionDebuffDuration": 2,
+    "FinalDamageMult": 2,
+    "MaxExtraCost": 360,
+    "VisionRadius": 400,
+    "MidDamageMult": 1.5,
+    "TooltipMissingHealthDamageAmp": 0.833,
+    "APRatio": [
+     0.35,
+     0.4,
+     0.45
+    ]
+   },
+   "formulas": {
+    "BaseDamageCalc": "100/140/180 + 0.35/0.4/0.45×AP + 0.75×bonus AD",
+    "MidDamageCalc": "(100/140/180 + 0.35/0.4/0.45×AP + 0.75×bonus AD) × 1.5",
+    "MaxDamageCalc": "(100/140/180 + 0.35/0.4/0.45×AP + 0.75×bonus AD) × 2"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Icathian Surprise",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "4 seconds after dying, Kogmaw explodes, dealing true damage to surrounding enemies.",
+   "summary": "4 seconds after dying, Kogmaw explodes, dealing true damage to surrounding enemies.",
+   "values": {
+    "TooltipPassiveMS": 0.5,
+    "TooltipPassiveDuration": 4
+   },
+   "formulas": {
+    "PassiveDamage": "140–650 (by level)"
+   },
+   "tags": [
+    "true damage"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Immobile hypercarry whose W turns his attacks into long-range percent-health damage. Weak and passive early, he melts anyone late if his team peels for him.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "Huge late-game damage during W, including %max HP that shreds tanks",
+   "Very long range while W is up",
+   "R artillery pokes and finishes from far away",
+   "Q shreds armor and MR for his team",
+   "Excellent with peel supports (Lulu, Janna, Braum)"
+  ],
+  "weaknesses": [
+   "No dash or escape at all",
+   "Weak early: low damage before attack speed items",
+   "Totally dependent on peel; easy dive target",
+   "R costs more mana each time it's used in a row",
+   "Short attack range outside W"
+  ],
+  "curve": {
+   "lvl1": "weak – no W range, low damage",
+   "lvl2": "medium – W window trades",
+   "lvl3": "medium – E slow helps kite",
+   "lvl6": "medium – R poke and execute",
+   "items": "strong – attack speed + on-hit (Guinsoo's, Blade of the Ruined King)",
+   "late": "strong – hypercarry"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Mostly farms; trades only during W windows with support help.",
+  "waveClear": "medium – W attacks and Q; R costly",
+  "sustain": "low – lifesteal items only",
+  "mobility": "none – E slow is his only escape tool",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "W",
+    "Q"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Shreds armor and MR on hit."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bonus range and %max HP magic on-hit for a few seconds: his whole damage window."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Ooze line slows; his only peel."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Delayed artillery; mana cost stacks with repeated casts."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Explodes after death, dealing true damage."
+   }
+  },
+  "windowAgainst": "W on cooldown: he has short range and little damage; dive him. Levels 1–5 before items.",
+  "checks": []
+ }
+}

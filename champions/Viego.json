@@ -1,0 +1,341 @@
+{
+ "id": 234,
+ "alias": "Viego",
+ "name": "Viego",
+ "title": "The Ruined King",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 109,
+  "ad": 57,
+  "adPerLevel": 4,
+  "armor": 34,
+  "armorPerLevel": 4.6,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2.75,
+  "range": 200,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Blade of the Ruined King",
+   "cooldown": [
+    5,
+    4.5,
+    4,
+    3.5,
+    3
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 600.0,
+   "description": "Passive: Viego's Attacks deal an additional (2/3/4/5/6) × 0.01 current Health physical damage. His first Attack against an enemy he has recently damaged with an Ability hits a second time, dealing 0.2×AD + 0.15×AP physical damage and restoring 150% of damage dealt as Health. These bonuses are kept during Possession. Active: Viego stabs forward, dealing (25/40/55/70/85 + 0.7×AD) × (1 + (0.6×crit × (1×stat + -1))) physical damage.",
+   "summary": "Viego's spectral blade passively deals bonus percent current Health damage On-Hit and strikes twice vs. enemies he recently hit with an Ability, stealing Health. Viego can activate this Ability to thrust his zweihander forward, impaling enemies in front of him.",
+   "values": {
+    "Damage": [
+     25,
+     40,
+     55,
+     70,
+     85
+    ],
+    "ActiveADRatio": 0.7,
+    "ActiveCritMod": 0.6,
+    "PercentHealthOnHit": [
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "MinDamageOnHit": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "MonsterCapOnHit": 80,
+    "RectangleRange": 600,
+    "RectangleWidth": 125,
+    "HealModVsMinions": 1,
+    "HealModVsMonsters": 1.25,
+    "HealModVsChamps": 1.5,
+    "MarkDuration": 4,
+    "HealthCritMod": 0.7,
+    "SecondAttackAPRatio": 0.15
+   },
+   "formulas": {
+    "TotalDamage": "(25/40/55/70/85 + 0.7×AD) × (1 + (0.6×crit × (1×stat + -1)))",
+    "SecondAttackDamage": "0.2×AD + 0.15×AP",
+    "TotalPercentHealthOnHit": "(2/3/4/5/6) × 0.01",
+    "HealthCritDamage": "(1 + (0.7 × (1×stat + -1))) × (0.01 × 2/3/4/5/6)"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Spectral Maw",
+   "cooldown": 8,
+   "cost": null,
+   "costType": null,
+   "range": 400.0,
+   "description": "Begin Charging: Viego begins gathering Mist, Slowing himself by 10%. Release: Viego dashes forward and hurls the gathered Mist. Deals 80/135/190/245/300 + 1×AP magic damage and Stuns the first enemy hit for 0.25 to 1.25 seconds based on charge time.",
+   "summary": "Viego charges up before dashing forward, releasing a ball of concentrated Black Mist that stuns the first enemy hit.",
+   "values": {
+    "Damage": [
+     80,
+     135,
+     190,
+     245,
+     300
+    ],
+    "StunMultPercent": 4,
+    "StunDuration": 0.25,
+    "MaxStunTT": 1.25,
+    "DashDistance": 300,
+    "DashSpeed": 1000,
+    "MinMissileRange": 500,
+    "MaxBonusMissileRange": 400,
+    "SelfSlowPercent": 0.1,
+    "MaxChargeTime": 3,
+    "CDWheninterrupted": 3,
+    "APRatio": 1
+   },
+   "formulas": {
+    "TotalDamage": "80/135/190/245/300 + 1×AP"
+   },
+   "tags": [
+    "dash",
+    "slow",
+    "stun"
+   ]
+  },
+  "E": {
+   "name": "Harrowed Path",
+   "cooldown": [
+    14,
+    12,
+    10,
+    8,
+    6
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 750.0,
+   "description": "Viego sends forth a spectre to haunt the first terrain hit, surrounding it with Mist for 8 seconds. Viego gains Camouflage, (varies) Move Speed, and 30/35/40/45/50% Attack Speed while inside the Mist.",
+   "summary": "Viego commands the Black Mist to haunt and surround a piece of terrain. Viego can hide in the Mist as a wraith, gaining camouflage, Move Speed, and Attack Speed.",
+   "values": {
+    "MistDuration": 8,
+    "MoveSpeed": [
+     0.25,
+     0.275,
+     0.3,
+     0.325,
+     0.35
+    ],
+    "AttackSpeed": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "CamoRadius": 450,
+    "RestealthTime": 0.6,
+    "RestealthTimeAfterHittingLargeMonster": 1.5,
+    "MSAPRatio": 0.0
+   },
+   "formulas": {
+    "TotalMovespeed": "0.25/0.275/0.3/0.325/0.35 + 0.0×AP"
+   },
+   "tags": [
+    "attack speed",
+    "move speed",
+    "stealth"
+   ]
+  },
+  "R": {
+   "name": "Heartbreaker",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 500.0,
+   "description": "Viego discards any souls he is currently Possessing and teleports. On arrival he Attacks the champion with the lowest percent Health, briefly Slowing them by 99% and dealing (1.2×AD) × (1 + (0.7×crit × (1×stat + -1))) + 12/16/20 + 0.05×bonus AD% missing Health physical damage. Other nearby enemies are Knocked Back and take (1.2×AD) × (1 + (0.7×crit × (1×stat + -1))) physical damage.",
+   "summary": "Viego teleports to a nearby location and executes an enemy champion on arrival, piercing their heart and causing a destructive shockwave around them that knocks away their allies.",
+   "values": {
+    "MaxHealthDamage": [
+     12,
+     16,
+     20
+    ],
+    "SlowDuration": 0.25,
+    "SlowPercent": 0.99,
+    "LockoutTime": 1.5,
+    "KnockbackBonusRange": 100,
+    "KnockbackSpeed": 1000,
+    "KnockbackGravity": 15,
+    "ADRatio": 1.2,
+    "CritMod": 0.7
+   },
+   "formulas": {
+    "TotalDamage": "(1.2×AD) × (1 + (0.7×crit × (1×stat + -1)))",
+    "TotalPercentHealth": "12/16/20 + 0.05×bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "blink",
+    "execute",
+    "heal",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Sovereign's Domination",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Enemies who fall before Viego become wraiths. By attacking a wraith, Viego temporarily seizes control of the dead enemy's body, healing for a percentage of his target's max health and gaining access to their basic abilities and items. He replaces their Ultimate with a free cast of his own.",
+   "summary": "Enemies who fall before Viego become wraiths. By attacking a wraith, Viego temporarily seizes control of the dead enemy's body, healing for a percentage of his target's max health and gaining access to their basic abilities and items. He replaces their Ultimate with a free cast of his own.",
+   "values": {
+    "MoveSpeedPercent": 0.1,
+    "TransformDuration": 10,
+    "BaseHealPercent": 2,
+    "TakedownWindow": 3,
+    "InvulnTimeWhileAttackingSoul": 1,
+    "SoulDuration": 8
+   },
+   "formulas": {
+    "PercentHealthHeal": "2 + 0.025×bonus AD + 0.02×AP + 5×bonus stat + 0.004×bonus max HP"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Skirmishing jungler who resets fights by possessing dead enemies through his passive. Wins by entering fights after a takedown and chaining kills with R.",
+  "positions": [
+   "JUNGLE",
+   "MIDDLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Passive possession heals him and gives a new body and its basic abilities after each takedown",
+   "Q passive deals % current health damage on attacks",
+   "W charge stuns up to 1.25 s and dashes",
+   "E camouflage zone gives attack speed and stealth for ganks",
+   "R teleport and execute on the lowest-health target restarts fights"
+  ],
+  "weaknesses": [
+   "Snowball-dependent; weak if fights don't produce takedowns",
+   "Short range; kited before possessing",
+   "W stun is a skillshot charge that can be dodged",
+   "Weak to crowd control chains while he's going in",
+   "Possessed bodies keep the target's weaknesses"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "medium",
+   "lvl3": "strong – full clear and gank with W stun",
+   "lvl6": "strong – R resets",
+   "items": "strong – Blade of the Ruined King / Kraken",
+   "late": "medium-strong – teamfight resets"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants Q, W and E for clear and ganks; possession needs takedowns.",
+  "waveClear": "medium",
+  "sustain": "medium – possession heal, BotRK",
+  "mobility": "medium – W dash, R teleport, E camouflage",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "W",
+    "R",
+    "E"
+   ],
+   "escape": [
+    "E",
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attacking a wraith possesses the dead champion, healing him and using their basic abilities."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Passive % current-health damage on attacks; active stab; double-hit after an ability."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Charge 0.25–1.25 s stun; dashes forward on release."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Mist around terrain: camouflage, move speed, attack speed."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Teleports and strikes the lowest-% health champion; area damage; resets possession."
+   }
+  },
+  "windowAgainst": "W on cooldown and no wraiths nearby: he has no stun and no reset. Before level 3.",
+  "checks": [
+   "Whether W's mist counts as a missile for projectile blocks."
+  ]
+ }
+}

@@ -1,0 +1,343 @@
+{
+ "id": 74,
+ "alias": "Heimerdinger",
+ "name": "Heimerdinger",
+ "title": "the Revered Inventor",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 558,
+  "hpPerLevel": 105,
+  "ad": 56,
+  "adPerLevel": 2.7,
+  "armor": 19,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 1.36,
+  "range": 550,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "H-28 G Evolution Turret",
+   "cooldown": 1,
+   "cost": 20,
+   "costType": null,
+   "range": 350.0,
+   "description": "Heimerdinger constructs a Turret that attacks nearby enemies. Heimerdinger can have 3 turrets active at once. Turrets slowly build up charge. At max charge, they fire a stronger attack. If Heimerdinger gets too far away, his Turrets will deactivate after 8 seconds. This Ability has 3 charges.",
+   "summary": "Heimerdinger lays down a rapid-fire cannon turret equipped with a secondary pass-through beam attack (turrets deal half damage to towers).",
+   "values": {
+    "MaxTurrets": 3,
+    "MaxKits": 3,
+    "KitCost": 1,
+    "DistanceToHeimer": 900,
+    "BaseDamage": [
+     7,
+     11,
+     15,
+     19,
+     23
+    ],
+    "BaseDamageBeam": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "TurretAPRatio": 0.35,
+    "BeamAPRatio": 0.55,
+    "TurretHealthMod": 1
+   },
+   "formulas": {
+    "TurretHealth": "(130\u2013640 (by level) + 0.05+ (by level)\u00d7AP) \u00d7 1",
+    "{f0517331}": "None+ (by level)",
+    "{8109ae7b}": "None+ (by level)",
+    "KitCooldown": "(20) \u00d7 ?",
+    "BeamCooldown": "(90) \u00d7 ?",
+    "Damage": "7/11/15/19/23 + 0.35\u00d7AP",
+    "DamageBeam": "40/60/80/100/120 + 0.55\u00d7AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Hextech Micro-Rockets",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    90
+   ],
+   "costType": null,
+   "range": 1325.0,
+   "description": "Heimerdinger unleashes a barrage of 5 rockets that deal 50/75/100/125/150 + 0.55\u00d7AP magic damage to the first enemy hit. Additional rocket hits deal reduced damage. Max Damage: 90/135/180/225/270 + 1.03\u00d7AP magic damage. Nearby Turrets gain 20% charge per rocket that hits a champion.",
+   "summary": "Heimerdinger fires long-range rockets that converge on his cursor.",
+   "values": {
+    "Rockets": 5,
+    "BaseDamage": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "ExtraHitBaseDamage": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "TotalBaseDamage": [
+     90,
+     135,
+     180,
+     225,
+     270
+    ],
+    "InitialDamageAPRatio": 0.55
+   },
+   "formulas": {
+    "Damage": "50/75/100/125/150 + 0.55\u00d7AP",
+    "ExtraHitDamage": "10/15/20/25/30 + 0.12\u00d7AP",
+    "TotalDamage": "90/135/180/225/270 + 1.03\u00d7AP",
+    "ExtraHitDamageMinions": "(10/15/20/25/30 + 0.12\u00d7AP) \u00d7 3"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "CH-2 Electron Storm Grenade",
+   "cooldown": 11,
+   "cost": 85,
+   "costType": null,
+   "range": 970.0,
+   "description": "Heimerdinger hurls a grenade that deals 60/100/140/180/220 + 0.6\u00d7AP magic damage in an area and Slows by (varies)% for 2 seconds. Enemies in the center are also Stunned for 1.5 seconds. Hitting a champion fully charges nearby Turrets.",
+   "summary": "Heimerdinger lobs a grenade at a location, dealing damage to enemy units, as well as stunning anyone directly hit and slowing surrounding units.",
+   "values": {
+    "BaseDamage": [
+     60,
+     100,
+     140,
+     180,
+     220
+    ],
+    "SlowDuration": 2,
+    "SlowPercent": 0.35,
+    "StunDuration": 1.5
+   },
+   "formulas": {
+    "Damage": "60/100/140/180/220 + 0.6\u00d7AP"
+   },
+   "tags": [
+    "slow",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "UPGRADE!!!",
+   "cooldown": [
+    100,
+    85,
+    70
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1.0,
+   "description": "Heimerdinger upgrades his next non-ultimate Ability. H-28Q Apex Turret: Place an upgraded Turret for 8 seconds that doesn't count towards Heimerdinger's max turrets, deals 80/100/120 + 0.35\u00d7AP magic damage per shot and 100/140/180 + 0.7\u00d7AP magic damage per charged shot. Its attacks deal damage in an area, Slow by 25% for 2 seconds, and it is immune to crowd control. Hextech Rocket Swarm: Fires 4 waves of rockets that each deal 135/180/225 + 0.45\u00d7AP magic damage. Champions and jungle monsters hit by additional rockets take reduced damage, and minions take increased damage. Max Damage: 503/697.5/892 + 1.83\u00d7AP magic damage. CH-3X Lightning Grenade: Throws a bouncing grenade that discharges three times, dealing 100/200/300 + 0.6\u00d7AP magic damage. The Stun and Slow areas are larger. Recast: Cancel this Ability.",
+   "summary": "Heimerdinger invents an upgrade, causing his next spell to have increased effects.",
+   "values": {
+    "QUltBaseDamage": [
+     80,
+     100,
+     120
+    ],
+    "QUltBaseDamageBeam": [
+     100,
+     140,
+     180
+    ],
+    "WUltBaseDamage": [
+     135,
+     180,
+     225
+    ],
+    "WUltExtraHitBaseDamage": [
+     32,
+     45,
+     58
+    ],
+    "WUltTotalBaseDamage": [
+     503,
+     697.5,
+     892
+    ],
+    "EUltBaseDamage": [
+     100,
+     200,
+     300
+    ],
+    "WUltSecondaryAPRatio": 0.12,
+    "WUltPrimaryAPRatio": 0.45,
+    "WUltPrimaryBaseDamage": [
+     135,
+     180,
+     225
+    ],
+    "WUltSecondaryBaseDamage": [
+     28,
+     39,
+     49
+    ]
+   },
+   "formulas": {
+    "QUltTurretHealth": "725+ (by level) + 0.5\u00d7AP",
+    "QUltDamage": "80/100/120 + 0.35\u00d7AP",
+    "QUltDamageBeam": "100/140/180 + 0.7\u00d7AP",
+    "WUltDamage": "135/180/225 + 0.45\u00d7AP",
+    "{a8af07ef}": "32/45/58 + 0.12\u00d7AP",
+    "{f058914b}": "(a8af07ef) \u00d7 0.5",
+    "WUltTotalDamage": "503/697.5/892 + 1.83\u00d7AP",
+    "EUltDamage": "100/200/300 + 0.6\u00d7AP",
+    "{0df0e2e2}": "(503/697.5/892 + 1.83\u00d7AP) \u00d7 20",
+    "RQTurretResists": "30+ (by level)"
+   },
+   "tags": [
+    "slow",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Hextech Affinity",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Gain Move Speed while near allied towers and turrets deployed by Heimerdinger.",
+   "summary": "Gain Move Speed while near allied towers and turrets deployed by Heimerdinger.",
+   "values": {
+    "MovementSpeed": 0.2
+   },
+   "formulas": {},
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Heimerdinger is a ranged mage who places turrets with H-28 G Evolution Turret to control lanes and zones. He plays mid, top or support, pushing waves and winning fights in areas filled with his turrets.",
+  "positions": [
+   "MIDDLE",
+   "TOP",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Turrets give strong lane control and damage from early levels.",
+   "CH-2 Electron Storm Grenade stuns in the center and slows around it.",
+   "UPGRADE!!! gives a big turret, a rocket swarm or a large stun grenade.",
+   "Strong in areas where his turrets are set up.",
+   "Hextech Micro-Rockets charge turrets when they hit."
+  ],
+  "weaknesses": [
+   "Immobile: no dash.",
+   "Weak away from his turrets.",
+   "Squishy.",
+   "Turrets deactivate if he moves too far away.",
+   "Weak against long-range champions who outrange turrets."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 a turret in lane zones the enemy off the wave",
+   "lvl2": "strong \u2013 W rockets plus turrets out-trade most mid laners",
+   "lvl3": "strong \u2013 E stun into charged turret shots",
+   "lvl6": "strong \u2013 UPGRADE!!! gives an Apex Turret, a rocket swarm or a big stun grenade",
+   "items": "medium \u2013 first item: Liandry's Torment or Luden's Companion",
+   "late": "okay \u2013 deadly in a prepared area, weak away from it"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Heimerdinger is strong from level 1 thanks to turrets, and stronger at 6 with UPGRADE!!!.",
+  "waveClear": "Very good: turrets push waves.",
+  "sustain": "Low: no healing.",
+  "mobility": "Very low: no dash.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Turrets) to zone",
+   "engage": "E (Grenade) stun",
+   "escape": "R (UPGRADE!!!) upgraded ability",
+   "answers": "None. Heimerdinger has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Hextech Affinity: move speed near allied towers and his turrets."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "H-28 G Evolution Turret: turrets that attack and charge up."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": "Dodge sideways, or block with a projectile block.",
+    "notes": "Hextech Micro-Rockets: rockets that charge turrets on hit."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge the grenade; Cleanse/QSS removes the stun.",
+    "notes": "CH-2 Electron Storm Grenade: slows the area, stuns in the center."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "UPGRADE!!!: upgrades his next basic ability."
+   }
+  },
+  "windowAgainst": "Heimerdinger's window is when his turrets are down or away: fight him outside his turret zone.",
+  "checks": [
+   "Does Heimerdinger place turrets before a fight?",
+   "Does Heimerdinger land E stun?",
+   "Does the enemy team kill turrets before fighting?"
+  ]
+ }
+}

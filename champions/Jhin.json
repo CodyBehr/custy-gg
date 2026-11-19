@@ -1,0 +1,328 @@
+{
+ "id": 202,
+ "alias": "Jhin",
+ "name": "Jhin",
+ "title": "the Virtuoso",
+ "classes": [
+  "marksman",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 655,
+  "hpPerLevel": 107,
+  "ad": 61,
+  "adPerLevel": 4.4,
+  "armor": 24,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Dancing Grenade",
+   "cooldown": [
+    7,
+    6.5,
+    6,
+    5.5,
+    5
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": 550.0,
+   "description": "Jhin launches a cartridge that deals 44/69/94/119/144 + 0.44/0.515/0.59/0.665/0.74×AD + 0.6×AP physical damage before bouncing to a nearby enemy that has not been hit yet. The cartridge can hit a maximum of (1 + 3) times. Enemies that die shortly after being hit increase the damage of subsequent hits by 35%.",
+   "summary": "Jhin launches a magical cartridge at an enemy. It can hit up to four targets and gains damage each time it kills.",
+   "values": {
+    "BaseDamage": [
+     44,
+     69,
+     94,
+     119,
+     144
+    ],
+    "ADRatio": [
+     0.44,
+     0.515,
+     0.59,
+     0.665,
+     0.74
+    ],
+    "PercentAmpOnKill": 0.35,
+    "NumberOfBounces": 3,
+    "BounceRange": 450
+   },
+   "formulas": {
+    "TotalDamage": "44/69/94/119/144 + 0.44/0.515/0.59/0.665/0.74×AD + 0.6×AP",
+    "TooltipMaxTargetsHit": "(1 + 3)"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Deadly Flourish",
+   "cooldown": 12,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 3000.0,
+   "description": "Jhin fires a long range shot dealing 70/105/140/175/210 + 0.5×AD physical damage to the first champion hit and other enemies along the way. If this skill strikes a champion that has been damaged by an allied champion within the last 4 seconds, it will Root them for 1.25/1.5/1.75/2/2.25 seconds and grant Jhin Whisper's Move Speed.",
+   "summary": "Jhin brandishes his cane, firing a single shot with incredible range. It pierces through minions and monsters, but stops on the first champion hit. If the target was recently struck by Jhin's allies, lotus traps, or damaged by Jhin, they are rooted.",
+   "values": {
+    "BaseDamage": [
+     70,
+     105,
+     140,
+     175,
+     210
+    ],
+    "RootDuration": [
+     1.25,
+     1.5,
+     1.75,
+     2,
+     2.25
+    ],
+    "MinionMod": 0.75,
+    "SpottingDuration": 4
+   },
+   "formulas": {
+    "TotalDamage": "70/105/140/175/210 + 0.5×AD"
+   },
+   "tags": [
+    "move speed",
+    "root"
+   ]
+  },
+  "E": {
+   "name": "Captive Audience",
+   "cooldown": 2,
+   "cost": 30,
+   "costType": null,
+   "range": 750.0,
+   "description": "Passive: Champions Jhin kills will create and detonate a Lotus Trap at their location. Active: Jhin places an invisible Lotus Trap for 3 minutes that creates a zone that Slows by 35% when stepped on by an enemy. After 2 seconds, the trap detonates, dealing 20/80/140/200/260 + 1.2×AD + 1×AP magic damage. This ability has 2 charges ((24/21.5/19/16.5/14 + (1×stat × 24/21.5/19/16.5/14)) second refresh).",
+   "summary": "Jhin places an invisible lotus trap that blooms when walked over. It slows nearby enemies before dealing damage with an explosion of serrated petals. Beauty in Death - When Jhin kills an enemy champion, a lotus trap will bloom near their corpse.",
+   "values": {
+    "AmmoRechargeRateBaseTooltip": [
+     24,
+     21.5,
+     19,
+     16.5,
+     14
+    ],
+    "TrapSlowAmount": 0.35,
+    "ReducedDamagePercent": 0.65,
+    "BaseDamage": [
+     20,
+     80,
+     140,
+     200,
+     260
+    ],
+    "TrapDuration": 3,
+    "TrapAoERadius": 260,
+    "TrapTriggerRadius": 160,
+    "TrapDetonationTime": 2,
+    "TrapRevealDuration": 4,
+    "TrapArmTime": 0.75
+   },
+   "formulas": {
+    "TotalDamage": "20/80/140/200/260 + 1.2×AD + 1×AP",
+    "AmmoRechargeRateTooltip": "(24/21.5/19/16.5/14 + (1×stat × 24/21.5/19/16.5/14))"
+   },
+   "tags": [
+    "slow",
+    "stealth"
+   ]
+  },
+  "R": {
+   "name": "Curtain Call",
+   "cooldown": [
+    120,
+    105,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Jhin sets up and channels, enabling him to fire 4 super shots, each dealing between 64/128/192 + 0.25×AD and (64/128/192 + 0.25×AD) × (1 + 3) physical damage to the first champion hit based on their percentage missing health and Slowing them by 80% for 0.5 seconds. The fourth shot critically strikes for 200% damage.",
+   "summary": "Jhin channels, transforming Whisper into a shoulder-mounted mega-cannon. It is able to fire 4 super shots at extreme range that pierce through minions and monsters, but stop on the first champion impacted. Whisper cripples enemies hit, which slows them and deals execute damage. The 4th shot is perfectly crafted, epically powerful, and guaranteed to critically strike.",
+   "values": {
+    "Damage": [
+     64,
+     128,
+     192
+    ],
+    "FourthShotMultiplier": 2,
+    "SlowPercent": 0.8,
+    "SlowDuration": 0.5,
+    "PercentMissingAmp": 3,
+    "MInimumDelayBetweenShots": 1,
+    "ADRatio": 0.25
+   },
+   "formulas": {
+    "DamageCalc": "64/128/192 + 0.25×AD",
+    "MaxIncreaseCalc": "(64/128/192 + 0.25×AD) × (1 + 3)"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Whisper",
+   "cooldown": 4.5,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Jhin's hand cannon, Whisper, is a precise instrument designed to deal superior damage. It fires at a fixed rate and carries only four shots. Jhin imbues the final bullet with dark magics to critically strike and deal bonus execute damage. Whenever Whisper crits, it inspires Jhin with a burst of Move Speed.",
+   "summary": "Jhin's hand cannon, Whisper, is a precise instrument designed to deal superior damage. It fires at a fixed rate and carries only four shots. Jhin imbues the final bullet with dark magics to critically strike and deal bonus execute damage. Whenever Whisper crits, it inspires Jhin with a burst of Move Speed.",
+   "values": {
+    "MaxAmmo": 4,
+    "ReloadTime": 2.5,
+    "HasteDuration": 2,
+    "OutOfCombatTimeBeforeReload": 8,
+    "FourthShotDamageMult": 1.5,
+    "CritReductionPercent": 0.25,
+    "BaseAttackSpeed": 0.625,
+    "PercentAttackSpeedPerLevel": 0.03,
+    "CritMoveSpeedPercentASRatio": 0.44
+   },
+   "formulas": {
+    "FourthShotExecutePercent": "0.15+ (by level)",
+    "TotalADPercent": "0.04+ (by level) + 0.35×crit + 0.3×bonus stat",
+    "CritMoveSpeedPercent": "0.14 + 0.44×bonus stat"
+   },
+   "tags": [
+    "execute",
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Four-shot marksman whose 4th shot always crits and executes. Wins lane through 4th-shot and Q poke, and picks with W root on targets an ally just hit.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "4th shot crits and deals bonus execute damage, then gives move speed",
+   "W long-range shot roots for 1.25–2.25 s if an allied champion damaged the target in the last 4 s",
+   "Q bounces up to 4 times, getting stronger on kills",
+   "E traps (2 charges) slow 35% and detonate; also spawn on kills",
+   "R fires 4 long-range shots that slow 80% and do more damage to low targets"
+  ],
+  "weaknesses": [
+   "Fixed attack rate and 4-shot reload leave gaps in his damage",
+   "No dash: weak to dive and hard engage",
+   "W root needs an ally to tag the target first",
+   "R is a channel: he can't move while using it"
+  ],
+  "curve": {
+   "lvl1": "strong – 4th shot poke",
+   "lvl2": "strong – Q+4th shot",
+   "lvl3": "strong – W root with support",
+   "lvl6": "strong – R picks",
+   "items": "strong – Collector / Infinity Edge",
+   "late": "strong – long-range R and W"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "4th-shot pressure from level 1; W root needs his support to tag the target, so trade when they've just hit.",
+  "waveClear": "good – Q bounce, E",
+  "sustain": "low",
+  "mobility": "low – move speed after crits only",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive"
+   ],
+   "engage": [
+    "W",
+    "R"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "4 shots; 4th crits and executes; reload."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Bouncing cartridge; blockable."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Long-range line; roots if an ally damaged the target in the last 4 s."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Invisible trap, 2 charges; detonates after 2 s."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Channel; 4 shots, 80% slow, 4th crits."
+   }
+  },
+  "windowAgainst": "Reloading after 4th shot, or W on cooldown (12 s): trade then.",
+  "checks": [
+   "Whether W is a blockable missile (projectile blocks)."
+  ]
+ }
+}

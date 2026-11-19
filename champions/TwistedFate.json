@@ -1,0 +1,309 @@
+{
+ "id": 4,
+ "alias": "TwistedFate",
+ "name": "Twisted Fate",
+ "title": "the Card Master",
+ "classes": [
+  "mage",
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 604,
+  "hpPerLevel": 108,
+  "ad": 52,
+  "adPerLevel": 2.5,
+  "armor": 24,
+  "armorPerLevel": 4.35,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.5,
+  "range": 525,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Wild Cards",
+   "cooldown": [
+    6,
+    5.75,
+    5.5,
+    5.25,
+    5
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    110
+   ],
+   "costType": null,
+   "range": 10000.0,
+   "description": "Twisted Fate throws three cards that deal 60/105/150/195/240 + 0.5×bonus AD + 0.85×AP magic damage each.",
+   "summary": "Twisted Fate throws three cards, dealing damage to each enemy unit they pass through.",
+   "values": {
+    "BaseDamage": [
+     60,
+     105,
+     150,
+     195,
+     240
+    ],
+    "APRatio": 0.85,
+    "BonusADRatio": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "60/105/150/195/240 + 0.5×bonus AD + 0.85×AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Pick a Card",
+   "cooldown": 6,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 200.0,
+   "description": "Twisted Fate begins shuffling his deck, allowing him to Recast to lock in one of three cards and enhance his next Attack. The Blue Card deals 40/60/80/100/120 + 1×AD + 1×AP + (0.575 × (40/60/80/100/120 + 1×AD + 1×AP))×crit magic damage and restores (varies) Mana.The Red Card deals 30/45/60/75/90 + 1×AD + 0.7×AP + (0.35 × (30/45/60/75/90 + 1×AD + 0.7×AP))×crit to nearby enemies and Slows by (varies)% for 2.5 seconds.The Gold Card deals 15/22.5/30/37.5/45 + 1×AD + 0.5×AP + (0.25 × (15/22.5/30/37.5/45 + 1×AD + 0.5×AP))×crit and Stuns for (varies) seconds.",
+   "summary": "Twisted Fate chooses a magic card from his deck, and uses that for his next attack, causing bonus effects.",
+   "values": {
+    "BlueBase": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "RedBase": [
+     30,
+     45,
+     60,
+     75,
+     90
+    ],
+    "GoldBase": [
+     15,
+     22.5,
+     30,
+     37.5,
+     45
+    ],
+    "BlueCritMultiplier": 0.575,
+    "RedCritMultiplier": 0.35,
+    "GoldCritMultiplier": 0.25,
+    "ttBlueAP": 1,
+    "ttRedAP": 0.7,
+    "ttGoldAP": 0.5,
+    "ttAD": 1
+   },
+   "formulas": {
+    "BlueDamage": "40/60/80/100/120 + 1×AD + 1×AP + (0.575 × (40/60/80/100/120 + 1×AD + 1×AP))×crit",
+    "RedDamage": "30/45/60/75/90 + 1×AD + 0.7×AP + (0.35 × (30/45/60/75/90 + 1×AD + 0.7×AP))×crit",
+    "GoldDamage": "15/22.5/30/37.5/45 + 1×AD + 0.5×AP + (0.25 × (15/22.5/30/37.5/45 + 1×AD + 0.5×AP))×crit",
+    "ttBlueDamage": "(40/60/80/100/120 + 1×AD + 1×AP + (0.575 × (40/60/80/100/120 + 1×AD + 1×AP))×crit) × 1",
+    "ttRedDamage": "(30/45/60/75/90 + 1×AD + 0.7×AP + (0.35 × (30/45/60/75/90 + 1×AD + 0.7×AP))×crit) × 1",
+    "ttGoldDamage": "(15/22.5/30/37.5/45 + 1×AD + 0.5×AP + (0.25 × (15/22.5/30/37.5/45 + 1×AD + 0.5×AP))×crit) × 1"
+   },
+   "tags": [
+    "empowered attack",
+    "slow",
+    "stun"
+   ]
+  },
+  "E": {
+   "name": "Stacked Deck",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": 0.0,
+   "description": "Passive: Twisted Fate gains 15/25/35/45/55% Attack Speed and every 4th Attack deals an additional 65/90/115/140/165 + 0.2×bonus AD + 0.4×AP magic damage.",
+   "summary": "Every 4 attacks, Twisted Fate deals bonus damage. In addition, his Attack Speed is increased.",
+   "values": {
+    "AttackSpeedBonus": [
+     15,
+     25,
+     35,
+     45,
+     55
+    ],
+    "Damage": [
+     65,
+     90,
+     115,
+     140,
+     165
+    ],
+    "APRatio": 0.4,
+    "BonusADRatio": 0.2,
+    "TowerEffectiveness": 0.5
+   },
+   "formulas": {
+    "BonusDamage": "65/90/115/140/165 + 0.2×bonus AD + 0.4×AP"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  },
+  "R": {
+   "name": "Destiny",
+   "cooldown": [
+    170,
+    140,
+    110
+   ],
+   "cost": [
+    100,
+    100,
+    115
+   ],
+   "costType": null,
+   "range": 5500.0,
+   "description": "Twisted Fate focuses on his cards, granting True Sight of all enemy champions on the map for (varies) seconds and allowing him to Recast. Recast: Twisted Fate teleports up to (varies) units away.",
+   "summary": "Twisted Fate predicts the fortunes of his foes, revealing all enemy champions and enabling the use of Gate, which teleports Twisted Fate to any target location in 1.5 seconds.",
+   "values": {
+    "RecastDuration": [
+     6,
+     8,
+     10
+    ]
+   },
+   "formulas": {},
+   "tags": [
+    "blink"
+   ]
+  },
+  "Passive": {
+   "name": "Loaded Dice",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Upon killing a unit, Twisted Fate rolls his 'lucky' dice receiving 1 to 6 bonus gold.",
+   "summary": "Upon killing a unit, Twisted Fate rolls his 'lucky' dice receiving 1 to 6 bonus gold.",
+   "values": {
+    "GoldRatioMinCherry": 0.02,
+    "GoldRatioMaxCherry": 0.08,
+    "GameModeInteger": 1
+   },
+   "formulas": {},
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Roaming mage who controls the map with R's global teleport and locks targets down with the Gold Card stun. Wins by setting up kills in side lanes rather than by winning mid lane alone.",
+  "positions": [
+   "MIDDLE",
+   "TOP",
+   "BOTTOM"
+  ],
+  "strengths": [
+   "Gold Card (W) is a point-and-click stun that sets up ganks",
+   "R gives vision of every enemy and a teleport to anywhere nearby, enabling fast roams",
+   "Q poke and Red Card give safe wave clear",
+   "E passive attack speed and bonus damage every 4th attack",
+   "Extra gold from passive"
+  ],
+  "weaknesses": [
+   "Weak 1v1 duelist with low mobility; easy to all-in before level 6",
+   "Gold Card stun is an attack: Jax E dodges it, blinds make it miss",
+   "Squishy and immobile when R is down",
+   "Relies on teammates to follow his roams",
+   "Weak against long-range poke mages in lane"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke, W card",
+   "lvl2": "medium",
+   "lvl3": "medium – full kit, but low damage",
+   "lvl6": "strong – R roams change the map",
+   "items": "strong – Lost Chapter / Luden's or AP; on-hit builds in some lanes",
+   "late": "medium – pick tool and split-push support"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Gold Card + Q is his trade; he plays for roams at 6 more than lane trades.",
+  "waveClear": "good – Q and Red Card area",
+  "sustain": "low",
+  "mobility": "low in lane; global with R",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "W",
+    "Q"
+   ],
+   "engage": [
+    "W",
+    "R"
+   ],
+   "escape": [
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bonus gold on kills."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Three cards in a cone; blockable by projectile blocks."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Empowered next attack: Gold Card stuns, Red Card slows in area, Blue Card restores mana. As an attack, it's dodged by Jax E."
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Passive attack speed; every 4th attack deals bonus magic damage."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Reveals all enemy champions; recast teleports nearby (channel can be interrupted)."
+   }
+  },
+  "windowAgainst": "W on cooldown (no Gold Card) or before level 6: all-in him in lane. Also when R is down, side lanes are safe from his roam.",
+  "checks": [
+   "R reveal duration and teleport range show as (varies) in the file."
+  ]
+ }
+}

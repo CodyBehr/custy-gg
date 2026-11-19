@@ -1,0 +1,328 @@
+{
+ "id": 101,
+ "alias": "Xerath",
+ "name": "Xerath",
+ "title": "the Magus Ascendant",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 575,
+  "hpPerLevel": 106,
+  "ad": 55,
+  "adPerLevel": 3,
+  "armor": 22,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 1.36,
+  "range": 525,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Arcanopulse",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": [
+    90,
+    100,
+    110,
+    120,
+    120
+   ],
+   "costType": null,
+   "range": 750.0,
+   "description": "Begin Charging: Xerath begins charging an arcane beam, Slowing himself gradually up to 50%. Release: Xerath fires the beam, dealing 70/110/150/190/230 + 0.9×AP magic damage. The range increases with time charged.",
+   "summary": "Fires a long-range beam of energy, dealing magic damage to all targets hit.",
+   "values": {
+    "BaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "ChargeTime": 4,
+    "RectangleWidth": 145,
+    "ManaRefundFail": 0.5,
+    "StartingSelfSlow": -0.2,
+    "RampingSlow": 0.1,
+    "StartRangePercent": 0.5,
+    "RangeGrowthMult": 1.5
+   },
+   "formulas": {
+    "TooltipTotalDamage": "70/110/150/190/230 + 0.9×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Eye of Destruction",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": [
+    90,
+    100,
+    110,
+    120,
+    120
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Xerath calls down a blast of arcane energy, dealing 50/85/120/155/190 + 0.65×AP magic damage and Slowing them by 25% for 2.5 seconds. Enemies in the center take (50/85/120/155/190 + 0.65×AP) × 1.667 magic damage instead and are Slowed by 60/65/70/75/80%, decaying over 2.5 seconds.",
+   "summary": "Calls down a barrage of arcane energy, slowing and dealing magic damage to all enemies in an area. Targets in the middle receive additional damage and a stronger slow.",
+   "values": {
+    "BaseDamage": [
+     50,
+     85,
+     120,
+     155,
+     190
+    ],
+    "SweetSpotMultiplier": 1.667,
+    "SlowAmount": 0.25,
+    "SweetSpotSlowAmount": [
+     0.6,
+     0.65,
+     0.7,
+     0.75,
+     0.8
+    ],
+    "MultiplicativeSlowDecayRate": 0.8,
+    "SlowDuration": 2.5,
+    "DamageDelay": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "50/85/120/155/190 + 0.65×AP",
+    "SweetSpotTotalDamage": "(50/85/120/155/190 + 0.65×AP) × 1.667"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Shocking Orb",
+   "cooldown": [
+    13,
+    12.5,
+    12,
+    11.5,
+    11
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 1050.0,
+   "description": "Xerath fires an orb of raw magic, Stunning the first enemy hit for up to 2.25 seconds based on distance travelled, and dealing 70/100/130/160/190 + 0.45×AP magic damage.",
+   "summary": "Deals magic damage to an enemy and stuns them.",
+   "values": {
+    "MinStunDuration": 0.75,
+    "MaxStunDuration": 2.25,
+    "BaseDamage": [
+     70,
+     100,
+     130,
+     160,
+     190
+    ],
+    "Range": 1125,
+    "StunScaling_RoughAverageWillBeThisNumber_Every100RangeForTheAdditionalStun_AddedTo_5_": 0.17
+   },
+   "formulas": {
+    "TooltipTotalDamage": "70/100/130/160/190 + 0.45×AP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Rite of the Arcane",
+   "cooldown": [
+    130,
+    115,
+    100
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 5000.0,
+   "description": "Xerath ascends to his true form and channels for 10 seconds. During this time he may Recast up to 4/5/6 times. Recast: Xerath launches a magical artillery, dealing 170/220/270 + 0.45×AP magic damage. For each champion hit, the artillery deals an additional 20/25/30 + 0.05×AP magic damage.",
+   "summary": "Xerath immobilizes himself and gains numerous long-range barrages.",
+   "values": {
+    "RampBaseDamage": [
+     20,
+     25,
+     30
+    ],
+    "BaseDamage": [
+     170,
+     220,
+     270
+    ],
+    "Duration": 10,
+    "NumberOfShots": [
+     4,
+     5,
+     6
+    ],
+    "AoESize": 200,
+    "CDPerShot": 0.6,
+    "FailCastRefund": 0.5
+   },
+   "formulas": {
+    "TooltipTotalDamage": "170/220/270 + 0.45×AP",
+    "RampDamageCalc": "20/25/30 + 0.05×AP"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Mana Surge",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Xerath's basic attacks periodically restore Mana. Whenever Xerath kills a unit, this cooldown is reduced.",
+   "summary": "Xerath's basic attacks periodically restore Mana. Whenever Xerath kills a unit, this cooldown is reduced.",
+   "values": {
+    "CooldownKillRefund": 3.5
+   },
+   "formulas": {
+    "MinionManaRestoreTT": "30+ (by level)",
+    "ChampionManaRestoreTT": "(30+ (by level)) × 2"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Long-range artillery mage who chips enemies from far away with Q and W. Wins lane through poke and picks off low targets with E stun and R.",
+  "positions": [
+   "MIDDLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Longest basic-ability range among mages: Q charges into huge range",
+   "W center hit slows hard and deals bonus damage",
+   "E stun scales with distance (up to 2.25 s)",
+   "R 'Rite of the Arcane' finishes low targets across the map",
+   "Passive restores mana on attacks, so he can poke for a long time"
+  ],
+  "weaknesses": [
+   "No dash or self-peel beyond E: very vulnerable to engage and dive",
+   "Q charging slows himself, making him easy to catch while charging",
+   "Skillshot-reliant; misses mean no damage",
+   "Weak against mobile champions who dodge skillshots",
+   "Low damage up close and against all-ins"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "medium",
+   "lvl3": "strong – Q+W+E poke and stun",
+   "lvl6": "strong – R picks",
+   "items": "strong – Luden's/Malignance, Lost Chapter for mana",
+   "late": "strong – siege and picks"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Q poke from level 1, but the threatening combo needs E (stun) to land W center.",
+  "waveClear": "good – Q line and W area from range",
+  "sustain": "low",
+  "mobility": "low – none",
+  "range": "long-ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attacks restore mana periodically."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Charged beam; slows himself while charging. Not a missile."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Delayed circle; center takes 1.667× damage and a bigger slow."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Orb stun, longer the farther it travels (up to 2.25 s). Blockable."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Channel up to 4/5/6 long-range artillery shots; he can't move while channelling."
+   }
+  },
+  "windowAgainst": "E on cooldown (11–13 s) or while charging Q/channelling R: engage then.",
+  "checks": [
+   "Whether projectile blocks stop R shots (they're delayed ground blasts, likely not)."
+  ]
+ }
+}

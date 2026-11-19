@@ -1,0 +1,315 @@
+{
+ "id": 18,
+ "alias": "Tristana",
+ "name": "Tristana",
+ "title": "the Yordle Gunner",
+ "classes": [
+  "marksman",
+  "assassin"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 640,
+  "hpPerLevel": 102,
+  "ad": 60,
+  "adPerLevel": 3.4,
+  "armor": 30,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.656,
+  "attackSpeedPerLevel": 1.5,
+  "range": 550,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Rapid Fire",
+   "cooldown": [
+    20,
+    19,
+    18,
+    17,
+    16
+   ],
+   "cost": [
+    35,
+    40,
+    45,
+    50,
+    50
+   ],
+   "costType": null,
+   "range": 20.0,
+   "description": "Tristana goes full-auto, gaining 40/60/80/100/120% Attack Speed for 7 seconds.",
+   "summary": "Tristana fires her weapon rapidly, increasing her Attack Speed for a short time.",
+   "values": {
+    "AttackSpeedMod": [
+     0.4,
+     0.6,
+     0.8,
+     1,
+     1.2
+    ],
+    "BuffDuration": 7
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed"
+   ]
+  },
+  "W": {
+   "name": "Rocket Jump",
+   "cooldown": [
+    22,
+    20,
+    18,
+    16,
+    14
+   ],
+   "cost": [
+    35,
+    40,
+    45,
+    50,
+    50
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Tristana launches herself, dealing 70/105/140/175/210 + 1×bonus AD + 0.5×AP magic damage and Slowing by 40% for 2 seconds upon landing. Champion takedowns and max stack Explosive Charge detonations on champions refresh this Ability's Cooldown.",
+   "summary": "Tristana fires at the ground to propel her to a distant location, dealing damage and slowing surrounding units for a brief period where she lands.",
+   "values": {
+    "BaseDamage": [
+     70,
+     105,
+     140,
+     175,
+     210
+    ],
+    "SlowDuration": 2,
+    "SlowMod": -0.4,
+    "DamageRadius": 350,
+    "ADRatio": 1,
+    "APRatio": 0.5
+   },
+   "formulas": {
+    "LandingDamage": "70/105/140/175/210 + 1×bonus AD + 0.5×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Explosive Charge",
+   "cooldown": [
+    16,
+    15.5,
+    15,
+    14.5,
+    14
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 550.0,
+   "description": "Passive: Tristana's Attacks that kill enemies deal 45/60/75/90/105 + 0.25×AP magic damage to surrounding enemies. Active: Tristana attaches a bomb to an enemy or turret that deals (60/85/110/135/160 + 0.8×bonus AD + 0.5×AP) × (1 + (0.4×crit × (1×stat + -1))) physical damage to surrounding enemies after 4 seconds. The damage is increased by 25% each time Tristana hits an Attack or Ability (max 4 stacks). At 4 stacks, the bomb explodes immediately (max ((60/85/110/135/160 + 0.8×bonus AD + 0.5×AP) × (1 + (0.4×crit × (1×stat + -1)))) × (1 + (0.25 × 4)) physical damage).",
+   "summary": "When Tristana kills a unit, her cannonballs burst into shrapnel, dealing damage to surrounding enemies. Can be activated to place a bomb on a target enemy that explodes after a short duration dealing damage to surrounding units.",
+   "values": {
+    "PassiveBaseDamage": [
+     45,
+     60,
+     75,
+     90,
+     105
+    ],
+    "PassiveRadius": 300,
+    "ActiveBaseDamage": [
+     60,
+     85,
+     110,
+     135,
+     160
+    ],
+    "ActiveBADRatio": 0.8,
+    "ActiveRadius": 300,
+    "ActiveTowerRadius": 600,
+    "ActiveMaxStacks": 4,
+    "ActiveDuration": 4,
+    "ActivePerStackAmp": 0.25,
+    "CritChanceModifier": 0.4,
+    "APRatio": 0.5
+   },
+   "formulas": {
+    "PassiveDamage": "45/60/75/90/105 + 0.25×AP",
+    "ActiveDamage": "(60/85/110/135/160 + 0.8×bonus AD + 0.5×AP) × (1 + (0.4×crit × (1×stat + -1)))",
+    "ActiveMaxDamage": "((60/85/110/135/160 + 0.8×bonus AD + 0.5×AP) × (1 + (0.4×crit × (1×stat + -1)))) × (1 + (0.25 × 4))"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Buster Shot",
+   "cooldown": 100,
+   "cost": 100,
+   "costType": null,
+   "range": 550.0,
+   "description": "Tristana fires a massive cannonball, dealing 225/275/325 + 0.7×bonus AD + 1×AP magic damage to the target, Knocking Back and Stunning them and surrounding enemies for 0.4/0.55/0.7 seconds.",
+   "summary": "Tristana loads a massive cannonball into her weapon and fires it at an enemy unit. This deals Magic Damage and knocks the target back. If the target is carrying the Explosive Charge bomb, the bomb detonation radius is doubled.",
+   "values": {
+    "BaseDamage": [
+     225,
+     275,
+     325
+    ],
+    "KnockbackDistance": [
+     600,
+     800,
+     1000
+    ],
+    "KnockbackArea": 200,
+    "StunDuration": [
+     0.4,
+     0.55,
+     0.7
+    ],
+    "APRatio": 1
+   },
+   "formulas": {
+    "DamageCalc": "225/275/325 + 0.7×bonus AD + 1×AP"
+   },
+   "tags": [
+    "airborne",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Draw a Bead",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Increases Tristana's Attack Range as she levels.",
+   "summary": "Increases Tristana's Attack Range as she levels.",
+   "values": {},
+   "formulas": {
+    "BonusPassiveRange": "None–150 (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Marksman whose range grows with level. Wins lane by charging E bomb onto towers and champions, and all-ins with W jump, then peels with R.",
+  "positions": [
+   "BOTTOM",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "E bomb charges with attacks for big burst",
+   "W jump resets on takedown or a full E stack",
+   "R knocks back and briefly stuns (0.4–0.7 s) the target and those around it, peeling divers",
+   "Range grows with level",
+   "Fast tower push"
+  ],
+  "weaknesses": [
+   "Short range early",
+   "W is her only dash; using it to engage leaves her open",
+   "Weak to engage when W is down",
+   "Relies on kills to reset W"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "strong – E",
+   "lvl3": "strong – W all-in",
+   "lvl6": "strong – R",
+   "items": "strong – Kraken Slayer / Infinity Edge",
+   "late": "strong"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "E charged by attacks is her damage; W all-in from 3.",
+  "waveClear": "good – E",
+  "sustain": "low",
+  "mobility": "high – W",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "E"
+   ],
+   "engage": [
+    "W"
+   ],
+   "escape": [
+    "W",
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Range grows with level."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attack speed."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Jump, slow; resets on takedown."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bomb charged by attacks."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Knocks back and stuns the target and nearby enemies 0.4–0.7 s; strong peel against divers."
+   }
+  },
+  "windowAgainst": "W on cooldown (no escape) or early levels.",
+  "checks": []
+ }
+}

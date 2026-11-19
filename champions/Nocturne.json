@@ -1,0 +1,327 @@
+{
+ "id": 56,
+ "alias": "Nocturne",
+ "name": "Nocturne",
+ "title": "the Eternal Nightmare",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 640,
+  "hpPerLevel": 109,
+  "ad": 62,
+  "adPerLevel": 2.6,
+  "armor": 36,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.721,
+  "attackSpeedPerLevel": 2.7,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Duskbringer",
+   "cooldown": 8,
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 1125.0,
+   "description": "Nocturne throws a shadow blade, dealing 65/105/145/185/225 + 0.85×bonus AD physical damage and leaving a dusk trail for 5 seconds. Enemy champions hit also leave a trail. While on the trail, Nocturne is Ghosted and gains 20/25/30/35/40% Move Speed and 15/25/35/45/55 Attack Damage.",
+   "summary": "Nocturne throws a shadow blade that deals damage, leaves a Dusk Trail, and causes champions to leave a Dusk Trail. While on the trail, Nocturne can move through units and has increased Move Speed and Attack Damage.",
+   "values": {
+    "BaseDamage": [
+     65,
+     105,
+     145,
+     185,
+     225
+    ],
+    "MoveSpeed": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "BonusTrailAD": [
+     15,
+     25,
+     35,
+     45,
+     55
+    ],
+    "TrailDuration": 5
+   },
+   "formulas": {
+    "TotalDamage": "65/105/145/185/225 + 0.85×bonus AD"
+   },
+   "tags": [
+    "move speed"
+   ]
+  },
+  "W": {
+   "name": "Shroud of Darkness",
+   "cooldown": [
+    20,
+    18,
+    16,
+    14,
+    12
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 20.0,
+   "description": "Passive: Nocturne gains 30/35/40/45/50% Attack Speed. Active: Nocturne creates a shadow barrier for 1.5 seconds that blocks the next enemy Ability. If an Ability is blocked, this Ability's passive effect is increased to 60/70/80/90/100% Attack Speed for 5 seconds.",
+   "summary": "Nocturne empowers his blades, passively gaining Attack Speed. Activating Shroud of Darkness allows Nocturne to fade into the shadows, creating a magical barrier which blocks a single enemy ability and doubles his passive Attack Speed if successful.",
+   "values": {
+    "ActiveAS": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "PassiveAS": [
+     0.3,
+     0.05,
+     0.05,
+     0.05,
+     0.05
+    ],
+    "ShieldDuration": 1.5,
+    "DoubleASDuration": 5
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed"
+   ]
+  },
+  "E": {
+   "name": "Unspeakable Horror",
+   "cooldown": [
+    15,
+    14,
+    13,
+    12,
+    11
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 425.0,
+   "description": "Passive: Nocturne gains 90% Move Speed toward Feared enemies. Active: Nocturne plants a nightmare tether into his target, dealing 80/125/170/215/260 + 1×AP magic damage over 2 seconds. If the tether remains unbroken, the target is Feared for 1.25/1.5/1.75/2/2.25 second(s).",
+   "summary": "Nocturne plants a nightmare into his target's mind, dealing damage each second and applying fear to the target if they do not get out of range by the end of the duration.",
+   "values": {
+    "TooltipFearMS": 0.9,
+    "DamageToDeal": [
+     80,
+     125,
+     170,
+     215,
+     260
+    ],
+    "CCDuration": [
+     1.25,
+     1.5,
+     1.75,
+     2,
+     2.25
+    ],
+    "LeashDuration": 2,
+    "LeashBreakRange": 465
+   },
+   "formulas": {
+    "TotalDamage": "80/125/170/215/260 + 1×AP"
+   },
+   "tags": [
+    "fear",
+    "move speed"
+   ]
+  },
+  "R": {
+   "name": "Paranoia",
+   "cooldown": [
+    140,
+    115,
+    90
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 2500.0,
+   "description": "Nocturne darkens the map, reducing the sight radius of all enemy champions and removing their vision of allies for 6 seconds. Nocturne can Recast this Ability during the duration to launch himself at an enemy champion dealing 150/275/400 + 1.2×bonus AD physical damage.",
+   "summary": "Nocturne reduces the sight radius of all enemy champions and removes their ally vision in the process. He can then launch himself at a nearby enemy champion.",
+   "values": {
+    "ParanoiaDuration": 6,
+    "TrackDistance": [
+     3500,
+     4250,
+     5000
+    ],
+    "BaseDamage": [
+     150,
+     275,
+     400
+    ],
+    "DashSpeed": 1800
+   },
+   "formulas": {
+    "Damage": "150/275/400 + 1.2×bonus AD"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Umbra Blades",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every few seconds, Nocturne's next attack strikes surrounding enemies for bonus physical damage and heals himself. Nocturne's basic attacks reduce this cooldown.",
+   "summary": "Every few seconds, Nocturne's next attack strikes surrounding enemies for bonus physical damage and heals himself. Nocturne's basic attacks reduce this cooldown.",
+   "values": {
+    "AACDR": 1,
+    "AAChampMonsterCDR": 3,
+    "Cooldown": 12,
+    "Radius": 360,
+    "DamageMinionMod": 0.5,
+    "HealMinionMod": 0.5,
+    "HealingAPRatio": 0.3,
+    "HealLevel1Value": 13,
+    "HealLevel18Value": 32,
+    "TotalDamageNoCritADRatio": 1.2,
+    "TotalDamageCritADRatio": 1.1
+   },
+   "formulas": {
+    "TotalDamageNoCrit": "1.2×AD",
+    "TotalHealing": "? + 0.3×AP",
+    "TotalDamageCrit": "1.1×AD"
+   },
+   "tags": [
+    "empowered attack",
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "AD diver jungler who darkens the map with R and launches onto isolated targets. Wins with global dives, a spell shield that blocks key crowd control and a fear tether.",
+  "positions": [
+   "JUNGLE",
+   "TOP",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "R: global map darkness + long-range dash onto a champion",
+   "W blocks the next enemy ability (spell shield) and grants attack speed",
+   "E fear tether locks a target if it isn't broken",
+   "Q trail: ghosting, move speed and AD",
+   "Strong pressure from level 6"
+  ],
+  "weaknesses": [
+   "Weaker before 6 than early ganking junglers",
+   "E tether can be broken by walking away or dashing",
+   "Diving grouped teams gets him killed",
+   "No real escape once R is used to go in",
+   "Weak against armor stacking later"
+  ],
+  "curve": {
+   "lvl1": "medium – passive cleave + heal clear",
+   "lvl2": "medium – Q trail ganks are weak without fear",
+   "lvl3": "medium – E fear ganks if he reaches the target",
+   "lvl6": "strong – R dives from anywhere",
+   "items": "strong – first lethality/bruiser item (Hubris, Eclipse) or Stridebreaker",
+   "late": "medium – pick tool; struggles against grouped teams"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "R is his ganking and dive tool; before 6 he farms and plays for scuttle.",
+  "waveClear": "good – Q + passive cleave",
+  "sustain": "medium – passive heals on each cleave",
+  "mobility": "high – R dash + Q trail speed",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive"
+   ],
+   "engage": [
+    "R",
+    "E"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Every few seconds, next attack cleaves and heals (dodgeable by Jax E)."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Shadow blade: damage + trail (ghosted, move speed, AD)."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "spell shield",
+    "notes": "Blocks the next enemy ability for 1.5 s; bonus attack speed if it blocks."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "fear",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Tether; fears if unbroken after its duration."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Map darkness (enemy vision reduced); recast dashes to a champion."
+   }
+  },
+  "windowAgainst": "W down: crowd control him. Walk away to break the E tether. Group when R is up.",
+  "checks": []
+ }
+}

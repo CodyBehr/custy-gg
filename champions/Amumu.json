@@ -1,0 +1,275 @@
+{
+ "id": 32,
+ "alias": "Amumu",
+ "name": "Amumu",
+ "title": "the Sad Mummy",
+ "classes": [
+  "tank",
+  "support"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 685,
+  "hpPerLevel": 94,
+  "ad": 57,
+  "adPerLevel": 3.8,
+  "armor": 33,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.736,
+  "attackSpeedPerLevel": 2.18,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Bandage Toss",
+   "cooldown": 3,
+   "cost": 50,
+   "costType": null,
+   "range": 1100.0,
+   "description": "Amumu launches a bandage, pulling himself to the first enemy hit, Stunning them for 1 second, and dealing 70/95/120/145/170 + 0.85×AP magic damage. This Ability has 2 charges.",
+   "summary": "Amumu tosses a sticky bandage at a target, stunning and damaging the target while he pulls himself to them.",
+   "values": {
+    "BaseDamage": [
+     70,
+     95,
+     120,
+     145,
+     170
+    ],
+    "StunDuration": 1,
+    "DashSpeed": 1800
+   },
+   "formulas": {
+    "TotalDamage": "70/95/120/145/170 + 0.85×AP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Despair",
+   "cooldown": 1,
+   "cost": 8,
+   "costType": null,
+   "range": 300.0,
+   "description": "Toggle: Amumu begins crying, dealing 10 plus 1/1.25/1.5/1.75/2 + 0.005×AP% max Health magic damage to nearby enemies every second and refreshing Curse.",
+   "summary": "Overcome by anguish, nearby enemies lose a percentage of their maximum Health each second and have their Curses refreshed.",
+   "values": {
+    "BaseDamage": 10,
+    "HealthDamage": [
+     1,
+     1.25,
+     1.5,
+     1.75,
+     2
+    ],
+    "APRatio": 0.005
+   },
+   "formulas": {
+    "{c8e45bc3}": "(10) × 0.5",
+    "TotalHealthDamage": "1/1.25/1.5/1.75/2 + 0.005×AP",
+    "{8a96509c}": "(1/1.25/1.5/1.75/2 + 0.005×AP) × 0.005"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Tantrum",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": 35,
+   "costType": null,
+   "range": 350.0,
+   "description": "Passive: Amumu takes 5/7/9/11/13 + 0.03×bonus armor + 0.03×bonus MR reduced physical damage. Additionally, when Amumu is hit by an Attack, this Ability's Cooldown is reduced by 0.75 seconds. Active: Amumu throws a tantrum, dealing 65/95/125/155/185 + 0.5×AP magic damage to nearby enemies.",
+   "summary": "Permanently reduces the physical damage Amumu would take. Amumu can unleash his rage, dealing damage to surrounding enemies. Each time Amumu is hit, the cooldown on Tantrum is reduced.",
+   "values": {
+    "FlatDamageReductionMax": 0.5,
+    "BaseDamage": [
+     65,
+     95,
+     125,
+     155,
+     185
+    ],
+    "BaseDamageReduction": [
+     5,
+     7,
+     9,
+     11,
+     13
+    ],
+    "CDROnHit": 0.75,
+    "PassiveScaling": 0.03
+   },
+   "formulas": {
+    "DamageReduction": "5/7/9/11/13 + 0.03×bonus armor + 0.03×bonus MR",
+    "TantrumDamage": "65/95/125/155/185 + 0.5×AP"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Curse of the Sad Mummy",
+   "cooldown": [
+    150,
+    125,
+    100
+   ],
+   "cost": [
+    150,
+    200,
+    80
+   ],
+   "costType": null,
+   "range": 550.0,
+   "description": "Amumu flares out his bandages, Stunning for 1.5 seconds, dealing 200/300/400 + 0.8×AP magic damage and applying Curse.",
+   "summary": "Amumu entangles surrounding enemy units in bandages, applying his Curse, damaging and stunning them.",
+   "values": {
+    "RDamage": [
+     200,
+     300,
+     400
+    ],
+    "RDuration": 1.5,
+    "RCoefficient": 0.8
+   },
+   "formulas": {
+    "RCalculatedDamage": "200/300/400 + 0.8×AP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Cursed Touch",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Amumu's basic attacks Curse his enemies, causing them to take bonus true damage from incoming magic damage.",
+   "summary": "Amumu's basic attacks Curse his enemies, causing them to take bonus true damage from incoming magic damage.",
+   "values": {
+    "DebuffDuration": 3,
+    "DamageAmp": 0.1
+   },
+   "formulas": {},
+   "tags": [
+    "true damage"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Tank jungler who dashes in with Q bandage stuns and stuns everyone around him with R. Wins teamfights with a big area stun followed by W/E area damage and Curse true damage.",
+  "positions": [
+   "JUNGLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "R area stun: game-winning engage in teamfights",
+   "Q has 2 charges: two bandage dashes and stuns",
+   "Curse passive makes magic damage deal bonus true damage",
+   "E passive reduces physical damage taken; cooldown drops when he is attacked",
+   "Strong area damage with W aura + E"
+  ],
+  "weaknesses": [
+   "Q is a skillshot: missed bandages leave him with no engage",
+   "Low single-target damage early",
+   "W aura drains mana",
+   "Kited if both Q charges are missed",
+   "Weak in early invades"
+  ],
+  "curve": {
+   "lvl1": "weak – slow clear, weak duels",
+   "lvl2": "medium – Q stun ganks",
+   "lvl3": "medium – Q + W/E ganks",
+   "lvl6": "strong – R area stun",
+   "items": "strong – Sunfire/Hollow Radiance and Liandry's Torment",
+   "late": "strong – teamfight engage"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "R is his real power spike; earlier ganks rely on Q landing.",
+  "waveClear": "medium – W/E",
+  "sustain": "low – none",
+  "mobility": "medium – Q dashes",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "W",
+    "E"
+   ],
+   "engage": [
+    "Q",
+    "R"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attacks Curse: cursed targets take bonus true damage from magic damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Bandage: pulls him to first enemy hit, stuns. 2 charges."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Toggle aura: max-health damage; refreshes Curse."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Area damage; passive physical damage reduction."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Area stun around him + Curse."
+   }
+  },
+  "windowAgainst": "R down, or both Q charges spent/missed: he can't engage.",
+  "checks": []
+ }
+}

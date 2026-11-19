@@ -1,0 +1,336 @@
+{
+ "id": 62,
+ "alias": "MonkeyKing",
+ "name": "Wukong",
+ "title": "the Monkey King",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 99,
+  "ad": 66,
+  "adPerLevel": 3.5,
+  "armor": 31,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.69,
+  "attackSpeedPerLevel": 3,
+  "range": 175,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Crushing Blow",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": 20,
+   "costType": null,
+   "range": 250.0,
+   "description": "Wukong and his Clone's next Attack gains 135/145/155/165/175 range, deals an additional 20/45/70/95/120 + 0.5×bonus AD physical damage, and removes 10/15/20/25/30% Armor for 3 seconds. This Ability's cooldown is reduced by 0.5 seconds every time Wukong or his Clone hit an enemy with an Attack or Ability. This Ability triggers spell effects upon dealing damage.",
+   "summary": "Wukong's next attack gains attack range, deals bonus damage, and reduces the target's armor for a few seconds.",
+   "values": {
+    "BaseDamage": [
+     20,
+     45,
+     70,
+     95,
+     120
+    ],
+    "ADRatio": 0.5,
+    "ArmorShredPercent": [
+     0.1,
+     0.15,
+     0.2,
+     0.25,
+     0.3
+    ],
+    "ShredDuration": 3,
+    "BuffDuration": 6,
+    "AttackRangeBonus": [
+     135,
+     145,
+     155,
+     165,
+     175
+    ],
+    "CooldownDecrease": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "20/45/70/95/120 + 0.5×bonus AD",
+    "BonusDamageTT": "20/45/70/95/120 + 0.5×bonus AD"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  },
+  "W": {
+   "name": "Warrior Trickster",
+   "cooldown": [
+    22,
+    21,
+    20,
+    19,
+    18
+   ],
+   "cost": [
+    55,
+    50,
+    45,
+    40,
+    40
+   ],
+   "costType": null,
+   "range": 275.0,
+   "description": "Wukong dashes and becomes Invisible for 1 second, leaving behind a stationary Clone for 4 seconds. The Clone Attacks nearby enemies Wukong has recently damaged and will mimic his ultimate, each dealing 40/45/50/55.0/60% of normal damage.",
+   "summary": "Wukong becomes Invisible and dashes in a direction, leaving behind a clone that will attack nearby enemies.",
+   "values": {
+    "CloneDamageMod": [
+     0.4,
+     0.45,
+     0.5,
+     0.55,
+     0.6
+    ],
+    "StealthDuration": 1,
+    "CloneDuration": 4,
+    "DashSpeed": 900,
+    "RangeClamp": 300,
+    "MinRange": 100
+   },
+   "formulas": {},
+   "tags": [
+    "dash",
+    "stealth"
+   ]
+  },
+  "E": {
+   "name": "Nimbus Strike",
+   "cooldown": [
+    10,
+    9.25,
+    8.5,
+    7.75,
+    7
+   ],
+   "cost": [
+    35,
+    40,
+    45,
+    50,
+    50
+   ],
+   "costType": null,
+   "range": 650.0,
+   "description": "Wukong dashes to an enemy, sending out Clones that mimic the dash to up to 2 additional enemies nearby. Each enemy struck takes 80/120/160/200/240 + 1×AP magic damage. He and his Clone gain 40/45/50/55.0/60% Attack Speed for 5 seconds.",
+   "summary": "Wukong dashes to a targeted enemy and sends out images to attack enemies near his target, dealing damage to each enemy struck.",
+   "values": {
+    "BaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "AttackSpeed": [
+     0.4,
+     0.45,
+     0.5,
+     0.55,
+     0.6
+    ],
+    "AttackSpeedDuration": 5,
+    "DashSpeed": 1050,
+    "EndPointOffsetDistance": 75,
+    "ExtraTargets": 2,
+    "ExtraTargetRange": 700,
+    "MonsterDamageRatio": 1
+   },
+   "formulas": {
+    "TotalDamage": "80/120/160/200/240 + 1×AP",
+    "TotalDamageMonsters": "(80/120/160/200/240 + 1×AP) × 1"
+   },
+   "tags": [
+    "attack speed",
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Cyclone",
+   "cooldown": [
+    130,
+    110,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 315.0,
+   "description": "Wukong gains 20% Move Speed and spins his staff, Knocking Up nearby enemies for 0.6 seconds and take (1.375×AD) × 2 plus (26c20668) × 2 max Health physical damage over 2 seconds. This Ability can be cast a second time within 8 seconds before going on cooldown.",
+   "summary": "Wukong's extends his staff and spins it around repeatedly, gaining Move Speed. Enemies struck take damage and are knocked up.",
+   "values": {
+    "KnockupDuration": 0.6,
+    "SpinDuration": 2,
+    "MoveSpeed": 0.2,
+    "BasePercentMaxHPDmgPerSec": [
+     0.04,
+     0.06,
+     0.08
+    ],
+    "SecondsPerTick": 0.25,
+    "RecastWindow": 8,
+    "LockoutTimeBetweenCasts": 1,
+    "ADRatioPerSecond": 1.375
+   },
+   "formulas": {
+    "DamagePerSecondTotal": "1.375×AD",
+    "{26c20668}": "0.04/0.06/0.08",
+    "MonsterCap": "200+ (by level)",
+    "TotalDamageTT": "(1.375×AD) × 2",
+    "PercentHPDamageTT": "(26c20668) × 2",
+    "MonsterCapTT": "(200+ (by level)) × 2"
+   },
+   "tags": [
+    "airborne",
+    "heal",
+    "move speed"
+   ]
+  },
+  "Passive": {
+   "name": "Stone Skin",
+   "cooldown": 20,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Wukong gains stacking armor and max health regeneration while fighting champions and monsters.",
+   "summary": "Wukong gains stacking armor and max health regeneration while fighting champions and monsters.",
+   "values": {
+    "CombatDuration": 3,
+    "StackDuration": 5,
+    "MaxStacks": 5,
+    "StackMultiplier": 1,
+    "HealthPercentPer5": 0.004,
+    "TooltipMult": 6,
+    "TooltipMaxHealthPercentPer5": 2.1,
+    "FallOffRate": 1
+   },
+   "formulas": {
+    "BonusArmor": "4.5–10 (by level)",
+    "TooltipMaxArmor": "(4.5–10 (by level)) × 6"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Bruiser who disrupts teamfights with R spin knock-up and tricks enemies with W decoy. Wins lane with Q empowered attack and E dash.",
+  "positions": [
+   "TOP",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "R knocks up nearby enemies twice",
+   "W decoy and invisibility dodges turret aggro",
+   "Q armor shred empowered attack",
+   "E dash with bonus attack speed",
+   "Strong teamfight engage"
+  ],
+  "weaknesses": [
+   "Weak when R is down",
+   "Kited",
+   "Q and W are short range",
+   "Few defensive tools"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "strong",
+   "lvl3": "strong",
+   "lvl6": "strong – R",
+   "items": "strong – Black Cleaver",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q+E trades.",
+  "waveClear": "good",
+  "sustain": "medium – passive regen",
+  "mobility": "medium – E dash, W",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Stacking armor and regen."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Empowered attack with armor shred."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash, invisible, decoy."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash to target(s); attack speed."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Spin; knocks up twice."
+   }
+  },
+  "windowAgainst": "R on cooldown or W used.",
+  "checks": [
+   "Whether W gives invisibility vs stealth types for detection."
+  ]
+ }
+}

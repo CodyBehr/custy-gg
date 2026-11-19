@@ -1,0 +1,361 @@
+{
+ "id": 799,
+ "alias": "Ambessa",
+ "name": "Ambessa",
+ "title": "Matriarch of War",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 110,
+  "ad": 63,
+  "adPerLevel": 3,
+  "armor": 35,
+  "armorPerLevel": 4.9,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.5,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Cunning Sweep / Sundering Slam",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 650.0,
+   "description": "Cunning Sweep: Ambessa sweeps her blades forward, dealing 40/60/80/100/120 + 0.6×bonus AD + 0.04/0.045/0.05/0.055/0.06 + 0.0×bonus AD max Health physical damage to enemies at the edge of the strike. All other enemies take 0.5 damage. Striking an enemy readies a Sundering Slam. Sundering Slam: Ambessa slams her blades down, dealing 50/75/100/125/150 + 0.9×bonus AD + 0.04/0.045/0.05/0.055/0.06 + 0.0×bonus AD max Health physical damage against the first enemy hit. All other enemies take 0.5 damage.",
+   "summary": "Ambessa sweeps her twin drakehounds in a semicircle in front of her, dealing bonus damage to enemies hit by the blades. Striking an enemy will transform the next cast of this ability for a short period of time, causing her to slam her twin drakehounds down in a line in front of her, dealing bonus damage to the first enemy hit.",
+   "values": {
+    "Swap_Duration": 4,
+    "Swap_Static_Cooldown": 0.5,
+    "Damage_1_Base": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "Damage_1_Percent": [
+     0.04,
+     0.045,
+     0.05,
+     0.055,
+     0.06
+    ],
+    "Damage_2_Base": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "Damage_2_Percent": [
+     0.04,
+     0.045,
+     0.05,
+     0.055,
+     0.06
+    ],
+    "Damage_1_Min_Ratio": 0.5,
+    "Damage_2_Min_Ratio": 0.5,
+    "Damage_1_BAD_Ratio": 0.6,
+    "Damage_2_BAD_Ratio": 0.9
+   },
+   "formulas": {
+    "{a7907b77}": "(40/60/80/100/120 + 0.6×bonus AD) × ?",
+    "Calc_Damage_1_Max": "40/60/80/100/120 + 0.6×bonus AD",
+    "{17768f39}": "(0.04/0.045/0.05/0.055/0.06 + 0.0×bonus AD) × ?",
+    "Calc_Damage_1_Percent_Max": "0.04/0.045/0.05/0.055/0.06 + 0.0×bonus AD",
+    "{3ce89b9e}": "(50/75/100/125/150 + 0.9×bonus AD) × ?",
+    "Calc_Damage_2_Max": "50/75/100/125/150 + 0.9×bonus AD",
+    "{1442dbe0}": "(0.04/0.045/0.05/0.055/0.06 + 0.0×bonus AD) × ?",
+    "Calc_Damage_2_Percent_Max": "0.04/0.045/0.05/0.055/0.06 + 0.0×bonus AD",
+    "Calc_Damage_1_Min_Ratio": "0.5",
+    "Calc_Damage_2_Min_Ratio": "0.5",
+    "Calc_Damage_Monster_Flat_Bonus": "75",
+    "Calc_Damage_Monster_Percent_Cap": "100–300 (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Repudiation",
+   "cooldown": [
+    18,
+    17,
+    16,
+    15,
+    14
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 325.0,
+   "description": "Ambessa gains 50–320 (by level) + 1.5×bonus AD Shield for 1.5 seconds and braces herself for 0.5 seconds. She then slams the ground, dealing 50/75/100/125/150 + 0.5×bonus AD physical damage to nearby enemies, which increases to (50/75/100/125/150 + 0.5×bonus AD) × 1.5 physical damage if she braced herself from damage from an enemy champion, large monster, or structure.",
+   "summary": "Ambessa gains a shield, briefly braces herself, and then slams the ground to damage nearby enemies. If she blocked any non-minion damage while bracing herself, this ability will deal increased damage.",
+   "values": {
+    "Dash_Delay": 0.225,
+    "Buff_Duration": 0.5,
+    "Shield_Duration": 1.5,
+    "BaseDamage": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "HighDamageMultiplier": 1.5,
+    "DamageADRatio": 0.5
+   },
+   "formulas": {
+    "Calc_Shield": "50–320 (by level) + 1.5×bonus AD",
+    "Calc_Damage_Low": "50/75/100/125/150 + 0.5×bonus AD",
+    "Calc_Damage_High": "(50/75/100/125/150 + 0.5×bonus AD) × 1.5"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Lacerate",
+   "cooldown": [
+    13,
+    12,
+    11,
+    10,
+    9
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 325.0,
+   "description": "Ambessa whips her chains around, dealing 40/60/80/100/120 + 0.5×bonus AD physical damage and Slowing enemies by 99%, which decays over 1 second. Initiating Drakehound's Step from this Ability will trigger an additional strike.",
+   "summary": "Ambessa whips her twin drakehounds around herself, damaging and slowing nearby enemies. Initiating Drakehound's Step from this ability causes her to strike a second time at the end of its dash.",
+   "values": {
+    "Slow_Duration": 1,
+    "Slow_Amount": 0.99,
+    "Damage_Flat_Base": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "ADRatio": 0.5
+   },
+   "formulas": {
+    "Calc_Damage_Flat": "40/60/80/100/120 + 0.5×bonus AD"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Public Execution",
+   "cooldown": [
+    130,
+    115,
+    100
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 1250.0,
+   "description": "Passive: Ambessa gains 10/20/30% %i:scaleAPen% Armor Penetration and her Abilities heal her for 0.15/0.175/0.2 + 0.5×stat of the damage she dealt. Active: Ambessa becomes Unstoppable and blinks to the farthest enemy champion in a line, Suppressing the target for 0.75 seconds and then slamming them into the ground, dealing 150/250/350 + 0.8×bonus AD physical damage and Stunning them for 0.4 seconds.",
+   "summary": "Ambessa blinks to the farthest enemy champion in a line of her choosing and suppresses them upon her arrival. She then slams the enemy into the ground where they take damage and are stunned.",
+   "values": {
+    "Damage": [
+     150,
+     250,
+     350
+    ],
+    "ADRatio": 0.8,
+    "Suppress_Duration": 0.75,
+    "Stun_Duration": 0.4,
+    "Armor_Penetration": [
+     0.1,
+     0.2,
+     0.3
+    ],
+    "Omnivamp": [
+     0.15,
+     0.175,
+     0.2
+    ],
+    "Omnivamp_LifeStealScaling": 0.5,
+    "Omnivamp_MinionMod": 0.25,
+    "Omnivamp_MonsterMod": 0.25
+   },
+   "formulas": {
+    "Calc_Damage": "150/250/350 + 0.8×bonus AD",
+    "Calc_Omnivamp": "0.15/0.175/0.2 + 0.5×stat"
+   },
+   "tags": [
+    "blink",
+    "heal",
+    "stun",
+    "suppression",
+    "unstoppable"
+   ]
+  },
+  "Passive": {
+   "name": "Drakehound's Step",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Entering an attack or movement command while casting an ability will cause Ambessa to dash a short distance once the ability is cast, granting her next attack bonus range, damage, and attack speed, and refunding energy.",
+   "summary": "Entering an attack or movement command while casting an ability will cause Ambessa to dash a short distance once the ability is cast, granting her next attack bonus range, damage, and attack speed, and refunding energy.",
+   "values": {
+    "Buffer_Dash_Time": 0.3,
+    "Buffer_Dash_Distance": 350,
+    "Buffer_Dash_Min_Distance": 175,
+    "Buffer_Dash_Forgiveness_Window": 0.275,
+    "Buffer_Dash_W_Forgiveness_Window": 0.25,
+    "Buffer_Dash_Wall_Forgiveness": 500,
+    "Attack_Range_Amount": 75,
+    "Attack_Range_Total": 200,
+    "Attack_Buff_Max_Stacks": 3,
+    "Attack_Buff_Duration": 4,
+    "Attack_Speed": 0.5
+   },
+   "formulas": {
+    "{57d26a55}": "770+ (by level) + 1×move speed",
+    "Calc_OnHit_Damage_Flat": "5–25 (by level) + 0.2×bonus AD",
+    "Calc_OnHit_Energy_Refund": "40+ (by level)",
+    "Calc_Attack_Speed": "0.5",
+    "{d87d470b}": "None–None (by level)",
+    "{01a5d393}": "(5–25 (by level) + 0.2×bonus AD) × 1×stat"
+   },
+   "tags": [
+    "attack speed",
+    "dash",
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Energy-based skirmisher who weaves short dashes (passive) between abilities to stick to targets, then suppresses and stuns one champion with R.",
+  "positions": [
+   "top"
+  ],
+  "strengths": [
+   "Constant small dashes make her hard to kite",
+   "Shield from W blocks a trade's burst and punishes it",
+   "R is a guaranteed lockdown on a chosen target",
+   "Strong extended trades once all abilities are up"
+  ],
+  "weaknesses": [
+   "Energy limits long spam early",
+   "Dashes are short; hard engages can be dodged",
+   "Short melee range before passive dash",
+   "Falls behind if she can't get on top of ranged champions"
+  ],
+  "curve": {
+   "lvl1": "medium – Q sweep plus passive dash trades fine",
+   "lvl2": "medium",
+   "lvl3": "strong – full combo with W shield",
+   "lvl6": "strong – R lockdown for kills",
+   "items": "strong – first bruiser item",
+   "late": "medium – one-target lockdown, dives the backline"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Combo relies on chaining abilities for passive dashes; level 3 is her real trading start.",
+  "waveClear": "medium – Q and E are area damage",
+  "sustain": "low-medium – Q heals on hit (check scope)",
+  "mobility": "high – passive dash after every ability, R blink",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "R",
+    "Passive"
+   ],
+   "escape": [
+    "Passive"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Area damage; second cast transforms after hitting"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "shield + bonus damage if she blocked non-minion damage while bracing",
+    "notes": "Bait damage into it before trading"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Area damage"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "suppression",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Unstoppable blink to the farthest champion in a line, then suppress + stun"
+   },
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash after casting with a move/attack command; empowers next attack"
+   }
+  },
+  "windowAgainst": "Energy low or W down (no damage block); R down means no guaranteed lockdown.",
+  "checks": [
+   "Q heal scope and passive energy refund details"
+  ]
+ }
+}

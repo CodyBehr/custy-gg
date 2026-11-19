@@ -1,0 +1,301 @@
+{
+ "id": 420,
+ "alias": "Illaoi",
+ "name": "Illaoi",
+ "title": "the Kraken Priestess",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 656,
+  "hpPerLevel": 115,
+  "ad": 65,
+  "adPerLevel": 5,
+  "armor": 35,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.5,
+  "range": 125,
+  "moveSpeed": 350
+ },
+ "abilities": {
+  "Q": {
+   "name": "Tentacle Smash",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": 850.0,
+   "description": "Passive: Slam damage is increased by @spell.IllaoiQ:TentacleDamageAmp*100@% (currently @spell.IllaoiQ:TentacleDamageTotal@ physical damage). Active: Illaoi swings her idol, causing a Tentacle to Slam forward.",
+   "summary": "Increases the damage dealt by Tentacles. When activated, Illaoi smashes down a Tentacle that deals physical damage.",
+   "values": {
+    "TentacleDamageAmp": [
+     0.1,
+     0.15,
+     0.2,
+     0.25,
+     0.3
+    ],
+    "TotalADRatio": 1.1,
+    "APRatio": 0.4,
+    "TentacleLength": 800,
+    "TentacleWidth": 200
+   },
+   "formulas": {
+    "TentacleDamageTotal": "(9–180 (by level) + 1.1×AD + 0.4×AP) × (1 + 0.1/0.15/0.2/0.25/0.3)",
+    "DamageIncreaseTooltip": "(9–162 (by level) + 1.1×AD + 0.4×AP) × 0.1/0.15/0.2/0.25/0.3"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Harsh Lesson",
+   "cooldown": 4,
+   "cost": 30,
+   "costType": null,
+   "range": 400.0,
+   "description": "Illaoi's next Attack causes her to leap at the target, dealing an additional (3/3.5/4/4.5/5 + 0.035×AD) × 0.01 max Health physical damage. When she strikes, nearby Tentacles will Slam at the target.",
+   "summary": "Illaoi leaps to her target, dealing physical damage and causing nearby Tentacles to also swing at the target.",
+   "values": {
+    "WMinDamage": [
+     20,
+     30,
+     40,
+     50,
+     60
+    ],
+    "HealthPercentDamage": [
+     3,
+     3.5,
+     4,
+     4.5,
+     5
+    ],
+    "HealthDamageADRatio": 0.035,
+    "CooldownDuringR": 2,
+    "MonsterDamageCap": 300,
+    "BuffDuration": 6,
+    "DashSpeedBonus": 600
+   },
+   "formulas": {
+    "HealthPercentTotal": "(3/3.5/4/4.5/5 + 0.035×AD) × 0.01",
+    "DashSpeed": "600 + 1×move speed"
+   },
+   "tags": [
+    "dash",
+    "empowered attack",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Test of Spirit",
+   "cooldown": [
+    16,
+    15,
+    14,
+    13,
+    12
+   ],
+   "cost": [
+    40,
+    45,
+    50,
+    55,
+    60
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Illaoi pulls the spirit from an enemy champion for 7 seconds. The spirit can be damaged like a champion, with 0.25/0.3/0.35/0.4/0.45 + 0.001×AD of that damage echoing to its owner. If the spirit dies or the target leaves its range, the target becomes marked for 4 seconds and is Slowed by 80% for 1.5 seconds. Marked enemies spawn Tentacles if possible. Tentacles will automatically Slam at spirits and marked enemies once every 4+ (by level) seconds.",
+   "summary": "Illaoi rips the spirit from a foe's body, forcing it to stand before her. Spirits echo a percentage of the damage they take to the original target. If killed, or if the target gets too far from the spirit, the target will become a Vessel and begin spawning Tentacles.",
+   "values": {
+    "BaseDamageTransferPercent": [
+     0.25,
+     0.3,
+     0.35,
+     0.4,
+     0.45
+    ],
+    "VesselDuration": 4,
+    "SpiritDuration": 7,
+    "SlowDuration": 1.5,
+    "SlowAmount": 0.8,
+    "EchoTADScalar": 0.001,
+    "GraceBeforeDormantAfterELand": 1.5,
+    "Density": 700,
+    "SpiritLeashRange": 1500
+   },
+   "formulas": {
+    "TimeBetweenVesselTentacleSlams": "4+ (by level)",
+    "EchoPercent": "0.25/0.3/0.35/0.4/0.45 + 0.001×AD",
+    "{87aff6dd}": "5+ (by level)"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Leap of Faith",
+   "cooldown": [
+    120,
+    95,
+    70
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 450.0,
+   "description": "Illaoi smashes her idol into the ground, dealing 150/250/350 + 0.5×bonus AD physical damage to nearby enemies and spawning a Tentacle for each enemy champion hit. For the next 8 seconds, Tentacles are untargetable and Slam 50% faster, and Harsh Lesson has a @spell.IllaoiW:CooldownDuringR@ second cooldown.",
+   "summary": "Illaoi smashes her idol into the ground, dealing physical damage to nearby enemies. A Tentacle spawns for each enemy champion hit.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "BuffRadius": 500,
+    "Duration": 8
+   },
+   "formulas": {
+    "DamageCalc": "150/250/350 + 0.5×bonus AD"
+   },
+   "tags": [
+    "untargetable"
+   ]
+  },
+  "Passive": {
+   "name": "Prophet of an Elder God",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Illaoi and the Vessels she creates spawn Tentacles on nearby impassible terrain. Tentacles swing at spirits, Vessels, and victims of Illaoi's Harsh lesson. Tentacles deal physical damage to enemies hit, and will heal Illaoi if they damage a champion.",
+   "summary": "Illaoi and the Vessels she creates spawn Tentacles on nearby impassible terrain. Tentacles swing at spirits, Vessels, and victims of Illaoi's Harsh lesson. Tentacles deal physical damage to enemies hit, and will heal Illaoi if they damage a champion.",
+   "values": {
+    "MissingHPPercentHeal": 0.05,
+    "TentacleDisabledLifetime": 30,
+    "SpawnRadius": 1200,
+    "SpawnDensity": 1000,
+    "PassiveTentacleLength": 925,
+    "PassiveTentacleWidth": 200
+   },
+   "formulas": {
+    "SpawnCD": "18–7 (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Juggernaut who fights with Tentacles that slam where she aims. Wins lane by holding ground near Tentacles and wins fights by pulling an enemy's spirit with E and burning it down.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Tentacles slam for heavy damage and heal her when they hit champions",
+   "E pulls a spirit out of a champion; hitting the spirit damages them, and leaving spawns a Tentacle on them",
+   "W leap attack calls nearby Tentacles to slam",
+   "R creates a Tentacle per champion hit and makes Tentacles slam faster",
+   "Very strong in 1v2/1v3 near her Tentacles"
+  ],
+  "weaknesses": [
+   "No dash or crowd control: kited easily",
+   "E is a skillshot; missed E weakens her trades a lot",
+   "Slow Tentacles are easy to dodge",
+   "Weak when fighting away from her Tentacles"
+  ],
+  "curve": {
+   "lvl1": "medium – Q",
+   "lvl2": "medium",
+   "lvl3": "strong – E+W",
+   "lvl6": "strong – R",
+   "items": "strong – Black Cleaver / Sterak's",
+   "late": "strong"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs E to land plus W leap and Tentacles from Q.",
+  "waveClear": "good – Q",
+  "sustain": "high – Tentacle heals",
+  "mobility": "low – W leap only",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "E",
+    "W",
+    "Q"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Spawns Tentacles near terrain; they slam and heal her."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Tentacle slams in a line."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Empowered next attack leaps to the target."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Pulls the target's spirit; leaving its range marks them as Vessel."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Area damage; one Tentacle per enemy hit; faster slams."
+   }
+  },
+  "windowAgainst": "E on cooldown (missed) or no Tentacles nearby: trade then.",
+  "checks": [
+   "Whether projectile blocks stop E (it's a missile, I set projectile)."
+  ]
+ }
+}

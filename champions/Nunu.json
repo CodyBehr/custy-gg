@@ -1,0 +1,393 @@
+{
+ "id": 20,
+ "alias": "Nunu",
+ "name": "Nunu & Willump",
+ "title": "the Boy and His Yeti",
+ "classes": [
+  "tank",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 3,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 90,
+  "ad": 61,
+  "adPerLevel": 3,
+  "armor": 29,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.25,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Consume",
+   "cooldown": [
+    13,
+    12,
+    11,
+    10,
+    9
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 125.0,
+   "description": "Nunu asks Willump to take a bite of an enemy, dealing 400/600/800/1000/1200 true damage and restoring 65/95/125/155/185 + 0.1×bonus max HP + 0.9×AP Health when used against a minion or jungle monster. Against a champion, it instead deals 60/100/140/180/220 + 0.05×bonus max HP + 0.65×AP magic damage and restores (65/95/125/155/185 + 0.1×bonus max HP + 0.9×AP) × 0.6 Health. The healing is increased by 50% when Nunu and Willump are below 50% Health.",
+   "summary": "Willump takes a bite out of a minion, monster, or enemy champion, dealing damage and healing himself.",
+   "values": {
+    "MonsterMinionDamage": [
+     400,
+     600,
+     800,
+     1000,
+     1200
+    ],
+    "BaseHealing": [
+     65,
+     95,
+     125,
+     155,
+     185
+    ],
+    "ChampionDamage": [
+     60,
+     100,
+     140,
+     180,
+     220
+    ],
+    "PercentageOfBonusHP": 0.1,
+    "ChampionHealingScalar": 0.6,
+    "LowHealthThreshhold": 0.5,
+    "LowHealthHealingScalar": 0.5,
+    "BonusMaxHPDamage": 0.05,
+    "ChampDamageAPRatio": 0.65,
+    "MonsterHealingAPRatio": 0.9
+   },
+   "formulas": {
+    "MonsterHealing": "65/95/125/155/185 + 0.1×bonus max HP + 0.9×AP",
+    "TotalChampionDamage": "60/100/140/180/220 + 0.05×bonus max HP + 0.65×AP",
+    "ChampionHealing": "(65/95/125/155/185 + 0.1×bonus max HP + 0.9×AP) × 0.6"
+   },
+   "tags": [
+    "heal",
+    "true damage"
+   ]
+  },
+  "W": {
+   "name": "Biggest Snowball Ever!",
+   "cooldown": 14,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 7500.0,
+   "description": "Nunu and Willump create a snowball that grows in size and speed as they roll it. They turn slower while rolling it, but can increase turning speed by holding the turn. The snowball does between (180/225/270/315/360 + 1.5×AP) × 0.333 and 180/225/270/315/360 + 1.5×AP magic damage, and Knocks Up for between 0.5 and 0.5 + 0.75 seconds when it collides with a champion, large monster or wall. These values scale up with distance rolled. Nunu and Willump can Recast to let the snowball go early.",
+   "summary": "Willump creates a snowball that grows in size and speed as he rolls it. The snowball damages and knocks up enemies.",
+   "values": {
+    "MonsterCollisionRadiusScalar": 1.25,
+    "MonsterImpactRadiusScalar": 1.75,
+    "InitialCastRadiusScalar": 2.5,
+    "WalkDistanceAfterThrow": 350,
+    "TurnRateMultiplier1": 1.75,
+    "TurnRateMultiplier2": 2.5,
+    "TurnRateMultiplier3": 3.25,
+    "TurnRateMultTime1": 1,
+    "TurnRateMultTime2": 2,
+    "TurnRateMultTime3": 3,
+    "BaseDamage": [
+     180,
+     225,
+     270,
+     315,
+     360
+    ],
+    "MaxDamageTime": 5,
+    "MaxDamageScalar": 1,
+    "MaxDuration": 10,
+    "BaseKnockupDuration": 0.5,
+    "AdditionalKnockupOverTime": 0.25,
+    "AdditionalStunDurationOverTime": 0.75,
+    "NoImpactDamageScalar": 0.333,
+    "MaximumSnowballRollDistance": 1750,
+    "MinimumSnowballRollDistance": 750,
+    "SlowAmount": -0.5,
+    "SlowDuration": 1,
+    "MinimumSnowballRadius": 75,
+    "MaximumSnowballRadius": 200,
+    "AdditionalStartingSpeed": 75,
+    "AdditionalSpeedPerLevel": 10,
+    "AdditionalSpeedCapPerLevel": 10,
+    "MinimumSnowballMissileSpeed": 350,
+    "LargeSnowballTime": 5,
+    "MediumSnowballTime": 2.5,
+    "LargeSnowballMissileWidth": 200,
+    "MediumSnowballMissileWidth": 137.5,
+    "SmallSnowballMissileWidth": 75,
+    "MaximumAPRatio": 1.5
+   },
+   "formulas": {
+    "MaximumSnowballDamage": "180/225/270/315/360 + 1.5×AP",
+    "NoImpactSnowballDamage": "(180/225/270/315/360 + 1.5×AP) × 0.333",
+    "MaximumStunDuration": "0.5 + 0.75"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "E": {
+   "name": "Snowball Barrage",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 625.0,
+   "description": "Nunu throws three snowballs, dealing 15/22.5/30/37.5/45 + 0.12×AP magic damage per snowball and Slowing enemies hit by all three by 30/35/40/45/50% for 1 second. Nunu can Recast this up to twice more. After 3 seconds, Nunu Roots all nearby enemies that had been Slowed by the snowballs for 0.5–1.5 (by level) seconds and deals an additional 20/30/40/50/60 + 0.8×AP magic damage.",
+   "summary": "Nunu throws multiple snowballs that damage enemies. When he's finished, Willump roots any champions or large monsters that were hit by a snowball.",
+   "values": {
+    "BaseDamage": [
+     15,
+     22.5,
+     30,
+     37.5,
+     45
+    ],
+    "SlowAmount": [
+     -0.3,
+     -0.35,
+     -0.4,
+     -0.45,
+     -0.5
+    ],
+    "SlowDuration": 1,
+    "RootDamage": [
+     20,
+     30,
+     40,
+     50,
+     60
+    ],
+    "TotalSpellDuration": 3,
+    "DelayBetweenSnowballs": 0.15,
+    "SplashConeLength": 225,
+    "SplashConeAngle": 22.5,
+    "MaxBursts": 3
+   },
+   "formulas": {
+    "TotalSnowballDamage": "15/22.5/30/37.5/45 + 0.12×AP",
+    "TotalRootDamage": "20/30/40/50/60 + 0.8×AP",
+    "RootDuration": "0.5–1.5 (by level)"
+   },
+   "tags": [
+    "root",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Absolute Zero",
+   "cooldown": [
+    110,
+    100,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 650.0,
+   "description": "Nunu and Willump channel a powerful blizzard for up to 3 seconds. Enemies inside are Slowed by 50%, increasing to 95% over the duration. Nunu and Willump also gain 65/75/85 + 0.3/0.4/0.5×bonus max HP + 1.5×AP Shield for the duration before decaying over 3 seconds afterwards. When the blizzard ends, it detonates, dealing up to 750/1100/1450 + 3×AP magic damage based on channel time. Nunu and Willump can Recast to end the blizzard early.",
+   "summary": "Nunu & Willump create a powerful blizzard in an area that slows enemies and deals massive damage at the end.",
+   "values": {
+    "BaseDamage": [
+     750,
+     1100,
+     1450
+    ],
+    "SlowStartAmount": -0.5,
+    "MaxSlowAmount": -0.95,
+    "ChannelDuration": 3,
+    "SlowDuration": 3,
+    "MaxShieldDuration": 6,
+    "ShieldDecayDuration": 3,
+    "BaseShieldAmount": [
+     65,
+     75,
+     85
+    ],
+    "ShieldBonusHealthPercent": [
+     0.3,
+     0.4,
+     0.5
+    ]
+   },
+   "formulas": {
+    "TotalShieldAmount": "65/75/85 + 0.3/0.4/0.5×bonus max HP + 1.5×AP",
+    "MaximumDamage": "750/1100/1450 + 3×AP",
+    "MinDamage": "(750/1100/1450 + 3×AP) × 0.5"
+   },
+   "tags": [
+    "shield",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Call of the Freljord",
+   "cooldown": 20,
+   "cost": 40,
+   "costType": null,
+   "range": null,
+   "description": "Nunu increases the attack speed and Move Speed of Willump and a nearby ally, and causes Willump's basic attacks to damage enemies around the target.",
+   "summary": "Nunu increases the attack speed and Move Speed of Willump and a nearby ally, and causes Willump's basic attacks to damage enemies around the target.",
+   "values": {
+    "MonsterRadius": 700,
+    "LargeRadius": 1000,
+    "BloodBoilBaseDuration": 4,
+    "ADRatioForAOE": 0.3,
+    "ASIncrease": 0.2,
+    "MSIncrease": 0.1
+   },
+   "formulas": {
+    "CleaveDamage": "0.3×AD"
+   },
+   "tags": [
+    "attack speed",
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Tank jungler who rolls a snowball for knock-ups and secures objectives with Q. Wins ganks with W from far away and locks targets with E root.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "W snowball grows and knocks up for up to 1.25 s",
+   "E roots enemies hit by all three snowballs after 3 s",
+   "Q deals huge true damage to monsters and heals him",
+   "R blizzard slows up to 95% and gives a shield",
+   "Fast objective control with Q"
+  ],
+  "weaknesses": [
+   "Low damage against champions",
+   "W is telegraphed and easy to dodge",
+   "Weak to kiting",
+   "R is a channel"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "medium",
+   "lvl3": "strong – W gank",
+   "lvl6": "strong – R",
+   "items": "strong – tank items",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "W ganks from level 3; E root combo.",
+  "waveClear": "good – Q",
+  "sustain": "high – Q heal",
+  "mobility": "high – W roll",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "W",
+    "E"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attack and move speed for himself and an ally."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bite; huge true damage to monsters; heal."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Snowball knock-up 0.5–1.25 s."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "3 snowballs; root after 3 s if slowed."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Channel blizzard; shield."
+   }
+  },
+  "windowAgainst": "W on cooldown.",
+  "checks": [
+   "Whether E snowballs are blockable by projectile blocks."
+  ]
+ }
+}

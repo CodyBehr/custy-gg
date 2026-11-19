@@ -1,0 +1,345 @@
+{
+ "id": 141,
+ "alias": "Kayn",
+ "name": "Kayn",
+ "title": "the Shadow Reaper",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 655,
+  "hpPerLevel": 103,
+  "ad": 68,
+  "adPerLevel": 3.3,
+  "armor": 38,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.669,
+  "attackSpeedPerLevel": 2.7,
+  "range": 175,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Reaping Slash",
+   "cooldown": [
+    7,
+    6.5,
+    6,
+    5.5,
+    5
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 350.0,
+   "description": "Kayn dashes then spins his scythe, dealing 75/105/135/165/195 + 0.85×bonus AD physical damage to enemies he passes through, then deals the damage again to nearby enemies. Darkin Slayer: Instead deal 0.65×AD plus (6 + 0.035×bonus AD) × 0.01 max Health physical damage.",
+   "summary": "Kayn dashes, then slashes. Both deal damage.",
+   "values": {
+    "SlayerBaseMaxHPDamage": 6,
+    "SlayerMaxHPPer100BAD": 3.5,
+    "SlayerMaxHPPer100BADTOOLTIPONLY": 0.035,
+    "BonusADRatio": 0.85,
+    "BaseDamage": [
+     75,
+     105,
+     135,
+     165,
+     195
+    ],
+    "SlayTADRatio": 0.65,
+    "MaxDmgToMonsters": [
+     200,
+     250,
+     300,
+     350,
+     400
+    ],
+    "FlatBonusDmgToMonsters": 40,
+    "AoERadius": 300
+   },
+   "formulas": {
+    "TotalDamage": "75/105/135/165/195 + 0.85×bonus AD",
+    "DarkinPercentDamage": "(6 + 0.035×bonus AD) × 0.01",
+    "DarkinFlatDamage": "0.65×AD"
+   },
+   "tags": [
+    "dash",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Blade's Reach",
+   "cooldown": [
+    13,
+    12,
+    11,
+    10,
+    9
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": 700.0,
+   "description": "Kayn swipes his scythe upward, dealing 85/130/175/220/265 + 1.1×bonus AD physical damage and Slowing enemies hit by (varies)%, decaying over (varies) seconds. Shadow Assassin: Kayn can move while using this Ability and increases its range. Darkin Slayer: Additionally Knocks Up enemies hit for (varies) second.",
+   "summary": "Kayn damages and slows targets in a line.",
+   "values": {
+    "BaseDamage": [
+     85,
+     130,
+     175,
+     220,
+     265
+    ],
+    "KnockupDuration": 1,
+    "SlowIntensity": -0.9,
+    "BoxWidth": 160,
+    "SlowDuration": 1.5,
+    "AssRange": 900,
+    "SlowAmount": -0.6
+   },
+   "formulas": {
+    "TotalDamage": "85/130/175/220/265 + 1.1×bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Shadow Step",
+   "cooldown": [
+    21,
+    19,
+    17,
+    15,
+    13
+   ],
+   "cost": 90,
+   "costType": null,
+   "range": 400.0,
+   "description": "Kayn gains (varies)% Move Speed, becomes Ghosted, and can move through Terrain for (varies) seconds. When he first enters terrain, he restores 90/100/110/120/130 + 0.45×bonus AD Health. Being Immobilized and spending more than (varies) consecutive seconds outside of Terrain ends this Ability early. Shadow Assassin: Gain (varies)% Move Speed, Slow immunity, and reduce the Cooldown to 10 seconds.",
+   "summary": "Kayn can walk through terrain.",
+   "values": {
+    "AssassinCDReduction": 10,
+    "AssMS": 70,
+    "MS": 40,
+    "WallWalkDuration": [
+     7,
+     7.5,
+     8,
+     8.5,
+     9
+    ],
+    "LingerTime": 1.5,
+    "WarningParticleRange": 1250,
+    "MaxInCombatTime": 1.5,
+    "HealAmount": [
+     90,
+     100,
+     110,
+     120,
+     130
+    ],
+    "HealBADRatio": 0.45
+   },
+   "formulas": {
+    "TotalHealing": "90/100/110/120/130 + 0.45×bonus AD"
+   },
+   "tags": [
+    "heal",
+    "immobilizing",
+    "move speed",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Umbral Trespass",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 550.0,
+   "description": "Passive: Champions damaged by Kayn are marked for 3.15 seconds. Kayn infests a marked enemy, becoming Untargetable. After 2.5 seconds or after Recasting, Kayn bursts out, dealing 150/250/350 + 1.5×bonus AD physical damage to the enemy. Shadow Assassin: Increases this Ability's range, the distance Kayn exits, and refreshes The Darkin Scythe's Cooldown on exit. Darkin Slayer: Instead deals 0.15 + 0.001×bonus AD max Health physical damage and restores (0.15 + 0.001×bonus AD) × 0.75 Health (75% damage amount).",
+   "summary": "Kayn hides in an enemy's body, dealing massive damage when he bursts out.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "MinimumInfestTime": 0.5,
+    "InfestDuration": 2.5,
+    "JumpOutDistance": 300,
+    "SlayerMaxHPBaseDamage": 0.15,
+    "SlayerMaxHPDamagerPer100AD": 0.001,
+    "SlayerHealPercent": 0.75,
+    "AssassinCastRange": 750,
+    "BaseCastRange": 550,
+    "AssassinJumpOutDistance": 500,
+    "AssCastRange": 750
+   },
+   "formulas": {
+    "Damage": "150/250/350 + 1.5×bonus AD",
+    "SlayerDamage": "0.15 + 0.001×bonus AD",
+    "HealValue": "(0.15 + 0.001×bonus AD) × 0.75"
+   },
+   "tags": [
+    "heal",
+    "untargetable"
+   ]
+  },
+  "Passive": {
+   "name": "The Darkin Scythe",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Kayn wields an ancient weapon and fights Rhaast, the darkin within it, for control. Either the Darkin will triumph, or Kayn will master Rhaast and become the Shadow Assassin. Darkin: Heal for a percentage of spell damage dealt to champions. Shadow Assassin: For the first few seconds in combat with enemy champions, deal bonus damage.",
+   "summary": "Kayn wields an ancient weapon and fights Rhaast, the darkin within it, for control. Either the Darkin will triumph, or Kayn will master Rhaast and become the Shadow Assassin. Darkin: Heal for a percentage of spell damage dealt to champions. Shadow Assassin: For the first few seconds in combat with enemy champions, deal bonus damage.",
+   "values": {
+    "TransformationVariable": 0.6,
+    "PAmpCooldownAss": 8,
+    "PAmpDurationAss": 3,
+    "PAmpPercentBaseAss": 18.823,
+    "PAmpPercentPerLvlAss": 1.178,
+    "BonusHealRatio": 0.0,
+    "SlayerHealing": 0.25,
+    "PassiveSecondFormDelayTooltip": 4,
+    "KaynAssMinValue": 0.2,
+    "KaynAssMaxValue": 0.4
+   },
+   "formulas": {
+    "KaynSlayerHealing": "0.25 + 0.0×bonus max HP",
+    "KaynAssBonusDamage": "?"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Shapeshifting jungler who becomes Rhaast (Darkin, bruiser) or the Shadow Assassin. Wins with ganks over walls and R untargetable inside a target.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "E walks through terrain for ganks and escapes",
+   "R makes him untargetable inside a marked target for 2.5 s",
+   "Q dash spin for clear and chase",
+   "W slows; in Rhaast form it also knocks up",
+   "Two forms: Rhaast heals from spell damage; Shadow Assassin bursts"
+  ],
+  "weaknesses": [
+   "Weak until he gets a form (needs orbs from fighting champions)",
+   "Kited without E",
+   "E ends early if he's immobilized",
+   "Low crowd control in Shadow Assassin form"
+  ],
+  "curve": {
+   "lvl1": "medium – clear",
+   "lvl2": "medium",
+   "lvl3": "medium – ganks",
+   "lvl6": "strong – R",
+   "items": "strong – form spike",
+   "late": "strong"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs E and Q for ganks; form changes his spike.",
+  "waveClear": "good – Q",
+  "sustain": "medium (Rhaast heals)",
+  "mobility": "high – E walls",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "E",
+    "R"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Form: Rhaast (heal) or Shadow Assassin (bonus damage)."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash and spin."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Slow; Rhaast form also knocks up."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Terrain walk; heals on entering terrain."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "untargetable",
+    "notes": "Infests a marked enemy, untargetable 2.5 s."
+   }
+  },
+  "windowAgainst": "Before form or R on cooldown.",
+  "checks": [
+   "Exact knock-up and slow values are (varies) in the file."
+  ]
+ }
+}

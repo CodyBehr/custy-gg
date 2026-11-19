@@ -1,0 +1,336 @@
+{
+ "id": 777,
+ "alias": "Yone",
+ "name": "Yone",
+ "title": "the Unforgotten",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 105,
+  "ad": 62,
+  "adPerLevel": 2,
+  "armor": 33,
+  "armorPerLevel": 4.6,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3.5,
+  "range": 175,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Mortal Steel",
+   "cooldown": 4,
+   "cost": null,
+   "costType": null,
+   "range": 450.0,
+   "description": "Yone thrusts forward, dealing 25/50/75/100/125 + 1.05×AD physical damage. On hit, grants a stack for 6 seconds. At 2 stacks, this ability causes Yone to dash forward with a wave of wind that Knocks Up for 0.75 seconds and deals 25/50/75/100/125 + 1.05×AD physical damage.",
+   "summary": "Thrusts forward, damaging all enemies in a line. On hit, grants a stack of Gathering Storm for a few seconds. At 2 stacks, Mortal Steel dashes Yone forward with a gust of wind knocking enemies Airborne.",
+   "values": {
+    "BaseDamage": [
+     25,
+     50,
+     75,
+     100,
+     125
+    ],
+    "ADRatio": 1.05,
+    "Width": 80,
+    "BuffDuration": 6,
+    "Q3MaxDistance": 450,
+    "Q3MinDistance": 450,
+    "Q3DashSpeed": 1500,
+    "Q3AoESize": 100,
+    "QAttackSpeedCDPercent": 0.6,
+    "QAttackSpeedCDMax": 0.667,
+    "QAttackSpeedCastReductionPercent": 0.417,
+    "QAttackSpeedCastReductionMax": 0.5,
+    "QBaseCastTime": 0.35,
+    "Q3KnockupHeight": 0.5,
+    "Q3KnockupDuration": 0.75
+   },
+   "formulas": {
+    "QDamage": "25/50/75/100/125 + 1.05×AD",
+    "TotalDamageCrit": "25/50/75/100/125 + 1.05×stat×AD"
+   },
+   "tags": [
+    "airborne",
+    "dash"
+   ]
+  },
+  "W": {
+   "name": "Spirit Cleave",
+   "cooldown": 14,
+   "cost": null,
+   "costType": null,
+   "range": 700.0,
+   "description": "Yone cleaves forward, dealing 5/10/15/20/25 + 4/4.5/5/5.5/6% max Health physical damage and 5/10/15/20/25 + 4/4.5/5/5.5/6% max Health magic damage. If Yone hits, he gains 40–90 (by level) + ShieldBADRatio×bonus AD Shield for 1.5 seconds. The amount of Shield increases for each champion struck.",
+   "summary": "Cleaves forward, damaging all enemies in a cone. Grants a shield to Yone, the value is increased by the number of champions hit by the swipe. Spirit Cleave's cooldown and cast time scale with attack speed.",
+   "values": {
+    "BaseDamage": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ],
+    "MinionMod": 0.25,
+    "HealthStealMultiplier": 1,
+    "ConeWidth": 40,
+    "WAttackSpeedCDPercent": 0.6,
+    "WAttackSpeedCDMax": 0.571,
+    "WAttackSpeedCastReductionPercent": 0.417,
+    "WAttackSpeedCastReductionMax": 0.5,
+    "WBaseCastTime": 0.5,
+    "WCritMultiplier": 0.8,
+    "MaxHealthDamage": [
+     0.08,
+     0.09,
+     0.1,
+     0.11,
+     0.12
+    ],
+    "BaseShield": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ],
+    "FirstChampShieldMultiplier": 1,
+    "SecondChampShieldMultiplier": 0.5,
+    "ShieldDuration": 1.5,
+    "ShieldbADRatio": 0.65
+   },
+   "formulas": {
+    "WDamage": "10/20/30/40/50 + 1×AD",
+    "{8dfeb810}": "(1×AD) × 0.2–1 (by level)",
+    "WShield": "40–90 (by level) + ShieldBADRatio×bonus AD",
+    "MinimumDamageMinions": "30+ (by level)",
+    "MonsterDamageCap": "?"
+   },
+   "tags": [
+    "heal",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Soul Unbound",
+   "cooldown": [
+    22,
+    19,
+    16,
+    13,
+    10
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Yone enters a spirit form for 5 seconds, leaving his body behind for the duration and gaining 10% to 30% ramping Move Speed. When the spirit form ends, Yone snaps back to his body and repeats 25/27.5/30/32.5/35% of all Attack and Ability damage he dealt to champions during this time. You may Recast this ability during spirit form. Recast: End spirit form early.",
+   "summary": "Yone's spirit leaves his body behind, gaining Move Speed. When this ability ends, Yone's spirit is forced back to his body and he repeats a portion of the damage he dealt as a spirit.",
+   "values": {
+    "ReturnTimer": 5,
+    "MovementSpeed": 0.3,
+    "DeathmarkBase": [
+     20,
+     35,
+     50,
+     65,
+     80
+    ],
+    "DeathmarkPercent": [
+     0.25,
+     0.275,
+     0.3,
+     0.325,
+     0.35
+    ],
+    "RecastLockout": 0.5,
+    "EDashRange": 300,
+    "EDashSpeed": 1200,
+    "OnHitIncrease": 0.25,
+    "StartingMS": 0.1,
+    "MissingHealthPercent": [
+     0.25,
+     0.275,
+     0.3,
+     0.325,
+     0.35
+    ]
+   },
+   "formulas": {
+    "{df232269}": "20/35/50/65/80 + 0.25×AD"
+   },
+   "tags": [
+    "move speed"
+   ]
+  },
+  "R": {
+   "name": "Fate Sealed",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 1000.0,
+   "description": "Yone strikes all enemies along a path for (200/400/600 + 0.8×bonus AD) × 0.5 physical damage and (200/400/600 + 0.8×bonus AD) × 0.5 magic damage, teleporting behind the last champion hit and Knocking Up victims towards Yone.",
+   "summary": "Yone blinks behind the last champion in a line with a slash so powerful it pulls all enemies hit towards him.",
+   "values": {
+    "BaseDamage": [
+     200,
+     400,
+     600
+    ],
+    "ADRatio": 0.8,
+    "BlinkDistanceBehindTarget": 200,
+    "Width": 225,
+    "RKnockupHeight": 0.5,
+    "RKnockupDuration": 0.75,
+    "RKnockTowardsSpeed": 3000,
+    "RKnockTowardsDampener": 0.8
+   },
+   "formulas": {
+    "Damage": "200/400/600 + 0.8×bonus AD",
+    "TooltipDamage": "(200/400/600 + 0.8×bonus AD) × 0.5"
+   },
+   "tags": [
+    "airborne",
+    "blink"
+   ]
+  },
+  "Passive": {
+   "name": "Way of the Hunter",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Yone deals magic damage with every second Attack. In addition, his critical strike chance is increased.",
+   "summary": "Yone deals magic damage with every second Attack. In addition, his critical strike chance is increased.",
+   "values": {
+    "MagicDamageSplit": 0.5,
+    "YoneCritToAD": 50,
+    "CritChanceMultiplier": 1,
+    "CritDamageMod": 0.95
+   },
+   "formulas": {
+    "CurrentCritDamage": "1×stat"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Melee carry who stacks Q for a knock-up dash and uses E to go in and snap back to safety. Wins with crit scaling, R knock-up engage and safe all-ins.",
+  "positions": [
+   "MIDDLE",
+   "TOP"
+  ],
+  "strengths": [
+   "E: go in, deal damage, return to where he started",
+   "Q3 dash knock-up and R multi-target knock-up",
+   "Strong scaling with crit (passive doubles crit chance)",
+   "W shield helps extended trades"
+  ],
+  "weaknesses": [
+   "Weak to point-and-click crowd control during E",
+   "No answer abilities (no wind wall)",
+   "Item-dependent early",
+   "Predictable once Q3 is stacked"
+  ],
+  "curve": {
+   "lvl1": "medium – Q stacking",
+   "lvl2": "medium – Q + W",
+   "lvl3": "strong – E all-ins",
+   "lvl6": "strong – R",
+   "items": "strong – first crit item (Kraken Slayer or Yun Tal), big at Infinity Edge since crit chance is doubled",
+   "late": "strong – crit scaling and R teamfight engage"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "E lets him trade without committing; needs it before all-ins.",
+  "waveClear": "good – Q",
+  "sustain": "low – lifesteal from items",
+  "mobility": "high – Q3 dash, E spirit, R blink",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Every 2nd attack deals magic damage; crit chance doubled."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Thrust; at 2 stacks dashes and knocks up. Applies on-hit and can crit."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Cone + shield (scales with champions hit)."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Spirit form, then snaps back to his body and repeats part of the damage dealt."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Blinks behind the last champion in a line, pulling and knocking up those hit."
+   }
+  },
+  "windowAgainst": "E down (no safe return) or Q3 just used: trade into him.",
+  "checks": [
+   "Does Jax E dodge Yone Q (applies on-hit)? Treated as not an attack."
+  ]
+ }
+}

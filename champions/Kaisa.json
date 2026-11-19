@@ -1,0 +1,304 @@
+{
+ "id": 145,
+ "alias": "Kaisa",
+ "name": "Kai'Sa",
+ "title": "Daughter of the Void",
+ "classes": [
+  "marksman",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 0,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 640,
+  "hpPerLevel": 102,
+  "ad": 59,
+  "adPerLevel": 2.6,
+  "armor": 25,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.644,
+  "attackSpeedPerLevel": 1.8,
+  "range": 525,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Icathian Rain",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": 55,
+   "costType": null,
+   "range": 600.0,
+   "description": "Kai'Sa launches (varies) missiles that split among nearby enemies, each dealing 40/55/70/85/100 + 0.55×bonus AD + 0.2×AP physical damage, up to a maximum of . Additional missile hits on champions or monsters deal 25% damage. Evolved: Kai'Sa instead fires (varies) missiles. Current: (varies)/(varies) Bonus Attack Damage",
+   "summary": "Kai'Sa shoots a swarm of missiles that seek out nearby targets. Living Weapon: Icathian Rain is upgraded to shoot more missiles.",
+   "values": {
+    "MaxDamage": [
+     90,
+     123.75,
+     157.5,
+     191.25,
+     225
+    ],
+    "MaxDamageNL": [
+     123.75,
+     157.5,
+     191.25,
+     225,
+     258.75
+    ],
+    "MaxDamageEvolved": [
+     150,
+     206.25,
+     262.5,
+     318.75,
+     375
+    ],
+    "MaxDamageEvolvedNL": [
+     206.25,
+     262.5,
+     318.75,
+     375,
+     431.25
+    ],
+    "BonusADRatio": 0.55,
+    "APRatio": 0.2,
+    "BaseDamage": [
+     40,
+     55,
+     70,
+     85,
+     100
+    ],
+    "ExtraHitReduction": 0.25,
+    "MinionDamageMultiplier": 2,
+    "MinionHPThreshold": 0.35
+   },
+   "formulas": {
+    "MaxDamageTotal": "(((40/55/70/85/100 + 0.55×bonus AD + 0.2×AP)) + (((40/55/70/85/100 + 0.55×bonus AD + 0.2×AP) × 5) × 0.25))",
+    "{b2bd0d2f}": "(((40/55/70/85/100 + 0.55×bonus AD + 0.2×AP)) + (((40/55/70/85/100 + 0.55×bonus AD + 0.2×AP) × 11) × 0.25))",
+    "MaxDamageDisplay": "",
+    "TotalIndividualMissileDamage": "40/55/70/85/100 + 0.55×bonus AD + 0.2×AP"
+   },
+   "tags": [
+    "projectile"
+   ]
+  },
+  "W": {
+   "name": "Void Seeker",
+   "cooldown": [
+    22,
+    20,
+    18,
+    16,
+    14
+   ],
+   "cost": [
+    60,
+    65,
+    70,
+    75,
+    85
+   ],
+   "costType": null,
+   "range": 3000.0,
+   "description": "Kai'Sa fires a void blast that deals ? + 1.3×AD + 0.45×AP magic damage, applies (varies) stacks of Plasma, and grants True Sight of the first enemy hit for @spell.KaisaPassive:PDuration@ seconds. Evolved: Kai'Sa instead applies (varies) stacks of Plasma and hitting a champion reduces the Cooldown by (varies)%. Current: (varies)/(varies) Ability Power",
+   "summary": "Kai'Sa shoots a long range missile, marking enemies with her passive. Living Weapon: Void Seeker is upgraded to apply more passive marks and reduce cooldown on champion hit.",
+   "values": {},
+   "formulas": {
+    "TotalDamage": "? + 1.3×AD + 0.45×AP"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Supercharge",
+   "cooldown": [
+    16,
+    14.5,
+    13,
+    11.5,
+    10
+   ],
+   "cost": 30,
+   "costType": null,
+   "range": 1.0,
+   "description": "Kai'Sa supercharges her void energy, gaining (varies) Move Speed and becoming Ghosted while charging, then gaining (varies)% Attack Speed for (varies) seconds. Attacks reduce this Ability's Cooldown by (varies) seconds. Evolved: Kai'Sa also becomes Invisible for (varies) seconds. Current: (varies)%/(varies)% Bonus Attack Speed",
+   "summary": "Kai'Sa briefly increases her Move Speed, then increases her Attack Speed. Living Weapon: Supercharge is upgraded to briefly grant Invisibility.",
+   "values": {},
+   "formulas": {
+    "TotalMovespeed": "(?) × ?",
+    "TotalCastTime": "?"
+   },
+   "tags": [
+    "attack speed",
+    "move speed",
+    "stealth"
+   ]
+  },
+  "R": {
+   "name": "Killer Instinct",
+   "cooldown": [
+    130,
+    100,
+    70
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 2000.0,
+   "description": "Kai'Sa warps near an enemy champion affected by Plasma and gains 100/150/200 + 0.9/1.35/1.8×AD + 1.2×AP Shield for 2 seconds.",
+   "summary": "Kai'Sa dashes near an enemy champion.",
+   "values": {
+    "RBaseValue": [
+     100,
+     150,
+     200
+    ],
+    "RRange": [
+     2000,
+     2500,
+     3000
+    ],
+    "RShieldDuration": 2,
+    "RTotalADRatio": [
+     0.9,
+     1.35,
+     1.8
+    ],
+    "RAPRatio": 1.2
+   },
+   "formulas": {
+    "RCalculatedShieldValue": "100/150/200 + 0.9/1.35/1.8×AD + 1.2×AP"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "Passive": {
+   "name": "Second Skin",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Kai'Sa's basic attacks stack Plasma, dealing increasing bonus magic damage. Allies' immobilizing effects help stack Plasma. Additionally, Kai'Sa's item purchases upgrade her basic spells to have more powerful properties.",
+   "summary": "Kai'Sa's basic attacks stack Plasma, dealing increasing bonus magic damage. Allies' immobilizing effects help stack Plasma. Additionally, Kai'Sa's item purchases upgrade her basic spells to have more powerful properties.",
+   "values": {
+    "PCoefficient": 0.25,
+    "PMaxStacks": 4,
+    "PDuration": 4,
+    "PDamageCap": 400,
+    "PAPRatioBase": 0.12,
+    "PAPRatioPerStack": 0.03,
+    "PExecuteRatio": 0.15,
+    "PAllyStacks": 1,
+    "PExecuteAPRatio": 0.001,
+    "PTotalDamageMultiplier_ForModesBalance": 1
+   },
+   "formulas": {
+    "PBaseDamage": "(4–30 (by level) + 0.12×AP) × 1",
+    "PCurrentPerStackDamage": "(1–8 (by level) + 0.03×AP) × 1",
+    "PExecutePercentage": "0.15 + 0.001×AP"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Hybrid marksman whose abilities evolve as she buys stats, isolating targets with Q and diving with R onto plasma-marked champions. Weak early, she scales into a mobile assassin-carry.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "Q deals all missiles to an isolated target",
+   "R dashes to any plasma-marked champion, with a shield",
+   "Evolved E grants invisibility",
+   "W is a long-range poke that reveals and stacks plasma",
+   "Hybrid AD/AP builds"
+  ],
+  "weaknesses": [
+   "Short attack range for a marksman",
+   "Weak lane before first evolution",
+   "R dives can strand her",
+   "Q split by minions",
+   "Needs items to evolve"
+  ],
+  "curve": {
+   "lvl1": "medium – plasma passive procs",
+   "lvl2": "medium – Q needs isolation",
+   "lvl3": "medium – Q+E trades",
+   "lvl6": "strong – R follow-up on support CC",
+   "items": "strong – Q evolution (Kraken/Navori+bonus AD)",
+   "late": "strong – E invisibility, full evolutions"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Trades with Q on isolated targets; spikes on evolutions.",
+  "waveClear": "medium – Q splits on minions",
+  "sustain": "low – lifesteal from items only",
+  "mobility": "high – R dash, E move speed",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "E",
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Missiles split among nearby enemies; stand in minions to absorb them."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Long-range blast stops at first hit; reveals and stacks plasma."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Charge for speed (ghosted), then attack speed; evolved grants brief invisibility."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash near a plasma-marked champion, gain a shield."
+   },
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attacks stack plasma; ally immobilizing CC stacks it too."
+   }
+  },
+  "windowAgainst": "Early levels before evolutions and when R is down: trade in minions to dodge Q.",
+  "checks": []
+ }
+}

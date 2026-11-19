@@ -1,0 +1,313 @@
+{
+ "id": 268,
+ "alias": "Azir",
+ "name": "Azir",
+ "title": "the Emperor of the Sands",
+ "classes": [
+  "mage",
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 575,
+  "hpPerLevel": 108,
+  "ad": 56,
+  "adPerLevel": 3.5,
+  "armor": 25,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 5,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Conquering Sands",
+   "cooldown": [
+    14,
+    12,
+    10,
+    8,
+    6
+   ],
+   "cost": [
+    80,
+    90,
+    100,
+    110,
+    110
+   ],
+   "costType": null,
+   "range": 740.0,
+   "description": "Azir orders all Sand Soldiers to an area, dealing 75/95/115/135/155 + 0.35/0.4/0.45/0.5/0.55×AP magic damage to enemies they pass through and Slowing them by 25% for 1 second.",
+   "summary": "Azir sends all Sand Soldiers towards a location. Sand Soldiers deal magic damage to enemies they pass through and apply a slow for 1 second.",
+   "values": {
+    "BaseDamage": [
+     75,
+     95,
+     115,
+     135,
+     155
+    ],
+    "SlowAmount": -0.25,
+    "SpearLength": 325,
+    "APRatio": [
+     0.35,
+     0.4,
+     0.45,
+     0.5,
+     0.55
+    ],
+    "SoldierDashSpeed": 1600,
+    "SoldierFormationClumpDistance": 200
+   },
+   "formulas": {
+    "TotalDamage": "75/95/115/135/155 + 0.35/0.4/0.45/0.5/0.55×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Arise!",
+   "cooldown": 1.5,
+   "cost": [
+    35,
+    30,
+    25,
+    20,
+    20
+   ],
+   "costType": null,
+   "range": 525.0,
+   "description": "Azir summons a Sand Soldier for 10 seconds. When Azir Attacks an enemy near a Sand Soldier, he instead orders the soldiers to stab, dealing 50/65/80/95/110 + None+ (by level) + 0.35/0.425/0.5/0.575/0.65×AP magic damage in their direction. This Ability has (varies) charges.",
+   "summary": "Azir summons a Sand Soldier to attack nearby targets for him, replacing his basic attack against targets within the soldier's range. Their attacks deal magic damage to enemies in a line.",
+   "values": {
+    "APRatio": [
+     0.35,
+     0.425,
+     0.5,
+     0.575,
+     0.65
+    ],
+    "BaseDamage": [
+     50,
+     65,
+     80,
+     95,
+     110
+    ],
+    "OnHitMultiplier": 0.67,
+    "SoldierDuration": 10,
+    "SubsequentDamageMod": 25,
+    "InputBufferProtection": 0.5
+   },
+   "formulas": {
+    "SecondaryTargetDamageMod": "0.2+ (by level)",
+    "TotalDamage": "50/65/80/95/110 + None+ (by level) + 0.35/0.425/0.5/0.575/0.65×AP"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Shifting Sands",
+   "cooldown": [
+    22,
+    20.5,
+    19,
+    17.5,
+    16
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 1100.0,
+   "description": "Azir grants himself 70/110/150/190/230 + 0.6×AP Shield for 1.5 seconds and dashes to one of his Sand Soldiers, dealing 70/110/150/190/230 + 0.6×AP magic damage to enemies he passes through. If Azir hits an enemy champion, he stops and gains a Sand Soldier charge.",
+   "summary": "Azir shields himself briefly and dashes to one of his Sand Soldiers, damaging enemies. If he hits an enemy champion, he instantly readies a new Sand Soldier for deployment and halts his dash.",
+   "values": {
+    "BaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "DamageRatio": 0.6,
+    "BaseShield": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "ShieldAPRatio": 0.6,
+    "DashSpeed": 1700,
+    "ShieldDuration": 1.5,
+    "CastRange": 1100
+   },
+   "formulas": {
+    "TotalShield": "70/110/150/190/230 + 0.6×AP",
+    "TotalDamage": "70/110/150/190/230 + 0.6×AP"
+   },
+   "tags": [
+    "dash",
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Emperor's Divide",
+   "cooldown": [
+    120,
+    105,
+    90
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 250.0,
+   "description": "Azir summons a wall of armored soldiers that charges forward, Knocking Back enemies and dealing 200/400/600 + 0.75×AP magic damage. The soldiers remain, blocking enemy paths for 5 seconds.",
+   "summary": "Azir summons a wall of soldiers which charge forward, knocking back and damaging enemies.",
+   "values": {
+    "BaseDamage": [
+     200,
+     400,
+     600
+    ],
+    "WallDuration": 5,
+    "NumberOfSoldiers": [
+     6,
+     7,
+     8
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "200/400/600 + 0.75×AP"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "Passive": {
+   "name": "Shurima's Legacy",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Azir can summon the Disc of the Sun from the ruins of allied or enemy turrets.",
+   "summary": "Azir can summon the Disc of the Sun from the ruins of allied or enemy turrets.",
+   "values": {
+    "TowerDisintegrationTime": 45,
+    "SoldierStabRange": 350,
+    "SoldierDeactivationRange": 660,
+    "APRatio": 0.4
+   },
+   "formulas": {
+    "TowerDamage": "230+ (by level) + 0.4×AP",
+    "BonusResists": "30+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Control mage who attacks through Sand Soldiers; scales hard and repositions fights with his E-Q shuffle and R wall.",
+  "positions": [
+   "mid"
+  ],
+  "strengths": [
+   "High sustained damage through soldiers at range",
+   "E-Q (+R) shuffle: knock enemies back into his team",
+   "Safe range with soldiers",
+   "Strong late game and turret pressure"
+  ],
+  "weaknesses": [
+   "Weak early and mana-heavy; low level 1-2",
+   "Mechanically demanding; mistakes waste soldiers",
+   "Soldier timers leave short gaps",
+   "Gets dived when E is down"
+  ],
+  "curve": {
+   "lvl1": "weak – one soldier",
+   "lvl2": "weak-medium",
+   "lvl3": "medium – W+Q+E",
+   "lvl6": "strong – R shuffle",
+   "items": "Nashor's / first AP item",
+   "late": "strong – late-game DPS"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Farms safely early; trades harder once W rank and R are up.",
+  "waveClear": "good with two soldiers (from level ~4)",
+  "sustain": "low",
+  "mobility": "medium (E dash + Q)",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "W soldier attacks with Q reposition",
+   "engage": "E-Q-R shuffle",
+   "escape": "E to soldier",
+   "answers": null
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "turret from destroyed turret ruins"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "soldiers dash to a location"
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "soldier stabs are triggered by his attacks (on-attack)"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "dash to soldier, shield, stops on first champion"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "knock-back wall; soldiers block paths"
+   }
+  },
+  "windowAgainst": "W soldiers out of position or E down: no escape.",
+  "checks": [
+   "Does Jax E dodge soldier stabs? (they're triggered by attacks)"
+  ]
+ }
+}

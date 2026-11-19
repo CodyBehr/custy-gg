@@ -1,0 +1,340 @@
+{
+ "id": 110,
+ "alias": "Varus",
+ "name": "Varus",
+ "title": "the Arrow of Retribution",
+ "classes": [
+  "marksman",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 105,
+  "ad": 59,
+  "adPerLevel": 3.4,
+  "armor": 24,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 3.5,
+  "range": 575,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Piercing Arrow",
+   "cooldown": [
+    16,
+    15,
+    14,
+    13,
+    12
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 925.0,
+   "description": "Begin Charging: Varus draws back his next shot, Slowing himself by 20%. After 4 seconds, if not fired, Varus will cancel the Ability and refund 50% of its Mana cost. Release: Varus releases the arrow, dealing (varies) physical damage, reduced by 15% per enemy hit (minimum 33%). Damage and Blight detonation effects are increased by up to 70% based on charge time (up to to (b3ef3984) × (1 + 0.7) physical damage.",
+   "summary": "Varus readies and then fires a powerful shot that gains extra range and damage the longer he spends preparing to fire.",
+   "values": {
+    "BaseDamageMin": [
+     50,
+     100,
+     150,
+     200,
+     250
+    ],
+    "tADRatioMin": 0.8,
+    "MaxChannelAmp": 0.7,
+    "FalloffPercent": 0.15,
+    "ManaRefund": 0.5,
+    "MaxChannelDuration": 4,
+    "CDRefund": 3,
+    "MoveSpeedMod": -0.2,
+    "MinDamagePercent": 0.33
+   },
+   "formulas": {
+    "{b3ef3984}": "50/100/150/200/250 + 0.8×bonus AD",
+    "TotalDamageMax": "(b3ef3984) × (1 + 0.7)"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Blighted Quiver",
+   "cooldown": 40,
+   "cost": null,
+   "costType": null,
+   "range": 750.0,
+   "description": "Passive: Varus' Attacks deal an additional 4/10/16/22/28 + 0.3×AP + 0.2×bonus AD magic damage and apply a Blight stack for 6 seconds (max 3 stacks). Varus' other Abilities detonate Blight stacks dealing 0.025/0.03/0.035/0.04/0.045 + (0.01 × 0.014)×AP max Health magic damage per stack (max (0.025/0.03/0.035/0.04/0.045 + (0.01 × 0.014)×AP) × 3 max Health damage). Detonating Blight on champions and epic monsters also reduces his basic Abilities' Cooldowns by 11% of their Maximum per stack. Active: Varus' next Piercing Arrow deals an additional 0.06/0.07/0.08/0.09/0.1 missing Health magic damage, increased up to (0.06/0.07/0.08/0.09/0.1) × 1.7 missing Health damage based on charge time.",
+   "summary": "Passive: Varus' basic attacks deal bonus magic damage and apply Blight. Varus' other abilities detonate Blight, dealing magic damage based on the target's maximum Health. Active: Varus empowers his next Piercing Arrow.",
+   "values": {
+    "VarusWDebuffDuration": 6,
+    "VarusWMaxStacks": 3,
+    "MaxMonsterDamage": 120,
+    "BasePercentHPPerStack": [
+     0.025,
+     0.03,
+     0.035,
+     0.04,
+     0.045
+    ],
+    "QEmpowerMonsterCap": 360,
+    "VarusWOnHitDamage": [
+     4,
+     10,
+     16,
+     22,
+     28
+    ],
+    "CDRPerBlightStack": 0.11,
+    "VarusWMaxChargeHPDamage": 1.7,
+    "OnHitRatio": 0.3,
+    "OnHitADRatio": 0.2,
+    "WQHealthDamage": [
+     0.06,
+     0.07,
+     0.08,
+     0.09,
+     0.1
+    ],
+    "DebuffDuration": 6,
+    "MaxStacks": 3
+   },
+   "formulas": {
+    "PercentHPPerStack": "0.025/0.03/0.035/0.04/0.045 + (0.01 × 0.014)×AP",
+    "QEmpowerPercentHP": "0.06/0.07/0.08/0.09/0.1",
+    "OnHitDamage": "4/10/16/22/28 + 0.3×AP + 0.2×bonus AD",
+    "MaxPercentHPPerStack": "(0.025/0.03/0.035/0.04/0.045 + (0.01 × 0.014)×AP) × 3",
+    "MaxQEmpowerPercentHP": "(0.06/0.07/0.08/0.09/0.1) × 1.7"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Hail of Arrows",
+   "cooldown": [
+    18,
+    16,
+    14,
+    12,
+    10
+   ],
+   "cost": 90,
+   "costType": null,
+   "range": 925.0,
+   "description": "Varus fires a hail of arrows that deals 60/90/120/150/180 + 0.9×bonus AD physical damage and desecrates the ground for 4 seconds, Slowing enemies by 30/35/40/45/50% and applying 40% Grievous Wounds.",
+   "summary": "Varus fires a hail of arrows that deal physical damage and desecrate the ground. Desecrated ground slows enemies' Move Speed and reduces their self healing and regeneration.",
+   "values": {
+    "GrievousAmount": 0.4,
+    "GrievousDuration": 0.5,
+    "BonusADRatio": 0.9,
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "SlowPercent": [
+     -0.3,
+     -0.35,
+     -0.4,
+     -0.45,
+     -0.5
+    ],
+    "AoERange": 300,
+    "DebuffDuration": 4,
+    "GroundDuration": 4
+   },
+   "formulas": {
+    "TotalDamage": "60/90/120/150/180 + 0.9×bonus AD"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Chain of Corruption",
+   "cooldown": [
+    100,
+    80,
+    60
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1300.0,
+   "description": "Varus flings out a tendril of corruption, Rooting the first champion hit for 2 seconds and dealing 150/250/350 + 1×AP magic damage. Rooted enemies gain 3 Blight stacks over the duration. The corruption spreads from its target to uninfected enemy champions. If it reaches them, they take the same damage and Root.",
+   "summary": "Varus flings out a damaging tendril of corruption that immobilizes the first enemy champion hit and then spreads towards nearby uninfected champions, immobilizing them too on contact.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "RootDuration": 2,
+    "VarusRTargetAcquisitionRange": 650,
+    "PassiveStacksAdded": 3,
+    "TimeBetweenStackAddition": 0.5,
+    "VarusRTargetLeashRange": 600,
+    "VarusRLeashTimer": 1.75,
+    "VarusWDebuffDuration": 6,
+    "VarusWMaxStacks": 3,
+    "PassiveStacks": 3
+   },
+   "formulas": {
+    "TotalDamage": "150/250/350 + 1×AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "Passive": {
+   "name": "Living Vengeance",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "On kill or assist, Varus temporarily gains Attack Damage and Ability Power. This bonus is larger if the enemy is a champion.",
+   "summary": "On kill or assist, Varus temporarily gains Attack Damage and Ability Power. This bonus is larger if the enemy is a champion.",
+   "values": {
+    "PassiveAS": 0.3,
+    "PassiveASMinion": 0.1,
+    "PassiveASRatio": 0.4,
+    "PassiveASRatioMinion": 0.2,
+    "AStoADMinion": 14,
+    "AStoAPMinion": 14,
+    "AStoADChampion": 42,
+    "AStoAPChampion": 42,
+    "NewASCap": 3.33
+   },
+   "formulas": {
+    "MinionAS": "0.1+ (by level)",
+    "ChampionAS": "0.3",
+    "ASDuration": "5+ (by level)",
+    "MinionAD": "14×bonus stat",
+    "MinionAP": "14×bonus stat",
+    "ChampionAD": "42×bonus stat",
+    "ChampionAP": "42×bonus stat"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Ranged marksman (or lethality poke mage-marksman) built around a charged Q arrow and W Blight stacks that his other abilities detonate. Wins lanes with long-range poke and picks with the R chain root.",
+  "positions": [
+   "BOTTOM",
+   "MIDDLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Very long-range Q poke, charged for range and damage",
+   "R immobilizes and spreads to nearby champions: strong pick and engage tool",
+   "E applies anti-heal (reduces healing and regeneration) and slows",
+   "Flexible builds: lethality poke or on-hit with Blight stacks"
+  ],
+  "weaknesses": [
+   "No dash: very vulnerable to engage and dives",
+   "Skillshot-reliant: missed Q/R means a lost trade",
+   "Charging Q slows him, so he can be punished while charging",
+   "Weak if forced into extended fights against divers"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke or W-empowered autos, short trades only",
+   "lvl2": "medium – Q + E poke",
+   "lvl3": "strong – Q/W/E: Blight detonation poke",
+   "lvl6": "strong – R root sets up kills with his support/jungler",
+   "items": "strong – first lethality item (poke) or on-hit item (Blight stacks)",
+   "late": "medium – R picks stay strong; immobile in teamfights"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Trades from range with Q from level 1–2; the R pick threat from 6 is the real spike.",
+  "waveClear": "good – E and charged Q clear waves",
+  "sustain": "low – none beyond items",
+  "mobility": "very low – no dash",
+  "range": "long-ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W",
+    "E"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Takedowns give AD/AP for a few seconds."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Charged arrow: longer charge = more range/damage; slows Varus while charging."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Passive: attacks apply Blight (on-hit); other abilities detonate it. Active empowers the next Q."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Ground area: slows and reduces healing/regeneration (anti-heal)."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Tendril immobilizes the first champion hit, then spreads to nearby champions."
+   }
+  },
+  "windowAgainst": "R down, or just after a missed Q: engage on him, he has no escape.",
+  "checks": [
+   "E: is the arrow volley stopped by projectile blocks? Treated as not a projectile."
+  ]
+ }
+}

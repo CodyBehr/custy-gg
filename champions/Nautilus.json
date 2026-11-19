@@ -1,0 +1,330 @@
+{
+ "id": 111,
+ "alias": "Nautilus",
+ "name": "Nautilus",
+ "title": "the Titan of the Depths",
+ "classes": [
+  "tank",
+  "support"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 646,
+  "hpPerLevel": 100,
+  "ad": 58,
+  "adPerLevel": 3.3,
+  "armor": 39,
+  "armorPerLevel": 4.95,
+  "attackSpeed": 0.706,
+  "attackSpeedPerLevel": 1,
+  "range": 175,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Dredge Line",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 1150.0,
+   "description": "Nautilus hurls his anchor forward. If it hits an enemy, Nautilus drags himself and the target together, dealing 85/125/165/205/245 + 0.9×AP magic damage and Stunning them briefly. If the anchor hits terrain, Nautilus will drag himself towards it.",
+   "summary": "Nautilus hurls his anchor forward. Colliding with an enemy pulls them and Nautilus together, dealing magic damage. Colliding with terrain pulls Nautilus towards it.",
+   "values": {
+    "BaseDamage": [
+     85,
+     125,
+     165,
+     205,
+     245
+    ],
+    "TerrainCDR": 0.5,
+    "TerrainMana": 0.5,
+    "TerrainReduction": 0.5,
+    "TerrainManaRefund": 0.5
+   },
+   "formulas": {
+    "QDamageCalc": "85/125/165/205/245 + 0.9×AP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Titan's Wrath",
+   "cooldown": 12,
+   "cost": 60,
+   "costType": null,
+   "range": 350.0,
+   "description": "Nautilus gains a 50/60/70/80/90 + 0.08/0.09/0.1/0.11/0.12×max HP Shield for 6 seconds. While the Shield persists, Nautilus' Attacks deal an additional 30/40/50/60/70 + 0.4×AP magic damage over 2 seconds to his target and all surrounding enemies.",
+   "summary": "Nautilus gains a temporary Shield. While it persists, his Attacks deal damage over time to his target and surrounding enemies.",
+   "values": {
+    "ShieldBase": [
+     50,
+     60,
+     70,
+     80,
+     90
+    ],
+    "ShieldHealthRatio": [
+     0.08,
+     0.09,
+     0.1,
+     0.11,
+     0.12
+    ],
+    "ShieldDuration": 6,
+    "DotDamageBase": [
+     30,
+     40,
+     50,
+     60,
+     70
+    ],
+    "DotDamageAPRatio": 0.4
+   },
+   "formulas": {
+    "DotDamageCalc": "30/40/50/60/70 + 0.4×AP",
+    "ShieldCalc": "50/60/70/80/90 + 0.08/0.09/0.1/0.11/0.12×max HP"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Riptide",
+   "cooldown": [
+    7,
+    6.5,
+    6,
+    5.5,
+    5
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "Nautilus creates three exploding waves around himself, each dealing 55/90/125/160/195 + 0.5×AP magic damage to enemies in the area and Slows them by 30/35/40/45/50% decaying over 1.25 seconds.",
+   "summary": "Nautilus creates three exploding waves around himself. Each explosion damages and slows enemies.",
+   "values": {
+    "DamageBase": [
+     55,
+     90,
+     125,
+     160,
+     195
+    ],
+    "SlowPercent": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "SlowDuration": 1.25,
+    "MultiHitReduction": 0.5,
+    "DamageMonsterMod": 1.5,
+    "DamageAPRatio": 0.5,
+    "ExtraWavePenalty": 0.5,
+    "DamageRadius": 125,
+    "MonsterBonusDamage": [
+     125,
+     165,
+     205,
+     245,
+     285
+    ]
+   },
+   "formulas": {
+    "DamageCalc": "55/90/125/160/195 + 0.5×AP",
+    "MonsterBonusCalc": "125/165/205/245/285 + 0.5×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Depth Charge",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 825.0,
+   "description": "Nautilus fires a shockwave that chases an enemy champion, dealing 150/275/400 + 0.8×AP magic damage, Knocking them Up and Stunning them for 1/1.5/2 seconds. Other enemies hit by the shockwave are also Knocked Up and Stunned and take 125/175/225 + 0.4×AP magic damage.",
+   "summary": "Nautilus fires a shockwave into the earth that chases an opponent. This shockwave rips up the earth above it, knocking enemies into the air. When it reaches the opponent, the shockwave erupts, knocking his target into the air and stunning them.",
+   "values": {
+    "PrimaryDamage": [
+     150,
+     275,
+     400
+    ],
+    "SecondaryDamage": [
+     125,
+     175,
+     225
+    ],
+    "StunDuration": [
+     1,
+     1.5,
+     2
+    ]
+   },
+   "formulas": {
+    "PrimaryTargetDamage": "150/275/400 + 0.8×AP",
+    "SecondaryTargetDamage": "125/175/225 + 0.4×AP"
+   },
+   "tags": [
+    "airborne",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Staggering Blow",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Nautilus' first Attack against a target deals increased physical damage and roots them briefly.",
+   "summary": "Nautilus' first Attack against a target deals increased physical damage and roots them briefly.",
+   "values": {
+    "PerTargetCD": 6
+   },
+   "formulas": {
+    "BonusDamage": "?",
+    "TotalDamageTooltip": "? + 1×AD",
+    "RootDuration": "0.75+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Engage tank support: hooks with Q, roots with passive on first attack, and locks targets with point-and-click R.",
+  "positions": [
+   "support",
+   "jungle"
+  ],
+  "strengths": [
+   "Lots of crowd control: Q, passive root, E slow, R",
+   "Point-and-click R knock-up",
+   "Durable with W shield",
+   "Strong engage and peel"
+  ],
+  "weaknesses": [
+   "Q hook can be dodged or blocked by minions",
+   "Low damage",
+   "Mana-hungry early",
+   "Long Q cooldown when missed"
+  ],
+  "curve": {
+   "lvl1": "strong – passive root",
+   "lvl2": "strong – Q engage",
+   "lvl3": "strong",
+   "lvl6": "strong – R",
+   "items": "first support/tank item",
+   "late": "strong – crowd control"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Engages when Q is up; level 2 hook all-in is common.",
+  "waveClear": "low",
+  "sustain": "low (shield)",
+  "mobility": "medium (Q to walls)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "W shield attacks",
+   "engage": "Q hook, passive root, R",
+   "escape": "Q to terrain",
+   "answers": null
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "first attack vs a target roots"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "hook; drags both together"
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "shield; empowered attacks splash"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "three exploding waves"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "point-and-click shockwave"
+   }
+  },
+  "windowAgainst": "Q missed (long cooldown): he can't engage.",
+  "checks": []
+ }
+}

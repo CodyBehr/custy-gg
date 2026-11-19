@@ -1,0 +1,349 @@
+{
+ "id": 41,
+ "alias": "Gangplank",
+ "name": "Gangplank",
+ "title": "the Saltwater Scourge",
+ "classes": [
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 114,
+  "ad": 64,
+  "adPerLevel": 4.2,
+  "armor": 31,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 3.2,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Parrrley",
+   "cooldown": 4.5,
+   "cost": [
+    45,
+    40,
+    35,
+    30,
+    30
+   ],
+   "costType": null,
+   "range": 625.0,
+   "description": "{{Spell_GangplankQWrapper_Tooltip_1}}",
+   "summary": "Shoots target, plundering Gold for each enemy unit killed.",
+   "values": {
+    "SpellDamage": [
+     10,
+     40,
+     70,
+     100,
+     130
+    ],
+    "ADRatio": 1,
+    "CherryRatio": 0.07,
+    "GameModeInteger": 1,
+    "CritDamageMod": 1,
+    "GoldProc": [
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "SSProc": [
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    "PlunderThreshold": 500
+   },
+   "formulas": {
+    "ShotDamage": "10/40/70/100/130 + 1×AD",
+    "ShotCrit": "(10/40/70/100/130 + 1×AD) × (1 + (1 × (1×stat + -1)))"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Remove Scurvy",
+   "cooldown": [
+    22,
+    20,
+    18,
+    16,
+    14
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    110
+   ],
+   "costType": null,
+   "range": 400.0,
+   "description": "Gangplank consumes a large amount of citrus fruit, removing all Disabling effects and restoring 45/70/95/120/145 + 0.9×AP plus 13% missing Health.",
+   "summary": "Eats citrus to cure crowd control effects and restore Health.",
+   "values": {
+    "BaseHeal": [
+     45,
+     70,
+     95,
+     120,
+     145
+    ],
+    "PercentHeal": 13,
+    "BuffDuration_unused": 0.25,
+    "HasteAmount": 200,
+    "SteroidAmount_unused": [
+     30,
+     40,
+     50,
+     60,
+     70
+    ]
+   },
+   "formulas": {
+    "BaseHealth": "45/70/95/120/145 + 0.9×AP"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Powder Keg",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": 1000.0,
+   "description": "Gangplank places a powder keg that can be attacked by Gangplank and enemy champions for 25 seconds. When an enemy destroys it, the keg is defused. When Gangplank destroys it, it explodes, Slowing by 40/50/60/70/80% for 2 seconds and dealing the Attack's damage, ignoring 40% Armor. Champions take an additional 75/95/115/135/155 physical damage. Keg health decays every 2+ (by level) seconds. Keg explosions detonate other kegs with overlapping blast zones, but don't deal damage to the same target more than once. Keg explosions triggered by Parrrley will grant the bonus gold for targets killed.",
+   "summary": "Gangplank uncovers a powder keg at target location. If he attacks it, it explodes, spreading the attack's damage to enemies in the area, slowing them.",
+   "values": {
+    "BarrelSlow": [
+     40,
+     50,
+     60,
+     70,
+     80
+    ],
+    "MaxBarrels": [
+     3,
+     3,
+     4,
+     4,
+     5
+    ],
+    "DebuffDuration": 2,
+    "BonusDamageToChampions": [
+     75,
+     95,
+     115,
+     135,
+     155
+    ],
+    "BarrelDuration": 25,
+    "BarrelBaseDecay": 2,
+    "BarrelEnemyGoldBounty": 10,
+    "MinionDamagePercentage": 100,
+    "CooldownBetweenBarrels": 0.5,
+    "BarrelArmorPenetration": 40,
+    "ChampionBonusDamage": [
+     80,
+     105,
+     130,
+     155,
+     180
+    ],
+    "SlowAmount": [
+     40,
+     50,
+     60,
+     70,
+     80
+    ]
+   },
+   "formulas": {
+    "FinalSlowAmount": "40/50/60/70/80",
+    "BarrelDecayTime": "2+ (by level)"
+   },
+   "tags": [
+    "heal",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Cannon Barrage",
+   "cooldown": [
+    160,
+    140,
+    120
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 30000.0,
+   "description": "Gangplank signals his ship to fire 12 waves of cannonballs anywhere on the map over 8 seconds. Each wave Slows by 30% for 0.5 seconds and deals 40/70/100 + 0.1×AP magic damage. Maximum damage: (40/70/100 + 0.1×AP) × 12 This Ability can be upgraded in the shop via Parrrley. Fire at Will: Fires 6 additional waves of cannonballs. Death's Daughter: Fires a Mega-Cannonball that deals 120/210/300 + 0.3×AP true damage and Slows by 75% for 1 second. Raise Morale: Allies inside Cannon Barrage gain 40% Move Speed for 2 seconds.",
+   "summary": "Gangplank signals his ship to bombard an area, slowing and damaging enemies.",
+   "values": {
+    "DamagePerWave": [
+     40,
+     70,
+     100
+    ],
+    "DeathsDaughterBaseDamage": [
+     120,
+     210,
+     300
+    ],
+    "RaiseMoraleHaste": 40,
+    "ZoneDuration": 8,
+    "CannonDelay": 0.5,
+    "CannonInterval": 2,
+    "SlowPercent": 30,
+    "SlowDuration": 0.5,
+    "DeathsDaughterSlow": 75,
+    "DeathsDaughterSlowDuration": 1,
+    "RaiseMoraleHasteDuration": 2,
+    "TotalWavesTooltip": 12
+   },
+   "formulas": {
+    "OneWaveDamage": "40/70/100 + 0.1×AP",
+    "DeathsDaughterDamage": "120/210/300 + 0.3×AP",
+    "TotalDamageTooltip": "(40/70/100 + 0.1×AP) × 12"
+   },
+   "tags": [
+    "move speed",
+    "slow",
+    "true damage"
+   ]
+  },
+  "Passive": {
+   "name": "Trial by Fire",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every few seconds, Gangplank's melee strike will set his opponent on fire.",
+   "summary": "Every few seconds, Gangplank's melee strike will set his opponent on fire.",
+   "values": {
+    "Cooldown": 15,
+    "MoveSpeedDuration": 2,
+    "DoTDuration": 2.5,
+    "TurretDamageMult": 0.5,
+    "ADRatio": 1
+   },
+   "formulas": {
+    "TotalDamage": "50–250 (by level) + 1×bonus AD",
+    "MoveSpeed": "0.15–0.3 (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Scaling pirate who plays around barrels: chains keg explosions for burst and slow, pokes with point-and-click Q, cleanses with W.",
+  "positions": [
+   "top",
+   "mid"
+  ],
+  "strengths": [
+   "Barrel combos: huge area burst and slows",
+   "Q point-and-click poke and gold",
+   "W cleanses all crowd control and heals",
+   "Global R for skirmishes"
+  ],
+  "weaknesses": [
+   "Weak early; low level-1 trades",
+   "Barrel play is mechanically hard",
+   "No dash; vulnerable to ganks and all-ins",
+   "Relies on items (crit) to scale"
+  ],
+  "curve": {
+   "lvl1": "weak",
+   "lvl2": "medium – barrels",
+   "lvl3": "medium",
+   "lvl6": "medium – R global",
+   "items": "first and second items (crit spikes)",
+   "late": "strong – late game"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Plays for farm early; barrels win short trades once ranked up.",
+  "waveClear": "good with barrels",
+  "sustain": "medium – W heal, passive",
+  "mobility": "low",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "Q poke, barrel chains",
+   "engage": "E barrels (slow)",
+   "escape": null,
+   "answers": "W cleanses disables"
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "periodic burning melee attack"
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "point-and-click shot that applies on-hit (dodged by Jax E? check)"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "removes all disables (crowd control cleanse)",
+    "notes": "cleanse + heal"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "keg; explodes when Gangplank hits it"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "global area bombardment"
+   }
+  },
+  "windowAgainst": "W on cooldown (no cleanse) or no barrels up.",
+  "checks": [
+   "Q isAttack: Parrrley applies on-hit; whether Jax E dodges it",
+   "Auto-tagger 'parry' on E/R is wrong ('apparrrrrr' text)"
+  ]
+ }
+}

@@ -1,0 +1,293 @@
+{
+ "id": 21,
+ "alias": "MissFortune",
+ "name": "Miss Fortune",
+ "title": "the Bounty Hunter",
+ "classes": [
+  "marksman",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 625,
+  "hpPerLevel": 100,
+  "ad": 55,
+  "adPerLevel": 2.4,
+  "armor": 25,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.656,
+  "attackSpeedPerLevel": 3,
+  "range": 550,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Double Up",
+   "cooldown": [
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 650.0,
+   "description": "Miss Fortune fires a bouncing shot, dealing 20/45/70/95/120 + 1×AD + 0.35×AP physical damage to an enemy and to another one behind them. The second shot can critically strike for (20/45/70/95/120 + 1×AD + 0.35×AP) × (1 + (0.5 × (1×stat + -1))) physical damage. It always critically strikes if the first shot kills its target.",
+   "summary": "Miss Fortune fires a bullet at an enemy, damaging them and a target behind them. Both strikes can also apply Love Tap.",
+   "values": {
+    "BaseDamage": [
+     20,
+     45,
+     70,
+     95,
+     120
+    ],
+    "ADRatio": 1,
+    "APRatio": 0.35,
+    "BounceCriticalMod": 0.5
+   },
+   "formulas": {
+    "TotalDamageTooltip": "20/45/70/95/120 + 1×AD + 0.35×AP",
+    "TotalDamageCrit": "(20/45/70/95/120 + 1×AD + 0.35×AP) × (1 + (0.5 × (1×stat + -1)))",
+    "{5a1fd353}": "1×stat"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Strut",
+   "cooldown": 12,
+   "cost": 45,
+   "costType": null,
+   "range": 600.0,
+   "description": "Passive: After 4 seconds of not taking damage, Miss Fortune gains 30/35/40/45/50 Move Speed. After another 3 seconds, this increases to 60/70/80/90/100. Active: Gain the passive effect's full Move Speed bonus and 40/55.0/70/85/100% Attack Speed for 4 seconds. Love Taps reduce the Cooldown of this Ability by (2) × ? seconds.",
+   "summary": "Miss Fortune passively gains Move Speed when not attacked. This ability can be activated to grant bonus Attack Speed for a short duration. While it's on cooldown, Love Taps reduce the remaining cooldown of Strut.",
+   "values": {
+    "PassiveBaseMS": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "PassiveMaxMS": [
+     60,
+     70,
+     80,
+     90,
+     100
+    ],
+    "LoveTapBaseRefund": 2,
+    "ActiveAS": [
+     0.4,
+     0.55,
+     0.7,
+     0.85,
+     1
+    ],
+    "ActiveDuration": 4,
+    "PassiveBaseMSOOC": 4,
+    "PassiveMaxMSExtraOOC": 3
+   },
+   "formulas": {
+    "LoveTapRefund": "(2) × ?"
+   },
+   "tags": [
+    "attack speed",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Make It Rain",
+   "cooldown": [
+    18,
+    17,
+    16,
+    15,
+    14
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 1000.0,
+   "description": "Miss Fortune rains bullets, revealing an area, Slowing by 0.4 + 0.001×AP and dealing 45/60/75/90/105 + 0.6×AP magic damage per second for 2 seconds (total (45/60/75/90/105 + 0.6×AP) × 2 magic damage).",
+   "summary": "Miss Fortune reveals an area with a flurry of bullets, dealing waves of damage to opponents and slowing them.",
+   "values": {
+    "BaseDamagePerSecond": [
+     45,
+     60,
+     75,
+     90,
+     105
+    ],
+    "BaseDuration": 2,
+    "BaseSlowAmount": 0.4,
+    "APRatioPerSecond": 0.6,
+    "TicksPerSecond": 4,
+    "CastDelay": 0.25,
+    "SlowPer100AP": 0.001
+   },
+   "formulas": {
+    "TotalDamagePerSecond": "45/60/75/90/105 + 0.6×AP",
+    "TotalSlowAmount": "0.4 + 0.001×AP",
+    "TotalDamage": "(45/60/75/90/105 + 0.6×AP) × 2"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Bullet Time",
+   "cooldown": [
+    120,
+    110,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Miss Fortune channels a barrage of bullets, firing 14/16/18 waves over 3 seconds, dealing 20/30/40 + 0.6×AD + 0.25×AP physical damage per wave (total (20/30/40 + 0.6×AD + 0.25×AP) × 14/16/18 physical damage). Each wave can critically strike for %i:scaleCrit% (20/30/40 + 0.6×AD + 0.25×AP) × (1 + (0.45 × (1×stat + -1))) physical damage.",
+   "summary": "Miss Fortune channels a barrage of bullets into a cone in front of her, dealing large amounts of damage to enemies. Each wave of Bullet Time can critically strike",
+   "values": {
+    "BaseWaves": [
+     14,
+     16,
+     18
+    ],
+    "BaseDamage": [
+     20,
+     30,
+     40
+    ],
+    "tADRatio": 0.6,
+    "APRatio": 0.25,
+    "CritDamageMultiplier": 0.45,
+    "BaseChannelDuration": 3
+   },
+   "formulas": {
+    "PhysicalDamagePerWave": "20/30/40 + 0.6×AD + 0.25×AP",
+    "CritDamagePerWave": "(20/30/40 + 0.6×AD + 0.25×AP) × (1 + (0.45 × (1×stat + -1)))",
+    "TotalPhysicalDamage": "(20/30/40 + 0.6×AD + 0.25×AP) × 14/16/18"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Love Tap",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Miss Fortune deals bonus physical damage whenever she basic attacks a new target.",
+   "summary": "Miss Fortune deals bonus physical damage whenever she basic attacks a new target.",
+   "values": {},
+   "formulas": {
+    "TotalDamage": "0.5+ (by level)×AD",
+    "MinionDamage": "(0.5+ (by level)×AD) × 0.5"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Lane-bully marksman who pokes with the bouncing Q and wins teamfights with the R channel. Wins lane through strong early damage and the E slow zone.",
+  "positions": [
+   "BOTTOM",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Q bounce poke can crit the second target, punishing enemies who stand behind minions",
+   "E zone slows and reveals, good with engage supports",
+   "R channel deals huge area damage in teamfights",
+   "Passive bonus damage when switching targets",
+   "W move speed for kiting and roaming"
+  ],
+  "weaknesses": [
+   "No dash: very vulnerable to dives and hard engage",
+   "R is a channel that crowd control interrupts",
+   "Falls off against high-mobility, skillshot-dodging bot lanes",
+   "Relies on engage support to land R"
+  ],
+  "curve": {
+   "lvl1": "medium-strong – passive and Q",
+   "lvl2": "strong – Q+W trades",
+   "lvl3": "strong",
+   "lvl6": "strong – R with support lockdown",
+   "items": "strong – lethality or crit (Collector, Yun Tal)",
+   "late": "medium – teamfight R, no mobility"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q poke and W chase early; strongest with a lockdown support.",
+  "waveClear": "good – E and Q",
+  "sustain": "low",
+  "mobility": "low – W speed only",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bonus damage on attacks against a new target."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Shot bounces to a target behind; second hit can crit."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Move speed and attack speed; passive speed lost on damage."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Area slow and vision for 2 s."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "3 s channel cone; interrupted by crowd control."
+   }
+  },
+  "windowAgainst": "W/E down, or after R is cast: dive her. She has no escape.",
+  "checks": [
+   "Whether Jax E dodges Q (it applies on-hit effects) and whether projectile blocks stop each R wave."
+  ]
+ }
+}

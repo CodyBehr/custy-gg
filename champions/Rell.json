@@ -1,0 +1,363 @@
+{
+ "id": 526,
+ "alias": "Rell",
+ "name": "Rell",
+ "title": "the Iron Maiden",
+ "classes": [
+  "tank",
+  "support"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 104,
+  "ad": 55,
+  "adPerLevel": 3,
+  "armor": 30,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2,
+  "range": 175,
+  "moveSpeed": 315
+ },
+ "abilities": {
+  "Q": {
+   "name": "Shattering Strike",
+   "cooldown": [
+    11,
+    10.5,
+    10,
+    9.5,
+    9
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 600.0,
+   "description": "Rell thrusts her lance, Stunning targets for 0.65 seconds, destroying all Shields, and dealing 60/100/140/180/220 + 0.6×AP magic damage.",
+   "summary": "Rell deals magic damage to units in a line, breaking their shields and stunning them.",
+   "values": {
+    "BaseDamage": [
+     60,
+     100,
+     140,
+     180,
+     220
+    ],
+    "StunDuration": 0.65
+   },
+   "formulas": {
+    "Damage": "60/100/140/180/220 + 0.6×AP"
+   },
+   "tags": [
+    "shield",
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Ferromancy: Crash Down",
+   "cooldown": null,
+   "cost": 40,
+   "costType": null,
+   "range": 450.0,
+   "description": "Passive - Mounted Alacrity: Rell gains @spell.RellW_Dismount:MountedMoveSpeed@ Move Speed while mounted. Active - Ferromancy: Crash Down: Rell leaps off her mount, Knocking Up enemies and dealing @spell.RellW_Dismount:DismountDamage@ magic damage. Rell gains @spell.RellW_Dismount:Shield@ Shield, which lasts until she remounts. Rell then enters her armored form, gaining @spell.RellW_Dismount:ResistanceIncrease*100@% increased Armor and Magic Resist, @spell.RellW_Dismount:DismountedASBoost*100@% Attack Speed and @spell.RellW_Dismount:DismountedRangeBoost@ Attack Range. In this armored form, she can use Ferromancy: Mount Up.",
+   "summary": "Mounted: Rell Dismounts, crashing down in her armor, Knocking enemies up and gaining a large Shield. While dismounted, she gains Armor, Magic Resist, Attack Speed, and Attack Range, but is Slowed. Dismounted: Rell forms her Mount, gaining a burst of speed and Knocking Up the next enemy she attacks.",
+   "values": {
+    "CrashDownDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "CrashDownKnockupDuration": 0.4,
+    "CrashDownStunDuration": 0.8,
+    "SlideDistance": 320,
+    "ResistanceIncrease": 0.15,
+    "ShieldBase": [
+     20,
+     40,
+     60,
+     80,
+     100
+    ],
+    "ShieldHealthRatio": 0.11,
+    "DismountedASBoost": 0.2,
+    "DismountedRangeBoost": 75,
+    "MountUpDamage": [
+     10,
+     25,
+     40,
+     55,
+     70
+    ],
+    "MountUpSpeed": 0.3,
+    "MountUpSpeedDuration": 3.5,
+    "MountedMoveSpeed": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "FlipBaseDamage": [
+     10,
+     25,
+     40,
+     55,
+     70
+    ],
+    "FlipKnockupDuration": 0.4,
+    "FlipStunDuration": 0.6,
+    "CrashDownTooltip": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "ShieldBaseTooltip": [
+     20,
+     40,
+     60,
+     80,
+     100
+    ],
+    "FlipAttackTooltip": [
+     10,
+     25,
+     40,
+     55,
+     70
+    ],
+    "MoveSpeedTooltip": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "HasteTooltip": 0.3
+   },
+   "formulas": {
+    "DismountDamage": "60/90/120/150/180 + 0.6×AP",
+    "Shield": "20/40/60/80/100 + 0.11×max HP",
+    "FlipDamage": "10/25/40/55/70 + 0.4×AP",
+    "{a71a11d7}": "?"
+   },
+   "tags": [
+    "airborne",
+    "attack speed",
+    "dash",
+    "move speed",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Full Tilt",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 1200.0,
+   "description": "Rell and an ally charge, gaining 15% Move Speed, increased to 30% when facing enemy champions or each other for 3 seconds. Rell's next Attack or Shattering Strike explodes in an area for 0.05/0.055/0.06/0.065/0.07 + 0.0×AP max Health magic damage.",
+   "summary": "Passive: Rell gains out of combat Move Speed. Active: Rell and an ally gain ramping Move Speed, doubled toward enemies and each other. Her next Attack explodes, dealing magic damage.",
+   "values": {
+    "MaxMS": 0.3,
+    "MinMS": 0.15,
+    "Duration": 3,
+    "MSModPhase1": 1,
+    "ExplosionRadius": 300,
+    "PercentHealthDamage": [
+     0.05,
+     0.055,
+     0.06,
+     0.065,
+     0.07
+    ],
+    "PassiveMSCombatPenalty": 0.5,
+    "EmpowermentBuffer": 2,
+    "Phase3Start": 0.5
+   },
+   "formulas": {
+    "MaxHealthDamageCalc": "0.05/0.055/0.06/0.065/0.07 + 0.0×AP",
+    "PercentHealthDamageCap": "150–300 (by level)"
+   },
+   "tags": [
+    "empowered attack",
+    "heal",
+    "move speed"
+   ]
+  },
+  "R": {
+   "name": "Magnet Storm",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 200.0,
+   "description": "Rell explodes in a magnetic fury, violently Pulling nearby enemies towards herself. Then Rell constantly Drags nearby enemies towards herself and deals (75/125/175 + 0.55×AP) × 2 magic damage over the next 2 seconds.",
+   "summary": "Rell explodes in a magnetic fury, violently Pulling nearby enemies toward herself. Then Rell constantly Drags nearby enemies toward herself for a short while, dealing magic damage over time.",
+   "values": {
+    "Duration": 2,
+    "BaseDamagePerSecond": [
+     75,
+     125,
+     175
+    ],
+    "GravityHorizon": 225,
+    "GravityRadius": 375,
+    "GravityForce": 300,
+    "InitialRadius": 425
+   },
+   "formulas": {
+    "DamagePerSecond": "75/125/175 + 0.55×AP",
+    "TotalDamage": "(75/125/175 + 0.55×AP) × 2"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "Passive": {
+   "name": "Break the Mold",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Rell's Attacks and Abilities deal additional magic damage and steal Armor and Magic Resist on hit.",
+   "summary": "Rell's Attacks and Abilities deal additional magic damage and steal Armor and Magic Resist on hit.",
+   "values": {
+    "RefreshDuration": 3.5,
+    "StealPercent": 0.03,
+    "ShredDuration": 5,
+    "MaxStacks": 5,
+    "MaxPercentTooltipOnly": 15
+   },
+   "formulas": {
+    "StealFloor": "1.5–3 (by level)",
+    "OnHitDamage": "0.05×armor + 0.05×MR"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Engage tank support who knocks up with W dismount and drags enemies in with R. Wins fights by locking several champions down and stealing their resistances.",
+  "positions": [
+   "UTILITY",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "W dismount knock-up and R drag: very strong engage",
+   "Q stuns and breaks shields",
+   "Passive steals armor and magic resist",
+   "E move speed brings her ADC in with her"
+  ],
+  "weaknesses": [
+   "Slow when dismounted",
+   "Low damage",
+   "Engage-dependent: weak once W is down",
+   "Kited by poke supports"
+  ],
+  "curve": {
+   "lvl1": "medium – Q stun",
+   "lvl2": "strong – W engage + Q",
+   "lvl3": "strong – W + Q + E: engage with her ADC",
+   "lvl6": "strong – R",
+   "items": "medium – support item + Locket/Knight's Vow/Zeke's",
+   "late": "strong – teamfight engage"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Engages with W + Q at level 2.",
+  "waveClear": "poor – support",
+  "sustain": "low",
+  "mobility": "medium – mounted speed, E ramp",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q"
+   ],
+   "engage": [
+    "W",
+    "R"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attacks and abilities steal armor and magic resist."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Line: breaks shields and stuns."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Mounted: dismount crash knock-up + shield. Dismounted: re-forms her mount."
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Move speed for her and an ally; next attack explodes."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Pulls enemies in, then keeps dragging them toward her."
+   }
+  },
+  "windowAgainst": "W down (no engage) or while dismounted and slow.",
+  "checks": [
+   "W mounted form: confirm any dash/knock-up on re-mount."
+  ]
+ }
+}

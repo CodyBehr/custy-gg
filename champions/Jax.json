@@ -1,0 +1,315 @@
+{
+ "id": 24,
+ "alias": "Jax",
+ "name": "Jax",
+ "title": "Grandmaster at Arms",
+ "classes": [
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 650,
+  "hpPerLevel": 103,
+  "ad": 68,
+  "adPerLevel": 4.25,
+  "armor": 36,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.638,
+  "attackSpeedPerLevel": 3.4,
+  "range": 125,
+  "moveSpeed": 350
+ },
+ "abilities": {
+  "Q": {
+   "name": "Leap Strike",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": 65,
+   "costType": null,
+   "range": 700.0,
+   "description": "Jax leaps to a friendly or enemy unit or ward, dealing 65/105/145/185/225 + 1×bonus AD physical damage if it is an enemy.",
+   "summary": "Jax leaps toward a unit. If they are an enemy, he strikes them with his weapon.",
+   "values": {
+    "Damage": [
+     65,
+     105,
+     145,
+     185,
+     225
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "65/105/145/185/225 + 1×bonus AD"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "W": {
+   "name": "Empower",
+   "cooldown": [
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "cost": 30,
+   "costType": null,
+   "range": 300.0,
+   "description": "Jax charges his weapon with energy, causing his next Attack or Leap Strike to deal an additional 50/85/120/155/190 + 0.6×AP magic damage.",
+   "summary": "Jax charges his weapon with energy, causing his next attack to deal additional damage.",
+   "values": {
+    "Damage": [
+     50,
+     85,
+     120,
+     155,
+     190
+    ],
+    "StructureMod": 0.5
+   },
+   "formulas": {
+    "TotalDamage": "50/85/120/155/190 + 0.6×AP",
+    "FinalDamage": ""
+   },
+   "tags": [
+    "dash",
+    "empowered attack"
+   ]
+  },
+  "E": {
+   "name": "Counter Strike",
+   "cooldown": [
+    17,
+    15,
+    13,
+    11,
+    9
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "costType": null,
+   "range": 300.0,
+   "description": "Jax enters a defensive stance for up to 2 seconds, dodging incoming Attacks and taking 25% less damage from area of effect Abilities. After 2 seconds or Recasting, Jax deals 40/70/100/130/160 + 0.7×bonus AP + 4% max Health magic damage and Stuns nearby enemies for 1 second. The damage is increased by 20% per Attack dodged, up to a maximum of (40/70/100/130/160 + 0.7×bonus AP) × 2 + (4) × 2% max Health.",
+   "summary": "Jax's combat prowess allows him to dodge all incoming attacks for a short duration and then quickly counterattack, stunning all surrounding enemies.",
+   "values": {
+    "BaseDamage": [
+     40,
+     70,
+     100,
+     130,
+     160
+    ],
+    "StunDuration": 1,
+    "PercentIncreasedPerDodge": 0.2,
+    "MaxDodgesForDamageIncrease": 5,
+    "PercentHealthDamage": 4,
+    "DodgeDuration": 2,
+    "AoEDamageReduction": 25,
+    "APRatio": 0.7
+   },
+   "formulas": {
+    "TotalDamage": "40/70/100/130/160 + 0.7×bonus AP",
+    "MaxDamage": "(40/70/100/130/160 + 0.7×bonus AP) × 2",
+    "MaxPercentHealthDamage": "(4) × 2",
+    "MonsterDamageCap": "9000–9000 (by level)"
+   },
+   "tags": [
+    "dodge",
+    "heal",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Grandmaster-at-Arms",
+   "cooldown": [
+    110,
+    100,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 260.0,
+   "description": "Passive: Every third Attack within 2.5 seconds deals an additional 75/130/185 + 0.6×AP magic damage. Active: Jax slams his lantern down, dealing 100/175/250 + 1×bonus AP magic damage to nearby enemies. If he hits a champion he gains 45/60/75 + 0.4×bonus AD Armor and (45/60/75 + 0.4×bonus AD) × 0.6 Magic Resist plus 20/25/30 + 0.1×bonus AD Armor and (20/25/30 + 0.1×bonus AD) × 0.6 Magic Resist per additional champion hit for 8 seconds. During this time every second Attack deals additional magic damage instead of every third.",
+   "summary": "Every third consecutive attack deals additional Magic Damage. Additionally, Jax can activate this ability to deal damage around himself and strengthen his resolve, increasing his Armor and Magic Resist for a short duration.",
+   "values": {
+    "Duration": 8,
+    "PassiveBaseDamage": [
+     75,
+     130,
+     185
+    ],
+    "PassiveFallOffTime": 2.5,
+    "BaseResists": [
+     45,
+     60,
+     75
+    ],
+    "ResistsPerExtraTarget": [
+     20,
+     25,
+     30
+    ],
+    "MRMult": 0.6,
+    "SwingDamageBase": [
+     100,
+     175,
+     250
+    ],
+    "AoESize": 375,
+    "StructureMod": 0.5
+   },
+   "formulas": {
+    "OnHitDamage": "75/130/185 + 0.6×AP",
+    "BaseArmor": "45/60/75 + 0.4×bonus AD",
+    "BonusArmor": "20/25/30 + 0.1×bonus AD",
+    "SwingDamageTotal": "100/175/250 + 1×bonus AP",
+    "BaseMR": "(45/60/75 + 0.4×bonus AD) × 0.6",
+    "BonusMR": "(20/25/30 + 0.1×bonus AD) × 0.6",
+    "FinalDamage": ""
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Relentless Assault",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Jax's consecutive basic attacks continuously increase his Attack Speed.",
+   "summary": "Jax's consecutive basic attacks continuously increase his Attack Speed.",
+   "values": {
+    "BuffDuration": 2.5,
+    "MaxStacks": 8,
+    "FallOffRate": 0.35,
+    "BelvethVsJaxQuestRewardStacks": 5
+   },
+   "formulas": {
+    "AttackSpeedPerStack": "0.05+ (by level)",
+    "MaxBonusAttackSpeed": "(0.05+ (by level)) × 8",
+    "BelvethVsJaxQuestRewardAttackSpeedPerStack": "0.003+ (by level)",
+    "BelvethVsJaxQuestRewardAttackSpeed": "(0.003+ (by level)) × ?"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Scaling melee duelist whose E dodges all basic attacks and then stuns. He leaps to any unit with Q and grows stronger with every item into a late-game side-lane threat.",
+  "positions": [
+   "TOP",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "E dodges all attacks and stuns nearby enemies",
+   "Q leaps to wards, minions or allies for engage and escape",
+   "Strong level 1 thanks to passive attack speed and E",
+   "Huge late-game scaling",
+   "W attack reset for quick trades"
+  ],
+  "weaknesses": [
+   "Early mana costs",
+   "E answered by Fiora W, or outwaited by holding damage",
+   "Weak to magic damage/AoE before R",
+   "Kited before Q is up",
+   "No ranged damage"
+  ],
+  "curve": {
+   "lvl1": "strong – passive stacking + E",
+   "lvl2": "strong – Q or W trades",
+   "lvl3": "strong – full Q-E-W combo",
+   "lvl6": "strong – R resists and 3rd-hit damage",
+   "items": "strong – Trinity Force/Sundered Sky",
+   "late": "strong – side lane"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Reviewer: Jax's level 1 is typically strong (passive + E).",
+  "waveClear": "medium – E and R damage",
+  "sustain": "low – items only",
+  "mobility": "medium – Q leap",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "E",
+    "W"
+   ],
+   "engage": [
+    "Q",
+    "E"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": [
+    "E"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Leap to any unit or ward."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Empowers next attack or Q; attack reset."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "dodge",
+    "notes": "Dodges attacks for 2 s, then stuns. Stop attacking."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Passive 3rd-hit damage; active resists."
+   },
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Consecutive attacks stack attack speed."
+   }
+  },
+  "windowAgainst": "E on cooldown: trade and walk away.",
+  "checks": []
+ }
+}

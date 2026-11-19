@@ -1,0 +1,358 @@
+{
+ "id": 6,
+ "alias": "Urgot",
+ "name": "Urgot",
+ "title": "the Dreadnought",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 655,
+  "hpPerLevel": 102,
+  "ad": 63,
+  "adPerLevel": 4,
+  "armor": 36,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3.75,
+  "range": 350,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Corrosive Charge",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 800.0,
+   "description": "Urgot fires an explosive charge, dealing 25/70/115/160/205 + 0.7×AD physical damage and Slowing by 45/50/55.0/60/65% for 1.25 seconds.",
+   "summary": "Fires an explosive charge at the target location, dealing physical damage and slowing enemies caught in the explosion.",
+   "values": {
+    "SlowDuration": 1.25,
+    "SlowAmount": [
+     0.45,
+     0.5,
+     0.55,
+     0.6,
+     0.65
+    ],
+    "BaseDamage": [
+     25,
+     70,
+     115,
+     160,
+     205
+    ],
+    "ExplosionDelayPostMissile": 0.3,
+    "DelayOnMissileLaunch": 0.1,
+    "WHalterDuration": 0.3,
+    "AoERadius": 210
+   },
+   "formulas": {
+    "TotalDamage": "25/70/115/160/205 + 0.7×AD"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Purge",
+   "cooldown": [
+    12,
+    9,
+    6,
+    3,
+    0
+   ],
+   "cost": [
+    30,
+    20,
+    10,
+    0,
+    0
+   ],
+   "costType": null,
+   "range": 490.0,
+   "description": "Passive: Urgot's other Abilities mark the last champion hit for 5 seconds. Active: Urgot begins firing his chain gun at the closest enemy, prioritizing marked enemies. He Attacks them 3 times a second dealing 12 + 0.2/0.235/0.27/0.305/0.34×AD physical damage per shot. Urgot can move while firing and has 40% Slow resistance, but loses 125 Move Speed. At max rank, this Ability lasts indefinitely and can be Toggled on and off.",
+   "summary": "Urgot slows himself while he unloads his weapon on nearby enemies. Prioritizes enemy champions Urgot has recently struck with other abilities and triggers Echoing Flames.",
+   "values": {
+    "ADRatioTT": [
+     0.2,
+     0.235,
+     0.27,
+     0.305,
+     0.34
+    ],
+    "OnHitDamageReduction": 0.5,
+    "WAttacksPerSecond": 3,
+    "BaseDamage": 12,
+    "MinionMinimumDamage": 50,
+    "SlowResistance": 40,
+    "Duration": [
+     4,
+     4,
+     4,
+     4,
+     25000
+    ],
+    "MoveSpeedMod": 125,
+    "MoveSpeedDuration": 0.5
+   },
+   "formulas": {
+    "DamagePerShot": "12 + 0.2/0.235/0.27/0.305/0.34×AD",
+    "RangeCheck": "450 + 1×bonus stat"
+   },
+   "tags": [
+    "move speed",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Disdain",
+   "cooldown": [
+    16,
+    15.5,
+    15,
+    14.5,
+    14
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    110
+   ],
+   "costType": null,
+   "range": 475.0,
+   "description": "Urgot charges forward, gaining 55/75/95/115/135 + 1.35×bonus AD + 0.135×bonus max HP Shield for 4 seconds. The first champion hit is Stunned for 1.5 seconds and thrown behind Urgot. All enemies Urgot collides with take 90/120/150/180/210 + 1×bonus AD physical damage.",
+   "summary": "Urgot charges in a direction, shielding himself and trampling non-champion enemies. If he catches an enemy champion, he will stop and hurl them out of his way.",
+   "values": {
+    "EShieldDuration": 4,
+    "EShieldBaseHealth": [
+     55,
+     75,
+     95,
+     115,
+     135
+    ],
+    "EShieldbADRatio": 1.35,
+    "EBaseDamage": [
+     90,
+     120,
+     150,
+     180,
+     210
+    ],
+    "EShieldBonusHealthRatio": 0.135,
+    "StunDuration": 1.5,
+    "BaseDashSpeed": 1200,
+    "MinimumDashRange": 450,
+    "ThrowDistance": 100,
+    "WHalterDuration": 1.5
+   },
+   "formulas": {
+    "ETotalShieldHealth": "55/75/95/115/135 + 1.35×bonus AD + 0.135×bonus max HP",
+    "EDamage": "90/120/150/180/210 + 1×bonus AD"
+   },
+   "tags": [
+    "shield",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Fear Beyond Death",
+   "cooldown": [
+    100,
+    85,
+    70
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 2500.0,
+   "description": "Urgot fires a chem-drill, impaling the first champion hit, dealing 100/225/350 + 0.5×bonus AD physical damage and Slowing for 4 seconds by 1% per 1% missing Health, up to 75%. If the impaled victim falls below 25% Health, Urgot can Recast this Ability, Suppressing the victim and dragging them to himself. On reaching Urgot, they are killed and nearby enemies are Feared for 1.5 seconds.",
+   "summary": "Urgot fires a chem-drill that impales the first enemy champion hit. If that champion falls below a health threshold, Urgot judges them weak and can execute them.",
+   "values": {
+    "RBaseDamage": [
+     100,
+     225,
+     350
+    ],
+    "RBonusADRatio": 0.5,
+    "RMoveSpeedMod": 75,
+    "RSlowDuration": 4,
+    "RSlowMultiplier": 1,
+    "RFearDuration": 1.5,
+    "RHealthThreshold": 25,
+    "RChannelTimeReel": 1,
+    "RFearRadius": 600
+   },
+   "formulas": {
+    "RCalculatedDamage": "100/225/350 + 0.5×bonus AD"
+   },
+   "tags": [
+    "execute",
+    "fear",
+    "heal",
+    "slow",
+    "suppression"
+   ]
+  },
+  "Passive": {
+   "name": "Echoing Flames",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Urgot's basic attacks and Purge periodically trigger blasts of flame from his legs, dealing physical damage.",
+   "summary": "Urgot's basic attacks and Purge periodically trigger blasts of flame from his legs, dealing physical damage.",
+   "values": {
+    "LegWarningTime": 2.5
+   },
+   "formulas": {
+    "PerLegCD": "30+ (by level)",
+    "ADDamage": "0.4+ (by level)×AD",
+    "PercentHPRatio": "0.02+ (by level)",
+    "MonsterCap": "100–360 (by level)",
+    "TriggerRange": "650 + 1×bonus stat",
+    "CastRange": "700 + 1×bonus stat"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Juggernaut who fires shotgun blasts from his legs as he attacks or uses W. Wins lane by marking a target with Q or E and shredding it with W, and wins fights by executing a low target with R and fearing those nearby.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "E charge shields him, stuns the first champion for 1.5 s and flips them behind him",
+   "W chain gun attacks 3 times a second at the marked target and gives 40% slow resistance",
+   "Passive leg shotguns deal % max health damage in the direction of his attack, each leg on its own cooldown",
+   "R drill slows by missing health; below 25% health he can drag them in, execute them and fear nearby enemies",
+   "Q slows 45–65%, setting up E and W"
+  ],
+  "weaknesses": [
+   "Low mobility: E is his only dash and it's slow and telegraphed",
+   "Kited by ranged champions when E misses",
+   "R execute only works below 25% health; before that it's just a slow",
+   "W cooldown is long early (12 s at rank 1, 0 at rank 5)",
+   "Weak to champions that dodge or block E"
+  ],
+  "curve": {
+   "lvl1": "medium – short range trades",
+   "lvl2": "medium",
+   "lvl3": "strong – Q/E mark into W",
+   "lvl6": "strong – R execute threat",
+   "items": "strong – Black Cleaver / Sterak's",
+   "late": "strong – frontline DPS"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants Q to mark and slow, E to engage and W to shred; legs fire much more with W.",
+  "waveClear": "good – W and Q",
+  "sustain": "medium – E shield; Sterak's",
+  "mobility": "low – E only",
+  "range": "melee (short range)",
+  "keyAbilities": {
+   "trading": [
+    "W",
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Leg shotguns fire on attacks and W hits, each leg with its own cooldown."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Delayed explosive charge; slows; marks for W."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Chain gun: 3 attacks/s at the closest (marked) enemy; slow resistance."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Charge; shield; first champion stunned 1.5 s and flipped behind."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "suppression",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "fear",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Drill slows by missing health; below 25% recast suppresses, drags and executes, fearing nearby enemies."
+   }
+  },
+  "windowAgainst": "E on cooldown (16–14 s) or missed: trade; he can't catch you. Early W ranks have long cooldowns.",
+  "checks": [
+   "Whether W chain-gun shots count as attacks for Jax E dodge and blinds.",
+   "Whether R is a blockable projectile (I set projectile=true)."
+  ]
+ }
+}

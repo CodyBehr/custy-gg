@@ -1,0 +1,338 @@
+{
+ "id": 164,
+ "alias": "Camille",
+ "name": "Camille",
+ "title": "the Steel Shadow",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 650,
+  "hpPerLevel": 99,
+  "ad": 68,
+  "adPerLevel": 3.8,
+  "armor": 35,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.644,
+  "attackSpeedPerLevel": 2.5,
+  "range": 125,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Precision Protocol",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": 25,
+   "costType": null,
+   "range": 325.0,
+   "description": "Camille's next Attack deals an additional tADRatio×AD physical damage and grants her 25/30/35/40/45% Move Speed for 1 second. This ability can be Recast in the next 3.5 seconds. If the Recast Attack hits at least 1.5 seconds after the first, the bonus damage is increased to (tADRatio×AD) × 2 and 0.4+ (by level) of the Attack's damage is converted into true damage. This Ability triggers spell effects upon dealing damage.",
+   "summary": "Camille's next attack deals bonus damage and grants bonus Move Speed. This spell can be recast for a short period of time, doing significantly increased bonus damage if Camille delays a period of time between the two attacks.",
+   "values": {
+    "QRampUpTime": 1.5,
+    "BonusAARange": 50,
+    "TADRatio": [
+     0.2,
+     0.25,
+     0.3,
+     0.35,
+     0.4
+    ],
+    "MSBonus": [
+     0.25,
+     0.3,
+     0.35,
+     0.4,
+     0.45
+    ],
+    "MSDuration": 1,
+    "QEmpoweredAmp": 2,
+    "Q2Duration": 2,
+    "QTotalRecastTime": 3.5
+   },
+   "formulas": {
+    "DamageConversionPercentage": "0.4+ (by level)",
+    "BonusDamage": "tADRatio×AD",
+    "EmpoweredBonusDamage": "(tADRatio×AD) × 2"
+   },
+   "tags": [
+    "empowered attack",
+    "move speed",
+    "true damage"
+   ]
+  },
+  "W": {
+   "name": "Tactical Sweep",
+   "cooldown": [
+    15,
+    14,
+    13,
+    12,
+    11
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 610.0,
+   "description": "Camille winds up and slices, dealing 60/85/110/135/160 + 0.6×bonus AD physical damage. Enemies hit by the outer half are Slowed by 80% decaying over 2 seconds, and they take an additional 0.07/0.075/0.08/0.085/0.09 + 0.0×bonus AD max Health physical damage. Camille restores 100% of the bonus damage dealt to champions as Health.",
+   "summary": "Camille blasts in a cone after a delay, dealing damage. Enemies in the outer half are slowed and take extra damage, while also healing Camille.",
+   "values": {
+    "BaseDamage": [
+     60,
+     85,
+     110,
+     135,
+     160
+    ],
+    "BADRatio": 0.6,
+    "SlowDuration": 2,
+    "ChargeDuration": 0.75,
+    "SlowPercentage": 80,
+    "OuterConeMaxHPDamage": [
+     0.07,
+     0.075,
+     0.08,
+     0.085,
+     0.09
+    ],
+    "ADRequiredFor1PercentDamage": 40,
+    "ADRequiredTooltipOnly": 0.0,
+    "MonsterDamageReduction": 50,
+    "OuterConeHealingRatio": 100,
+    "BlastLength": 650,
+    "ConeAngle": 35
+   },
+   "formulas": {
+    "OuterEdgeTooltip": "0.07/0.075/0.08/0.085/0.09 + 0.0×bonus AD",
+    "BaseDamageTotal": "60/85/110/135/160 + 0.6×bonus AD",
+    "MonsterHealthDamageCap": "300"
+   },
+   "tags": [
+    "heal",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Hookshot",
+   "cooldown": [
+    16,
+    15,
+    14,
+    13,
+    12
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 800.0,
+   "description": "Camille fires a hookshot that attaches to terrain, pulling her to it for 1 second and allowing this Ability to be Recast. Recast: Camille dashes from the wall, colliding with the first enemy champion hit. Upon landing, she gains 40/45/50/55.0/60% Attack Speed for 5 seconds, deals 60/90/120/150/180 + 0.75×bonus AD physical damage to nearby enemies, and Stuns enemy champions for 0.75 seconds. Dashes towards enemy champions travel twice as far.",
+   "summary": "Camille pulls herself to a wall, leaping off and knocking up enemy champions upon landing.",
+   "values": {
+    "EMinionMonsterGhostDuration": 3,
+    "KnockupDuration": 0.75,
+    "ASBuff": [
+     0.4,
+     0.45,
+     0.5,
+     0.55,
+     0.6
+    ],
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "DashSpeed": 1050,
+    "ASDuration": 5,
+    "WallHangDuration": 1,
+    "E2LongDashRange": 800,
+    "E2ShortDashRange": 400,
+    "ECollisionRange": 130,
+    "BADRatio": 0.75
+   },
+   "formulas": {
+    "TotalDamage": "60/90/120/150/180 + 0.75×bonus AD"
+   },
+   "tags": [
+    "attack speed",
+    "dash",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "The Hextech Ultimatum",
+   "cooldown": [
+    140,
+    115,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 475.0,
+   "description": "Camille briefly becomes Untargetable and leaps onto an enemy champion, interrupting channels and locking them into an area they cannot escape by any means for 2.5/3.25/4 seconds. Other nearby enemies are Knocked Away. Her Attacks against the trapped enemy deal an additional 4/6/8% current Health magic damage.",
+   "summary": "Camille dashes to target champion, anchoring them to the area. She also deals bonus magic damage to the target with her basic attacks.",
+   "values": {
+    "RPercentCurrentHPDamage": [
+     4,
+     6,
+     8
+    ],
+    "RDuration": [
+     2.5,
+     3.25,
+     4
+    ],
+    "RCircleRadius": 425
+   },
+   "formulas": {},
+   "tags": [
+    "airborne",
+    "dash",
+    "heal",
+    "untargetable"
+   ]
+  },
+  "Passive": {
+   "name": "Adaptive Defenses",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Basic attacks on champions grant a shield equal to a percentage of Camille's maximum health against their damage type (Physical or Magic) for a brief duration.",
+   "summary": "Basic attacks on champions grant a shield equal to a percentage of Camille's maximum health against their damage type (Physical or Magic) for a brief duration.",
+   "values": {
+    "ShieldDuration": 2
+   },
+   "formulas": {
+    "PassiveCooldown": "14+ (by level)",
+    "ShieldAmount": "0.1+ (by level)×max HP"
+   },
+   "tags": [
+    "heal",
+    "shield"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Precise duelist/assassin who trades with Q empowered attacks, dives with E hookshot (knock-up) and isolates with R.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Strong short trades with Q (true damage on charged Q2)",
+   "E: engage and escape, knock-up",
+   "R isolates a target",
+   "Passive shields against the target's damage type"
+  ],
+  "weaknesses": [
+   "Weak level 1–2",
+   "E is telegraphed and needs a wall",
+   "Melee, kited by ranged",
+   "Can be punished when E is down"
+  ],
+  "curve": {
+   "lvl1": "weak – limited damage, passive shield only",
+   "lvl2": "medium",
+   "lvl3": "medium – E engage",
+   "lvl6": "strong – R isolation",
+   "items": "strong – first item (Trinity/Sundered)",
+   "late": "strong – side lane"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants E before committing; Q charged + W outer edge are her trade.",
+  "waveClear": "medium",
+  "sustain": "medium – W outer heal, passive shield",
+  "mobility": "high – E hookshot (twice)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attacks on champions give a shield vs their damage type."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Empowered attack; recast after delay converts to true damage."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Cone after delay; outer half slows, heals."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Hook to a wall, dash; knocks up champions on landing (stun in older versions: check)."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Untargetable while leaping in; zone that keeps target in."
+   }
+  },
+  "windowAgainst": "E down: she can't engage or escape.",
+  "checks": [
+   "E landing: knock-up vs stun: check"
+  ]
+ }
+}

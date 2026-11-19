@@ -1,0 +1,320 @@
+{
+ "id": 76,
+ "alias": "Nidalee",
+ "name": "Nidalee",
+ "title": "the Bestial Huntress",
+ "classes": [
+  "assassin",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 109,
+  "ad": 58,
+  "adPerLevel": 3.5,
+  "armor": 32,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.638,
+  "attackSpeedPerLevel": 3.22,
+  "range": 525,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Javelin Toss / Takedown",
+   "cooldown": 6,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 1500.0,
+   "description": "Human Form: Nidalee throws her javelin, dealing 70/90/110/130/150 + 0.5×AP magic damage, increased up to (70/90/110/130/150 + 0.5×AP) × 3.25 magic damage based on distance flown.",
+   "summary": "In human form, Nidalee throws a spiked javelin at her target that gains damage as it flies. As a cougar, her next attack will attempt to fatally wound her target, dealing more damage the less life they have.",
+   "values": {
+    "TooltipCougarMinimumDamage": [
+     5,
+     30,
+     55,
+     80,
+     105
+    ],
+    "SpearMinimumAPRatio": 0.5,
+    "SpearMinimumDamage": [
+     70,
+     90,
+     110,
+     130,
+     150
+    ],
+    "SpearMaximumDamage": [
+     227.5,
+     292.5,
+     357.5,
+     422.5,
+     487.5
+    ],
+    "DamageMulti": 3.25,
+    "RangeThreshold": 525
+   },
+   "formulas": {
+    "HumanMinimumDamage": "70/90/110/130/150 + 0.5×AP",
+    "HumanMaximumDamage": "(70/90/110/130/150 + 0.5×AP) × 3.25",
+    "{38f95809}": "5/30/55/80/105"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Bushwhack / Pounce",
+   "cooldown": [
+    13,
+    12,
+    11,
+    10,
+    9
+   ],
+   "cost": [
+    35,
+    40,
+    45,
+    50,
+    55
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Human Form: Nidalee places an invisible trap for 2 minutes. When an enemy walks over it, they are dealt 10/20/30/40/50 + 0.05×AP magic damage per second for 4 seconds. 4+ (by level) + ModesBonusMaxTraps traps may be active at once.",
+   "summary": "In human form, Nidalee lays a trap for unwary opponents that, when sprung, damages and reveals its target. As a cougar, she jumps in a direction, dealing damage in an area where she lands.",
+   "values": {
+    "DotDuration": 4,
+    "BaseDamagePerTick": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ],
+    "TrapLifetime": 120,
+    "TotalFlatDamage": [
+     40,
+     80,
+     120,
+     160,
+     200
+    ]
+   },
+   "formulas": {
+    "MaxTraps": "4+ (by level) + ModesBonusMaxTraps",
+    "DamagePerSecond": "10/20/30/40/50 + 0.05×AP"
+   },
+   "tags": [
+    "stealth"
+   ]
+  },
+  "E": {
+   "name": "Primal Surge / Swipe",
+   "cooldown": 12,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Human Form: Nidalee restores 50/75/100/125/150 + 0.35×AP Health increased up to (50/75/100/125/150 + 0.35×AP) × (1 + 1) based on missing Health and grants them 20/30/40/50/60% Attack Speed for 7 seconds.",
+   "summary": "In human form, Nidalee channels the spirit of the cougar to heal her allies and imbue them with Attack Speed for a short duration. As a cougar, she claws in a direction, dealing damage to enemies in front of her.",
+   "values": {
+    "BaseHeal": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "MaxHealMult": 1,
+    "MaxHealThreshold": 0.05,
+    "BonusAS": [
+     0.2,
+     0.3,
+     0.4,
+     0.5,
+     0.6
+    ],
+    "ASDuration": 7
+   },
+   "formulas": {
+    "TotalHealing": "50/75/100/125/150 + 0.35×AP",
+    "MaxHealing": "(50/75/100/125/150 + 0.35×AP) × (1 + 1)"
+   },
+   "tags": [
+    "attack speed",
+    "execute",
+    "heal"
+   ]
+  },
+  "R": {
+   "name": "Aspect Of The Cougar",
+   "cooldown": 3,
+   "cost": null,
+   "costType": null,
+   "range": 20.0,
+   "description": "Passive: While in Human Form, applying Hunted refreshes this Ability's Cooldown. Human Form: Nidalee transforms into Cougar Form, gaining melee Attacks and replacing her Active Abilities. Cougar Form: Nidalee transforms into Human Form, gaining ranged Attacks and replacing her Active Abilities.",
+   "summary": "Nidalee transforms into a cougar, gaining new abilities.",
+   "values": {
+    "PassivePercentMS": 10,
+    "TakedownBaseDamage": [
+     5,
+     30,
+     55
+    ],
+    "TakedownADRatio": 0.75,
+    "TakedownAPRatio": 0.4,
+    "TakedownDamageAmp": [
+     1,
+     1.25,
+     1.5
+    ],
+    "PounceCooldown": [
+     3,
+     2.5,
+     2
+    ],
+    "PounceDamage": [
+     50,
+     90,
+     130
+    ],
+    "PounceADRatio": 0.5,
+    "PounceAPRatio": 0.3,
+    "SwipeDamage": [
+     70,
+     130,
+     190
+    ],
+    "SwipeADRatio": 0.7,
+    "SwipeAPRatio": 0.55
+   },
+   "formulas": {
+    "TotalPounceDamage": "50/90/130 + 0.5×bonus AD + 0.3×AP",
+    "TotalSwipeDamage": "70/130/190 + 0.7×bonus AD + 0.55×AP",
+    "TotalTakedownDamage": "5/30/55 + 0.75×AD + 0.4×AP"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Prowl",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Moving through brush increases Nidalee's Move Speed by 10% for 2 seconds, increased to 30% toward visible enemy champions within 1400 range. Hitting champions or monsters with Javelin Toss or Bushwhack triggers a Hunt, granting True Sight of them for 4 seconds. During this time, Nidalee gains 10% Move Speed (increased to 30% toward the Hunted target) and her Takedown and Pounce are enhanced against them.",
+   "summary": "Moving through brush increases Nidalee's Move Speed by 10% for 2 seconds, increased to 30% toward visible enemy champions within 1400 range. Hitting champions or monsters with Javelin Toss or Bushwhack triggers a Hunt, granting True Sight of them for 4 seconds. During this time, Nidalee gains 10% Move Speed (increased to 30% toward the Hunted target) and her Takedown and Pounce are enhanced against them.",
+   "values": {},
+   "formulas": {},
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Two-form jungler (sometimes solo lane): human-form spear poke and traps, cougar-form burst and dashes that reset on Hunted targets. Wins by landing spears to set up cougar all-ins and fast clears.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Huge long-range spear (Q) damage at max range",
+   "Hunted targets reset Pounce: very mobile skirmisher",
+   "Fast clear and strong early invades",
+   "Self-heal and attack speed from human E"
+  ],
+  "weaknesses": [
+   "Spear-reliant: a missed Q leaves her with short, weak cougar trades",
+   "Squishy and no hard crowd control",
+   "Falls off if behind; needs early leads",
+   "Mechanically demanding form swapping"
+  ],
+  "curve": {
+   "lvl1": "strong – spear poke/clear (R form swap from level 1)",
+   "lvl2": "strong – early invades and skirmishes",
+   "lvl3": "strong – full cougar combo; ganks off a landed spear",
+   "lvl6": "medium – R ranks speed form swaps; no new power spike",
+   "items": "strong – first AP burst item",
+   "late": "weak – falls off against tanks and grouped teams"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Strongest early; her game plan is snowballing before mid-game.",
+  "waveClear": "good – cougar W/E clear",
+  "sustain": "medium – human E heal",
+  "mobility": "high – Pounce (resets on Hunted) and Prowl move speed",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q"
+   ],
+   "engage": [
+    "Q",
+    "W"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Hitting with spear/trap marks a target as Hunted: longer Pounce and bonus damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Human: spear gains damage with distance. Cougar: next attack executes (empowered attack, dodgeable by Jax E)."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Human: trap reveals. Cougar: Pounce dash (longer to Hunted)."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Human: heal + attack speed to an ally. Cougar: claw cone."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Swap forms."
+   }
+  },
+  "windowAgainst": "Right after a missed spear (no Hunted mark, no long Pounce): fight her then.",
+  "checks": [
+   "Cougar Q is an empowered attack; Q tagged isAttack false since the human spear is a skillshot."
+  ]
+ }
+}

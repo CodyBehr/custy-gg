@@ -1,0 +1,297 @@
+{
+ "id": 91,
+ "alias": "Talon",
+ "name": "Talon",
+ "title": "the Blade's Shadow",
+ "classes": [
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 658,
+  "hpPerLevel": 109,
+  "ad": 68,
+  "adPerLevel": 3.1,
+  "armor": 30,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.9,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Noxian Diplomacy",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 575.0,
+   "description": "Talon leaps to a target and deals 65/85/105/125/145 + 1×bonus AD physical damage. If used in melee range, this Ability instead critically strikes for (65/85/105/125/145 + 1×bonus AD) × (1.5 + 1×bonus stat) physical damage. If this Ability kills the target, Talon restores 9–55 (by level) Health and refunds 50% of its Cooldown.",
+   "summary": "Talon stabs the target unit. If they are within melee range, this attack deals critical damage. If they are outside melee range, Talon will leap at his target before stabbing them. Talon refunds some health and cooldown if this ability kills the target.",
+   "values": {
+    "BaseDamage": [
+     65,
+     85,
+     105,
+     125,
+     145
+    ],
+    "BonusADRatio": 1,
+    "EnhancedDamageMod": 1.5,
+    "CooldownRefund": 0.5
+   },
+   "formulas": {
+    "TotalHealing": "9–55 (by level)",
+    "LeapDamage": "65/85/105/125/145 + 1×bonus AD",
+    "CriticalDamage": "(65/85/105/125/145 + 1×bonus AD) × (1.5 + 1×bonus stat)"
+   },
+   "tags": [
+    "dash",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Rake",
+   "cooldown": [
+    9,
+    8.5,
+    8,
+    7.5,
+    7
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 650.0,
+   "description": "Talon tosses a volley of blades, dealing 50/60/70/80/90 + 0.4×bonus AD physical damage. The blades then return to him, dealing 60/90/120/150/180 + 0.9×bonus AD physical damage and Slowing by 40/45/50/55.0/60% for 1 second.",
+   "summary": "Talon sends out a volley of daggers that then return back to him, dealing physical damage every time it passes through an enemy. The returning blades deal bonus damage and slow units hit.",
+   "values": {
+    "InitialBaseDamage": [
+     50,
+     60,
+     70,
+     80,
+     90
+    ],
+    "ReturnBaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "MovespeedSlow": [
+     0.4,
+     0.45,
+     0.5,
+     0.55,
+     0.6
+    ],
+    "SlowDuration": 1,
+    "ReturnDelay": 0.7,
+    "MonsterDamageMod": 1,
+    "InitialBonusADRatio": 0.4,
+    "ReturnBonusADRatio": 0.9
+   },
+   "formulas": {
+    "TotalInitialDamage": "50/60/70/80/90 + 0.4×bonus AD",
+    "TotalReturnDamage": "60/90/120/150/180 + 0.9×bonus AD"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Assassin's Path",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": 725.0,
+   "description": "Talon vaults over the nearest terrain or structure. Talon cannot dash over the same terrain more than once every 160/135/110/85/60 seconds.",
+   "summary": "Talon vaults over any terrain or structure, up to a max distance. This ability has a low cooldown, but puts the used terrain on a long cooldown.",
+   "values": {
+    "WallCD": [
+     160,
+     135,
+     110,
+     85,
+     60
+    ],
+    "WallJumpDistance": 625,
+    "WallLockoutWidth": 1250,
+    "DisplayCD": 2
+   },
+   "formulas": {},
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Shadow Assault",
+   "cooldown": [
+    100,
+    80,
+    60
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 550.0,
+   "description": "Talon disperses a ring of blades that deal 90/135/180 + 1×bonus AD physical damage, gains 40/55.0/70% Move Speed, and becomes Invisible for 2.5 seconds. When the Invisibility ends, the blades return to Talon, dealing 90/135/180 + 1×bonus AD physical damage again. If Talon cancels the Invisibility with an Attack or with Noxian Diplomacy, the blades return to the target instead.",
+   "summary": "Talon disperses a ring of blades and becomes Invisible while gaining additional Move Speed. When Talon emerges from Invisibility, the blades converge on his location. Each time the blades move, Shadow Assault deals physical damage to enemies hit by at least one blade.",
+   "values": {
+    "BaseDamage": [
+     90,
+     135,
+     180
+    ],
+    "MoveSpeed": [
+     0.4,
+     0.55,
+     0.7
+    ],
+    "Duration": 2.5
+   },
+   "formulas": {
+    "Damage": "90/135/180 + 1×bonus AD"
+   },
+   "tags": [
+    "move speed",
+    "stealth"
+   ]
+  },
+  "Passive": {
+   "name": "Blade's End",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Talon's spells Wound champions and large monsters, stacking up to 3 times. When Talon attacks a champion with 3 stacks of Wound, they bleed for heavy damage over time.",
+   "summary": "Talon's spells Wound champions and large monsters, stacking up to 3 times. When Talon attacks a champion with 3 stacks of Wound, they bleed for heavy damage over time.",
+   "values": {
+    "MonsterMod": 1,
+    "StackDuration": 6,
+    "BleedDuration": 2,
+    "BonusADRatio": 2.1
+   },
+   "formulas": {
+    "BleedDamage": "80–280 (by level) + 2.1×bonus AD"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Roaming melee assassin who jumps walls with E and bursts with Q, W and his bleed passive. Wins by moving across the map faster than anyone.",
+  "positions": [
+   "MIDDLE",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Fastest roams via wall jumps",
+   "Strong burst at 2–3",
+   "R invisibility for escapes and resets",
+   "Good wave clear with W",
+   "Bleed passive punishes extended trades"
+  ],
+  "weaknesses": [
+   "Melee range in mid",
+   "Falls off vs tanks",
+   "Crowd control kills him",
+   "Weak if behind",
+   "Short range for poke"
+  ],
+  "curve": {
+   "lvl1": "medium – W poke",
+   "lvl2": "strong – Q+W combo",
+   "lvl3": "strong – roams",
+   "lvl6": "strong – R",
+   "items": "strong – lethality",
+   "late": "medium – burst falls off vs tanks"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q+W at 2 is his first kill threat.",
+  "waveClear": "good – W",
+  "sustain": "low – Q heal on kill",
+  "mobility": "high – E wall hop",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "Q"
+   ],
+   "escape": [
+    "E",
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Leap at range or crit in melee."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Blades out and back."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Wall hop, slow per wall."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Invisibility and blades."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bleed after 3 ability hits."
+   }
+  },
+  "windowAgainst": "W down: little poke; after E he's committed.",
+  "checks": []
+ }
+}

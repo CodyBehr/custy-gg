@@ -1,0 +1,320 @@
+{
+ "id": 84,
+ "alias": "Akali",
+ "name": "Akali",
+ "title": "the Rogue Assassin",
+ "classes": [
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 119,
+  "ad": 62,
+  "adPerLevel": 3.3,
+  "armor": 23,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3.2,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Five Point Strike",
+   "cooldown": 1.5,
+   "cost": [
+    100,
+    90,
+    80,
+    70,
+    60
+   ],
+   "costType": null,
+   "range": 550.0,
+   "description": "Akali slings kunai in an arc, dealing 45/70/95/120/145 + 0.65×AD + 0.6×AP magic damage and Slowing enemies at the tip by 50% for 0.5 seconds.",
+   "summary": "Akali throws out five kunai, dealing damage based on her bonus Attack Damage and Ability Power and slowing.",
+   "values": {
+    "BaseDamageNamed": [
+     45,
+     70,
+     95,
+     120,
+     145
+    ],
+    "tADRatio": 0.65,
+    "SlowDuration": 0.5,
+    "SlowPercentage": 0.5,
+    "BonusDamageToMinions": 1,
+    "APRatio": 0.6
+   },
+   "formulas": {
+    "Damage": "45/70/95/120/145 + 0.65×AD + 0.6×AP",
+    "MinionDamage": "(45/70/95/120/145 + 0.65×AD + 0.6×AP) × 1",
+    "EnergyRestore": "10+ (by level)",
+    "PassiveSpeedBonus": "0.4+ (by level)"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Twilight Shroud",
+   "cooldown": [
+    20,
+    19,
+    18,
+    17,
+    16
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 350.0,
+   "description": "Akali drops a smoke bomb, unleashing a spreading cover of smoke lasting 5/5.5/6/6.5/7 seconds and granting herself 30/35/40/45/50% Move Speed decaying over 2 seconds. Akali increases her max Energy by 100 while the shroud is active. While inside the smoke, Akali is Invisible.",
+   "summary": "Akali drops a cover of smoke and briefly gains Move Speed. While inside the shroud, Akali becomes invisible and unable to be selected by enemy spells and attacks. Attacking or using abilities will briefly reveal her.",
+   "values": {
+    "MovementSpeed": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "EnergyRestore": 100,
+    "BaseDuration": [
+     5,
+     5.5,
+     6,
+     6.5,
+     7
+    ],
+    "MaxDuration": [
+     7,
+     7.5,
+     8,
+     8.5,
+     9
+    ],
+    "CloudRadius": 140,
+    "MovementSpeedDuration": 2,
+    "CherryBonusHaste": 30
+   },
+   "formulas": {
+    "{955fbaa3}": "1+ (by level)"
+   },
+   "tags": [
+    "move speed",
+    "stealth"
+   ]
+  },
+  "E": {
+   "name": "Shuriken Flip",
+   "cooldown": [
+    16,
+    14.5,
+    13,
+    11.5,
+    10
+   ],
+   "cost": 30,
+   "costType": null,
+   "range": 825.0,
+   "description": "Akali flips backwards as she throws a shuriken, dealing (70/140/210/280/350 + 1×AD + 1.1×AP) × 0.3 magic damage and marking the first enemy or smoke cloud hit. Akali can Recast this once to dash to the marked target, dealing (70/140/210/280/350 + 1×AD + 1.1×AP) × 0.7 magic damage.",
+   "summary": "Flip backward and fire a shuriken forward, dealing magic damage. The first enemy or smoke cloud hit is marked. Re-cast to dash to the marked target, dealing additional damage.",
+   "values": {
+    "BaseDamage": [
+     70,
+     140,
+     210,
+     280,
+     350
+    ],
+    "SelfKnockbackRange": 400,
+    "E1PercentageOfTotal": 0.3,
+    "TotalADRatio": 1,
+    "TotalAPRatio": 1.1,
+    "E2PercentageOfTotal": 0.7
+   },
+   "formulas": {
+    "E1Damage": "(70/140/210/280/350 + 1×AD + 1.1×AP) × 0.3",
+    "E2DamageCalc": "(70/140/210/280/350 + 1×AD + 1.1×AP) × 0.7"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Perfect Execution",
+   "cooldown": [
+    120,
+    90,
+    60
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 675.0,
+   "description": "Akali vaults over an enemy champion, dealing 110/220/330 + 0.5×bonus AD + 0.3×AP magic damage to all enemies in her path. Akali can Recast after 2.5 seconds to execute a piercing thrust, dashing and dealing 70/140/210 + 0.3×AP to (70/140/210 + 0.3×AP) × 3 magic damage based on missing Health.",
+   "summary": "Akali leaps in a direction, damaging enemies she strikes. Re-cast: Akali dashes in a direction, executing all enemies she strikes.",
+   "values": {
+    "BaseDamage": [
+     110,
+     220,
+     330
+    ],
+    "R2BaseDamage": [
+     70,
+     140,
+     210
+    ],
+    "R1ADRatio": 0.5,
+    "R1APRatio": 0.3,
+    "R2APRatio": 0.3,
+    "MaxExecuteThreshold": 0.3,
+    "CooldownBetweenCasts": 2.5,
+    "DashDistance": 715
+   },
+   "formulas": {
+    "Cast1Damage": "110/220/330 + 0.5×bonus AD + 0.3×AP",
+    "Cast2DamageMin": "70/140/210 + 0.3×AP",
+    "Cast2DamageMax": "(70/140/210 + 0.3×AP) × 3"
+   },
+   "tags": [
+    "dash",
+    "execute",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Assassin's Mark",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Dealing spell damage to a champion creates a ring of energy around them. Exiting that ring empowers Akali's next Attack with bonus range and damage.",
+   "summary": "Dealing spell damage to a champion creates a ring of energy around them. Exiting that ring empowers Akali's next Attack with bonus range and damage.",
+   "values": {
+    "PassiveAPRatio": 0.55,
+    "PassiveBADRatio": 0.6,
+    "Level1MS": 0.3,
+    "MSAdditionalBonusAtThreshold": 0.1
+   },
+   "formulas": {
+    "EnergyRestore": "10+ (by level)",
+    "Damage": "39+ (by level) + 0.6×bonus AD + 0.5×AP",
+    "PassiveSpeedBonus": "0.4+ (by level)"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Mobile AP assassin who trades with Q poke and passive empowered autos, and hides in W shroud to dodge targeting and reset fights.",
+  "positions": [
+   "MIDDLE",
+   "TOP"
+  ],
+  "strengths": [
+   "very mobile (E, R)",
+   "W shroud makes her untargetable to most abilities and towers can't see her",
+   "strong short trades with Q + passive auto",
+   "level 6 all-in"
+  ],
+  "weaknesses": [
+   "energy-limited, needs to space trades",
+   "weak against point-and-click crowd control and true sight (Control Wards, Oracle Lens)",
+   "squishy if caught outside shroud",
+   "poor early wave clear"
+  ],
+  "curve": {
+   "lvl1": "medium – Q + passive auto trades",
+   "lvl2": "medium",
+   "lvl3": "strong – Q/W/E combo",
+   "lvl6": "strong – R double dash all-in",
+   "items": "strong – first mythic-tier/AP item spike",
+   "late": "medium – falls off vs tanky teams"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants her full kit (E for engage, W to dodge) before committing; R is her big spike.",
+  "waveClear": "medium (Q only, energy-limited)",
+  "sustain": "low (Revitalize-style items only)",
+  "mobility": "very high",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "W",
+    "E",
+    "R"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Empowered auto after leaving the ring; dodgeable by Jax E."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Cone of kunai; slow at the tip."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "untargetable-ish: invisible and can't be selected while inside shroud (revealed briefly on attack/cast)",
+    "notes": null
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Shuriken is a missile (blockable); recast dash to the marked target."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Two dashes; second executes. Dashes can be stopped by grounding/airborne at the right moment."
+   }
+  },
+  "windowAgainst": "W or E down: she can't hide or re-engage; trade or all-in then.",
+  "checks": [
+   "Q exact shape/slow position",
+   "W untargetable wording (can't be selected while invisible)"
+  ]
+ }
+}

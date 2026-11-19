@@ -1,0 +1,329 @@
+{
+ "id": 131,
+ "alias": "Diana",
+ "name": "Diana",
+ "title": "Scorn of the Moon",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 640,
+  "hpPerLevel": 109,
+  "ad": 57,
+  "adPerLevel": 3,
+  "armor": 31,
+  "armorPerLevel": 4.3,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2,
+  "range": 150,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Crescent Strike",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 900.0,
+   "description": "Diana unleashes an arc of lunar energy, dealing 70/105/140/175/210 + 0.7×AP magic damage and marking with Moonlight for 3 seconds. Moonlight reveals enemies that are not stealthed.",
+   "summary": "Unleashes a bolt of lunar energy in an arc dealing magic damage. Afflicts enemies struck with Moonlight, revealing them if they are not stealthed for 3 seconds.",
+   "values": {
+    "MoonlightDuration": 3,
+    "BaseDamage": [
+     70,
+     105,
+     140,
+     175,
+     210
+    ],
+    "APRatio": 0.7
+   },
+   "formulas": {
+    "TotalDamage": "70/105/140/175/210 + 0.7×AP"
+   },
+   "tags": [
+    "stealth"
+   ]
+  },
+  "W": {
+   "name": "Pale Cascade",
+   "cooldown": [
+    15,
+    13.5,
+    12,
+    10.5,
+    9
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Diana creates three orbiting spheres for 5 seconds that explode on contact, each dealing 20/32/44/56/68 + 0.18×AP magic damage, up to a max of (20/32/44/56/68 + 0.18×AP) × 3 damage. Diana also gains 45/60/75/90/105 + 0.3×AP + 0.14×bonus max HP Shield for the same duration. When the last sphere detonates, she gains an additional 45/60/75/90/105 + 0.3×AP + 0.14×bonus max HP Shield and refreshes the duration.",
+   "summary": "Diana creates three orbiting spheres that detonate on contact with enemies to deal damage in an area. She also gains a temporary shield that absorbs damage. If her third sphere detonates, the shield gains additional strength.",
+   "values": {
+    "ShieldBase": [
+     45,
+     60,
+     75,
+     90,
+     105
+    ],
+    "OrbDamage": [
+     20,
+     32,
+     44,
+     56,
+     68
+    ],
+    "ShieldAPRatio": 0.3,
+    "ShieldDuration": 5,
+    "OrbAPRatio": 0.18,
+    "ShieldBHPRatio": 0.14
+   },
+   "formulas": {
+    "ShieldValue": "45/60/75/90/105 + 0.3×AP + 0.14×bonus max HP",
+    "TotalDamage": "20/32/44/56/68 + 0.18×AP",
+    "TotalMaxDamage": "(20/32/44/56/68 + 0.18×AP) × 3"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Lunar Rush",
+   "cooldown": [
+    22,
+    20,
+    18,
+    16,
+    14
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    60
+   ],
+   "costType": null,
+   "range": 825.0,
+   "description": "Diana becomes as the vengeful moon, dashing to an enemy and dealing 50/70/90/110/130 + 0.6×AP magic damage. If the target is afflicted with Moonlight, this Ability's Cooldown is refreshed.",
+   "summary": "Becomes the living embodiment of the vengeful moon, dashing to an enemy and dealing magic damage. Lunar Rush has no cooldown when used to dash to an enemy afflicted with Moonlight. All other enemies will have the Moonlight debuff removed regardless of whether they were the target of Lunar Rush.",
+   "values": {
+    "BaseDamage": [
+     50,
+     70,
+     90,
+     110,
+     130
+    ],
+    "APRatio": 0.6,
+    "CDResetTime": 0.25
+   },
+   "formulas": {
+    "TotalDamage": "50/70/90/110/130 + 0.6×AP"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Moonfall",
+   "cooldown": [
+    100,
+    90,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 475.0,
+   "description": "Diana Pulls In, Slows by 40/50/60%, and reveals nearby enemies for 2 seconds. If Diana hits at least one enemy champion, she calls to the moon, dealing 200/300/400 + 0.6×AP magic damage plus (varies) for each champion pulled beyond the first, up to a max of an additional (MultiHitAmp + 0.15×AP) × 5 damage.",
+   "summary": "Diana reveals and draws in all nearby enemies and slows them. If Diana pulls in one or more enemy champions, the moonlight crashes down onto her after a short delay, dealing magic damage in an area around her, increased for each target beyond the first pulled.",
+   "values": {
+    "Damage": [
+     200,
+     300,
+     400
+    ],
+    "Delay": 1,
+    "SlowPotency": [
+     -0.4,
+     -0.5,
+     -0.6
+    ],
+    "SlowDuration": 2,
+    "SlowTooltip": [
+     40,
+     50,
+     60
+    ],
+    "MultihitAmp": [
+     35,
+     60,
+     85
+    ]
+   },
+   "formulas": {
+    "RExplosionDamage": "200/300/400 + 0.6×AP",
+    "RMultiHitAmplification": "MultiHitAmp + 0.15×AP",
+    "MaxDamage": "(MultiHitAmp + 0.15×AP) × 5"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Moonsilver Blade",
+   "cooldown": [
+    28,
+    24,
+    20,
+    16,
+    12
+   ],
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every third strike cleaves nearby enemies for an additional magic damage. After casting a spell, Diana gains Attack Speed for 5 seconds.",
+   "summary": "Every third strike cleaves nearby enemies for an additional magic damage. After casting a spell, Diana gains Attack Speed for 5 seconds.",
+   "values": {
+    "APRatio": 0.5,
+    "BuffDuration": 5,
+    "AttackSpeedValue": 0.3,
+    "AttackCount": 3,
+    "MonsterMod": 2.7
+   },
+   "formulas": {
+    "CleaveDamage": "20+ (by level) + 0.5×AP",
+    "BonusAS": "0.15–0.35 (by level)",
+    "EmpoweredAS": "(0.15–0.35 (by level)) × 3"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "AP diver (jungle or mid) who marks targets with Q Moonlight, then dashes with E for a free reset. Wins teamfights by pulling several enemies together with R and bursting them.",
+  "positions": [
+   "JUNGLE",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "E dash refreshes on Moonlight-marked targets: double dash",
+   "R pulls nearby enemies in and deals more damage per champion pulled",
+   "W shield + orbiting damage helps extended trades",
+   "Passive third-hit cleave + attack speed after spells",
+   "Strong clear and early ganks from 3"
+  ],
+  "weaknesses": [
+   "Q-dependent: no reset without Moonlight",
+   "Dives in and can't get out",
+   "Weak to kiting and hard crowd control",
+   "Short range in lane against poke mages"
+  ],
+  "curve": {
+   "lvl1": "medium – Q + passive clear",
+   "lvl2": "medium – Q + E",
+   "lvl3": "strong – Q-E-W full combo",
+   "lvl6": "strong – R pull in multi-target fights",
+   "items": "strong – first AP item (Nashor's Tooth or Lich Bane)",
+   "late": "strong – teamfight diver"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs Q/E/W together for the combo; R makes her a multi-target engage.",
+  "waveClear": "good – Q, W, passive cleave",
+  "sustain": "low – W shield",
+  "mobility": "medium – E dash (refreshes on Moonlight)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W",
+    "Passive"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Every 3rd attack cleaves; attack speed after spells."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Arcing bolt; marks Moonlight."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Orbiting orbs + shield."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Point-and-click dash; refreshes on Moonlight target."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Pulls nearby enemies in + slow; bonus damage per champion pulled."
+   }
+  },
+  "windowAgainst": "Q missed (no E reset) or after she dashes in: crowd control and burst her.",
+  "checks": [
+   "Q: arc bolt treated as projectile (blockable?)."
+  ]
+ }
+}

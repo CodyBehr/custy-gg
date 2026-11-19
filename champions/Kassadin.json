@@ -1,0 +1,319 @@
+{
+ "id": 38,
+ "alias": "Kassadin",
+ "name": "Kassadin",
+ "title": "the Void Walker",
+ "classes": [
+  "assassin",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 646,
+  "hpPerLevel": 113,
+  "ad": 59,
+  "adPerLevel": 3.9,
+  "armor": 21,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.64,
+  "attackSpeedPerLevel": 3.7,
+  "range": 150,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Null Sphere",
+   "cooldown": [
+    9,
+    8.5,
+    8,
+    7.5,
+    7
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    80
+   ],
+   "costType": null,
+   "range": 650.0,
+   "description": "Kassadin fires an orb of void energy, dealing 65/95/125/155/185 + 0.8\u00d7AP magic damage and interrupting channels. Kassadin also gains 80/110/140/170/200 + 0.3\u00d7AP Magic Shield for 1.5 seconds.",
+   "summary": "Kassadin fires an orb of void energy at a target, dealing damage and interrupting channels. The excess energy forms around himself, granting a temporary shield that absorbs magic damage.",
+   "values": {
+    "BaseDamage": [
+     65,
+     95,
+     125,
+     155,
+     185
+    ],
+    "ShieldAmount": [
+     80,
+     110,
+     140,
+     170,
+     200
+    ],
+    "ShieldDuration": 1.5
+   },
+   "formulas": {
+    "TotalShield": "80/110/140/170/200 + 0.3\u00d7AP",
+    "TotalDamage": "65/95/125/155/185 + 0.8\u00d7AP"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "W": {
+   "name": "Nether Blade",
+   "cooldown": 7,
+   "cost": 1,
+   "costType": null,
+   "range": 1.0,
+   "description": "Passive: Kassadin's Attacks deal an additional 25 + 0.1\u00d7AP magic damage. Active: Kassadin charges his blade, causing his next Attack to deal 50/75/100/125/150 + 0.8\u00d7AP magic damage and restore 4/4.5/5/5.5/6% missing Mana, increased to 20/22.5/25/27.5/30% against champions.",
+   "summary": "Passive: Kassadin's basic attacks deal bonus magic damage. Active: Kassadin's next basic attack deals significant bonus magic damage and restores Mana.",
+   "values": {
+    "ActiveBaseDamage": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "PassiveBaseDamage": 25,
+    "MissingManaRatio": [
+     4,
+     4.5,
+     5,
+     5.5,
+     6
+    ],
+    "ChampionMissingManaRatio": [
+     20,
+     22.5,
+     25,
+     27.5,
+     30
+    ]
+   },
+   "formulas": {
+    "ActiveDamage": "50/75/100/125/150 + 0.8\u00d7AP",
+    "OnHitDamage": "25 + 0.1\u00d7AP"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  },
+  "E": {
+   "name": "Force Pulse",
+   "cooldown": [
+    21,
+    20,
+    19,
+    18,
+    17
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 400.0,
+   "description": "Passive: Force Pulse's Cooldown is reduced by 0.75 second whenever any Ability is used near Kassadin. Active: Kassadin unleashes a void pulse, dealing 70/100/130/160/190 + 0.7\u00d7AP magic damage and Slowing by 50/55/60/65/70% for 1 second.",
+   "summary": "Kassadin draws energy from spells cast in his vicinity. Upon charging up, Kassadin can use Force Pulse to damage and slow enemies in a cone in front of him.",
+   "values": {
+    "ReductionPerSpellCast": 0.75,
+    "BaseDamage": [
+     70,
+     100,
+     130,
+     160,
+     190
+    ],
+    "APRatio": 0.7,
+    "SlowAmount": [
+     50,
+     55,
+     60,
+     65,
+     70
+    ],
+    "SlowDuration": 1
+   },
+   "formulas": {
+    "TotalDamage": "70/100/130/160/190 + 0.7\u00d7AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Riftwalk",
+   "cooldown": [
+    5,
+    3.5,
+    2
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 500.0,
+   "description": "Kassadin teleports to a nearby location, dealing 80/95/110 + 0.5\u00d7AP + ? magic damage. Each subsequent use of this Ability within the next 15 seconds doubles the Mana cost and deals an additional 35/45/55 + 0.07\u00d7AP + ? magic damage. The cost and damage increases can stack up to 4 times.",
+   "summary": "Kassadin teleports to a nearby location dealing damage to nearby enemy units. Multiple Riftwalks in a short period of time cost additional Mana but also deal additional damage.",
+   "values": {
+    "BaseCD": [
+     5,
+     3.5,
+     2
+    ],
+    "RBaseCost": 40,
+    "RBaseDamage": [
+     80,
+     95,
+     110
+    ],
+    "StackDamage": [
+     35,
+     45,
+     55
+    ],
+    "APRatio": 0.5,
+    "APStackRatio": 0.07,
+    "RStackDuration": 15,
+    "MaxStacks": 4,
+    "RManaRatio": 2,
+    "RStackManaRatio": 1,
+    "RiftWalkBaseDamage": [
+     70,
+     90,
+     110
+    ],
+    "CastRange": 500
+   },
+   "formulas": {
+    "BaseDamage": "80/95/110 + 0.5\u00d7AP + ?",
+    "BonusDamage": "35/45/55 + 0.07\u00d7AP + ?"
+   },
+   "tags": [
+    "blink"
+   ]
+  },
+  "Passive": {
+   "name": "Void Stone",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Kassadin takes reduced magic damage and ignores unit collision.",
+   "summary": "Kassadin takes reduced magic damage and ignores unit collision.",
+   "values": {
+    "DamageReductionPercent": 0.1
+   },
+   "formulas": {},
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Kassadin is a scaling mage assassin who resists magic damage with Void Stone and blinks with Riftwalk. He plays mid, survives a weak early game, and becomes a late-game monster.",
+  "positions": [
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Riftwalk is a short-cooldown blink, making him one of the most mobile mages late.",
+   "Null Sphere gives a magic shield and interrupts channels.",
+   "Void Stone reduces magic damage, so he is strong against AP mid laners.",
+   "Huge late-game scaling: stacked Riftwalk deals more damage each time.",
+   "Force Pulse slows and its cooldown drops whenever abilities are used near him."
+  ],
+  "weaknesses": [
+   "Very weak early: melee range and low damage before level 6.",
+   "Void Stone only helps against magic damage; AD champions bully him.",
+   "Mana-hungry: chained Riftwalks double in cost.",
+   "Easily poked out of lane before 6.",
+   "Needs farm and levels to scale, so roaming early is costly."
+  ],
+  "curve": {
+   "lvl1": "weak \u2013 melee range and low damage; he only wants to last-hit",
+   "lvl2": "weak \u2013 Q's magic shield helps against AP poke but he can't trade",
+   "lvl3": "okay \u2013 E slow adds a short trade",
+   "lvl6": "good \u2013 Riftwalk gives a blink to reach targets or escape",
+   "items": "strong \u2013 first item: Rod of Ages, Seraph's Embrace and Rabadon's Deathcap",
+   "late": "very strong \u2013 one of the best late-game champions"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Kassadin is weak early and wants to reach 6 safely, then scale into the late game.",
+  "waveClear": "Okay: E clears waves.",
+  "sustain": "Low: no healing.",
+  "mobility": "Very high: R blink.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "R (Riftwalk) into E and Q",
+   "engage": "Q (Null Sphere) magic shield",
+   "escape": "R (Riftwalk) to escape",
+   "answers": "Null Sphere gives a magic shield."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Void Stone: reduced magic damage and ignores unit collision."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": "Spell shields block it.",
+    "notes": "Null Sphere: point-and-click orb that interrupts channels and gives a magic shield."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "Jax E dodges; Fiora W parries.",
+    "notes": "Nether Blade: bonus damage and mana restore on his next attack."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Walk away from the cone.",
+    "notes": "Force Pulse: a cone that slows."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Riftwalk: blink with damage; repeated use costs more and deals more damage."
+   }
+  },
+  "windowAgainst": "Kassadin's window is levels 1\u20135: all-in him, because he has short range and low damage.",
+  "checks": [
+   "Does Kassadin farm safely before 6?",
+   "Does Kassadin use Riftwalk to reach targets?",
+   "Does the enemy team pressure him early?"
+  ]
+ }
+}

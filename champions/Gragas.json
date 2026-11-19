@@ -1,0 +1,312 @@
+{
+ "id": 79,
+ "alias": "Gragas",
+ "name": "Gragas",
+ "title": "the Rabble Rouser",
+ "classes": [
+  "fighter",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 640,
+  "hpPerLevel": 115,
+  "ad": 64,
+  "adPerLevel": 3.5,
+  "armor": 38,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.675,
+  "attackSpeedPerLevel": 2.05,
+  "range": 125,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Barrel Roll",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 850.0,
+   "description": "Gragas rolls a cask that explodes after 4 seconds, dealing between 80/120/160/200/240 + 0.8×AP magic damage and (80/120/160/200/240 + 0.8×AP) × 1.5 magic damage and Slowing for between 40/45/50/55/60 and 60/67.5/75/82.5/90% for 2 seconds. The damage and Slow increase with time the cask spent before exploding. Gragas can Recast to detonate the cask early.",
+   "summary": "Gragas rolls his cask to a location, which can be activated to explode or will explode on its own after 4 seconds. The potency of the explosion increases over time. Enemies struck by the blast have their Move Speed slowed.",
+   "values": {
+    "BaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "SlowPercent": [
+     40,
+     45,
+     50,
+     55,
+     60
+    ],
+    "SlowDuration": 2,
+    "BarrelMaxDuration": 4,
+    "BarrelCookMaxTime": 2,
+    "BarrelCookMaxAmp": 150,
+    "MinionDamageMod": 70
+   },
+   "formulas": {
+    "MinDamage": "80/120/160/200/240 + 0.8×AP",
+    "MaxDamage": "(80/120/160/200/240 + 0.8×AP) × 1.5"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Drunken Rage",
+   "cooldown": 5,
+   "cost": 30,
+   "costType": null,
+   "range": 20.0,
+   "description": "Gragas samples his brew, reducing incoming damage by (10/14/18/22/26 + 0.04×AP) × 0.01 for 2.5 seconds and empowering his next Attack to deal an additional 20/50/80/110/140 + 0.7×AP plus 7% max Health magic damage to the target and surrounding enemies.",
+   "summary": "Gragas samples his latest brew for 1 second. After finishing, he becomes boisterous and belligerent, dealing magic damage to all nearby enemies on his next basic attack and reducing damage received.",
+   "values": {
+    "AttackRangeBuff": 50,
+    "MaxHPPercentDamage": 7,
+    "BaseDamageReduction": [
+     10,
+     14,
+     18,
+     22,
+     26
+    ],
+    "DamageReductionAP": 0.04,
+    "BaseDamage": [
+     20,
+     50,
+     80,
+     110,
+     140
+    ],
+    "BaseDamageAP": 0.7,
+    "MonsterDamageCap": 300,
+    "DefenseDuration": 2.5,
+    "AttackDuration": 5,
+    "TurretDamageMod": 0.5
+   },
+   "formulas": {
+    "DamageReduction": "(10/14/18/22/26 + 0.04×AP) × 0.01",
+    "TotalDamage": "20/50/80/110/140 + 0.7×AP"
+   },
+   "tags": [
+    "empowered attack",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Body Slam",
+   "cooldown": [
+    14,
+    13.5,
+    13,
+    12.5,
+    12
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 600.0,
+   "description": "Gragas charges forward, colliding with the first enemy, Knocking Up nearby enemies for 1 second and dealing 80/125/170/215/260 + 0.6×AP magic damage to them. This Ability's Cooldown is reduced by 40% if Gragas collides with an enemy.",
+   "summary": "Gragas charges to a location and collides with the first enemy unit he comes across, dealing damage to all nearby enemy units and stunning them.",
+   "values": {
+    "BaseDamage": [
+     80,
+     125,
+     170,
+     215,
+     260
+    ],
+    "APRatio": 0.6,
+    "CooldownRefund": 0.4,
+    "StunDuration": 1,
+    "DashSpeed": 900,
+    "HitboxArea": 180,
+    "ForwardHitbox": 40
+   },
+   "formulas": {
+    "TotalDamage": "80/125/170/215/260 + 0.6×AP"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "R": {
+   "name": "Explosive Cask",
+   "cooldown": [
+    100,
+    85,
+    70
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1000.0,
+   "description": "Gragas hurls his cask, dealing 200/300/400 + 0.8×AP magic damage and Knocking Away enemies from the impact zone.",
+   "summary": "Gragas hurls his cask to a location, dealing damage and knocking back enemies caught in the blast radius.",
+   "values": {
+    "BaseDamage": [
+     200,
+     300,
+     400
+    ],
+    "APRatio": 0.8,
+    "KnockbackDistance": 900
+   },
+   "formulas": {
+    "DamageDone": "200/300/400 + 0.8×AP"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "Passive": {
+   "name": "Happy Hour",
+   "cooldown": 12,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Gragas periodically heals upon using a skill.",
+   "summary": "Gragas periodically heals upon using a skill.",
+   "values": {
+    "HealRatio": 0.055,
+    "Level1Value": 12,
+    "AdditionalBonusAtThisLevel": -2
+   },
+   "formulas": {
+    "HealAmount": "0.055×max HP",
+    "HealCooldown": "?"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Body-slamming bruiser/mage who engages with E knock-up and repositions enemies with R. Barrel Q pokes and passive heals sustain him.",
+  "positions": [
+   "JUNGLE",
+   "TOP",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "E knock-up engage",
+   "R knocks enemies away",
+   "W damage reduction",
+   "Q poke",
+   "Passive heal"
+  ],
+  "weaknesses": [
+   "E blocked by minions",
+   "Mana",
+   "Skillshot reliant",
+   "Weak if behind",
+   "Short range"
+  ],
+  "curve": {
+   "lvl1": "medium – Q",
+   "lvl2": "medium – W",
+   "lvl3": "strong – E+Q+W",
+   "lvl6": "strong – R",
+   "items": "strong – AP burst or tank engage",
+   "late": "medium – engage tool"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Combo needs E and Q (and W).",
+  "waveClear": "good – Q",
+  "sustain": "medium – passive",
+  "mobility": "medium – E",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "E",
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Barrel."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Damage reduction, empowered attack."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Body slam."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "knockback",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Knock away."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Heal."
+   }
+  },
+  "windowAgainst": "E down: no engage.",
+  "checks": []
+ }
+}

@@ -1,0 +1,345 @@
+{
+ "id": 40,
+ "alias": "Janna",
+ "name": "Janna",
+ "title": "the Storm's Fury",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 570,
+  "hpPerLevel": 90,
+  "ad": 47,
+  "adPerLevel": 2.5,
+  "armor": 28,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3,
+  "range": 550,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Howling Gale",
+   "cooldown": 14,
+   "cost": [
+    95,
+    100,
+    105,
+    110,
+    110
+   ],
+   "costType": null,
+   "range": 1075.0,
+   "description": "Janna summons a tornado that grows stronger over 3 seconds then blows along its path. It deals 55/90/125/160/195 + 0.5×AP - 55/90/125/160/195 + 0.5×AP + (3 × (10/15/20/25/30 + 0.1×AP)) magic damage and Knocks Up for 0.5 - 0.5 + (3 × 0.25) seconds. The distance, damage, and Knock Up duration increase based on how much the tornado grew. Janna can Recast to send the tornado early.",
+   "summary": "By creating a localized change in pressure and temperature, Janna is able to create a small storm that grows in size with time. She can activate the spell again to release the storm. On release this storm will fly towards the direction it was cast in, dealing damage and knocking away any enemies in its path.",
+   "values": {
+    "MissileTravelTime": 1.25,
+    "MinionMod": 1,
+    "BaseRange": 1100,
+    "MinDamage": [
+     55,
+     90,
+     125,
+     160,
+     195
+    ],
+    "MinimumRatio": 0.5,
+    "BonusDamage": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "BonusRatio": 0.1,
+    "ChargeDistancePercent": 20,
+    "BaseKnockup": 0.5,
+    "ChargeKnockup": 0.25,
+    "MaxDuration": 3
+   },
+   "formulas": {
+    "MinimumDamage": "55/90/125/160/195 + 0.5×AP",
+    "ExtraDamagePerSecondCharged": "10/15/20/25/30 + 0.1×AP",
+    "MaxDamage": "55/90/125/160/195 + 0.5×AP + (3 × (10/15/20/25/30 + 0.1×AP))",
+    "MaxKnockup": "0.5 + (3 × 0.25)"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "W": {
+   "name": "Zephyr",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": -1.0,
+   "description": "Passive: Janna gains 0.06/0.07/0.08/0.09/0.1 + 0.0×AP Move Speed and is Ghosted. Active: Janna's elemental strikes an enemy, Slowing them by (20/24/28/32/36 + 0.06×AP) × 0.01 for 2 seconds, and dealing 55/85/115/145/175 + 0.5×AP + @spell.TailwindSelf:BonusDamage@ magic damage.",
+   "summary": "Janna summons an air elemental that passively increases her Move Speed and enables her to pass through units. She may also activate this ability to deal damage and slow an enemy's Move Speed.",
+   "values": {
+    "MSPercent": [
+     0.06,
+     0.07,
+     0.08,
+     0.09,
+     0.1
+    ],
+    "BaseDamage": [
+     55,
+     85,
+     115,
+     145,
+     175
+    ],
+    "APRatio": 0.5,
+    "SlowDuration": 2,
+    "SlowPercent": [
+     20,
+     24,
+     28,
+     32,
+     36
+    ],
+    "MSAPRatio": 0.0,
+    "SlowAPRatio": 0.06
+   },
+   "formulas": {
+    "TotalMS": "0.06/0.07/0.08/0.09/0.1 + 0.0×AP",
+    "TotalDamage": "55/85/115/145/175 + 0.5×AP",
+    "TotalSlow": "(20/24/28/32/36 + 0.06×AP) × 0.01"
+   },
+   "tags": [
+    "move speed",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Eye Of The Storm",
+   "cooldown": [
+    16,
+    15,
+    14,
+    13,
+    12
+   ],
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    90
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Janna grants an ally champion or turret 80/120/160/200/240 + 0.55×AP Shield for 4 seconds. While shielded, they gain 10/15/20/25/30 + 0.1×AP Attack Damage. Janna refunds 20% of the cooldown whenever she impairs an enemy champion's movement with an Ability.",
+   "summary": "Janna conjures a defensive gale that shields an ally champion or turret from incoming damage and increases their Attack Damage.",
+   "values": {
+    "ECDRefundforCC": 0.2,
+    "EmpowerDuration": 5,
+    "DecayGracePeriod": 4,
+    "BaseShield": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "ShieldAPRatio": 0.55,
+    "BonusAD": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "ADAPRatio": 0.1,
+    "ShieldDuration": 4
+   },
+   "formulas": {
+    "TotalShield": "80/120/160/200/240 + 0.55×AP",
+    "TotalAD": "10/15/20/25/30 + 0.1×AP"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Monsoon",
+   "cooldown": [
+    130,
+    115,
+    100
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 725.0,
+   "description": "Janna summons a magical monsoon, Knocking Back nearby enemies then healing nearby allies for (100/150/200 + 0.5×AP) × 3 Health over 3 seconds. Moving or using an Ability ends the monsoon early.",
+   "summary": "Janna surrounds herself in a magical storm, throwing enemies back. After the storm has settled, soothing winds heal nearby allies while the ability is active.",
+   "values": {
+    "HealBasePerSecond": [
+     100,
+     150,
+     200
+    ],
+    "Duration": 3,
+    "Range": 700,
+    "MaxKnockback": 875,
+    "KnockbackBaseRange": 875,
+    "KnockbackSpeed": 1200,
+    "KnockbackGravity": 10,
+    "KnockbackDuration": 0.5
+   },
+   "formulas": {
+    "HealPerSecond": "100/150/200 + 0.5×AP",
+    "TotalHeal": "(100/150/200 + 0.5×AP) × 3"
+   },
+   "tags": [
+    "airborne",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Tailwind",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Janna's allies gain Move Speed moving towards her. Janna deals a portion of bonus Move Speed as bonus magic damage on hit and with Zephyr.",
+   "summary": "Janna's allies gain Move Speed moving towards her. Janna deals a portion of bonus Move Speed as bonus magic damage on hit and with Zephyr.",
+   "values": {
+    "MSPercentAlly": 0.06,
+    "MSBonusMagicDamage": 0.3
+   },
+   "formulas": {
+    "MSToOnHitConversionRate": "0.3",
+    "BonusDamage": "0.3×bonus move speed"
+   },
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Disengage enchanter: shields and empowers carries with E, knocks up with Q tornado, and resets fights with R.",
+  "positions": [
+   "support"
+  ],
+  "strengths": [
+   "Strong peel: Q knock-up, R knock-back",
+   "E shield + AD for her carry or turret",
+   "High move speed and poke with W",
+   "Disrupts all-ins and dives"
+  ],
+  "weaknesses": [
+   "Low damage; doesn't kill on her own",
+   "Q tornado is slow and telegraphed",
+   "Weak into hard engage if Q/R are down",
+   "Fragile when caught"
+  ],
+  "curve": {
+   "lvl1": "medium – W poke",
+   "lvl2": "medium",
+   "lvl3": "strong – Q-W-E",
+   "lvl6": "strong – R disengage",
+   "items": "first support item",
+   "late": "strong – peel"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Trades with W poke; protects with E from level 1.",
+  "waveClear": "low",
+  "sustain": "high – R heal, shields",
+  "mobility": "high (ghosted, move speed)",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "W slow poke, E shield",
+   "engage": "Q knock-up",
+   "escape": "W speed, Q, R",
+   "answers": "Q and R stop dives"
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "allies gain speed toward her"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "charged tornado; knock-up"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "point-and-click slow + damage"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "shield + AD for ally or turret"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "knock-back then channel heal"
+   }
+  },
+  "windowAgainst": "Q and R down: she can't stop an all-in.",
+  "checks": []
+ }
+}

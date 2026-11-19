@@ -1,0 +1,561 @@
+{
+ "id": 910,
+ "alias": "Hwei",
+ "name": "Hwei",
+ "title": "the Visionary",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 580,
+  "hpPerLevel": 109,
+  "ad": 54,
+  "adPerLevel": 3.3,
+  "armor": 21,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.69,
+  "attackSpeedPerLevel": 2.5,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Subject: Disaster",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": [
+    90,
+    100,
+    110,
+    120,
+    120
+   ],
+   "costType": null,
+   "range": 0.0,
+   "description": "Hwei paints visions of disaster that deal large damage to enemies. Devastating Fire Hwei launches a blazing fast fireball that explodes on the first enemy hit, dealing 50/80/110/140/170 + 0.8×AP plus 3/4/5/6/7% max health magic damage. Severing Bolt Hwei strikes over far distances with a delayed lightning bolt, dealing 60/85/110/135/160 + 0.3×AP magic damage. Hitting an Isolated or Immobilized target increases the damage up to (60/85/110/135/160 + 0.3×AP) × 2/2.375/2.75/3.125/3.5 magic damage, based on the target's missing health. Molten Fissure Hwei unleashes a path of eruptions, dealing 20/35/50/65/80 + 0.3×AP magic damage in an area and leaving behind pools of lava that Slow enemies by @spell.HweiQE:SlowPercent@% and deal 20/35/50/65/80 + 0.24×AP magic damage per second for @spell.HweiQE:Duration@ seconds.",
+   "summary": "Hwei envisions a series of disasters, allowing him to paint a devastating blow. This ability replaces Hwei's abilities with damaging abilities: Devastating Fire, Severing Bolt, and Molten Fissure.",
+   "values": {
+    "Tooltip_QQBaseDamage": [
+     50,
+     80,
+     110,
+     140,
+     170
+    ],
+    "Tooltip_QQBonusDamage": [
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "Tooltip_QWBaseDamage": [
+     60,
+     85,
+     110,
+     135,
+     160
+    ],
+    "Tooltip_QWBonusDamageMult": [
+     2,
+     2.375,
+     2.75,
+     3.125,
+     3.5
+    ],
+    "Tooltip_QEBaseDamage": [
+     20,
+     35,
+     50,
+     65,
+     80
+    ],
+    "Tooltip_QEBaseDPS": [
+     20,
+     35,
+     50,
+     65,
+     80
+    ],
+    "BaseDamage": [
+     20,
+     35,
+     50,
+     65,
+     80
+    ],
+    "BaseDPS": [
+     20,
+     35,
+     50,
+     65,
+     80
+    ],
+    "Duration": 2.5,
+    "Radius": 225,
+    "SlowPercent": 35,
+    "DamageDuration": 0.5,
+    "MinionDamageRatio": 0.6,
+    "JungleDamageRatio": 1.35,
+    "BonusDamage": [
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "MaxBonusDamage": 250,
+    "Delay": 1,
+    "MinionDamageMod": 0.5,
+    "BonusDamageMult": [
+     2,
+     2.375,
+     2.75,
+     3.125,
+     3.5
+    ]
+   },
+   "formulas": {
+    "Tooltip_QQDamage": "50/80/110/140/170 + 0.8×AP",
+    "Tooltip_QWDamage": "60/85/110/135/160 + 0.3×AP",
+    "Tooltip_QWBonusDamage": "(60/85/110/135/160 + 0.3×AP) × 2/2.375/2.75/3.125/3.5",
+    "Tooltip_QEDamage": "20/35/50/65/80 + 0.3×AP",
+    "Tooltip_QEDamagePerSecond": "20/35/50/65/80 + 0.24×AP",
+    "Damage": "20/35/50/65/80 + 0.3×AP",
+    "DamagePerSecond": "20/35/50/65/80 + 0.24×AP",
+    "{a8f705ac}": "15–30 (by level)",
+    "BonusDamage": "(20/35/50/65/80 + 0.3×AP) × 2/2.375/2.75/3.125/3.5"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "immobilizing",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Subject: Serenity",
+   "cooldown": [
+    18,
+    17.5,
+    17,
+    16.5,
+    16
+   ],
+   "cost": [
+    95,
+    100,
+    105,
+    110,
+    110
+   ],
+   "costType": null,
+   "range": 0.0,
+   "description": "Hwei paints visions of serenity that provide utility for himself and allied champions. Fleeting Current Hwei launches a current of swift waters in a line that grants allies (30/32.5/35/37.5/40 + 0.03×AP) × 0.01 Move Speed. Pool of Reflection Hwei forms a protective pool that grants 100/140/180/220/260 + 0.6×AP Shields over time to allied champions inside reduced by @spell.HweiWW:ToolTipAllyMod*100@% for allies. Stirring Lights Hwei creates three swirling lights that empower his next three Abilities or Attacks to deal an additional 20/30/40/50/60 + 0.15×AP magic damage and restore 45/50/55/60/65 Mana each.",
+   "summary": "Hwei envisions a series of serenities, allowing him to paint invigorating settings. This ability replaces Hwei's abilities with utility abilities: Fleeting Current, Pool of Reflection, and Stirring Lights.",
+   "values": {
+    "Tooltip_WQBaseMoveSpeed": [
+     30,
+     32.5,
+     35,
+     37.5,
+     40
+    ],
+    "Tooltip_WQAreaDuration": [
+     4,
+     4.5,
+     5,
+     5.5,
+     6
+    ],
+    "Tooltip_WWShieldAmountBase": [
+     100,
+     140,
+     180,
+     220,
+     260
+    ],
+    "Tooltip_WEBaseOnHitDamage": [
+     20,
+     30,
+     40,
+     50,
+     60
+    ],
+    "Tooltip_WEOnHitManaRestore": [
+     45,
+     50,
+     55,
+     60,
+     65
+    ],
+    "BaseOnHitDamage": [
+     20,
+     30,
+     40,
+     50,
+     60
+    ],
+    "Duration": 9,
+    "OnHitManaRestore": [
+     45,
+     50,
+     55,
+     60,
+     65
+    ],
+    "ManaCostHelper": [
+     -90,
+     -95,
+     -100,
+     -105,
+     -110
+    ],
+    "BaseMoveSpeed": [
+     30,
+     32.5,
+     35,
+     37.5,
+     40
+    ],
+    "AreaWidth": 300,
+    "AreaDuration": [
+     4,
+     4.5,
+     5,
+     5.5,
+     6
+    ],
+    "ShieldAmountBase": [
+     100,
+     140,
+     180,
+     220,
+     260
+    ],
+    "ShieldAPRatio": 0.6,
+    "ShieldDuration": 1,
+    "SecsToFullStack": 3,
+    "ZoneRadius": 350,
+    "AllyMod": 0.85,
+    "ToolTipAllyMod": 0.15
+   },
+   "formulas": {
+    "Tooltip_WQMoveSpeed": "(30/32.5/35/37.5/40 + 0.03×AP) × 0.01",
+    "Tooltip_WWShieldAmount": "100/140/180/220/260 + 0.6×AP",
+    "Tooltip_WWStartShieldAmount": "(100/140/180/220/260 + 0.6×AP) × 0.5",
+    "Tooltip_WEOnHitDamage": "20/30/40/50/60 + 0.15×AP",
+    "OnHitDamage": "20/30/40/50/60 + 0.15×AP",
+    "TotalOnHitDamage": "(20/30/40/50/60 + 0.15×AP) × 3",
+    "{a14e3318}": "(45/50/55/60/65 + 3)",
+    "MoveSpeed": "(30/32.5/35/37.5/40 + 0.03×AP) × 0.01",
+    "ShieldAmount": "100/140/180/220/260 + 0.6×AP",
+    "{20a3d822}": "(100/140/180/220/260 + 0.6×AP) × 0.5"
+   },
+   "tags": [
+    "move speed",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Subject: Torment",
+   "cooldown": [
+    13,
+    12.5,
+    12,
+    11.5,
+    11
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 0.0,
+   "description": "Hwei paints visions of torment that control enemies. Grim Visage Hwei launches a terrifying face that causes the first enemy hit to Flee for 1/1.125/1.25/1.375/1.5 second(s) and take 70/110/150/190/230 + 0.65×AP magic damage. Gaze of the Abyss Hwei forms an eye that lingers and provides vision locking onto the first enemy champion that enters and launching a homing missile that Roots the first enemy hit for 1.2/1.4/1.6/1.8/2 seconds dealing 70/110/150/190/230 + 0.65×AP magic damage. Crushing Maw Hwei paints a set of jaws at a target location that Drags enemies to the center dealing 70/110/150/190/230 + 0.65×AP magic damage and Slowing enemies caught by 40/47.5/55/62.5/70% decaying over 1.25 seconds.",
+   "summary": "Hwei envisions a series of torments, allowing him to paint controlling visages. This ability replaces Hwei's abilities with crowd control abilities: Grim Visage, Gaze of the Abyss, and Crushing Maw.",
+   "values": {
+    "Tooltip_EQBaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "Tooltip_EWBaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "Tooltip_EWRootDuration": [
+     1.2,
+     1.4,
+     1.6,
+     1.8,
+     2
+    ],
+    "Tooltip_EEBaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "Tooltip_EESlowAmount": [
+     40,
+     47.5,
+     55,
+     62.5,
+     70
+    ],
+    "Tooltip_EQFleeDuration": [
+     1,
+     1.125,
+     1.25,
+     1.375,
+     1.5
+    ],
+    "BaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "FleeDuration": [
+     1,
+     1.125,
+     1.25,
+     1.375,
+     1.5
+    ],
+    "MaxSlow": 99,
+    "MinSlow": 70,
+    "StareRadius": 350,
+    "SetupDelay": 0.65,
+    "MinSetupDelay": 0.65,
+    "RootDuration": [
+     1.2,
+     1.4,
+     1.6,
+     1.8,
+     2
+    ],
+    "FireDelay": 0.3,
+    "StareDuration": 3,
+    "MinStareDuration": 3,
+    "VisibilityRadius": 450,
+    "Delay": 0.6,
+    "Width": 320,
+    "Depth": 340,
+    "SlowAmount": [
+     40,
+     47.5,
+     55,
+     62.5,
+     70
+    ]
+   },
+   "formulas": {
+    "Tooltip_EQDamage": "70/110/150/190/230 + 0.65×AP",
+    "Tooltip_EWDamage": "70/110/150/190/230 + 0.65×AP",
+    "Tooltip_EEDamage": "70/110/150/190/230 + 0.65×AP",
+    "Damage": "70/110/150/190/230 + 0.65×AP"
+   },
+   "tags": [
+    "fear",
+    "projectile",
+    "root",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Spiraling Despair",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1300.0,
+   "description": "Hwei launches a vision of pure despair that sticks to an enemy champion for 3 seconds. The vision expands over time applying a Slow to enemies for 10% stacking every 0.25 seconds, and dealing 10/20/30 + 0.05×AP magic damage per second. Upon completion, the vision shatters, dealing 200/325/450 + 0.8×AP magic damage.",
+   "summary": "Hwei paints a vision of pure despair. The first enemy champion struck becomes the center of an expanding painting that slows and damages nearby enemies. The vision explodes after reaching its maximum size or when the champion dies.",
+   "values": {
+    "RBaseDamage": [
+     200,
+     325,
+     450
+    ],
+    "Duration": 3,
+    "BaseDamageOverTime": [
+     10,
+     20,
+     30
+    ],
+    "SlowPercentPerStack": 10,
+    "SlowDuration": 0.35,
+    "MaxDamageHelper": [
+     230,
+     360,
+     490
+    ]
+   },
+   "formulas": {
+    "Damage": "200/325/450 + 0.8×AP",
+    "DamageOverTime": "10/20/30 + 0.05×AP",
+    "TotalMaxDamage": "(200/325/450 + (10/20/30 × 3)) + 0.95×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Signature of the Visionary",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Hwei primes enemy champions he damages with his abilities for his signature finishing touch. Hitting an enemy with a second damaging spell completes his signature, leaving it beneath them. The signature detonates after a short delay, dealing magic damage to all enemies in range.",
+   "summary": "Hwei primes enemy champions he damages with his abilities for his signature finishing touch. Hitting an enemy with a second damaging spell completes his signature, leaving it beneath them. The signature detonates after a short delay, dealing magic damage to all enemies in range.",
+   "values": {
+    "InkTimeout": 25000,
+    "Duration": 4
+   },
+   "formulas": {
+    "TotalDamage": "40–285 (by level) + 0.35×AP"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Long-range artillery mage with nine painted spells across three subjects (damage, utility, control).",
+  "positions": [
+   "MIDDLE",
+   "SUPPORT"
+  ],
+  "strengths": [
+   "Very long range poke and wave clear",
+   "Flexible: damage, shields/move speed, fear/root",
+   "Strong R zone",
+   "Passive detonation rewards combos"
+  ],
+  "weaknesses": [
+   "Immobile",
+   "Mechanically complex; slow to combo",
+   "Squishy and vulnerable to dive",
+   "Mana-hungry early"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "medium",
+   "lvl3": "strong – all subjects",
+   "lvl6": "strong",
+   "items": "strong – mage items",
+   "late": "strong"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Poke until engage; needs all three subjects.",
+  "waveClear": "very good",
+  "sustain": "low",
+  "mobility": "low – move speed only",
+  "range": "long-ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q subject"
+   ],
+   "engage": [
+    "E subject (fear/root)"
+   ],
+   "escape": [
+    "W subject (move speed)"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Signature detonation after two damaging spells."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Damage subject: fire, bolt, fissure."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Utility subject: move speed, shield pool, empowered attacks."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "fear",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Control subject: Grim Visage fear, Gaze root, Crushing Maw pull/slow (check)."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Expanding painting slows, explodes."
+   }
+  },
+  "windowAgainst": "When his control subject (E) is on cooldown; dive him.",
+  "checks": [
+   "E subject cc list: check"
+  ]
+ }
+}

@@ -1,0 +1,391 @@
+{
+ "id": 102,
+ "alias": "Shyvana",
+ "name": "Shyvana",
+ "title": "the Half-Dragon",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kMixed",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 625,
+  "hpPerLevel": 95,
+  "ad": 62,
+  "adPerLevel": 4,
+  "armor": 35,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.638,
+  "attackSpeedPerLevel": 2,
+  "range": 150,
+  "moveSpeed": 350
+ },
+ "abilities": {
+  "Q": {
+   "name": "Emberstrike",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Passive: Shyvana's Attacks deal 0.01 + 0.0×bonus AD max Health magic damage %i:OnHit% On-Hit and reduce this Ability's Cooldown by 0.5 seconds. Active: Shyvana's next Attack strikes the target and the surrounding area dealing BASE_DAMAGE + 1.1×AD + 0.3×AP physical damage. This Ability may be Recast after an Attack or short delay within the next 4 seconds. Dragon Form: Shyvana gains an additional Recast, causing her to bite the target of her next Attack dealing (BASE_DAMAGE + 1.1×AD + 0.3×AP) × 1.5 true damage.",
+   "summary": "Shyvana's next attack strikes both the target and the surrounding area. This Ability can be recast. While in Dragon Form, it gains an additional recast, dealing massive damage to a single target.",
+   "values": {
+    "EnhanceDuration": 6,
+    "RecastDuration": 4,
+    "LockoutDuration": 1.5,
+    "Q1Length": 450,
+    "Q2Radius": 275,
+    "Cooldown_Reduction": 0.5,
+    "Max_Health_Damage": 0.01,
+    "Max_Health_AD_Ratio": 0.0,
+    "Base_Damage": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "Damage_AD_Ratio": 1.1,
+    "Bonus_Attack_Range": 50,
+    "Damage_Monster_Bonus": 10
+   },
+   "formulas": {
+    "Calc_Max_Health_Damage": "0.01 + 0.0×bonus AD",
+    "Calc_Damage": "BASE_DAMAGE + 1.1×AD + 0.3×AP",
+    "Calc_Dragon_Form_Damage": "(BASE_DAMAGE + 1.1×AD + 0.3×AP) × 1.5",
+    "Calc_Max_Health_Monster_Minimum": "10",
+    "Calc_Max_Health_Monster_Maximum": "200",
+    "Calc_Monster_Bonus": "10",
+    "{aee2a1e8}": "1"
+   },
+   "tags": [
+    "empowered attack",
+    "heal",
+    "true damage"
+   ]
+  },
+  "W": {
+   "name": "Inferno Aegis",
+   "cooldown": [
+    13,
+    12.25,
+    11.5,
+    10.75,
+    10
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 350.0,
+   "description": "Shyvana wraps herself in flames for 2.5 seconds, gaining 60/80/100/120/140 + 0.12×bonus max HP Shield, increased by (60/80/100/120/140 + 0.12×bonus max HP) × 0.3 per nearby enemy champion and 0.25 Move Speed, increased to (0.25) × 1.75 when moving towards enemy champions. When the effect ends, the Shield is broken, or upon Recast the area around her detonates, dealing 80/100/120/140/160 + 0.65×AP magic damage. Dragon Form: If the detonation hits an enemy champion Shyvana heals for 60–100 (by level) + 0.04–0.08 (by level) Missing Health.",
+   "summary": "Shyvana gains a shield, movement speed, and after a short delay, the area around her detonates. While in Dragon Form, the explosion will heal her if it strikes an enemy champion.",
+   "values": {
+    "Duration": 2.5,
+    "Radius": 350,
+    "Shield": [
+     60,
+     80,
+     100,
+     120,
+     140
+    ],
+    "Shield_Radius": 600,
+    "BaseMoveSpeed": 0.25,
+    "BaseDamage": [
+     80,
+     100,
+     120,
+     140,
+     160
+    ],
+    "MissingHealthHealMultiplier": 2,
+    "MoveSpeedAmpTowardsEnemies": 1.75,
+    "ShieldMaxHealth": 0.12
+   },
+   "formulas": {
+    "Damage": "80/100/120/140/160 + 0.65×AP",
+    "MoveSpeed": "0.25",
+    "Calc_Shield": "60/80/100/120/140 + 0.12×bonus max HP",
+    "Calc_Shield_Per_Nearby_Champion": "(60/80/100/120/140 + 0.12×bonus max HP) × 0.3",
+    "Calc_Heal_Min": "75–200 (by level) + 0.1×bonus AD + 0.05×AP",
+    "Calc_Heal_Max": "(75–200 (by level) + 0.1×bonus AD + 0.05×AP) × 2",
+    "MoveSpeedTowardsEnemies": "(0.25) × 1.75",
+    "Calc_Missing_Health_Heal": "0.04–0.08 (by level)",
+    "Calc_Base_Heal": "60–100 (by level)"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "move speed",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Molten Burst",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 800.0,
+   "description": "Shyvana launches a fireball at the target location dealing 50/65/80/95/110 + 0.6/0.65/0.7/0.75/0.8×AP + 0.05 Max health magic damage and Slowing by 0.3 for 2 seconds. It explodes upon striking an enemy or reaching its terminus. Dragon Form: Shyvana's fireball is larger and pierces through enemies. Upon striking a champion, large monster, or reaching its terminus it triggers a pulse of fire that deals (50/65/80/95/110 + 0.6/0.65/0.7/0.75/0.8×AP) × 1.25 + (0.05) × 1.25 Max Health magic damage and Slows by (0.3) × 1 for 2 seconds. The fireball leaves behind a trail for 2 seconds that deals 15+ (by level) + 0.05×AP magic damage per second.",
+   "summary": "Shyvana launches a fireball that explodes upon striking a large target and slows them. In Dragon Form, it passes through and explodes upon striking large enemies, leaving behind a trail of fire.",
+   "values": {
+    "BaseDamage": [
+     50,
+     65,
+     80,
+     95,
+     110
+    ],
+    "BaseDamagePerSecond": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ],
+    "GroundLingerDuration": 2,
+    "GroundRadius": 150,
+    "TrailRadius": 75,
+    "SlowDuration": 2,
+    "SlowAmount": 0.3,
+    "DragonGroundRadius": 300,
+    "DragonTrailRadius": 100,
+    "DragonCastRangeScale": 0.4,
+    "RepeatExplosionDelay": 0.25,
+    "DamageAPRatio": [
+     0.6,
+     0.65,
+     0.7,
+     0.75,
+     0.8
+    ],
+    "MaxHealthDamage": 0.05,
+    "DamageDragonMod": 1.25
+   },
+   "formulas": {
+    "Damage": "50/65/80/95/110 + 0.6/0.65/0.7/0.75/0.8×AP",
+    "DamagePerSecond": "15+ (by level) + 0.05×AP",
+    "Calc_Multihit_Efficacy": "0.4",
+    "Calc_Dragon_Damage": "(50/65/80/95/110 + 0.6/0.65/0.7/0.75/0.8×AP) × 1.25",
+    "Calc_Slow": "0.3",
+    "Calc_Slow_Dragon": "(0.3) × 1",
+    "Calc_Max_Health_Damage": "0.05",
+    "Calc_Max_Health_Dragon_Damage": "(0.05) × 1.25",
+    "Calc_Max_Health_Monster_Minimum": "0",
+    "Calc_Max_Health_Monster_Maximum": "200"
+   },
+   "tags": [
+    "heal",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Dragon's Descent",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": 1050.0,
+   "description": "Passive: Shyvana generates 1.25 Dragon Fury by striking enemies with Attacks and Abilities, increased by 3 + -1 while in Dragon Form, and reduced 1 + (-1 × 0.25) by when striking in an area against non-champions. Active: Shyvana transforms into her Dragon Form, becoming Unstoppable, and flying to the target location breathing fire on enemies below dealing 150/250/350 + 1×AP magic damage and causing them Flee for 0.75 seconds. While transformed, Shyvana's basic Abilities are upgraded, she gains 150/250/350 bonus Health, size, and Attack Range. Shyvana loses Dragon Fury over time and her transformation ends when she has no Dragon Fury remaining.",
+   "summary": "Shyvana transforms into a Dragon and leaps forward causing enemies along her path to flee. While in Dragon form she becomes larger and her basic abilities are empowered.",
+   "values": {
+    "MinCastRange": 400,
+    "JumpDelay": 0.15,
+    "JumpDampening": 70,
+    "JumpGravity": 25,
+    "JumpForwardMultiplier": 100,
+    "Width": 225,
+    "FuryGain": [
+     0.5,
+     0.75,
+     1
+    ],
+    "FuryDrainPerSecond": 6.667,
+    "Fury_Generation": 1.25,
+    "FuryDragonFormMult": 3,
+    "Fury_AoE_Efficacy": 0.25,
+    "FearDuration": 0.75,
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "BonusHealth": [
+     150,
+     250,
+     350
+    ],
+    "SizeScaling": [
+     0.05,
+     0.125,
+     0.2
+    ],
+    "BonusAttackRange": [
+     25,
+     50,
+     75
+    ],
+    "FuryGainPerUltHaste": 0.01
+   },
+   "formulas": {
+    "Damage": "150/250/350 + 1×AP",
+    "Calc_Bonus_Health": "150/250/350",
+    "{57d26a55}": "1050",
+    "TT_Fury_Mult": "3 + -1",
+    "TT_Fury_AoE_Penalty": "1 + (-1 × 0.25)"
+   },
+   "tags": [
+    "fear",
+    "heal",
+    "unstoppable"
+   ]
+  },
+  "Passive": {
+   "name": "Scalemail",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Takedowns on enemy champions, large minions, and large monsters grant Shyvana Scalemail stacks, improving her defenses.",
+   "summary": "Takedowns on enemy champions, large minions, and large monsters grant Shyvana Scalemail stacks, improving her defenses.",
+   "values": {
+    "BonusArmor": 0.3,
+    "BonusMagicResist": 0.3,
+    "PassiveScale": 0.3,
+    "Stacks_Per_Epic_Monster": 3,
+    "Stacks_Per_Champion": 3,
+    "Stacks_Per_Buff_Monster": 1,
+    "Stacks_Per_Large_Monster": 1
+   },
+   "formulas": {
+    "Calc_Bonus_Armor": "?",
+    "Calc_Bonus_MR": "?"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Dragon jungler who builds Dragon Fury to transform with R, flying unstoppably over enemies and making them flee. Wins fights with max-health fireballs and upgraded abilities in Dragon Form.",
+  "positions": [
+   "JUNGLE",
+   "TOP"
+  ],
+  "strengths": [
+   "R: unstoppable flight that makes enemies flee (fear)",
+   "E fireball: max-health damage + slow, pierces in Dragon Form",
+   "W shield grows with nearby champions; move speed toward enemies",
+   "Q attacks deal max-health on-hit and reduce Q cooldown",
+   "Scalemail stacks from takedowns improve defences"
+  ],
+  "weaknesses": [
+   "No hard crowd control outside R",
+   "Weak ganks before R",
+   "Dragon Form ends when Dragon Fury runs out",
+   "Kited by ranged champions",
+   "Item/scaling dependent"
+  ],
+  "curve": {
+   "lvl1": "medium – Q/E clear",
+   "lvl2": "medium – Q + E clear, still no hard crowd control",
+   "lvl3": "medium – E slow ganks",
+   "lvl6": "strong – R flight + fear engages",
+   "items": "strong – first item (Nashor's Tooth for AP or a bruiser item for AD)",
+   "late": "strong – Dragon Form teamfights"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Farms until R; the transformation is her engage.",
+  "waveClear": "good – E fireball",
+  "sustain": "low – W shield",
+  "mobility": "medium – R flight; W move speed",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "W",
+    "R"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Scalemail stacks from takedowns improve defences."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Empowered attack hits area; may recast. Dragon Form: bite deals true damage."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield (grows per nearby champion) + move speed."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Fireball: max-health damage + slow; pierces in Dragon Form."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "fear",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "unstoppable",
+    "notes": "Unstoppable flight; enemies below Flee (fear)."
+   }
+  },
+  "windowAgainst": "Before R, or after Dragon Fury runs out: she has no hard crowd control.",
+  "checks": [
+   "Rework version: R Flee treated as fear."
+  ]
+ }
+}

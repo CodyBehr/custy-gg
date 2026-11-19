@@ -1,0 +1,322 @@
+{
+ "id": 902,
+ "alias": "Milio",
+ "name": "Milio",
+ "title": "The Gentle Flame",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 560,
+  "hpPerLevel": 88,
+  "ad": 48,
+  "adPerLevel": 3.2,
+  "armor": 26,
+  "armorPerLevel": 4.6,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3,
+  "range": 525,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Ultra Mega Fire Kick",
+   "cooldown": null,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 1200.0,
+   "description": "Milio kicks a fireball, Knocking Back the first enemy hit. If it hits, the ball bounces past them and explodes, dealing 80/140/200/260/320 + 1.2×AP magic damage to surrounding enemies and Slowing them by 0.4/0.45/0.5/0.55/0.6 + 0.001×AP for 1.5 seconds. Hitting at least one enemy champion with Ultra Mega Fire Kick refunds 50% of it's Mana cost.",
+   "summary": "Kick a ball that knocks back an enemy. The ball launches upward on hit and falls toward the enemy, damaging and slowing enemies in the area upon impact.",
+   "values": {
+    "SlowAmount": [
+     0.4,
+     0.45,
+     0.5,
+     0.55,
+     0.6
+    ],
+    "SlowDuration": 1.5,
+    "FallDamage": [
+     80,
+     140,
+     200,
+     260,
+     320
+    ],
+    "FallTime": 0.8,
+    "FallRadius": 250,
+    "KnockbackDistance": 140,
+    "KnockbackMinionDistance": 340,
+    "ImpactAdjustment": 50,
+    "ExtraVisionDuration": 1.25,
+    "MinionFallRadius": 275,
+    "MinionFallTime": 0.9,
+    "RefundRatio": 0.5
+   },
+   "formulas": {
+    "Damage": "80/140/200/260/320 + 1.2×AP",
+    "SlowAmountPercent": "0.4/0.45/0.5/0.55/0.6 + 0.001×AP"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Cozy Campfire",
+   "cooldown": [
+    29,
+    27,
+    25,
+    23,
+    21
+   ],
+   "cost": [
+    100,
+    110,
+    120,
+    130,
+    140
+   ],
+   "costType": null,
+   "range": 350.0,
+   "description": "Milio creates a hearth that follows ally champions for 6 seconds. Ally champions nearby gain 0.1/0.125/0.15/0.175/0.2 Attack Range and restore 70/90/110/130/150 + 0.15×AP Health over the duration. The hearth also applies Fired Up! every 3 seconds. Recast: Change the hearth's follow ally.",
+   "summary": "Create an empowering zone that heals allies and increases attack range to those inside. The zone follows the ally nearest to the cast point.",
+   "values": {
+    "ZoneDuration": 6,
+    "Radius": 350,
+    "RangePctIncrease": [
+     0.1,
+     0.125,
+     0.15,
+     0.175,
+     0.2
+    ],
+    "HealFrequencySeconds": 3,
+    "TotalHealingOverTime": [
+     70,
+     90,
+     110,
+     130,
+     150
+    ],
+    "HealAPRatio": 0.15
+   },
+   "formulas": {
+    "RangePercent": "0.1/0.125/0.15/0.175/0.2",
+    "HealingOverTime": "70/90/110/130/150 + 0.15×AP"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Warm Hugs",
+   "cooldown": 0.5,
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "costType": null,
+   "range": 650.0,
+   "description": "Milio wraps an ally champion in protective flames, granting 45/75/105/135/165 + 0.45×AP Shield and 12/14.0/16/18/20% Move Speed for 2.5 seconds. This ability has 2 charges and the effects stack on repeat targets.",
+   "summary": "Milio tosses a shield to an ally, temporarily increasing their movement speed. This ability has 2 charges.",
+   "values": {
+    "MoveSpeedAmount": [
+     0.12,
+     0.14,
+     0.16,
+     0.18,
+     0.2
+    ],
+    "MoveSpeedDuration": 2.5,
+    "ShieldBase": [
+     45,
+     75,
+     105,
+     135,
+     165
+    ],
+    "DecayDelay": 0.15
+   },
+   "formulas": {
+    "ShieldCalc": "45/75/105/135/165 + 0.45×AP"
+   },
+   "tags": [
+    "move speed",
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Breath of Life",
+   "cooldown": [
+    160,
+    145,
+    130
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 700.0,
+   "description": "Milio unleashes a wave of soothing flames on nearby ally champions, cleansing Disabling and Immobilizing effects, restoring 150/250/350 + 0.5×AP Health, and granting 65% Tenacity for 3 seconds.",
+   "summary": "Milio unleashes a wave of soothing flames that heal and remove crowd control effects from allies in range.",
+   "values": {
+    "HealBase": [
+     150,
+     250,
+     350
+    ],
+    "TenacityDuration": 3,
+    "TenacityAmount": 0.65,
+    "HealFXDelay": 0.1
+   },
+   "formulas": {
+    "HealCalc": "150/250/350 + 0.5×AP"
+   },
+   "tags": [
+    "heal",
+    "immobilizing",
+    "tenacity"
+   ]
+  },
+  "Passive": {
+   "name": "Fired Up!",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Milio's abilities enchant allies on touch, making their next damage deal a burst of extra damage and burn the target.",
+   "summary": "Milio's abilities enchant allies on touch, making their next damage deal a burst of extra damage and burn the target.",
+   "values": {
+    "MaxMonsterDamage": 100,
+    "BurnDuration": 1.5,
+    "BaseDamageStart": 10,
+    "BaseDamageEnd": 50
+   },
+   "formulas": {
+    "ADBurstRatio": "0.07+ (by level)",
+    "BurnDamage": "? + 0.2×AP"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Enchanter who shields and heals allies and protects them from crowd control with R. Wins lane with Q knockback poke and supports carry trades.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "R cleanses crowd control and heals allies",
+   "Q knocks back enemies and slows",
+   "E shield and move speed for allies",
+   "W extends ally range and heals",
+   "Strong anti-engage"
+  ],
+  "weaknesses": [
+   "Low damage",
+   "Squishy",
+   "Relies on teammates",
+   "Q is his only crowd control"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "medium",
+   "lvl3": "medium",
+   "lvl6": "strong – R",
+   "items": "strong – Moonstone",
+   "late": "strong"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q+E trades with his ADC.",
+  "waveClear": "low",
+  "sustain": "high – W, R",
+  "mobility": "low",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q"
+   ],
+   "engage": [
+    "Q"
+   ],
+   "escape": [],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Ally attacks deal bonus burn."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Knockback, then slow."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Range and heal for allies."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield and move speed."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "cleanse",
+    "notes": "Cleanses crowd control from allies; heals."
+   }
+  },
+  "windowAgainst": "R on cooldown: engage his team.",
+  "checks": []
+ }
+}

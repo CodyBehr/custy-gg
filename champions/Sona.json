@@ -1,0 +1,310 @@
+{
+ "id": 37,
+ "alias": "Sona",
+ "name": "Sona",
+ "title": "Maven of the Strings",
+ "classes": [
+  "support",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 550,
+  "hpPerLevel": 91,
+  "ad": 49,
+  "adPerLevel": 3,
+  "armor": 26,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.644,
+  "attackSpeedPerLevel": 2.3,
+  "range": 550,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Hymn of Valor",
+   "cooldown": 8,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 825.0,
+   "description": "Sona deals 50/85/120/155/190 + 0.4\u00d7AP magic damage to the nearest two enemies, prioritizing champions. She then begins a new Melody. Gain a stack of Accelerando for every champion you damage with this. Melody: Sona gains an aura for 3 seconds, granting allied champions an additional 10/15/20/25/30 + 0.1\u00d7AP magic damage %i:OnHit% on their next Attack within 5 seconds. Power Chord - Staccato: Power Chord bonus damage (30+ (by level) + 0.3\u00d7AP total magic damage).",
+   "summary": "Sona plays the Hymn of Valor, sends out bolts of sound, dealing magic damage to two nearby enemies, prioritizing champions and monsters. Sona gains a temporary aura that grants allies tagged by the zone bonus damage on their next attack against enemies.",
+   "values": {
+    "BaseDamage": [
+     50,
+     85,
+     120,
+     155,
+     190
+    ],
+    "BaseOnHitDamage": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "AuraRange": 400,
+    "OnHitDuration": 5,
+    "EnemiesToHit": 2,
+    "AuraDuration": 3,
+    "BaseGlobalCD": 0.5,
+    "OnHitProcs": 1,
+    "OnHitRatio": 0.1
+   },
+   "formulas": {
+    "TotalDamage": "50/85/120/155/190 + 0.4\u00d7AP",
+    "TotalOnHitDamage": "10/15/20/25/30 + 0.1\u00d7AP",
+    "TotalStaccatoDamage": "30+ (by level) + 0.3\u00d7AP"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  },
+  "W": {
+   "name": "Aria of Perseverance",
+   "cooldown": null,
+   "cost": [
+    85,
+    90,
+    95,
+    100,
+    105
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Active: Sona restores 30/45/60/75/90 + 0.3\u00d7AP Health to herself and a nearby allied champion, prioritizing the most wounded. She then begins a new Melody. Melody: Sona gains an aura for 3 seconds, granting allied champions 25/45/65/85/105 + 0.25\u00d7AP Shield for 1.5 seconds. Gain a stack of Accelerando whenever you heal another injured ally and every time you protect another ally from at least 25/45/65/85/105 damage with this shield. Power Chord - Diminuendo: Power Chord also reduces physical and magic damage dealt by the target by 0.25 + 0.0\u00d7AP for 3 seconds.",
+   "summary": "Sona plays the Aria of Perseverance, sending out protective melodies, healing Sona and a nearby wounded ally. Sona gains a temporary aura that grants allies tagged by the zone a temporary shield.",
+   "values": {
+    "BaseHeal": [
+     30,
+     45,
+     60,
+     75,
+     90
+    ],
+    "BaseShield": [
+     25,
+     45,
+     65,
+     85,
+     105
+    ],
+    "AuraDuration": 3,
+    "AuraRange": 400,
+    "BaseGlobalCD": 0.5,
+    "DiminuendoDuration": 3,
+    "HealRange": 1000,
+    "ShieldDuration": 1.5,
+    "AccelerandoShieldBreakpoint": [
+     25,
+     45,
+     65,
+     85,
+     105
+    ],
+    "HealRatio": 0.3,
+    "ShieldRatio": 0.25
+   },
+   "formulas": {
+    "TotalHeal": "30/45/60/75/90 + 0.3\u00d7AP",
+    "TotalShield": "25/45/65/85/105 + 0.25\u00d7AP",
+    "TotalDiminuendoWeakenPercent": "0.25 + 0.0\u00d7AP"
+   },
+   "tags": [
+    "heal",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Song of Celerity",
+   "cooldown": 14,
+   "cost": 65,
+   "costType": null,
+   "range": 430.0,
+   "description": "Active: She begins a new Melody and grants herself 0.2 + 0.0\u00d7AP Move Speed for 3 seconds, extended to up to 7 seconds if she doesn't take damage. Melody: Sona gains an aura for 3 seconds that grants allied champions 0.1/0.12/0.14/0.16/0.18 + 0.0\u00d7AP Move Speed for 3 seconds. Power Chord - Tempo: Power Chord also Slows the target by 0.5 + 0.0\u00d7AP for 2 seconds.",
+   "summary": "Sona plays the Song of Celerity, granting nearby allies bonus Move Speed. Sona gains a temporary aura that grants allied champions tagged by the zone bonus Move Speed.",
+   "values": {
+    "SelfBaseMovementSpeed": 0.2,
+    "AllyBaseMovementSpeed": [
+     0.1,
+     0.12,
+     0.14,
+     0.16,
+     0.18
+    ],
+    "SelfMovementSpeedDurationMin": 3,
+    "SelfMovementSpeedDurationMax": 7,
+    "AllyMovementSpeedDuration": 3,
+    "AuraRange": 400,
+    "AuraDuration": 3,
+    "BaseGlobalCD": 0.5,
+    "TempoDuration": 2
+   },
+   "formulas": {
+    "TotalSelfMovementSpeed": "0.2 + 0.0\u00d7AP",
+    "TotalAllyMovementSpeed": "0.1/0.12/0.14/0.16/0.18 + 0.0\u00d7AP",
+    "TotalTempoMoveSpeedSlow": "0.5 + 0.0\u00d7AP"
+   },
+   "tags": [
+    "move speed",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Crescendo",
+   "cooldown": [
+    140,
+    120,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 900.0,
+   "description": "Sona strikes an irresistible chord, Stunning enemy for 1.5 seconds and dealing 150/250/350 + 0.5\u00d7AP magic damage.",
+   "summary": "Sona plays her ultimate chord, stunning enemy champions and forcing them to dance and dealing magic damage to them.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "StunDuration": 1.5
+   },
+   "formulas": {
+    "TotalDamage": "150/250/350 + 0.5\u00d7AP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Power Chord",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Accelerando: Sona gains non-Ultimate ability haste permanently for her basic abilities as she uses her abilities well, up to a cap. Beyond that cap, further successful uses reduce her ultimate's remaining cooldown instead. Power Chord: Every few spell casts, Sona's next attack will deal bonus magic damage in addition to an additional effect based on what basic Ability Sona last activated.",
+   "summary": "Accelerando: Sona gains non-Ultimate ability haste permanently for her basic abilities as she uses her abilities well, up to a cap. Beyond that cap, further successful uses reduce her ultimate's remaining cooldown instead. Power Chord: Every few spell casts, Sona's next attack will deal bonus magic damage in addition to an additional effect based on what basic Ability Sona last activated.",
+   "values": {
+    "TempoDuration": 2,
+    "PowerChordPassiveCountMax": 3,
+    "AccelerandoAHPerStack": 0.5,
+    "AccelerandoCap": 60,
+    "AccelerandoUltCDR": 1.5
+   },
+   "formulas": {
+    "PowerChordDamage": "20+ (by level) + 0.2\u00d7AP",
+    "AccelerandoAHCurrent": "?"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Sona is an enchanter support who weaves auras between her Power Chords, poking with Hymn of Valor and healing with Aria of Perseverance. She scales extremely well with levels and items and ends teamfights with Crescendo, a wide stun.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "Constant poke: Hymn of Valor automatically hits the nearest two enemies, so trades are easy.",
+   "Healing and shielding over the whole lane through Aria of Perseverance.",
+   "Crescendo is a long, wide stun that can decide a teamfight.",
+   "Gains huge value from levels and items: late-game Sona brings a lot of heal, speed and damage.",
+   "Song of Celerity gives the team move speed to engage or disengage."
+  ],
+  "weaknesses": [
+   "Weakest support early: very low base stats and short range make her easy to kill.",
+   "No hard CC before level 6; she cannot stop an engage on her own early.",
+   "Very squishy and immobile apart from Song of Celerity.",
+   "Q and W are short range; she must stand fairly close to land them.",
+   "Mana-hungry early; spamming abilities runs her dry."
+  ],
+  "curve": {
+   "lvl1": "weak \u2013 low stats; she wants to take a few auto attacks and power chords rather than fight",
+   "lvl2": "weak \u2013 still easy to all-in; Q into auto-attack poke is her best trade",
+   "lvl3": "okay \u2013 Q, W and E unlocked, so she can poke and sustain, but still loses a real all-in",
+   "lvl6": "strong \u2013 Crescendo stuns the whole bot lane and turns a 2v2",
+   "items": "medium \u2013 first item: Moonstone Renewer or Echoes of Helia lifts her sustain; Dawncore pushes heal and shield power",
+   "late": "very strong \u2013 one of the best late-game supports, with team-wide heals, speed and a teamfight stun"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Sona is weak until 6 and becomes strong after Crescendo; most of her value comes later through levels and items. Punish her early, before she has items and her ultimate.",
+  "waveClear": "Low: she clears waves poorly and should not try to push.",
+  "sustain": "High: Aria of Perseverance heals allies and shields over the whole lane.",
+  "mobility": "Low: only the speed from Song of Celerity.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Hymn of Valor) on cooldown, then auto attack with the Power Chord",
+   "engage": "R (Crescendo) onto the enemy team",
+   "escape": "E (Song of Celerity) for the team to escape",
+   "answers": "None. Sona has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Power Chord: every few spells her next attack deals bonus damage with an extra effect from her last ability (Q damage, W damage reduction, E slow)."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Hymn of Valor: hits the two nearest enemies automatically, no skillshot. Prefers champions."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Aria of Perseverance: heals her and the most hurt ally nearby, and gives a short shield aura."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Song of Celerity: move speed for her and allies around her. Use it to engage or disengage."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, or block it with Yasuo W. A stun, so it can be cleansed and is reduced by tenacity.",
+    "notes": "Crescendo: a wide wave that stuns all enemies it hits. Sona's main teamfight tool."
+   }
+  },
+  "windowAgainst": "Sona's window is levels 1\u20135, before Crescendo and items: all-in her, because she has no CC to stop you. Later, make her waste Crescendo before you engage.",
+  "checks": [
+   "Does Sona hold Crescendo for the key target rather than using it on the first champion?",
+   "Is Sona out of range of enemy engage while poking with Q?",
+   "Does Sona's team play around her early weakness, waiting for 6?"
+  ]
+ }
+}

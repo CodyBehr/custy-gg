@@ -1,0 +1,309 @@
+{
+ "id": 134,
+ "alias": "Syndra",
+ "name": "Syndra",
+ "title": "the Dark Sovereign",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 583,
+  "hpPerLevel": 100,
+  "ad": 54,
+  "adPerLevel": 2.9,
+  "armor": 25,
+  "armorPerLevel": 4,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Dark Sphere",
+   "cooldown": 7,
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    60
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Syndra conjures a Dark Sphere, dealing 90/125/160/195/230 + 0.7\u00d7AP magic damage. The Dark Sphere remains for 6 seconds and can be manipulated by Syndra's other Abilities. @spell.SyndraPassive:Q1UpgradeThreshold@ Splinters of Wrath: Syndra can store 2 charges of Dark Sphere.",
+   "summary": "Syndra conjures a Dark Sphere dealing magic damage. The sphere remains and can be manipulated by her other powers.",
+   "values": {
+    "Upgrade1MaxAmmo": 2,
+    "Upgrade2MaxAmmo": 3,
+    "SphereDuration": 6,
+    "BaseDamage": [
+     90,
+     125,
+     160,
+     195,
+     230
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "90/125/160/195/230 + 0.7\u00d7AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Force of Will",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    100
+   ],
+   "costType": null,
+   "range": 925.0,
+   "description": "Syndra grabs a Dark Sphere, enemy minion, or non-epic monster. She drags it with her and can Recast for up to 5 seconds. Recast: Syndra hurls the object, dealing 70/100/130/160/190 + 0.65\u00d7AP magic damage and Slowing by 25% for (varies) seconds. @spell.SyndraPassive:WUpgradeThreshold@ Splinters of Wrath: This Ability deals an additional (12 + 0.02\u00d7AP) \u00d7 0.01 true damage.",
+   "summary": "Syndra picks up and throws a Dark Sphere or enemy minion dealing magic damage and slowing the Move Speed of enemies.",
+   "values": {
+    "BaseSlow": 25,
+    "SlowDuration": 1.5,
+    "BaseDamage": [
+     70,
+     100,
+     130,
+     160,
+     190
+    ],
+    "ExtraSpherePickupRadius": 450
+   },
+   "formulas": {
+    "ThrowDamage": "70/100/130/160/190 + 0.65\u00d7AP",
+    "PassiveBonusDamage": "(70/100/130/160/190 + 0.65\u00d7AP) \u00d7 (0.12 + (0.02\u00d7AP \u00d7 0.01))",
+    "TotalSlowAmount": "25",
+    "TOOLTIPONLYPassiveBonusPercent": "(12 + 0.02\u00d7AP) \u00d7 0.01"
+   },
+   "tags": [
+    "slow",
+    "true damage"
+   ]
+  },
+  "E": {
+   "name": "Scatter the Weak",
+   "cooldown": 15,
+   "cost": 50,
+   "costType": null,
+   "range": 650.0,
+   "description": "Syndra projects a wave of force, Knocking Back enemies and Dark Spheres and dealing 60/95/130/165/200 + 0.6\u00d7AP magic damage. Dark Spheres that are pushed Stun enemies for 1.25 seconds and deal 60/95/130/165/200 + 0.6\u00d7AP magic damage. @spell.SyndraPassive:EUpgradeThreshold@ Splinters of Wrath: This Ability's width is increased and Slows enemies by 70% for 1.25 seconds.",
+   "summary": "Syndra knocks enemies and Dark Spheres back dealing magic damage. Enemies hit by Dark Spheres become stunned.",
+   "values": {
+    "ConeAngle": 56,
+    "StunDuration": 1.25,
+    "UpgradedSlowDuration": 1.25,
+    "UpgradedSlowAmount": 0.7,
+    "UpgradedConeAngle": 84,
+    "BaseDamage": [
+     60,
+     95,
+     130,
+     165,
+     200
+    ],
+    "APRatio": 0.6
+   },
+   "formulas": {
+    "TotalDamage": "60/95/130/165/200 + 0.6\u00d7AP"
+   },
+   "tags": [
+    "airborne",
+    "slow",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Unleashed Power",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 675.0,
+   "description": "Passive: Dark Sphere gains an additional 10 Ability Haste for each rank of Unleashed Power. Syndra draws on her full cataclysmic power, launching the 3 Dark Spheres orbiting her plus up to 4 more nearby at an enemy champion. Each Dark Sphere deals 80/120/160 + 0.2\u00d7AP magic damage (max (80/120/160 + 0.2\u00d7AP) \u00d7 7 magic damage). @spell.SyndraPassive:RUpgradeThreshold@ Splinters of Wrath: This Ability executes enemies below 15% Health.",
+   "summary": "Syndra bombards an enemy Champion with all of her Dark Spheres.",
+   "values": {
+    "DamagePerSphere": [
+     80,
+     120,
+     160
+    ],
+    "MaxSpheresToUse": 7,
+    "UpgradeExecuteThreshold": 0.15,
+    "QHastePerRank": 10,
+    "TOOLTIPONLYTotalQHaste": [
+     10,
+     20,
+     30
+    ],
+    "MinSpheresToUse": 3,
+    "APRatio": 0.2
+   },
+   "formulas": {
+    "DamageCalc": "80/120/160 + 0.2\u00d7AP",
+    "MinDamageCalc": "(80/120/160 + 0.2\u00d7AP) \u00d7 3",
+    "MaxDamageCalc": "(80/120/160 + 0.2\u00d7AP) \u00d7 7"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Transcendent",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Syndra collects Splinters of Wrath from gaining levels and damaging enemies which upgrade her abilities. Dark Sphere: Syndra can hold an additional charge Force of Will: Bonus true damage. Scatter the Weak: Increased width and slows all targets Unleashed Power: Executes low health targets",
+   "summary": "Syndra collects Splinters of Wrath from gaining levels and damaging enemies which upgrade her abilities. Dark Sphere: Syndra can hold an additional charge Force of Will: Bonus true damage. Scatter the Weak: Increased width and slows all targets Unleashed Power: Executes low health targets",
+   "values": {
+    "MarkDuration": 4,
+    "Q1UpgradeThreshold": 40,
+    "WUpgradeThreshold": 60,
+    "EUpgradeThreshold": 80,
+    "RUpgradeThreshold": 100,
+    "CapstoneAPPerc": 0.15,
+    "MaxStackAmount": 120,
+    "StackPerSiege": 1,
+    "PassiveMarkCooldown": 8,
+    "PassiveStacksPerLevel": 5
+   },
+   "formulas": {
+    "StacksPerProc": "1+ (by level)",
+    "ManaPerProc": "20+ (by level)"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "true damage"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Syndra is a burst mage who places Dark Spheres around her and fires them all at one target with Unleashed Power. She plays mid, poking with spheres and controlling fights with Scatter the Weak, which stuns enemies hit by pushed spheres.",
+  "positions": [
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Huge single-target burst at 6: Unleashed Power fires every sphere she has, often killing a squishy target outright.",
+   "Scatter the Weak plus a sphere stuns, giving her a reliable pick and anti-dive tool.",
+   "Constant lane poke with Dark Sphere and Force of Will, which also slows.",
+   "Splinters of Wrath upgrade each ability over the game, so she keeps getting stronger.",
+   "Force of Will can grab a minion or monster when no sphere is up, so she always has a throw."
+  ],
+  "weaknesses": [
+   "Immobile: no dash or blink, so assassins and divers who reach her kill her.",
+   "Squishy.",
+   "Her stun depends on spheres being placed well; a messy sphere setup leaves her without CC.",
+   "Unleashed Power hits one target, so she is weaker against tanks and teams with several threats.",
+   "Mana-hungry early; spamming Q runs her dry."
+  ],
+  "curve": {
+   "lvl1": "okay \u2013 Q poke is good, but she has no CC yet",
+   "lvl2": "good \u2013 Q into W poke with a slow",
+   "lvl3": "strong \u2013 Q into E stun is a real kill threat",
+   "lvl6": "very strong \u2013 Unleashed Power one-shots squishy targets",
+   "items": "strong \u2013 first item: Luden's Companion or Malignance for burst; Zhonya's Hourglass for safety against divers",
+   "late": "strong \u2013 keeps one-shot potential late, but needs a frontline"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Syndra wants E for her stun, so she trades more freely from level 3. Her biggest spike is level 6 with Unleashed Power.",
+  "waveClear": "Good: Q and W clear waves from range.",
+  "sustain": "Low: no healing of her own.",
+  "mobility": "Very low: no dash; walks only.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Dark Sphere) into E (Scatter the Weak) stun",
+   "engage": "R (Unleashed Power) burst on a squishy target",
+   "escape": "E (Scatter the Weak) to knock back divers",
+   "answers": "None. Syndra has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Transcendent: Splinters of Wrath, gathered from levels and damage, upgrade each ability."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dark Sphere: a delayed area burst that leaves a sphere for her other abilities. Not a missile."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge the throw; projectile blocks can stop it.",
+    "notes": "Force of Will: grabs a sphere, minion or monster and hurls it, slowing."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Stand away from the line between Syndra and her spheres; Cleanse/QSS removes the stun.",
+    "notes": "Scatter the Weak: a wave that knocks back enemies and spheres; spheres pushed into enemies stun them."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "Spell shields such as Sivir E or Morgana E block it; point and click.",
+    "notes": "Unleashed Power: launches all her spheres at one enemy champion."
+   }
+  },
+  "windowAgainst": "Syndra's window is after Scatter the Weak is used: she has no other way to stop an all-in. Before 6 she has much less burst, so pressure her early.",
+  "checks": [
+   "Does Syndra place spheres where E can push them into enemies?",
+   "Does Syndra save E for divers instead of using it to poke?",
+   "Does Syndra use Unleashed Power on a squishy target instead of a tank?"
+  ]
+ }
+}

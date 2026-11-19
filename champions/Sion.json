@@ -1,0 +1,398 @@
+{
+ "id": 14,
+ "alias": "Sion",
+ "name": "Sion",
+ "title": "The Undead Juggernaut",
+ "classes": [
+  "tank",
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 655,
+  "hpPerLevel": 95,
+  "ad": 68,
+  "adPerLevel": 4,
+  "armor": 36,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.679,
+  "attackSpeedPerLevel": 1.3,
+  "range": 175,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Decimating Smash",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": 45,
+   "costType": null,
+   "range": 10000.0,
+   "description": "Begin Charging: Sion charges a heavy blow for up to 2 seconds. Release: Sion slams his axe down, briefly Slowing and dealing between 30/45/60/75/90 + 0.4/0.5/0.6/0.7/0.8×AD and 90/155/220/285/350 + 1.2/1.5/1.8/2.1/2.4×AD physical damage based on charge time. If Sion charged for at least 1 second, enemies are Knocked Up and Stunned for between 1.25 and 2.25 seconds based on charge time.",
+   "summary": "Sion charges a powerful swing in an area in front of himself that will deal damage to enemies when released. If he charges for enough time, enemies hit by the swing will also be knocked up and stunned.",
+   "values": {
+    "ADRatioMin": [
+     0.4,
+     0.5,
+     0.6,
+     0.7,
+     0.8
+    ],
+    "ADRatioMax": [
+     1.2,
+     1.5,
+     1.8,
+     2.1,
+     2.4
+    ],
+    "LowDamage": [
+     30,
+     45,
+     60,
+     75,
+     90
+    ],
+    "HighDamage": [
+     90,
+     155,
+     220,
+     285,
+     350
+    ],
+    "MinionRatio": 60,
+    "MonsterRatio": 165,
+    "BaseStunTime": 1.25,
+    "SlowAmount": -0.8
+   },
+   "formulas": {
+    "MinDamageTotal": "30/45/60/75/90 + 0.4/0.5/0.6/0.7/0.8×AD",
+    "MaxDamageTotal": "90/155/220/285/350 + 1.2/1.5/1.8/2.1/2.4×AD"
+   },
+   "tags": [
+    "airborne",
+    "slow",
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Soul Furnace",
+   "cooldown": [
+    15,
+    14,
+    13,
+    12,
+    11
+   ],
+   "cost": [
+    70,
+    75,
+    80,
+    85,
+    90
+   ],
+   "costType": null,
+   "range": 500.0,
+   "description": "Passive: Sion gains 4 max Health when he kills a unit, or 15 for champion takedowns, large minions and large monsters. Active: Sion gains 60/75/90/105/120 + 0.4×AP + 0.08/0.1/0.12/0.14/0.16×max HP Shield for 6 seconds. After 3 seconds if the shield still holds, Sion can Recast to detonate the shield to deal 40/65/90/115/140 + 0.4×AP plus 14% max Health magic damage.",
+   "summary": "Sion shields himself and can reactivate after 3 seconds to deal Magic Damage to enemies nearby. When Sion kills enemies, he passively gains maximum Health.",
+   "values": {
+    "ShieldPercentHealthTooltip": [
+     0.08,
+     0.1,
+     0.12,
+     0.14,
+     0.16
+    ],
+    "DamagePercentHealthTooltip": [
+     0.1,
+     0.11,
+     0.12,
+     0.13,
+     0.14
+    ],
+    "HPPerChampKill": 15,
+    "HPPerKill": 4,
+    "HPPerLargeKill": 15,
+    "ShieldAPRatio": 0.4,
+    "DamageAPRatio": 0.4,
+    "BaseShield": [
+     60,
+     75,
+     90,
+     105,
+     120
+    ],
+    "BaseDamage": [
+     40,
+     65,
+     90,
+     115,
+     140
+    ],
+    "MaxHPDamageRatio": 14,
+    "DetonateRecastCooldown": 3,
+    "ShieldDuration": 6
+   },
+   "formulas": {
+    "TotalShield": "60/75/90/105/120 + 0.4×AP + 0.08/0.1/0.12/0.14/0.16×max HP",
+    "TotalDamage": "40/65/90/115/140 + 0.4×AP"
+   },
+   "tags": [
+    "heal",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Roar of the Slayer",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": [
+    40,
+    45,
+    50,
+    55,
+    60
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Sion fires a shockwave, dealing 65/100/135/170/205 + 0.55×AP magic damage, Slowing them by 40/45/50/55/60% for 2.5 seconds and removing 25% Armor for 4 seconds. Non-champions hit are Knocked Back. Enemies hit by a Knocked Back unit take the same damage and effects.",
+   "summary": "Sion fires a short range shockwave that damages and slows and reduces the Armor of the first enemy hit. If the shockwave hits a minion or monster, it will be knocked back, damaging, slowing, and reducing the Armor of all enemies that it passes through.",
+   "values": {
+    "BaseDamage": [
+     65,
+     100,
+     135,
+     170,
+     205
+    ],
+    "SlowAmount": [
+     40,
+     45,
+     50,
+     55,
+     60
+    ],
+    "ArmorShred": 25,
+    "SlowDuration": 2.5,
+    "ArmorShredDuration": 4,
+    "APRatio": 0.55
+   },
+   "formulas": {
+    "TotalDamage": "65/100/135/170/205 + 0.55×AP"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Unstoppable Onslaught",
+   "cooldown": [
+    140,
+    100,
+    60
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 7500.0,
+   "description": "Sion charges Unstoppably in a direction for 8 seconds, turning towards the mouse cursor. Sion stops on colliding with an enemy champion or wall or on Recasting this Ability. At the end of the charge, Sion deals between 150/300/450 + 0.4×bonus AD and 450/900/1350 + 1.2×bonus AD physical damage based on distance travelled. Enemies close to Sion are Stunned for between 0.75 and 1.75 seconds based on distance travelled. Enemies in a larger area are Slowed by 40/45/50% for 3 seconds.",
+   "summary": "Sion charges in a direction, ramping up speed over time. He can steer his charge slightly with the mouse cursor location. When he collides with an enemy he deals damage and knocks them up based on the distance he has charged.",
+   "values": {
+    "MinDamage": [
+     150,
+     300,
+     450
+    ],
+    "MaxDamage": [
+     450,
+     900,
+     1350
+    ],
+    "SlowAmount": [
+     40,
+     45,
+     50
+    ],
+    "MinionDamagePercent": 500,
+    "MinStunDuration": 0.75,
+    "MaxStunDuration": 1.75,
+    "MoveSpeedCap": 950
+   },
+   "formulas": {
+    "MinDamageTotal": "150/300/450 + 0.4×bonus AD",
+    "MaxDamageTotal": "450/900/1350 + 1.2×bonus AD"
+   },
+   "tags": [
+    "slow",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Glory in Death",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "After being killed, Sion will temporarily reanimate with rapidly decaying Health. His attacks become very rapid, heal him, and deal bonus damage based on his target's maximum Health.",
+   "summary": "After being killed, Sion will temporarily reanimate with rapidly decaying Health. His attacks become very rapid, heal him, and deal bonus damage based on his target's maximum Health.",
+   "values": {
+    "Lifesteal": 1,
+    "PercentMaxHP": 0.1,
+    "NonChampCap": 75,
+    "StructureMod": 0.4
+   },
+   "formulas": {},
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Tank juggernaut who charges up a heavy Q and rampages through fights with R. Wins lane through Q and E poke and bonus health from W stacks, and engages teamfights with the unstoppable R charge.",
+  "positions": [
+   "TOP",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Q charged for 1 s+ knocks up and stuns, and deals heavy damage",
+   "W shield (% max health) detonates for damage if it lasts 3 s",
+   "E shockwave slows 40–60% and shreds 25% armor; knocked-back minions pass it on",
+   "R charges unstoppably for up to 8 s; damage grows with distance",
+   "Passive revive lets him keep fighting after death"
+  ],
+  "weaknesses": [
+   "Q is long and telegraphed; easy to dodge",
+   "No dash except R",
+   "Kited by ranged champions",
+   "Low burst damage; scales by stacking health"
+  ],
+  "curve": {
+   "lvl1": "medium – E poke",
+   "lvl2": "medium – Q+E",
+   "lvl3": "strong – W shield trades",
+   "lvl6": "strong – R engage",
+   "items": "strong – Heartsteel / Sunfire",
+   "late": "strong – tank frontline"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants Q, W and E: E slow sets up charged Q, W shield wins short trades.",
+  "waveClear": "good – Q and E",
+  "sustain": "medium – W shield, health stacking",
+  "mobility": "medium – R charge",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E",
+    "W"
+   ],
+   "engage": [
+    "R",
+    "Q"
+   ],
+   "escape": [
+    "R"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Revives with decaying health and rapid attacks."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Charge up to 2 s; 1 s+ knocks up and stuns."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield; recast after 3 s to detonate."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Shockwave slow and armor shred; knocked-back minions pass it on."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "unstoppable",
+    "notes": "Unstoppable charge up to 8 s; damage grows with distance."
+   }
+  },
+  "windowAgainst": "Q on cooldown (10–6 s) or while he's charging Q, walk out of it.",
+  "checks": [
+   "R's crowd control on impact: I set airborne and slow, check the file's full text."
+  ]
+ }
+}

@@ -1,0 +1,322 @@
+{
+ "id": 69,
+ "alias": "Cassiopeia",
+ "name": "Cassiopeia",
+ "title": "the Serpent's Embrace",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 98,
+  "ad": 53,
+  "adPerLevel": 3,
+  "armor": 18,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.647,
+  "attackSpeedPerLevel": 1.5,
+  "range": 550,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Noxious Blast",
+   "cooldown": 3.5,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 850.0,
+   "description": "Cassiopeia blasts noxious gas, Poisoning enemies and dealing 65/100/135/170/205 + 0.75×AP magic damage over 3 seconds. Hitting a champion grants Cassiopeia 30/35/40/45/50% Move Speed decaying over 3 seconds.",
+   "summary": "Cassiopeia blasts an area with Poison after a brief delay, granting her increased Move Speed if she hits an enemy champion.",
+   "values": {
+    "BaseDamage": [
+     65,
+     100,
+     135,
+     170,
+     205
+    ],
+    "PoisonDuration": 3,
+    "ChampHitMSBonus": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "ChampHitMSDuration": 3,
+    "NumDamageTicks": 7
+   },
+   "formulas": {
+    "TooltipTotalDamage": "65/100/135/170/205 + 0.75×AP"
+   },
+   "tags": [
+    "move speed"
+   ]
+  },
+  "W": {
+   "name": "Miasma",
+   "cooldown": [
+    24,
+    22,
+    20,
+    18,
+    16
+   ],
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    90
+   ],
+   "costType": null,
+   "range": 700.0,
+   "description": "Cassiopeia spews venom, leaving toxic clouds for 5 seconds. Enemies in the clouds take 20/25/30/35/40 + 0.1×AP magic damage per second, are Poisoned, Grounded, and Slowed by 40/50/60/70/80%.",
+   "summary": "Cassiopeia releases several clouds of poison, slowing, grounding, and lightly damaging enemies that pass through them. Grounded enemies cannot use Movement abilities.",
+   "values": {
+    "BaseDamage": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "SlowPercent": [
+     40,
+     50,
+     60,
+     70,
+     80
+    ],
+    "PoisonDuration": 1,
+    "CloudDuration": 5
+   },
+   "formulas": {
+    "DamagePerSecond": "20/25/30/35/40 + 0.1×AP"
+   },
+   "tags": [
+    "grounded",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Twin Fang",
+   "cooldown": 0.75,
+   "cost": 40,
+   "costType": null,
+   "range": 700.0,
+   "description": "Cassiopeia launches deadly fangs, dealing 50+ (by level) + 0.2×AP magic damage. If the enemy is Poisoned, they take an additional 20/45/70/95/120 + 0.45×AP magic damage and Cassiopeia restores 0.1/0.115/0.13/0.145/0.16×AP Health, reduced to (0.1/0.115/0.13/0.145/0.16×AP) × 0.25 Health against lane minions and small monsters. If this kills the target, Cassiopeia restores (varies) Mana.",
+   "summary": "Cassiopeia lets loose an attack that deals increased damage to Poisoned targets and heals her for a percentage of the damage dealt. If the target dies from this attack, Cassiopeia regains Mana.",
+   "values": {
+    "BasicAPRatio": 0.2,
+    "BonusDamage": [
+     20,
+     45,
+     70,
+     95,
+     120
+    ],
+    "BonusAPRatio": 0.45,
+    "HealRatio": [
+     0.1,
+     0.115,
+     0.13,
+     0.145,
+     0.16
+    ],
+    "MinionReductionModifier": 0.25
+   },
+   "formulas": {
+    "HealCalc": "0.1/0.115/0.13/0.145/0.16×AP",
+    "BonusPoisonedDamage": "20/45/70/95/120 + 0.45×AP",
+    "BasicDamage": "50+ (by level) + 0.2×AP",
+    "HealCalcMinion": "(0.1/0.115/0.13/0.145/0.16×AP) × 0.25"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "R": {
+   "name": "Petrifying Gaze",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 825.0,
+   "description": "Cassiopeia unleashes a petrifying gaze, dealing 125/225/325 + 0.75×AP magic damage and Stunning enemies facing her for 2 seconds. Enemies facing away are Slowed by 40% decaying over the same duration instead.",
+   "summary": "Cassiopeia releases a swirl of magical energy from her eyes, stunning any enemies in front of her that are facing her and slowing any others with their back turned.",
+   "values": {
+    "RCCDuration": 2,
+    "RSlowPercent": 40,
+    "RBaseDamage": [
+     125,
+     225,
+     325
+    ],
+    "APRatio": 0.75
+   },
+   "formulas": {
+    "RDamage": "125/225/325 + 0.75×AP"
+   },
+   "tags": [
+    "slow",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Serpentine Grace",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "All Move Speed bonuses are more effective on Cassiopeia.",
+   "summary": "All Move Speed bonuses are more effective on Cassiopeia.",
+   "values": {
+    "ModesMSMod": 1
+   },
+   "formulas": {
+    "TotalMovementSpeed": "(4+ (by level)) × 1",
+    "BonusAbilityPower": "3+ (by level)",
+    "PercentHasteMod": "0.05+ (by level)"
+   },
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Sustained-damage mage who stacks poison and spams E; W grounds dashes and R stuns those facing her.",
+  "positions": [
+   "middle",
+   "top"
+  ],
+  "strengths": [
+   "Huge sustained damage with E on poisoned targets",
+   "W grounds dashers",
+   "R stun on those facing her",
+   "Fast move speed from Q"
+  ],
+  "weaknesses": [
+   "Short range for a mage",
+   "Weak before levels 2–3 and item",
+   "Can't buy boots",
+   "Vulnerable to burst and ranged poke"
+  ],
+  "curve": {
+   "lvl1": "weak – single ability",
+   "lvl2": "medium",
+   "lvl3": "medium – Q-E-W",
+   "lvl6": "strong – R",
+   "items": "first mana/AP item",
+   "late": "strong DPS mage"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs Q to poison before E does real damage.",
+  "waveClear": "good",
+  "sustain": "medium (E heal)",
+  "mobility": "medium (Q speed, passive)",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Delayed area poison; not a missile."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "grounded",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Grounded stops dashes and blinks."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Point-and-click missile; blockable by projectile blocks."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Cone; stuns only those facing her: turning away turns it into a slow."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Can't buy boots; move speed amplified."
+   }
+  },
+  "windowAgainst": "W or R on cooldown, or she's out of mana before items.",
+  "checks": [
+   "Passive: description only mentions move-speed bonuses; boot restriction not in the text."
+  ]
+ }
+}

@@ -1,0 +1,317 @@
+{
+ "id": 7,
+ "alias": "Leblanc",
+ "name": "LeBlanc",
+ "title": "the Deceiver",
+ "classes": [
+  "assassin",
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 598,
+  "hpPerLevel": 108,
+  "ad": 55,
+  "adPerLevel": 2.2,
+  "armor": 22,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 1.5,
+  "range": 525,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Sigil of Malice",
+   "cooldown": 6,
+   "cost": 50,
+   "costType": null,
+   "range": 700.0,
+   "description": "LeBlanc projects a sigil to an enemy, dealing 65/90/115/140/165 + 0.35×AP magic damage and marking them for 3.5 seconds. Damaging the marked enemy with an Ability detonates the sigil, dealing 65/90/115/140/165 + 0.35×AP magic damage. If either part kills the target, Leblanc refunds 100% of the Mana cost and 30% of this spell's remaining Cooldown. The initial sigil deals an additional 10+ (by level) damage to minions.",
+   "summary": "LeBlanc projects a sigil, dealing damage and marking the target for 3.5 seconds. Damaging the marked target with an ability detonates the sigil, dealing additional damage. If either part kills the target, Leblanc refunds the Mana cost and part of this spell's remaining Cooldown.",
+   "values": {
+    "BaseDamage": [
+     65,
+     90,
+     115,
+     140,
+     165
+    ],
+    "BaseMarkDamage": [
+     65,
+     90,
+     115,
+     140,
+     165
+    ],
+    "MarkDuration": 3.5,
+    "CooldownRefund": 0.3,
+    "ManaRefund": 1,
+    "APRatio": 0.35
+   },
+   "formulas": {
+    "Damage": "65/90/115/140/165 + 0.35×AP",
+    "MarkDamage": "65/90/115/140/165 + 0.35×AP",
+    "BonusMinionDamage": "10+ (by level)"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Distortion",
+   "cooldown": [
+    15,
+    13.75,
+    12.5,
+    11.25,
+    10
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    120
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "LeBlanc dashes then deals 75/115/155/195/235 + 0.9×AP magic damage to nearby enemies. For 4 seconds after dashing, LeBlanc can Recast. Recast: LeBlanc returns to her starting location.",
+   "summary": "LeBlanc dashes to a location, dealing damage to enemies near her destination. For the next 4 seconds, activate Distortion again to return LeBlanc to her starting location.",
+   "values": {
+    "WAPRatio": 0.9,
+    "BaseDamage": [
+     75,
+     115,
+     155,
+     195,
+     235
+    ],
+    "SnapbackTimeAllowed": 4,
+    "SnapbackDelay": 0.2,
+    "SnapbackQueueWindow": 0.2,
+    "SpellMaxRange": 600
+   },
+   "formulas": {
+    "TotalDamage": "75/115/155/195/235 + 0.9×AP"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "E": {
+   "name": "Ethereal Chains",
+   "cooldown": [
+    14,
+    13.25,
+    12.5,
+    11.75,
+    11
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 925.0,
+   "description": "LeBlanc launches a chain that shackles the first enemy hit, dealing 50/70/90/110/130 + 0.4×AP magic damage and granting True Sight. If they remain shackled for 1.5 seconds, LeBlanc Roots them for 1.5 seconds and deals an additional 80/120/160/200/240 + 0.85×AP magic damage.",
+   "summary": "LeBlanc launches a chain that shackles the first enemy hit. If the target remains shackled for 1.5 seconds, LeBlanc roots them and deals additional damage.",
+   "values": {
+    "BaseInitialDamage": [
+     50,
+     70,
+     90,
+     110,
+     130
+    ],
+    "BaseDelayedDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "InitialAPRatio": 0.4,
+    "DelayedAPRatio": 0.85,
+    "TetherDuration": 1.5,
+    "RootDuration": 1.5,
+    "TetherDistance": 865
+   },
+   "formulas": {
+    "InitialDamage": "50/70/90/110/130 + 0.4×AP",
+    "DelayedDamage": "80/120/160/200/240 + 0.85×AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "R": {
+   "name": "Mimic",
+   "cooldown": [
+    45,
+    35,
+    25
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 25000.0,
+   "description": "LeBlanc mimics her most recent Ability, using it again. The mimicked Ability deals increased damage. Mimicked Sigil of Malice deals 70/150/230 + 0.4×AP magic damage when applied, and 140/300/460 + 0.8×AP magic damage when consumed. Mimicked Distortion deals 150/315/480 + 0.9×AP magic damage. Mimicked Ethereal Chains deals 70/150/230 + 0.4×AP magic damage when shackled and 140/300/460 + 0.85×AP magic damage when Rooting.",
+   "summary": "LeBlanc casts a mimicked version of one of her basic spells.",
+   "values": {
+    "RQ1Base": [
+     70,
+     150,
+     230
+    ],
+    "RQ2Base": [
+     140,
+     300,
+     460
+    ],
+    "RWBase": [
+     150,
+     315,
+     480
+    ],
+    "RE1Base": [
+     70,
+     150,
+     230
+    ],
+    "RE2Base": [
+     140,
+     300,
+     460
+    ],
+    "RQMarkDuration": 3.5,
+    "RQ1RE1BaseAPRatio": 0.4
+   },
+   "formulas": {
+    "RQ1Damage": "70/150/230 + 0.4×AP",
+    "RQ2Damage": "140/300/460 + 0.8×AP",
+    "RWDamage": "150/315/480 + 0.9×AP",
+    "RE1Damage": "70/150/230 + 0.4×AP",
+    "RE2Damage": "140/300/460 + 0.85×AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "Passive": {
+   "name": "Mirror Image",
+   "cooldown": 60,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "When LeBlanc drops below 40% Health, she becomes invisible for 1 second and creates a Mirror Image that deals no damage and lasts for up to 8 seconds.",
+   "summary": "When LeBlanc drops below 40% Health, she becomes invisible for 1 second and creates a Mirror Image that deals no damage and lasts for up to 8 seconds.",
+   "values": {
+    "TooltipCooldown": 60,
+    "Cooldown": 60
+   },
+   "formulas": {},
+   "tags": [
+    "heal",
+    "stealth"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Burst mage who dashes in with W, detonates her Q mark and returns to safety. Her passive clone baits and her R mimics her last ability.",
+  "positions": [
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Very fast Q→W burst",
+   "W recast returns her to safety",
+   "E chain roots if not broken",
+   "R doubles her best ability",
+   "Strong roams"
+  ],
+  "weaknesses": [
+   "Falls off late",
+   "Weak vs tanks",
+   "Needs combo",
+   "Squishy",
+   "Crowd control interrupts her combo"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "strong – Q+W burst",
+   "lvl3": "strong – E root",
+   "lvl6": "strong – R mimic",
+   "items": "strong – burst items",
+   "late": "weak – can't kill tanks"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Trades with Q→W and returns.",
+  "waveClear": "medium – W",
+  "sustain": "none",
+  "mobility": "high – W and R dashes",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "W",
+    "E"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Marks; next ability detonates."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash and AoE; recast to return."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Chain roots unless you walk out of range."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Mimics last ability."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Invisible clone below 40% health."
+   }
+  },
+  "windowAgainst": "W on cooldown: she can't return; all-in.",
+  "checks": []
+ }
+}

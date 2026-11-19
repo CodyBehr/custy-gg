@@ -1,0 +1,374 @@
+{
+ "id": 950,
+ "alias": "Naafiri",
+ "name": "Naafiri",
+ "title": "the Hound of a Hundred Bites",
+ "classes": [
+  "assassin",
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 105,
+  "ad": 55,
+  "adPerLevel": 2,
+  "armor": 28,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.663,
+  "attackSpeedPerLevel": 2.1,
+  "range": 125,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Darkin Daggers",
+   "cooldown": [
+    9,
+    8.5,
+    8,
+    7.5,
+    7
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    90
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Naafiri hurls Darkin-tainted blades, dealing @spell.NaafiriQ:TotalDamageFirstCast@ physical damage and inflicting a bleed, dealing @spell.NaafiriQ:TotalBleedDamage@ physical damage over @spell.NaafiriQ:BleedDuration@ seconds. Naafiri can Recast this Ability. If enemies hit are already bleeding from this Ability, it instead deals the remaining bleed damage plus between @spell.NaafiriQ:TotalMinDamageSecondCast@ and @spell.NaafiriQ:TotalMaxDamageSecondCast@ physical damage, based on their missing Health. If that target was a champion or large monster, Naafiri restores @spell.NaafiriQ:TotalHealSecondCast@ Health. Packmates will leap at the first champion or monster hit and attack them for @spell.NaafiriP:PackmateTauntDuration@ seconds.",
+   "summary": "Naafiri hurls up to two daggers, each inflicting bleed, or each inflicting bonus damage if the target is already bleeding. Packmates leap to attack the first champion or monster hit by this skill.",
+   "values": {
+    "BaseDamageFirstCast": [
+     35,
+     40,
+     45,
+     50,
+     55
+    ],
+    "BaseDamageSecondCast": [
+     30,
+     42.5,
+     55,
+     67.5,
+     80
+    ],
+    "BleedBaseDamage": [
+     35,
+     60,
+     85,
+     110,
+     135
+    ],
+    "BleedInterval": 0.5,
+    "RecastWindow": 4,
+    "RecastLockout": 0.75,
+    "BaseHealSecondCast": [
+     55,
+     70,
+     85,
+     100,
+     115
+    ],
+    "BleedDuration": 5,
+    "ExecuteMultiplier": 2,
+    "MinionMod": 1,
+    "FirstCastBonusADRatio": 0.2,
+    "SecondCastBonusADRatio": 0.4,
+    "BleedBonusADRatio": 0.8,
+    "HealBonusADRatio": 0.45,
+    "SecondCastMaxADRatio": 0.7
+   },
+   "formulas": {
+    "TotalDamageFirstCast": "35/40/45/50/55 + 0.2×bonus AD",
+    "TotalMinDamageSecondCast": "30/42.5/55/67.5/80 + 0.4×bonus AD",
+    "TotalHealSecondCast": "55/70/85/100/115 + 0.45×bonus AD",
+    "TotalBleedDamage": "35/60/85/110/135 + 0.8×bonus AD",
+    "MinionExecuteThreshold": "30+ (by level)",
+    "TotalMaxDamageSecondCast": "(30/42.5/55/67.5/80 + 0.7×bonus AD) × 2"
+   },
+   "tags": [
+    "dash",
+    "execute",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "The Call of the Pack",
+   "cooldown": [
+    26,
+    24,
+    22,
+    20,
+    18
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 400.0,
+   "description": "Naafiri becomes Untargetable for 1 second and prepares to hunt, spawning 2 additional Packmates and gaining 0.22×AD Attack Damage and 20/22.5/25/27.5/30% Move Speed for 5 seconds. Packmates become Untargetable and are recalled to Naafiri.",
+   "summary": "Naafiri becomes Untargetable and empowers her pack, spawning additional packmates and gaining increased Move Speed and Attack Damage.",
+   "values": {
+    "PackmatesToAdd": 2,
+    "Duration": 5,
+    "MoveSpeedAmount": [
+     0.2,
+     0.225,
+     0.25,
+     0.275,
+     0.3
+    ],
+    "MoveSpeedDuration": 5,
+    "PackmateSpawnRateIncrease": 0.5,
+    "NaafiriADPercentBoost": 0.22,
+    "UntargetableDuration": 1
+   },
+   "formulas": {
+    "BonusAD": "0.22×AD"
+   },
+   "tags": [
+    "move speed",
+    "untargetable"
+   ]
+  },
+  "E": {
+   "name": "Eviscerate",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 450.0,
+   "description": "Naafiri surges forward, dealing 15/25/35/45/55 + 0.4×bonus AD physical damage, then explodes in a flurry of blades, dealing 60/85/110/135/160 + 0.8×bonus AD physical damage. Packmates become Untargetable and are recalled to Naafiri restoring 100% Health.",
+   "summary": "Naafiri dashes and damages enemies in an area around her, recalling her packmates and fully healing them.",
+   "values": {
+    "BaseDamageFirstSlash": [
+     15,
+     25,
+     35,
+     45,
+     55
+    ],
+    "ADRatioFirstSlash": 0.4,
+    "BaseDamageSecondHit": [
+     60,
+     85,
+     110,
+     135,
+     160
+    ],
+    "ADRatioSecondHit": 0.8,
+    "RadiusSecondSlash": 230,
+    "DashDistance": 450,
+    "DashSpeed": 900,
+    "MaxDashCheatDistance": 650,
+    "MinDashDistance": 250
+   },
+   "formulas": {
+    "TotalDamageFirstSlash": "15/25/35/45/55 + 0.4×bonus AD",
+    "TotalDamageSecondSlash": "60/85/110/135/160 + 0.8×bonus AD"
+   },
+   "tags": [
+    "heal",
+    "untargetable"
+   ]
+  },
+  "R": {
+   "name": "Hounds' Pursuit",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": 900.0,
+   "description": "Naafiri dashes at an enemy champion, dealing 125/200/275 + 1×bonus AD physical damage and briefly Slowing them. Packmates become Untargetable and dash alongside Naafiri, dealing (125/200/275 + 1×bonus AD) × 0.1 physical damage per Packmate. If Naafiri scores a Takedown within 7 seconds she reveals nearby enemies and can recast this Ability once. The second cast grants 100/150/200 + 1.5×bonus AD Shield for 3 seconds.",
+   "summary": "Naafiri and her packmates dash at a champion, dealing damage. Naafiri reveals nearby enemies if she scores a takedown and can recast this Ability once. The second cast grants a shield.",
+   "values": {
+    "BaseDamage": [
+     125,
+     200,
+     275
+    ],
+    "DashSpeed": 1800,
+    "SlowDuration": 0.25,
+    "SlowPercent": -0.99,
+    "PackmateModifier": 0.1,
+    "FailCastCDRefund": 0.5,
+    "ShredDuration": 3,
+    "TakedownWindow": 7,
+    "RecastWindow": 12,
+    "ShieldDuration": 3,
+    "ShieldSize": [
+     100,
+     150,
+     200
+    ],
+    "VisionDuration": 4,
+    "VisionPulseDuration": 1,
+    "VisionRadius": 2100,
+    "WRefreshOnCast": 1.75
+   },
+   "formulas": {
+    "TotalDamage": "125/200/275 + 1×bonus AD",
+    "PackmateDamage": "(125/200/275 + 1×bonus AD) × 0.1",
+    "ArmorShred": "6+ (by level)",
+    "ShieldTotal": "100/150/200 + 1.5×bonus AD"
+   },
+   "tags": [
+    "dash",
+    "shield",
+    "slow",
+    "untargetable"
+   ]
+  },
+  "Passive": {
+   "name": "We Are More",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Naafiri spawns packmates that attack the targets of her attacks and abilities.",
+   "summary": "Naafiri spawns packmates that attack the targets of her attacks and abilities.",
+   "values": {
+    "CooldownReduceOnKill": 1,
+    "CooldownReduceOnAbilityHit": 4,
+    "PackmateBaseAS": 0.688,
+    "PackmateBaseMS": 340,
+    "PackmateModifierTooltipOnly": 0.08,
+    "LeapSpeed": 1250,
+    "LeapMin": 75,
+    "LeapMax": 1200,
+    "PackmateTowerModifier": 0.5,
+    "PackmateMonsterMod": 1.55,
+    "PackmateTauntDuration": 2,
+    "PackmateLastHitHelpCD": 10,
+    "PackmateCSHelpRadiusMax": 800,
+    "PackmateCSHelpRadiusMin": 300,
+    "PackmateFrenzyDuration": 3,
+    "PackmateFrenzyMaxCounters": 3,
+    "PackmateFrenzyDamageMult": 1.3,
+    "ProcDamageModifier": 0.5,
+    "HealthRegenDelay": 5,
+    "HealthRegenPercent": 0.25,
+    "NonChampDamageModifier": 0.5,
+    "MeleeAttackDamageModifier": 2,
+    "PackmateBonusADRatio": 0.04
+   },
+   "formulas": {
+    "PackmateSpawnCooldown": "30+ (by level)",
+    "PackmateCap": "2+ (by level)",
+    "PackmateTotalDamage": "10–20 (by level) + 0.04×bonus AD",
+    "MinionExecuteThreshold": "25+ (by level)",
+    "FrenzyDamageTooltipOnly": "(10–20 (by level) + 0.04×bonus AD) × 1.3",
+    "AOEDamageModifier": "0.76+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Lethality assassin who fights alongside a pack of Packmates that attack her targets. Wins lane with Q bleed poke and all-ins with W's untargetable leap onto a target.",
+  "positions": [
+   "MIDDLE",
+   "TOP"
+  ],
+  "strengths": [
+   "W leap makes her untargetable for its duration, dodging targeted abilities on the way in",
+   "Q double cast applies a bleed and deals bonus damage to bleeding targets",
+   "Packmates add extra damage to every trade",
+   "E dash plus Packmate recall gives burst and an escape",
+   "R gives bonus Packmates, a shield and a reset on takedown"
+  ],
+  "weaknesses": [
+   "Packmates die to area wave clear and AoE abilities, cutting her damage",
+   "Short range: poked out by long-range mages",
+   "No hard crowd control in her kit",
+   "Weak if W misses the target or is used to reach a wrong target",
+   "Falls off against tanky teams"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke with Packmates",
+   "lvl2": "strong – Q+E trades",
+   "lvl3": "strong – W all-in",
+   "lvl6": "strong – R hunt",
+   "items": "strong – lethality (Profane Hydra, Opportunity)",
+   "late": "medium – one-shot or nothing"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Her all-in needs W (leap and untargetable), Q bleed and E; Packmates also scale with level.",
+  "waveClear": "medium – Q and Packmates",
+  "sustain": "low – R shield only",
+  "mobility": "high – W leap, E dash",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "W",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Spawns Packmates that attack her targets; they die to area damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Thrown daggers, recast; bleed, bonus on bleeding. Blockable."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "untargetable",
+    "notes": "Pack hunts a champion; Naafiri is untargetable during the leap."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash, then a second dash with area damage; heals and recalls Packmates."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Gain Packmates, stealth-like reveal, shield; refreshes on takedown."
+   }
+  },
+  "windowAgainst": "Packmates dead (area clear) or W on cooldown: she can't reach or burst you.",
+  "checks": [
+   "Exact duration of W untargetable (I didn't confirm against the file)."
+  ]
+ }
+}

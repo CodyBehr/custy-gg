@@ -1,0 +1,304 @@
+{
+ "id": 61,
+ "alias": "Orianna",
+ "name": "Orianna",
+ "title": "the Lady of Clockwork",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 565,
+  "hpPerLevel": 110,
+  "ad": 44,
+  "adPerLevel": 2.6,
+  "armor": 20,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 3.5,
+  "range": 525,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Command: Attack",
+   "cooldown": [
+    7,
+    6,
+    5,
+    4,
+    3
+   ],
+   "cost": 35,
+   "costType": null,
+   "range": 815.0,
+   "description": "Orianna commands her Ball to move to an area, dealing 60/90/120/150/180 + 0.6×AP magic damage to enemies it passes through and nearby enemies at the destination. Damage is reduced to (60/90/120/150/180 + 0.6×AP) × 0.7 magic damage for enemies after the first hit.",
+   "summary": "Orianna commands her Ball to fire toward a target location, dealing magic damage to targets along the way (deals less damage to subsequent targets). Her Ball remains at the target location after.",
+   "values": {
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "ReducedDamagePercent": 0.7
+   },
+   "formulas": {
+    "TotalDamage": "60/90/120/150/180 + 0.6×AP",
+    "ReducedDamage": "(60/90/120/150/180 + 0.6×AP) × 0.7"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Command: Dissonance",
+   "cooldown": 7,
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 225.0,
+   "description": "Orianna commands her Ball to release an electric pulse, dealing 70/110/150/190/230 + 0.85×AP magic damage to surrounding enemies. The pulse leaves behind an energy field for 3 seconds, Slowing enemies by 20/25/30/35/40% and granting allies 20/25/30/35/40% Move Speed, decaying over 2 seconds.",
+   "summary": "Orianna commands her Ball to release a pulse of energy, dealing magic damage around it. This leaves a field behind that speeds up allies and slows enemies.",
+   "values": {
+    "BaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "APRatio": 0.85,
+    "SlowAmount": [
+     0.2,
+     0.25,
+     0.3,
+     0.35,
+     0.4
+    ],
+    "HasteAmount": [
+     0.2,
+     0.25,
+     0.3,
+     0.35,
+     0.4
+    ],
+    "FieldDuration": 3,
+    "SlowAndHasteDuration": 2
+   },
+   "formulas": {
+    "TotalDamage": "70/110/150/190/230 + 0.85×AP"
+   },
+   "tags": [
+    "move speed",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Command: Protect",
+   "cooldown": 9,
+   "cost": 60,
+   "costType": null,
+   "range": 1095.0,
+   "description": "Passive: The Ball adds 6/12/18/24/30 Armor and 6/12/18/24/30 Magic Resist to the allied champion it is attached to. Active: Orianna commands her Ball to attach to an allied champion, granting them 55/90/125/160/195 + 0.45×AP Shield for 2.5 seconds. Enemies the Ball passes through take 60/90/120/150/180 + 0.3×AP magic damage.",
+   "summary": "Orianna commands her Ball to attach to an allied champion, Shielding them and dealing magic damage to any enemies it passes through on the way. Additionally, the Ball grants additional Armor and Magic Resist to the champion it is attached to.",
+   "values": {
+    "ShieldAmount": [
+     55,
+     90,
+     125,
+     160,
+     195
+    ],
+    "DefenseBonus": [
+     6,
+     12,
+     18,
+     24,
+     30
+    ],
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "ShieldDuration": 2.5
+   },
+   "formulas": {
+    "TotalDamageTooltip": "60/90/120/150/180 + 0.3×AP",
+    "TotalShieldTooltip": "55/90/125/160/195 + 0.45×AP"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Command: Shockwave",
+   "cooldown": [
+    110,
+    95,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 410.0,
+   "description": "Orianna commands her Ball to unleash a shockwave, dealing 225/350/475 + 1.1×AP magic damage to nearby enemies and Knocking them in the direction of the Ball.",
+   "summary": "Orianna commands her Ball to unleash a shockwave, dealing magic damage and launching nearby enemies towards the Ball after a short delay.",
+   "values": {
+    "Damage": [
+     225,
+     350,
+     475
+    ],
+    "AoERadius": 415,
+    "StunDuration": 0.75
+   },
+   "formulas": {
+    "TotalDamage": "225/350/475 + 1.1×AP"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "Passive": {
+   "name": "Clockwork Windup",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Orianna's Attacks deal additional magic damage. This damage increases the more Orianna Attacks the same target.",
+   "summary": "Orianna's Attacks deal additional magic damage. This damage increases the more Orianna Attacks the same target.",
+   "values": {
+    "StackMult": 0.15,
+    "StackCount": 2,
+    "StackDuration": 4,
+    "APRatio": 0.15
+   },
+   "formulas": {
+    "TotalDamage": "10–50 (by level) + 0.15×AP",
+    "StackDamage": "(10–50 (by level) + 0.15×AP) × 0.15",
+    "StackDamageMax": "(10–50 (by level) + 0.15×AP) × (0.15 × 2)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Control mage who casts every ability from her Ball, which she moves around or attaches to allies. Wins lane with Q-W poke and teamfights with R's area knock.",
+  "positions": [
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Q-W poke from range with little risk",
+   "E shield on herself or an ally protects from poke and ganks",
+   "R knocks every enemy near the Ball toward it, a game-changing teamfight engage",
+   "W gives allies speed and slows enemies",
+   "Good wave clear"
+  ],
+  "weaknesses": [
+   "No dash: weak to assassins and hard engage",
+   "Mana-hungry early",
+   "Skill-intensive: everything depends on where the Ball is",
+   "Damage is lower than burst mages in short trades",
+   "R is easy to dodge if the Ball is visible"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "medium – Q+W",
+   "lvl3": "medium – E shield",
+   "lvl6": "strong – R",
+   "items": "strong – Lost Chapter / Luden's",
+   "late": "strong – teamfights"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q+W trades once she has W; E shield for safety.",
+  "waveClear": "good – Q and W area",
+  "sustain": "low – E shield",
+  "mobility": "low – none (W speed)",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "R",
+    "E"
+   ],
+   "escape": [
+    "W",
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attacks deal stacking bonus magic damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Ball moves to a location, damaging everything it passes."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Pulse at the Ball; slow field for enemies, speed for allies."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Ball attaches to an ally; shield; damages enemies on the path."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Shockwave knocks nearby enemies toward the Ball."
+   }
+  },
+  "windowAgainst": "Ball far from her (thrown away) or E down; dive her when R is on cooldown.",
+  "checks": [
+   "Whether Yasuo W / Samira W block the Ball's Q (it travels like a missile)."
+  ]
+ }
+}

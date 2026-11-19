@@ -1,0 +1,339 @@
+{
+ "id": 68,
+ "alias": "Rumble",
+ "name": "Rumble",
+ "title": "the Mechanized Menace",
+ "classes": [
+  "fighter",
+  "mage"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 640,
+  "hpPerLevel": 105,
+  "ad": 64,
+  "adPerLevel": 3.2,
+  "armor": 36,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.644,
+  "attackSpeedPerLevel": 1.85,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Flamespitter",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 600.0,
+   "description": "Rumble ignites his flamethrower, dealing 50/75/100/125/150 + 1.05×AP plus 6/6.5/7.0/7.5/8% max Health magic damage over 3 seconds, reduced to 70% against minions. Danger Zone: Damage is increased to (50/75/100/125/150 + 1.05×AP) × 1.5 plus (0.06/0.065/0.07/0.075/0.08) × 1.5 max Health. Percent damage is limited to 65–300 (by level) damage on Monsters.",
+   "summary": "Rumble torches opponents in front of him, dealing magic damage in a cone for 3 seconds. While in Danger Zone this damage is increased.",
+   "values": {
+    "BaseDamage": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "MinionMod": 0.7,
+    "HealthDamage": [
+     0.06,
+     0.065,
+     0.07,
+     0.075,
+     0.08
+    ],
+    "APRatio": 1.05,
+    "OverheatMulti": 1.5,
+    "FlamespitterDuration": 3,
+    "DebuffTicks": 3,
+    "TickRate": 0.25,
+    "TotalTicks": 12,
+    "InitialHeatCost": 20,
+    "BurnDuration": 0.6
+   },
+   "formulas": {
+    "FlatDamage": "50/75/100/125/150 + 1.05×AP",
+    "MinionDamage": "(50/75/100/125/150 + 1.05×AP) × 0.7",
+    "EmpoweredDamage": "(50/75/100/125/150 + 1.05×AP) × 1.5",
+    "EmpoweredHealth": "(0.06/0.065/0.07/0.075/0.08) × 1.5",
+    "MonsterCap": "65–300 (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Scrap Shield",
+   "cooldown": 6,
+   "cost": null,
+   "costType": null,
+   "range": 20.0,
+   "description": "Rumble tosses up a barrier, gaining 25/55/85/115/145 + 0.3×AP + 0.04×max HP Shield for (varies) seconds and 10/15/20/25/30% Move Speed for 1 second. Danger Zone: The barrier grants (25/55/85/115/145 + 0.3×AP + 0.04×max HP) × 1.5 Shield and (0.1/0.15/0.2/0.25/0.3) × 1.5 Move Speed instead.",
+   "summary": "Rumble pulls up a shield, protecting him from damage and granting him a quick burst of speed. While in Danger Zone, the shield strength and speed bonus is increased.",
+   "values": {
+    "HeatCost": 20,
+    "BaseShield": [
+     25,
+     55,
+     85,
+     115,
+     145
+    ],
+    "HealthShield": 0.04,
+    "MoveSpeed": [
+     0.1,
+     0.15,
+     0.2,
+     0.25,
+     0.3
+    ],
+    "APRatio": 0.3,
+    "ShieldDuration": 1.5,
+    "MoveSpeedDuration": 1
+   },
+   "formulas": {
+    "TotalShield": "25/55/85/115/145 + 0.3×AP + 0.04×max HP",
+    "EmpoweredShield": "(25/55/85/115/145 + 0.3×AP + 0.04×max HP) × 1.5",
+    "EmpoweredMS": "(0.1/0.15/0.2/0.25/0.3) × 1.5"
+   },
+   "tags": [
+    "move speed",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Electro Harpoon",
+   "cooldown": 0.5,
+   "cost": null,
+   "costType": null,
+   "range": 850.0,
+   "description": "Rumble launches an electrified harpoon, dealing 55/80/105/130/155 + 0.5×AP magic damage, Slowing by 15/20/25/30/35% for 2 seconds, and reducing the enemy's Magic Resist by 10/12/14.0/16/18% for 4 seconds. Hitting an enemy who's already Slowed by this Ability increases the Slow to 30/40/50/60/70% and reduces the enemy's Magic Resist by 20/24/28.0/32/36% Danger Zone: The harpoon deals (55/80/105/130/155 + 0.5×AP) × 1.5 magic damage instead and the Slow and reduced Magic Resist are increased by 50%.",
+   "summary": "Rumble launches a harpoon, electrocuting his target with magic damage, slowing their Move Speed, and reducing their Magic Resist. Rumble can carry 2 harpoons at a time. While in Danger Zone the damage and slow percentage is increased.",
+   "values": {
+    "BaseDamage": [
+     55,
+     80,
+     105,
+     130,
+     155
+    ],
+    "FirstCastHeatCost": 20,
+    "PercMagicPen": [
+     0.1,
+     0.12,
+     0.14,
+     0.16,
+     0.18
+    ],
+    "EnhancedMagicPen": [
+     0.2,
+     0.24,
+     0.28,
+     0.32,
+     0.36
+    ],
+    "ShredDuration": 4,
+    "SlowDuration": 2,
+    "BaseSlowAmount": [
+     15,
+     20,
+     25,
+     30,
+     35
+    ],
+    "EmpoweredSlowAmount": [
+     30,
+     40,
+     50,
+     60,
+     70
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "55/80/105/130/155 + 0.5×AP",
+    "EmpDamage": "(55/80/105/130/155 + 0.5×AP) × 1.5"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "The Equalizer",
+   "cooldown": [
+    130,
+    105,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 1750.0,
+   "description": "Rumble launches a line of rockets, creating a burning trail that lasts 4.5 seconds, Slowing by 35% and dealing 120/200/280 + 0.4×AP magic damage per second. Rumble can control the direction of the trail by clicking and dragging while casting this Ability.",
+   "summary": "Rumble fires off a group of rockets, creating a wall of flames that damages and slows enemies.",
+   "values": {
+    "NumMissiles": 6,
+    "TrailDuration": 4.5,
+    "TickRate": 0.25,
+    "SlowAmount": 35,
+    "BaseDamagePerSecond": [
+     120,
+     200,
+     280
+    ],
+    "MaxBurnSeconds": 5,
+    "BurnLingerTime": 1
+   },
+   "formulas": {
+    "DamagePerSecond": "120/200/280 + 0.4×AP",
+    "TotalDamage": "(120/200/280 + 0.4×AP) × 4.5"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Junkyard Titan",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every spell Rumble casts gives him Heat. When he reaches 50% Heat he reaches Danger Zone, granting all his basic abilities bonus effects. When he reaches 100% Heat, he starts Overheating, gaining bonus Attack Speed and granting his basic attacks bonus damage, but making him unable to cast spells for a few seconds.",
+   "summary": "Every spell Rumble casts gives him Heat. When he reaches 50% Heat he reaches Danger Zone, granting all his basic abilities bonus effects. When he reaches 100% Heat, he starts Overheating, gaining bonus Attack Speed and granting his basic attacks bonus damage, but making him unable to cast spells for a few seconds.",
+   "values": {
+    "OverheatDuration": 4,
+    "DangerZoneHeat": 50,
+    "OverheatingHeat": 150,
+    "OverheatPercBonusDamage": 0.04,
+    "MonsterCap": 80,
+    "HeatDecayPerS": -10
+   },
+   "formulas": {
+    "TotalBaseDamage": "5–40 (by level) + 0.25×AP",
+    "OverheatAS": "0.3–1 (by level)",
+    "MonsterCapScaling": "90–175 (by level)"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Mech-piloting mage who manages Heat: abilities raise it, and at 50+ Heat they get stronger. Wins lane with Q flamethrower in short range and wins fights with the R equalizer.",
+  "positions": [
+   "TOP",
+   "MIDDLE",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Q flamethrower deals high damage over time at short range",
+   "W shield blocks poke and gives move speed",
+   "E harpoons slow and stack",
+   "R zone deals heavy damage and slows across a teamfight",
+   "No mana; Heat manages his resource"
+  ],
+  "weaknesses": [
+   "Overheat (100 Heat) silences him, opening a window",
+   "Short range: kited by ranged champions",
+   "No hard crowd control",
+   "No dash; vulnerable to ganks without W"
+  ],
+  "curve": {
+   "lvl1": "medium – Q",
+   "lvl2": "strong – Q+W",
+   "lvl3": "strong – Q+E",
+   "lvl6": "strong – R",
+   "items": "strong – Liandry's / Rylai's",
+   "late": "medium-strong – R teamfights"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants Q, W and E to trade and manage Heat in the danger zone.",
+  "waveClear": "good – Q",
+  "sustain": "low – W shield",
+  "mobility": "low – W move speed",
+  "range": "melee-range mage",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Heat: 50+ Danger Zone empowers; 100 overheats, silences, attacks deal bonus damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Flamethrower cone for 3 s."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield and move speed."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Harpoons slow, stacking."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Line of fire zone that slows and burns."
+   }
+  },
+  "windowAgainst": "Overheated (silenced) or W down; Q on cooldown.",
+  "checks": [
+   "Whether E harpoons are blockable missiles (I set yes)."
+  ]
+ }
+}

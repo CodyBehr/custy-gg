@@ -1,0 +1,315 @@
+{
+ "id": 63,
+ "alias": "Brand",
+ "name": "Brand",
+ "title": "the Burning Vengeance",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 570,
+  "hpPerLevel": 105,
+  "ad": 57,
+  "adPerLevel": 3,
+  "armor": 24,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.681,
+  "attackSpeedPerLevel": 2,
+  "range": 550,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Sear",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 1050.0,
+   "description": "Brand launches a fireball that deals 70/100/130/160/190 + 0.65×AP magic damage to the first enemy hit. If the target is Ablaze, they will be Stunned for 1.75 seconds.",
+   "summary": "Brand launches a ball of fire forward that deals magic damage. If the target is ablaze, Sear will stun the target.",
+   "values": {
+    "StunDuration": 1.75,
+    "SpellBaseDamage": [
+     70,
+     100,
+     130,
+     160,
+     190
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "70/100/130/160/190 + 0.65×AP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Pillar of Flame",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    110
+   ],
+   "costType": null,
+   "range": 900.0,
+   "description": "Brand creates a pillar of pure fire, dealing 75/120/165/210/255 + 0.7×AP magic damage. Units that are Ablaze take (75/120/165/210/255 + 0.7×AP) × 1.25 damage instead.",
+   "summary": "After a short delay, Brand creates a Pillar of Flame at a target area, dealing magic damage to enemy units within the area. Units that are ablaze take an additional 25% damage.",
+   "values": {
+    "APRatio": 0.7,
+    "BaseDamage": [
+     75,
+     120,
+     165,
+     210,
+     255
+    ],
+    "PDamageBonus": 0.25
+   },
+   "formulas": {
+    "TotalDamage": "75/120/165/210/255 + 0.7×AP",
+    "EmpoweredDamage": "(75/120/165/210/255 + 0.7×AP) × 1.25"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Conflagration",
+   "cooldown": [
+    13,
+    12,
+    11,
+    10,
+    9
+   ],
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    95
+   ],
+   "costType": null,
+   "range": 625.0,
+   "description": "Brand conjures a powerful blast at his target, dealing 55/80/105/130/155 + 0.6×AP magic damage to surrounding units. If the target is Ablaze, the spread range is doubled.",
+   "summary": "Brand conjures a powerful blast at his target that spreads to nearby enemies, dealing magic damage. If the target is ablaze, Conflagration's spread is doubled.",
+   "values": {
+    "BaseDamage": [
+     55,
+     80,
+     105,
+     130,
+     155
+    ],
+    "APRatio": 0.6
+   },
+   "formulas": {
+    "EDamageCalc": "55/80/105/130/155 + 0.6×AP"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Pyroclasm",
+   "cooldown": [
+    100,
+    90,
+    80
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 750.0,
+   "description": "Brand unleashes a devastating torrent of fire that can bounce to Brand or another enemy up to 5 times, dealing 100/175/250 + 0.3×AP magic damage to enemies each bounce. Bounces prioritize stacking Blaze to max on champions. If the target is Ablaze, they are briefly Slowed by 30/45/60%.",
+   "summary": "Brand unleashes a devastating torrent of fire that bounces up to 5 times off of Brand and nearby enemies, dealing magic damage to enemies each time bounce. Bounces prioritize stacking Blaze to max on Champions. If a target is ablaze, Pyroclasm will briefly slow them.",
+   "values": {
+    "BaseDamage": [
+     100,
+     175,
+     250
+    ],
+    "SlowAmount": [
+     30,
+     45,
+     60
+    ],
+    "SlowDuration": 0.25,
+    "APRatio": 0.3
+   },
+   "formulas": {
+    "TotalDamage": "100/175/250 + 0.3×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Blaze",
+   "cooldown": [
+    8,
+    7.5,
+    7,
+    6.5,
+    6
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": null,
+   "description": "Brand's spells light his targets ablaze, dealing damage over 4 seconds, stacking up to 3 times. If Brand kills an enemy while it is ablaze he regains mana. When Blaze reaches max stacks on a Champion or large monster, it becomes unstable. It detonates in 2 seconds, applying spell effects and dealing massive damage in an area around the victim.",
+   "summary": "Brand's spells light his targets ablaze, dealing damage over 4 seconds, stacking up to 3 times. If Brand kills an enemy while it is ablaze he regains mana. When Blaze reaches max stacks on a Champion or large monster, it becomes unstable. It detonates in 2 seconds, applying spell effects and dealing massive damage in an area around the victim.",
+   "values": {
+    "MonsterMod": 270,
+    "PercentHealthDamage": 2,
+    "EpicMonsterDPSCap": 80,
+    "JungleMonsterDPSCap": 50,
+    "ManaRestoration": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ]
+   },
+   "formulas": {
+    "ManaRestore": "20+ (by level)",
+    "ExplosionDamage": "(6–12 (by level) + 0.02×AP) × 0.01",
+    "{4124b2bf}": "(80 × 0.25)",
+    "{afbf404a}": "(50 × 0.25)",
+    "JungleMonsterExplosionFlatCap": "270+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Burn mage whose spells set targets ablaze and stack Blaze up to 3 times. Wins fights by landing Q stun on an ablaze target and detonating max-stack Blaze across a group with R bounces.",
+  "positions": [
+   "UTILITY",
+   "MIDDLE",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Q fireball stuns for 1.75 s if the target is ablaze",
+   "W pillar deals 25% more to ablaze targets",
+   "E is targeted, sets ablaze and spreads farther on ablaze targets",
+   "R bounces up to 5 times and slows ablaze targets",
+   "Passive at 3 stacks detonates for big area damage"
+  ],
+  "weaknesses": [
+   "No dash or self-peel beyond the Q stun",
+   "Q and W are skillshots; misses cut his damage",
+   "Mana-hungry before items",
+   "Squishy; weak to hard engage and assassins",
+   "R bounces back to him if there are no other enemies"
+  ],
+  "curve": {
+   "lvl1": "medium – W/E poke",
+   "lvl2": "medium – E-Q stun",
+   "lvl3": "strong – full combo",
+   "lvl6": "strong – R bounces",
+   "items": "strong – Liandry's / Rylai's",
+   "late": "strong – teamfight burn"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "E (targeted) then Q stun is his reliable combo; W adds damage at 3.",
+  "waveClear": "good – W and E spread",
+  "sustain": "low",
+  "mobility": "low – none",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "E",
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E",
+    "Q"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Blaze: burn stacks to 3; at max it detonates in 2 s."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Fireball; 1.75 s stun if target is ablaze. Blockable."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Delayed pillar; 25% more on ablaze targets."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Targeted blast; spreads to nearby, double range on ablaze."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Bounces up to 5 times; slows ablaze targets."
+   }
+  },
+  "windowAgainst": "E or Q on cooldown: no stun setup, engage him.",
+  "checks": [
+   "Whether R bounces are blockable by Yasuo W / Samira W."
+  ]
+ }
+}

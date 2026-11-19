@@ -1,0 +1,295 @@
+{
+ "id": 59,
+ "alias": "JarvanIV",
+ "name": "Jarvan IV",
+ "title": "the Exemplar of Demacia",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 640,
+  "hpPerLevel": 104,
+  "ad": 64,
+  "adPerLevel": 3,
+  "armor": 36,
+  "armorPerLevel": 4.6,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2.5,
+  "range": 175,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Dragon Strike",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": [
+    50,
+    55,
+    60,
+    65,
+    70
+   ],
+   "costType": null,
+   "range": 770.0,
+   "description": "Jarvan extends his lance, dealing 90/130/170/210/250 + 1.45×bonus AD physical damage and removing 10/14.0/18/22/26% Armor for (varies) seconds. If the lance connects with Demacian Standard, Jarvan will pull himself to it, Knocking Up those in his path for 0.75 seconds.",
+   "summary": "Jarvan IV extends his lance, dealing physical damage and lowering the Armor of enemies in its path. Additionally, this will pull Jarvan to his Demacian Standard, knocking up enemies in his path.",
+   "values": {
+    "BaseDamage": [
+     90,
+     130,
+     170,
+     210,
+     250
+    ],
+    "BaseARShred": [
+     0.1,
+     0.14,
+     0.18,
+     0.22,
+     0.26
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "90/130/170/210/250 + 1.45×bonus AD"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "W": {
+   "name": "Golden Aegis",
+   "cooldown": 9,
+   "cost": 30,
+   "costType": null,
+   "range": 625.0,
+   "description": "Jarvan summons an aegis, Slowing nearby enemies by 15/20/25/30/35% for (varies) seconds and granting him a ? + 0.7×bonus AD Shield, increased by 0.013×max HP for each enemy champion hit.",
+   "summary": "Jarvan IV calls upon the ancient kings of Demacia to shield him from harm and slow surrounding enemies.",
+   "values": {
+    "BaseSlowAmount": [
+     0.15,
+     0.2,
+     0.25,
+     0.3,
+     0.35
+    ]
+   },
+   "formulas": {
+    "TotalShield": "? + 0.7×bonus AD",
+    "BonusShield": "0.013×max HP"
+   },
+   "tags": [
+    "shield",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Demacian Standard",
+   "cooldown": [
+    12,
+    11.5,
+    11,
+    10.5,
+    10
+   ],
+   "cost": 55,
+   "costType": null,
+   "range": 860.0,
+   "description": "Passive: Jarvan gains 20/22.5/25/27.5/30% Attack Speed. Active: Jarvan throws a standard into the ground, dealing ? + 0.8×AP magic damage and granting allies near the standard 20/22.5/25/27.5/30% Attack Speed for (varies) seconds.",
+   "summary": "Jarvan IV carries the pride of Demacia, passively granting him bonus Attack Speed. Activating Demacian Standard allows Jarvan IV to place a Demacian flag that deals magic damage on impact and grants Attack Speed to nearby allied champions.",
+   "values": {
+    "EDashSpeed": 1400,
+    "EBehindJarvanCheck": 400,
+    "EKnockUpAoE": 180,
+    "PermanentAttackSpeed": [
+     0.2,
+     0.225,
+     0.25,
+     0.275,
+     0.3
+    ],
+    "APRatio": 0.8,
+    "BaseAuraAS": [
+     0.2,
+     0.225,
+     0.25,
+     0.275,
+     0.3
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "? + 0.8×AP"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  },
+  "R": {
+   "name": "Cataclysm",
+   "cooldown": [
+    120,
+    105,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 650.0,
+   "description": "Jarvan heroically leaps to an enemy Champion, dealing 200/325/450 + 1.8×bonus AD physical damage to them and surrounding enemies and creating an arena of impassable terrain around them for 3.5 seconds. Jarvan can Recast to collapse the terrain.",
+   "summary": "Jarvan IV heroically leaps into battle at a target with such force that he terraforms the surrounding area to create an arena around them. Nearby enemies are damaged at the moment of impact.",
+   "values": {
+    "BaseDamage": [
+     200,
+     325,
+     450
+    ],
+    "WallDuration": 3.5
+   },
+   "formulas": {
+    "DamageCalc": "200/325/450 + 1.8×bonus AD"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "Passive": {
+   "name": "Martial Cadence",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Jarvan's first basic attack on an enemy deals bonus physical damage based on their current Health. This effect cannot occur again on the same enemy for a few seconds.",
+   "summary": "Jarvan's first basic attack on an enemy deals bonus physical damage based on their current Health. This effect cannot occur again on the same enemy for a few seconds.",
+   "values": {
+    "MaximumCadenceDamage": 400,
+    "MinimumCadenceDamage": 20,
+    "TooltipCurrentHealthDamage": 0.08
+   },
+   "formulas": {
+    "TooltipCooldown": "6+ (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Early-game engage jungler who knocks up with the E-Q flag combo and traps a target in terrain with R. Wins with strong level 2-3 ganks and teamfight engage.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "E-Q: long dash with knock-up for ganks or escapes, can cross walls",
+   "R Cataclysm traps a target (and his team) inside terrain",
+   "Strong early ganks and invades",
+   "Q armor shred and passive current-health damage help his team kill tanks",
+   "E flag gives allies attack speed"
+  ],
+  "weaknesses": [
+   "E-Q is a two-part combo: easy to sidestep the flag",
+   "Falls off as a damage threat later",
+   "R arena can trap him with the enemy team if misused",
+   "Mana-hungry early",
+   "Once E-Q and R are down he has no mobility"
+  ],
+  "curve": {
+   "lvl1": "medium – passive + Q in invades",
+   "lvl2": "strong – E-Q knock-up ganks from level 2",
+   "lvl3": "strong – E-Q + W slow ganks",
+   "lvl6": "strong – R arena locks a target for a kill",
+   "items": "strong – first AD item (Eclipse or Sundered Sky)",
+   "late": "medium – engage tool rather than a carry"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Needs E and Q together (level 2) for the knock-up dash.",
+  "waveClear": "medium – Q line + E",
+  "sustain": "low – W shield only",
+  "mobility": "medium – E-Q dash; R leap",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive"
+   ],
+   "engage": [
+    "E",
+    "Q",
+    "R"
+   ],
+   "escape": [
+    "E",
+    "Q"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "First attack on a target deals current-health damage (per-target cooldown; dodgeable by Jax E)."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Lance shreds armor; into the flag, he dashes to it and knocks up enemies in his path."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Shield + slow around him."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Places the flag (damage, ally attack speed). Passive attack speed."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Leaps to a champion, creates an impassable terrain arena; recast collapses it."
+   }
+  },
+  "windowAgainst": "E-Q down: he can't engage or escape. Sidestep the flag line before the Q.",
+  "checks": [
+   "R arena is not crowd control but blocks movement (dash or Flash out)."
+  ]
+ }
+}

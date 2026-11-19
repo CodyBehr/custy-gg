@@ -1,0 +1,281 @@
+{
+ "id": 126,
+ "alias": "Jayce",
+ "name": "Jayce",
+ "title": "the Defender of Tomorrow",
+ "classes": [
+  "fighter",
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 590,
+  "hpPerLevel": 109,
+  "ad": 59,
+  "adPerLevel": 4.25,
+  "armor": 22,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 3,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "To the Skies! / Shock Blast",
+   "cooldown": [
+    16,
+    14,
+    12,
+    10,
+    8
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 600.0,
+   "description": "Mercury Hammer: Jayce leaps to an enemy, dealing @spell.JayceToTheSkies:Damage@ physical damage to surrounding enemies and Slowing them by @spell.JayceToTheSkies:Slow*-100@% for @spell.JayceToTheSkies:SlowDuration@ seconds.",
+   "summary": "Hammer Stance: Leaps to an enemy dealing physical damage and slowing enemies. Cannon Stance: Fires an orb of electricity that detonates upon hitting an enemy (or reaching the end of its path) dealing physical damage to all enemies hit.",
+   "values": {
+    "BaseDamage": [
+     60,
+     110,
+     160,
+     210,
+     260
+    ],
+    "Slow": [
+     -0.35,
+     -0.4,
+     -0.45,
+     -0.5,
+     -0.55
+    ],
+    "SlowDuration": 2,
+    "MonsterBonusDamage": 10
+   },
+   "formulas": {
+    "Damage": "60/110/160/210/260 + 1.35\u00d7bonus AD"
+   },
+   "tags": [
+    "dash",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Lightning Field / Hyper Charge",
+   "cooldown": null,
+   "cost": 40,
+   "costType": null,
+   "range": 285.0,
+   "description": "Mercury Hammer - Passive: Jayce's Hammer Attacks grant @spell.JayceStaticField:ManaGain@ Mana. Mercury Hammer - Active: Jayce creates an electric aura dealing @spell.JayceStaticField:Damage@ magic damage over @spell.JayceStaticField:Duration@ seconds.",
+   "summary": "Hammer Stance: Passive: Restores Mana per strike. Active: Creates a field of lightning damaging nearby enemies for several seconds. Cannon Stance: Gains a burst of energy, increasing Attack Speed to maximum for several attacks.",
+   "values": {
+    "ManaGain": [
+     15,
+     17,
+     19,
+     21,
+     23
+    ],
+    "BaseDamage": [
+     140,
+     200,
+     260,
+     320,
+     380
+    ],
+    "Duration": 4
+   },
+   "formulas": {
+    "Damage": "140/200/260/320/380 + 1\u00d7AP"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Thundering Blow / Acceleration Gate",
+   "cooldown": [
+    20,
+    18,
+    16,
+    14,
+    12
+   ],
+   "cost": 55,
+   "costType": null,
+   "range": 240.0,
+   "description": "Hammer Form: Jayce swings his hammer, Knocking Back his target and dealing @spell.JayceThunderingBlow:FlatDamage@ plus @spell.JayceThunderingBlow:PercHPDamage*100@% max Health magic damage.",
+   "summary": "Hammer Stance: Deals magic damage to an enemy and knocks them back a short distance. Cannon Stance: Deploys an Acceleration Gate increasing the Move Speed of all allied champions who pass through it. If Shock Blast is fired through the gate the missile speed, range, and damage will increase.",
+   "values": {
+    "MonsterCap": [
+     200,
+     300,
+     400,
+     500,
+     600
+    ],
+    "PercHPDamage": [
+     0.08,
+     0.108,
+     0.136,
+     0.164,
+     0.192
+    ],
+    "KnockbackDistance": 600,
+    "KnockbackDuration": 0.35
+   },
+   "formulas": {
+    "FlatDamage": "1\u00d7bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "heal"
+   ]
+  },
+  "R": {
+   "name": "Mercury Cannon / Mercury Hammer",
+   "cooldown": 6,
+   "cost": null,
+   "costType": null,
+   "range": 600.0,
+   "description": "Mercury Hammer: Jayce transforms his weapon into the Mercury Cannon, gaining Attack Range and new Abilities. Jayce's next Attack removes @spell.JayceStanceHtG:RangedFormShred@ Armor and Magic Resist for @spell.JayceStanceHtG:ShredDuration@ seconds.",
+   "summary": "Hammer Stance: Transforms the Mercury Hammer into the Mercury Cannon gaining new abilities and increased range. The first attack in this form reduces the target's Armor and Magic Resist. Cannon Stance: Transforms the Mercury Cannon into the Mercury Hammer gaining new abilities and increasing Armor and Magic Resist. The first attack in this form deals additional magic damage.",
+   "values": {
+    "RangedFormRangeIncrease": 375,
+    "ShredDuration": 5,
+    "ADRatio": 0.3
+   },
+   "formulas": {
+    "RangedFormShred": "0.2+ (by level)",
+    "Damage": "25+ (by level) + 0.3\u00d7bonus AD",
+    "Resists": "5+ (by level) + 0.075\u00d7bonus AD"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  },
+  "Passive": {
+   "name": "Hextech Capacitor",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "When Jayce swaps weapons he gains Move Speed for a short duration.",
+   "summary": "When Jayce swaps weapons he gains Move Speed for a short duration.",
+   "values": {
+    "FlatMovementSpeed": 30,
+    "MovementSpeedDuration": 0.75
+   },
+   "formulas": {},
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Jayce is a lane-bully fighter who switches between Mercury Hammer (melee) and Mercury Cannon (ranged) forms. He plays top or mid, poking with cannon Shock Blast through Acceleration Gate and finishing with hammer combos.",
+  "positions": [
+   "TOP",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Strong early lane bully: cannon Q through E is long-range poke that hurts.",
+   "Two forms give him six abilities, flexible for both poke and all-in.",
+   "Hammer E knocks back and deals % max HP damage, a peel and finishing tool.",
+   "Hammer Q leaps to an enemy and slows, an engage tool.",
+   "Strong mid game with lethality items."
+  ],
+  "weaknesses": [
+   "Falls off late against tankier teams.",
+   "No real escape apart from hammer E knock-back and cannon E speed.",
+   "Hard to play well: managing forms takes practice.",
+   "Mana-hungry: spamming poke runs him dry.",
+   "Weak if behind: he relies on lane bullying."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 cannon Q pokes from range from level 1, since R swaps forms from the start",
+   "lvl2": "strong \u2013 cannon Q through E gives long, fast poke",
+   "lvl3": "strong \u2013 hammer Q into hammer E for an all-in",
+   "lvl6": "strong \u2013 more ranks; his combos get stronger",
+   "items": "medium \u2013 first item: Lethality items like Youmuu's Ghostblade or Eclipse",
+   "late": "okay \u2013 falls off against tanky teams"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Jayce is strong early as a lane bully. He wants to win his lane and snowball before late game.",
+  "waveClear": "Good: cannon Q clears waves.",
+  "sustain": "Low: no healing.",
+  "mobility": "Okay: hammer Q leap and cannon E speed.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Cannon Q through E for long poke",
+   "engage": "Hammer Q leap into hammer E knock-back",
+   "escape": "Hammer E to peel",
+   "answers": "None. Jayce has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Hextech Capacitor: move speed when he swaps weapons."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Hammer Q is point and click; cannon Q can be dodged or blocked with a projectile block.",
+    "notes": "To the Skies! (hammer): leap to an enemy, area damage and slow. Shock Blast (cannon): a missile that explodes; faster and stronger through Acceleration Gate."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Lightning Field (hammer): an aura of damage. Hyper Charge (cannon): attack speed."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Point and click; spell shields block it.",
+    "notes": "Thundering Blow (hammer): knocks back and deals % max HP damage. Acceleration Gate (cannon): a gate that speeds allies and Shock Blast."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Transform: switches between hammer and cannon forms; the next attack after transforming shreds armor or magic resist."
+   }
+  },
+  "windowAgainst": "Jayce's window is late, or when he has used his mana poking. All-in him when his hammer E is on cooldown.",
+  "checks": [
+   "Does Jayce poke with cannon Q through E?",
+   "Does Jayce use hammer E to peel?",
+   "Does Jayce manage mana?",
+   "Riot descriptions have unresolved placeholders; only the hammer forms' text came through. Check cannon Q/W/E values in game."
+  ]
+ }
+}

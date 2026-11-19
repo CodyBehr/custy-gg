@@ -1,0 +1,334 @@
+{
+ "id": 893,
+ "alias": "Aurora",
+ "name": "Aurora",
+ "title": "the Witch Between Worlds",
+ "classes": [
+  "mage",
+  "assassin"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 607,
+  "hpPerLevel": 110,
+  "ad": 53,
+  "adPerLevel": 3,
+  "armor": 23,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.668,
+  "attackSpeedPerLevel": 2,
+  "range": 550,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Twofold Hex",
+   "cooldown": [
+    9,
+    8.5,
+    8,
+    7.5,
+    7
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 900.0,
+   "description": "Fire cursed energy in a direction, dealing (varies) magic damage to enemies and cursing them for 3.5 seconds. Recast: End the curse, drawing back part of the enemy's spirit to Aurora, dealing up to (45/70/95/120/145 + 0.4×AP) × 1.5 magic damage to enemies passed through based on their missing Health. Damage beyond the first hit is reduced to 20%. If the duration runs out, Aurora will automatically Recast the Ability.",
+   "summary": "Aurora sends out a missile that curses any enemies it hits. She can then recast the ability to draw active curses back toward herself, damaging foes who are hit along the way.",
+   "values": {
+    "BaseDamage": [
+     45,
+     70,
+     95,
+     120,
+     145
+    ],
+    "DamageReduction": 0.2,
+    "Q2BaseDamage": [
+     45,
+     70,
+     95,
+     120,
+     145
+    ],
+    "MarkDuration": 3.5,
+    "MinionDamageReduction": 0.1,
+    "MissingHealthPercentMod": 0.5,
+    "Q2MinionMod": 0.4,
+    "CDRefund": 1.5,
+    "CD": 4
+   },
+   "formulas": {
+    "Damage": "45/70/95/120/145 + 0.4×AP",
+    "{f7c018c7}": "45/70/95/120/145 + 0.4×AP",
+    "Q2DamageMax": "(45/70/95/120/145 + 0.4×AP) × 1.5"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Across the Veil",
+   "cooldown": [
+    22,
+    21,
+    20,
+    19,
+    18
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 700.0,
+   "description": "Hop in a direction. Upon landing, enter the spirit realm, becoming Invisible for 1/1.15/1.3/1.45/1.6 seconds and entering Realm Hopper, gaining 20/25/30/35/40% Move Speed. Scoring a takedown on an enemy champion resets this Ability's Cooldown.",
+   "summary": "Aurora leaps in a direction of her choosing, entering the spirit realm upon landing, becoming invisible, and gaining Move Speed for a short duration of time.",
+   "values": {
+    "InvisDuration": [
+     1,
+     1.15,
+     1.3,
+     1.45,
+     1.6
+    ],
+    "DashBonusSpeed": 350,
+    "JumpDistance": 300,
+    "WallCheatDistance": 450,
+    "MoveSpeedBonus": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ]
+   },
+   "formulas": {},
+   "tags": [
+    "move speed",
+    "stealth"
+   ]
+  },
+  "E": {
+   "name": "The Weirding",
+   "cooldown": [
+    15,
+    14,
+    13,
+    12,
+    11
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 825.0,
+   "description": "Converge the realms, sending out a blast of spirit magic dealing 80/120/160/200/240 + 0.7×AP magic damage to enemies in the area and Slowing them by 80% decaying over 1 second. Aurora hops backwards a short distance after casting.",
+   "summary": "Aurora converges the realms, sending out a blast of spirit magic that damages and slows enemies before Aurora hops backward to safety.",
+   "values": {
+    "BaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "SlowPercent": -0.8,
+    "SelfKnockBackDistance": 250,
+    "AoELength": 825,
+    "AoEWidth": 175,
+    "SlowDecay": 0.85,
+    "SlowDuration": 1
+   },
+   "formulas": {
+    "DamageCalc": "80/120/160/200/240 + 0.7×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Between Worlds",
+   "cooldown": [
+    140,
+    120,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 250.0,
+   "description": "Leap in a direction. Upon landing, Aurora converges the realms, sending out a pulse of spirit energy that deals 175/275/375 + 0.7×AP magic damage and Slows enemies hit by 30% for 2 seconds. The area of convergence stays active for 3/3.5/4 seconds, granting Aurora Realm Hopper for 3/3.5/4 seconds, allowing her to jump from one edge of the area to another. Enemies attempting to enter or leave the area are Slowed by 50% for 1.5/1.75/2 seconds. Aurora can Recast this Ability to end the effect early.",
+   "summary": "Aurora leaps in a direction of her choosing, releasing a shockwave that damages and slows any enemies it hits. Afterward, she creates an area that slows enemies within it and allows Aurora to teleport from one side of the area to the other.",
+   "values": {
+    "BaseDamage": [
+     175,
+     275,
+     375
+    ],
+    "SlowPercent": -0.3,
+    "ExitBaseDamage": [
+     50,
+     100,
+     150
+    ],
+    "ExitSlowPercent": -0.5,
+    "AreaDuration": [
+     3,
+     3.5,
+     4
+    ],
+    "AoESize": 700,
+    "StunDuration": [
+     1.5,
+     1.75,
+     2
+    ],
+    "MSMultiplier": 2,
+    "JumpMaxDistance": 250,
+    "JumpMinDistance": 25
+   },
+   "formulas": {
+    "DamageCalc": "175/275/375 + 0.7×AP"
+   },
+   "tags": [
+    "dash",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Spirit Abjuration",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Aurora's spells and attacks exorcise spirits from the enemies she damages. Exorcised spirits follow Aurora around and heal her.",
+   "summary": "Aurora's spells and attacks exorcise spirits from the enemies she damages. Exorcised spirits follow Aurora around and heal her.",
+   "values": {
+    "DebuffDuration": 4,
+    "SpiritModeDuration": 4,
+    "BaseHPDamage": 0.01,
+    "MonsterMaxDamage": 90,
+    "MSIncrease": 5,
+    "BonusMsIncrease": 0.02
+   },
+   "formulas": {
+    "ProcDamage": "0.01 + 0.0×AP",
+    "MoveSpeedCalc": "0.05+ (by level) + 0.0×AP",
+    "HealCalc": "3–20 (by level) + 0.02×AP",
+    "{394d1781}": "10+ (by level) + 90",
+    "BonusMSCalc": "0.02 + 0.0×AP",
+    "CooldownDuration": "5–5 (by level)",
+    "{406b6e3e}": "?×max HP"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Mobile mage who pokes with Q, hops between realms to reposition and traps fights inside her R area.",
+  "positions": [
+   "MIDDLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Very mobile (W hop + invisibility, E backward hop, R leap)",
+   "Good poke and burst with Q recast",
+   "Strong in skirmishes where W resets on takedowns",
+   "Can play top or mid"
+  ],
+  "weaknesses": [
+   "Squishy if caught",
+   "Q curse needs follow-up to be strong",
+   "Hard crowd control is limited (slows)",
+   "Mana and cooldown dependent"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "medium",
+   "lvl3": "strong – full kit",
+   "lvl6": "strong – R traps enemies in area",
+   "items": "first AP item",
+   "late": "strong skirmisher"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q poke from 1; trading picks up when W is available for safety.",
+  "waveClear": "good – Q/E area",
+  "sustain": "low – passive heal from exorcised spirits",
+  "mobility": "high – W hop, E backward hop, R leap",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "W",
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "P": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Spirits from damage heal her"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": "none",
+    "notes": "Curse then recast to pull spirit back for more damage"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Hop + invisibility; resets on takedown"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "none",
+    "notes": "80% decaying slow; she hops backward after"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "none",
+    "notes": "Leap; area stays active and lets Aurora move through the edge (enemies are trapped) (check)"
+   }
+  },
+  "windowAgainst": "After W is used (no escape) or when Q is missed.",
+  "checks": [
+   "R trap/edge behaviour paraphrased from memory; confirm against description"
+  ]
+ }
+}

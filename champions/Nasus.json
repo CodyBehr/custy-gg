@@ -1,0 +1,312 @@
+{
+ "id": 75,
+ "alias": "Nasus",
+ "name": "Nasus",
+ "title": "the Curator of the Sands",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 650,
+  "hpPerLevel": 104,
+  "ad": 67,
+  "adPerLevel": 4,
+  "armor": 34,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.638,
+  "attackSpeedPerLevel": 3.48,
+  "range": 125,
+  "moveSpeed": 350
+ },
+ "abilities": {
+  "Q": {
+   "name": "Siphoning Strike",
+   "cooldown": [
+    7.5,
+    6.5,
+    5.5,
+    4.5,
+    3.5
+   ],
+   "cost": 20,
+   "costType": null,
+   "range": 255.0,
+   "description": "Nasus' next Attack deals 30/50/70/90/110 + 1\u00d7AD + ? physical damage. Killing an enemy with this Attack permanently increases its damage by 4, increased to 10 against champions, large minions and large jungle monsters.",
+   "summary": "Nasus strikes his foe, dealing damage and increasing the power of his future Siphoning Strikes if he slays his target.",
+   "values": {
+    "BonusRange": 50,
+    "BonusDamage": [
+     30,
+     50,
+     70,
+     90,
+     110
+    ],
+    "BasicStacks": 4,
+    "BigStacks": 10,
+    "BuffDuration": 10
+   },
+   "formulas": {
+    "TotalDamage": "30/50/70/90/110 + 1\u00d7AD + ?",
+    "CritDamage": "(1\u00d7stat \u00d7 (30/50/70/90/110 + 1\u00d7AD)) + ?"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  },
+  "W": {
+   "name": "Wither",
+   "cooldown": [
+    15,
+    14,
+    13,
+    12,
+    11
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 700.0,
+   "description": "Nasus ages a champion, Slowing them by 35%, increasing to 47/59/71/83/95% over 5 seconds. Their Attack Speed is also reduced by 75% of the Slow.",
+   "summary": "Nasus ages an enemy champion, decelerating their Move Speed and Attack Speed over time.",
+   "values": {
+    "SlowBase": 35,
+    "SlowPerTick": [
+     3,
+     6,
+     9,
+     12,
+     15
+    ],
+    "MaxSlowTooltipOnly": [
+     47,
+     59,
+     71,
+     83,
+     95
+    ],
+    "AttackSpeedSlowMult": 0.75,
+    "Duration": 5
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Spirit Fire",
+   "cooldown": 12,
+   "cost": [
+    70,
+    80,
+    90,
+    100,
+    100
+   ],
+   "costType": null,
+   "range": 650.0,
+   "description": "Nasus ignites a spirit flame, dealing 50/80/110/140/170 + 0.6\u00d7AP magic damage. Enemies in the area lose 30/35/40/45/50% Armor and take (10/16/22/28/34 + 0.12\u00d7AP) \u00d7 5 magic damage over 5 seconds.",
+   "summary": "Nasus unleashes a spirit flame at a location, dealing damage and reducing the Armor of enemies who stand on it.",
+   "values": {
+    "DamagePerTick": [
+     10,
+     16,
+     22,
+     28,
+     34
+    ],
+    "ArmorShredPercent": [
+     -0.3,
+     -0.35,
+     -0.4,
+     -0.45,
+     -0.5
+    ],
+    "Duration": 5,
+    "InitialHitDamage": [
+     50,
+     80,
+     110,
+     140,
+     170
+    ]
+   },
+   "formulas": {
+    "TotalDotDamage": "(10/16/22/28/34 + 0.12\u00d7AP) \u00d7 5",
+    "InitialDamage": "50/80/110/140/170 + 0.6\u00d7AP"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Fury of the Sands",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 400.0,
+   "description": "Nasus becomes empowered in the sandstorm for 15 seconds, increasing his maximum Health by 300/450/600 and Armor and Magic Resistance by 40/55/70. While the storm rages, nearby enemies take AoeDamagePercent + 0.0\u00d7AP of their maximum Health as magic damage each second and Siphoning Strike has a 50% reduced Cooldown.",
+   "summary": "Nasus unleashes a mighty sandstorm that batters nearby enemies. While the storm rages, he gains increased Health, Attack Range, damages nearby enemies, has a reduced cooldown on Siphoning Strike, and gains bonus Armor and Magic Resistance.",
+   "values": {
+    "BonusHealth": [
+     300,
+     450,
+     600
+    ],
+    "AttackRangeIncrease": 50,
+    "AOEDamagePercent": [
+     0.03,
+     0.04,
+     0.05
+    ],
+    "TickRate": 0.5,
+    "InitialResistGain": [
+     40,
+     55,
+     70
+    ],
+    "MaxDamageCap": 240,
+    "Duration": 15,
+    "QCDR": 0.5,
+    "SizeIncreasePercent": [
+     0.3,
+     0.35,
+     0.4
+    ],
+    "BaseAoERadius": 376,
+    "MinAoERadius": 400
+   },
+   "formulas": {
+    "DamageCalc": "AoeDamagePercent + 0.0\u00d7AP"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Soul Eater",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Nasus drains his foe's spiritual energy, giving him bonus Life Steal.",
+   "summary": "Nasus drains his foe's spiritual energy, giving him bonus Life Steal.",
+   "values": {},
+   "formulas": {
+    "LifestealTooltip": "10+ (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Scaling top laner who stacks Siphoning Strike (Q) on last hits. Weak early; from level 6 and first item he wins long fights with W slow, R tankiness and huge Q hits.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Q stacks forever: one-shots late game",
+   "W slow and attack speed reduction stops kiting",
+   "R: big health and resistances, area damage",
+   "Passive lifesteal helps him sustain in lane",
+   "W: up to 95% slow plus attack speed cut ruins melee and auto-attack carries",
+   "Q cooldown drops fast with ranks, so stacks come quickly once it's maxed"
+  ],
+  "weaknesses": [
+   "Very weak early: bullied by most top laners",
+   "Kited by ranged champions",
+   "No dash",
+   "Low impact if Q stacks are denied",
+   "Loses short trades before level 6",
+   "Mana-hungry early if he spams E"
+  ],
+  "curve": {
+   "lvl1": "weak \u2013 only stacks Q",
+   "lvl2": "weak \u2013 W slow, but low damage",
+   "lvl3": "medium \u2013 E shred",
+   "lvl6": "strong \u2013 R tankiness",
+   "items": "strong \u2013 Sheen/Trinity Force (or Iceborn) for Q hits",
+   "late": "strong \u2013 one-shot Q"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Farms Q stacks early and gives up trades; wants R (level 6) and first item before fighting. Lost stacks = weaker all game.",
+  "waveClear": "medium \u2013 E",
+  "sustain": "high \u2013 passive lifesteal",
+  "mobility": "low \u2013 no dash",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "W",
+    "R"
+   ],
+   "escape": [],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bonus life steal; sustains in lane through Q last hits."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Empowered attack; permanent stacks on kills (dodgeable by Jax E)."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Targeted slow ramping 35%\u2192up to 95% over 5 s; cuts attack speed by 75% of the slow. Answer to auto-attackers."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Ground area: magic damage, armor shred while in the zone, damage over 5 s. Main wave clear."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "15 s: bonus health, armor and magic resist; % max-health magic damage to nearby enemies; lowers Q cooldown."
+   }
+  },
+  "windowAgainst": "Levels 1\u20135, or W on cooldown; trade on him when he walks up to last-hit with Q. Ranged laners kite him.",
+  "checks": []
+ }
+}

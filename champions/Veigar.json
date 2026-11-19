@@ -1,0 +1,299 @@
+{
+ "id": 45,
+ "alias": "Veigar",
+ "name": "Veigar",
+ "title": "the Tiny Master of Evil",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 580,
+  "hpPerLevel": 108,
+  "ad": 52,
+  "adPerLevel": 2.7,
+  "armor": 18,
+  "armorPerLevel": 5.2,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.24,
+  "range": 550,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Baleful Strike",
+   "cooldown": [
+    6,
+    5.5,
+    5,
+    4.5,
+    4
+   ],
+   "cost": [
+    35,
+    40,
+    45,
+    50,
+    50
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Veigar unleashes a bolt of dark energy, dealing 80/120/160/200/240 + 0.5/0.55/0.6/0.65/0.7×AP magic damage to the first two enemies hit. If Veigar kills an enemy with this Ability, he gains @Spell.VeigarPassive:dQKillStacks@ stack of Phenomenal Evil. Large minions and large monsters grant @Spell.VeigarPassive:dQKillStacksLarge@ stacks instead.",
+   "summary": "Veigar unleashes a bolt of dark energy that deals magic damage to the first two enemies hit. Units killed by this bolt grant Veigar some ability power permanently.",
+   "values": {
+    "APRatio": [
+     0.5,
+     0.55,
+     0.6,
+     0.65,
+     0.7
+    ],
+    "BaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ]
+   },
+   "formulas": {
+    "TotalDamage": "80/120/160/200/240 + 0.5/0.55/0.6/0.65/0.7×AP"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Dark Matter",
+   "cooldown": 0,
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 950.0,
+   "description": "Veigar summons dark matter from the sky, dealing 85/140/195/250/305 + 0.7/0.8/0.9/1/1.1×AP magic damage. Every @Spell.VeigarPassive:PStacksPerDarkMatterCDR@ stacks of Phenomenal Evil reduce this Ability's Cooldown by @Spell.VeigarPassive:DarkMatterCDRIncrement*100@%.",
+   "summary": "Veigar calls a great mass of dark matter to fall from the sky to the target location, dealing magic damage when it lands. Stacks of Phenomenal Evil reduce Dark Matter's cooldown.",
+   "values": {
+    "APRatio": [
+     0.7,
+     0.8,
+     0.9,
+     1,
+     1.1
+    ],
+    "BaseDamage": [
+     85,
+     140,
+     195,
+     250,
+     305
+    ],
+    "ImpactDelay": 1.2,
+    "BaseCooldown": 8
+   },
+   "formulas": {
+    "TotalDamage": "85/140/195/250/305 + 0.7/0.8/0.9/1/1.1×AP"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Event Horizon",
+   "cooldown": [
+    20,
+    18.5,
+    17,
+    15.5,
+    14
+   ],
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    95
+   ],
+   "costType": null,
+   "range": 725.0,
+   "description": "Veigar twists the edges of space, creating a cage that Stuns enemies that pass through for 1.5/1.75/2/2.25/2.5 seconds. The cage lasts for 3 seconds.",
+   "summary": "Veigar twists the edges of space, creating a cage that Stuns enemies that pass through.",
+   "values": {
+    "StunDuration": [
+     1.5,
+     1.75,
+     2,
+     2.25,
+     2.5
+    ],
+    "CageDelay": 0.5
+   },
+   "formulas": {},
+   "tags": [
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Primordial Burst",
+   "cooldown": [
+    120,
+    90,
+    60
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 650.0,
+   "description": "Veigar blasts an enemy champion with primal magic to deal between 175/250/325 + 0.65/0.7/0.75×AP and (175/250/325 + 0.65/0.7/0.75×AP) × 2 magic damage, increasing with the target's missing Health. Damage is maximized against enemies below 33% Health.",
+   "summary": "Blasts target enemy champion, dealing a large amount of magic damage, increasing based on the target's missing health.",
+   "values": {
+    "APRatio": [
+     0.65,
+     0.7,
+     0.75
+    ],
+    "BaseDamage": [
+     175,
+     250,
+     325
+    ],
+    "MaxExecuteMult": 2
+   },
+   "formulas": {
+    "MinDamage": "175/250/325 + 0.65/0.7/0.75×AP",
+    "MaxDamage": "(175/250/325 + 0.65/0.7/0.75×AP) × 2"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Phenomenal Evil Power",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Veigar is the greatest Evil to ever strike at the hearts of Runeterra - and he's only getting bigger! Striking an enemy Champion with a spell or scoring a takedown grants Veigar permanently increased Ability Power.",
+   "summary": "Veigar is the greatest Evil to ever strike at the hearts of Runeterra - and he's only getting bigger! Striking an enemy Champion with a spell or scoring a takedown grants Veigar permanently increased Ability Power.",
+   "values": {
+    "dQKillStacks": 1,
+    "dAbilityStacks": 1,
+    "dTakedownStacks": 5,
+    "dQKillStacksLarge": 3,
+    "PStacksPerDarkMatterCDR": 50,
+    "DarkMatterCDRIncrement": 0.1
+   },
+   "formulas": {
+    "APPerStack": "1"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Scaling burst mage who stacks Ability Power permanently from every spell hit and takedown. Controls fights with the E cage stun and finishes targets with a missing-health R execute.",
+  "positions": [
+   "MIDDLE",
+   "UTILITY",
+   "BOTTOM"
+  ],
+  "strengths": [
+   "E cage stuns anyone who walks through its edge for 1.5–2.5 s and zones choke points",
+   "Infinite AP scaling from passive: very strong late if he farms Q kills",
+   "R is a point-and-click execute that does up to double damage on low targets",
+   "Q pierces two targets, so he can last-hit and poke at once",
+   "Strong pick and anti-dive with E in teamfights"
+  ],
+  "weaknesses": [
+   "Weak early: low base damage and no mobility, easy to bully in lane",
+   "E is his only defensive tool; once it's down he has no escape",
+   "W is slow to land (delayed), so it mostly hits stunned or immobile targets",
+   "Short-range and immobile champions dive him easily when E is on cooldown",
+   "Mana-hungry before items"
+  ],
+  "curve": {
+   "lvl1": "weak – Q only; stacking and farming focus",
+   "lvl2": "weak – Q+E but low damage",
+   "lvl3": "medium – E-W combo threatens if E lands",
+   "lvl6": "strong – R execute makes E+W+Q+R a kill combo",
+   "items": "strong – Luden's/Rabadon's; Lost Chapter for mana",
+   "late": "strong – passive stacks make every combo lethal"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs E to land W reliably; before level 3 he farms Q stacks and avoids trades.",
+  "waveClear": "medium – Q two-target last hits, W area once ranked",
+  "sustain": "low – none in kit",
+  "mobility": "low – no dash",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E",
+    "W"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Permanent AP from spell hits and takedowns; more stacks = stronger W and R."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Hits first two enemies; kill gives extra stacks. Blockable by projectile blocks."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Delayed area blast; easy to dodge unless the target is caged or slowed."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Cage edge stuns 1.5–2.5 s; the inside is safe. Cage lasts 3 s."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Point-and-click; damage rises with target missing health (double at low HP). Blocked by spell shields."
+   }
+  },
+  "windowAgainst": "E on cooldown (14–20 s): he has no escape or peel. Early levels before his stacks build.",
+  "checks": [
+   "Whether R counts as a projectile for Yasuo W / Samira W (it's a targeted missile)."
+  ]
+ }
+}

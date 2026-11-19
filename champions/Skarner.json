@@ -1,0 +1,360 @@
+{
+ "id": 72,
+ "alias": "Skarner",
+ "name": "Skarner",
+ "title": "the Primordial Sovereign",
+ "classes": [
+  "tank",
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 110,
+  "ad": 63,
+  "adPerLevel": 5,
+  "armor": 33,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2,
+  "range": 150,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Shattered Earth / Upheaval",
+   "cooldown": [
+    8,
+    6.75,
+    5.5,
+    4.25,
+    3
+   ],
+   "cost": 30,
+   "costType": null,
+   "range": 400.0,
+   "description": "Skarner rips a boulder from the ground, empowering his next 3 Attacks with 20/25/30/35/40% Attack Speed and dealing 10/20/30/40/50 + 0.9×bonus AD + 0.03×bonus max HP physical damage to surrounding enemies. His final Attack will deal an additional 11% max Health physical damage and Slow affected foes by 40% for 1s. Recast: Skarner ends this Ability and throws his boulder, dealing @spell.SkarnerQ:AbilityDamage@ + @spell.SkarnerQ:MaxHPPercent*100@% max Health physical damage, and additionally Slowing the first enemy hit — and any other surrounding enemies — by @spell.SkarnerQ:SlowPercent*100@% for @spell.SkarnerQ:SlowDuration(varies)SpellModifierDescriptionAppend@",
+   "summary": "Skarner rips a boulder from the earth that empowers his attacks and can be thrown as a powerful projectile.",
+   "values": {
+    "RockHoldDuration": 5,
+    "AttackRadius": 300,
+    "BaseDamage": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ],
+    "MaxHPPercent": 0.11,
+    "SlowDuration": 1,
+    "SlowPercent": 0.4,
+    "MonsterDamageCap": [
+     150,
+     200,
+     250,
+     300,
+     350
+    ],
+    "AttackRange": 25,
+    "AttackSpeed": [
+     0.2,
+     0.25,
+     0.3,
+     0.35,
+     0.4
+    ],
+    "BonusHealthRatio": 0.03,
+    "ADRatio": 0.9,
+    "TurretDamageMod": 1
+   },
+   "formulas": {
+    "AbilityDamage": "10/20/30/40/50 + 0.9×bonus AD + 0.03×bonus max HP"
+   },
+   "tags": [
+    "attack speed",
+    "empowered attack",
+    "heal",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Seismic Bastion",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    80
+   ],
+   "costType": null,
+   "range": 700.0,
+   "description": "Skarner gains 0.08×max HP Shield for 2.5s and triggers an earthquake that deals 50/70/90/110/130 + 0.8×AP magic damage and Slows nearby enemies by 20% for 1s.",
+   "summary": "Skarner gains a shield and creates an earthquake whose shockwave damages and slows foes.",
+   "values": {
+    "BaseDamage": [
+     50,
+     70,
+     90,
+     110,
+     130
+    ],
+    "DamageAPRatio": 0.8,
+    "InitialShieldRatio": 0.08,
+    "ShieldDuration": 2.5,
+    "SlowEffect": -0.2,
+    "SlowDuration": 1
+   },
+   "formulas": {
+    "InitialShield": "0.08×max HP",
+    "Damage": "50/70/90/110/130 + 0.8×AP"
+   },
+   "tags": [
+    "shield",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Ixtal's Impact",
+   "cooldown": [
+    22,
+    21,
+    20,
+    19,
+    18
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    70
+   ],
+   "costType": null,
+   "range": 1700.0,
+   "description": "Skarner charges forward, steering toward the chosen direction and ignoring terrain. If he runs into a champion or large monster, Skarner drags them along for the rest of his charge. Colliding into a wall with an enemy in tow deals 30/60/90/120/150 + 1.2×bonus AD + 0.06×max HP physical damage to the enemy and Stuns them for 1.1s. Skarner can Recast this Ability to end his charge early.",
+   "summary": "Skarner charges forward and passes through terrain. If he collides with a champion or large monster, he'll slam them into the next wall he hits to damage and stun them.",
+   "values": {
+    "ChargeDuration": 2.75,
+    "InitialSpeed": 150,
+    "Acceleration": 100,
+    "MaximumSpeed": 950,
+    "GrabHitboxRadius": 160,
+    "GrabHitboxOffset": 90,
+    "WallRevealRadius": 650,
+    "WallWarningRadius": 1750,
+    "GrabbedMoveSpeedBonus": 200,
+    "MinGrabbedSpeed": 650,
+    "DistancePostGrab": 675,
+    "StunDuration": 1.1,
+    "PinBaseDamage": [
+     30,
+     60,
+     90,
+     120,
+     150
+    ],
+    "ADRatio": 1.2,
+    "PinDamageRatio": 0.06,
+    "VictimOffsetIncrease": 200,
+    "RefundPercent": 0.65,
+    "MinimumQRenew": 1.5,
+    "InitialHitboxRadius": 160,
+    "InitialHitboxOffset": 90,
+    "SecondHitboxDelay": 0.3,
+    "SecondHitboxRadius": 100,
+    "SecondHitboxOffset": 150,
+    "FinalHitboxDelay": 0.4
+   },
+   "formulas": {
+    "PinDamage": "30/60/90/120/150 + 1.2×bonus AD + 0.06×max HP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Impale",
+   "cooldown": [
+    120,
+    105,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 625.0,
+   "description": "Skarner's tails lash forward, dealing 150/250/350 + 1×AP magic damage and Suppressing the first 3 champions he hits for 1.5s. Those hit are dragged along by Skarner for the duration of this Ability. If Skarner hits at least one champion he gains 40% Move Speed for 1.5 seconds. If Shattered Earth is active, Skarner will cast Upheaval first.",
+   "summary": "Skarner's tails lash forward to suppress enemy champions. Once suppressed, the victims will be dragged along by Skarner as he moves around.",
+   "values": {
+    "BackwardOffset": 50,
+    "HitboxStartHalfWidth": 175,
+    "HitboxEndHalfWidth": 100,
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "Duration": 1.5,
+    "HoldDistance": 300,
+    "SpeedBoostAmount": 0.4,
+    "SpeedBoostDuration": 1.5,
+    "DropDistance": 200
+   },
+   "formulas": {
+    "Damage": "150/250/350 + 1×AP"
+   },
+   "tags": [
+    "move speed",
+    "suppression"
+   ]
+  },
+  "Passive": {
+   "name": "Threads of Vibration",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Skarner's Attacks, Shattered Earth, Upheaval, and Impale, apply Quaking. At max stacks of Quaking, enemies take max Health magic damage over its duration.",
+   "summary": "Skarner's Attacks, Shattered Earth, Upheaval, and Impale, apply Quaking. At max stacks of Quaking, enemies take max Health magic damage over its duration.",
+   "values": {
+    "StacksToTriggerPassive": 3,
+    "Duration": 4,
+    "TickFrequency": 0.5
+   },
+   "formulas": {
+    "PercentHealthDamage": "(5–9 (by level)) × 0.01",
+    "DamageMonsterCap": "100–300 (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Tank jungler/top laner who drags enemies with an E charge into walls for a stun and suppresses up to three champions with R. Strong ganker and teamfight catcher.",
+  "positions": [
+   "JUNGLE",
+   "TOP"
+  ],
+  "strengths": [
+   "E charge ignores terrain: carry a target into a wall for a stun",
+   "R suppresses up to three champions and drags them",
+   "Q boulder empowers attacks with max-health damage and a slow, or throws it",
+   "Passive Quaking: max-health damage on stacked targets"
+  ],
+  "weaknesses": [
+   "E needs good angles; a mis-aimed E is a wasted engage",
+   "Low burst: a tank, not a killer",
+   "R range is short",
+   "Kited when E and R are down"
+  ],
+  "curve": {
+   "lvl1": "medium – Q clear and slow",
+   "lvl2": "medium – Q + W clear; no wall-stun yet",
+   "lvl3": "strong – E wall-stun ganks",
+   "lvl6": "strong – R suppression",
+   "items": "medium – tank items (Heartsteel or Sunfire Aegis) add max-health scaling to Q and passive",
+   "late": "strong – teamfight catcher"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Ganks from level 3 with E; R makes him a pick tool.",
+  "waveClear": "medium – Q area damage",
+  "sustain": "low – W shield only",
+  "mobility": "medium – E charge through walls",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Quaking stacks from attacks/Q/R; max stacks = max-health damage over time."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Empowers next 3 attacks; last slows. Recast throws the boulder (projectile)."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Shield + earthquake slow."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Charge drags a champion; wall collision stuns."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "suppression",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Suppresses first 3 champions hit and drags them."
+   }
+  },
+  "windowAgainst": "E and R down: he has no catch tool. Stay away from walls when he charges.",
+  "checks": [
+   "E drag: is it a pull (airborne)? Treated as stun only on wall collision."
+  ]
+ }
+}

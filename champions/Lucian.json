@@ -1,0 +1,304 @@
+{
+ "id": 236,
+ "alias": "Lucian",
+ "name": "Lucian",
+ "title": "the Purifier",
+ "classes": [
+  "marksman",
+  "assassin"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 641,
+  "hpPerLevel": 100,
+  "ad": 60,
+  "adPerLevel": 2.9,
+  "armor": 28,
+  "armorPerLevel": 4.2,
+  "attackSpeed": 0.638,
+  "attackSpeedPerLevel": 2.5,
+  "range": 500,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Piercing Light",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": [
+    56,
+    64,
+    72,
+    80,
+    90
+   ],
+   "costType": null,
+   "range": 500.0,
+   "description": "Lucian shoots a bolt of piercing light, dealing 90/130/170/210/250 + 1×bonus AD physical damage.",
+   "summary": "Lucian shoots a bolt of piercing light through a target.",
+   "values": {
+    "BaseDamage": [
+     90,
+     130,
+     170,
+     210,
+     250
+    ],
+    "BonusADRatio": 1,
+    "Range": 1000,
+    "Width": 100
+   },
+   "formulas": {
+    "TotalDamage": "90/130/170/210/250 + 1×bonus AD"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Ardent Blaze",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 900.0,
+   "description": "Lucian fires a shot that explodes at the end of its range or on the first enemy hit, dealing 75/110/145/180/215 + 0.9×AP magic damage, briefly revealing enemies and marking them for 6 seconds. When Lucian or an ally damages a marked enemy, Lucian gains 60/65/70/75/80 Move Speed for 1 second. Allies triggering this effect will also grant Lucian Vigilance.",
+   "summary": "Lucian shoots a missile that explodes in a star shape, marking and briefly revealing enemies. Lucian gains Move Speed for attacking marked enemies.",
+   "values": {
+    "BaseDamage": [
+     75,
+     110,
+     145,
+     180,
+     215
+    ],
+    "MoveSpeedAmount": [
+     60,
+     65,
+     70,
+     75,
+     80
+    ],
+    "BuffDuration": 1,
+    "VisionBubbleSize": 200,
+    "VisionBubbleDuration": 1,
+    "DebuffDuration": 6,
+    "DebuffMarkerDuration": 1,
+    "ImpactRangeCheck": 700
+   },
+   "formulas": {
+    "TotalDamage": "75/110/145/180/215 + 0.9×AP"
+   },
+   "tags": [
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Relentless Pursuit",
+   "cooldown": [
+    16,
+    15.5,
+    15,
+    14.5,
+    14
+   ],
+   "cost": [
+    24,
+    16,
+    8,
+    0,
+    0
+   ],
+   "costType": null,
+   "range": 445.0,
+   "description": "Lucian dashes. Cooldown is reduced by 1 second whenever Lucian hits an enemy with Lightslinger (2 seconds for champions).",
+   "summary": "Lucian quickly dashes a short distance. Lightslinger attacks reduce Relentless Pursuit's cooldown.",
+   "values": {
+    "CDRefundBase": 1,
+    "CDRefundChampion": 2,
+    "MaxDistance": 425,
+    "MinDistance": 200,
+    "DashSpeed": 1350
+   },
+   "formulas": {},
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "The Culling",
+   "cooldown": [
+    110,
+    100,
+    90
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 1400.0,
+   "description": "Lucian rapidly fires ((1 + (1×crit × (1×stat + -1)))) × 22 shots in a direction for 3 seconds or until he Recasts. Each shot deals 15/30/45 + 0.25×AD + 0.15×AP physical damage to the first enemy hit. While firing, Lucian may use Relentless Pursuit. Total Damage: (((1 + (1×crit × (1×stat + -1)))) × 22) × (15/30/45 + 0.25×AD + 0.15×AP) physical damage",
+   "summary": "Lucian unleashes a torrent of shots from his weapons.",
+   "values": {
+    "BaseDamage": [
+     15,
+     30,
+     45
+    ],
+    "DamageADRatio": 0.25,
+    "DamageAPRatio": 0.15,
+    "CritValueMod": 1,
+    "PercentDamageAmpToMinions": 200,
+    "NumShots": 22,
+    "Duration": 3,
+    "RecastLockout": 0.75,
+    "RangeCheck": 1050,
+    "VisionBubbleRadius": 100,
+    "VisionBubbleDuration": 1
+   },
+   "formulas": {
+    "DamagePerBullet": "15/30/45 + 0.25×AD + 0.15×AP",
+    "TotalDamage": "(((1 + (1×crit × (1×stat + -1)))) × 22) × (15/30/45 + 0.25×AD + 0.15×AP)",
+    "TotalNumShots": "((1 + (1×crit × (1×stat + -1)))) × 22"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Lightslinger",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Whenever Lucian uses an ability, his next attack becomes a double-shot. When Lucian is healed or shielded by an ally, or when a nearby enemy Champion is immobilized, his next 2 basic attacks will deal bonus magic damage.",
+   "summary": "Whenever Lucian uses an ability, his next attack becomes a double-shot. When Lucian is healed or shielded by an ally, or when a nearby enemy Champion is immobilized, his next 2 basic attacks will deal bonus magic damage.",
+   "values": {
+    "PassiveDuration": 3.5,
+    "PassiveDamageBase": 5,
+    "OnhitPassiveDuration": 6,
+    "NumAuto": 2,
+    "MaxAutos": 4,
+    "CCRange": 1000
+   },
+   "formulas": {
+    "TotalDamage": "0.5+ (by level)×AD",
+    "CritDamage": "(0.5+ (by level)×AD) × (1.75 + 1×bonus stat)",
+    "MinionDamage": "1×AD",
+    "MinionCritDamage": "(1×AD) × (1.75 + 1×bonus stat)",
+    "PassiveTotalDamage": "5 + 0.15×AD"
+   },
+   "tags": [
+    "empowered attack",
+    "heal",
+    "shield"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Short-range burst marksman who weaves double-shot autos between abilities and dashes in. Dominates early lanes and skirmishes, fades late.",
+  "positions": [
+   "BOTTOM",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Strong level 1–3 with passive double shots",
+   "E dash for trades and dodges",
+   "High early burst",
+   "Pairs well with engage supports",
+   "Good skirmishing"
+  ],
+  "weaknesses": [
+   "Short range for an ADC",
+   "Mana-hungry",
+   "Falls off late vs hypercarries",
+   "Needs to commit into range",
+   "Vulnerable to crowd control"
+  ],
+  "curve": {
+   "lvl1": "strong – passive double shot",
+   "lvl2": "strong – Q+W",
+   "lvl3": "strong – E dash",
+   "lvl6": "strong – R",
+   "items": "strong – Essence Reaver/Navori",
+   "late": "medium – outranged by hypercarries"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Trades from level 1 with passive double shots.",
+  "waveClear": "medium",
+  "sustain": "low",
+  "mobility": "high – E dash",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W",
+    "Passive"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Instant line through a target."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Marks for move speed."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Short dash; cooldown lowered by passive hits."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Bullet stream, blockable."
+   },
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Double shot after each ability."
+   }
+  },
+  "windowAgainst": "E down: no escape; all-in.",
+  "checks": []
+ }
+}

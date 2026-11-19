@@ -1,0 +1,329 @@
+{
+ "id": 8,
+ "alias": "Vladimir",
+ "name": "Vladimir",
+ "title": "the Crimson Reaper",
+ "classes": [
+  "mage",
+  "fighter"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 110,
+  "ad": 55,
+  "adPerLevel": 3,
+  "armor": 24,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2,
+  "range": 450,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Transfusion",
+   "cooldown": [
+    9,
+    7.9,
+    6.8,
+    5.7,
+    4.6
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 600.0,
+   "description": "Vladimir drains his target's lifeforce, dealing 80/100/120/140/160 + 0.6×AP magic damage and restoring 20/25/30/35/40 + 0.35×AP Health. After using this Ability twice, Vladimir gains 10+ (by level)% Move Speed for 0.5 seconds and empowers the next use of this Ability for 2.5 seconds. The empowered version of this Ability deals (80/100/120/140/160 + 0.6×AP) × 1.85 magic damage instead and restores an additional (097cda4f) × 1 plus ((5 + 0.04×AP) × 0.01) × 1 missing Health.",
+   "summary": "Vladimir steals life from the target enemy. When Vladimir's resource is full, Transfusion will benefit from massively increased damage and healing for a brief time.",
+   "values": {
+    "HealAPRatio": 0.35,
+    "BaseDamage": [
+     80,
+     100,
+     120,
+     140,
+     160
+    ],
+    "BaseHeal": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "Empowered___HealPer100AP_0_1_": 0.04,
+    "DamagePercentAmp": 85,
+    "FrenzyDuration": 2.5,
+    "MinionHealPercent": 35
+   },
+   "formulas": {
+    "BaseDamageTooltip": "80/100/120/140/160 + 0.6×AP",
+    "BaseHealTooltip": "20/25/30/35/40 + 0.35×AP",
+    "EmpoweredDamageTooltip": "(80/100/120/140/160 + 0.6×AP) × 1.85",
+    "EmpoweredHealPercentTooltip": "((5 + 0.04×AP) × 0.01) × 1",
+    "{097cda4f}": "30–200 (by level)",
+    "EmpoweredHealTooltip": "(097cda4f) × 1",
+    "EmpoweredHealPercent": "(5 + 0.04×AP) × 0.01",
+    "MovementSpeedOnQ2": "10+ (by level)"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "move speed"
+   ]
+  },
+  "W": {
+   "name": "Sanguine Pool",
+   "cooldown": [
+    28,
+    25,
+    22,
+    19,
+    16
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 350.0,
+   "description": "Vladimir sinks into a pool of blood for 2 seconds, gaining 37.5% decaying Move Speed for 1 second and becoming Untargetable and Ghosted while Slowing enemies in the pool by 40%. Vladimir deals 80/135/190/245/300 + 0.15×bonus max HP magic damage and restores (80/135/190/245/300 + 0.15×bonus max HP) × 0.3 Health per enemy over the duration.",
+   "summary": "Vladimir sinks into a pool of blood, becoming untargetable for 2 seconds. Additionally, enemies on the pool are slowed and Vladimir siphons life from them.",
+   "values": {
+    "MinionHealingMod": 0.6,
+    "BaseDamage": [
+     80,
+     135,
+     190,
+     245,
+     300
+    ],
+    "HealthCost": 0.15,
+    "BonusHealthRatio": 0.15,
+    "MoveSpeedMod": -0.4,
+    "VampPercent": 0.3,
+    "HasteBoost": 0.375,
+    "HasteDuration": 1
+   },
+   "formulas": {
+    "TotalDamage": "80/135/190/245/300 + 0.15×bonus max HP",
+    "TotalHeal": "(80/135/190/245/300 + 0.15×bonus max HP) × 0.3"
+   },
+   "tags": [
+    "heal",
+    "move speed",
+    "slow",
+    "untargetable"
+   ]
+  },
+  "E": {
+   "name": "Tides of Blood",
+   "cooldown": [
+    13,
+    11,
+    9,
+    7,
+    5
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 600.0,
+   "description": "Begin Charging: Vladimir charges up a reservoir of blood, spending up to 0.08×max HP Health. While at full charge, Vladimir is Slowed by 20%. Release: Vladimir unleashes a torrent of blood missiles at surrounding enemies, dealing between 30/45/60/75/90 + 0.015×max HP + 0.35×AP and 60/90/120/150/180 + 0.06×max HP + 0.8×AP magic damage based on charge time. If this Ability was charged for at least 1 second, it also Slows targets by 40/45/50/55/60% for 0.5 seconds.",
+   "summary": "Vladimir pays his own health to charge up a reservoir of blood which, when released, deals damage in the area around him but can be blocked by enemy units.",
+   "values": {
+    "SlowPercent": [
+     40,
+     45,
+     50,
+     55,
+     60
+    ],
+    "MaxHealthCost": 8,
+    "BaseDamage": [
+     30,
+     45,
+     60,
+     75,
+     90
+    ],
+    "TotalMaxHPDamage": 6,
+    "MaxChannelTime": 1.5,
+    "TimetoRampMaxDamage": 1,
+    "BaseMaxDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ]
+   },
+   "formulas": {
+    "MinDamageTooltip": "30/45/60/75/90 + 0.015×max HP + 0.35×AP",
+    "MaxDamageTooltip": "60/90/120/150/180 + 0.06×max HP + 0.8×AP",
+    "ChargeHealthTooltip": "0.08×max HP"
+   },
+   "tags": [
+    "heal",
+    "projectile",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Hemoplague",
+   "cooldown": 120,
+   "cost": null,
+   "costType": null,
+   "range": 625.0,
+   "description": "Vladimir creates a virulent plague, causing its victims to take 10% increased damage from all sources for 4 seconds. After it expires, Vladimir deals 150/250/350 + 0.7×AP magic damage to all infected targets. Vladimir restores 150/250/350 + 0.7×AP Health if he hits a champion, and restores an additional (150/250/350 + 0.7×AP) × 0.4 Health for each champion beyond the first.",
+   "summary": "Vladimir infects an area with a virulent plague. Affected enemies take increased damage for the duration. After a few seconds, Hemoplague deals magic damage to infected enemies and heals Vladimir for each enemy Champion hit.",
+   "values": {
+    "BaseDamage": [
+     150,
+     250,
+     350
+    ],
+    "DamageAmp": 10,
+    "VampPercentFirstChamp": 100,
+    "Duration": 4,
+    "VampPercentAdditionalChamp": 40
+   },
+   "formulas": {
+    "Damage": "150/250/350 + 0.7×AP",
+    "SecondaryHealingTooltip": "(150/250/350 + 0.7×AP) × 0.4"
+   },
+   "tags": [
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Crimson Pact",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every 30 points of bonus Health gives Vladimir 1 Ability Power and every 1 point of Ability Power gives Vladimir 1.6 bonus Health (does not stack with itself).",
+   "summary": "Every 30 points of bonus Health gives Vladimir 1 Ability Power and every 1 point of Ability Power gives Vladimir 1.6 bonus Health (does not stack with itself).",
+   "values": {
+    "HPforAP": 30,
+    "APRatioBonusHP": 1.6
+   },
+   "formulas": {
+    "ApproximateAPBonusAvoidingRecursion": "(((1×bonus max HP + (1.6 × -1×AP)) × (0.01 × 3.333))) × 1.06",
+    "ApproximateHPBonusAvoidingRecursion": "((1×bonus AP + ((0.01 × 3.333) × -1×bonus max HP)) × (1.06 × 1.6))"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Health-cost mage who sustains through lane with point-and-click Q and turns fights with Hemoplague and W pool. Weak and short-ranged early, he scales into a hard-to-kill teamfight threat.",
+  "positions": [
+   "MIDDLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Point-and-click Q poke and heal, empowered every few casts (Crimson Rush)",
+   "W pool makes him untargetable: dodges almost any key ability or burst",
+   "No mana: spells cost health, so long lanes don't run dry",
+   "Strong late-game teamfights with R amplifying damage and healing",
+   "Sustain lets him survive poke lanes"
+  ],
+  "weaknesses": [
+   "Very weak levels 1–3 and before first item; short range for a mage",
+   "Long cooldowns early: if W is down he has no escape",
+   "Grievous Wounds cuts his whole kit",
+   "Low wave clear early (E needs ranks), easy to freeze on",
+   "Gets bullied by early all-in lanes"
+  ],
+  "curve": {
+   "lvl1": "weak – only Q, short range",
+   "lvl2": "weak – Q+E poke but no escape",
+   "lvl3": "medium – W lets him escape or dodge an all-in",
+   "lvl6": "strong – R burst and healing",
+   "items": "strong – first item (Riftmaker or Hextech Rocketbelt) and stacked Q/E ranks",
+   "late": "strong – teamfight healing and burst"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Trades with Q only early; waits for W before taking real fights and for level 6 / first item to all-in.",
+  "waveClear": "medium – E clears once it has ranks; poor before",
+  "sustain": "high – Q heal, empowered Q, R",
+  "mobility": "low – W pool movement only",
+  "range": "short-ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Point-and-click; empowered every few casts (bigger damage and heal). Can't be dodged except by untargetable/spell shield."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "untargetable",
+    "notes": "2 s untargetable pool that slows: dodges key crowd control and burst."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Charge-up area around him; slows when fully charged."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Area that amplifies damage taken, then damages and heals per champion hit."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bonus health converts to AP and vice versa."
+   }
+  },
+  "windowAgainst": "W on cooldown: he can't escape or dodge, all-in. Also levels 1–3 and before first item.",
+  "checks": [
+   "Exact E mechanic (whether it can be cancelled by damage) and E slow condition"
+  ]
+ }
+}

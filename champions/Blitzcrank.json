@@ -1,0 +1,305 @@
+{
+ "id": 53,
+ "alias": "Blitzcrank",
+ "name": "Blitzcrank",
+ "title": "the Great Steam Golem",
+ "classes": [
+  "tank",
+  "support"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 2,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 600,
+  "hpPerLevel": 109,
+  "ad": 62,
+  "adPerLevel": 3.5,
+  "armor": 37,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1.13,
+  "range": 125,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Rocket Grab",
+   "cooldown": [
+    20,
+    19,
+    18,
+    17,
+    16
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 1079.0,
+   "description": "Blitzcrank fires their right hand, Pulling the first enemy hit towards them and dealing 110/160/210/260/310 + 1.2×AP magic damage.",
+   "summary": "Blitzcrank fires their right hand to grab an opponent on its path, dealing damage and dragging it back to them.",
+   "values": {
+    "BaseDamage": [
+     110,
+     160,
+     210,
+     260,
+     310
+    ],
+    "LolipopLength": 70,
+    "APRatio": 1.2
+   },
+   "formulas": {
+    "TotalDamage": "110/160/210/260/310 + 1.2×AP"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "W": {
+   "name": "Overdrive",
+   "cooldown": 15,
+   "cost": 75,
+   "costType": null,
+   "range": 1.0,
+   "description": "Blitzcrank supercharges themself, gaining 60/65/70/75/80% decaying Move Speed and 30/40/50/60/70% Attack Speed for 5 seconds. Afterwards, Blitzcrank is Slowed by 30% for 1.5 seconds.",
+   "summary": "Blitzcrank super charges themself to get dramatically increased Move and Attack Speed. They are temporarily slowed after the effect ends.",
+   "values": {
+    "MoveSpeedMod": [
+     0.6,
+     0.65,
+     0.7,
+     0.75,
+     0.8
+    ],
+    "AttackSpeedMod": [
+     0.3,
+     0.4,
+     0.5,
+     0.6,
+     0.7
+    ],
+    "Duration": 5,
+    "MoveSpeedModReduction": 0.3,
+    "SlowDuration": 1.5,
+    "MoveSpeedModMin": 0.1,
+    "MoveSpeedModMinTime": 2.5,
+    "PercentHealthDamage": 0.01
+   },
+   "formulas": {
+    "{c01903c1}": "60+ (by level)"
+   },
+   "tags": [
+    "attack speed",
+    "move speed",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Power Fist",
+   "cooldown": [
+    7,
+    6.5,
+    6,
+    5.5,
+    5
+   ],
+   "cost": 25,
+   "costType": null,
+   "range": 300.0,
+   "description": "Blitzcrank charges up their fist, causing their next Attack to Knock Up for 1 second(s) and deal 2×AD + 0.25×AP physical damage.",
+   "summary": "Blitzcrank charges up their fist to make the next attack deal double damage and pop their target up in the air.",
+   "values": {
+    "CCDuration": 1
+   },
+   "formulas": {
+    "TotalDamage": "2×AD + 0.25×AP",
+    "{a9d6b924}": "1.75×AD + 1.25×AP"
+   },
+   "tags": [
+    "airborne",
+    "empowered attack"
+   ]
+  },
+  "R": {
+   "name": "Static Field",
+   "cooldown": [
+    60,
+    40,
+    20
+   ],
+   "cost": [
+    100,
+    100,
+    150
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "Passive: While this ability is available, lightning charges Blitzcrank's fists, marking those Attacked. After 1 second, they are shocked for 50/100/150 + 0.3/0.4/0.5×AP + ? magic damage. Active: Blitzcrank overcharges, dealing 275/400/525 + 1×AP magic damage and Silencing nearby enemies for 0.5 seconds. Their shields are also destroyed.",
+   "summary": "Enemies attacked by Blitzcrank are marked and take lightning damage after 1 second. Additionally, Blitzcrank can activate this ability to remove nearby enemies' shields, damage them, and silence them briefly.",
+   "values": {
+    "PassiveBaseDamage": [
+     50,
+     100,
+     150
+    ],
+    "ZapCountdown": 1,
+    "ActiveRange": 600,
+    "ActiveBaseDamage": [
+     275,
+     400,
+     525
+    ],
+    "SilenceDuration": 0.5,
+    "PassiveAPRatio": [
+     0.3,
+     0.4,
+     0.5
+    ],
+    "ActiveAPRatio": 1,
+    "PassiveManaRatio": 0.05
+   },
+   "formulas": {
+    "ActiveDamage": "275/400/525 + 1×AP",
+    "PassiveDamage": "50/100/150 + 0.3/0.4/0.5×AP + ?"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "Passive": {
+   "name": "Mana Barrier",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Blitzcrank gains a shield based on their mana when dropping to low health.",
+   "summary": "Blitzcrank gains a shield based on their mana when dropping to low health.",
+   "values": {
+    "HealthThreshold": 0.3,
+    "ManaPercent": 0.35,
+    "ShieldDuration": 10,
+    "Cooldown": 90,
+    "ManaRatio": 1
+   },
+   "formulas": {
+    "ShieldAmount": "?"
+   },
+   "tags": [
+    "heal",
+    "shield"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Hook support who pulls enemies with Q and knocks them up with E. Wins lane with pulls that set up kills and peels with R silence.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "Q pulls the first enemy hit toward him",
+   "E empowered attack knocks up for 1 s",
+   "R active silences nearby enemies for 0.5 s and destroys shields",
+   "W gives big move and attack speed for engages",
+   "Passive gives a shield based on his mana at low health"
+  ],
+  "weaknesses": [
+   "Missed Q leaves him with long cooldown (20–16 s)",
+   "Low damage and no sustain",
+   "Weak to poke",
+   "W self-slows afterward"
+  ],
+  "curve": {
+   "lvl1": "strong – Q pull",
+   "lvl2": "strong – Q+E combo",
+   "lvl3": "strong",
+   "lvl6": "strong – R",
+   "items": "strong – tank items",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q+E is his kill combo at 2; level 1 Q is a threat too.",
+  "waveClear": "low",
+  "sustain": "low – passive shield",
+  "mobility": "medium – W speed",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "Q",
+    "W"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Mana shield at low health."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Pull; blockable by projectile blocks and minions."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Speed and attack speed, then self-slow."
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Empowered attack knock-up 1 s; dodged by Jax E."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "silence",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Passive: marks attacked targets. Active: silence 0.5 s; removes shields."
+   }
+  },
+  "windowAgainst": "Q on cooldown (missed): he has no threat.",
+  "checks": []
+ }
+}

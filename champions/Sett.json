@@ -1,0 +1,395 @@
+{
+ "id": 875,
+ "alias": "Sett",
+ "name": "Sett",
+ "title": "the Boss",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 670,
+  "hpPerLevel": 114,
+  "ad": 60,
+  "adPerLevel": 4,
+  "armor": 33,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 1.75,
+  "range": 125,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Knuckle Down",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 0.0,
+   "description": "Sett itches for a fight, gaining 30% Move Speed towards enemy champions for 1.5 seconds. Additionally Sett's next two Attacks deal an additional 10/20/30/40/50 plus 0.01 + 0.0×AD max Health physical damage.",
+   "summary": "Sett's next two attacks deal additional damage based off of the target's max health. Sett also gains Move Speed while moving towards enemy champions.",
+   "values": {
+    "Duration": 4,
+    "BaseDamage": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ],
+    "StackCount": 1,
+    "HealthCost": 0.1,
+    "MSAmount": 0.3,
+    "MSDuration": 1.5,
+    "AdrenalineDecayLockTimer": 1,
+    "BaseHealthCost": 20,
+    "ADRatio": 1.2,
+    "EnemyMaxHealthDamage": 0.01,
+    "QMinimumDamage": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "MaxHealthTADRatio": 0.0,
+    "MaxHealthTADRatioTOOLTIP": [
+     1,
+     1.5,
+     2,
+     2.5,
+     3
+    ],
+    "MonsterCap": 400
+   },
+   "formulas": {
+    "MaxHealthDamageCalc": "0.01 + 0.0×AD",
+    "BonusEnemyMaxHealthDamage": "(0.0 × 100)"
+   },
+   "tags": [
+    "heal",
+    "move speed"
+   ]
+  },
+  "W": {
+   "name": "Haymaker",
+   "cooldown": [
+    18,
+    16.5,
+    15,
+    13.5,
+    12
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Passive: Sett stores 100% of damage taken as Grit, up to 0.5×max HP. Grit decays quickly 4 seconds after the damage was taken. Active: Sett consumes all Grit, gaining a 100% Grit consumed Shield decaying over 3 seconds. Sett then delivers a massive punch, dealing 80/100/120/140/160 plus 0.25 + 0.002×bonus AD Grit consumed true damage to enemies in the center (max (varies) damage). Enemies not in the center instead take physical damage.",
+   "summary": "Sett passively stores damage he takes as Grit. On cast, Sett expends all stored Grit to gain a shield and punch an area, dealing true damage in the center and physical damage on the sides.",
+   "values": {
+    "BaseDamage": [
+     80,
+     100,
+     120,
+     140,
+     160
+    ],
+    "DamageAmp": 1,
+    "Duration": 0.75,
+    "MovementSpeed": 0.5,
+    "MSDuration": 2,
+    "GreyHealthDuration": 3,
+    "ShieldConversion": 1,
+    "DamageStored": 1,
+    "StoredHealth": 0.5,
+    "LockTime": 2,
+    "ResourceDecayRate": 0.3,
+    "DamageConversionBase": 0.25,
+    "EnrageDuration": 6,
+    "EnrageHealingMult": 0.5,
+    "EnrageADMult": 0.1,
+    "EnrageArmorPen": 0.5,
+    "ShieldMaxDuration": 3,
+    "ShieldDecayDelay": 0.75,
+    "AdrenalineStorageWindow": 4
+   },
+   "formulas": {
+    "DamageCalc": "80/100/120/140/160",
+    "DamageConversion": "0.25 + 0.002×bonus AD",
+    "MaxGrit": "0.5×max HP",
+    "MaxDamage": "(0.5×max HP) × (0.25 + 0.1×bonus AD)"
+   },
+   "tags": [
+    "shield",
+    "true damage"
+   ]
+  },
+  "E": {
+   "name": "Facebreaker",
+   "cooldown": [
+    16,
+    14.5,
+    13,
+    11.5,
+    10
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 490.0,
+   "description": "Sett smashes enemies on either side of him into each other, dealing 50/70/90/110/130 + 0.6×AD physical damage and Slowing them by 70% for 0.5 seconds. If Sett grabbed at least one enemy on each side, all enemies are Stunned for 1 second.",
+   "summary": "Sett pulls in all enemies on opposite sides of him, dealing damage and stunning them. If enemies were only on one side, they are slowed instead of stunned.",
+   "values": {
+    "Duration": 0.25,
+    "LeapDistance": 250,
+    "BaseDamage": [
+     50,
+     70,
+     90,
+     110,
+     130
+    ],
+    "MaxHealthDamage": 0.1,
+    "SlowAmount": 0.7,
+    "SlowDuration": 0.5,
+    "ThrowRange": 500,
+    "SingleBaseDamage": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ],
+    "StunDuration": 1,
+    "MonsterDamage": [
+     150,
+     175,
+     200,
+     225,
+     250
+    ]
+   },
+   "formulas": {
+    "DamageCalc": "50/70/90/110/130 + 0.6×AD",
+    "tooltipadratio_e": "0.6×AD",
+    "MonsterBonus": "125–250 (by level)"
+   },
+   "tags": [
+    "slow",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "The Show Stopper",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 400.0,
+   "description": "Sett grabs an enemy champion and Suppresses them as he carries them forward, then slams them into the ground, dealing 200/300/400 + 1.2×bonus AD plus 40/50/60% of the grabbed enemy's bonus Health physical damage to surrounding enemies and Slowing them by 99% for 1 second. Enemies take less damage the further they are from where Sett lands.",
+   "summary": "Sett carries an enemy champion through the air and slams them into the ground, dealing damage and slowing all enemies near where they land.",
+   "values": {
+    "GrabDuration": 1.5,
+    "MoveSpeedBonus": 800,
+    "MaxHealthDamage": [
+     0.4,
+     0.5,
+     0.6
+    ],
+    "BaseDamage": [
+     200,
+     300,
+     400
+    ],
+    "DistanceToFirstHit": 400,
+    "DistancePastFirstHit": 600,
+    "MaxPassiveStacks": 4,
+    "DelayBeforeDecay": 3,
+    "CarryDistancePerStack": 200,
+    "ResistDuration": 6,
+    "SlowAmount": 0.99,
+    "SlowDuration": 1,
+    "CraterDuration": 10,
+    "CraterRadius": 600,
+    "CraterMaxHaste": 0.6,
+    "CraterMaxSlow": 0.99,
+    "CraterEdgeDamageReduction": 0.5,
+    "CraterSweetSpotRadius": 125
+   },
+   "formulas": {
+    "DamageCalc": "200/300/400 + 1.2×bonus AD",
+    "MaxHealthDamageCalc": "0.4/0.5/0.6",
+    "tooltipadratio_r": "1×bonus AD"
+   },
+   "tags": [
+    "heal",
+    "slow",
+    "suppression"
+   ]
+  },
+  "Passive": {
+   "name": "Pit Grit",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Sett's basic attacks alternate between left and right punch. Right punch is slightly stronger and faster. Sett also hates losing, gaining additional health regeneration based off of his missing health.",
+   "summary": "Sett's basic attacks alternate between left and right punch. Right punch is slightly stronger and faster. Sett also hates losing, gaining additional health regeneration based off of his missing health.",
+   "values": {
+    "NumHits": 2,
+    "LockoutTimer": 10,
+    "MarkerDuration": 3,
+    "GrabDuration": 2,
+    "SelfSlowPercent": 0.5,
+    "MaxHPOnHit": 0.06,
+    "MissingHealthUnit": 0.01,
+    "AttackSpeed": 1.5,
+    "JabDamagePercent": 1,
+    "HookDamagePercentFinal": 1.5,
+    "PassiveHealthThreshold": 0.75,
+    "PassiveHealthThresholdAmp": 0.02
+   },
+   "formulas": {
+    "HealingCalc": "?",
+    "RightPunchBonus": "? + 0.55×bonus AD",
+    "{7733e08c}": "(3+ (by level)) × 0.01",
+    "{a156fbdc}": "1.2+ (by level)",
+    "tooltipregenpermissinghealthcalc": "(7733e08c) × 5"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Juggernaut top laner who stores damage taken as Grit and releases it as a shield and huge true-damage centre punch with W. Wins with E stun and R suppression slam.",
+  "positions": [
+   "TOP",
+   "UTILITY",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "W: shield from Grit + true damage in the centre of the punch",
+   "E stun when he grabs on both sides",
+   "R suppression slam deals damage based on target's bonus health",
+   "Passive health regeneration from missing health",
+   "Strong level 1-3 trades with alternating punches"
+  ],
+  "weaknesses": [
+   "Short range: kited by ranged champions",
+   "No real dash outside R",
+   "W centre is easy to dodge",
+   "Weak against tanks with heavy health in late game",
+   "Falls off without items"
+  ],
+  "curve": {
+   "lvl1": "strong – Q empowered attacks",
+   "lvl2": "strong – Q + W",
+   "lvl3": "strong – E stun",
+   "lvl6": "strong – R",
+   "items": "strong – Stridebreaker/Black Cleaver",
+   "late": "medium – frontline"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Level 1 punch trades are strong.",
+  "waveClear": "medium – W",
+  "sustain": "medium – passive regen",
+  "mobility": "low – Q move speed",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive",
+    "W"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Alternating punches; health regen based on missing health."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Move speed toward enemies; next 2 attacks deal max-health damage."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield from Grit; punch with true damage in centre."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Pulls enemies on both sides together; stuns if both sides hit."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "suppression",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Grabs and suppresses a champion; slam slows."
+   }
+  },
+  "windowAgainst": "Kite him. Dodge W centre.",
+  "checks": [
+   "E pull: is it airborne? Treated as slow/stun only."
+  ]
+ }
+}

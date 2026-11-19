@@ -1,0 +1,387 @@
+{
+ "id": 800,
+ "alias": "Mel",
+ "name": "Mel",
+ "title": "the Soul's Reflection",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 590,
+  "hpPerLevel": 107,
+  "ad": 52,
+  "adPerLevel": 3.3,
+  "armor": 21,
+  "armorPerLevel": 5.4,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.75,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Radiant Barrage",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    90
+   ],
+   "costType": null,
+   "range": 950.0,
+   "description": "Mel unleashes a barrage of 6/7/8/9/10 missiles that explode at the target location. The first time an enemy is struck, they take 60 + 0.25×AP magic damage, with subsequent hits dealing (varies) magic damage each, for a maximum of (60 + ((COUNT + -1) × 6/11/16/21/26)) + (0.25 + ((COUNT + -1) × 0.09))×AP magic damage. If the volley hits an enemy champion at least once, this ability's cooldown is reduced by (varies) seconds.",
+   "summary": "Mel unleashes a volley of projectiles that deal magic damage. Hitting an enemy champion reduces this ability's cooldown.",
+   "values": {
+    "Count": [
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "BaseDamageInitial": 60,
+    "BaseDamageSubsequent": [
+     6,
+     11,
+     16,
+     21,
+     26
+    ],
+    "APRatioInitial": 0.25,
+    "APRatioSubsuquent": 0.09,
+    "Radius": 200,
+    "PostCastTime": 0.5
+   },
+   "formulas": {
+    "InitialDamage": "60 + 0.25×AP",
+    "TotalDamageTT": "(60 + ((COUNT + -1) × 6/11/16/21/26)) + (0.25 + ((COUNT + -1) × 0.09))×AP",
+    "{b7b202ec}": "0.5–1 (by level)",
+    "{1baafc99}": "6/11/16/21/26 + 0.09×AP"
+   },
+   "tags": [
+    "projectile"
+   ]
+  },
+  "W": {
+   "name": "Rebuttal",
+   "cooldown": [
+    38,
+    35,
+    33,
+    29,
+    26
+   ],
+   "cost": [
+    60,
+    40,
+    20,
+    0,
+    0
+   ],
+   "costType": null,
+   "range": 400.0,
+   "description": "Mel unleashes a refraction nova that destroys enemy projectiles it collides with, retaliating for 35/45/55/65/75 + 0.1×AP magic damage. Subsequent retaliations against the same enemy deal (varies) magic damage instead. The nova also grants 50/90/130/170/210 + 0.5×AP Shield and 0.1–0.3 (by level) + 0.0×AP Move Speed for 2 seconds to Mel and her allies.",
+   "summary": "Mel unleashes a refraction nova that destroys enemy projectiles it collides with, retaliating with magic missiles. The nova also shields and grants move speed to Mel and her allies.",
+   "values": {
+    "Duration": 0.75,
+    "BuffDuration": 2,
+    "Radius": 400,
+    "BaseShield": [
+     50,
+     90,
+     130,
+     170,
+     210
+    ],
+    "BaseDamageInitial": [
+     35,
+     45,
+     55,
+     65,
+     75
+    ],
+    "BaseDamageSubsequent": [
+     5,
+     10,
+     15,
+     20,
+     25
+    ],
+    "MaxRetaliation": 7
+   },
+   "formulas": {
+    "TotalShield": "50/90/130/170/210 + 0.5×AP",
+    "TotalMS": "0.1–0.3 (by level) + 0.0×AP",
+    "InitialDamage": "35/45/55/65/75 + 0.1×AP",
+    "{1baafc99}": "5/10/15/20/25 + 0.05×AP"
+   },
+   "tags": [
+    "move speed",
+    "projectile",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Solar Snare",
+   "cooldown": [
+    11,
+    10.5,
+    10,
+    9.5,
+    9
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    90
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Mel fires a radiating orb, Rooting enemies at its center for 0.8/0.85/0.9/0.95/1 to 1.6/1.75/1.9/2.05/2.2 seconds (based on distance travelled) and dealing 60/105/150/195/240 + 0.7×AP magic damage. The orb builds up a hostile area around it that Slows enemies by 20/25/30/35/40% and deals 16/28/40/52/64 + 0.08×AP magic damage per second.",
+   "summary": "Mel fires a radiant orb forward, rooting those at its center while the area around it slows enemies and deals damage over time.",
+   "values": {
+    "RootDurationMin": [
+     0.8,
+     0.85,
+     0.9,
+     0.95,
+     1
+    ],
+    "RootDurationMax": [
+     1.6,
+     1.75,
+     1.9,
+     2.05,
+     2.2
+    ],
+    "BaseDamage": [
+     60,
+     105,
+     150,
+     195,
+     240
+    ],
+    "BaseAreaDamage": [
+     16,
+     28,
+     40,
+     52,
+     64
+    ],
+    "AreaAPRatio": 0.08,
+    "AreaSlowAmount": [
+     0.2,
+     0.25,
+     0.3,
+     0.35,
+     0.4
+    ],
+    "AreaSlowDuration": 0.25,
+    "MinionMod": 0.5,
+    "MaxAreaRadius": 230,
+    "TimeToMaxRadius": 0.5,
+    "AreaTicksPerSecond": 8,
+    "DoTDuration": 0.5
+   },
+   "formulas": {
+    "Damage": "60/105/150/195/240 + 0.7×AP",
+    "AreaDamagePerSecond": "16/28/40/52/64 + 0.08×AP",
+    "MinionModTooltip": "(1 + (-1 × 0.5))"
+   },
+   "tags": [
+    "root",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Golden Eclipse",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Passive: Overwhelm damage is increased to 60/70/80 + 0.1×AP magic damage plus 3/4/5 + 0.007×AP magic damage per stack. Active: Mel unleashes her power on all enemies affected by Overwhelm, dealing 125/200/275 + 0.3×AP magic damage plus 4/7/10 + 0.04×AP magic damage per Overwhelm stack. Can only be cast when an enemy champion is affected by Overwhelm.",
+   "summary": "Mel strikes all enemies marked with Overwhelm regardless of their distance from her, dealing additional damage for each stack of Overwhelm. Ranks of Golden Eclipse increase Overwhelm's damage.",
+   "values": {
+    "BasePassiveStackDamage": [
+     3,
+     4,
+     5
+    ],
+    "BasePassiveFlatDamage": [
+     60,
+     70,
+     80
+    ],
+    "BaseUltStackDamage": [
+     4,
+     7,
+     10
+    ],
+    "BaseUltFlatDamage": [
+     125,
+     200,
+     275
+    ],
+    "DisintegrateDelay": 0.9,
+    "FlatMinionMod": 0.55
+   },
+   "formulas": {
+    "PassiveStackDamage": "3/4/5 + 0.007×AP",
+    "PassiveFlatDamage": "60/70/80 + 0.1×AP",
+    "UltStackDamage": "4/7/10 + 0.04×AP",
+    "UltFlatDamage": "125/200/275 + 0.3×AP"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Searing Brilliance",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Whenever Mel uses an ability, she gains three bonus projectiles (up to nine maximum) on her next attack. When Mel deals damage through an ability or attack, she applies Overwhelm, which can stack infinitely. If the enemy is hit by Mel with enough Overwhelm damage, the stacks are consumed to execute the target.",
+   "summary": "Whenever Mel uses an ability, she gains three bonus projectiles (up to nine maximum) on her next attack. When Mel deals damage through an ability or attack, she applies Overwhelm, which can stack infinitely. If the enemy is hit by Mel with enough Overwhelm damage, the stacks are consumed to execute the target.",
+   "values": {
+    "OverwhelmDuration": 5,
+    "BonusAttackDuration": 5,
+    "PassiveBonusMissiles": 3,
+    "MaxPassiveBonusMissiles": 9
+   },
+   "formulas": {
+    "PassiveBonusMissileDamage": "4–30 (by level) + 0.04×AP"
+   },
+   "tags": [
+    "empowered attack",
+    "execute",
+    "projectile"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Long-range mage who pokes with Q barrages and stacks Overwhelm until targets can be executed. Reflects enemy projectiles with W and finishes fights with an R that hits every Overwhelmed enemy.",
+  "positions": [
+   "MIDDLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "W destroys enemy projectiles it touches and retaliates (plus shield and move speed)",
+   "Long-range Q poke",
+   "E root lasts longer the further it travels",
+   "Overwhelm executes targets at enough stacks",
+   "R hits every Overwhelmed enemy, at any range"
+  ],
+  "weaknesses": [
+   "Squishy and has no dash",
+   "E root is slow and hard to land up close",
+   "W does nothing against non-projectile damage",
+   "Weak to melee all-ins once W is down"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke from range",
+   "lvl2": "medium – Q + W or E",
+   "lvl3": "strong – full poke + root",
+   "lvl6": "strong – R hits all Overwhelmed targets",
+   "items": "strong – first AP item (Luden's or Malignance)",
+   "late": "strong – long-range poke and execute"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Pokes to stack Overwhelm; she wants W for answers to projectile-based all-ins.",
+  "waveClear": "good – Q area",
+  "sustain": "low – none",
+  "mobility": "low – W move speed only",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "After an ability, next attack fires extra projectiles; all hits stack Overwhelm, executing at enough stacks."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Missile barrage exploding at the target location."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "projectile block",
+    "notes": "Nova destroys enemy projectiles and retaliates; shield + move speed."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Orb roots at its centre (longer with distance); slow area around it."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Hits all Overwhelm-marked enemies; only castable when one is marked."
+   }
+  },
+  "windowAgainst": "W down: projectiles land and she can't stop all-ins. Engage right after a missed E.",
+  "checks": [
+   "R range: confirm it is truly unlimited for Overwhelmed enemies."
+  ]
+ }
+}

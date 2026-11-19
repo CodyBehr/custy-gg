@@ -1,0 +1,311 @@
+{
+ "id": 203,
+ "alias": "Kindred",
+ "name": "Kindred",
+ "title": "The Eternal Hunters",
+ "classes": [
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 595,
+  "hpPerLevel": 104,
+  "ad": 65,
+  "adPerLevel": 3.25,
+  "armor": 29,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3.5,
+  "range": 500,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Dance of Arrows",
+   "cooldown": 9,
+   "cost": 35,
+   "costType": null,
+   "range": 340.0,
+   "description": "Kindred vaults, firing an arrow at up to 3 enemies, dealing 40/65/90/115/140 + 0.75×bonus AD physical damage and gaining 0.35 + ? Attack Speed for 4 seconds. While inside of Wolf's Frenzy, this Ability's Cooldown is reduced to 4/3.5/3/2.5/2 seconds.",
+   "summary": "Kindred tumbles and shoots up to three arrows at nearby targets.",
+   "values": {
+    "DashSpeed": 500,
+    "DashSpeedScaling": 12,
+    "BaseASDuration": 4,
+    "CDNewValue": [
+     4,
+     3.5,
+     3,
+     2.5,
+     2
+    ],
+    "BaseDamage": [
+     40,
+     65,
+     90,
+     115,
+     140
+    ],
+    "BaseBonusAS": 0.35
+   },
+   "formulas": {
+    "TotalQAttackSpeed": "0.35 + ?",
+    "TotalDamage": "40/65/90/115/140 + 0.75×bonus AD"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  },
+  "W": {
+   "name": "Wolf's Frenzy",
+   "cooldown": [
+    18,
+    17,
+    16,
+    15,
+    14
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 560.0,
+   "description": "Passive: Kindred gains stacks as they move and attack. At 100 stacks, Kindred's next Attack restores up to 47+ (by level) Health based on their missing Health. Active: Kindred claims a territory, ordering Wolf to bite at the last enemy Lamb Attacked. Wolf's bites deal 25/30/35/40/45 + 0.2×bonus AD + 0.2×AP plus 0.015 + ? current Health magic damage.",
+   "summary": "Wolf enrages and attacks enemies around him. Lamb passively gains stacks by moving and attacking. When fully charged, Lamb's next attack restores health.",
+   "values": {
+    "LambToWolfAttackSpeedConversionPercent": 0.25,
+    "RingRange": 800,
+    "APRatio": 0.2,
+    "CloneBasePercentDamage": 0.015,
+    "CloneDamageFlat": [
+     25,
+     30,
+     35,
+     40,
+     45
+    ],
+    "CloneADRatio": 0.2,
+    "ClonePercentDamagePerBounty": 0.01,
+    "BaseCurrentHealthDamage": 1.5,
+    "ZoneDuration": 8.5,
+    "MonsterBonusDmg": 0.65,
+    "MonsterSlowAmount": 0.5
+   },
+   "formulas": {
+    "AttackHeal": "47+ (by level)",
+    "BaseWolfDamage": "25/30/35/40/45 + 0.2×bonus AD + 0.2×AP",
+    "PercentWolfDamage": "0.015 + ?",
+    "{fe248f68}": "(0.015 + ?) × 1×stat"
+   },
+   "tags": [
+    "empowered attack",
+    "execute",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Mounting Dread",
+   "cooldown": [
+    14,
+    12.5,
+    11,
+    9.5,
+    8
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 500.0,
+   "description": "Kindred weakens an enemy, Slowing them by 30 + 0.05×AP% for 1.5 second. Kindred's third Attack against the target within 4 seconds of each other directs Wolf to pounce on the enemy, dealing an additional (80/110/140/170/200 + 1×bonus AD) × (1 + (0.5×crit × (1×stat + -1))) plus (0.05 + ?) × (1 + (0.5×crit × (1×stat + -1))) missing Health physical damage.",
+   "summary": "Lamb fires a carefully placed shot, slowing the target. If Lamb attacks the target two more times, her third attack instead directs Wolf to pounce on the enemy, savaging them for massive damage.",
+   "values": {
+    "MonsterCap": 200,
+    "BaseDamage": [
+     80,
+     110,
+     140,
+     170,
+     200
+    ],
+    "SlowAmount": 30,
+    "SlowDuration": 1.5,
+    "TotalDuration": 4,
+    "StacksToProc": 4,
+    "SlowAPRatio": 0.05,
+    "BasePercentDamage": 0.05,
+    "CritMod": 0.5,
+    "BonusADRatio": 1
+   },
+   "formulas": {
+    "BaseBiteDamage": "(80/110/140/170/200 + 1×bonus AD) × (1 + (0.5×crit × (1×stat + -1)))",
+    "PercentBiteDamage": "(0.05 + ?) × (1 + (0.5×crit × (1×stat + -1)))",
+    "CritDamage": "((0.05 + ?) × (1 + (0.5×crit × (1×stat + -1)))) × (1.5 + 1×bonus stat)",
+    "TotalSlow": "30 + 0.05×AP"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Lamb's Respite",
+   "cooldown": [
+    160,
+    140,
+    120
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 500.0,
+   "description": "Kindred blesses the ground for 4 seconds, allowing no unit, ally, enemy, or neutral to die while inside. Upon reaching 10% Health, units can't be damaged or healed while still inside the zone. When the blessing ends, all units inside heal for 225/300/375 Health.",
+   "summary": "Lamb grants all living things inside a zone a respite from death. Until the effect ends, nothing can die. At the end, units are healed.",
+   "values": {
+    "HealFlat": [
+     225,
+     300,
+     375
+    ],
+    "BuffDuration": 4,
+    "AoERadius": 530
+   },
+   "formulas": {},
+   "tags": [
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Mark of the Kindred",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Kindred can mark targets to Hunt. Successfully completing a Hunt permanently empowers Kindred's basic abilities. Every 4 hunts completed also increases Kindred's basic attack range.",
+   "summary": "Kindred can mark targets to Hunt. Successfully completing a Hunt permanently empowers Kindred's basic abilities. Every 4 hunts completed also increases Kindred's basic attack range.",
+   "values": {
+    "BaseHealAmount": 45,
+    "HealAmountPerLevel": 2,
+    "InitialMarkThreshold": 4,
+    "RangeIncrease": 25,
+    "FirstTierMultiplier": 3,
+    "ASPerMark": 0.05,
+    "EDamagePerMark": 0.5,
+    "AdditionalMarkThreshold": 3
+   },
+   "formulas": {
+    "QMarkBonus": "?",
+    "WMarkBonus": "?",
+    "EMarkBonus": "?",
+    "{d34fc902}": "(25) × 3"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Marksman jungler who scales by collecting marks and duels with kiting dashes. Her R zone stops anyone from dying, turning fights around.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Strong kiting with Q dash and wolf (W) damage",
+   "Scales infinitely with marks (range and damage)",
+   "R prevents all deaths in the zone for a few seconds",
+   "Good objective damage",
+   "E execute-style third hit on low targets"
+  ],
+  "weaknesses": [
+   "Squishy; dies to dive and point-and-click crowd control",
+   "Falls behind if she misses marks",
+   "Weak early clear vs invades",
+   "R also saves enemies inside it",
+   "Relies on kiting space"
+  ],
+  "curve": {
+   "lvl1": "medium – W wolf helps duel",
+   "lvl2": "medium – Q+W duel",
+   "lvl3": "medium – Q kiting",
+   "lvl6": "strong – R save/turn",
+   "items": "strong – first crit/on-hit item",
+   "late": "strong – mark stacks"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Fights after having Q, W and E for kiting duels.",
+  "waveClear": "medium",
+  "sustain": "low – R heals everyone inside at the end",
+  "mobility": "medium – Q dash",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "W",
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Short dash plus arrows; lowers cooldown inside W."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Wolf zone attacks enemies; attacks build stacks."
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Slows, third hit deals bonus damage based on missing health."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "invulnerable",
+    "notes": "Nobody inside can drop below a small amount of health for its duration (allies and enemies); then heals."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Marks on monsters/champions grant permanent stats."
+   }
+  },
+  "windowAgainst": "R and Q down: all-in or dive her. Fight before she has many marks.",
+  "checks": [
+   "R as 'invulnerable' is a simplification (health floor, not true invulnerability)",
+   "Health-floor ultimates are tagged invulnerable"
+  ]
+ }
+}

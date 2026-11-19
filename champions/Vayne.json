@@ -1,0 +1,298 @@
+{
+ "id": 67,
+ "alias": "Vayne",
+ "name": "Vayne",
+ "title": "the Night Hunter",
+ "classes": [
+  "marksman",
+  "assassin"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 580,
+  "hpPerLevel": 98,
+  "ad": 60,
+  "adPerLevel": 2.35,
+  "armor": 23,
+  "armorPerLevel": 4.6,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2.8,
+  "range": 550,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Tumble",
+   "cooldown": [
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "cost": 30,
+   "costType": null,
+   "range": 300.0,
+   "description": "Vayne rolls a short distance, and deals an additional 0.75/0.85/0.95/1.05/1.15×AD + 0.5×AP physical damage on her next Attack. This Ability triggers spell effects upon dealing damage.",
+   "summary": "Vayne tumbles, maneuvering to carefully place her next shot. Her next attack deals bonus damage.",
+   "values": {
+    "TotalADRatio": [
+     0.75,
+     0.85,
+     0.95,
+     1.05,
+     1.15
+    ],
+    "Duration": 3,
+    "APRatio": 0.5
+   },
+   "formulas": {
+    "ADRatioBonus": "0.75/0.85/0.95/1.05/1.15×AD + 0.5×AP"
+   },
+   "tags": [
+    "empowered attack"
+   ]
+  },
+  "W": {
+   "name": "Silver Bolts",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": 750.0,
+   "description": "Passive: Every third consecutive Attack or Ability against an enemy deals an additional 0.04/0.055/0.07/0.085/0.1 max Health true damage.",
+   "summary": "Vayne tips her bolts with a rare metal, toxic to evil things. The third consecutive attack or ability against the same target deals a percentage of the target's max health as bonus true damage.",
+   "values": {
+    "MaxHealthRatio": [
+     0.04,
+     0.055,
+     0.07,
+     0.085,
+     0.1
+    ],
+    "DamageFloor": [
+     40,
+     55,
+     70,
+     85,
+     100
+    ],
+    "DamageVsMonsters": [
+     140,
+     155,
+     170,
+     185,
+     200
+    ],
+    "DebuffDuration": 3.5
+   },
+   "formulas": {
+    "TotalDamage": "0.04/0.055/0.07/0.085/0.1"
+   },
+   "tags": [
+    "heal",
+    "true damage"
+   ]
+  },
+  "E": {
+   "name": "Condemn",
+   "cooldown": [
+    20,
+    18,
+    16,
+    14,
+    12
+   ],
+   "cost": 90,
+   "costType": null,
+   "range": 550.0,
+   "description": "Vayne fires a bolt that Knocks Back and deals 50/85/120/155/190 + 0.5×bonus AD physical damage. If the target collides with terrain, they take (50/85/120/155/190 + 0.5×bonus AD) × 1.5 bonus physical damage and become Stunned for 1.5 seconds.",
+   "summary": "Vayne draws a heavy crossbow from her back, and fires a huge bolt at her target, knocking them back and dealing damage. If they collide with terrain, they are impaled, dealing bonus damage and stunning them.",
+   "values": {
+    "Damage": [
+     50,
+     85,
+     120,
+     155,
+     190
+    ],
+    "StunDamage": 1.5,
+    "StunDuration": 1.5,
+    "KnockbackDistance": 475
+   },
+   "formulas": {
+    "TotalDamage": "50/85/120/155/190 + 0.5×bonus AD",
+    "EmpoweredDamageTT": "(50/85/120/155/190 + 0.5×bonus AD) × 1.5"
+   },
+   "tags": [
+    "airborne",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Final Hour",
+   "cooldown": [
+    100,
+    85,
+    70
+   ],
+   "cost": 80,
+   "costType": null,
+   "range": 1.0,
+   "description": "Vayne gains 35/50/65 Attack Damage for 8/10/12 seconds, extended by 4 seconds whenever a champion damaged by Vayne dies within 3 seconds. Additionally, during the duration:Night Hunter instead grants 90 Move Speed.The Cooldown of Tumble is reduced by 30/40/50%, and grants Invisibility for 1 second.",
+   "summary": "Readying herself for an epic confrontation, Vayne gains increased Attack Damage, Invisibility during Tumble, reduced Tumble cooldown, and more bonus Move Speed from Night Hunter",
+   "values": {
+    "BonusAttackDamage": [
+     35,
+     50,
+     65
+    ],
+    "BaseDuration": [
+     8,
+     10,
+     12
+    ],
+    "TumbleStealthDuration": 1,
+    "MovementSpeed": 90,
+    "DurationToAdd": 4,
+    "DamagedMarkerDuration": 3,
+    "TumbleCDReduction": [
+     30,
+     40,
+     50
+    ]
+   },
+   "formulas": {},
+   "tags": [
+    "move speed",
+    "stealth"
+   ]
+  },
+  "Passive": {
+   "name": "Night Hunter",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Vayne ruthlessly hunts evil-doers, gaining Move Speed when moving toward nearby enemy champions.",
+   "summary": "Vayne ruthlessly hunts evil-doers, gaining Move Speed when moving toward nearby enemy champions.",
+   "values": {
+    "MovementSpeed": 30,
+    "Range": 2000
+   },
+   "formulas": {},
+   "tags": [
+    "move speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Hyper-scaling marksman who hunts tanks with W true damage every third hit. Wins fights by tumbling with Q, pinning with E stun into walls, and going invisible with R.",
+  "positions": [
+   "BOTTOM",
+   "TOP"
+  ],
+  "strengths": [
+   "W true damage % max health every third hit shreds tanks",
+   "Q tumble repositions and empowers the next attack",
+   "E knocks back and stuns if the target hits terrain",
+   "R gives stealth on Q and bonus damage",
+   "Very strong late game"
+  ],
+  "weaknesses": [
+   "Short range: weak early laning",
+   "Weak to poke and hard engage",
+   "E is her main peel; once down she's vulnerable",
+   "Falls behind if she can't farm"
+  ],
+  "curve": {
+   "lvl1": "weak – short range",
+   "lvl2": "medium",
+   "lvl3": "medium – Q+E",
+   "lvl6": "strong – R",
+   "items": "strong – BotRK / Guinsoo's",
+   "late": "strong – hypercarry"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs Q, W and E; really comes online with items.",
+  "waveClear": "low – single target",
+  "sustain": "low (BotRK)",
+  "mobility": "high – Q tumble, R stealth",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "Q",
+    "R"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Move speed toward champions."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Tumble; next attack empowered."
+   },
+   "W": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Third hit true damage, % max health."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Knockback; stun into terrain. Blockable by projectile blocks."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bonus AD; Q grants stealth."
+   }
+  },
+  "windowAgainst": "Early levels (weak lane) or E on cooldown: engage.",
+  "checks": [
+   "Whether E knockback counts as airborne (knock-backs usually are)."
+  ]
+ }
+}

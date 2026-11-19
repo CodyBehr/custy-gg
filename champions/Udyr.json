@@ -1,0 +1,512 @@
+{
+ "id": 77,
+ "alias": "Udyr",
+ "name": "Udyr",
+ "title": "the Spirit Walker",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kMixed",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 664,
+  "hpPerLevel": 92,
+  "ad": 62,
+  "adPerLevel": 4,
+  "armor": 31,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.65,
+  "attackSpeedPerLevel": 3,
+  "range": 125,
+  "moveSpeed": 350
+ },
+ "abilities": {
+  "Q": {
+   "name": "Wilding Claw",
+   "cooldown": 6,
+   "cost": 20,
+   "costType": null,
+   "range": 600.0,
+   "description": "Claw Stance: Udyr gains 20/32/44/56.0/68% Attack Speed and his Attacks deal 6/12/18/24/30 + 0.2×bonus AD + 0.01/0.012/0.014/0.016/0.018×bonus max HP physical damage %i:OnHit% On-Hit for 4 seconds. Additionally, Udyr's next two Attacks in this stance deal a bonus 0.03/0.04/0.05/0.06/0.07 + 0.0×bonus AD max Health physical damage and gain 50 range. Awaken: Increase bonus Attack Speed to 0.2/0.32/0.44/0.56/0.68 + ? and max Health damage to 0.03/0.04/0.05/0.06/0.07 + 0.02–0.04 (by level) + 0.001×bonus AD + 0.0×bonus max HP. Additionally, Udyr's next two Attacks call lightning six times, dealing a total of ((0.0×AP + ?) × (1 + ((6 + -1) × 1))) max Health magic damage to isolated targets (strikes bounce to other nearby targets when possible).",
+   "summary": "Udyr gains attack speed and his next two attacks deal bonus physical damage. Recast: Gain even more attack speed, and the next two attacks call lightning to strike the target.",
+   "values": {
+    "AttackSpeedBase": [
+     0.2,
+     0.32,
+     0.44,
+     0.56,
+     0.68
+    ],
+    "AttackSpeedDurationBase": 4,
+    "AttackSpeedDurationEmpowered": 4,
+    "MaxHPOnHitBase": [
+     0.03,
+     0.04,
+     0.05,
+     0.06,
+     0.07
+    ],
+    "RepeatBouncePenalty": 1,
+    "LightningAPRatio": 0.0,
+    "Bounces": 6,
+    "BounceRange": 450,
+    "BaseDamage": [
+     6,
+     12,
+     18,
+     24,
+     30
+    ],
+    "MaxHPADRatio": 0.0,
+    "Q2MaxHPADRatio": 0.001,
+    "AttackRange": 50,
+    "LightningDamageLevel1": 0.015,
+    "LightningDamageLevel18": 0.03,
+    "EmpoweredBonusASLevel1": 0.2,
+    "EmpoweredBonusASLevel18": 0.7,
+    "OnHitBonusHPRatio": [
+     0.01,
+     0.012,
+     0.014,
+     0.016,
+     0.018
+    ]
+   },
+   "formulas": {
+    "EmpoweredTotalAS": "0.2/0.32/0.44/0.56/0.68 + ?",
+    "MonsterCap": "15 + 0.5×AP + 1×bonus AD",
+    "{af259c48}": "5–35 (by level)",
+    "MaxHPOnHit1": "0.03/0.04/0.05/0.06/0.07 + 0.0×bonus AD",
+    "EmpoweredLightningBonus": "? + 0.0×AP",
+    "{ec11b8c6}": "0.5–1 (by level)",
+    "{f18e2661}": "(? + 0.0×AP) × 1",
+    "{ba540e22}": "(15 + 0.5×AP + 1×bonus AD) × 1",
+    "EmpoweredLightningBonusMax": "((0.0×AP + ?) × (1 + ((6 + -1) × 1)))",
+    "MonsterNukeMinRCalc": "(af259c48) × 8",
+    "OnHitDamage": "6/12/18/24/30 + 0.2×bonus AD + 0.01/0.012/0.014/0.016/0.018×bonus max HP",
+    "Q2TotalOnHitHPDamage": "0.03/0.04/0.05/0.06/0.07 + 0.02–0.04 (by level) + 0.001×bonus AD + 0.0×bonus max HP",
+    "LightningDamageToMinionsMin": "40–160 (by level)"
+   },
+   "tags": [
+    "attack speed",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Iron Mantle",
+   "cooldown": 6,
+   "cost": 40,
+   "costType": null,
+   "range": 0.0,
+   "description": "Mantle Stance: Udyr gains 45/65/85/105/125 + 0.02/0.023/0.026/0.029/0.032×max HP + 0.4×AP + 0.5×bonus AD Shield for 4 seconds. Additionally, Udyr's next two Attacks gain 15/16/17/18/19% Life Steal and restore 0.012×max HP + 0.08×AP Health. Awaken: Gain 20–150 (by level) + 45/65/85/105/125 + 0.65×AP + 0.08×max HP + 1×bonus AD Shield, restore (20–150 (by level) + 45/65/85/105/125 + 0.65×AP + 0.08×max HP + 1×bonus AD) × 0.5 Health over 4 seconds, and Udyr's next two Attacks instead have 30/32/34/36/38% Life Steal and restore (0.012×max HP + 0.08×AP) × 2 Health.",
+   "summary": "Udyr gains a shield and his next two attacks heal him. Recast: Gain an even bigger shield and heal based on max health over the next couple seconds.",
+   "values": {
+    "ShieldDuration": 4,
+    "ShieldBase": [
+     45,
+     65,
+     85,
+     105,
+     125
+    ],
+    "LifeOnHitHPRatio": 0.012,
+    "ShieldPercentHealth": [
+     0.02,
+     0.023,
+     0.026,
+     0.029,
+     0.032
+    ],
+    "LifeSteal": [
+     0.15,
+     0.16,
+     0.17,
+     0.18,
+     0.19
+    ],
+    "HealOnHitMinionPenalty": 0.4,
+    "HealAttackMult": 2,
+    "ShieldAPRatio": 0.4,
+    "OnHitHealAPRatio": 0.08,
+    "PercentOfShieldHealAmount": 0.5
+   },
+   "formulas": {
+    "TotalShield": "45/65/85/105/125 + 0.02/0.023/0.026/0.029/0.032×max HP + 0.4×AP + 0.5×bonus AD",
+    "LifeOnHit": "0.012×max HP + 0.08×AP",
+    "{bbb9794b}": "0.1–0.2 (by level)",
+    "{b038be53}": "(bbb9794b) × 0",
+    "HealPerSecond": "0.05×max HP",
+    "Omnivamp": "0.25",
+    "RecastShield": "20–150 (by level) + 45/65/85/105/125 + 0.65×AP + 0.08×max HP + 1×bonus AD",
+    "RecastHeal": "(20–150 (by level) + 45/65/85/105/125 + 0.65×AP + 0.08×max HP + 1×bonus AD) × 0.5",
+    "LifeOnHitAwakened": "(0.012×max HP + 0.08×AP) × 2",
+    "{5fcd3b84}": "(0.15/0.16/0.17/0.18/0.19 × 2)"
+   },
+   "tags": [
+    "heal",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Blazing Stampede",
+   "cooldown": 6,
+   "cost": 40,
+   "costType": null,
+   "range": 600.0,
+   "description": "Stampede Stance: Udyr gains 0.25/0.31/0.37/0.43/0.49 + 0.001×bonus AD Move Speed, decaying over 4 seconds. Additionally, Udyr's Attacks dash him to the target and Stun for 0.75 seconds (6/5.6/5.2/4.8/4.4 second Cooldown per target). Awaken: Grants immunity to Immobilizing and Disabling effects and an additional 0.3–0.4 (by level) + 0.001×bonus AD Move Speed for 1.5 seconds.",
+   "summary": "Udyr gains movement speed and his first attack against each target will Stun them. Recast: Gain even more movement speed and immunity to immobilizing effects for a couple seconds.",
+   "values": {
+    "ICD": [
+     6,
+     5.6,
+     5.2,
+     4.8,
+     4.4
+    ],
+    "BaseMoveSpeed": [
+     0.25,
+     0.31,
+     0.37,
+     0.43,
+     0.49
+    ],
+    "MoveSpeedDuration": 4,
+    "StunDuration": 0.75,
+    "EmpoweredBonusRange": 75,
+    "UnstoppableDuration": 1.5
+   },
+   "formulas": {
+    "MoveSpeedBonus": "0.3–0.4 (by level) + 0.001×bonus AD",
+    "{aedeb4cc}": "?",
+    "MoveSpeed": "0.25/0.31/0.37/0.43/0.49 + 0.001×bonus AD"
+   },
+   "tags": [
+    "dash",
+    "immobilizing",
+    "move speed",
+    "stun",
+    "unstoppable"
+   ]
+  },
+  "R": {
+   "name": "Wingborne Storm",
+   "cooldown": 6,
+   "cost": 40,
+   "costType": null,
+   "range": 370.0,
+   "description": "Storm Stance: Udyr surrounds himself in a glacial storm for 4 seconds, dealing 20/36/52 + 0.35×AP magic damage per second to nearby enemies and Slowing them by 15/18/21%. Additionally, Udyr's next two Attacks in this stance deal 10–40 (by level) + 0.35×AP magic damage to enemies in the storm. Awaken: Unleash the storm, causing it to follow Udyr's last Attacked enemy, deal an additional 0.08–0.14 (by level) + 0.0×AP max Health magic damage over the duration, and Slow by an additional 0.05.",
+   "summary": "Udyr surrounds himself in a glacial storm, damaging and slowing nearby enemies. Recast: Empower and unleash the storm, causing it to track enemies and deal additional damage.",
+   "values": {
+    "BuffDuration": 4,
+    "SlowPotency": [
+     0.15,
+     0.18,
+     0.21
+    ],
+    "SlowDuration": 2,
+    "StormBaseDamage": [
+     20,
+     36,
+     52
+    ],
+    "StormAPRatio": 0.0
+   },
+   "formulas": {
+    "PercentHPBlast": "0.08–0.14 (by level) + 0.0×AP",
+    "StormDamage": "20/36/52 + 0.35×AP",
+    "EmpoweredSlow": "0.05",
+    "PulseDamage": "10–40 (by level) + 0.35×AP",
+    "{817f8a73}": "-400–-100 (by level)",
+    "DamageToMinions_Scaling": "0.5+ (by level)",
+    "{af259c48}": "5–35 (by level)",
+    "MonsterCap": "10–50 (by level)"
+   },
+   "tags": [
+    "heal",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Bridge Between",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Udyr has four basic Abilities that swap between Stances and can Recast an Ability to renew it with Ultimate benefits. Additionally, after using an Ability, Udyr's next two Attacks gain Attack Speed.",
+   "summary": "Udyr has four basic Abilities that swap between Stances and can Recast an Ability to renew it with Ultimate benefits. Additionally, after using an Ability, Udyr's next two Attacks gain Attack Speed.",
+   "values": {
+    "ICD": [
+     6,
+     5.6,
+     5.2,
+     4.8,
+     4.4
+    ],
+    "BaseMoveSpeed": [
+     0.25,
+     0.31,
+     0.37,
+     0.43,
+     0.49
+    ],
+    "MoveSpeedDuration": 4,
+    "StunDuration": 0.75,
+    "EmpoweredBonusRange": 75,
+    "UnstoppableDuration": 1.5,
+    "BuffDuration": 4,
+    "SlowPotency": [
+     0.15,
+     0.18,
+     0.21,
+     0.24,
+     0.27
+    ],
+    "SlowDuration": 2,
+    "StormBaseDamage": [
+     20,
+     36,
+     52,
+     68,
+     84
+    ],
+    "StormAPRatio": 0.0,
+    "AttackSpeedBase": [
+     0.2,
+     0.32,
+     0.44,
+     0.56,
+     0.68
+    ],
+    "AttackSpeedDurationBase": 4,
+    "AttackSpeedDurationEmpowered": 4,
+    "MaxHPOnHitBase": [
+     0.03,
+     0.04,
+     0.05,
+     0.06,
+     0.07
+    ],
+    "RepeatBouncePenalty": 1,
+    "LightningAPRatio": 0.0,
+    "Bounces": 6,
+    "BounceRange": 450,
+    "BaseDamage": [
+     6,
+     12,
+     18,
+     24,
+     30
+    ],
+    "MaxHPADRatio": 0.0,
+    "Q2MaxHPADRatio": 0.001,
+    "AttackRange": 50,
+    "LightningDamageLevel1": 0.015,
+    "LightningDamageLevel18": 0.03,
+    "EmpoweredBonusASLevel1": 0.2,
+    "EmpoweredBonusASLevel18": 0.7,
+    "OnHitBonusHPRatio": [
+     0.01,
+     0.012,
+     0.014,
+     0.016,
+     0.018
+    ],
+    "ShieldDuration": 4,
+    "ShieldBase": [
+     45,
+     65,
+     85,
+     105,
+     125
+    ],
+    "LifeOnHitHPRatio": 0.012,
+    "ShieldPercentHealth": [
+     0.02,
+     0.023,
+     0.026,
+     0.029,
+     0.032
+    ],
+    "LifeSteal": [
+     0.15,
+     0.16,
+     0.17,
+     0.18,
+     0.19
+    ],
+    "HealOnHitMinionPenalty": 0.4,
+    "HealAttackMult": 2,
+    "ShieldAPRatio": 0.4,
+    "OnHitHealAPRatio": 0.08,
+    "PercentOfShieldHealAmount": 0.5,
+    "UdyrAHAmountPerCloudDragon": 6,
+    "GlobalCD": 1.5,
+    "GlobalCDEmpowered": 0.5,
+    "SwapChargeBonus": 1,
+    "MaxCharge": 1000,
+    "UltCDReduction": 0.05,
+    "AttackSpeedDuration": 4,
+    "UltCDMultiplier": 1
+   },
+   "formulas": {
+    "MoveSpeedBonus": "0.3–0.4 (by level) + 0.001×bonus AD",
+    "{aedeb4cc}": "?",
+    "MoveSpeed": "0.25/0.31/0.37/0.43/0.49 + 0.001×bonus AD",
+    "PercentHPBlast": "0.08–0.14 (by level) + 0.0×AP",
+    "StormDamage": "20/36/52/68/84 + 0.35×AP",
+    "EmpoweredSlow": "0.05",
+    "PulseDamage": "10–40 (by level) + 0.35×AP",
+    "{817f8a73}": "-400–-100 (by level)",
+    "DamageToMinions_Scaling": "0.5+ (by level)",
+    "{af259c48}": "5–35 (by level)",
+    "MonsterCap": "10–50 (by level)",
+    "EmpoweredTotalAS": "0.2/0.32/0.44/0.56/0.68 + ?",
+    "MaxHPOnHit1": "0.03/0.04/0.05/0.06/0.07 + 0.0×bonus AD",
+    "EmpoweredLightningBonus": "? + 0.0×AP",
+    "{ec11b8c6}": "0.5–1 (by level)",
+    "{f18e2661}": "(? + 0.0×AP) × 1",
+    "{ba540e22}": "(10–50 (by level)) × 1",
+    "EmpoweredLightningBonusMax": "((0.0×AP + ?) × (1 + ((6 + -1) × 1)))",
+    "MonsterNukeMinRCalc": "(af259c48) × 8",
+    "OnHitDamage": "6/12/18/24/30 + 0.2×bonus AD + 0.01/0.012/0.014/0.016/0.018×bonus max HP",
+    "Q2TotalOnHitHPDamage": "0.03/0.04/0.05/0.06/0.07 + 0.02–0.04 (by level) + 0.001×bonus AD + 0.0×bonus max HP",
+    "LightningDamageToMinionsMin": "40–160 (by level)",
+    "TotalShield": "45/65/85/105/125 + 0.02/0.023/0.026/0.029/0.032×max HP + 0.4×AP + 0.5×bonus AD",
+    "LifeOnHit": "0.012×max HP + 0.08×AP",
+    "{bbb9794b}": "0.1–0.2 (by level)",
+    "{b038be53}": "(bbb9794b) × 0",
+    "HealPerSecond": "0.05×max HP",
+    "Omnivamp": "0.25",
+    "RecastShield": "20–150 (by level) + 45/65/85/105/125 + 0.65×AP + 0.08×max HP + 1×bonus AD",
+    "RecastHeal": "(20–150 (by level) + 45/65/85/105/125 + 0.65×AP + 0.08×max HP + 1×bonus AD) × 0.5",
+    "LifeOnHitAwakened": "(0.012×max HP + 0.08×AP) × 2",
+    "{5fcd3b84}": "(0.15/0.16/0.17/0.18/0.19 × 2)",
+    "{6a8aaac9}": "15–15 (by level)",
+    "AttackSpeed": "0.3",
+    "{1cfcbfbe}": "0.3–0.8 (by level)",
+    "{1800f4cb}": "0.2–0.3 (by level)",
+    "UltCD": "(50+ (by level)) × 1",
+    "LightningDamage": "0 + 0.1×AD + 0.2×AP",
+    "{73fab8fe}": "10 + 0.3×AD + 0.4×AP",
+    "{5e1424c3}": "20 + 0.05×max HP",
+    "{01dc7936}": "5–40 (by level) + 0.4×AD"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Stance-swapping jungler/top who duels with Claw attack speed and stuns with Stampede. Recasting a stance awakens it for a stronger effect.",
+  "positions": [
+   "JUNGLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Strong early duels",
+   "E stun on attack per target",
+   "W shield and lifesteal",
+   "Fast clear",
+   "Awakened E gives CC immunity"
+  ],
+  "weaknesses": [
+   "Kited",
+   "No range",
+   "Weak late",
+   "Predictable stance",
+   "Needs to get close"
+  ],
+  "curve": {
+   "lvl1": "strong – Q",
+   "lvl2": "strong – E stun",
+   "lvl3": "strong – W",
+   "lvl6": "strong – awaken",
+   "items": "strong – first item",
+   "late": "medium – falls off"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Strong early duelist.",
+  "waveClear": "good – R storm",
+  "sustain": "medium – W",
+  "mobility": "medium – E speed",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "E"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Claw attack speed."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield, heal."
+   },
+   "E": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "unstoppable",
+    "notes": "Attacks dash and stun; awakened gives CC immunity."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Storm."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Stance swap."
+   }
+  },
+  "windowAgainst": "E down: he can't stick; kite.",
+  "checks": [
+   "Awakened E tagged unstoppable"
+  ]
+ }
+}

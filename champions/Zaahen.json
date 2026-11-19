@@ -1,0 +1,351 @@
+{
+ "id": 904,
+ "alias": "Zaahen",
+ "name": "Zaahen",
+ "title": "The Unsundered",
+ "classes": [
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 640,
+  "hpPerLevel": 114,
+  "ad": 63,
+  "adPerLevel": 4,
+  "armor": 36,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.5,
+  "range": 175,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "The Darkin Glaive",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": 25,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Zaahen slashes twice on his next Attack, dealing 15/30/45/60/75 + 0.2/0.25/0.3/0.35/0.4\u00d7bonus AD bonus physical damage and restoring 5/6/7.0/8/9% of his max Health. Recast: Zaahen's next Attack deals 30/60/90/120/150 + 0.2/0.25/0.3/0.35/0.4\u00d7bonus AD bonus physical damage and Knocks the target Up for 0.75 seconds.",
+   "summary": "Zaahen slashes twice on his next attack, dealing bonus damage and healing himself. Zaahen can recast this ability to have his next attack deal bonus damage and knock up his target.",
+   "values": {
+    "Q1BaseDamage": [
+     15,
+     30,
+     45,
+     60,
+     75
+    ],
+    "KnockUpDuration": 0.75,
+    "RecastWindow": 4,
+    "TimeBetweenAttacks": 1.5,
+    "HealPercent": [
+     0.05,
+     0.06,
+     0.07,
+     0.08,
+     0.09
+    ],
+    "MinionHealPercent": 0.5,
+    "Q2BaseDamage": [
+     30,
+     60,
+     90,
+     120,
+     150
+    ],
+    "QBonusRange": 25,
+    "QCoeff": [
+     0.2,
+     0.25,
+     0.3,
+     0.35,
+     0.4
+    ],
+    "MonsterDamagePercent": 1
+   },
+   "formulas": {
+    "InitialDamage": "15/30/45/60/75 + 0.2/0.25/0.3/0.35/0.4\u00d7bonus AD",
+    "SecondHitDamage": "30/60/90/120/150 + 0.2/0.25/0.3/0.35/0.4\u00d7bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "empowered attack",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Dreaded Return",
+   "cooldown": [
+    16,
+    15,
+    14,
+    13,
+    12
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 850.0,
+   "description": "Zaahen stabs in a direction, dealing 40/60/80/100/120 + 0.5\u00d7bonus AD physical damage to enemies hit, then Pulls them toward him, dealing 30/50/70/90/110 + 0.3\u00d7bonus AD physical damage.",
+   "summary": "Zaahen stabs in a direction, damaging enemies hit, then pulls them toward him.",
+   "values": {
+    "InitialBaseDamage": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "SecondaryBaseDamage": [
+     30,
+     50,
+     70,
+     90,
+     110
+    ],
+    "MaximumPullDistance": 225,
+    "PullSpeed": 900
+   },
+   "formulas": {
+    "InitialDamage": "40/60/80/100/120 + 0.5\u00d7bonus AD",
+    "SecondaryDamage": "30/50/70/90/110 + 0.3\u00d7bonus AD"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "E": {
+   "name": "Aureate Rush",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Zaahen dashes then slices around himself, dealing 40/60/80/100/120 + 0.5\u00d7bonus AD physical damage to nearby enemies. Enemies at the edge of the slice take (40/60/80/100/120 + 0.5\u00d7bonus AD) \u00d7 1.5 physical damage +4/4.5/5/5.5/6% of their maximum Health as magic damage instead.",
+   "summary": "Zaahen dashes to a location and slices around himself.",
+   "values": {
+    "Damage_Base": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "DashDistance": 350,
+    "DashSpeed": 900,
+    "MaximumRadius": 375,
+    "MinimumRadius": 200,
+    "PercentHPDamage": [
+     0.04,
+     0.045,
+     0.05,
+     0.055,
+     0.06
+    ],
+    "MonsterDamageCap": 400,
+    "MonsterDamageBonus": 50,
+    "SweetSpotDamageMod": 1.5,
+    "DamageBonusBase": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ]
+   },
+   "formulas": {
+    "BaseDamageCalc": "40/60/80/100/120 + 0.5\u00d7bonus AD",
+    "BonusDamageCalc": "(40/60/80/100/120 + 0.5\u00d7bonus AD) \u00d7 1.5"
+   },
+   "tags": [
+    "dash",
+    "heal"
+   ]
+  },
+  "R": {
+   "name": "Grim Deliverance",
+   "cooldown": [
+    110,
+    95,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 600.0,
+   "description": "Passive: Zaahen gains 10/20/30% %i:scaleAPen% Armor Penetration. Active: Zaahen rises, gaining 50% Damage Reduction while casting. Zaahen then stabs downward, dealing 250/400/550 + 2\u00d7bonus AD physical damage and restoring 33% of the damage dealt to enemy champions as Health.",
+   "summary": "Zaahen rises then stabs downward, damaging enemies and healing for a portion of the damage dealt.",
+   "values": {
+    "DashMaxDistance": 600,
+    "DashMinDistance": 10,
+    "EndDamage": [
+     250,
+     400,
+     550
+    ],
+    "DashSpeed": 2800,
+    "HealPercent": 0.33,
+    "AoESize": 550,
+    "DamageReduction": 0.5,
+    "ArmorPen": [
+     0.1,
+     0.2,
+     0.3
+    ],
+    "BonusADDamageRatio": 2
+   },
+   "formulas": {
+    "DamageEndCalc": "250/400/550 + 2\u00d7bonus AD"
+   },
+   "tags": [
+    "damage reduction",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Cultivation of War",
+   "cooldown": 100,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Zaahen's attacks and abilities against enemy champions grant him stacks of Determination, gaining bonus Attack Damage per stack. When filled with Determination, Zaahen gains increased Attack Damage and can revive.",
+   "summary": "Zaahen's attacks and abilities against enemy champions grant him stacks of Determination, gaining bonus Attack Damage per stack. When filled with Determination, Zaahen gains increased Attack Damage and can revive.",
+   "values": {
+    "PercentBonusAD": 0.025,
+    "FallOffDuration": 5,
+    "RevivePercent": 0.6,
+    "MaxStacks": 12,
+    "ReviveDuration": 4,
+    "NumberOfTicks": 32,
+    "MaxStacksMultiplier": 2,
+    "PBonusADMin": 0.015,
+    "PBonusADMax": 0.028,
+    "ReviveLevel1Value": 0.3,
+    "ReviveAdditionalBonusAtThisLevel": 0.15
+   },
+   "formulas": {
+    "ReviveCooldownCalc": "300+ (by level)",
+    "RevivePercentCalc": "?",
+    "PercentBonusADCalc": "?"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Zaahen is a new Darkin fighter who stacks Determination with attacks and abilities, gaining attack damage and eventually a revive. He plays top, sustaining with The Darkin Glaive, pulling enemies in with Dreaded Return and finishing with Grim Deliverance.",
+  "positions": [
+   "TOP",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Cultivation of War stacks give attack damage and let him revive once full.",
+   "The Darkin Glaive restores % max HP, so he sustains well in lane.",
+   "Dreaded Return pulls enemies toward him, a strong engage.",
+   "Grim Deliverance gives 50% damage reduction while casting and heals him from damage to champions.",
+   "Aureate Rush deals % max HP magic damage at the edge."
+  ],
+  "weaknesses": [
+   "Melee: kiting and range stop him.",
+   "Needs Determination stacks to reach full damage and revive.",
+   "Aureate Rush is his only dash.",
+   "Grievous Wounds cuts his healing from Q and R.",
+   "New champion: interactions may still change."
+  ],
+  "curve": {
+   "lvl1": "good \u2013 Q heals a % of max HP in trades",
+   "lvl2": "good \u2013 W pull drags the enemy into his Q",
+   "lvl3": "strong \u2013 E dash with edge % max HP damage completes the combo",
+   "lvl6": "strong \u2013 Grim Deliverance gives damage reduction while casting and heals from champion damage",
+   "items": "medium \u2013 first item: Bruiser items like Sundered Sky or Black Cleaver",
+   "late": "good \u2013 full Determination gives attack damage and a revive"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Zaahen wants all three basic abilities for his full combo, and becomes strong at 6.",
+  "waveClear": "Okay: E and W clear waves.",
+  "sustain": "High: Q and R heal.",
+  "mobility": "Okay: E dash.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "W (Dreaded Return) pull into Q (The Darkin Glaive)",
+   "engage": "E (Aureate Rush) dash, edge damage",
+   "escape": "R (Grim Deliverance) to survive",
+   "answers": "Grim Deliverance gives damage reduction while casting."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Cultivation of War: attacks and abilities on champions give Determination stacks; when full, he gains attack damage and can revive."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Jax E dodges; Fiora W parries.",
+    "notes": "The Darkin Glaive: next attack slashes twice and heals; recast attack knocks up."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Dodge sideways.",
+    "notes": "Dreaded Return: stabs, then pulls enemies toward him."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Aureate Rush: dashes then slices around him; the edge deals % max HP damage."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Grim Deliverance: damage reduction while casting, then stabs down and heals."
+   }
+  },
+  "windowAgainst": "Zaahen's window is before he has full Determination stacks and when E is on cooldown.",
+  "checks": [
+   "Does Zaahen use Q to heal in trades?",
+   "Does Zaahen use W pull to start fights?",
+   "Does the enemy team account for his revive?",
+   "New champion: review every ability and the revive's conditions."
+  ]
+ }
+}

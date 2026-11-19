@@ -1,0 +1,315 @@
+{
+ "id": 555,
+ "alias": "Pyke",
+ "name": "Pyke",
+ "title": "the Bloodharbor Ripper",
+ "classes": [
+  "support",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 3,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 670,
+  "hpPerLevel": 110,
+  "ad": 62,
+  "adPerLevel": 2,
+  "armor": 37,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.667,
+  "attackSpeedPerLevel": 2.5,
+  "range": 150,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Bone Skewer",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    95
+   ],
+   "costType": null,
+   "range": 400.0,
+   "description": "Tap: Pyke stabs, dealing 100/150/200/250/300 + 0.75×bonus AD physical damage to the first enemy hit, preferring champions. They are then Slowed by 90% for 1 second. Hold: Pyke throws his harpoon, dealing 100/150/200/250/300 + 0.75×bonus AD physical damage to the first enemy hit and Pulling them towards him. They are then Slowed by 90% for 1 second. If Pyke successfully hits an enemy champion or the channel does not complete successfully, 75% of the Mana cost is refunded.",
+   "summary": "Pyke either stabs an enemy in front of him or pulls an enemy towards him.",
+   "values": {
+    "ManaRefund": 0.75,
+    "BaseDamage": [
+     100,
+     150,
+     200,
+     250,
+     300
+    ],
+    "SlowAmount": 0.9,
+    "SlowDuration": 1,
+    "MinChargeTime": 0.5,
+    "MaxChargeTime": 3,
+    "SelfSlow": 0.2,
+    "PullDistance": 500,
+    "MinRangeDistance": 500,
+    "MaxRangeDistance": 1100,
+    "ChargeTimeToGetMaxRange": 1,
+    "BonusADRatio": 0.75
+   },
+   "formulas": {
+    "TotalDamage": "100/150/200/250/300 + 0.75×bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Ghostwater Dive",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": 65,
+   "costType": null,
+   "range": 600.0,
+   "description": "Pyke gains Camouflage and 45 + 2×lethality% Move Speed decaying over 5 seconds.",
+   "summary": "Pyke enters Camouflage and gains significant Move Speed that decays over time.",
+   "values": {
+    "BaseMoveSpeed": 45,
+    "BaseHealCap": 80,
+    "MaxHPHealCap": 0.55,
+    "HealADRatio": 8,
+    "HealRampBase": 0.01,
+    "HealRampPerTick": 1.15,
+    "CamoDuration": 5
+   },
+   "formulas": {
+    "{601654a1}": "0.25+ (by level)",
+    "MoveSpeed": "45 + 2×lethality"
+   },
+   "tags": [
+    "move speed",
+    "stealth"
+   ]
+  },
+  "E": {
+   "name": "Phantom Undertow",
+   "cooldown": [
+    15,
+    14,
+    13,
+    12,
+    11
+   ],
+   "cost": 40,
+   "costType": null,
+   "range": 550.0,
+   "description": "Pyke dashes, leaving a drowned phantom behind him that returns to him shortly. The phantom Stuns for 1.25 + 0.01×lethality seconds and deals 100/150/200/250/300 + 1×bonus AD physical damage to champions.",
+   "summary": "Pyke dashes and leaves behind a phantom that will return to him, stunning enemy champions along its path.",
+   "values": {
+    "BaseDamage": [
+     100,
+     150,
+     200,
+     250,
+     300
+    ],
+    "BonusADRatio": 1,
+    "BaseStunDuration": 1.25,
+    "ELethalityRatio": 0.01,
+    "DashDistance": 550,
+    "StunDelay": 1
+   },
+   "formulas": {
+    "StunDuration": "1.25 + 0.01×lethality",
+    "TotalDamage": "100/150/200/250/300 + 1×bonus AD"
+   },
+   "tags": [
+    "dash",
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Death From Below",
+   "cooldown": [
+    100,
+    85,
+    70
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 750.0,
+   "description": "Pyke strikes all enemy champions in an X, teleporting to and executing targets below 250+ (by level) + 0.8×bonus AD + 1.5×lethality Health. Champions above the threshold and non-champions instead take physical damage equal to 50% of that amount ((250+ (by level) + 0.8×bonus AD + 1.5×lethality) × 0.5). When an enemy champion dies inside the X, Pyke can Recast this Ability for free within 20 seconds. If he executed that champion, the last assisting ally will also get kill gold. If he did not, he will still get kill gold as if he did.",
+   "summary": "Pyke blinks to and executes low health enemies, allowing him to cast this spell again and granting additional gold to an ally who assists.",
+   "values": {
+    "RRecastDuration": 20,
+    "ReducedDamage": 0.5,
+    "DamageCap": 0.5
+   },
+   "formulas": {
+    "RDamage": "250+ (by level) + 0.8×bonus AD + 1.5×lethality",
+    "RADDamage": "0.8×bonus AD",
+    "RLethalityDamage": "1.5×lethality",
+    "RBaseDamage": "250+ (by level)",
+    "ReducedDamageFinal": "(250+ (by level) + 0.8×bonus AD + 1.5×lethality) × 0.5"
+   },
+   "tags": [
+    "blink",
+    "execute",
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Gift of the Drowned Ones",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "When Pyke is hidden from enemies, he regenerates damage that he has recently taken from champions. Pyke also cannot gain extra Maximum Health from any source, and instead gains Bonus AD.",
+   "summary": "When Pyke is hidden from enemies, he regenerates damage that he has recently taken from champions. Pyke also cannot gain extra Maximum Health from any source, and instead gains Bonus AD.",
+   "values": {
+    "OneEnemy": 0.09,
+    "AdditionalBonus": 0.4,
+    "HPPerBAD": 14,
+    "CooldownPerChamp": 1,
+    "AmmoCooldown": 30,
+    "DamageStoreMaxBonusADRatio": 8
+   },
+   "formulas": {
+    "DamageStorageMax": "80 + 8×bonus AD",
+    "OneEnemyCalc": "0.09 + 0.002×lethality",
+    "AdditionalBonusCalc": "0.4 + 0.004×lethality"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Assassin support who builds damage instead of health. Wins fights by hooking with Q, stunning with E, and executing low enemies with R, which gives his teammate extra gold.",
+  "positions": [
+   "UTILITY",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Q hold pulls a target; tap stabs and slows 90%",
+   "E dash leaves a phantom that stuns 1.25 s on the way back",
+   "W camouflage and move speed for roams and ganks",
+   "R executes low champions in an X and resets on kill",
+   "Passive regenerates recent damage while he's out of sight"
+  ],
+  "weaknesses": [
+   "Can't gain bonus health: squishy",
+   "Low damage outside of R",
+   "Weak to poke in lane",
+   "Hook-dependent: missed Q leaves him in a bad spot",
+   "E is his only escape"
+  ],
+  "curve": {
+   "lvl1": "strong – Q hook",
+   "lvl2": "strong – Q+E combo",
+   "lvl3": "strong",
+   "lvl6": "strong – R execute",
+   "items": "strong – lethality (Umbral Glaive)",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q+E combo at 2 is his first kill threat.",
+  "waveClear": "low",
+  "sustain": "medium – passive grey health",
+  "mobility": "high – E dash, W speed",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "Q",
+    "E"
+   ],
+   "escape": [
+    "W",
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Regenerates recent champion damage while hidden; no bonus health."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Hold: harpoon pull then slow. Tap: stab, 90% slow."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Camouflage and move speed."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Dash; phantom returns and stuns 1.25 s."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "X-shaped execute; teleports to executed targets; resets on kill."
+   }
+  },
+  "windowAgainst": "Q on cooldown (missed) or E down: trade or engage then.",
+  "checks": [
+   "Whether the phantom stun is blocked by projectile blocks."
+  ]
+ }
+}

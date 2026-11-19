@@ -1,0 +1,329 @@
+{
+ "id": 711,
+ "alias": "Vex",
+ "name": "Vex",
+ "title": "the Gloomist",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 590,
+  "hpPerLevel": 104,
+  "ad": 54,
+  "adPerLevel": 2.75,
+  "armor": 23,
+  "armorPerLevel": 4.45,
+  "attackSpeed": 0.669,
+  "attackSpeedPerLevel": 1,
+  "range": 550,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Mistral Bolt",
+   "cooldown": [
+    8,
+    7,
+    6,
+    5,
+    4
+   ],
+   "cost": [
+    50,
+    55,
+    60,
+    65,
+    65
+   ],
+   "costType": null,
+   "range": 1200.0,
+   "description": "Vex launches a wave of mist that deals 70/115/160/205/250 + 0.7×AP magic damage. After a delay, the wave becomes smaller and faster. Consumes Gloom on enemies hit.",
+   "summary": "Launch a damaging missile that accelerates mid-flight.",
+   "values": {
+    "BaseDamage": [
+     70,
+     115,
+     160,
+     205,
+     250
+    ],
+    "APRatio": 0.7
+   },
+   "formulas": {
+    "QDamageCalc": "70/115/160/205/250 + 0.7×AP",
+    "{7b4a4737}": "(70/115/160/205/250 + 0.5×AP) × 1.1"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Personal Space",
+   "cooldown": [
+    16,
+    15,
+    14,
+    13,
+    12
+   ],
+   "cost": 75,
+   "costType": null,
+   "range": 475.0,
+   "description": "Vex gains 50/75/100/125/150 + 0.75×AP Shield for 2.5 seconds and emits a shockwave that deals 80/120/160/200/240 + 0.3×AP magic damage. Consumes Gloom on enemies hit.",
+   "summary": "Gain a shield and damage nearby enemies.",
+   "values": {
+    "ShieldAmount": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "BaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "ShieldDuration": 2.5,
+    "AOERadius": 475,
+    "BonusAOERadiusVsDashes": 75,
+    "DamageAPRatio": 0.3
+   },
+   "formulas": {
+    "ShieldCalc": "50/75/100/125/150 + 0.75×AP",
+    "WDamageCalc": "80/120/160/200/240 + 0.3×AP"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Looming Darkness",
+   "cooldown": 13,
+   "cost": [
+    80,
+    90,
+    100,
+    110,
+    110
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Vex commands Shadow to fly to a location, increasing in size as it travels. Upon arriving, it deals 50/70/90/110/130 + 0.4/0.45/0.5/0.55/0.6×AP magic damage and Slows by 30/35/40/45/50% for 2 seconds. Killing an enemy with this ability reduces Doom'n Gloom's Cooldown by 10%. Applies Gloom to enemies hit.",
+   "summary": "Summon a damaging and slowing zone that applies Gloom to enemies.",
+   "values": {
+    "BaseDamage": [
+     50,
+     70,
+     90,
+     110,
+     130
+    ],
+    "SlowAmount": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "SlowDuration": 2,
+    "StartingRadius": 200,
+    "RadiusGrowthRate": 13,
+    "APRatio": [
+     0.4,
+     0.45,
+     0.5,
+     0.55,
+     0.6
+    ],
+    "MaxRadius": 300,
+    "GloomCDChampTooltip": 0.25,
+    "GloomCDNonChampTooltip": 0.1
+   },
+   "formulas": {
+    "EDamageCalc": "50/70/90/110/130 + 0.4/0.45/0.5/0.55/0.6×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Shadow Surge",
+   "cooldown": [
+    140,
+    120,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 2000.0,
+   "description": "Shadow excitedly surges forward, dealing @spell.VexR:RDamageCalc@ magic damage and marking the first enemy champion hit for 4 seconds. Recast: Dash to the marked champion, dealing @spell.VexR:RecastDamageCalc@ magic damage on arrival. If the marked champion dies within @spell.VexR:TakedownWindow@ seconds of taking damage from this Ability, its Cooldown is temporarily reset.",
+   "summary": "Fire a missile that marks an enemy champion. Recast to dash to them and deal damage.",
+   "values": {
+    "BaseDamage": [
+     75,
+     125,
+     175
+    ],
+    "RecastDamage": [
+     150,
+     250,
+     350
+    ],
+    "R2Duration": 4,
+    "TakedownWindow": 8,
+    "ResetWindow": 12
+   },
+   "formulas": {
+    "RDamageCalc": "75/125/175 + 0.2×AP",
+    "RecastDamageCalc": "150/250/350 + 0.5×AP"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "Passive": {
+   "name": "Doom 'n Gloom",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Vex periodically becomes empowered, causing her next basic Ability to fear enemies and interrupt dashes. Whenever a nearby enemy dashes, Vex applies a mark that can be consumed for bonus damage that also reduces the cooldown of her empowered state.",
+   "summary": "Vex periodically becomes empowered, causing her next basic Ability to fear enemies and interrupt dashes. Whenever a nearby enemy dashes, Vex applies a mark that can be consumed for bonus damage that also reduces the cooldown of her empowered state.",
+   "values": {
+    "GloomDuration": 6,
+    "MaxDoomCD": 15,
+    "DashListenerRange": 1600,
+    "DashLockoutTime": 0.5,
+    "GloomCDChamp": 0.25,
+    "GloomCDNonChamp": 0.1,
+    "FearSlowPercentMax": 0.99,
+    "FearedMinionSpeed": 25,
+    "EFearedMinionSpeed": 5,
+    "FearSlowPercentMin": 0.6,
+    "RangeOfMaxFearSlow": 800,
+    "RangeOfMinFearSlow": 250,
+    "APRatio": 0.25
+   },
+   "formulas": {
+    "GloomProcCalc": "40–150 (by level) + 0.25×AP",
+    "FearDuration": "0.75+ (by level)",
+    "{c21c264c}": "25000",
+    "DoomCD": "25+ (by level)",
+    "GloomMinionMod": "0.4+ (by level)"
+   },
+   "tags": [
+    "dash"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Burst mage who punishes dashes: her empowered passive fears and interrupts dashes, and enemies that dash near her get marked. Wins with short-range burst and an R dash that resets on takedowns.",
+  "positions": [
+   "MIDDLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "Empowered passive makes her next ability fear and interrupt dashes",
+   "Enemies that dash near her get Gloom: bonus damage and shorter passive cooldown",
+   "R resets on takedown: chains kills",
+   "W shield + area burst",
+   "Strong against dash-reliant champions"
+  ],
+  "weaknesses": [
+   "Short range compared to most mages",
+   "No dash apart from R",
+   "Fear depends on passive being up",
+   "Weak to long-range poke mages and champions without dashes"
+  ],
+  "curve": {
+   "lvl1": "medium – Q poke",
+   "lvl2": "medium – Q + W",
+   "lvl3": "strong – Q/W/E combo with fear",
+   "lvl6": "strong – R dash + reset",
+   "items": "strong – first AP burst item (Luden's or Stormsurge)",
+   "late": "medium – pick tool and anti-dive"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Trades when passive is empowered (fear).",
+  "waveClear": "good – Q/E",
+  "sustain": "low – none",
+  "mobility": "medium – R dash only",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "R"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "fear",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Periodically empowers her next basic ability to fear and interrupt dashes; dashing enemies get Gloom."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Mist wave that speeds up after a delay."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Shield + shockwave (fears if empowered)."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Shadow flies to a location: damage, slow, applies Gloom."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Shadow surge marks first champion; recast dashes to them. Resets on takedown."
+   }
+  },
+  "windowAgainst": "Passive used (no fear): all-in or dash in then. Poke from outside her range.",
+  "checks": []
+ }
+}

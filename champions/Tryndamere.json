@@ -1,0 +1,287 @@
+{
+ "id": 23,
+ "alias": "Tryndamere",
+ "name": "Tryndamere",
+ "title": "the Barbarian King",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 2,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 696,
+  "hpPerLevel": 108,
+  "ad": 66,
+  "adPerLevel": 4.5,
+  "armor": 33,
+  "armorPerLevel": 4.8,
+  "attackSpeed": 0.67,
+  "attackSpeedPerLevel": 3.4,
+  "range": 175,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Bloodlust",
+   "cooldown": 12,
+   "cost": null,
+   "costType": null,
+   "range": 400.0,
+   "description": "Passive: Tryndamere thirsts for blood, gaining up to 20/35/50/65/80 Attack Damage based on his missing Health. Active: Tryndamere consumes his Fury, restoring 30/40/50/60/70 + 0.3×AP plus 0.5/0.95/1.4/1.85/2.3 + 0.012×AP Health per Fury (max: 30/40/50/60/70 + 0.3×AP + (? × (0.5/0.95/1.4/1.85/2.3 + 0.012×AP))).",
+   "summary": "Tryndamere thrives on the thrills of combat, increasing his Attack Damage as he is more and more wounded. He can cast Bloodlust to consume his Fury and heal himself.",
+   "values": {
+    "BaseHealing": [
+     30,
+     40,
+     50,
+     60,
+     70
+    ],
+    "BonusHealPerFury": [
+     0.5,
+     0.95,
+     1.4,
+     1.85,
+     2.3
+    ],
+    "APRatio": 0.3,
+    "APRatioPerFury": 0.012,
+    "MaximumBonusAD": [
+     20,
+     35,
+     50,
+     65,
+     80
+    ],
+    "RemainingHealthThreshold": 0.1
+   },
+   "formulas": {
+    "BaseHeal": "30/40/50/60/70 + 0.3×AP",
+    "HealPerFury": "0.5/0.95/1.4/1.85/2.3 + 0.012×AP",
+    "MaximumHeal": "30/40/50/60/70 + 0.3×AP + (? × (0.5/0.95/1.4/1.85/2.3 + 0.012×AP))"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Mocking Shout",
+   "cooldown": 14,
+   "cost": null,
+   "costType": null,
+   "range": 850.0,
+   "description": "Tryndamere hurls insults, reducing champions' Attack Damage by 20/35/50/65/80 for 4 seconds and Slowing by 30/35/40/45/50% while cowering from him for 3.25 seconds.",
+   "summary": "Tryndamere lets out an insulting cry, decreasing surrounding champions' Attack Damage. Enemies with their backs turned to Tryndamere also have their Move Speed reduced.",
+   "values": {
+    "ADReduction": [
+     -20,
+     -35,
+     -50,
+     -65,
+     -80
+    ],
+    "SlowPotency": [
+     -0.3,
+     -0.35,
+     -0.4,
+     -0.45,
+     -0.5
+    ],
+    "ReductionDuration": 4,
+    "SlowDuration": 3.25
+   },
+   "formulas": {},
+   "tags": [
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Spinning Slash",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 650.0,
+   "description": "Tryndamere spins through his enemies, dealing 80/120/160/200/240 + 1×bonus AD + 0.8×AP physical damage and generating 2 Fury per enemy hit, increased to 5 Fury against enemy champions. This Ability's Cooldown is reduced by 0.75 seconds when Tryndamere critically strikes, and reduced by 1.5 seconds when critically striking a champion.",
+   "summary": "Tryndamere slices toward a target unit, dealing damage to enemies in his path.",
+   "values": {
+    "Damage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "ADRatio": 1,
+    "APRatio": 0.8,
+    "NonChampCDRefund": 0.75,
+    "ChampCDRefund": 1.5,
+    "NonChampFuryGain": 2,
+    "ChampFuryGain": 5,
+    "DamageAoE": 225
+   },
+   "formulas": {
+    "TotalDamage": "80/120/160/200/240 + 1×bonus AD + 0.8×AP"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Undying Rage",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 400.0,
+   "description": "Tryndamere becomes completely immune to death for 5 seconds, refusing to be reduced below 30/50/70 Health, and instantly gains 50/75/100 Fury.",
+   "summary": "Tryndamere's lust for battle becomes so strong that he is unable to die, no matter how wounded he becomes.",
+   "values": {
+    "TryndRFuryGain": [
+     50,
+     75,
+     100
+    ],
+    "TryndRMinHealth": [
+     30,
+     50,
+     70
+    ],
+    "TryndRDuration": 5
+   },
+   "formulas": {},
+   "tags": [
+    "heal"
+   ]
+  },
+  "Passive": {
+   "name": "Battle Fury",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Tryndamere gains Fury for each attack, critical strike, and killing blow he makes. Fury passively increases his Critical Strike Chance and can be consumed with his Bloodlust spell.",
+   "summary": "Tryndamere gains Fury for each attack, critical strike, and killing blow he makes. Fury passively increases his Critical Strike Chance and can be consumed with his Bloodlust spell.",
+   "values": {
+    "CherryFuryModifier": 1.5
+   },
+   "formulas": {
+    "PassiveCritConversionTooltip": "0.5",
+    "{dc63b617}": "(0.05+ (by level)) × 0.1"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Split-pushing melee carry who builds Fury for crits and survives all-ins with Undying Rage. Bullies early with Q heals and wins side-lane duels.",
+  "positions": [
+   "TOP",
+   "MIDDLE"
+  ],
+  "strengths": [
+   "Strong level 1–3 dueling and sustain via Q heal",
+   "R stops him from dying for a few seconds",
+   "E dash with cooldown cut by crits: hard to escape from",
+   "Excellent split-pushing and tower damage",
+   "W slows and reduces enemy AD"
+  ],
+  "weaknesses": [
+   "Kited hard by ranged champions and crowd control",
+   "No hard crowd control",
+   "Weak in grouped teamfights",
+   "Armor stacking and Grievous Wounds hurt him",
+   "R window can be waited out"
+  ],
+  "curve": {
+   "lvl1": "strong – Q heal + fury crits",
+   "lvl2": "strong – W slow + Q heal",
+   "lvl3": "strong – E dash",
+   "lvl6": "strong – R makes all-ins safe",
+   "items": "strong – first crit item (Navori/Kraken)",
+   "late": "strong – split push"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Strong from level 1 thanks to Fury and Q sustain.",
+  "waveClear": "medium – E and crits",
+  "sustain": "high – Q converts Fury to health",
+  "mobility": "medium – E dash, W slow",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": [
+    "R"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Heals based on Fury; passive bonus AD from missing health."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Reduces enemy attack damage; slows those facing away."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash through enemies; cooldown lowered by crits."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "invulnerable",
+    "notes": "Can't drop below a health floor for 5 s: don't burn your execute into it."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Fury gives crit chance."
+   }
+  },
+  "windowAgainst": "R on cooldown: real kill window. Kite him when E is down.",
+  "checks": []
+ }
+}

@@ -1,0 +1,314 @@
+{
+ "id": 13,
+ "alias": "Ryze",
+ "name": "Ryze",
+ "title": "the Rune Mage",
+ "classes": [
+  "mage"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 124,
+  "ad": 55,
+  "adPerLevel": 3,
+  "armor": 22,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2.11,
+  "range": 550,
+  "moveSpeed": 340
+ },
+ "abilities": {
+  "Q": {
+   "name": "Overload",
+   "cooldown": 5,
+   "cost": [
+    38,
+    36,
+    34,
+    32,
+    32
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Passive: Rune Prison and Spell Flux refresh this Ability's Cooldown and charge a rune for 4 seconds (max 2 runes). Active: Ryze unleashes a blast, dealing 75/95/115/135/155 + 0.55\u00d7AP + ? magic damage to the first enemy hit. If the target has Flux on it, it is consumed, causing this Ability to deal @Spell.RyzeR:OverloadDamageBonus@% increased damage and bounces to nearby enemies with Flux. Ryze also discharges all runes, granting Ryze 30/35/40/45/50% Move Speed for 2 seconds if 2 runes were charged.",
+   "summary": "Passively, Ryze's other basic abilities reset the cooldown of Overload and charge a rune. When Ryze casts Overload with 2 runes charged, he gains a brief burst of Move Speed. On cast, Ryze throws a charge of pure energy in a line, dealing damage to the first enemy struck. If the target has Flux on it, Overload deals extra damage and bounces to nearby enemies with Flux.",
+   "values": {
+    "BaseDamage": [
+     75,
+     95,
+     115,
+     135,
+     155
+    ],
+    "DamageAmp": [
+     40,
+     50,
+     60,
+     70,
+     80
+    ],
+    "MovementSpeedAmount": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "MovementSpeedDuration": 2,
+    "MaximumRunes": 2,
+    "RuneDuration": 4
+   },
+   "formulas": {
+    "QDamageCalc": "75/95/115/135/155 + 0.55\u00d7AP + ?"
+   },
+   "tags": [
+    "move speed"
+   ]
+  },
+  "W": {
+   "name": "Rune Prison",
+   "cooldown": [
+    11,
+    10.5,
+    10,
+    9.5,
+    9
+   ],
+   "cost": [
+    60,
+    70,
+    80,
+    90,
+    100
+   ],
+   "costType": null,
+   "range": 615.0,
+   "description": "Ryze deals 60/90/120/150/180 + 0.7\u00d7AP + ? magic damage and Slows by 50% for 1.5 seconds. If the target has Flux, it is consumed and this Ability Roots instead of Slowing.",
+   "summary": "Ryze traps a target in a cage of runes, damaging them and slowing their movement. If the target has Flux on it, they are instead rooted.",
+   "values": {
+    "SlowAmount": 0.5,
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "CCDuration": 1.5
+   },
+   "formulas": {
+    "WDamageCalc": "60/90/120/150/180 + 0.7\u00d7AP + ?"
+   },
+   "tags": [
+    "root",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Spell Flux",
+   "cooldown": [
+    3.5,
+    3.25,
+    3,
+    2.75,
+    2.5
+   ],
+   "cost": [
+    50,
+    60,
+    70,
+    80,
+    90
+   ],
+   "costType": null,
+   "range": 615.0,
+   "description": "Ryze fires an orb, dealing 60/90/120/150/180 + 0.5\u00d7AP + ? magic damage and applies Flux for 4 seconds to the target and nearby enemies. Enemies already afflicted with Flux will cause it to spread further.",
+   "summary": "Ryze releases an orb of pure magical power that damages an enemy and debuffs all nearby enemies. Ryze's spells have additional effects against the debuffed enemy.",
+   "values": {
+    "BaseDamage": [
+     60,
+     90,
+     120,
+     150,
+     180
+    ],
+    "DebuffDuration": 4,
+    "BounceRadius": 350,
+    "DamageAmp": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ],
+    "BounceRadiusLargeUnit": 400,
+    "BounceRadiusQSmallUnit": 350,
+    "BounceRadiusQLargeUnit": 500
+   },
+   "formulas": {
+    "EDamageCalc": "60/90/120/150/180 + 0.5\u00d7AP + ?"
+   },
+   "tags": []
+  },
+  "R": {
+   "name": "Realm Warp",
+   "cooldown": [
+    180,
+    160,
+    140
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 3000.0,
+   "description": "Passive: Overload damage bonus against targets with Flux increased to 40/70/100%. Active: Ryze opens a portal to another location. After 2 seconds, all allies near the portal are teleported to that location.",
+   "summary": "Passively, Overload deals even more damage against targets with Flux. On cast, Ryze creates a portal to a nearby location. After a few seconds, allies standing near the portal are teleported to the target location.",
+   "values": {
+    "ChargeTime": 2.1,
+    "TeleportTime": 0.65,
+    "AllyIndicatorBuffDuration": 0.75,
+    "ChargeTimeTooltip": 2,
+    "OverloadDamageBonus": [
+     40,
+     70,
+     100
+    ],
+    "OverloadHealPercent": [
+     20,
+     25,
+     30
+    ],
+    "HealPercentMinionMod": 0.33,
+    "MinimumCastRange": 1000
+   },
+   "formulas": {},
+   "tags": [
+    "blink"
+   ]
+  },
+  "Passive": {
+   "name": "Arcane Mastery",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Ryze's spells deal extra damage based on his Bonus Mana, and he gains a percentage increase to his maximum Mana based on his Ability Power.",
+   "summary": "Ryze's spells deal extra damage based on his Bonus Mana, and he gains a percentage increase to his maximum Mana based on his Ability Power.",
+   "values": {
+    "PercentManaIncrease": 10,
+    "APAmount": 100
+   },
+   "formulas": {
+    "{92bc0080}": "0.05\u00d7AP",
+    "PassiveManaCalcTooltip": "(10\u00d7AP) \u00d7 0.01"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Ryze is a mage who runs on mana and Overload, cycling abilities to build a large mana bar and huge damage. He plays as a scaling mid or top laner and relocates his whole team with Realm Warp.",
+  "positions": [
+   "MIDDLE",
+   "TOP"
+  ],
+  "strengths": [
+   "High, sustained damage in long fights by cycling Q, W and E.",
+   "Rune Prison's root lets him lock targets down once they have Flux.",
+   "Realm Warp moves the whole team across the map for surprise plays.",
+   "Scales well with items and levels into a strong late-game damage dealer.",
+   "Rune Prison and Spell Flux give him strong pick and teamfight tools."
+  ],
+  "weaknesses": [
+   "Short range: he must stand close to deal damage.",
+   "No escape apart from Realm Warp, which is slow and on a long cooldown.",
+   "Weak early: low base damage and mana before items.",
+   "Hard to play: he needs the right order of abilities to do damage.",
+   "Falls off against long-range poke, which kills him before he can fight."
+  ],
+  "curve": {
+   "lvl1": "weak \u2013 low damage early; he wants to farm safely",
+   "lvl2": "okay \u2013 Q into E gives a short trade, but still weak",
+   "lvl3": "okay \u2013 full combo (E, Q, W) gives a root and real damage",
+   "lvl6": "good \u2013 Realm Warp gives roam and team plays",
+   "items": "strong \u2013 first item: Rod of Ages or Archangel's Staff with Seraph's Embrace gives mana, damage and HP",
+   "late": "strong \u2013 scales into a very strong, tanky mage in long fights"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Ryze needs E, Q and W to fight, so he wants level 3 before trading. His real power comes after his first items.",
+  "waveClear": "Good: E's flux spreads Q damage over the whole wave.",
+  "sustain": "Low: no healing; relies on items like Rod of Ages.",
+  "mobility": "Low: no dash; only the slow, long Realm Warp.",
+  "range": "short-ranged",
+  "keyAbilities": {
+   "trading": "E (Spell Flux) then Q (Overload) to spread damage",
+   "engage": "W (Rune Prison) on a fluxed target to root it",
+   "escape": "R (Realm Warp) for team relocation",
+   "answers": "None. Ryze has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Arcane Mastery: his abilities scale with mana; extra mana from items raises his damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Overload: a missile that hits the first enemy. Using E and W resets its cooldown, and it bounces to fluxed targets."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Cleanse or QSS for the root; avoid being fluxed first.",
+    "notes": "Rune Prison: a point-and-click slow that roots if the target has Flux."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Spell Flux: a point-and-click orb that spreads Flux to nearby enemies, making Q bounce and W root."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Realm Warp: after a delay, teleports Ryze and allies in the area to a nearby location. It can be seen coming and interrupted."
+   }
+  },
+  "windowAgainst": "Ryze's window is early before items, or when he has used his abilities and is on cooldown: all-in him since he has no escape.",
+  "checks": [
+   "Does Ryze use E before W so his W roots?",
+   "Does Ryze farm safely early instead of trading?",
+   "Does Ryze use Realm Warp for team plays?"
+  ]
+ }
+}

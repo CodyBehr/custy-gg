@@ -1,0 +1,304 @@
+{
+ "id": 11,
+ "alias": "MasterYi",
+ "name": "Master Yi",
+ "title": "the Wuju Bladesman",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 1,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 640,
+  "hpPerLevel": 105,
+  "ad": 65,
+  "adPerLevel": 2.5,
+  "armor": 33,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.679,
+  "attackSpeedPerLevel": 2.5,
+  "range": 175,
+  "moveSpeed": 355
+ },
+ "abilities": {
+  "Q": {
+   "name": "Alpha Strike",
+   "cooldown": [
+    20,
+    19.5,
+    19,
+    18.5,
+    18
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 600.0,
+   "description": "Master Yi becomes Untargetable and teleports to rapidly strike enemies near his target, dealing 20/40/60/80/100 + 0.6×AD physical damage to all enemies hit after 4 hits. This Ability can strike the same enemy repeatedly if there are no other targets, dealing 25% damage for subsequent hits (((20/40/60/80/100 + 0.6×AD)) × 0.25), for a maximum single target total of (20/40/60/80/100 + 0.6×AD) × (1 + (0.25 × (-1 + 4))) physical damage.",
+   "summary": "Master Yi teleports across the battlefield with blinding speed, dealing physical damage to multiple units in his path, while simultaneously becoming untargetable. Alpha Strike can critically strike and deals bonus physical damage to monsters. Basic attacks reduce Alpha Strike's cooldown.",
+   "values": {
+    "SubsequentHitMultiplier": 0.25,
+    "BaseDamage": [
+     20,
+     40,
+     60,
+     80,
+     100
+    ],
+    "BonusMonsterDamage": [
+     60,
+     85,
+     110,
+     135,
+     160
+    ],
+    "AttackDamageRatio": 0.6,
+    "BonusCritDamageRatio": 1,
+    "BasicAttackCDR": 1,
+    "AlphaStrikeBounces": 4,
+    "BaseOnHitMultiplier": 0.75
+   },
+   "formulas": {
+    "TotalDamage": "20/40/60/80/100 + 0.6×AD",
+    "SubesquentDamage": "((20/40/60/80/100 + 0.6×AD)) × 0.25",
+    "CritBonus": "(20/40/60/80/100 + 0.6×AD) × (1 × (1×stat + -1))",
+    "{b0f66055}": "(((20/40/60/80/100 + 0.6×AD)) × 0.25) × (1 × (1×stat + -1))",
+    "SingleTotalDamage": "(20/40/60/80/100 + 0.6×AD) × (1 + (0.25 × (-1 + 4)))",
+    "SingleCritTotalDamage": "(((20/40/60/80/100 + 0.6×AD) × (1 + (0.25 × (-1 + 4))))) × (1 × 1×stat)"
+   },
+   "tags": [
+    "blink",
+    "untargetable"
+   ]
+  },
+  "W": {
+   "name": "Meditate",
+   "cooldown": null,
+   "cost": 40,
+   "costType": null,
+   "range": 20.0,
+   "description": "Master Yi channels, restoring 120/200/280/360/440 + 1×AP Health over 4 seconds. This healing is increased by up to 100% based on Master Yi's missing Health. While channeling and for 0.5 seconds afterwards, he takes (0.45/0.475/0.5/0.525/0.55 + 0.25/0.225/0.2/0.175/0.15) reduced damage, decreased to 45/47.5/50/52.5/55.0% after the first 0.5 seconds.",
+   "summary": "Master Yi rejuvenates his body by focus of mind, restoring Health and taking reduced damage for a short time. In addition, Master Yi will gain stacks of Double Strike and pause the remaining duration on Wuju Style and Highlander for each second he channels.",
+   "values": {
+    "BaseHeal": [
+     120,
+     200,
+     280,
+     360,
+     440
+    ],
+    "HealDuration": 4,
+    "MaxMissingHealthPercent": 1,
+    "TickFrequency": 0.5,
+    "DamageReduction": [
+     0.45,
+     0.475,
+     0.5,
+     0.525,
+     0.55
+    ],
+    "DamageReductionTowerMod": 0.5,
+    "BaseManaCost": 40,
+    "PercentManaCostPerSecond": 0.06,
+    "InitialExtraDR": [
+     0.25,
+     0.225,
+     0.2,
+     0.175,
+     0.15
+    ],
+    "InitialExtraDRDuration": 0.5,
+    "DRLinger": 0.5
+   },
+   "formulas": {
+    "TotalHeal": "120/200/280/360/440 + 1×AP",
+    "InitialDR": "(0.45/0.475/0.5/0.525/0.55 + 0.25/0.225/0.2/0.175/0.15)"
+   },
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Wuju Style",
+   "cooldown": 14,
+   "cost": null,
+   "costType": null,
+   "range": 20.0,
+   "description": "Master Yi's Attacks deal an additional 20/25/30/35/40 + 0.35×bonus AD true damage for 5 seconds.",
+   "summary": "Grants bonus true damage on basic attacks.",
+   "values": {
+    "BaseDamage": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "ADRatio": 0.35,
+    "Duration": 5,
+    "LegacySwordVFXDuration": 3
+   },
+   "formulas": {
+    "TotalDamage": "20/25/30/35/40 + 0.35×bonus AD"
+   },
+   "tags": [
+    "true damage"
+   ]
+  },
+  "R": {
+   "name": "Highlander",
+   "cooldown": 85,
+   "cost": 100,
+   "costType": null,
+   "range": 1.0,
+   "description": "Passive: Champion takedowns reduce the remaining Cooldown of Master Yi's basic Abilities by 70%. Active: Master Yi enters a trance, gaining 40/50/60% Move Speed, 25/45/65% Attack Speed, and immunity to Slows for 7 seconds. Champion takedowns extend the duration of this Ability by 7 seconds.",
+   "summary": "Master Yi moves with unparalleled agility, temporarily increasing his Move Speed and Attack Speed as well as making him immune to all slowing effects. While active, Champion kills or assists extend Highlander's duration. Passively reduces cooldown for his other abilities on a kill or assist.",
+   "values": {
+    "RDuration": 7,
+    "RASBonus": [
+     25,
+     45,
+     65
+    ],
+    "RMSBonus": [
+     40,
+     50,
+     60
+    ],
+    "RKillAssistExtension": 7,
+    "RCooldownRefund": 0.7
+   },
+   "formulas": {},
+   "tags": [
+    "attack speed",
+    "move speed",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Double Strike",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every few consecutive basic attack, Master Yi strikes twice.",
+   "summary": "Every few consecutive basic attack, Master Yi strikes twice.",
+   "values": {
+    "StackDuration": 4,
+    "AttackCount": 4
+   },
+   "formulas": {
+    "TotalDamage": "0.5×AD"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "On-hit hyper-carry jungler who farms to items, then resets Alpha Strike and Highlander on takedowns to chain kills. Wins late fights by cleaning up once crowd control is spent.",
+  "positions": [
+   "JUNGLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Q Alpha Strike makes him untargetable: dodges skillshots, point-and-click spells and crowd control",
+   "Takedowns reset his basic cooldowns and extend R: chains kills in messy fights",
+   "R gives attack/move speed and immunity to slows",
+   "E true damage plus Double Strike shreds tanks and squishies alike",
+   "Very fast, safe clears"
+  ],
+  "weaknesses": [
+   "No hard crowd control: ganks rely on the laner already being low",
+   "Point-and-click crowd control (stuns, suppression, taunts) stops him cold once Q is down",
+   "Weak early skirmishes and invades",
+   "Item-dependent: weak if starved of farm",
+   "W Meditate is a stationary channel, easy to punish"
+  ],
+  "curve": {
+   "lvl1": "medium – fast, healthy clear; weak in 1v1 invades",
+   "lvl2": "medium – Q + E clears; still no crowd control for ganks",
+   "lvl3": "medium – full clear, but ganks only on overextended lanes",
+   "lvl6": "strong – R speed and slow immunity make chases and cleanups real",
+   "items": "strong – first on-hit item (Kraken Slayer or Blade of the Ruined King), big again with Guinsoo's/Wit's End",
+   "late": "strong – reset-chaining hyper-carry once crowd control is used"
+  },
+  "wantsLevelToTrade": 6,
+  "curveNote": "Paths for farm until R and first item; his fights only start working once a key crowd-control spell is gone.",
+  "waveClear": "good – Q bounces + Double Strike",
+  "sustain": "medium – W Meditate heals (channel); lifesteal from items",
+  "mobility": "medium – Q blink to a target, R move speed (no dash otherwise)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "E",
+    "Passive"
+   ],
+   "engage": [
+    "Q",
+    "R"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": [
+    "Q"
+   ]
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Every 4th attack strikes twice (dodgeable by Jax E)."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "untargetable",
+    "notes": "Untargetable while striking up to four targets; dodges incoming crowd control and projectiles in flight."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Channel: heal + damage reduction; resets his attack timer. Interrupted by crowd control."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Attacks deal bonus true damage for a few seconds."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Move/attack speed, slow immunity; takedowns reset basic cooldowns and extend R. Not immune to stuns/roots."
+   }
+  },
+  "windowAgainst": "Right after Q is used (he can't dodge): stun, root or suppress him. Hold point-and-click crowd control for after his Q.",
+  "checks": [
+   "R slow immunity: confirm in the R description that it is slows only, not all crowd control."
+  ]
+ }
+}

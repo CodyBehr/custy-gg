@@ -1,0 +1,340 @@
+{
+ "id": 43,
+ "alias": "Karma",
+ "name": "Karma",
+ "title": "the Enlightened One",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 1,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 109,
+  "ad": 49,
+  "adPerLevel": 3,
+  "armor": 28,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.3,
+  "range": 525,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Inner Flame",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": [
+    50,
+    60,
+    70,
+    80,
+    80
+   ],
+   "costType": null,
+   "range": 950.0,
+   "description": "Karma fires a blast of energy, dealing 60/110/160/210/260 + 0.7\u00d7AP magic damage to the first target hit and surrounding enemies, and Slowing them by 40% for 1.5 seconds.",
+   "summary": "Karma sends forth a ball of spirit energy that explodes and deals damage upon hitting an enemy unit. Mantra Bonus: In addition to the explosion, Mantra increases the destructive power of her Inner Flame, creating a cataclysm which deals damage after a short delay.",
+   "values": {
+    "BaseDamage": [
+     60,
+     110,
+     160,
+     210,
+     260
+    ],
+    "APRatio": 0.7,
+    "SlowAmount": -0.4,
+    "SlowDuration": 1.5
+   },
+   "formulas": {
+    "{087bc3ca}": "0",
+    "{5d5198eb}": "1",
+    "IsEmpowered": "",
+    "TotalDamage": "60/110/160/210/260 + 0.7\u00d7AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Focused Resolve",
+   "cooldown": 12,
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 675.0,
+   "description": "Karma tethers herself to a champion or jungle monster, dealing 40/65/90/115/140 + 0.45\u00d7AP magic damage and revealing them for 2s. If the tether remains unbroken, the target takes 40/65/90/115/140 + 0.45\u00d7AP magic damage again and is Rooted for 1.6/1.7/1.8/1.9/2s.",
+   "summary": "Karma creates a tether between herself and a targeted enemy, dealing damage and revealing them. If the tether is not broken, the enemy will be rooted and damaged again. Mantra Bonus: Karma strengthens the link, healing herself and extending the root duration.",
+   "values": {
+    "BaseDamage": [
+     40,
+     65,
+     90,
+     115,
+     140
+    ],
+    "APRatio": 0.45,
+    "RootDuration": [
+     1.6,
+     1.7,
+     1.8,
+     1.9,
+     2
+    ],
+    "TetherDuration": 2,
+    "LeashBreakRange": 825
+   },
+   "formulas": {
+    "InitialDamage": "40/65/90/115/140 + 0.45\u00d7AP"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "E": {
+   "name": "Inspire",
+   "cooldown": [
+    10,
+    9.5,
+    9,
+    8.5,
+    8
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 800.0,
+   "description": "Karma grants an allied champion 80/130/180/230/280 + 0.6\u00d7AP Shield for 2.5s and 40% Move Speed for 2s.",
+   "summary": "Karma summons a protective shield that absorbs incoming damage and increases the Move Speed of the protected ally. Mantra Bonus: Energy radiates out from her target, strengthening the initial shield and applying Inspire to nearby allied champions.",
+   "values": {
+    "BaseShield": [
+     80,
+     130,
+     180,
+     230,
+     280
+    ],
+    "ShieldRatio": 0.6,
+    "ShieldDuration": 2.5,
+    "MoveSpeed": 0.4,
+    "MoveSpeedDuration": 2
+   },
+   "formulas": {
+    "TotalShield": "80/130/180/230/280 + 0.6\u00d7AP"
+   },
+   "tags": [
+    "move speed",
+    "shield"
+   ]
+  },
+  "R": {
+   "name": "Mantra",
+   "cooldown": [
+    40,
+    38,
+    36
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 1100.0,
+   "description": "Karma empowers her next Ability used within 8 seconds. Inner Flame: Deals an additional 40/100/160 + 0.3\u00d7AP magic damage and leaves behind a circle of flame, Slowing enemies and dealing an additional 40/130/220 + 0.5\u00d7AP magic damage.Focused Resolve: Karma will restore (17 + 0.01\u00d7AP) \u00d7 0.01 missing Health at the beginning and end of the tether, and Root for 0.5/0.75/1s longer.Inspire: Karma shields her target for 45/85/125 + 0.45\u00d7AP more Shield, and also shields allies near her target, granting them (45/85/125 + 0.45\u00d7AP) \u00d7 1 Shield and 15% Move Speed.",
+   "summary": "Karma empowers her next ability to do an additional effect. Mantra is available at level 1 and does not require a skill point.",
+   "values": {
+    "QBonusDamage": [
+     40,
+     100,
+     160
+    ],
+    "QBonusAPRatio": 0.3,
+    "QDetonationDamage": [
+     40,
+     130,
+     220
+    ],
+    "QDetonationAPRatio": 0.5,
+    "RQSlow": -0.5,
+    "RQSlowDuration": 1.5,
+    "RWBonusRoot": [
+     0.5,
+     0.75,
+     1
+    ],
+    "RWBaseHeal": 17,
+    "RWHealRatio": 0.01,
+    "EBonusShield": [
+     45,
+     85,
+     125
+    ],
+    "EBonusShieldRatio": 0.45,
+    "REMoveSpeed": 0.15,
+    "RESharedRatio": 1
+   },
+   "formulas": {
+    "RQImpactDamage": "40/100/160 + 0.3\u00d7AP",
+    "RQFieldDamage": "40/130/220 + 0.5\u00d7AP",
+    "REBonusShield": "45/85/125 + 0.45\u00d7AP",
+    "RWHealAmount": "(17 + 0.01\u00d7AP) \u00d7 0.01",
+    "REBonusShieldArea": "(45/85/125 + 0.45\u00d7AP) \u00d7 1"
+   },
+   "tags": [
+    "execute",
+    "heal",
+    "move speed",
+    "root",
+    "shield",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Gathering Fire",
+   "cooldown": [
+    8,
+    7,
+    6,
+    5,
+    4
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": null,
+   "description": "Karma's damaging abilities will reduce the cooldown of Mantra.",
+   "summary": "Karma's damaging abilities will reduce the cooldown of Mantra.",
+   "values": {},
+   "formulas": {
+    "SpellMantraRefund": "4"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Karma is a poke mage who plays support, mid or top, using Mantra from level 1 to empower Inner Flame, Focused Resolve or Inspire. She bullies lanes with long-range area poke and gives her team shields and move speed in fights.",
+  "positions": [
+   "UTILITY",
+   "MIDDLE",
+   "TOP"
+  ],
+  "strengths": [
+   "Mantra is available at level 1, so her empowered Inner Flame gives some of the strongest early poke in the game.",
+   "Gathering Fire lowers Mantra's cooldown each time she damages enemies, so she gets to empower abilities often.",
+   "Inspire gives an ally a shield and 40% move speed, which works for both engage and disengage; empowered, it shields the whole team.",
+   "Focused Resolve roots a target who doesn't break the tether, and with Mantra it roots longer and heals her.",
+   "Flexible: she can play support, mid or top and build damage or utility."
+  ],
+  "weaknesses": [
+   "Falls off late: her poke loses value as enemies build health and resistances.",
+   "Her only hard CC is the W root, which enemies can break by walking out of the tether.",
+   "Squishy and immobile apart from Inspire's move speed.",
+   "Inner Flame stops on the first target hit, so minions block her poke.",
+   "Weak against hard engage once she has used E."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 Mantra Q poke from level 1 wins early trades",
+   "lvl2": "strong \u2013 Q slow then W tether gives a root setup",
+   "lvl3": "strong \u2013 E shield and move speed protect her ally in trades",
+   "lvl6": "good \u2013 Mantra gains ranks, but she gets no new ability",
+   "items": "weak \u2013 first item: Moonstone Renewer or Shurelya's Battlesong for support; Malignance or Luden's Companion in mid",
+   "late": "okay \u2013 keeps utility, but her damage and poke fall off"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Karma is strongest early, with Mantra-empowered abilities from level 1. She wants to win lane with poke and is weaker later.",
+  "waveClear": "Good: Mantra Q clears waves from range.",
+  "sustain": "Okay: Mantra W heals her based on missing HP.",
+  "mobility": "Okay: E gives move speed.",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": "Q (Inner Flame) with Mantra for poke",
+   "engage": "W (Focused Resolve) root on a target who can't escape the tether",
+   "escape": "E (Inspire) shield and move speed to escape or engage",
+   "answers": "None. Karma has no spell shield or dodge."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Gathering Fire: her damaging abilities lower Mantra's cooldown."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge sideways, stand behind minions, or block with a projectile block.",
+    "notes": "Inner Flame: a missile that explodes on the first target hit, slowing nearby enemies; Mantra adds a burning circle."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": "Walk out of tether range before it ends; Cleanse/QSS removes the root.",
+    "notes": "Focused Resolve: a point-and-click tether that roots after a short time if not broken."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Inspire: a shield and move speed on an ally."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Mantra: empowers her next Q, W or E."
+   }
+  },
+  "windowAgainst": "Karma's window is when Mantra and Inspire are both on cooldown: she has no shield or burst left. Break the W tether by walking away, and fight her later in the game.",
+  "checks": [
+   "Does Karma use Mantra Q to poke the lane when she can?",
+   "Does Karma keep Inspire to protect an ally from engage?",
+   "Does the enemy walk out of the W tether before it roots?"
+  ]
+ }
+}

@@ -1,0 +1,306 @@
+{
+ "id": 51,
+ "alias": "Caitlyn",
+ "name": "Caitlyn",
+ "title": "the Sheriff of Piltover",
+ "classes": [
+  "marksman"
+ ],
+ "attackType": "ranged",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 580,
+  "hpPerLevel": 107,
+  "ad": 62,
+  "adPerLevel": 3.8,
+  "armor": 27,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.681,
+  "attackSpeedPerLevel": 4,
+  "range": 650,
+  "moveSpeed": 325
+ },
+ "abilities": {
+  "Q": {
+   "name": "Piltover Peacemaker",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": [
+    60,
+    65,
+    70,
+    75,
+    80
+   ],
+   "costType": null,
+   "range": 1250.0,
+   "description": "Caitlyn revs her rifle to fire a piercing shot dealing 50/95/140/185/230 + 1.25/1.45/1.65/1.85/2.05×AD physical damage. After the bolt strikes the first target, it opens into a wider shot that deals (50/95/140/185/230 + 1.25/1.45/1.65/1.85/2.05×AD) × 0.6 physical damage. Enemies revealed by Yordle Snap Trap always take full damage.",
+   "summary": "Caitlyn revs up her rifle for 1 second to unleash a penetrating shot that deals physical damage (deals less damage to subsequent targets).",
+   "values": {
+    "BaseDamage": [
+     50,
+     95,
+     140,
+     185,
+     230
+    ],
+    "SecondaryMult": 0.6,
+    "tADRatio": [
+     1.25,
+     1.45,
+     1.65,
+     1.85,
+     2.05
+    ]
+   },
+   "formulas": {
+    "InitialDamage": "50/95/140/185/230 + 1.25/1.45/1.65/1.85/2.05×AD",
+    "SecondaryDamage": "(50/95/140/185/230 + 1.25/1.45/1.65/1.85/2.05×AD) × 0.6"
+   },
+   "tags": []
+  },
+  "W": {
+   "name": "Yordle Snap Trap",
+   "cooldown": 0.5,
+   "cost": 20,
+   "costType": null,
+   "range": 800.0,
+   "description": "Caitlyn sets a trap that Roots the first champion that steps on it for 1.5 seconds and granting True Sight of them for 3 seconds. Traps last for 30/35/40/45/50 seconds, and 3/3/4/4/5 traps may be active at once. This Ability has 3/3/4/4/5 charges ((varies) second refresh). Targets rooted by this Ability take an additional (varies) physical damage from Headshot.",
+   "summary": "Caitlyn sets a trap that, when sprung, reveals and immobilizes the enemy champion for 1.5 seconds, granting Caitlyn an empowered Headshot.",
+   "values": {
+    "BaseDamage": [
+     35,
+     80,
+     125,
+     170,
+     215
+    ],
+    "ADRatio": 0.3,
+    "TrapDuration": [
+     30,
+     35,
+     40,
+     45,
+     50
+    ],
+    "MaximumTraps": [
+     3,
+     3,
+     4,
+     4,
+     5
+    ],
+    "RootDuration": 1.5,
+    "MaximumCharges": [
+     3,
+     3,
+     4,
+     4,
+     5
+    ]
+   },
+   "formulas": {
+    "HeadShotBonusDamage": "35/80/125/170/215 + 0.3×bonus AD"
+   },
+   "tags": [
+    "root"
+   ]
+  },
+  "E": {
+   "name": "90 Caliber Net",
+   "cooldown": [
+    16,
+    14,
+    12,
+    10,
+    8
+   ],
+   "cost": 75,
+   "costType": null,
+   "range": 750.0,
+   "description": "Caitlyn fires a net, pushing her backwards. The net Slows the first target hit by 50% for 1 second and deals 80/130/180/230/280 + 0.8×AP magic damage.",
+   "summary": "Caitlyn fires a heavy net to slow her target. The recoil knocks Caitlyn back.",
+   "values": {
+    "Damage": [
+     80,
+     130,
+     180,
+     230,
+     280
+    ],
+    "SlowDuration": 1,
+    "SlowAmount": 50
+   },
+   "formulas": {
+    "NetDamage": "80/130/180/230/280 + 0.8×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Ace in the Hole",
+   "cooldown": 90,
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 3500.0,
+   "description": "Caitlyn takes a moment to channel and line up the perfect shot, then she fires, dealing (300/475/650 + 1×bonus AD) × (1 + (0.3×crit × (1×stat + -1))) physical damage, but other enemy champions can intercept it. This Ability grants True Sight of the target during the channel. Damage scales with Caitlyn's Critical Strike chance and Critical Strike Damage.",
+   "summary": "Caitlyn takes time to line up the perfect shot, dealing massive damage to a single target at a huge range. Enemy champions can intercept the bullet for their ally.",
+   "values": {
+    "RBaseDamage": [
+     300,
+     475,
+     650
+    ],
+    "RADRatio": 1,
+    "CriticalStrikeModifier": 0.3
+   },
+   "formulas": {
+    "RTotalDamage": "(300/475/650 + 1×bonus AD) × (1 + (0.3×crit × (1×stat + -1)))"
+   },
+   "tags": []
+  },
+  "Passive": {
+   "name": "Headshot",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every few basic attacks, or against a target she has trapped or netted, Caitlyn will fire a headshot dealing bonus damage that scales with her critical strike chance. On trapped or netted targets, Caitlyn's Headshot attack range is doubled.",
+   "summary": "Every few basic attacks, or against a target she has trapped or netted, Caitlyn will fire a headshot dealing bonus damage that scales with her critical strike chance. On trapped or netted targets, Caitlyn's Headshot attack range is doubled.",
+   "values": {
+    "CriticalStrikeScaling": 0.8,
+    "TowerCap": 2.5,
+    "AttacksPerHeadshot": 5,
+    "BrushStackBonus": 1
+   },
+   "formulas": {
+    "HeadShotBonusDamage": "(0.6+ (by level) + (0.8×crit × (1×stat + -1)))×AD",
+    "HeadShotMinionBonusDamage": "(1 + (-1 × 0.5+ (by level)))×AD",
+    "BrushAttackTotal": "(1 + 1)",
+    "{36ebd3cf}": "1×stat",
+    "{42962485}": "(? + ?)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Long-range lane bully marksman who zones with range, traps (W) and headshots, then sieges towers.",
+  "positions": [
+   "BOTTOM"
+  ],
+  "strengths": [
+   "longest basic attack range of marksmen",
+   "strong laning poke and trap setups",
+   "fast tower damage",
+   "E net for escape"
+  ],
+  "weaknesses": [
+   "weak late-game teamfighting vs divers",
+   "immobile besides E",
+   "trap setup is slow",
+   "falls off if behind"
+  ],
+  "curve": {
+   "lvl1": "strong – range",
+   "lvl2": "strong",
+   "lvl3": "strong – W+E+Q trap combos",
+   "lvl6": "medium",
+   "items": "strong – crit items",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Bullies from level 1 with range; trades around traps and empowered headshots.",
+  "waveClear": "good (Q pierce)",
+  "sustain": "low",
+  "mobility": "medium (E knock-back)",
+  "range": "long-ranged",
+  "keyAbilities": {
+   "trading": [
+    "Passive",
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "W",
+    "E"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Headshot every few autos or on trapped/netted targets."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Long piercing shot."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Trap roots (immobilizes) and enables empowered headshot."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Net slows target; recoil moves Caitlyn back (not a dash through)."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Enemy champions can body-block the bullet; Yasuo W/Samira W can block (check)."
+   }
+  },
+  "windowAgainst": "E down: she can't escape an all-in.",
+  "checks": [
+   "W trap: wording says 'immobilizes' – treated as root",
+   "R blockable by projectile blocks"
+  ]
+ }
+}

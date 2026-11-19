@@ -1,0 +1,318 @@
+{
+ "id": 5,
+ "alias": "XinZhao",
+ "name": "Xin Zhao",
+ "title": "the Seneschal of Demacia",
+ "classes": [
+  "fighter",
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 106,
+  "ad": 63,
+  "adPerLevel": 3,
+  "armor": 35,
+  "armorPerLevel": 4.4,
+  "attackSpeed": 0.645,
+  "attackSpeedPerLevel": 3.5,
+  "range": 175,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Three Talon Strike",
+   "cooldown": [
+    7,
+    6.5,
+    6,
+    5.5,
+    5
+   ],
+   "cost": 30,
+   "costType": null,
+   "range": 375.0,
+   "description": "Xin Zhao's next 3 Attacks deal an additional 15/30/45/60/75 + 0.45\u00d7bonus AD physical damage and reduces his other Ability's Cooldowns by 1 second. The third Attack also Knocks Up for 0.75 seconds.",
+   "summary": "Xin Zhao's next 3 standard attacks deal increased damage with the third attack knocking an opponent into the air.",
+   "values": {
+    "BADRatio": 0.45,
+    "BaseDamage": [
+     15,
+     30,
+     45,
+     60,
+     75
+    ],
+    "KnockUpDuration": 0.75
+   },
+   "formulas": {
+    "BonusDamage": "15/30/45/60/75 + 0.45\u00d7bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "empowered attack"
+   ]
+  },
+  "W": {
+   "name": "Wind Becomes Lightning",
+   "cooldown": [
+    12,
+    11,
+    10,
+    9,
+    8
+   ],
+   "cost": [
+    55,
+    50,
+    45,
+    40,
+    40
+   ],
+   "costType": null,
+   "range": 1000.0,
+   "description": "Xin Zhao slashes, dealing 30/40/50/60/70 + 0.3\u00d7AD physical damage, then thrusts, dealing (50/85/120/155/190 + 0.9\u00d7AD + 0.65\u00d7AP) \u00d7 (1 + 0.333\u00d7crit). Enemies hit by the thrust are Slowed by (varies)% for 1.5 + 0.005\u00d7AP seconds. Champions and Large Monsters hit by the thrust are marked as Challenged for 3 seconds and revealed unless Stealthed.",
+   "summary": "Xin Zhao slashes in front of himself with his spear, then thrusts it forward, slowing affected enemies and marking them as Challenged.",
+   "values": {
+    "SlashBaseDamage": [
+     30,
+     40,
+     50,
+     60,
+     70
+    ],
+    "ThrustBaseDamage": [
+     50,
+     85,
+     120,
+     155,
+     190
+    ],
+    "CritChanceAmp": 0.333,
+    "MarkDuration": 3,
+    "HitNum": 4,
+    "DelayTime": 0.05,
+    "BaseSlowDuration": 1.5
+   },
+   "formulas": {
+    "SlashDamage": "30/40/50/60/70 + 0.3\u00d7AD",
+    "ThrustDamage": "(50/85/120/155/190 + 0.9\u00d7AD + 0.65\u00d7AP) \u00d7 (1 + 0.333\u00d7crit)",
+    "MinionMod": "50+ (by level)",
+    "TotalSlowDuration": "1.5 + 0.005\u00d7AP"
+   },
+   "tags": [
+    "slow",
+    "stealth"
+   ]
+  },
+  "E": {
+   "name": "Audacious Charge",
+   "cooldown": 11,
+   "cost": 50,
+   "costType": null,
+   "range": 650.0,
+   "description": "Xin Zhao charges an enemy, dealing 50/75/100/125/150 + 1.2\u00d7AP magic damage to nearby enemies and Slowing them by 30% for 0.5 seconds. Xin Zhao grants himself (varies)% (%i:scaleAS%%i:scaleAP%) Attack Speed for 5 seconds. This Ability's range is increased on enemies that are Challenged.",
+   "summary": "Xin Zhao charges to an enemy, gaining increased Attack Speed and dealing damage to all enemies in the area, slowing them briefly. This Ability gains increased range against Challenged targets.",
+   "values": {
+    "APRatio": 1.2,
+    "ASMod": [
+     0.38,
+     0.46,
+     0.54,
+     0.62,
+     0.7
+    ],
+    "BaseDamage": [
+     50,
+     75,
+     100,
+     125,
+     150
+    ],
+    "ASDuration": 5,
+    "SlowDuration": 0.5,
+    "SlowAmount": 30,
+    "APToASRatio": 0.001,
+    "PermanentASToASRatio": 4,
+    "AoERadius": 250
+   },
+   "formulas": {
+    "ChargeDamage": "50/75/100/125/150 + 1.2\u00d7AP"
+   },
+   "tags": [
+    "attack speed",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Crescent Guard",
+   "cooldown": [
+    120,
+    110,
+    100
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 500.0,
+   "description": "Passive: The last champion Xin Zhao damaged with an Attack or Audacious Charge is Challenged for 3 seconds. Active: Xin Zhao unleashes a sweep around him that deals 75/175/275 + 1\u00d7bonus AD + 1.1\u00d7AP plus 15% current Health physical damage and Knocks Back all non-Challenged enemies. Afterwards, Xin Zhao becomes immune to damage from enemies outside the sweep range for 4 seconds.",
+   "summary": "Xin Zhao passively challenges an enemy he damaged recently. When activated, Xin Zhao deals damage to nearby enemies based on their current Health and knocks non-challenged targets back, becoming impervious to damage dealt by champions outside of the circle created.",
+   "values": {
+    "BaseDamage": [
+     75,
+     175,
+     275
+    ],
+    "PercentCurrentHealthDamage": 0.15,
+    "MissileDefenseBaseDuration": 4,
+    "MissileDefenseRadius": 450,
+    "MarkDuration": 3
+   },
+   "formulas": {
+    "TotalDamage": "75/175/275 + 1\u00d7bonus AD + 1.1\u00d7AP"
+   },
+   "tags": [
+    "airborne",
+    "heal",
+    "projectile"
+   ]
+  },
+  "Passive": {
+   "name": "Determination",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Every third attack deals bonus damage and heals Xin Zhao.",
+   "summary": "Every third attack deals bonus damage and heals Xin Zhao.",
+   "values": {},
+   "formulas": {
+    "TotalDamage": "0.15+ (by level)\u00d7AD + 0.05+ (by level)\u00d7AP",
+    "TotalHealing": "?\u00d7max HP + ?\u00d7AP",
+    "HealHPRatio": "0.02+ (by level)",
+    "HealAPRatio": "0.4+ (by level)"
+   },
+   "tags": [
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Xin Zhao is a diving fighter jungler who charges in with Audacious Charge and knocks up with Three Talon Strike. He wins early skirmishes and protects himself in fights with Crescent Guard.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Very strong early ganks: E charge, then Q's third hit knocks up.",
+   "Strong duelist early, with healing on every third attack from Determination.",
+   "Crescent Guard deals % current HP damage, knocks back everyone except the challenged target, and blocks damage from outside the sweep.",
+   "Wind Becomes Lightning slows and marks targets so his E has more range.",
+   "Q lowers his other cooldowns, so he can use abilities often."
+  ],
+  "weaknesses": [
+   "Melee and short range: kiting and slows stop him.",
+   "Falls off late against tanky teams and long-range damage.",
+   "Audacious Charge is his only dash; once used he has no escape.",
+   "Weak when behind: he needs early kills to stay relevant.",
+   "Crescent Guard's damage block only works for enemies outside the circle; melee champions inside can still hit him."
+  ],
+  "curve": {
+   "lvl1": "strong \u2013 Q and auto attacks win most level-1 jungle fights",
+   "lvl2": "strong \u2013 E charge into Q is a strong gank",
+   "lvl3": "very strong \u2013 full combo for strong early ganks and duels",
+   "lvl6": "strong \u2013 Crescent Guard gives a teamfight tool and protection",
+   "items": "medium \u2013 first item: Trinity Force or Sundered Sky for damage; Sterak's Gage or Death's Dance for survival",
+   "late": "okay \u2013 falls off against kiting and tanks late"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Xin Zhao is strong from level 1 and wants to fight early. His power falls off as the game goes on, so he must use his early lead.",
+  "waveClear": "Good: Q and W clear camps and waves.",
+  "sustain": "Okay: passive heal on every third attack.",
+  "mobility": "Good: E charge, longer on challenged targets.",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": "E (Audacious Charge) into Q (Three Talon Strike)",
+   "engage": "W (Wind Becomes Lightning) to slow and challenge",
+   "escape": "R (Crescent Guard) to protect himself and knock back others",
+   "answers": "Crescent Guard blocks damage from enemies outside its range."
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Determination: every third attack deals bonus damage and heals him."
+   },
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Jax E dodges; Fiora W parries.",
+    "notes": "Three Talon Strike: his next three attacks deal bonus damage; the third knocks up."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": "Dodge the thrust sideways.",
+    "notes": "Wind Becomes Lightning: a slash then a thrust that slows, reveals and challenges, extending E's range."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Audacious Charge: a point-and-click dash that slows briefly and gives him attack speed."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "Stay outside the circle when he uses it, and kill him once it ends.",
+    "notes": "Crescent Guard: a sweep dealing % current HP damage and knocking back everyone except the challenged target; afterwards he takes no damage from enemies outside the sweep range for a few seconds."
+   }
+  },
+  "windowAgainst": "Xin Zhao's window is after he has used Audacious Charge, or late in the game: kite him, and stay inside his Crescent Guard area so your damage still lands.",
+  "checks": [
+   "Does Xin Zhao look for early ganks to make the most of his early power?",
+   "Does Xin Zhao use Crescent Guard against ranged damage?",
+   "Does the enemy team kite him after his E is used?",
+   "Check that Crescent Guard's damage block applies to all damage from outside the sweep range."
+  ]
+ }
+}

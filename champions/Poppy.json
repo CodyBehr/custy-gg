@@ -1,0 +1,366 @@
+{
+ "id": 78,
+ "alias": "Poppy",
+ "name": "Poppy",
+ "title": "Keeper of the Hammer",
+ "classes": [
+  "tank",
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 610,
+  "hpPerLevel": 110,
+  "ad": 56,
+  "adPerLevel": 4,
+  "armor": 35,
+  "armorPerLevel": 5,
+  "attackSpeed": 0.658,
+  "attackSpeedPerLevel": 2.5,
+  "range": 125,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "Hammer Shock",
+   "cooldown": [
+    8,
+    7,
+    6,
+    5,
+    4
+   ],
+   "cost": [
+    40,
+    45,
+    50,
+    55,
+    60
+   ],
+   "costType": null,
+   "range": 430.0,
+   "description": "Poppy smashes the ground, dealing 30/55/80/105/130 + 0.75×bonus AD plus 7/7.5/8/8.5/9% max Health physical damage and making the ground unstable. The unstable area Slows enemies by 0.2/0.23/0.26/0.29/0.32 + 0.0×bonus max HP and erupts after 1 second, dealing 30/55/80/105/130 + 0.75×bonus AD plus 7/7.5/8/8.5/9% max Health physical damage again.",
+   "summary": "Poppy swings her hammer, dealing damage and creating a zone that will slow enemies and explode after a delay.",
+   "values": {
+    "HealthDamagePercent": [
+     7,
+     7.5,
+     8,
+     8.5,
+     9
+    ],
+    "BaseDamageValue": [
+     30,
+     55,
+     80,
+     105,
+     130
+    ],
+    "SlowDuration": 0.5,
+    "BaseMoveSpeedMod": [
+     0.2,
+     0.23,
+     0.26,
+     0.29,
+     0.32
+    ],
+    "DelayBetweenTwoHits": 1,
+    "MaxHealthDamageToNonHeroes": [
+     70,
+     105,
+     140,
+     175,
+     210
+    ]
+   },
+   "formulas": {
+    "BaseDamage": "30/55/80/105/130 + 0.75×bonus AD",
+    "MoveSpeedMod": "0.2/0.23/0.26/0.29/0.32 + 0.0×bonus max HP"
+   },
+   "tags": [
+    "heal",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Steadfast Presence",
+   "cooldown": [
+    20,
+    18,
+    16,
+    14,
+    12
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 400.0,
+   "description": "Passive: Poppy gains 0.16×armor Armor and 0.16×MR Magic Resist. This bonus is doubled if Poppy is below 40% Health. Active: Poppy gains 40% Move Speed and projects a field around her for 2 seconds that stops enemy dashes. Enemies who are stopped by the field are Grounded and Slowed by 25% for 2 seconds and take 70/110/150/190/230 + 0.7×AP magic damage.",
+   "summary": "Poppy passively gains Armor and Magic Resist. This bonus increases when she is low on Health. Poppy can activate Steadfast Presence to gain Move Speed and stop enemy dashes around her. If a dash is stopped, the enemy is slowed and grounded.",
+   "values": {
+    "GroundingDuration": 2,
+    "SlowAmount": -0.25,
+    "PassiveResistPercent": 0.16,
+    "PassiveEmpoweredHealthPercent": 0.4,
+    "Duration": 2,
+    "Haste": 40,
+    "KnockupDuration": 0.5,
+    "DamageValue": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ]
+   },
+   "formulas": {
+    "BonusArmor": "0.16×armor",
+    "BonusMR": "0.16×MR",
+    "InterruptDamage": "70/110/150/190/230 + 0.7×AP"
+   },
+   "tags": [
+    "dash",
+    "grounded",
+    "heal",
+    "move speed",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Heroic Charge",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 475.0,
+   "description": "Poppy tackles an enemy, dealing 40/60/80/100/120 + 0.6×bonus AD physical damage and carrying them forward. If Poppy tackles them into terrain, the enemy is Stunned for 1.6/1.7/1.8/1.9/2 seconds and take an additional 40/60/80/100/120 + 0.6×bonus AD physical damage.",
+   "summary": "Poppy dashes to the target and pushes it back. If the target is pushed into a wall, it is stunned.",
+   "values": {
+    "BaseDamageValue": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "WallDamage": [
+     40,
+     60,
+     80,
+     100,
+     120
+    ],
+    "StunDuration": [
+     1.6,
+     1.7,
+     1.8,
+     1.9,
+     2
+    ],
+    "DashSpeed": 1800,
+    "MaxEnemyPushbackDistance": 400
+   },
+   "formulas": {
+    "TackleDamage": "40/60/80/100/120 + 0.6×bonus AD"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Keeper's Verdict",
+   "cooldown": [
+    140,
+    120,
+    100
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 500.0,
+   "description": "Begin Casting: Poppy begins charging her hammer for up to 4 seconds, Slowing herself by 15%. Release: Poppy smashes the ground, creating a shockwave that deals 200/300/400 + 0.9×bonus AD physical damage to the first champion hit and surrounding enemies, Knocks them Back towards their Nexus, and makes them Untargetable while they fly. The range and Knock Back distance increase with charge duration. An uncharged swing deals (200/300/400 + 0.9×bonus AD) × 0.5 physical damage and Knocks Up for 1 seconds.",
+   "summary": "Poppy channels a hammer strike that knocks enemies very far away.",
+   "values": {
+    "BaseDamage": [
+     200,
+     300,
+     400
+    ],
+    "ChannelDistanceUpdateTick": 0.25,
+    "ChannelMaxDuration": 4,
+    "MaxKnockbackDistance": 3400,
+    "KnockupDurationCharged": 2,
+    "KnockupDurationSnap": 1,
+    "DurationUntilFullyCharged": 1,
+    "SelfSlow": 15,
+    "CancelCDRefund": 30,
+    "SnapCastDamageRatio": 0.5
+   },
+   "formulas": {
+    "Damage": "200/300/400 + 0.9×bonus AD",
+    "HalfDamage": "(200/300/400 + 0.9×bonus AD) × 0.5"
+   },
+   "tags": [
+    "airborne",
+    "slow",
+    "untargetable"
+   ]
+  },
+  "Passive": {
+   "name": "Iron Ambassador",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Poppy throws her buckler that bounces off the target. Poppy can pick it up to gain a temporary shield.",
+   "summary": "Poppy throws her buckler that bounces off the target. Poppy can pick it up to gain a temporary shield.",
+   "values": {
+    "BonusRange": 350,
+    "ShieldDuration": 3,
+    "ShieldPickUpTime": 4
+   },
+   "formulas": {
+    "ActualCooldown": "16+ (by level)",
+    "TotalDamage": "20–180 (by level)",
+    "ShieldValue": "0.11–0.2 (by level)×max HP"
+   },
+   "tags": [
+    "shield"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Tank who stops dashes with W and stuns into terrain with E. Wins lane by punishing dash champions and peels in teamfights with R knockback.",
+  "positions": [
+   "TOP",
+   "JUNGLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "W stops enemy dashes and grounds and slows those stopped",
+   "E tackle stuns 1.6–2 s if it hits terrain",
+   "Q % max health damage and slow",
+   "R knocks enemies back toward their base and makes them untargetable mid-flight",
+   "Passive buckler shield"
+  ],
+  "weaknesses": [
+   "Needs terrain for E stun",
+   "Short range",
+   "Weak late",
+   "Kited by ranged champions"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "strong – E stun",
+   "lvl3": "strong",
+   "lvl6": "strong – R",
+   "items": "strong – tank items",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "E stun into walls from early.",
+  "waveClear": "good – Q",
+  "sustain": "low – passive shield",
+  "mobility": "medium – E dash",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [],
+    "answer": null,
+    "notes": "Throws buckler; picks it up for a shield."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Ground smash, % max health damage."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "grounded",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Stops dashes; grounded and slowed."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Tackle; stun if hits terrain."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Knockback toward their base; untargetable mid-flight."
+   }
+  },
+  "windowAgainst": "E or W on cooldown.",
+  "checks": []
+ }
+}

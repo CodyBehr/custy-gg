@@ -1,0 +1,332 @@
+{
+ "id": 39,
+ "alias": "Irelia",
+ "name": "Irelia",
+ "title": "the Blade Dancer",
+ "classes": [
+  "fighter",
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 2,
+  "crowdControl": 2,
+  "mobility": 3,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 630,
+  "hpPerLevel": 115,
+  "ad": 65,
+  "adPerLevel": 3.5,
+  "armor": 36,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.656,
+  "attackSpeedPerLevel": 2.5,
+  "range": 200,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Bladesurge",
+   "cooldown": [
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "cost": 15,
+   "costType": null,
+   "range": 600.0,
+   "description": "Irelia dashes to an enemy, dealing 5/25/45/65/85 + 0.8×AD physical damage and restoring 0.09/0.1/0.11/0.12/0.13×AD Health to herself. If the enemy dies or was Unsteady, the Cooldown is refreshed. Deals 5/25/45/65/85 + 50+ (by level) + 0.8×AD damage to minions.",
+   "summary": "Irelia dashes forward to strike her target, healing herself. If the target is Marked or dies to Bladesurge, its cooldown refreshes.",
+   "values": {
+    "BaseDamage": [
+     5,
+     25,
+     45,
+     65,
+     85
+    ],
+    "DashSpeedBonus": 1400,
+    "HealTADCoefficient": [
+     0.09,
+     0.1,
+     0.11,
+     0.12,
+     0.13
+    ]
+   },
+   "formulas": {
+    "ChampionDamage": "5/25/45/65/85 + 0.8×AD",
+    "MinionDamage": "5/25/45/65/85 + 50+ (by level) + 0.8×AD",
+    "HealAmount": "0.09/0.1/0.11/0.12/0.13×AD"
+   },
+   "tags": [
+    "dash",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Defiant Dance",
+   "cooldown": [
+    20,
+    18,
+    16,
+    14,
+    12
+   ],
+   "cost": [
+    75,
+    80,
+    85,
+    90,
+    90
+   ],
+   "costType": null,
+   "range": 825.0,
+   "description": "Begin Charging: Irelia enters a defensive stance for up to 1.5 seconds, becoming unable to act but reducing physical damage taken by 40–70 (by level) + 0.08×AP% and magic damage taken by (40–70 (by level) + 0.08×AP) × 0.5%. Release: Irelia lashes out with her blades, dealing 10/20/30/40/50 + 0.4×AD + 0.5×AP physical damage increased up to 30/60/90/120/150 + 1.2×AD + 1.5×AP based on charge time.",
+   "summary": "Irelia charges a strike that deals more damage as she charges. She takes reduced physical damage during the charge.",
+   "values": {
+    "BasePhysicalDR": 50,
+    "MaxDuration": 1.5,
+    "MinDamage": [
+     10,
+     20,
+     30,
+     40,
+     50
+    ],
+    "MaxDamage": [
+     30,
+     60,
+     90,
+     120,
+     150
+    ],
+    "MaxBonusRatio": 2,
+    "ChargeTimeForMax": 0.75,
+    "MRReductionAmount": 0.5
+   },
+   "formulas": {
+    "FinalPhysicalDR": "40–70 (by level) + 0.08×AP",
+    "MinDamageCalc": "10/20/30/40/50 + 0.4×AD + 0.5×AP",
+    "MaxDamageCalc": "30/60/90/120/150 + 1.2×AD + 1.5×AP",
+    "FinalMagicDR": "(40–70 (by level) + 0.08×AP) × 0.5"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Flawless Duet",
+   "cooldown": [
+    16,
+    14.5,
+    13,
+    11.5,
+    10
+   ],
+   "cost": 50,
+   "costType": null,
+   "range": 850.0,
+   "description": "Irelia throws a blade into the ground and can Recast for up to 3.5 seconds. Recast: Irelia throws a second blade, then they fly towards each other Stunning for 0.75 seconds and dealing 70/110/150/190/230 + 1×AP magic damage. Champions and large jungle monsters become Unsteady for 5 seconds.",
+   "summary": "Irelia sends out two blades which converge on each other. Enemies caught in between are damaged, stunned and Marked.",
+   "values": {
+    "BaseDamage": [
+     70,
+     110,
+     150,
+     190,
+     230
+    ],
+    "StunDuration": 0.75,
+    "RevTime": 0.35,
+    "BuffDuration": 3.5,
+    "CDBetweenCast": 0.25,
+    "MaxRange": 775,
+    "MinRange": 50,
+    "MarkDuration": 5,
+    "APRatio": 1
+   },
+   "formulas": {
+    "TotalDamage": "70/110/150/190/230 + 1×AP"
+   },
+   "tags": [
+    "stun"
+   ]
+  },
+  "R": {
+   "name": "Vanguard's Edge",
+   "cooldown": [
+    125,
+    105,
+    85
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 950.0,
+   "description": "Irelia launches a barrage of blades, dealing 125/200/275 + 1×AP magic damage and making champions and large jungle monsters Unsteady for 5 seconds. The barrage explodes into a cage around the first champion hit for 2.5 seconds. The cage deals 125/200/275 + 1×AP magic damage and Slows by 90% for 1.5 seconds.",
+   "summary": "Irelia fires a massive number of blades that explode outward upon hitting an enemy champion. Enemies hit by the blades are damaged and Marked. Afterwards the blades form a wall that will damage and slow enemies that walk through it.",
+   "values": {
+    "BaseMissileDamage": [
+     125,
+     200,
+     275
+    ],
+    "BaseZoneDamage": [
+     125,
+     200,
+     275
+    ],
+    "CCDuration": 1.5,
+    "SlowAmount": 90,
+    "MarkDuration": 5,
+    "ZoneDuration": 2.5,
+    "CooldownAmount": [
+     0.5,
+     1,
+     1.5
+    ],
+    "APRatio": 1
+   },
+   "formulas": {
+    "MissileDamage": "125/200/275 + 1×AP",
+    "ZoneDamage": "125/200/275 + 1×AP"
+   },
+   "tags": [
+    "projectile",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Ionian Fervor",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "When Irelia strikes enemies with spells she gains stacking bonus Attack Speed. At maximum stacks she also gains bonus damage on hit.",
+   "summary": "When Irelia strikes enemies with spells she gains stacking bonus Attack Speed. At maximum stacks she also gains bonus damage on hit.",
+   "values": {
+    "BuffDuration": 6,
+    "MaxStacks": 4,
+    "OnHitStructureMod": 0.5,
+    "OnHitBaseDamage": 10,
+    "OnHitPerLevel": 3
+   },
+   "formulas": {
+    "SingleStackAS": "10–25 (by level)",
+    "OnHitBonus": "? + 0.2×bonus AD"
+   },
+   "tags": [
+    "attack speed"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Dive skirmisher who resets Q on marked or dying targets, stacks passive attack speed, and stuns with E.",
+  "positions": [
+   "top",
+   "mid"
+  ],
+  "strengths": [
+   "Q resets on minions give huge mobility",
+   "Passive max stacks wins extended trades",
+   "E stun and R marks enable all-ins",
+   "W reduces physical damage"
+  ],
+  "weaknesses": [
+   "Weak when passive isn't stacked",
+   "E needs aim",
+   "Punished by CC during Q chains",
+   "Low early waveclear without Q resets"
+  ],
+  "curve": {
+   "lvl1": "medium – Q on minions",
+   "lvl2": "medium",
+   "lvl3": "strong – E stun + stacked passive",
+   "lvl6": "strong – R",
+   "items": "strong – first item",
+   "late": "strong"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Wants passive stacked from minion Qs before trading.",
+  "waveClear": "medium – Q resets on last hits",
+  "sustain": "medium – Q heal",
+  "mobility": "high – Q resets",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive"
+   ],
+   "engage": [
+    "E",
+    "R",
+    "Q"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": [
+    "W"
+   ]
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash to target; refreshes on marked or killed targets"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "reduces physical damage during charge",
+    "notes": ""
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Two blades converge; stun + mark"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Blade wave marks; wall slows"
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Stacks from spells; on-hit damage at max"
+   }
+  },
+  "windowAgainst": "Passive not stacked or E down.",
+  "checks": [
+   "Q dodgeable? It is not an attack but applies on-hit (check)"
+  ]
+ }
+}

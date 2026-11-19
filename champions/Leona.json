@@ -1,0 +1,331 @@
+{
+ "id": 89,
+ "alias": "Leona",
+ "name": "Leona",
+ "title": "the Radiant Dawn",
+ "classes": [
+  "tank",
+  "support"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 646,
+  "hpPerLevel": 101,
+  "ad": 60,
+  "adPerLevel": 3,
+  "armor": 43,
+  "armorPerLevel": 4.8,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.9,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Shield of Daybreak",
+   "cooldown": 5,
+   "cost": [
+    35,
+    40,
+    45,
+    50,
+    55
+   ],
+   "costType": null,
+   "range": 100.0,
+   "description": "Leona's next Attack Stuns for 1 seconds and deals an additional 10/35/60/85/110 + 0.3×AP magic damage.",
+   "summary": "Leona uses her shield to perform her next basic attack, dealing bonus magic damage and stunning the target.",
+   "values": {
+    "StunDuration": 1,
+    "BaseDamage": [
+     10,
+     35,
+     60,
+     85,
+     110
+    ]
+   },
+   "formulas": {
+    "TotalDamageTooltip": "10/35/60/85/110 + 0.3×AP"
+   },
+   "tags": [
+    "empowered attack",
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Eclipse",
+   "cooldown": [
+    14,
+    13,
+    12,
+    11,
+    10
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 450.0,
+   "description": "Leona raises her shield, reducing incoming damage by 8/12/16/20/24 and gaining 20/27.5/35/42.5/50 + 0.2×bonus armor Armor and 20/27.5/35/42.5/50 + 0.2×bonus MR Magic Resist for 3 seconds. Afterwards, her shield detonates, dealing 55/85/115/145/175 + 0.4×AP magic damage to nearby enemies. If she hits at least one, she retains the Armor and Magic Resist bonuses for an additional 3 seconds.",
+   "summary": "Leona raises her shield to gain Damage Reduction, Armor, and Magic Resist. When the duration first ends, if there are nearby enemies, she will deal magic damage to them and prolong the duration of the effect.",
+   "values": {
+    "FlatDamageReduction": [
+     8,
+     12,
+     16,
+     20,
+     24
+    ],
+    "FlatDamageReductionMax": 0.5,
+    "APRatio": 0.4,
+    "ExplosionBaseDamage": [
+     55,
+     85,
+     115,
+     145,
+     175
+    ],
+    "MRBaseBonus": [
+     20,
+     27.5,
+     35,
+     42.5,
+     50
+    ],
+    "ArmorBaseBonus": [
+     20,
+     27.5,
+     35,
+     42.5,
+     50
+    ],
+    "ArmorMRDuration": 3
+   },
+   "formulas": {
+    "BonusArmorTooltip": "20/27.5/35/42.5/50 + 0.2×bonus armor",
+    "BonusMRTooltip": "20/27.5/35/42.5/50 + 0.2×bonus MR",
+    "TotalDamageTooltip": "55/85/115/145/175 + 0.4×AP"
+   },
+   "tags": [
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Zenith Blade",
+   "cooldown": [
+    12,
+    10.5,
+    9,
+    7.5,
+    6
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    65
+   ],
+   "costType": null,
+   "range": 875.0,
+   "description": "Leona thrusts with a sword of light, dealing 50/90/130/170/210 + 0.4×AP magic damage. The last champion struck will be Rooted for 0.5 seconds and Leona will dash to them.",
+   "summary": "Leona projects a solar image of her sword, dealing magic damage to all enemies in a line. When the image fades, the last enemy champion struck will be briefly immobilized and Leona will dash to them.",
+   "values": {
+    "BaseDamage": [
+     50,
+     90,
+     130,
+     170,
+     210
+    ],
+    "RootDuration": 0.5
+   },
+   "formulas": {
+    "TotalDamageTooltip": "50/90/130/170/210 + 0.4×AP"
+   },
+   "tags": [
+    "dash",
+    "root"
+   ]
+  },
+  "R": {
+   "name": "Solar Flare",
+   "cooldown": [
+    90,
+    75,
+    60
+   ],
+   "cost": [
+    100,
+    100,
+    0
+   ],
+   "costType": null,
+   "range": 1200.0,
+   "description": "Leona calls down a radiant beam of solar energy dealing 150/225/300 + 0.8×AP magic damage and Slowing by 80% for 1.75 seconds. Enemies in the center of the flare are Stunned instead of Slowed.",
+   "summary": "Leona calls down a beam of solar energy, dealing damage to enemies in an area. Enemies in the center of the area are stunned, while enemies on the outside are slowed.",
+   "values": {
+    "OnHitBaseDamage": [
+     30,
+     40,
+     50
+    ],
+    "OnHitStacks": [
+     3,
+     4,
+     5
+    ],
+    "OnHitDuration": 5,
+    "AttackRangeIncrease": 100,
+    "OnHitAPRatio": 0.15,
+    "ExplosionBaseDamage": [
+     150,
+     225,
+     300
+    ],
+    "ExplosionAPRatio": 0.8,
+    "SlowPercent": 80,
+    "CCDuration": 1.75
+   },
+   "formulas": {
+    "{f4c90e5c}": "30/40/50 + 0.15×AP",
+    "ExplosionCalculatedDamage": "150/225/300 + 0.8×AP"
+   },
+   "tags": [
+    "slow",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Sunlight",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Damaging spells afflict enemies with Sunlight for 1.5 seconds. When allied Champions deal damage to those targets, they consume the Sunlight to deal additional magic damage.",
+   "summary": "Damaging spells afflict enemies with Sunlight for 1.5 seconds. When allied Champions deal damage to those targets, they consume the Sunlight to deal additional magic damage.",
+   "values": {
+    "MarkDuration": 2.5
+   },
+   "formulas": {
+    "TotalDamage": "?"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Tanky engage support who hard-locks with E root into Q stun. R zone controls fights.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "Chain CC",
+   "E engage",
+   "W tankiness",
+   "R stun center",
+   "Snowballs lane"
+  ],
+  "weaknesses": [
+   "Kitable",
+   "Melee range",
+   "Weak to poke",
+   "Needs ally follow-up",
+   "No escape"
+  ],
+  "curve": {
+   "lvl1": "medium – Q stun",
+   "lvl2": "strong – E+Q all-in",
+   "lvl3": "strong – W tank",
+   "lvl6": "strong – R",
+   "items": "medium – tank items",
+   "late": "medium – engage"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Level 2 E→Q is the classic all-in.",
+  "waveClear": "low",
+  "sustain": "low",
+  "mobility": "medium – E dash",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [],
+   "engage": [
+    "E",
+    "Q",
+    "R"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Next attack stuns."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Damage reduction and resist."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Dash to champion."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Center stuns."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Sunlight."
+   }
+  },
+  "windowAgainst": "E on cooldown: no engage.",
+  "checks": []
+ }
+}

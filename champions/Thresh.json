@@ -1,0 +1,340 @@
+{
+ "id": 412,
+ "alias": "Thresh",
+ "name": "Thresh",
+ "title": "the Chain Warden",
+ "classes": [
+  "support",
+  "tank"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 1,
+  "durability": 2,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 3
+ },
+ "resource": null,
+ "stats": {
+  "hp": 620,
+  "hpPerLevel": 120,
+  "ad": 54,
+  "adPerLevel": 2.2,
+  "armor": 33,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 3.5,
+  "range": 450,
+  "moveSpeed": 330
+ },
+ "abilities": {
+  "Q": {
+   "name": "Death Sentence",
+   "cooldown": [
+    19,
+    16.5,
+    14,
+    11.5,
+    9
+   ],
+   "cost": 70,
+   "costType": null,
+   "range": 1075.0,
+   "description": "Thresh throws out his scythe, Stunning the first unit hit and Pulling them towards Thresh for 1.5 seconds. The scythe does 100/150/200/250/300 + 0.9×AP magic damage and also grants True Sight for the duration. Thresh can Recast this Ability to pull himself to the enemy. If this Ability hits, its Cooldown is reduced by 2 seconds.",
+   "summary": "Thresh binds an enemy in chains and pulls them toward him. Activating this ability a second time pulls Thresh to the enemy.",
+   "values": {
+    "BaseDamage": [
+     100,
+     150,
+     200,
+     250,
+     300
+    ],
+    "APRatio": 0.9,
+    "TauntLength": 1.5,
+    "SlowPercent": 75,
+    "HitBonusCooldown": 2
+   },
+   "formulas": {
+    "TotalDamage": "100/150/200/250/300 + 0.9×AP"
+   },
+   "tags": [
+    "airborne",
+    "stun"
+   ]
+  },
+  "W": {
+   "name": "Dark Passage",
+   "cooldown": [
+    21,
+    20,
+    19,
+    18,
+    17
+   ],
+   "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+   ],
+   "costType": null,
+   "range": 950.0,
+   "description": "Thresh throws his lantern, allowing an ally to click on it to dash to Thresh. The lantern also grants 50/70/90/110/130 + ? Shield for 4 seconds to Thresh and the first ally champion to come in contact with it.",
+   "summary": "Thresh throws out a lantern that shields nearby allied Champions from damage. Allies can click the lantern to dash to Thresh.",
+   "values": {
+    "ShieldPerSoul": 2,
+    "LanternDuration": 6,
+    "BaseShieldValue": [
+     50,
+     70,
+     90,
+     110,
+     130
+    ],
+    "ShieldDuration": 4
+   },
+   "formulas": {
+    "TotalShield": "50/70/90/110/130 + ?"
+   },
+   "tags": [
+    "dash",
+    "shield"
+   ]
+  },
+  "E": {
+   "name": "Flay",
+   "cooldown": [
+    13,
+    12.25,
+    11.5,
+    10.75,
+    10
+   ],
+   "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+   ],
+   "costType": null,
+   "range": 500.0,
+   "description": "Passive: Thresh's Attacks deal additional damage based on how long since he last Attacked. They deal between ? and ? + 0.9/1.2/1.5/1.8/2.1×AD magic damage. Active: Thresh whips his chains, Pulling or Pushing enemies in the direction of the swing. Enemies hit are also Slowed by 20/25/30/35/40% for 1 second and take 65/110/155/200/245 + 0.6×AP magic damage.",
+   "summary": "Thresh's attacks wind up, dealing more damage the longer he waits between attacks. When activated, Thresh sweeps his chain, knocking all enemies hit in the direction of the blow.",
+   "values": {
+    "PassiveADRatioTT": [
+     0.9,
+     1.2,
+     1.5,
+     1.8,
+     2.1
+    ],
+    "PassiveADRatio": [
+     90,
+     120,
+     150,
+     180,
+     210
+    ],
+    "APRatio": 0.6,
+    "ActiveBaseDamage": [
+     65,
+     110,
+     155,
+     200,
+     245
+    ],
+    "ActiveSlowPercentage": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "SlowDuration": 1,
+    "PassiveDmgPerSoul": 1.5,
+    "DmgPerSoul": 1.7,
+    "FullChargeDuration": 10,
+    "Icon1ThresholdPercentage": 0.3,
+    "Icon2ThresholdPercentage": 0.6,
+    "Icon3ThresholdPercentage": 0.975
+   },
+   "formulas": {
+    "PAttackDamageMin": "?",
+    "PAttackDamageMax": "? + 0.9/1.2/1.5/1.8/2.1×AD",
+    "TotalDamage": "65/110/155/200/245 + 0.6×AP"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "The Box",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 450.0,
+   "description": "Thresh creates a prison of spectral walls, Slowing champions by 99% for 2 seconds and dealing 200/350/500 + 1×AP magic damage. Walls break after one collision, and after one is broken, the rest deal no damage and Slow for half duration.",
+   "summary": "A prison of walls that slow and deal damage if broken.",
+   "values": {
+    "ThreshRCageRadius": 400,
+    "ThreshRWallThickness": 30,
+    "ThreshRWallLength": 470.228,
+    "APRatio": 1,
+    "Damage": [
+     200,
+     350,
+     500
+    ],
+    "SlowDuration": 2,
+    "SlowAmount": 99,
+    "WallDuration": 4
+   },
+   "formulas": {
+    "TotalDamage": "200/350/500 + 1×AP"
+   },
+   "tags": [
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Damnation",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Thresh can harvest the souls of enemies that die near him, permanently granting him Armor and Ability Power.",
+   "summary": "Thresh can harvest the souls of enemies that die near him, permanently granting him Armor and Ability Power.",
+   "values": {
+    "StatValuePerSoul": 1,
+    "SoulsToGainOnPickUp": 1
+   },
+   "formulas": {
+    "CurrentSoulBonus": "?"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Playmaking support whose hook pulls enemies in and whose lantern pulls allies out. Wins lane by threat and picks, scales with souls.",
+  "positions": [
+   "UTILITY"
+  ],
+  "strengths": [
+   "Hook engage and pick threat",
+   "Lantern saves allies",
+   "E flay knocks back/disrupts dashes",
+   "R box zones",
+   "Infinite armor scaling"
+  ],
+  "weaknesses": [
+   "Skillshot-dependent",
+   "Weak to poke",
+   "Low damage",
+   "Lantern needs ally",
+   "Q can be dodged"
+  ],
+  "curve": {
+   "lvl1": "medium – E",
+   "lvl2": "strong – Q+E",
+   "lvl3": "strong – Q+E+W lantern",
+   "lvl6": "strong – R",
+   "items": "medium – support items, armor from souls",
+   "late": "medium – picks and peel"
+  },
+  "wantsLevelToTrade": 2,
+  "curveNote": "Q hook at 2 starts fights.",
+  "waveClear": "low",
+  "sustain": "low",
+  "mobility": "low – Q dash",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "E"
+   ],
+   "engage": [
+    "Q"
+   ],
+   "escape": [
+    "W"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Q": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "pull",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Hook stuns and pulls; recast to dash in."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Lantern pulls an ally."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "knockback",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Interrupts dashes."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Walls slow."
+   },
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Souls grant armor/AP."
+   }
+  },
+  "windowAgainst": "Q down: free trades.",
+  "checks": []
+ }
+}

@@ -1,0 +1,356 @@
+{
+ "id": 266,
+ "alias": "Aatrox",
+ "name": "Aatrox",
+ "title": "the Darkin Blade",
+ "classes": [
+  "fighter"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 3,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 2
+ },
+ "resource": null,
+ "stats": {
+  "hp": 650,
+  "hpPerLevel": 114,
+  "ad": 60,
+  "adPerLevel": 5,
+  "armor": 38,
+  "armorPerLevel": 4.8,
+  "attackSpeed": 0.651,
+  "attackSpeedPerLevel": 2.5,
+  "range": 175,
+  "moveSpeed": 345
+ },
+ "abilities": {
+  "Q": {
+   "name": "The Darkin Blade",
+   "cooldown": [
+    14,
+    12,
+    10,
+    8,
+    6
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Aatrox slams his greatsword, dealing 10/25/40/55/70 + 0.6/0.675/0.75/0.825/0.9×AD physical damage. If they are hit on the edge, they are briefly Knocked Up and they take (10/25/40/55/70 + 0.6/0.675/0.75/0.825/0.9×AD) × (1 + 0.75) instead. This Ability can be Recast twice, each one changing shape and dealing 25% more damage than the previous one.",
+   "summary": "Aatrox slams his greatsword down, dealing physical damage. He can swing three times, each with a different area of effect.",
+   "values": {
+    "QBaseDamage": [
+     10,
+     25,
+     40,
+     55,
+     70
+    ],
+    "QTotalADRatio": [
+     0.6,
+     0.675,
+     0.75,
+     0.825,
+     0.9
+    ],
+    "QSweetSpotBonus": 0.75,
+    "QKnockupDuration": 0.25,
+    "QRampBonus": 0.25,
+    "QMonsterBonus": 25,
+    "QExtensionTime": 4
+   },
+   "formulas": {
+    "QDamage": "10/25/40/55/70 + 0.6/0.675/0.75/0.825/0.9×AD",
+    "QMinionDamage": "0.55+ (by level)",
+    "QEdgeDamage": "(10/25/40/55/70 + 0.6/0.675/0.75/0.825/0.9×AD) × (1 + 0.75)"
+   },
+   "tags": [
+    "airborne"
+   ]
+  },
+  "W": {
+   "name": "Infernal Chains",
+   "cooldown": [
+    18,
+    16.5,
+    15,
+    13.5,
+    12
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 825.0,
+   "description": "Aatrox fires a chain, Slowing the first enemy hit by 25/27.5/30/32.5/35% for 1.5 seconds and dealing 30/40/50/60/70 + 0.4×AD physical damage. Champions and large jungle monsters have 1.5 seconds to leave the impact area or be Pulled back to the center and damaged again for the same amount.",
+   "summary": "Aatrox smashes the ground, dealing damage to the first enemy hit. Champions and large monsters have to leave the impact area quickly or they will be dragged to the center and take the damage again.",
+   "values": {
+    "WBaseDamage": [
+     30,
+     40,
+     50,
+     60,
+     70
+    ],
+    "WBonusADRatio": 0.4,
+    "WSlowPercentage": [
+     -0.25,
+     -0.275,
+     -0.3,
+     -0.325,
+     -0.35
+    ],
+    "WSlowDuration": 1.5,
+    "WTotalADRatio": 0.4
+   },
+   "formulas": {
+    "WDamage": "30/40/50/60/70 + 0.4×AD"
+   },
+   "tags": [
+    "airborne",
+    "slow"
+   ]
+  },
+  "E": {
+   "name": "Umbral Dash",
+   "cooldown": [
+    9,
+    8,
+    7,
+    6,
+    5
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Passive: Aatrox heals for (16 + 0.013×bonus max HP) × 0.01 of the damage he deals to Champions. Active: Aatrox dashes. He can use this Ability while winding up his other Abilities.",
+   "summary": "Passively, Aatrox heals when damaging enemy champions. On activation, he dashes in a direction.",
+   "values": {
+    "ESpellVamp": 16,
+    "EBonusAD": [
+     15,
+     25,
+     35,
+     45,
+     55
+    ],
+    "EResistancePerAD": [
+     10,
+     15,
+     20,
+     25,
+     30
+    ],
+    "EDashSpeed": 800,
+    "EMaxRange": 300,
+    "EDuration": 1.5,
+    "EBaseRechargeTime": [
+     26,
+     22,
+     18,
+     14,
+     10
+    ],
+    "EMinRange": 75,
+    "ESpellVampEmpowered": 16,
+    "EVampHPRatio": 0.013
+   },
+   "formulas": {
+    "TotalEVamp": "(16 + 0.013×bonus max HP) × 0.01"
+   },
+   "tags": [
+    "dash",
+    "heal"
+   ]
+  },
+  "R": {
+   "name": "World Ender",
+   "cooldown": [
+    120,
+    100,
+    80
+   ],
+   "cost": null,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Aatrox reveals his true demonic form, Fearing nearby minions for 3 seconds and gaining 60/80/100% Move Speed decaying over 10 seconds. He also gains 20/30/40% Attack Damage and increases self-healing by 50/75/100% for the duration. Champion takedowns extend the duration of this effect by 5 seconds and refresh the Move Speed effect.",
+   "summary": "Aatrox unleashes his demonic form, fearing nearby enemy minions and gaining attack damage, increased healing, and Move Speed. If he gets a takedown, this effect is extended.",
+   "values": {
+    "RDuration": 10,
+    "RERechargeBonus": 0.5,
+    "RMovementSpeed": [
+     0.15,
+     0.2,
+     0.25
+    ],
+    "RMovementSpeedBonus": [
+     0.6,
+     0.8,
+     1
+    ],
+    "RTotalADAmp": [
+     0.2,
+     0.3,
+     0.4
+    ],
+    "RBonusADRange": 75,
+    "RSpeedMinDuration": 3,
+    "RFXExtraDuration": 0.6,
+    "RPercentBloodWellToBoostToMax": 0.8,
+    "RHealingAmp": [
+     0.5,
+     0.75,
+     1
+    ],
+    "RExtension": 5,
+    "RFearRadius": 600,
+    "RMinionFearDuration": 3,
+    "RChampionFearDuration": 1
+   },
+   "formulas": {},
+   "tags": [
+    "fear",
+    "heal",
+    "move speed"
+   ]
+  },
+  "Passive": {
+   "name": "Deathbringer Stance",
+   "cooldown": 0,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Periodically, Aatrox's next basic attack deals bonus magic damage and heals him, based on the target's max health.",
+   "summary": "Periodically, Aatrox's next basic attack deals bonus magic damage and heals him, based on the target's max health.",
+   "values": {
+    "PBonusAARange": 50,
+    "PChargeRate": 2,
+    "PDamageTADBonusLevel1": 0.15,
+    "PDamageTADBonusLevel18": 0.25,
+    "PStructureCap": 100,
+    "PHealShieldReduction": 0.4,
+    "PDebuffDuration": 3,
+    "PHealingMinionMod": 0.25,
+    "PHealingRatio": 1
+   },
+   "formulas": {
+    "PDamage": "0.04–0.1 (by level)",
+    "PCooldown": "22–10 (by level)",
+    "MonsterDamageCap": "100–320 (by level)"
+   },
+   "tags": [
+    "empowered attack",
+    "heal"
+   ]
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Drain-tank skirmisher who lands the sweet spots of his three-part Q and heals off damage; wins long fights by staying in them.",
+  "positions": [
+   "TOP"
+  ],
+  "strengths": [
+   "Q sweet spots deal big damage and knock up",
+   "Heals a lot from damage dealt, especially in R",
+   "E dash repositions mid-combo to hit Q sweet spots",
+   "Strong extended fights and teamfights"
+  ],
+  "weaknesses": [
+   "Q is slow and dodgeable; missed sweet spots lose trades",
+   "Healing is countered by grievous wounds",
+   "No hard escape besides E",
+   "Struggles into ranged and fast champions who dodge Q"
+  ],
+  "curve": {
+   "lvl1": "medium – Q sweet spot poke, passive empowered attack",
+   "lvl2": "medium",
+   "lvl3": "strong – Q+W+E, W pull into Q",
+   "lvl6": "strong – R adds healing, AD and move speed, revives on takedown",
+   "items": "first lethality/bruiser item",
+   "late": "strong in teamfights"
+  },
+  "wantsLevelToTrade": 1,
+  "curveNote": "Can poke with Q sweet spots from level 1; real trades start at 3 when W can pull into Q.",
+  "waveClear": "good – Q hits the wave in an area",
+  "sustain": "high – heals from damage (E passive, R amplified)",
+  "mobility": "E short dash (several during R)",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W"
+   ],
+   "engage": [
+    "Q",
+    "W",
+    "E"
+   ],
+   "escape": [
+    "E"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "P": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Periodic empowered attack deals max-HP damage and heals"
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "none",
+    "notes": "Three casts; edge sweet spots knock up, inner area doesn't. Slow wind-up, readable"
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": true,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "pull",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": "none",
+    "notes": "Chain skillshot; pulls back to the center if they stay in the area"
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Short dash usable during Q casts to aim sweet spots"
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": "none",
+    "notes": "Fear on cast for minions nearby, bonus AD, heal amp, move speed; revives isn't guaranteed (check)"
+   }
+  },
+  "windowAgainst": "After Q3 is used or missed (long cooldown), or when grievous wounds are applied.",
+  "checks": [
+   "R minion fear and revive-on-takedown details depend on current patch (check description)"
+  ]
+ }
+}

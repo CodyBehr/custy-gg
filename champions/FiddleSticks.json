@@ -1,0 +1,212 @@
+{
+ "id": 9,
+ "alias": "FiddleSticks",
+ "name": "Fiddlesticks",
+ "title": "the Ancient Fear",
+ "classes": [
+  "mage",
+  "support"
+ ],
+ "attackType": "ranged",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 3,
+  "mobility": 1,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 650,
+  "hpPerLevel": 106,
+  "ad": 55,
+  "adPerLevel": 2.65,
+  "armor": 34,
+  "armorPerLevel": 4.7,
+  "attackSpeed": 0.625,
+  "attackSpeedPerLevel": 2.11,
+  "range": 480,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Terrify",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": 575.0,
+   "description": "Passive: While unseen and out of combat or impersonating an Effigy, damaging an enemy with an ability Fears them for (varies) second(s). Active: Fear an enemy for (varies) second(s) and deal (varies) current Health magic damage. If the target has recently been Feared by Fiddlesticks, instead deal (varies) current Health magic damage.",
+   "summary": "Fiddlesticks damaging enemies with spells while unseen or targeting an enemy with Terrify's activation strikes a target unit with fear, causing it to flee in terror for a duration.",
+   "values": {},
+   "formulas": {},
+   "tags": [
+    "fear",
+    "heal"
+   ]
+  },
+  "W": {
+   "name": "Bountiful Harvest",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": 650.0,
+   "description": "Fiddlesticks channels and drains the souls of nearby enemies, dealing (varies) magic damage per second for 2 seconds, plus (varies)% missing Health magic damage at the end. Fiddlesticks restores (varies)% of damage as Health. If Fiddlesticks ends the channel without interruption, the remaining Cooldown is reduced by 60%.",
+   "summary": "Fiddlesticks drains health from nearby enemies, dealing bonus execute damage at the end of the duration.",
+   "values": {},
+   "formulas": {},
+   "tags": [
+    "execute",
+    "heal"
+   ]
+  },
+  "E": {
+   "name": "Reap",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": 850.0,
+   "description": "Fiddlesticks unleashes dark magic, dealing (varies) magic damage and Slowing by (varies)% for (varies) seconds. Enemies in the center are also Silenced for the duration.",
+   "summary": "Fiddlesticks slashes an area with its scythe, slowing all enemies hit and silencing enemies hit in the center of the slash.",
+   "values": {},
+   "formulas": {},
+   "tags": [
+    "silence",
+    "slow"
+   ]
+  },
+  "R": {
+   "name": "Crowstorm",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": 800.0,
+   "description": "Fiddlesticks channels for (varies) seconds, then teleports and unleashes a murder of crows, dealing (varies) magic damage over (varies) seconds.",
+   "summary": "A murder of crows flock wildly around Fiddlesticks, dealing damage per second to all enemy units in the area.",
+   "values": {},
+   "formulas": {},
+   "tags": [
+    "blink"
+   ]
+  },
+  "Passive": {
+   "name": "A Harmless Scarecrow",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Fiddlesticks' trinket is replaced by scarecrow effigies.",
+   "summary": "Fiddlesticks' trinket is replaced by scarecrow effigies.",
+   "values": {},
+   "formulas": {},
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Ambush jungler (also a support) who hides in fog and impersonates his Effigies. Wins fights by channelling R into a grouped team, then fearing and draining whoever is left.",
+  "positions": [
+   "JUNGLE",
+   "UTILITY"
+  ],
+  "strengths": [
+   "R teleports after a channel and deals heavy area damage to a grouped team",
+   "Q fears a target; while he's unseen, any ability damage fears too",
+   "E slows, and silences enemies in the center",
+   "W drains nearby enemies with missing-health damage and heals him; finishing the channel cuts its cooldown by 60%",
+   "Effigies replace his trinket and confuse enemy vision"
+  ],
+  "weaknesses": [
+   "No dash: R is his only gap-closer and it has a visible channel that crowd control can interrupt",
+   "W is a channel that crowd control and movement break",
+   "Weak level 1–2 clear and duels",
+   "Squishy; dies quickly once spotted",
+   "Very dependent on getting to fog unseen before fights"
+  ],
+  "curve": {
+   "lvl1": "weak – slow clear, no fear yet",
+   "lvl2": "weak – W+Q clear only",
+   "lvl3": "medium – Q fear + E silence for ganks",
+   "lvl6": "strong – R ambush",
+   "items": "strong – Zhonya's / Liandry's",
+   "late": "strong – R teamfights"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Ganks need Q fear and E silence; before 3 he only farms with W. R at 6 is his real spike.",
+  "waveClear": "good – W drain on camps, E on waves",
+  "sustain": "high – W heals from damage dealt",
+  "mobility": "low – no dash; R teleport",
+  "range": "ranged",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "W",
+    "E"
+   ],
+   "engage": [
+    "R",
+    "Q"
+   ],
+   "escape": [],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Trinket replaced by Effigies that act as wards and decoys."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "fear",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Targeted fear plus % current-health damage; passive fear when unseen. Blocked by spell shields."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "2 s channel drain; heals; interrupted by crowd control."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "silence",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Area slow; center is also silenced."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Channel, then blink and crows over several seconds. Channel can be interrupted."
+   }
+  },
+  "windowAgainst": "R on cooldown (100+ s), or caught in vision without Q: he has no escape.",
+  "checks": [
+   "Q fear duration and R channel time show as (varies) in the file."
+  ]
+ }
+}

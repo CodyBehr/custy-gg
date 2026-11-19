@@ -1,0 +1,347 @@
+{
+ "id": 33,
+ "alias": "Rammus",
+ "name": "Rammus",
+ "title": "the Armordillo",
+ "classes": [
+  "tank"
+ ],
+ "attackType": "melee",
+ "damageType": "kMagic",
+ "riotRatings": {
+  "damage": 2,
+  "durability": 3,
+  "crowdControl": 3,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 645,
+  "hpPerLevel": 100,
+  "ad": 65,
+  "adPerLevel": 2.75,
+  "armor": 35,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.7,
+  "attackSpeedPerLevel": 2.215,
+  "range": 125,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Powerball",
+   "cooldown": [
+    12,
+    10.5,
+    9,
+    7.5,
+    6
+   ],
+   "cost": 60,
+   "costType": null,
+   "range": 300.0,
+   "description": "Rammus curls into a ball, gaining (0.25–0.391 (by level)) × 1 Move Speed, accelerating up to ((0.25–0.391 (by level)) × 1) × 6 Move Speed over 6 seconds. Rammus stops after colliding with an enemy, dealing 80/120/160/200/240 + 1×AP magic damage, Knocking Back, and Slowing nearby enemies by 40/50/60/70/80% for 1 second. Recast: Rammus ends this Ability early.",
+   "summary": "Rammus accelerates in a ball towards his enemies, dealing damage and slowing targets affected by the impact.",
+   "values": {
+    "QBaseDamage": [
+     80,
+     120,
+     160,
+     200,
+     240
+    ],
+    "MSMultiplier": 1,
+    "APRatio": 1,
+    "RollDuration": 6,
+    "StunDuration": 0.35,
+    "KnockbackDistance": 125,
+    "HeightVariable": 25,
+    "SelfStunTiming": 0.25,
+    "SlowPercent": [
+     40,
+     50,
+     60,
+     70,
+     80
+    ],
+    "SlowDuration": 1
+   },
+   "formulas": {
+    "PowerBallDamage": "80/120/160/200/240 + 1×AP",
+    "MinimumMoveSpeed": "(0.25–0.391 (by level)) × 1",
+    "MaximumMoveSpeed": "((0.25–0.391 (by level)) × 1) × 6"
+   },
+   "tags": [
+    "airborne",
+    "move speed",
+    "slow"
+   ]
+  },
+  "W": {
+   "name": "Defensive Ball Curl",
+   "cooldown": 7,
+   "cost": 40,
+   "costType": null,
+   "range": 300.0,
+   "description": "Rammus enters a defensive formation for 7 seconds, gaining (25/30/35/40/45 × (1 + 0.3/0.35/0.4/0.45/0.5)) + 0.3/0.35/0.4/0.45/0.5×armor Armor and (20/25/30/35/40 × (1 + 0.3/0.35/0.4/0.45/0.5)) + 0.3/0.35/0.4/0.45/0.5×MR Magic Resist and dealing 15 + 0.1×armor + 0.1×MR magic damage to enemies that Attack him. Recast: Rammus ends this Ability early.",
+   "summary": "Rammus goes into a defensive formation, vastly increasing his Armor and Magic Resistance, and returning damage to enemies that attack him.",
+   "values": {
+    "BonusArmorPercent": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "BonusMRPercent": [
+     0.3,
+     0.35,
+     0.4,
+     0.45,
+     0.5
+    ],
+    "FlatBonusArmor": [
+     25,
+     30,
+     35,
+     40,
+     45
+    ],
+    "FlatBonusMR": [
+     20,
+     25,
+     30,
+     35,
+     40
+    ],
+    "BuffDuration": 7,
+    "DamageArmorRatio": 0.1,
+    "DamageMRRatio": 0.1,
+    "FlatDamageReturn": 15
+   },
+   "formulas": {
+    "ReturnDamageCalc": "15 + 0.1×armor + 0.1×MR",
+    "BonusArmorTooltip": "(25/30/35/40/45 × (1 + 0.3/0.35/0.4/0.45/0.5)) + 0.3/0.35/0.4/0.45/0.5×armor",
+    "BonusMRTooltip": "(20/25/30/35/40 × (1 + 0.3/0.35/0.4/0.45/0.5)) + 0.3/0.35/0.4/0.45/0.5×MR",
+    "RecastDamageTooltip": "15 + 0.1×armor + 0.1×MR"
+   },
+   "tags": []
+  },
+  "E": {
+   "name": "Frenzying Taunt",
+   "cooldown": 12,
+   "cost": 50,
+   "costType": null,
+   "range": 325.0,
+   "description": "Rammus Taunts an enemy champion or monster for 1.2/1.4/1.6/1.8/2 seconds. Monsters are dealt 80/100/120/140/160 + 0.7×AP magic damage.",
+   "summary": "Rammus taunts an enemy champion or monster into a reckless assault against him.",
+   "values": {
+    "Duration": [
+     1.2,
+     1.4,
+     1.6,
+     1.8,
+     2
+    ],
+    "MonsterDamage": [
+     80,
+     100,
+     120,
+     140,
+     160
+    ],
+    "APRatio": 0.7
+   },
+   "formulas": {
+    "MonsterDamageCalc": "80/100/120/140/160 + 0.7×AP"
+   },
+   "tags": [
+    "taunt"
+   ]
+  },
+  "R": {
+   "name": "Soaring Slam",
+   "cooldown": [
+    120,
+    105,
+    90
+   ],
+   "cost": 100,
+   "costType": null,
+   "range": 25000.0,
+   "description": "Rammus hops into the air and slams down in an area, dealing 150/250/350 + 0.6×AP magic damage and Slowing by 30/40/50% for 1.5 seconds. If used during Powerball, enemies in the center take an additional @spell.PowerBall:PowerBallDamage@ magic damage and are Knocked Up for 0.75 seconds. Rammus then creates 3 aftershocks in the area over 3.5 seconds, repeating the Slow. The range of this Ability is increased by Rammus's Move Speed.",
+   "summary": "Rammus hops into the air and slams down at a target area, dealing magic damage and slowing enemies. If cast while Rammus is in Powerball, Rammus knocks up enemies near the center as well.",
+   "values": {
+    "SlowDuration": 1.5,
+    "SlowAmount": [
+     0.3,
+     0.4,
+     0.5
+    ],
+    "TurretDamageModifier": 2,
+    "InitialDamage": [
+     150,
+     250,
+     350
+    ],
+    "NumberOfPulses": 3,
+    "BuffDuration": 3.5,
+    "BaseCastRange": 800,
+    "TremorsAoERange": 400,
+    "TremorsKnockupRange": 200,
+    "KnockupDuration": 0.75,
+    "DashRangeGrowth": 1.5,
+    "MaxRangeForDmgGrowth": 1700,
+    "DashSpeedGrowth": 1.1,
+    "MinDashSpeed": 900,
+    "MaxDashSpeed": 2000,
+    "APRatio": 0.6
+   },
+   "formulas": {
+    "InitialDamageCalc": "150/250/350 + 0.6×AP",
+    "PulseDamageCalc": "PulseBaseDamage + 0.1×AP",
+    "TooltipMaxDamageCalc": "(150/250/350 + 0.6×AP) × (BonusDamageMultiplier + 1)",
+    "MaxSlow": "((0.3/0.4/0.5 × 100)) × 3"
+   },
+   "tags": [
+    "airborne",
+    "move speed",
+    "slow"
+   ]
+  },
+  "Passive": {
+   "name": "Spiked Shell",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Rammus gains bonus Attack Damage scaling with his Armor and Magic Resistance.",
+   "summary": "Rammus gains bonus Attack Damage scaling with his Armor and Magic Resistance.",
+   "values": {
+    "ArmorRatio": 0.15,
+    "MagicResistRatio": 0.15,
+    "BaseDamage": 10
+   },
+   "formulas": {
+    "TotalDamage": "0.15×armor + 0.15×MR"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "Armored tank jungler who rolls into ganks with Q. Wins fights by taunting carries with E and punishing attack champions with W armor.",
+  "positions": [
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Q roll knocks back and slows on collision",
+   "E taunts for 1.2–2 s",
+   "W armor and magic resist; reflects damage on attackers",
+   "R slam slows and knocks up in Powerball",
+   "Strong against attack-damage teams"
+  ],
+  "weaknesses": [
+   "Weak against magic damage and % health",
+   "Taunt is short range",
+   "Low damage",
+   "Kited when Q is down"
+  ],
+  "curve": {
+   "lvl1": "medium",
+   "lvl2": "medium",
+   "lvl3": "strong – Q+E gank",
+   "lvl6": "strong – R",
+   "items": "strong – Thornmail",
+   "late": "medium"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Q roll then E taunt.",
+  "waveClear": "low",
+  "sustain": "low",
+  "mobility": "high – Q roll",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "E"
+   ],
+   "engage": [
+    "Q",
+    "E"
+   ],
+   "escape": [
+    "Q"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Bonus attack damage from armor and magic resist."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Roll; knockback on collision."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Armor and magic resist; damages attackers."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "taunt",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Taunt."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     },
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     }
+    ],
+    "answer": null,
+    "notes": "Slam; knock-up if used during Powerball."
+   }
+  },
+  "windowAgainst": "Q or E on cooldown.",
+  "checks": []
+ }
+}

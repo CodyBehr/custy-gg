@@ -1,0 +1,366 @@
+{
+ "id": 246,
+ "alias": "Qiyana",
+ "name": "Qiyana",
+ "title": "Empress of the Elements",
+ "classes": [
+  "assassin"
+ ],
+ "attackType": "melee",
+ "damageType": "kPhysical",
+ "riotRatings": {
+  "damage": 3,
+  "durability": 1,
+  "crowdControl": 2,
+  "mobility": 2,
+  "utility": 1
+ },
+ "resource": null,
+ "stats": {
+  "hp": 590,
+  "hpPerLevel": 115,
+  "ad": 64,
+  "adPerLevel": 3.1,
+  "armor": 31,
+  "armorPerLevel": 4.5,
+  "attackSpeed": 0.688,
+  "attackSpeedPerLevel": 2.1,
+  "range": 150,
+  "moveSpeed": 335
+ },
+ "abilities": {
+  "Q": {
+   "name": "Elemental Wrath / Edge of Ixtal",
+   "cooldown": 7,
+   "cost": 35,
+   "costType": null,
+   "range": 525.0,
+   "description": "If Qiyana does not have an Enchantment, she slashes, dealing 70/100/130/160/190 + 0.9×bonus AD physical damage to enemies in a small area. If she does, this Ability gains extra range and an additional effect based on the type of Enchantment:Ice Enchantment: Briefly Roots, then Slows by 20% for 1 second.Rock Enchantment: Deals an additional (70/100/130/160/190 + 0.9×bonus AD) × 0.6+ (by level) physical damage to units below 50% Health.Wild Enchantment: Leaves a trail that turns Qiyana Invisible and grants 20% Move Speed.",
+   "summary": "Qiyana swings her weapon, dealing damage with a bonus effect based on her element.",
+   "values": {
+    "VanillaBase": [
+     70,
+     100,
+     130,
+     160,
+     190
+    ],
+    "BaseDamage": [
+     70,
+     100,
+     130,
+     160,
+     190
+    ],
+    "StealthDuration": 3,
+    "TremorBonus": 0.4,
+    "Haste": 0.2,
+    "RockExplosionDelay": 0.4,
+    "RootDuration": 0.5,
+    "SlowDuration": 1,
+    "SlowPotency": -0.2,
+    "CritThreshold": 0.5,
+    "FalloffMod": 0.75,
+    "JungleDamageAmp": 1.6
+   },
+   "formulas": {
+    "EnchantedDamage": "70/100/130/160/190 + 0.9×bonus AD",
+    "VanillaDamage": "70/100/130/160/190 + 0.9×bonus AD",
+    "TremorDamage": "(70/100/130/160/190 + 0.9×bonus AD) × 0.6+ (by level)",
+    "{7dc40c72}": "0.06 + 0.001×bonus AD",
+    "FalloffDamage": "0.75",
+    "EnchantedFalloff": "(70/100/130/160/190 + 0.9×bonus AD) × 0.75",
+    "VanillaFalloff": "(70/100/130/160/190 + 0.9×bonus AD) × 0.75"
+   },
+   "tags": [
+    "heal",
+    "move speed",
+    "root",
+    "slow",
+    "stealth"
+   ]
+  },
+  "W": {
+   "name": "Terrashape",
+   "cooldown": 7,
+   "cost": [
+    30,
+    35,
+    40,
+    45,
+    50
+   ],
+   "costType": null,
+   "range": 1100.0,
+   "description": "Passive: While Qiyana's weapon is Enchanted, she gains 15/20/25/30/35% Attack Speed and her Attacks deal an additional 8/16/24/32/40 + 0.45×AP + 0.2×bonus AD magic damage. She also gains 3/5/7.0/9/11% Move Speed while out of combat near the corresponding terrain type. Active: Qiyana dashes towards a nearby brush, terrain, or river and Enchants her weapon with that particular terrain type. This refreshes Elemental Wrath / Edge of Ixtal's Cooldown.",
+   "summary": "Qiyana dashes to a location and enchants her weapon with an element. Her attacks and abilities deal bonus damage while her weapon is enchanted.",
+   "values": {
+    "BaseDamage": [
+     8,
+     16,
+     24,
+     32,
+     40
+    ],
+    "StealthDuration": 3,
+    "SlowDuration": 1.5,
+    "Range": 425,
+    "AttackSpeed": [
+     0.15,
+     0.2,
+     0.25,
+     0.3,
+     0.35
+    ],
+    "TremorBonus": 0.35,
+    "PassiveMS": [
+     0.03,
+     0.05,
+     0.07,
+     0.09,
+     0.11
+    ],
+    "TravelDistance": 300,
+    "DashSpeed": 440,
+    "OnHitAPRatio": 0.45,
+    "OnHitADRatio": 0.2,
+    "1": 1
+   },
+   "formulas": {
+    "CleaveDamage": "8/16/24/32/40 + 1×bonus AD",
+    "TremorDamage": "(8/16/24/32/40 + 1×bonus AD) × 0.35",
+    "OnHitDamage": "8/16/24/32/40 + 0.45×AP + 0.2×bonus AD"
+   },
+   "tags": [
+    "attack speed",
+    "dash",
+    "move speed"
+   ]
+  },
+  "E": {
+   "name": "Audacity",
+   "cooldown": [
+    11,
+    10,
+    9,
+    8,
+    7
+   ],
+   "cost": [
+    45,
+    50,
+    55,
+    60,
+    60
+   ],
+   "costType": null,
+   "range": 650.0,
+   "description": "Qiyana dashes through an enemy and deals 50/90/130/170/210 + 0.5×bonus AD physical damage to them.",
+   "summary": "Qiyana dashes to an enemy, damaging them.",
+   "values": {
+    "BaseDamage": [
+     50,
+     90,
+     130,
+     170,
+     210
+    ],
+    "DashSpeed": 600,
+    "DashSpeedMax": 1200,
+    "ADRatio": 0.5
+   },
+   "formulas": {
+    "Damage": "50/90/130/170/210 + 0.5×bonus AD"
+   },
+   "tags": [
+    "dash"
+   ]
+  },
+  "R": {
+   "name": "Supreme Display of Talent",
+   "cooldown": 120,
+   "cost": 100,
+   "costType": null,
+   "range": 950.0,
+   "description": "Qiyana launches a shockwave that Knocks Back enemies and detonates when it hits terrain. The explosion follows the entire edge of the terrain, Stunning for between 0.5 and 1 seconds and dealing 100/200/300 + 1.25×bonus AD plus 0.1 max Health physical damage. Stun duration scales down with distance the shockwave has travelled. Any river or brush the shockwave passes through also explode after a delay for the same damage and Stun.",
+   "summary": "Qiyana sends out a shockwave that detonates whatever elements she hits with it, stunning and damaging nearby enemies.",
+   "values": {
+    "BaseDamage": [
+     100,
+     200,
+     300
+    ],
+    "Slow": [
+     0.4,
+     0.5,
+     0.6
+    ],
+    "BonusDamageBase": [
+     50,
+     100,
+     150
+    ],
+    "SlowDuration": 2,
+    "RecastWindow": 10,
+    "StunDuration": 1,
+    "MonsterCapBase": [
+     500,
+     750,
+     1000
+    ],
+    "PercentHPDamageBaseRock": 0.1,
+    "RootDuration": 1.5,
+    "StunDurationMin": 0.5
+   },
+   "formulas": {
+    "Damage": "100/200/300 + 1.25×bonus AD",
+    "MissingHealthDamageRock": "0.1",
+    "MonsterCap": "500/750/1000 + 1.25×bonus AD"
+   },
+   "tags": [
+    "airborne",
+    "heal",
+    "stun"
+   ]
+  },
+  "Passive": {
+   "name": "Royal Privilege",
+   "cooldown": null,
+   "cost": null,
+   "costType": null,
+   "range": null,
+   "description": "Qiyana's first basic attack or ability against each enemy deals bonus damage.",
+   "summary": "Qiyana's first basic attack or ability against each enemy deals bonus damage.",
+   "values": {
+    "BurnDuration": 4,
+    "SlowDuration": 1.5,
+    "StunDuration": 0.5,
+    "HasteDuration": 1.5,
+    "StoneExecuteBase": 0.06,
+    "HealDuration": 4,
+    "HealRadius": 360,
+    "DoubleHitBuffDuration": 6,
+    "BonusADRatio": 0.25,
+    "APRatio": 0.3
+   },
+   "formulas": {
+    "FinalDamage": "15+ (by level) + 0.25×bonus AD + 0.3×AP",
+    "ICD": "14–14 (by level)",
+    "{222614ec}": "1+ (by level)"
+   },
+   "tags": []
+  }
+ },
+ "source": "Community Dragon latest (live patch) game files + client data",
+ "profile": {
+  "identity": "AD assassin who enchants her weapon by dashing to river, terrain or brush, changing what her Q does. Wins with burst combos and an R shockwave that stuns along walls in teamfights.",
+  "positions": [
+   "MIDDLE",
+   "JUNGLE"
+  ],
+  "strengths": [
+   "Q enchantments: ice roots then slows, rock deals bonus damage to low-health targets, grass gives camouflage",
+   "R knocks back and stuns everyone along the wall it hits: game-changing near terrain",
+   "Two dashes (W toward terrain, E through an enemy)",
+   "Royal Privilege passive: bonus damage on the first hit against each enemy",
+   "Strong roams and skirmishes"
+  ],
+  "weaknesses": [
+   "R needs walls near enemies; weak in open areas",
+   "Squishy and commits with her dashes",
+   "Weak against tanks",
+   "Mechanically demanding (enchant choice, R angles)",
+   "Low wave clear early"
+  ],
+  "curve": {
+   "lvl1": "medium – Q + passive poke",
+   "lvl2": "medium – E dash + Q",
+   "lvl3": "strong – W enchant + E + Q full burst",
+   "lvl6": "strong – R stuns along walls",
+   "items": "strong – first lethality item (Profane Hydra, Youmuu's or Opportunity)",
+   "late": "medium – one teamfight R near terrain, otherwise a pick assassin"
+  },
+  "wantsLevelToTrade": 3,
+  "curveNote": "Needs W enchant + E + Q for her combo.",
+  "waveClear": "medium – Q",
+  "sustain": "low – none",
+  "mobility": "high – W and E dashes",
+  "range": "melee",
+  "keyAbilities": {
+   "trading": [
+    "Q",
+    "Passive"
+   ],
+   "engage": [
+    "E",
+    "R"
+   ],
+   "escape": [
+    "W",
+    "Q"
+   ],
+   "answers": []
+  },
+  "abilityMechanics": {
+   "Passive": {
+    "isAttack": true,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "First attack or ability against each enemy deals bonus damage."
+   },
+   "Q": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "root",
+      "immobilizing": true,
+      "tenacity": true
+     },
+     {
+      "type": "slow",
+      "immobilizing": false,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Slash; enchanted versions: ice briefly roots then slows, rock bonus damage to low-health, grass camouflage."
+   },
+   "W": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash toward terrain/brush/river; enchants her weapon and resets Q."
+   },
+   "E": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [],
+    "answer": null,
+    "notes": "Dash through an enemy, damaging them."
+   },
+   "R": {
+    "isAttack": false,
+    "projectile": false,
+    "cc": [
+     {
+      "type": "airborne",
+      "immobilizing": true,
+      "tenacity": false
+     },
+     {
+      "type": "stun",
+      "immobilizing": true,
+      "tenacity": true
+     }
+    ],
+    "answer": null,
+    "notes": "Shockwave knocks back; when it hits terrain, the edge explodes and stuns (shorter with distance)."
+   }
+  },
+  "windowAgainst": "Fight in open areas away from walls; punish her after both dashes are spent.",
+  "checks": []
+ }
+}
