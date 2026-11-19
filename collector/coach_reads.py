@@ -26,6 +26,8 @@ def clock(t):
 
 def _summoner_casts(path, until):
     _v, _s, chunks = RT.read_rofl(path)
+    if RT.is23(_v):
+        return [(t, k, n) for t, k, n in RT.decode(path, until=until)["summs"]]
     out = []
     for body in chunks:
         for t, nid, prm, pl in RT._blocks(body):

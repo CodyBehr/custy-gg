@@ -65,6 +65,7 @@ ATK23 = [0x71, 0x00, 0x3E, 0xB9, 0xD6, 0xE8, 0xCE, 0xB1, 0xCD, 0x95]   # attacke
 EXP23 = {0x3D: -1, 0x71: 0, 0x70: 1, 0xDF: 2, 0x51: 3, 0xD6: 4}   # amount byte 7 -> exponent class (2*4^e)
 M23 = bytes.fromhex('6b4e60cabac4329b447dff3d43b1ef0620c0cc116283cd5bd5febe715186d352aafd0bfb5d01fca6109d8fb314c6fa4b6ff96159f85eb02f277ec92e7647a0ab3a15cf9436b29abbbd6a6ead960d3868562966982a35f75c64a34c3cc56712f6e1b5414a3ea853f5af8725f4f36db48a265ad40c93d7f255199c340f03c38970ebe0f11aa2e8bf1307f08258c1a104658c288b85d905e554791fee30461d784902ae7f578821ed814fb684237295696cec33971c7b1b08ead8cee9da1775b77ae78050318e9009e6bc3b1eb84dcbc85f92e43fdfd691224224b9e399168dc239d0d29e00a718407cd177a42c48acc737a92bdb74dc2d45dd73de9f630a0ea5e2')   # amount byte 6 -> top mantissa byte
 T1012 = bytes.fromhex('ece49c948c84bcb4aca45b534b437b736b631b130b033b332b23dbd3cbc3fbf3ebe39b938b83bbb3aba35a524a427a726a621a120a023a322a22dad2cac2faf2eee69e968e86beb6aea65d554d457d756d651d150d053d352d25ddd5cdc5fdf5ede59d958d85bdb5ada55c544c447c746c641c140c043c342c24dcd4ccc4fcf4e8e098908880b8b0a8a05f574f477f776f671f170f073f372f27dfd7cfc7fff7efe79f978f87bfb7afa75e564e467e766e661e160e063e362e26ded6cec6fef6eae29a928a82bab2aaa259514941797169611911090139312921d9d1c9c1f9f1e9e199918981b9b1a9a158504840787068601810080038302820d8d0c8c0f8f0')   # keyframe health record 1012, cipher -> plain
+T944 = bytes.fromhex('8552106b1b5f4bd835231a9ca3adba886563f4bd6013d9435431623e478001e9a9b78705fbb40fe6d303c0e0bbee96f97fcdbe69f8d0aa90095ae2eaaf8ae1f6bf297cdc0a4851c82a79ce385564c3a82b9715fd994c8c206f047dc1160da41f944ea0c6f0ffab11a522868b767208b1d26134002d7e6ad52ce41893e73002c58198ca4933739b66b5d7a7567aebe58f77dbfe68ef07b84ad45d3250f59dd112700cae5c0b4fdff18919c24014426e5382582eac417b4d8e25ec6c741c0ed68d443c92b95b2fc9f31dcba6f7b028461724f2363a9e453ba12671b23978dd753d916d9acf831ebca2e8b3579506b667dae3ccc437fc59849f27c7ed3f5efa21de')   # keyframe position record 944, cipher -> plain
 HDR23 = bytes.fromhex('54bce4b924')   # ability record 564: the 4-byte ability id follows this
 SUMM23 = {'ba04ed63': 'Ignite', '4e42ad3c': 'Flash', '1e0948a8': 'Barrier', '84cac067': 'Heal', '1facbc2a': 'Teleport', '1f7ba2a9': 'Exhaust'}
 SPELLS23 = {"Garen":{"253f1630":"Q","6c3f1630":"W","973f1630":"R"},"Talon":{"25385a95":"Q","03385a95":"W","97385a95":"R"},"Seraphine":{"43f9ad8a":"Q","90f9ad8a":"W","64f9ad8a":"R"},"Lux":{"36e313f4":"Q","4be44b14":"W"},"Nautilus":{"45b2ad78":"Q","e6d2ba83":"W","a0bddb39":"E","7b0a4922":"R"},"Camille":{"97eb10d7":"R"},"Sylas":{"b525af95":"Q","3625af95":"W"},"Xerath":{"58495b62":"E"},"Ezreal":{"03f9169b":"E","97f9169b":"R"},"Janna":{"e694f2cf":"Q","abfce17a":"E","2626352d":"R"},"KSante":{"c9a4fc51":"E","584b0076":"R"},"Ahri":{"a3b453dc":"Q","6eb453dc":"W","7be853dc":"E","1eb453dc":"R"},"Xayah":{"e8b228f4":"Q","17b228f4":"W","a0b228f4":"E","b4b228f4":"R"},"Pantheon":{"970bf5de":"R"},"MonkeyKing":{"716d25f4":"Q","574a3f98":"W","2090f708":"E","611db478":"R"},"Corki":{"5810c60f":"Q","a2428b30":"W","ad066111":"R"},"Thresh":{"6ea6c987":"E","6bc0a011":"R","a3a6c987":"Q"},"Renekton":{"ad13ff2b":"Q","4b8bf29a":"W","1f1db422":"R"},"Malphite":{"dba3b4a9":"W","adffdf56":"E","eb25ebf6":"R"},"Ekko":{"00798bdc":"Q","45798bdc":"W","7f798bdc":"E","16798bdc":"R"},"Jinx":{"e8c879dc":"Q","17c879dc":"W","a0c879dc":"E","b4c879dc":"R"},"Blitzcrank":{"97654b98":"Q","96498bf1":"W","79b92837":"E","060bcc9e":"R"},"Fiora":{"6e254330":"W","7b774330":"E"},"Kindred":{"40ccec2a":"Q","5eccec2a":"W","1e0a6402":"E","c0ccec2a":"R"},"Riven":{"7f57f5c2":"Q","646b3d62":"W","dd001374":"E"},"Swain":{"25101d95":"Q","6c101d95":"W"},"Alistar":{"5926359f":"W","0a045bb1":"R"},"TwistedFate":{"1ccb368d":"Q"},"Kaisa":{"a3a64488":"Q","6ea64488":"W","1ea64488":"R"},"Velkoz":{"7b9c49a8":"E"},"Syndra":{"b4e8c0be":"R"},"Zeri":{"1ec05b81":"R"},"Ashe":{"43aea2dc":"Q","82ecfcd6":"E","4733d28f":"R"},"Kayle":{"43961f88":"Q","90961f88":"W","4b961f88":"E","64961f88":"R"},"Briar":{"40e8c98c":"Q"},"Yone":{"9057a381":"W","6457a381":"R"},"Morgana":{"646e1d8c":"R"},"Hecarim":{"bd587788":"Q","36e61629":"W","af694ea9":"E","bab7d2c5":"R"},"Vex":{"e8cccd5b":"Q","17cccd5b":"W","a0cccd5b":"E"},"Draven":{"6c3bacbf":"Q","cc0d6da8":"W","5916ffe0":"E"},"Viktor":{"030ba7fa":"R"},"Jhin":{"0344b7dc":"W"},"Senna":{"a30be8d8":"Q","7b4ee8d8":"E","1e0be8d8":"R"},"Ornn":{"03d246dc":"E"},"Khazix":{"e6b5ba55":"E","1eb5ba55":"R"},"Vayne":{"a097a2a8":"Q","61001d01":"E","04691fd9":"R"},"Lulu":{"436ee4dc":"Q","646ee4dc":"R"},"Sion":{"0349ebdc":"E"},"Tristana":{"40484ee5":"Q","5e484ee5":"W"},"Braum":{"433f168c":"Q","581f1e88":"R"},"Naafiri":{"645a94c3":"W","4b5394c3":"E","905a94c3":"R"},"Azir":{"6480a022":"Q","5eb5badc":"W","1e0aa022":"E","c0b5badc":"R"},"Caitlyn":{"7f7b1322":"E","647b1322":"R"},"Nami":{"a3e397dc":"Q"},"Kled":{"ad6c0ddc":"E","586c0ddc":"R"},"Udyr":{"40a3b2dc":"Q","5ea3b2dc":"W","96a3b2dc":"E","c0a3b2dc":"R"},"Varus":{"367ea21a":"W","e67ea21a":"E","a27ea21a":"R"},"FiddleSticks":{"6e44593c":"W","1e44593c":"R"}}   # champion -> {ability id: slot}; unknown ids are mapped per game from Riot's cast counts
@@ -264,7 +265,7 @@ def decode(path, until=900.0):
     """One pass over the replay: hits on champions, casts, level-ups, positions and map pings up to `until` seconds."""
     version, stats, chunks = read_rofl(path)
     if is23(version):
-        return _decode23(version, stats, chunks, until)
+        return _decode23(version, stats, chunks, until, path)
     skins = [p.get("SKIN") for p in stats]
     hits, casts, levels, pings, summs = [], [], [], [], []
     vision = {k: [] for k in range(10)}   # times each champion stepped into the other team's vision
@@ -323,8 +324,9 @@ def decode(path, until=900.0):
                 pings=pings, summs=summs)
 
 
-def _decode23(version, stats, chunks, until):
-    """Patch 16.23+. Hits, casts, level-ups and vision; positions and pings aren't decoded yet (tracks/pings empty).
+def _decode23(version, stats, chunks, until, path=None):
+    """Patch 16.23+. Hits, casts, level-ups, vision and positions (record 96 start positions + keyframe 944 every minute);
+    pings aren't decoded yet.
     Casts whose ability id isn't in SPELLS23 come back as slot "?" with the id in cast_ids, for map_casts()."""
     skins = [p.get("SKIN") for p in stats]
     hits, casts, levels, summs, cast_ids = [], [], [], [], []
@@ -359,8 +361,97 @@ def _decode23(version, stats, chunks, until):
                 levels.append((t, k))
             elif nid == 66:                               # stepped into the other team's vision
                 vision[k].append(t)
-    return dict(version=version, stats=stats, hits=hits, casts=casts, levels=levels, tracks={}, vision=vision,
+    tracks = _tracks23(chunks, until)
+    if path:
+        for key, L in _keyframe_pos23(path, until).items():   # exact positions about once a minute
+            tracks.setdefault(key, []).extend(L)
+    for key in list(tracks):
+        tracks[key] = sorted(set(tracks[key]))
+    return dict(version=version, stats=stats, hits=hits, casts=casts, levels=levels, tracks=tracks, vision=vision,
                 pings=[], summs=summs, cast_ids=cast_ids)
+
+
+def _p96(c):
+    return (c - 0x97) & 0xFF   # record 96 byte cipher: a plain shift
+
+
+def _v96(h, l):
+    v = (_p96(h) << 8) | _p96(l)
+    return v - 65536 if v >= 32768 else v
+
+
+def _lay96(L):
+    """Where the start position's (x hi, x lo, z hi, z lo) bytes sit in a record-96 entry of length L."""
+    if L == 15:
+        return 6, 8, 2, 4
+    if 18 <= L <= 23:
+        xh = 2 * L - 26
+        return xh, xh + 2, xh - 4, xh - 2
+    if L >= 30:
+        return 25, 23, 29, 27   # right for most long (multi-waypoint) entries; a median filter drops the rest
+    return None
+
+
+def _entries96(b):
+    for h in (3, 4, 2, 5):
+        p, out = h, []
+        while p < len(b):
+            L = (b[p] - 0x96) & 0xFF     # each entry starts with its length + 0x96
+            if L < 3 or p + L > len(b):
+                break
+            out.append(b[p:p + L]); p += L
+        if p == len(b) and out:
+            return out
+    return []
+
+
+def _tracks23(chunks, until):
+    """Record 96 (movement) start positions: {slot or unit id: [(t, x, z)]}. Unit id = entry bytes 5,7,9,11.
+    Champions: median 34 units off Riot's minute positions mid-movement (16.22: 37)."""
+    out = {}
+    for body in chunks:
+        for t, nid, prm, pl in _blocks(body, True):
+            if t > until:
+                break
+            if nid != 96:
+                continue
+            for e in _entries96(bytes(pl)):
+                lay = _lay96(len(e))
+                if not lay:
+                    continue
+                uid = _p96(e[5]) | _p96(e[7]) << 8 | _p96(e[9]) << 16 | _p96(e[11]) << 24
+                x = 2 * _v96(e[lay[0]], e[lay[1]]) + 7358
+                z = 2 * _v96(e[lay[2]], e[lay[3]]) + 7412
+                if -500 < x < 15500 and -500 < z < 15500:
+                    key = CHAMPS23.index(uid) if uid in CHAMPS23 else uid
+                    out.setdefault(key, []).append((round(t + 0.19, 2), x, z))
+    for key, L in out.items():
+        L.sort()
+        keep = []
+        for n, q in enumerate(L):   # drop points far from their neighbours' median (mis-read long entries)
+            nb = L[max(0, n - 3):n] + L[n + 1:n + 4]
+            if len(nb) >= 3:
+                xs = sorted(a[1] for a in nb); zs = sorted(a[2] for a in nb)
+                if math.hypot(q[1] - xs[len(xs) // 2], q[2] - zs[len(zs) // 2]) > 600:
+                    continue
+            keep.append(q)
+        out[key] = keep
+    return out
+
+
+def _keyframe_pos23(path, until=1e9):
+    """Record 944 in keyframes: x, z = big-endian float32 at bytes 8-11 / 12-15 through T944 (exact vs Riot)."""
+    out = {}
+    for body in _keyframes(path):
+        for t, nid, prm, pl in _blocks(body, True):
+            if nid != 944 or len(pl) < 16 or t > until:
+                continue
+            x = struct.unpack(">f", bytes(T944[c] for c in pl[8:12]))[0]
+            z = struct.unpack(">f", bytes(T944[c] for c in pl[12:16]))[0]
+            if -1000 < x < 16000 and -1000 < z < 16000:
+                key = CHAMPS23.index(prm) if prm in CHAMPS23 else prm
+                out.setdefault(key, []).append((round(t, 2), round(x), round(z)))
+    return out
 
 
 def map_casts(d, riot_casts, first_skill):

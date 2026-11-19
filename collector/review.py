@@ -368,7 +368,7 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
-TRADES_VERSION = 11          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 12          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
@@ -542,8 +542,7 @@ def trades_for(cfg, game_id):
         return {"error": "Trades can't be read from patch %s replays yet." % out["unsupported"]}
     try:   # the coach's read of each trade, level race and risky death (general rules; see coach_reads.py)
         import coach_reads
-        if not RT.is23(out.get("version")):   # 16.23: positions aren't decoded yet and the reads need them
-            out["coach"] = coach_reads.analyze(path, i, j, me, opp, pslot.get, data["timeline"], out)
+        out["coach"] = coach_reads.analyze(path, i, j, me, opp, pslot.get, data["timeline"], out)
     except Exception:
         core.log.exception("Trades: coach reads failed for %s", path)
     out["v"] = TRADES_VERSION
@@ -556,7 +555,7 @@ def trades_for(cfg, game_id):
     return out
 
 
-DEATHS_VERSION = 9   # 6: map pings in playbacks; 7: everyone's health
+DEATHS_VERSION = 10   # 6: map pings in playbacks; 7: everyone's health
 
 
 def deaths_for(cfg, game_id):
@@ -592,8 +591,6 @@ def deaths_for(cfg, game_id):
     except Exception as e:
         core.log.info("Deaths: couldn't read %s: %s", path, e)
         return {"error": "Couldn't read this game's replay file."}
-    if RT.is23(_v):
-        return {"error": "Gank checks need champion positions, which can't be read from patch %s replays yet." % _v}
     slots = {}
     for p in game.get("participants") or []:
         pl = idents.get(p["participantId"], {})

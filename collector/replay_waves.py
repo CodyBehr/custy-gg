@@ -37,12 +37,16 @@ def unit_id(key):
     """Track key (as decode() stores it) -> the unit's network id."""
     if isinstance(key, int) and key < 10:
         return RT.CHAMPS[key]
+    if isinstance(key, int) and key >= 0x40000000:   # 16.23+: tracks are keyed by the full network id already
+        return key
     return 0x40000000 | TID[(key >> 16) & 255] << 16 | TID[(key >> 8) & 255] << 8 | TID[key & 255]
 
 
 def unit_deaths(path, until=99999.0):
-    """[(t, unit id, killer slot or None)] from record 981."""
+    """[(t, unit id, killer slot or None)] from record 981 (16.23+: record 1197, killer = last champion to damage it)."""
     _v, _stats, chunks = RT.read_rofl(path)
+    if RT.is23(_v):
+        return _unit_deaths23(chunks, until)
     out = []
     for body in chunks:
         for t, nid, prm, pl in RT._blocks(body):
@@ -51,6 +55,33 @@ def unit_deaths(path, until=99999.0):
             if nid == 981 and len(pl) >= 4:
                 k = KILLER.get(pl[2]) if pl[3] == 0x29 else None
                 out.append((t, prm, k))
+    return out
+
+
+def _unit_deaths23(chunks, until):
+    """16.23+: record 1197 = a unit died (keyed to it; the killer bytes are no longer readable), so the killer is the
+    attacker of the last damage record (530) on that unit. CS vs Riot at 5/10/14 min within 3: top/mid/support ~95%."""
+    import bisect
+    dmg, died = {}, []
+    for body in chunks:
+        for t, nid, prm, pl in RT._blocks(body, True):
+            if t > until:
+                break
+            if nid == 530:
+                b = bytes(pl)
+                a = None
+                for o in range(7, min(14, len(b) - 4)):
+                    if b[o + 4] == 0x25 and b[o + 3] in RT.ATK23:
+                        a = RT.ATK23.index(b[o + 3])
+                        break
+                dmg.setdefault(prm, []).append((t, a))
+            elif nid == 1197:
+                died.append((t, prm))
+    out = []
+    for t, u in died:
+        L = dmg.get(u) or []
+        j = bisect.bisect_right([x[0] for x in L], t + 0.05)
+        out.append((t, u, L[j - 1][1] if j else None))
     return out
 
 
@@ -175,11 +206,13 @@ def auto_attacks(path, until=99999.0):
     Garen's 54 hits on Darius in one game and never during his E spin. The target isn't decoded yet; an auto not
     followed by a hit on a champion went into a minion or monster."""
     _v, _s, chunks = RT.read_rofl(path)
+    v23 = RT.is23(_v)
+    nid_auto, champs = (75, RT.CHAMPS23) if v23 else (991, RT.CHAMPS)   # 16.23+: record 75
     out = []
     for body in chunks:
-        for t, nid, prm, pl in RT._blocks(body):
+        for t, nid, prm, pl in RT._blocks(body, v23):
             if t > until:
                 break
-            if nid == 991 and prm in RT.CHAMPS:
-                out.append((t, RT.CHAMPS.index(prm)))
+            if nid == nid_auto and prm in champs:
+                out.append((t, champs.index(prm)))
     return out
