@@ -380,34 +380,66 @@ def _v96(h, l):
     return v - 65536 if v >= 32768 else v
 
 
-def _lay96(L):
-    """Where the start position's (x hi, x lo, z hi, z lo) bytes sit in a record-96 entry of length L."""
-    if L == 15:
-        return 6, 8, 2, 4
-    if 18 <= L <= 23:
-        xh = 2 * L - 26
-        return xh, xh + 2, xh - 4, xh - 2
-    if L >= 30:
-        return 25, 23, 29, 27   # right for most long (multi-waypoint) entries; a median filter drops the rest
-    return None
-
-
 def _entries96(b):
+    """Split a record-96 payload (after a 2-5 byte header) into entries. Each entry starts with its length as a varint
+    of plain bytes (7 bits each, low first): one byte = body length, two bytes = body length + 1."""
     for h in (3, 4, 2, 5):
         p, out = h, []
         while p < len(b):
-            L = (b[p] - 0x96) & 0xFF     # each entry starts with its length + 0x96
-            if L < 3 or p + L > len(b):
+            v, n = _p96(b[p]), 1
+            if v >= 128:
+                if p + 1 >= len(b):
+                    break
+                v, n = (v & 0x7F) | (_p96(b[p + 1]) << 7), 2
+                body = v + 2 - n
+            else:
+                body = v
+            if body < 2 or p + n + body > len(b):
                 break
-            out.append(b[p:p + L]); p += L
+            out.append(b[p + n:p + n + body]); p += n + body
         if p == len(b) and out:
             return out
     return []
 
 
+def _blocks96(body):
+    """One entry -> [(unit id, speed, waypoint-count byte, waypoint bytes)]. The entry's bytes are a fixed permutation
+    of the message (even positions = message front to back, odd positions = message back to front); un-permuted it is
+    a list of unit blocks [waypoint data][speed float32 BE][unit id BE][00][2 x waypoints], like 16.22's record 871."""
+    e = bytes([0]) + body                       # the length byte took position 0 of the permutation
+    n = len(e); u = bytearray(n)
+    for i in range((n + 1) // 2):
+        u[i] = _p96(e[2 * i])
+    for i in range(n // 2):
+        u[n - 1 - i] = _p96(e[2 * i + 1])
+    u = bytes(u[1:])
+    out, start, i = [], 0, 0
+    while i + 10 <= len(u):
+        if u[i] in (0x42, 0x43, 0x44) and u[i + 4] == 0x40 and u[i + 5] == 0 and u[i + 8] == 0 and u[i + 9] and not u[i + 9] % 2:
+            spd = struct.unpack(">f", u[i:i + 4])[0]
+            if 50 < spd < 2000:
+                out.append((struct.unpack(">I", u[i + 4:i + 8])[0], spd, u[i + 9], u[start:i]))
+                start = i = i + 10
+                continue
+        i += 1
+    return out
+
+
+def _start96(cnt, wp):
+    """Start position of a block: the 4 bytes (z hi, z lo, x hi, x lo; signed 16-bit, x = 2v + 7358, z = 2v + 7412)
+    before (waypoints + 2) // 4 trailing flag bytes."""
+    nf = (cnt // 2 + 2) // 4
+    if len(wp) < 4 + nf:
+        return None
+    w = wp[len(wp) - 4 - nf:len(wp) - nf]
+    sv = lambda h, l: ((h << 8) | l) - (65536 if h >= 128 else 0)
+    return 2 * sv(w[2], w[3]) + 7358, 2 * sv(w[0], w[1]) + 7412
+
+
 def _tracks23(chunks, until):
-    """Record 96 (movement) start positions: {slot or unit id: [(t, x, z)]}. Unit id = entry bytes 5,7,9,11.
-    Champions: median 34 units off Riot's minute positions mid-movement (16.22: 37)."""
+    """Record 96 (movement orders) start positions: {slot or unit id: [(t, x, z)]} for every unit.
+    Champions: median 65 / p80 112 units off Riot's minute positions (interpolated); lane minions per game ~1,100,
+    the same as 16.22."""
     out = {}
     for body in chunks:
         for t, nid, prm, pl in _blocks(body, True):
@@ -415,20 +447,18 @@ def _tracks23(chunks, until):
                 break
             if nid != 96:
                 continue
-            for e in _entries96(bytes(pl)):
-                lay = _lay96(len(e))
-                if not lay:
-                    continue
-                uid = _p96(e[5]) | _p96(e[7]) << 8 | _p96(e[9]) << 16 | _p96(e[11]) << 24
-                x = 2 * _v96(e[lay[0]], e[lay[1]]) + 7358
-                z = 2 * _v96(e[lay[2]], e[lay[3]]) + 7412
-                if -500 < x < 15500 and -500 < z < 15500:
-                    key = CHAMPS23.index(uid) if uid in CHAMPS23 else uid
-                    out.setdefault(key, []).append((round(t + 0.19, 2), x, z))
+            for ent in _entries96(bytes(pl)):
+                for uid, _spd, cnt, wp in _blocks96(ent):
+                    p = _start96(cnt, wp)
+                    if p and -500 < p[0] < 15500 and -500 < p[1] < 15500:
+                        key = CHAMPS23.index(uid) if uid in CHAMPS23 else uid
+                        out.setdefault(key, []).append((round(t + 0.19, 2), p[0], p[1]))
     for key, L in out.items():
         L.sort()
+        if not (isinstance(key, int) and key < 10):
+            continue   # minions get an order every few seconds while walking fast: the filter below would eat their path
         keep = []
-        for n, q in enumerate(L):   # drop points far from their neighbours' median (mis-read long entries)
+        for n, q in enumerate(L):   # drop champion points far from their neighbours' median (rare mis-reads)
             nb = L[max(0, n - 3):n] + L[n + 1:n + 4]
             if len(nb) >= 3:
                 xs = sorted(a[1] for a in nb); zs = sorted(a[2] for a in nb)

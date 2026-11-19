@@ -330,9 +330,8 @@ def _reset_windows(d, mins, frames, kills, me, opp, pme, my_team, p_opp, until, 
         mine = sum(1 for m in mins.values() if m["team"] == my_team and m["lane"] == lane and m["spawn"] <= t
                    and (m["died"] is None or m["died"] > t)
                    and (lambda p: p is not None and math.hypot(p[0] - tw[0], p[1] - tw[1]) < 900)(RT._at(m["track"], t)))
-        if mine < 3 or t - last < 60:
+        if mine < 3 or t - last < 60:   # check every moment of the crash; one read per minute at most
             t += 2; continue
-        last = t
         alive = not any(x <= t < x + 60 for x in my_deaths)
         near = math.hypot(here[0] - tw[0], here[1] - tw[1]) < 3500
         gold = _gold_at(frames, pme, t)
@@ -341,12 +340,13 @@ def _reset_windows(d, mins, frames, kills, me, opp, pme, my_team, p_opp, until, 
             t += 2; continue
         later = RT._at(track, t + 20)
         roamed = later is not None and W.lane_of(*later) != lane and math.hypot(later[0] - here[0], later[1] - here[1]) > 2500
-        txt = ("Reset window: your wave crashed into their tower and you had ~%d gold. Backing now costs you nothing (their "
+        txt = ("Potential reset window: your wave crashed into their tower and you had ~%d gold. A back here costs you nothing (their "
                "tower takes the wave, it bounces back to you as you return) and you come back with the item." % round(gold, -1))
         if not opp_tp:
             txt += " They have no Teleport, so they can't match your back cheaply."
         if roamed:
             txt += " You left the lane instead: worth it only if the roam got something."
         out.append({"t": round(t, 1), "kind": "reset", "verdict": "check", "text": txt})
+        last = t
         t += 2
     return out
