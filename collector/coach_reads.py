@@ -145,7 +145,8 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
             for t, k, L in casts)
         used = {n for tt, kk, n in sc if kk == me and t0 - 1 <= tt <= t1}
         died = x.get("died") or []
-        trades.append({"t": t0, "netPct": net, "died": died, "solo": x.get("solo", True)})
+        trades.append({"t": t0, "netPct": net, "died": died, "solo": x.get("solo", True),
+                       "both": min(x["dealt"], x["took"]) >= 40})   # both sides hit: a real fight, not another poke
 
         behind = deaths_gap >= 2 or (lv_gap <= -1 and gold_gap <= -700)
         ahead = deaths_gap <= -2 or (lv_gap >= 1 and gold_gap >= 700)
@@ -157,6 +158,12 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
             verdict = "meh"; notes.append("You're behind here (%+d lane deaths, %+d levels, %+d item gold): what matters now is farming and staying alive, not this trade." % (deaths_gap, lv_gap, gold_gap))
         elif bone_up and dur < 6 and abs(net) <= 8 and not died:
             verdict = "good"; notes.append("Short trade that popped their Bone Plating: the next fight in the following ~55 s is without it.")
+        elif allies and not enemies and (died or any(o.get("dmg", 0) > 0 for o in x.get("others") or [])):
+            # your teammates joined: a gank, not a lane trade (user grade, round 3)
+            verdict = "good" if died == ["them"] else "check"
+            notes.append("Gank with your %s: not judged as a 1v1." % ", ".join(allies))
+            if died == ["them"] and bigger == "mine":
+                notes.append("Good setup: your bigger wave was pushing to them, so they lose those minions too.")
         elif died and enemies:
             verdict = "good" if died == ["them"] else "check"
             notes.append("Their teammates were there too (%s), so this isn't judged as a 1v1." % ", ".join(enemies))
@@ -213,7 +220,8 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
     # a free poke only matters if a close fight follows within a minute
     for r in R:
         if r.pop("free_poke", False):
-            if not any(0 < y["t"] - r["t"] <= 60 and (y["died"] or abs(y["netPct"]) <= 10) for y in trades):
+            # only a 1v1 follow-up counts: a team skirmish afterwards isn't decided by the poke (user grade, round 3)
+            if not any(0 < y["t"] - r["t"] <= 60 and y["solo"] and (y["died"] or (y["both"] and abs(y["netPct"]) <= 10)) for y in trades):
                 r["verdict"] = "meh"
                 r["text"] = r["text"].replace("Free poke taken.", "Free poke taken. Little weight here: no close fight followed.")
             else:
