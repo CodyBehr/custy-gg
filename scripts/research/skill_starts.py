@@ -51,6 +51,7 @@ def get(host, path):
 def summarize(m, tl, pa, pb):
     pid = {pa["participantId"]: "a", pb["participantId"]: "b"}
     first, start, kills, frames = {}, {"a": [], "b": []}, [], {}
+    lv = {"a": [], "b": []}   # LEVEL_UP times (level 2, 3, ...) in the first 10 minutes
     for f in tl["info"]["frames"]:
         t = f["timestamp"] / 1000
         if t <= 360:
@@ -63,6 +64,8 @@ def summarize(m, tl, pa, pb):
             te = e["timestamp"] / 1000
             if e["type"] == "SKILL_LEVEL_UP" and s and s not in first:
                 first[s] = SLOT.get(e["skillSlot"])
+            if e["type"] == "LEVEL_UP" and s and te < 600:
+                lv[s].append(round(te, 1))
             if e["type"] == "ITEM_PURCHASED" and s and te < 60:
                 start[s].append(e["itemId"])
             if e["type"] == "CHAMPION_KILL" and te < 360 and (e["victimId"] in pid):
@@ -73,7 +76,7 @@ def summarize(m, tl, pa, pb):
     return {"matchId": m["metadata"]["matchId"], "version": m["info"]["gameVersion"],
             "a": {"first": first.get("a"), "perks": perks(pa), "sums": sums(pa), "start": start["a"], "win": pa["win"]},
             "b": {"first": first.get("b"), "perks": perks(pb), "sums": sums(pb), "start": start["b"], "win": pb["win"]},
-            "kills": kills, "frames": frames}
+            "kills": kills, "frames": frames, "lv": lv}
 
 
 found, seen = {}, set()
