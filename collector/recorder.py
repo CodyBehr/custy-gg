@@ -293,7 +293,7 @@ def _start(game_id, info):
         core.log.warning("Recording: no encoder works on this computer")
         return
     mon = _game_monitor() or 0
-    hwnd = _game_window() if settings().get("capture", "screen") == "window" else None
+    hwnd = None   # window capture (Windows.Graphics.Capture) makes Windows draw a yellow border and stutters some games: screen only
     stamp = time.strftime("%Y-%m-%d %H.%M")
     base = os.path.join(temp_dir(), "%s - %s" % (stamp, game_id))
 

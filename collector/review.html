@@ -2696,9 +2696,6 @@ async function openRecordings() {
       <span class="h-mute">Starts when a game loads and stops when it ends. It records your screen like OBS does and never reads the game.</span></div>
       ${ff ? `<div class="sub" style="margin-top:8px" id="recFf">${ff}</div>` : ""}
       ${r.recording ? `<div style="margin-top:8px;color:var(--red)"><b>● Recording now</b> <span class="h-mute">game ${esc(r.recording.game)}</span></div>` : ""}
-      <div class="rec-set" style="margin-top:12px"><span class="h-mute">Record</span><div class="h-seg" role="group" aria-label="What to record" style="margin:0">
-        <button data-cap="screen" class="${r.capture !== "window" ? "on" : ""}">The whole screen</button><button data-cap="window" class="${r.capture === "window" ? "on" : ""}">Just the game window</button></div>
-        <span class="h-mute">${r.capture !== "window" ? "Everything on the game's screen, including other windows on top and alt-tabbing." : "Only League, like OBS's window capture: Discord pop-ups, alt-tabbing and your other screens aren't recorded. Windows may draw a yellow border around the game while it records."}</span></div>
       <div class="rec-set" style="margin-top:12px"><span class="h-mute">Sound</span><div class="h-seg" role="group" aria-label="Sound" style="margin:0">
         <button data-snd="game" class="${(r.sound || "game") === "game" ? "on" : ""}">League only</button><button data-snd="all" class="${r.sound === "all" ? "on" : ""}">Everything</button><button data-snd="off" class="${r.sound === "off" ? "on" : ""}">Off</button></div>
         <span class="h-mute">${r.sound === "off" ? "No sound." : r.sound === "all" ? "Everything your PC plays, including Discord and music." : "Only the game's sound: Discord, music and notifications are left out."}</span></div>
@@ -2740,7 +2737,6 @@ async function openRecordings() {
   }
   $("recOn").onchange = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ on: $("recOn").checked }) }).catch(e => toast(e.message)); openRecordings(); };
   document.querySelectorAll("[data-snd]").forEach(b => b.onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ sound: b.dataset.snd }) }).catch(e => toast(e.message)); openRecordings(); });
-  document.querySelectorAll("[data-cap]").forEach(b => b.onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ capture: b.dataset.cap }) }).catch(e => toast(e.message)); openRecordings(); });
   $("recDays").onchange = () => api("/api/rec", { method: "POST", body: JSON.stringify({ days: +$("recDays").value }) }).catch(e => toast(e.message));
   $("recPick").onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ pick: true }) }).catch(e => toast(e.message)); openRecordings(); };
   $("recOpen").onclick = () => api("/api/rec/open", { method: "POST" });
