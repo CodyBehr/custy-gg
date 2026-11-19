@@ -33,7 +33,7 @@ ACCOUNT_CAP = 25 * 60       # at most this long on one account, whatever happens
 NO_GAMES_GIVE_UP = 5 * 60   # no games to fetch for this long: move on
 _lock = threading.Lock()
 _rot = {"state": "off", "message": "Off.", "account": None}
-_cur = {"user": None, "since": 0, "sent": 0, "limited": False, "idle_since": None}
+_cur = {"user": None, "since": 0, "sent": 0, "limited": False, "idle_since": None, "fails": 0, "last": None}
 
 
 # --------------------------------------------------------------------------- settings and per-account state
@@ -150,15 +150,22 @@ def note(result):
         return
     st = _state()
     a = _acct(st, user)
+    if result != "nogames":
+        _cur["last"] = result
     if result == "watch":
         a["ok"].append(time.time())
         _cur["sent"] += 1
         _cur["idle_since"] = None
+        _cur["fails"] = 0
     elif result == "maxLimitReached":
         a["limited_until"] = time.time() + 3600
         _cur["limited"] = True
     elif result == "nogames":
         _cur["idle_since"] = _cur["idle_since"] or time.time()
+    else:   # the download didn't work (new account, "lost", "error"...): 3 in a row and we move on
+        _cur["fails"] += 1
+        a["last_fail"] = result
+        core.log.info("Rotation: download on %s came back %r (%d in a row).", user, result, _cur["fails"])
     _state_save(st)
 
 
@@ -347,15 +354,18 @@ def run(stop, lcu_up, playing):
             st = _state()
             user = _cur["user"]
             if user:
-                done = (_cur["sent"] >= s["per_account"] or _cur["limited"]
+                done = (_cur["sent"] >= s["per_account"] or _cur["limited"] or _cur["fails"] >= 3
                         or (_cur["idle_since"] and time.time() - _cur["idle_since"] > NO_GAMES_GIVE_UP)
                         or time.time() - _cur["since"] > ACCOUNT_CAP or not lcu_up())
                 if not done:
-                    _rot.update(state="working", message="On %s: %d of %d sent." % (_acct(st, user).get("riotId") or user, _cur["sent"], s["per_account"]),
+                    _rot.update(state="working", message="On %s: %d of %d sent%s. Moves on at the quota, League's limit, 3 failed downloads, %d min without games or %d min in all." % (
+                        _acct(st, user).get("riotId") or user, _cur["sent"], s["per_account"],
+                        ", last download: %s" % _cur["last"] if _cur["last"] else "", NO_GAMES_GIVE_UP // 60, ACCOUNT_CAP // 60),
                                 account=user)
                     stop.wait(5)
                     continue
                 why = ("quota sent" if _cur["sent"] >= s["per_account"] else "League's limit" if _cur["limited"]
+                       else "downloads failing (%s)" % _cur["last"] if _cur["fails"] >= 3
                        else "no games to fetch" if _cur["idle_since"] else "signed out" if not lcu_up() else "time cap")
                 core.log.info("Rotation: done with %s (%d sent, %s).", user, _cur["sent"], why)
             acct, wait_s = _pick(s, st, exclude=user)
@@ -365,7 +375,7 @@ def run(stop, lcu_up, playing):
                 stop.wait(min(wait_s, 300))
                 continue
             if acct["user"] == user and lcu_up():   # only one account has quota: stay on it
-                _cur.update(since=time.time(), sent=0, limited=False, idle_since=None)
+                _cur.update(since=time.time(), sent=0, limited=False, idle_since=None, fails=0, last=None)
                 continue
             _cur.update(user=None)
             _rot.update(state="switching", message="Signing out%s..." % (" of " + user if user else ""))
@@ -377,7 +387,7 @@ def run(stop, lcu_up, playing):
                 fails = 0
                 x.update(riotId=info, last_error=None, needs_you=None, last_signin=time.time())
                 _state_save(st)
-                _cur.update(user=acct["user"], since=time.time(), sent=0, limited=False, idle_since=None)
+                _cur.update(user=acct["user"], since=time.time(), sent=0, limited=False, idle_since=None, fails=0, last=None)
                 core.log.info("Rotation: signed in to %s (%s).", acct["user"], info)
                 _rot.update(state="working", message="On %s." % (info or acct["user"]), account=acct["user"])
             else:
