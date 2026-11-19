@@ -215,17 +215,41 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
         if mdmg["me"] + mdmg["opp"] >= 60:
             notes.append("Minions and towers: %d to you, %d to them." % (mdmg["me"], mdmg["opp"]))
         R.append({"t": round(t0, 1), "kind": "trade", "verdict": verdict, "text": " ".join(notes) or "Net %+d%% of max HP." % net,
-                  "free_poke": free_poke and verdict == "bad"})
+                  "free_poke": free_poke and verdict == "bad", "poke_pct": round(100 * x["took"] / mx[0]),
+                  "lv": level(pme, t0)})
 
-    # a free poke only matters if a close fight follows within a minute
+    # A free poke matters when it's a real chunk of health for that stage of the game (early levels: a Q + auto is a big
+    # share of your health; by level 9 the same poke regens away) AND something follows within a minute where that health
+    # counts: a lane fight, a skirmish, an objective (user grades, round 3).
+    objectives = []
+    for f in frames:
+        for e in f.get("events") or []:
+            if e.get("type") == "ELITE_MONSTER_KILL":
+                objectives.append(((e.get("timestamp") or 0) / 1000, (e.get("monsterType") or "objective").replace("_", " ").lower()))
+            elif e.get("type") == "BUILDING_KILL":
+                objectives.append(((e.get("timestamp") or 0) / 1000, "a tower"))
+    my_fights = [z["t"] for z in kills if me in [z["victim"], z["killer"]] + z["assists"]]
     for r in R:
         if r.pop("free_poke", False):
-            # only a 1v1 follow-up counts: a team skirmish afterwards isn't decided by the poke (user grade, round 3)
-            if not any(0 < y["t"] - r["t"] <= 60 and y["solo"] and (y["died"] or (y["both"] and abs(y["netPct"]) <= 10)) for y in trades):
-                r["verdict"] = "meh"
-                r["text"] = r["text"].replace("Free poke taken.", "Free poke taken. Little weight here: no close fight followed.")
+            pct, lv_now = r.get("poke_pct", 0), r.get("lv", 1)
+            big = pct >= (8 if lv_now <= 6 else 15)
+            nxt = None
+            for y in trades:
+                if 0 < y["t"] - r["t"] <= 60 and (y["died"] or (y["both"] and abs(y["netPct"]) <= 10)):
+                    nxt = "a close lane fight" if y["solo"] else "a skirmish"
+                    break
+            if not nxt and any(0 < t - r["t"] <= 60 for t in my_fights):
+                nxt = "a skirmish"
+            if not nxt:
+                nxt = next((name for t, name in objectives if 0 < t - r["t"] <= 60), None)
+            head = "Free poke taken (%d%% of your max HP)." % pct
+            if big and nxt:
+                r["text"] = r["text"].replace("Free poke taken.", head + " It mattered: %s followed within a minute and you went in down that health." % nxt)
             else:
-                r["text"] = r["text"].replace("Free poke taken.", "Free poke taken. It mattered: a close fight followed within a minute.")
+                r["verdict"] = "meh"
+                why = "too small to matter at level %d" % lv_now if not big else "nothing followed where it counted"
+                r["text"] = r["text"].replace("Free poke taken.", head + " Little weight: %s." % why)
+        r.pop("poke_pct", None); r.pop("lv", None)
 
     # --- level races (2 and 3)
     for L in (2, 3):

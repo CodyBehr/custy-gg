@@ -368,7 +368,7 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
-TRADES_VERSION = 13          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 14          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
