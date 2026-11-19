@@ -251,6 +251,11 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
                 r["text"] = r["text"].replace("Free poke taken.", head + " Little weight: %s." % why)
         r.pop("poke_pct", None); r.pop("lv", None)
 
+    # --- reset windows (reviewer, round 3): your wave crashed into their tower, you had gold for a real purchase, the
+    # opponent couldn't punish a back, and you stayed (or roamed) instead of backing. Crash, back while their tower
+    # takes the wave, and you lose nothing; the wave bounces to you as you return. Ambiguous by nature: "check".
+    R.extend(_reset_windows(d, mins, frames, kills, me, opp, pme, my_team, p_opp, until))
+
     # --- level races (2 and 3)
     for L in (2, 3):
         a = lvl[pme][L - 1] if len(lvl[pme]) >= L else None
@@ -271,3 +276,77 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
                       "text": "Died to %d enemies with a %d-kill lead: unnecessary risk, and a shutdown." % (n, lead)})
     R.sort(key=lambda r: r["t"])
     return R
+
+
+LANE_TOWERS = {"top": (0, 3), "mid": (1, 4), "bot": (2, 5)}   # indexes into TOWERS[team]: (outer, inner)
+
+
+def _gold_at(frames, pid, t):
+    """Unspent gold at time t, interpolated between Riot's minute frames."""
+    i = int(t // 60)
+    if not frames or i + 1 >= len(frames):
+        return None
+    g = lambda f: ((f.get("participantFrames") or {}).get(str(pid)) or {}).get("currentGold")
+    a, b = g(frames[i]), g(frames[i + 1])
+    if a is None or b is None:
+        return None
+    if b < a:        # spent during the minute: use the value before the purchase
+        return a
+    return a + (b - a) * (t - 60 * i) / 60.0
+
+
+def _reset_windows(d, mins, frames, kills, me, opp, pme, my_team, p_opp, until, min_gold=400):
+    track = d["tracks"].get(me) or []
+    if not track:
+        return []
+    their = 300 - my_team
+    p3 = RT._at(track, 180)
+    lane = W.lane_of(*p3) if p3 else None
+    if lane not in LANE_TOWERS:
+        return []
+    dead = []
+    for f in frames:
+        for e in f.get("events") or []:
+            if e.get("type") == "BUILDING_KILL" and e.get("position"):
+                dead.append(((e.get("timestamp") or 0) / 1000, e["position"]["x"], e["position"]["y"]))
+
+    def their_tower(t):
+        for idx in LANE_TOWERS[lane]:
+            x, z = TOWERS[their][idx]
+            if not any(dt <= t and math.hypot(dx - x, dz - z) < 600 for dt, dx, dz in dead):
+                return x, z
+        return None
+
+    my_deaths = [z["t"] for z in kills if z["victim"] == me]
+    backs = [t for k, t, _x, _z in W.recalls(d, {me: my_deaths}, until + 60) if k == me]
+    opp_tp = 12 in (p_opp.get("spell1Id"), p_opp.get("spell2Id"), p_opp.get("summoner1Id"), p_opp.get("summoner2Id"))
+    out, last = [], -999
+    t = 120.0
+    while t <= until:
+        tw = their_tower(t)
+        here = RT._at(track, t)
+        if not tw or not here:
+            t += 2; continue
+        mine = sum(1 for m in mins.values() if m["team"] == my_team and m["lane"] == lane and m["spawn"] <= t
+                   and (m["died"] is None or m["died"] > t)
+                   and (lambda p: p is not None and math.hypot(p[0] - tw[0], p[1] - tw[1]) < 900)(RT._at(m["track"], t)))
+        if mine < 3 or t - last < 60:
+            t += 2; continue
+        last = t
+        alive = not any(x <= t < x + 60 for x in my_deaths)
+        near = math.hypot(here[0] - tw[0], here[1] - tw[1]) < 3500
+        gold = _gold_at(frames, pme, t)
+        backed = any(t - 5 <= b <= t + 30 for b in backs)
+        if not alive or not near or gold is None or gold < min_gold or backed:
+            t += 2; continue
+        later = RT._at(track, t + 20)
+        roamed = later is not None and W.lane_of(*later) != lane and math.hypot(later[0] - here[0], later[1] - here[1]) > 2500
+        txt = ("Reset window: your wave crashed into their tower and you had ~%d gold. Backing now costs you nothing (their "
+               "tower takes the wave, it bounces back to you as you return) and you come back with the item." % round(gold, -1))
+        if not opp_tp:
+            txt += " They have no Teleport, so they can't match your back cheaply."
+        if roamed:
+            txt += " You left the lane instead: worth it only if the roam got something."
+        out.append({"t": round(t, 1), "kind": "reset", "verdict": "check", "text": txt})
+        t += 2
+    return out
