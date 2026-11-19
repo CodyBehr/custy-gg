@@ -80,6 +80,7 @@ def summarize(m, tl, pa, pb):
 
 
 found, seen = {}, set()
+TIER = {}   # puuid -> CHALLENGER / GRANDMASTER / MASTER (only Master+ laners are kept)
 since = int(time.time() - a.days * 86400)
 regions = a.regions.split(",")
 per_region = DEADLINE
@@ -87,9 +88,11 @@ for i, plat in enumerate(regions):
     reg_deadline = time.time() + (DEADLINE - time.time()) / (len(regions) - i)
     route = ROUTE[plat]
     ladder = []
-    for q in ("challengerleagues", "grandmasterleagues", "masterleagues"):
+    for q, tier in (("challengerleagues", "CHALLENGER"), ("grandmasterleagues", "GRANDMASTER"), ("masterleagues", "MASTER")):
         L = get(plat, "/lol/league/v4/%s/by-queue/RANKED_SOLO_5x5" % q) or {}
-        ladder += [e["puuid"] for e in sorted(L.get("entries", []), key=lambda e: -e["leaguePoints"]) if e.get("puuid")]
+        for e in sorted(L.get("entries", []), key=lambda e: -e["leaguePoints"]):
+            if e.get("puuid"):
+                ladder.append(e["puuid"]); TIER[e["puuid"]] = tier
     if not ladder and plat == "na1" and os.path.exists(a.seed):
         ladder = [x.strip() for x in open(a.seed) if x.strip()]
     mains, queue, scanned = [], ladder, set()
@@ -109,13 +112,15 @@ for i, plat in enumerate(regions):
             lane = {p["championName"]: p for p in m["info"]["participants"] if p.get("teamPosition") == a.role}
             for c in (a.a, a.b):
                 p = lane.get(c)
-                if p and p["puuid"] not in scanned and p["puuid"] not in mains:
-                    mains.append(p["puuid"])
+                if p and p["puuid"] in TIER and p["puuid"] not in scanned and p["puuid"] not in mains:
+                    mains.append(p["puuid"])   # follow Master+ one-tricks of either champion first
             pa, pb = lane.get(a.a), lane.get(a.b)
-            if pa and pb and pa["teamId"] != pb["teamId"] and m["info"].get("gameDuration", 0) > 600:
+            if (pa and pb and pa["teamId"] != pb["teamId"] and m["info"].get("gameDuration", 0) > 600
+                    and pa["puuid"] in TIER and pb["puuid"] in TIER):   # both laners Master+
                 tl = get(route, "/lol/match/v5/matches/%s/timeline" % mid)
                 if tl:
                     found[mid] = summarize(m, tl, pa, pb)
+                    found[mid]["a"]["tier"], found[mid]["b"]["tier"] = TIER[pa["puuid"]], TIER[pb["puuid"]]
                     print("%s %d found" % (mid, len(found)), flush=True)
 os.makedirs(a.out, exist_ok=True)
 path = os.path.join(a.out, "skill-starts-%s-%s-%s.json" % (a.a, a.b, a.role))
