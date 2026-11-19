@@ -449,6 +449,7 @@ def run_with_tray(cfg, start_collector):
         import recorder
         threading.Thread(target=recorder.watch, args=(cfg, stop, review._lcu), name="recorder", daemon=True).start()
         threading.Thread(target=review.expert_auto, args=(cfg, stop), name="expert-downloads", daemon=True).start()
+        threading.Thread(target=review.rotation_thread, args=(cfg, stop), name="account-rotation", daemon=True).start()
         import champselect
         threading.Thread(target=champselect.watch, args=(cfg, stop, lambda: review.open_window(review_url["url"] + "&champselect=1")),
                          name="champ-select", daemon=True).start()

@@ -745,6 +745,10 @@ def expert_fetch(cfg, name):
                 lcu = _lcu(cfg)
                 phase = lcu.get("/lol-gameflow/v1/gameflow-phase") if lcu else None
                 times = _xp_times()
+                import rotation
+                rq = rotation.quota()
+                if rq:   # account rotation: the quota is the signed-in account's, not this PC's
+                    times, limit = rq
                 if lcu is None:
                     _xp["message"] = "Waiting for League to open."
                 elif phase in ("ChampSelect", "InProgress", "Reconnect", "GameStart", "WaitingForStats"):
@@ -978,6 +982,12 @@ def _xpa_one(cfg, lcu, g, patch, platform="na1"):
     if time.time() < _xpa.get("limited_until", 0):
         return gid, "skipped"
     state = "watch" if _xp_have(cfg, gid) else _xp_download(lcu, gid, g)
+    import rotation
+    if rotation.active():
+        rotation.note(state)   # rotation: count it against the signed-in account, switch accounts at its limit
+        if state == "maxLimitReached":
+            _xpa["limited_until"] = time.time() + 60   # rotation moves to the next account; don't pause an hour
+            state = "limited"
     if state == "maxLimitReached":
         # League's own limit (it isn't just 10 an hour): back off instead of spending attempts, and note how many
         # downloads worked recently so we can learn the real number
@@ -1047,7 +1057,9 @@ def expert_auto(cfg, stop):
                     except Exception:
                         pass
                 if lcu is None:
-                    if st["open_league"] and time.time() - opened_at > 3 * 3600 and _idle_seconds() > 600:
+                    if rotation.settings()["on"]:
+                        _xpa.update(state="waiting", message="Account rotation is switching accounts.")
+                    elif st["open_league"] and time.time() - opened_at > 3 * 3600 and _idle_seconds() > 600:
                         opened_at = time.time()
                         ok = _open_league()
                         _xpa.update(state="waiting", message="Opening League so downloads can continue." if ok else "League is closed (couldn't find it to open).")
@@ -1078,6 +1090,8 @@ def expert_auto(cfg, stop):
                         games.append(g)
                     if not games:
                         busy = (info or {}).get("note") == "busy"
+                        if not busy and rotation.active():
+                            rotation.note("nogames")
                         _xpa.update(state="waiting", message="Waiting for the site." if busy else (info or {}).get("note") or "No games ready yet. Trying again in 10 min.")
                         wait = 8 if busy else 600
                     else:
@@ -1094,6 +1108,30 @@ def expert_auto(cfg, stop):
             _xpa.update(state="error", message=str(e)[:200])
             wait = 120
         stop.wait(wait)
+
+
+def rotation_thread(cfg, stop):
+    """Account rotation (spare PC with several accounts; off unless turned on). See rotation.py."""
+    import rotation
+
+    def lcu_up():
+        try:
+            lcu = _lcu(cfg)
+            me = lcu.get("/lol-summoner/v1/current-summoner") if lcu else None
+            if me and me.get("gameName"):
+                return {"riotId": "%s#%s" % (me["gameName"], me.get("tagLine", ""))}
+        except Exception:
+            pass
+        return None
+
+    def playing():
+        try:
+            lcu = _lcu(cfg)
+            return bool(lcu) and lcu.get("/lol-gameflow/v1/gameflow-phase") in (
+                "ChampSelect", "InProgress", "Reconnect", "GameStart", "WaitingForStats", "PreEndOfGame")
+        except Exception:
+            return False
+    rotation.run(stop, lcu_up, playing)
 
 
 def _xpa_contributors(cfg):
@@ -2536,6 +2574,9 @@ def make_handler(cfg, token):
                 return self._send(200, list_clips())
             if url.path == "/api/experts-auto":        # the always-on expert downloads
                 return self._send(200, xpa_status(cfg))
+            if url.path == "/api/rotation":            # account rotation (no passwords in the answer)
+                import rotation
+                return self._send(200, rotation.public_status())
             if url.path == "/api/rec":                 # recording settings, state and the list
                 import recorder
                 return self._send(200, recorder.status())
@@ -2668,6 +2709,28 @@ def make_handler(cfg, token):
                     if body.get("retry"):
                         recorder.get_ffmpeg()
                     return self._send(200, recorder.status())
+                except Exception as e:
+                    return self._send(400, {"error": str(e)})
+            if url.path == "/api/rotation":   # {"on"?, "per_account"?, "add"?: {user, password}, "remove"?: user, "retry"?: user}
+                import rotation
+                try:
+                    body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
+                    if body.get("add"):
+                        u, pw = (body["add"].get("user") or "").strip(), body["add"].get("password") or ""
+                        if not u or not pw:
+                            raise ValueError("Enter the account's username and password.")
+                        rotation.add_account(u, pw)
+                    if body.get("remove"):
+                        rotation.remove_account(body["remove"])
+                    if body.get("retry"):    # clear "needs you" after you've sorted the account out
+                        st = rotation._state(); rotation._acct(st, body["retry"]).update(needs_you=None, last_error=None); rotation._state_save(st)
+                    s = rotation.settings()
+                    if "on" in body:
+                        s["on"] = bool(body["on"])
+                    if "per_account" in body:
+                        s["per_account"] = max(1, min(10, int(body["per_account"])))
+                    rotation.save(s)
+                    return self._send(200, rotation.public_status())
                 except Exception as e:
                     return self._send(400, {"error": str(e)})
             if url.path == "/api/experts-auto":   # {"on": bool, "open_league": bool, "noticed": bool}

@@ -2685,7 +2685,7 @@ async function xaNotice() {
 // The Recordings page: turn recording on, where it saves, how long it keeps them, and the list.
 async function openRecordings() {
   STATE.current = "recordings"; navState(); $("view").classList.remove("wide"); window.scrollTo({ top: 0 });
-  let r, xa; try { [r, xa] = await Promise.all([api("/api/rec"), api("/api/experts-auto").catch(() => null)]); } catch (e) { $("view").innerHTML = `<div class="empty">Couldn't reach the app: ${esc(e.message)}</div>`; return; }
+  let r, xa, rot; try { [r, xa, rot] = await Promise.all([api("/api/rec"), api("/api/experts-auto").catch(() => null), api("/api/rotation").catch(() => null)]); } catch (e) { $("view").innerHTML = `<div class="empty">Couldn't reach the app: ${esc(e.message)}</div>`; return; }
   if (STATE.current !== "recordings") return;
   const ff = r.ffmpeg === "ready" ? "" : r.ffmpeg?.pct != null ? `Getting the recorder (ffmpeg, about 110 MB): ${r.ffmpeg.pct}%`
     : r.ffmpeg?.error ? `Couldn't get the recorder: ${esc(r.ffmpeg.error)} <button id="recRetry">Try again</button>` : r.on ? "The recorder (ffmpeg) isn't downloaded yet." : "";
@@ -2720,9 +2720,24 @@ async function openRecordings() {
       ${xa.storageCheck ? `<div class="sub" style="margin-top:6px">custy.gg storage: ${xa.storageCheck.ok ? `<span style="color:var(--green-ink)">working</span>` : `<span style="color:var(--red)">not working</span> · ${esc(xa.storageCheck.why || "")}`}</div>` : ""}
       ${xa.storage && xa.storage !== "ok" && xa.storage !== "not set up yet" ? `<div class="sub" style="margin-top:4px">Last upload: ${esc(xa.storage)}</div>` : ""}
       ${xa.contributors?.people?.length ? `<div class="sub" style="margin-top:6px">Sent to custy.gg so far: ${xa.contributors.people.map(p => `<b>${esc(p.who)}</b> ${p.n}`).join(" · ")} · <b>${xa.contributors.total}</b> in all</div>` : ""}
-      <div class="rec-set" style="margin-top:10px"><label><input type="checkbox" id="xaOpen" ${xa.settings.open_league ? "checked" : ""}> Open League when it's closed and you've been away 10 minutes</label><span class="h-mute">at most every 3 hours; needs “Stay signed in” in the Riot Client</span></div></div>` : ""}`;
+      <div class="rec-set" style="margin-top:10px"><label><input type="checkbox" id="xaOpen" ${xa.settings.open_league ? "checked" : ""}> Open League when it's closed and you've been away 10 minutes</label><span class="h-mute">at most every 3 hours; needs “Stay signed in” in the Riot Client</span></div></div>` : ""}
+    ${rot ? `<h2>Account rotation <span class="sub" style="font-weight:400">for a spare PC</span></h2><div class="card">
+      <div class="rec-set"><label><input type="checkbox" id="rotOn" ${rot.on ? "checked" : ""}> <b>Cycle through these accounts, <select id="rotPer">${[1,2,3,4,5,6,7,8,9,10].map(n => `<option value="${n}" ${n === rot.perAccount ? "selected" : ""}>${n}</option>`).join("")}</select> replays each</b></label>
+        <span class="h-mute">Signs into each account in turn and moves to the next as soon as one has sent its replays, hit League's limit or has nothing to fetch. Passwords are encrypted on this PC and never leave it. Leave the PC unlocked and untick “Stay signed in” in the Riot Client. Pauses during games; turns itself off after 3 failed sign-ins in a row.</span></div>
+      <div style="margin-top:10px"><b>${esc(rot.message || "")}</b></div>
+      ${rot.accounts.length ? `<div class="rec-list" style="margin-top:8px">${rot.accounts.map(a => `<div class="rec-item"><span><b>${esc(a.riotId || a.user)}</b>${a.current ? ` <span class="h-mute">signed in now</span>` : ""}
+        <small>${a.lastHour} this hour · ${a.lastDay} today${a.limitedUntil * 1000 > Date.now() ? ` · League's limit until ${new Date(a.limitedUntil * 1000).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" })}` : ""}${a.needsYou ? ` · <span style="color:var(--red)">needs you: ${esc(a.lastError || "")}</span>` : ""}</small></span>
+        <span style="display:flex;gap:8px">${a.needsYou ? `<button data-rotretry="${esc(a.user)}">Try again</button>` : ""}<button data-rotdel="${esc(a.user)}">Remove</button></span></div>`).join("")}</div>` : `<div class="sub" style="margin-top:8px">No accounts yet.</div>`}
+      <div class="rec-set" style="margin-top:12px"><input id="rotUser" placeholder="Username (sign-in name)" autocomplete="off"><input id="rotPw" type="password" placeholder="Password" autocomplete="new-password"><button id="rotAdd">Add account</button></div></div>` : ""}`;
   const xaSet = (b) => api("/api/experts-auto", { method: "POST", body: JSON.stringify(b) }).catch(e => toast(e.message));
   if ($("xaOn")) { $("xaOn").onchange = () => xaSet({ on: $("xaOn").checked }); $("xaOpen").onchange = () => xaSet({ open_league: $("xaOpen").checked }); $("xaPer").onchange = () => xaSet({ per_hour: +$("xaPer").value }); }
+  const rotSet = async (b) => { await api("/api/rotation", { method: "POST", body: JSON.stringify(b) }).catch(e => toast(e.message)); openRecordings(); };
+  if ($("rotOn")) {
+    $("rotOn").onchange = () => rotSet({ on: $("rotOn").checked }); $("rotPer").onchange = () => rotSet({ per_account: +$("rotPer").value });
+    $("rotAdd").onclick = () => { const u = $("rotUser").value.trim(), p = $("rotPw").value; if (!u || !p) return toast("Enter a username and password."); $("rotPw").value = ""; rotSet({ add: { user: u, password: p } }); };
+    document.querySelectorAll("[data-rotdel]").forEach(b => b.onclick = () => rotSet({ remove: b.dataset.rotdel }));
+    document.querySelectorAll("[data-rotretry]").forEach(b => b.onclick = () => rotSet({ retry: b.dataset.rotretry }));
+  }
   $("recOn").onchange = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ on: $("recOn").checked }) }).catch(e => toast(e.message)); openRecordings(); };
   document.querySelectorAll("[data-snd]").forEach(b => b.onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ sound: b.dataset.snd }) }).catch(e => toast(e.message)); openRecordings(); });
   document.querySelectorAll("[data-cap]").forEach(b => b.onclick = async () => { await api("/api/rec", { method: "POST", body: JSON.stringify({ capture: b.dataset.cap }) }).catch(e => toast(e.message)); openRecordings(); });
