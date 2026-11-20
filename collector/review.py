@@ -368,7 +368,7 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
-TRADES_VERSION = 20          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 21          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
@@ -508,14 +508,18 @@ def _cooldowns(data, game, me, opp, out, pslot):
                     continue
                 r = max(1, rank(slot, t))
                 cd = base[min(r, len(base)) - 1] * 100.0 / (100.0 + haste(t))
-                if L and t < L[-1][1] - 0.3:     # recast or second part inside the cooldown (Renekton E, Lee Sin Q)
-                    if L[-1][2] and t < L[-1][0] + L[-1][2]:   # a recast that ends a timed effect early: cooldown starts now
-                        L[-1][1] = round(t + L[-1][3], 1); L[-1][2] = 0
+                if L and t < L[-1][1] - 0.3 and t > L[-1][0] + 0.15:
+                    # Another record of the same ability before it's ready: a recast or second part (Lee Sin Q2, Riven Q,
+                    # Gragas Q detonation, Jax E), the end of a timed effect (Garen E's spin), or a reuse after a refund.
+                    # In all of these the cooldown runs from this later record.
+                    L[-1][1] = round(t + L[-1][3], 1); L[-1][2] = round(t, 1)
+                    continue
+                if L and t <= L[-1][0] + 0.15:
                     continue
                 late = (champ_cd.CDSTART.get(champ) or {}).get(slot, {}).get("after", 0.0)
-                L.append([round(t, 1), round(t + late + cd, 1), late, cd])   # [cast, ready, effect length, cooldown]
-            # [cast, ready] or [cast, ready, cooldown starts] when it waits for the effect to end
-            L = [[w[0], w[1]] + ([round(w[1] - w[3], 1)] if w[1] - w[3] > w[0] + 0.05 else []) for w in L]
+                L.append([round(t, 1), round(t + late + cd, 1), round(t + late, 1) if late else None, cd])   # [cast, ready, cooldown starts, cd]
+            # [cast, ready] or [cast, ready, cooldown starts] when it starts after the cast (recast, effect end)
+            L = [[w[0], w[1]] + ([w[2]] if w[2] and w[2] > w[0] + 0.05 else []) for w in L]
             cds[slot] = L
             want = (rc[n] if n < len(rc) else 0) * min(1.0, until / dur)
             got = sum(1 for _, sl in mine if sl == slot)
@@ -529,6 +533,7 @@ def _cooldowns(data, game, me, opp, out, pslot):
             cd = champ_cd.SUMM.get(nm)
             sm[nm] = [[round(t, 1), round(t + cd, 1)] for t, x in (out["summs"].get(side) or []) if x == nm] if cd else None
         res[side] = {"champ": champ, "names": info.get("n", {}), "key": info.get("key"), "cd": cds, "unknown": unknown,
+                     "approx": list(getattr(champ_cd, "APPROX", {}).get(champ, "")),
                      "ranks": {s: [round(x, 1) for x in ranks[s]] for s in "QWER"} if not guess else None,
                      "summs": sm, "guess": guess}
     return res

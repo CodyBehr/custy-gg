@@ -8,3 +8,7 @@ SUMM = {"Flash": 300, "Ignite": 180, "Teleport": 300, "Heal": 240, "Barrier": 18
 # "after": seconds the effect lasts (the cooldown starts then, or at a recast that ends it early).
 # Source: the user's review + the LoL wiki ability notes (being filled in).
 CDSTART = {"Garen": {"E": {"after": 3.0}}}
+
+# Abilities that came back sooner than their cooldown in >=15% of expert uses (16.22, 205 games): refunds, resets,
+# charges or takedown effects. Their timers show "~".
+APPROX = {"Annie":"Q","Aurora":"E","Camille":"Q","Diana":"E","Ezreal":"QW","Fiora":"Q","Gnar":"Q","Gwen":"ER","Hwei":"RW","Jayce":"Q","Karma":"R","Khazix":"Q","Lucian":"E","MissFortune":"W","MonkeyKing":"Q","Naafiri":"Q","Nidalee":"EQW","Pantheon":"Q","Senna":"Q","Shyvana":"EQ","Sion":"Q","Sona":"E","Sylas":"E","Taliyah":"Q","Vladimir":"E","XinZhao":"W","Yasuo":"Q","Yone":"EQW","Zac":"W","Zeri":"E"}
