@@ -368,7 +368,7 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
-TRADES_VERSION = 19          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 20          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
@@ -509,8 +509,13 @@ def _cooldowns(data, game, me, opp, out, pslot):
                 r = max(1, rank(slot, t))
                 cd = base[min(r, len(base)) - 1] * 100.0 / (100.0 + haste(t))
                 if L and t < L[-1][1] - 0.3:     # recast or second part inside the cooldown (Renekton E, Lee Sin Q)
+                    if L[-1][2] and t < L[-1][0] + L[-1][2]:   # a recast that ends a timed effect early: cooldown starts now
+                        L[-1][1] = round(t + L[-1][3], 1); L[-1][2] = 0
                     continue
-                L.append([round(t, 1), round(t + cd, 1)])
+                late = (champ_cd.CDSTART.get(champ) or {}).get(slot, {}).get("after", 0.0)
+                L.append([round(t, 1), round(t + late + cd, 1), late, cd])   # [cast, ready, effect length, cooldown]
+            # [cast, ready] or [cast, ready, cooldown starts] when it waits for the effect to end
+            L = [[w[0], w[1]] + ([round(w[1] - w[3], 1)] if w[1] - w[3] > w[0] + 0.05 else []) for w in L]
             cds[slot] = L
             want = (rc[n] if n < len(rc) else 0) * min(1.0, until / dur)
             got = sum(1 for _, sl in mine if sl == slot)

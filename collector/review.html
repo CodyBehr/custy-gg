@@ -582,6 +582,7 @@ html[data-theme=light] .h-m, html[data-theme=light] .g-hero { background:#a8394a
 .rp-cd .ab .k { position:absolute; left:2px; bottom:0; font:800 9px Inter,sans-serif; color:#fff; text-shadow:0 1px 2px #000; }
 .rp-cd .ab.key { box-shadow:0 0 0 2px var(--gold); } .rp-cd .ab.key.up { box-shadow:0 0 0 2px var(--gold), 0 0 10px var(--gold); }
 .rp-cd .ab.unk img, .rp-cd .ab.lock img { filter:grayscale(1) brightness(.4); } .rp-cd .ab.unk .s { color:var(--faint); font-size:11px; }
+.rp-cd .ab.on { box-shadow:0 0 0 2px var(--green); } .rp-cd .ab.on .s { font-size:10px; color:var(--green); }
 .rp-cd .ab.sm { width:24px; height:24px; margin-left:2px; } .rp-cd .ab.sm .s { font-size:10px; }
 .rp-now-line { margin-top:8px; padding:8px 11px; border-radius:10px; background:var(--block); font-size:13px; color:var(--mute); }
 .rp-now-line:empty { display:none; } .rp-now-line .win { color:var(--gold); font-weight:700; }
@@ -2662,13 +2663,15 @@ function recCooldowns(A, id, dur, box, gameT, v, off) {
     if (slot.length > 1) { const w = down(c.summs[slot], t); return w ? { left: w[1] - t, total: w[1] - w[0] } : { up: true }; }
     if (c.unknown.includes(slot)) return { unk: true };
     if (c.ranks && !c.ranks[slot].some(x => x <= t)) return { lock: true };
-    const w = down(c.cd[slot], t); return w ? { left: w[1] - t, total: w[1] - w[0] } : { up: true };
+    const w = down(c.cd[slot], t); if (!w) return { up: true };
+    if (w[2] && t < w[2]) return { on: true };       // still active (e.g. Garen's spin): the cooldown starts when it ends
+    return { left: w[1] - t, total: w[1] - (w[2] || w[0]) };
   };
   const lane = (side, t) => {
     const c = st.cd[side], dd = LT.ddId(c.champ), icons = LT.SPELLS[dd] || {};
     let h = `<div class="ln"><img class="pt ${side === "me" ? "me" : ""}" src="${LT.CHAMP_ICON(dd)}" alt="" title="${esc(LT.nm(dd))}">`;
     for (const s of "QWER") { const a = ab(side, s, t), p = a.left ? Math.round(a.left / a.total * 100) : 0;
-      h += `<div class="ab ${c.key === s ? "key" : ""} ${a.up ? "up" : ""} ${a.unk ? "unk" : ""} ${a.lock ? "lock" : ""}" title="${esc(LT.nm(dd) + " " + s + " · " + (c.names[s] || ""))}${a.unk ? " · can't be read from this patch's replays yet" : ""}${a.lock ? " · not learned yet" : ""}"><img src="${icons[s] || ""}" alt=""><div class="sw" style="--p:${p}%"></div><div class="s">${a.unk ? "?" : a.left ? Math.ceil(a.left) : ""}</div><div class="k">${s}</div></div>`; }
+      h += `<div class="ab ${c.key === s ? "key" : ""} ${a.up ? "up" : ""} ${a.on ? "on" : ""} ${a.unk ? "unk" : ""} ${a.lock ? "lock" : ""}" title="${esc(LT.nm(dd) + " " + s + " · " + (c.names[s] || ""))}${a.unk ? " · can't be read from this patch's replays yet" : ""}${a.lock ? " · not learned yet" : ""}"><img src="${icons[s] || ""}" alt=""><div class="sw" style="--p:${p}%"></div><div class="s">${a.unk ? "?" : a.on ? "ON" : a.left ? Math.ceil(a.left) : ""}</div><div class="k">${s}</div></div>`; }
     for (const n of Object.keys(c.summs || {})) { if (!c.summs[n] || !SUMM_IMG[n]) continue; const a = ab(side, n, t), p = a.left ? Math.round(a.left / a.total * 100) : 0;
       h += `<div class="ab sm" title="${n}${a.left ? " · back at " + clock(t + a.left) : ""}"><img src="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/spell/${SUMM_IMG[n]}.png" alt=""><div class="sw" style="--p:${p}%"></div><div class="s">${a.left ? Math.ceil(a.left) : ""}</div></div>`; }
     return h + "</div>";
