@@ -11,15 +11,18 @@ on:
 jobs:
   pull:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 100
     steps:
       - uses: actions/checkout@v4
       - name: Pull
         env:
           RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
           IDS: ${{ inputs.ids }}
+        timeout-minutes: 95
+        continue-on-error: true
         run: python3 scripts/research/pull_matches.py --out matches $IDS
       - uses: actions/upload-artifact@v4
+        if: always()   # keep what was pulled even if the run times out
         with:
           name: matches
           path: matches/
