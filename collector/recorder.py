@@ -475,6 +475,8 @@ def nudge(game_id, delta):
     if not f:
         return None
     rec = f[1]
+    if rec.get("zero") is None:   # never synced: start from "game 0:00 = start of the video" and let the user set it
+        rec["zero"], rec["sync"] = rec["start"], "manual"
     rec["nudge"] = round((rec.get("nudge") or 0.0) + float(delta), 2)
     if rec.get("sync") == "estimate":   # learn from it for the next custom game
         if abs(rec["nudge"]) < 60:

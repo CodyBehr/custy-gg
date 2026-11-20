@@ -2739,14 +2739,15 @@ async function openRecording(A, t) {
     <div class="cl-row" id="rpCdOpts" hidden><label><input type="checkbox" id="rpCdOn"> Cooldowns on the video</label><label><input type="checkbox" id="rpCdMine"> Mine too</label><label><input type="checkbox" id="rpCdPause"> Pause when their key ability goes down in a moment</label><span class="h-mute" id="rpCdNote"></span></div>
     <div class="h-mute" style="font-size:12px;margin-top:4px">Keys: Space play/pause · ← → 5 s · J L 10 s · , . one frame · − + speed · N P next/previous moment · F full screen</div>
     <div class="cl-row"><span class="rp-tag ${r.sync === "riot" ? "riot" : "est"}" id="rpSync"></span>
-      <span class="h-mute">Off by a few seconds?</span><button data-nudge="-1">−1s</button><button data-nudge="1">+1s</button><button data-nudge="-5">−5s</button><button data-nudge="5">+5s</button></div>
+      <span class="h-mute">Clock off? Match it to the in-game clock on screen:</span><button data-nudge="-5">−5s</button><button data-nudge="-1">−1s</button><button data-nudge="1">+1s</button><button data-nudge="5">+5s</button>
+      <label>or type it <input type="text" id="rpSetClk" size="5" placeholder="0:41"></label><button id="rpSetClkGo">Set</button></div>
     <div class="cl-row"><b>Clip</b><label>From <input type="text" id="rpA" size="5"></label><button id="rpSetA">Set to now</button><label>to <input type="text" id="rpB2" size="5"></label><button id="rpSetB">Set to now</button>
       <button class="h-gold" id="rpClip">Save clip</button></div>
     <div class="h-r" style="margin-top:14px;gap:10px;flex-wrap:wrap"><div id="rpMsg" class="h-mute" style="flex:1"></div><button id="rpKeep"></button><button id="rpOpen">Open folder</button></div></div>`;
   const v = $("rpV"), off = () => REC[id].offset ?? 0;
   const gameT = () => v.currentTime - off();
   const parse = (x) => { const m = String(x).trim().match(/^(\d+):(\d{1,2})$/); return m ? +m[1] * 60 + +m[2] : +x; };
-  const showSync = () => { const x = REC[id]; $("rpSync").textContent = (x.sync === "riot" ? "Synced with Riot's match timeline" : x.offset == null ? "Not synced yet: times are from the start of the recording" : "Sync estimated (custom game)") + (x.nudge ? ` · nudged ${x.nudge > 0 ? "+" : ""}${x.nudge}s` : ""); };
+  const showSync = () => { const x = REC[id]; $("rpSync").textContent = (x.sync === "riot" ? "Synced with Riot's match timeline" : x.sync === "manual" ? "Synced by hand" : x.offset == null ? "Not synced yet: times are from the start of the recording" : "Sync estimated (custom game)") + (x.nudge ? ` · nudged ${x.nudge > 0 ? "+" : ""}${x.nudge}s` : ""); };
   const showKeep = () => { const x = REC[id]; $("rpKeep").textContent = x.kept ? "✓ Kept · undo" : "Keep this recording";
     $("rpMsg").textContent = x.kept ? "Kept in your Saved folder: it won't be deleted." : x.expires ? `Deleted automatically ${new Date(x.expires * 1000).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })} unless you keep it.` : ""; };
   const showClip = () => { $("rpA").value = clock(clip.a); $("rpB2").value = clock(clip.b); $("rpC").style.left = clip.a / dur * 100 + "%"; $("rpC").style.width = Math.max(.3, (clip.b - clip.a) / dur * 100) + "%"; };
@@ -2757,9 +2758,17 @@ async function openRecording(A, t) {
   v.onerror = () => { $("rpMsg").textContent = "The video couldn't be played. It may still be saving, or it was moved."; };
   $("rpS").onclick = (ev) => { const mk = ev.target.closest("i[data-t]"); const rc = $("rpS").getBoundingClientRect();
     const g = mk ? +mk.dataset.t - 3 : (ev.clientX - rc.left) / rc.width * dur; v.currentTime = Math.max(0, g + off()); };
-  box.querySelectorAll("[data-nudge]").forEach(b => b.onclick = async () => { const keepAt = gameT();
-    try { REC[id] = await api(`/api/rec/${id}/nudge`, { method: "POST", body: JSON.stringify({ delta: +b.dataset.nudge }) }); } catch (e) { toast(e.message); return; }
-    v.currentTime = Math.max(0, keepAt + off()); showSync(); });
+  // Sync: the video stays where it is and our clock moves. "+1s" = our clock reads one second later, i.e. game 0:00
+  // sits one second earlier in the video (offset − 1). Presses queue up so fast clicks never undo each other.
+  let syncQ = Promise.resolve(), pend = 0;
+  const shiftClock = (d) => { pend += d; REC[id] = Object.assign({}, REC[id], { offset: (REC[id].offset ?? 0) - d }); v.ontimeupdate(); CDX.tick(gameT());
+    syncQ = syncQ.then(async () => { const x = pend; pend = 0; if (!x) return;
+      try { REC[id] = await api(`/api/rec/${id}/nudge`, { method: "POST", body: JSON.stringify({ delta: -x }) }); } catch (e) { toast(e.message); }
+      showSync(); v.ontimeupdate(); }); };
+  box.querySelectorAll("[data-nudge]").forEach(b => b.onclick = () => shiftClock(+b.dataset.nudge));
+  $("rpSetClkGo").onclick = () => { const want = parse($("rpSetClk").value); if (isNaN(want)) { toast("Type the in-game clock like 0:41."); return; }
+    v.pause(); shiftClock(Math.round((want - gameT()) * 10) / 10); };
+  $("rpSetClk").onkeydown = (e) => { if (e.key === "Enter") $("rpSetClkGo").click(); };
   $("rpSetA").onclick = () => { clip.a = Math.max(0, Math.round(gameT())); if (clip.b <= clip.a) clip.b = clip.a + 15; showClip(); };
   $("rpSetB").onclick = () => { clip.b = Math.round(gameT()); if (clip.b <= clip.a) clip.a = Math.max(0, clip.b - 15); showClip(); };
   $("rpA").onchange = () => { const x = parse($("rpA").value); if (!isNaN(x)) clip.a = x; showClip(); };
