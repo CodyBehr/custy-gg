@@ -677,7 +677,11 @@ def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=Non
                     pos=pos, mins=mins[:60], c=[round(cx), round(cz)], hp=hpall),
             others=sorted(near.values(), key=lambda x: x["dist"]), solo=not near))
     return {"version": d["version"], "champs": [[p.get("SKIN"), int(p.get("TEAM") or 0)] for p in d["stats"]],
-            "mi": i, "oi": j, "trades": out}
+            "mi": i, "oi": j, "trades": out,
+            # every ability and summoner cast by the two laners (for the cooldown overlay on recordings)
+            "casts": {side: [[round(t, 2), L] for t, k, L in d["casts"] if k == sl and L in "QWER"] for side, sl in (("me", i), ("opp", j))},
+            "summs": {side: [[round(t, 2), L] for t, k, L in d.get("summs", []) if k == sl] for side, sl in (("me", i), ("opp", j))},
+            "until": 900.0}
 
 
 _TIMES = {}

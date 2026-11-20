@@ -368,7 +368,7 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
-TRADES_VERSION = 18          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 19          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
@@ -459,6 +459,75 @@ def _deaths_by_slot(data, slot_of_pid):
     return out
 
 
+
+def _cooldowns(data, game, me, opp, out, pslot):
+    """When each laner's abilities and summoners were on cooldown (for the overlay on recordings).
+    Cooldown = the game files' value at the ability's rank then, reduced by ability haste from items bought so far.
+    Not counted: haste from runes, and refunds (e.g. Fiora Q hitting, Darius W killing), so timers are estimates."""
+    import champ_cd
+    dur = float(game.get("gameDuration") or 1800)
+    until = float(out.get("until") or 900)
+    res = {"until": until}
+    for side, p in (("me", me), ("opp", opp)):
+        champ = (out["champs"][out["mi" if side == "me" else "oi"]] or [""])[0]
+        info = champ_cd.CD.get(champ) or {}
+        pid = p["participantId"]
+        ranks = {s: [] for s in "QWER"}
+        inv, lv = [], []
+        for f in data["timeline"].get("frames") or []:
+            for e in f.get("events") or []:
+                if e.get("participantId") != pid:
+                    continue
+                ty, ts = e.get("type"), e.get("timestamp", 0) / 1000.0
+                if ty == "SKILL_LEVEL_UP" and 1 <= (e.get("skillSlot") or 0) <= 4:
+                    ranks["QWER"[e["skillSlot"] - 1]].append(ts)
+                elif ty == "LEVEL_UP":
+                    lv.append(ts)
+                elif ty == "ITEM_PURCHASED":
+                    inv.append((ts, e.get("itemId"), 1))
+                elif ty in ("ITEM_SOLD", "ITEM_DESTROYED"):
+                    inv.append((ts, e.get("itemId"), -1))
+                elif ty == "ITEM_UNDO":
+                    inv.append((ts, e.get("beforeId"), -1))
+        def haste(t):
+            return max(0, sum(champ_cd.HASTE.get(str(i), 0) * n for ts, i, n in inv if ts <= t))
+        guess = not any(ranks.values())          # custom games: no skill events, so guess ranks from the level
+        def rank(slot, t):
+            if not guess:
+                return sum(1 for x in ranks[slot] if x <= t)
+            level = 1 + sum(1 for x in lv if x <= t)
+            return (1 if level >= 6 else 0) + (level >= 11) + (level >= 16) if slot == "R" else min(5, (level + 1) // 2)
+        cds, unknown = {}, []
+        rc = (data.get("casts") or {}).get(str(pid)) or []
+        mine = out["casts"].get(side) or []
+        for n, slot in enumerate("QWER"):
+            base = info.get("cd", {}).get(slot) or []
+            L = []
+            for t, sl in mine:
+                if sl != slot or not base:
+                    continue
+                r = max(1, rank(slot, t))
+                cd = base[min(r, len(base)) - 1] * 100.0 / (100.0 + haste(t))
+                if L and t < L[-1][1] - 0.3:     # recast or second part inside the cooldown (Renekton E, Lee Sin Q)
+                    continue
+                L.append([round(t, 1), round(t + cd, 1)])
+            cds[slot] = L
+            want = (rc[n] if n < len(rc) else 0) * min(1.0, until / dur)
+            got = sum(1 for _, sl in mine if sl == slot)
+            if want >= 3 and got < 0.4 * want:
+                unknown.append(slot)          # the decoder can't label this ability yet: show "?" rather than "ready"
+        sm = {}
+        for k in ("summoner1Id", "summoner2Id"):
+            nm = {4: "Flash", 14: "Ignite", 12: "Teleport", 7: "Heal", 21: "Barrier", 3: "Exhaust", 6: "Ghost", 1: "Cleanse", 11: "Smite"}.get(p.get(k))
+            if not nm:
+                continue
+            cd = champ_cd.SUMM.get(nm)
+            sm[nm] = [[round(t, 1), round(t + cd, 1)] for t, x in (out["summs"].get(side) or []) if x == nm] if cd else None
+        res[side] = {"champ": champ, "names": info.get("n", {}), "key": info.get("key"), "cd": cds, "unknown": unknown,
+                     "ranks": {s: [round(x, 1) for x in ranks[s]] for s in "QWER"} if not guess else None,
+                     "summs": sm, "guess": guess}
+    return res
+
 def trades_for(cfg, game_id):
     """The lane trades for one of your games, decoded from its replay (cached). Returns a dict for the page."""
     import replay_trades as RT
@@ -545,6 +614,10 @@ def trades_for(cfg, game_id):
         out["coach"] = coach_reads.analyze(path, i, j, me, opp, pslot.get, data["timeline"], out)
     except Exception:
         core.log.exception("Trades: coach reads failed for %s", path)
+    try:
+        out["cd"] = _cooldowns(data, game, me, opp, out, pslot)
+    except Exception:
+        core.log.exception("Trades: cooldowns failed for %s", path)
     out["v"] = TRADES_VERSION
     out["role"] = roles(game).get(me["participantId"], "")
     try:

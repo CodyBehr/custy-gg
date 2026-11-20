@@ -564,6 +564,24 @@ html[data-theme=light] .h-m, html[data-theme=light] .g-hero { background:#a8394a
 .rp-strip i.bad { background:var(--red-wash); border-color:var(--red); } .rp-strip i.ok { background:var(--green-wash); border-color:var(--green); }
 .rp-strip i.clip { background:rgba(120,140,255,.18); border:1px dashed #8ea0ff; top:1px; bottom:1px; pointer-events:none; }
 .rp-strip b { position:absolute; top:0; bottom:0; width:2px; background:var(--ink); pointer-events:none; }
+.rp-strip u { position:absolute; bottom:2px; height:5px; background:rgba(243,195,75,.6); border-radius:3px; text-decoration:none; pointer-events:none; }
+.rp-strip u.f { background:rgba(255,107,120,.65); bottom:auto; top:2px; height:4px; }
+.rp-vw { position:relative; margin-top:12px; } .rp-vw video { margin-top:0; }
+.rp-cd { position:absolute; left:12px; top:12px; display:flex; flex-direction:column; gap:6px; background:rgba(14,16,20,.72); backdrop-filter:blur(4px); border-radius:12px; padding:8px 10px; pointer-events:auto; }
+.rp-cd:empty { display:none; }
+.rp-cd .ln { display:flex; align-items:center; gap:6px; }
+.rp-cd .pt { width:32px; height:32px; border-radius:50%; border:2px solid var(--red); } .rp-cd .pt.me { border-color:#6ea0ff; }
+.rp-cd .ab { position:relative; width:32px; height:32px; border-radius:7px; overflow:hidden; background:#111; }
+.rp-cd .ab img { width:100%; height:100%; display:block; }
+.rp-cd .ab .sw { position:absolute; inset:0; background:conic-gradient(rgba(0,0,0,.72) var(--p,0%), transparent 0); }
+.rp-cd .ab .s { position:absolute; inset:0; display:grid; place-items:center; font:800 13px Inter,sans-serif; color:#fff; text-shadow:0 1px 2px #000; font-variant-numeric:tabular-nums; }
+.rp-cd .ab .k { position:absolute; left:2px; bottom:0; font:800 9px Inter,sans-serif; color:#fff; text-shadow:0 1px 2px #000; }
+.rp-cd .ab.key { box-shadow:0 0 0 2px var(--gold); } .rp-cd .ab.key.up { box-shadow:0 0 0 2px var(--gold), 0 0 10px var(--gold); }
+.rp-cd .ab.unk img, .rp-cd .ab.lock img { filter:grayscale(1) brightness(.4); } .rp-cd .ab.unk .s { color:var(--faint); font-size:11px; }
+.rp-cd .ab.sm { width:24px; height:24px; margin-left:2px; } .rp-cd .ab.sm .s { font-size:10px; }
+.rp-now-line { margin-top:8px; padding:8px 11px; border-radius:10px; background:var(--block); font-size:13px; color:var(--mute); }
+.rp-now-line:empty { display:none; } .rp-now-line .win { color:var(--gold); font-weight:700; }
+.rp-flash { position:absolute; inset:0; pointer-events:none; border-radius:14px; box-shadow:inset 0 0 0 3px var(--gold); opacity:0; transition:opacity .25s; } .rp-flash.go { opacity:1; }
 .rp-now { font-variant-numeric:tabular-nums; font-weight:700; }
 .rp-tag { display:inline-block; padding:3px 9px; border-radius:999px; font-size:12px; font-weight:700; background:var(--deck-2); color:var(--mute); }
 .rp-tag.riot { color:var(--green-ink); } .rp-tag.est { color:var(--gold); }
@@ -2055,7 +2073,7 @@ async function loadTrades(A, again) {
   }
   if (r.error) { el.innerHTML = `<div class="card"><div class="empty">${esc(r.error)}</div></div>`; return; }
   el.dataset.state = "ok";
-  await LT.show(el, r);
+  await LT.show(el, r, A);
 }
 
 // ---------------------------------------------------------------- Lane trades (decoded from the game's replay file)
@@ -2305,10 +2323,22 @@ function render(){
   ROOT.querySelectorAll("tr.row").forEach(r=>r.onclick=()=>{sel=(sel===+r.dataset.i)?-1:+r.dataset.i;render();if(sel>=0)document.getElementById("tr"+sel)?.scrollIntoView({behavior:"smooth",block:"start"})});
   const pc=ROOT.querySelector("#pbcell"); if(pc&&sel>=0) openPB(T[sel],pc);
   ROOT.querySelectorAll(".filters button").forEach(b=>b.onclick=()=>{filt=b.dataset.f;render()});
+  recRows();
 }
 
-async function show(root, g){
-  ROOT=root; sel=-1; filt="all";
+let GA=null;
+// "▶ My recording" on every trade and coach read, when the app recorded this game
+async function recRows(){
+  if(!GA||typeof recInfo!=="function") return; const r=await recInfo(GA); if(!r.exists||!ROOT) return;
+  ROOT.querySelectorAll("tr.row").forEach(tr=>{const td=tr.querySelector("td:last-child"); if(!td||td.querySelector(".lt-rec")) return;
+    const T=GAME.trades[+tr.dataset.i]; const b=document.createElement("button"); b.className="lt-rec"; b.textContent="▶ My recording"; b.style.cssText="margin-top:6px;padding:3px 9px;font-size:12px";
+    b.title="Watch this trade on your recording, with both of your cooldowns on the video"; b.onclick=e=>{e.stopPropagation();openRecording(GA,Math.max(0,T.t0-3))}; td.appendChild(b)});
+  ROOT.querySelectorAll(".coach li[data-ti]").forEach(li=>{if(li.querySelector(".lt-rec")) return; const t=(GAME.coach||[]).find(c=>clk(c.t)===li.querySelector(".t")?.textContent)?.t; if(t==null) return;
+    const b=document.createElement("button"); b.className="lt-rec"; b.textContent="▶"; b.title="Watch on your recording"; b.style.cssText="margin-left:6px;padding:1px 8px;font-size:12px";
+    b.onclick=e=>{e.stopPropagation();openRecording(GA,Math.max(0,t-3))}; li.appendChild(b)});
+}
+async function show(root, g, A){
+  ROOT=root; sel=-1; filt="all"; GA=A||null;
   g.champs=g.champs.map(([n,t])=>[ddId(n),t]); g.me=g.champs[g.mi][0]; g.opp=g.champs[g.oi][0]; GAME=g;
   await loadSpells([g.me,g.opp]);
   if(!g.trades.length){root.innerHTML=`<div class="card"><div class="empty">No trades with your lane opponent between 1:30 and 14:00.</div></div>`;return}
@@ -2616,6 +2646,68 @@ function recMarks(A) {
   for (const d of A.deaths || []) out.push({ t: d.t - 2, end: d.t + 2, cls: "bad", title: "Death at " + clock(d.t) });
   return out;
 }
+// Cooldown overlay on a recording: both laners' abilities and summoners, from the replay (see review.py _cooldowns).
+const SUMM_IMG = { Flash: "SummonerFlash", Ignite: "SummonerDot", Teleport: "SummonerTeleport", Heal: "SummonerHeal", Barrier: "SummonerBarrier", Exhaust: "SummonerExhaust", Ghost: "SummonerHaste", Cleanse: "SummonerBoost" };
+function recCooldowns(A, id, dur, box, gameT, v, off) {
+  const st = { cd: null, trades: [], coach: [], paused: {}, last: -1 };
+  const pref = (k, d) => { try { const x = localStorage.getItem("rpCd-" + k); return x == null ? d : x === "1"; } catch (e) { return d; } };
+  const setPref = (k, x) => { try { localStorage.setItem("rpCd-" + k, x ? "1" : "0"); } catch (e) {} };
+  const down = (L, t) => (L || []).find(([a, b]) => t >= a && t < b);
+  const ab = (side, slot, t) => {
+    const c = st.cd[side]; if (!c) return {};
+    if (slot.length > 1) { const w = down(c.summs[slot], t); return w ? { left: w[1] - t, total: w[1] - w[0] } : { up: true }; }
+    if (c.unknown.includes(slot)) return { unk: true };
+    if (c.ranks && !c.ranks[slot].some(x => x <= t)) return { lock: true };
+    const w = down(c.cd[slot], t); return w ? { left: w[1] - t, total: w[1] - w[0] } : { up: true };
+  };
+  const lane = (side, t) => {
+    const c = st.cd[side], dd = LT.ddId(c.champ), icons = LT.SPELLS[dd] || {};
+    let h = `<div class="ln"><img class="pt ${side === "me" ? "me" : ""}" src="${LT.CHAMP_ICON(dd)}" alt="" title="${esc(LT.nm(dd))}">`;
+    for (const s of "QWER") { const a = ab(side, s, t), p = a.left ? Math.round(a.left / a.total * 100) : 0;
+      h += `<div class="ab ${c.key === s ? "key" : ""} ${a.up ? "up" : ""} ${a.unk ? "unk" : ""} ${a.lock ? "lock" : ""}" title="${esc(LT.nm(dd) + " " + s + " · " + (c.names[s] || ""))}${a.unk ? " · can't be read from this patch's replays yet" : ""}${a.lock ? " · not learned yet" : ""}"><img src="${icons[s] || ""}" alt=""><div class="sw" style="--p:${p}%"></div><div class="s">${a.unk ? "?" : a.left ? Math.ceil(a.left) : ""}</div><div class="k">${s}</div></div>`; }
+    for (const n of Object.keys(c.summs || {})) { if (!c.summs[n] || !SUMM_IMG[n]) continue; const a = ab(side, n, t), p = a.left ? Math.round(a.left / a.total * 100) : 0;
+      h += `<div class="ab sm" title="${n}${a.left ? " · back at " + clock(t + a.left) : ""}"><img src="https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/spell/${SUMM_IMG[n]}.png" alt=""><div class="sw" style="--p:${p}%"></div><div class="s">${a.left ? Math.ceil(a.left) : ""}</div></div>`; }
+    return h + "</div>";
+  };
+  const keyWins = () => { const c = st.cd?.opp; return c?.key && !c.unknown.includes(c.key) ? c.cd[c.key] || [] : []; };
+  const moments = () => [...recMarks(A).map(m => m.t + 2), ...st.trades.map(tr => tr.t0)];
+  const tick = (t) => {
+    if (!st.cd) return;
+    const on = $("rpCdOn")?.checked, el = $("rpCd"); if (!el) return;
+    el.innerHTML = on && t <= st.cd.until && t >= 0 ? lane("opp", t) + ($("rpCdMine").checked ? lane("me", t) : "") : "";
+    // the live line under the video: their key ability window + the coach's read of the moment you're in
+    const c = st.cd.opp, w = c.key && !c.unknown.includes(c.key) ? down(c.cd[c.key], t) : null;
+    const read = st.coach.find(r => t >= r.t - 3 && t <= r.t + 12);
+    const line = (w && t <= st.cd.until ? `<span class="win">Their ${c.key} (${esc(c.names[c.key] || "")}) is down for ${Math.ceil(w[1] - t)} more s: your window.</span> ` : "") + (read ? `<b>${clock(read.t)}</b> ${esc(read.text)}` : "");
+    if ($("rpLine").innerHTML !== line) $("rpLine").innerHTML = line;
+    // pause when their key ability goes down during a moment (each once)
+    if ($("rpCdPause").checked && !v.paused && st.last >= 0) {
+      for (const [a] of keyWins()) if (st.last < a && t >= a && !st.paused[a] && moments().some(m => a >= m - 4 && a <= m + 12)) {
+        st.paused[a] = true; v.pause(); v.currentTime = a + off(); const f = $("rpFl"); f.classList.add("go"); setTimeout(() => f.classList.remove("go"), 700); break; }
+    }
+    st.last = t;
+  };
+  (async () => {
+    let r; try { r = await api("/api/trades/" + id); } catch (e) { return; }
+    if (!r || !r.cd || !$("rpCd")) { if ($("rpCdOpts")) { $("rpCdOpts").hidden = false; $("rpCdOn").disabled = true; $("rpCdNote").textContent = r?.missing ? "Cooldowns need this game's replay (Lane trades tab can download it)." : r?.error ? "Cooldowns: " + r.error : ""; } return; }
+    st.cd = r.cd; st.trades = (r.trades || []).filter(t => t.solo !== false); st.coach = r.coach || [];
+    await LT.loadSpells([LT.ddId(r.cd.me.champ), LT.ddId(r.cd.opp.champ)]);
+    $("rpCdOpts").hidden = false;
+    $("rpCdOn").checked = pref("on", true); $("rpCdMine").checked = pref("mine", true); $("rpCdPause").checked = pref("pause", false);
+    $("rpCdOn").onchange = e => { setPref("on", e.target.checked); tick(gameT()); }; $("rpCdMine").onchange = e => { setPref("mine", e.target.checked); tick(gameT()); };
+    $("rpCdPause").onchange = e => setPref("pause", e.target.checked);
+    const kn = r.cd.opp.key ? `Gold outline and bands on the timeline: their ${r.cd.opp.key} (${r.cd.opp.names[r.cd.opp.key] || ""}).` : "";
+    $("rpCdNote").textContent = `Covers 0:00–${clock(r.cd.until)}. Timers are estimates (items counted, runes and refunds not). ${kn}`;
+    // timeline: trades as marks, their key ability's downtime and their Flash as bands
+    const S = $("rpS"), X = t => t / dur * 100;
+    S.insertAdjacentHTML("afterbegin", st.trades.map(t => { const net = t.dealt / t.hpOpp[1] - t.took / t.hpMe[1];
+      return `<i class="${net > 0.05 ? "ok" : net < -0.05 ? "bad" : ""}" style="left:${X(t.t0)}%;width:${Math.max(.4, X(t.t1 - t.t0))}%" title="Trade ${clock(t.t0)}" data-t="${t.t0 + 3}"></i>`; }).join("")
+      + keyWins().map(([a, b]) => `<u style="left:${X(a)}%;width:${X(b - a)}%"></u>`).join("")
+      + ((r.cd.opp.summs || {}).Flash || []).map(([a, b]) => `<u class="f" style="left:${X(a)}%;width:${X(Math.min(b, dur) - a)}%"></u>`).join(""));
+    tick(gameT());
+  })();
+  return { tick };
+}
 async function openRecording(A, t) {
   const r = await recInfo(A, true);
   if (!r.exists) { toast("There's no recording of this game."); return; }
@@ -2625,10 +2717,12 @@ async function openRecording(A, t) {
   const clip = { a: Math.max(0, t - 5), b: t + 25 };
   box.innerHTML = `<div class="cl-back"></div><div class="cl rp" role="dialog" aria-label="Your recording">
     <div class="h-r"><div><div class="h-eye" style="color:var(--gold)">Your recording</div><div class="h-hd" style="font-size:22px;font-weight:700">${esc(champName(A.me.championId) + opp)} · <span class="rp-now" id="rpNow">${clock(t)}</span></div></div><button class="h-sp" id="rpX" aria-label="Close">✕</button></div>
-    <video id="rpV" controls preload="auto" src="/rec/${id}.mp4?k=${encodeURIComponent(KEY)}"></video>
+    <div class="rp-vw"><video id="rpV" controls preload="auto" src="/rec/${id}.mp4?k=${encodeURIComponent(KEY)}"></video><div class="rp-cd" id="rpCd"></div><div class="rp-flash" id="rpFl"></div></div>
     <div class="rp-strip" id="rpS" title="Click to jump. Coloured marks are this game's moments and deaths.">${marks.map(m => `<i class="${m.cls}" style="left:${m.t / dur * 100}%;width:${Math.max(.4, (m.end - m.t) / dur * 100)}%" title="${esc(clock(m.t) + " " + (m.title || ""))}" data-t="${m.t}"></i>`).join("")}<i class="clip" id="rpC"></i><b id="rpB"></b></div>
     <div class="cl-row" id="rpCtl"><button data-mv="prev" title="Previous moment (P)">◀ Moment</button><button data-sk="-10" title="Back 10 s (J)">−10s</button><button data-sk="-5" title="Back 5 s (←)">−5s</button><button data-fr="-1" title="Back one frame (,)">‹ Frame</button><button data-fr="1" title="Forward one frame (.)">Frame ›</button><button data-sk="5" title="Forward 5 s (→)">+5s</button><button data-sk="10" title="Forward 10 s (L)">+10s</button><button data-mv="next" title="Next moment (N)">Moment ▶</button>
       <span class="h-mute" style="margin-left:8px">Speed</span>${[0.25, 0.5, 1, 1.5, 2].map(x => `<button data-sp="${x}" title="${x}× (− / + to change)">${x}×</button>`).join("")}</div>
+    <div class="rp-now-line" id="rpLine"></div>
+    <div class="cl-row" id="rpCdOpts" hidden><label><input type="checkbox" id="rpCdOn"> Cooldowns on the video</label><label><input type="checkbox" id="rpCdMine"> Mine too</label><label><input type="checkbox" id="rpCdPause"> Pause when their key ability goes down in a moment</label><span class="h-mute" id="rpCdNote"></span></div>
     <div class="h-mute" style="font-size:12px;margin-top:4px">Keys: Space play/pause · ← → 5 s · J L 10 s · , . one frame · − + speed · N P next/previous moment · F full screen</div>
     <div class="cl-row"><span class="rp-tag ${r.sync === "riot" ? "riot" : "est"}" id="rpSync"></span>
       <span class="h-mute">Off by a few seconds?</span><button data-nudge="-1">−1s</button><button data-nudge="1">+1s</button><button data-nudge="-5">−5s</button><button data-nudge="5">+5s</button></div>
@@ -2643,8 +2737,9 @@ async function openRecording(A, t) {
     $("rpMsg").textContent = x.kept ? "Kept in your Saved folder: it won't be deleted." : x.expires ? `Deleted automatically ${new Date(x.expires * 1000).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" })} unless you keep it.` : ""; };
   const showClip = () => { $("rpA").value = clock(clip.a); $("rpB2").value = clock(clip.b); $("rpC").style.left = clip.a / dur * 100 + "%"; $("rpC").style.width = Math.max(.3, (clip.b - clip.a) / dur * 100) + "%"; };
   showSync(); showKeep(); showClip();
+  const CDX = recCooldowns(A, id, dur, box, gameT, v, off);
   v.addEventListener("loadedmetadata", () => { v.currentTime = Math.max(0, t + off()); v.play().catch(() => {}); }, { once: true });
-  v.ontimeupdate = () => { const g = gameT(); $("rpNow").textContent = clock(Math.max(0, g)); $("rpB").style.left = Math.max(0, Math.min(100, g / dur * 100)) + "%"; };
+  v.ontimeupdate = () => { const g = gameT(); $("rpNow").textContent = clock(Math.max(0, g)); $("rpB").style.left = Math.max(0, Math.min(100, g / dur * 100)) + "%"; CDX.tick(g); };
   v.onerror = () => { $("rpMsg").textContent = "The video couldn't be played. It may still be saving, or it was moved."; };
   $("rpS").onclick = (ev) => { const mk = ev.target.closest("i[data-t]"); const rc = $("rpS").getBoundingClientRect();
     const g = mk ? +mk.dataset.t - 3 : (ev.clientX - rc.left) / rc.width * dur; v.currentTime = Math.max(0, g + off()); };
@@ -2667,7 +2762,8 @@ async function openRecording(A, t) {
   $("rpKeep").onclick = async () => { try { REC[id] = await api(`/api/rec/${id}/${REC[id].kept ? "unkeep" : "keep"}`, { method: "POST" }); } catch (e) { toast(e.message); return; }
     const at = v.currentTime; v.src = `/rec/${id}.mp4?k=${encodeURIComponent(KEY)}&v=${Date.now()}`; v.addEventListener("loadedmetadata", () => { v.currentTime = at; }, { once: true }); showKeep(); };
   $("rpOpen").onclick = () => api("/api/rec/open", { method: "POST" });
-  const close = () => { v.pause(); v.removeAttribute("src"); v.load(); box.innerHTML = ""; document.removeEventListener("keydown", esc_); };
+  let raf = 0; const loop = () => { if (!v.paused) CDX.tick(gameT()); raf = requestAnimationFrame(loop); }; raf = requestAnimationFrame(loop);
+  const close = () => { cancelAnimationFrame(raf); v.pause(); v.removeAttribute("src"); v.load(); box.innerHTML = ""; document.removeEventListener("keydown", esc_); };
   // Playback controls: skip, frame step, speed (remembered), jump between moments, keyboard shortcuts
   const SPEEDS = [0.25, 0.5, 1, 1.5, 2];
   const setSpeed = (x) => { v.playbackRate = x; try { localStorage.setItem("rpSpeed", x); } catch (e) {} box.querySelectorAll("[data-sp]").forEach(b => b.classList.toggle("h-gold", +b.dataset.sp === x)); };
