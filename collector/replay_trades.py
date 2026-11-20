@@ -69,6 +69,11 @@ T944 = bytes.fromhex('8552106b1b5f4bd835231a9ca3adba886563f4bd6013d9435431623e47
 HDR23 = bytes.fromhex('54bce4b924')   # ability record 564: the 4-byte ability id follows this (self-cast layout only)
 
 
+# Smite never appears as a cast on 16.23; its damage does (the 4 bytes after 0x25 in record 530 = damage source).
+# e0bca31e = unupgraded Smite, the other three = the upgraded Smites. Matches Riot's Smite counts within ~15% on 16 junglers.
+SMITE23 = {bytes.fromhex(h) for h in ("e0bca31e", "21f1ddc4", "1028c948", "5a78b548")}
+
+
 def _cast_id23(b):
     """Ability id in a 16.23 cast record (564). Layout: 14-byte header, the caster's id block (4 or 8 bytes), 2 bytes,
     an optional byte, a 0x85 marker, a 12-byte aim block (fixed for self-casts: ...54bce4b924), then the 4-byte id."""
@@ -78,7 +83,7 @@ def _cast_id23(b):
     q = b.find(HDR23)
     return b[q + 5:q + 9].hex() if q >= 0 else ""
 SUMM23 = {'ba04ed63': 'Ignite', '4e42ad3c': 'Flash', '1e0948a8': 'Barrier', '84cac067': 'Heal', '1facbc2a': 'Teleport', '1f7ba2a9': 'Exhaust'}
-SPELLS23 = {"Garen":{"253f1630":"Q","6c3f1630":"W","973f1630":"R"},"Talon":{"25385a95":"Q","03385a95":"W","97385a95":"R"},"Seraphine":{"43f9ad8a":"Q","90f9ad8a":"W","64f9ad8a":"R"},"Lux":{"36e313f4":"Q","4be44b14":"W"},"Nautilus":{"45b2ad78":"Q","e6d2ba83":"W","a0bddb39":"E","7b0a4922":"R"},"Camille":{"97eb10d7":"R"},"Sylas":{"b525af95":"Q","3625af95":"W"},"Xerath":{"58495b62":"E"},"Ezreal":{"03f9169b":"E","97f9169b":"R"},"Janna":{"e694f2cf":"Q","abfce17a":"E","2626352d":"R"},"KSante":{"c9a4fc51":"E","584b0076":"R"},"Ahri":{"a3b453dc":"Q","6eb453dc":"W","7be853dc":"E","1eb453dc":"R"},"Xayah":{"e8b228f4":"Q","17b228f4":"W","a0b228f4":"E","b4b228f4":"R"},"Pantheon":{"970bf5de":"R"},"MonkeyKing":{"716d25f4":"Q","574a3f98":"W","2090f708":"E","611db478":"R"},"Corki":{"5810c60f":"Q","a2428b30":"W","ad066111":"R"},"Thresh":{"6ea6c987":"E","6bc0a011":"R","a3a6c987":"Q"},"Renekton":{"ad13ff2b":"Q","4b8bf29a":"W","1f1db422":"R"},"Malphite":{"dba3b4a9":"W","adffdf56":"E","eb25ebf6":"R"},"Ekko":{"00798bdc":"Q","45798bdc":"W","7f798bdc":"E","16798bdc":"R"},"Jinx":{"e8c879dc":"Q","17c879dc":"W","a0c879dc":"E","b4c879dc":"R"},"Blitzcrank":{"97654b98":"Q","96498bf1":"W","79b92837":"E","060bcc9e":"R"},"Fiora":{"6e254330":"W","7b774330":"E"},"Kindred":{"40ccec2a":"Q","5eccec2a":"W","1e0a6402":"E","c0ccec2a":"R"},"Riven":{"7f57f5c2":"Q","646b3d62":"W","dd001374":"E"},"Swain":{"25101d95":"Q","6c101d95":"W"},"Alistar":{"5926359f":"W","0a045bb1":"R"},"TwistedFate":{"1ccb368d":"Q"},"Kaisa":{"a3a64488":"Q","6ea64488":"W","1ea64488":"R"},"Velkoz":{"7b9c49a8":"E"},"Syndra":{"b4e8c0be":"R"},"Zeri":{"1ec05b81":"R"},"Ashe":{"43aea2dc":"Q","82ecfcd6":"E","4733d28f":"R"},"Kayle":{"43961f88":"Q","90961f88":"W","4b961f88":"E","64961f88":"R"},"Briar":{"40e8c98c":"Q"},"Yone":{"9057a381":"W","6457a381":"R"},"Morgana":{"646e1d8c":"R"},"Hecarim":{"bd587788":"Q","36e61629":"W","af694ea9":"E","bab7d2c5":"R"},"Vex":{"e8cccd5b":"Q","17cccd5b":"W","a0cccd5b":"E"},"Draven":{"6c3bacbf":"Q","cc0d6da8":"W","5916ffe0":"E"},"Viktor":{"030ba7fa":"R"},"Jhin":{"0344b7dc":"W"},"Senna":{"a30be8d8":"Q","7b4ee8d8":"E","1e0be8d8":"R"},"Ornn":{"03d246dc":"E"},"Khazix":{"e6b5ba55":"E","1eb5ba55":"R"},"Vayne":{"a097a2a8":"Q","61001d01":"E","04691fd9":"R"},"Lulu":{"436ee4dc":"Q","646ee4dc":"R"},"Sion":{"0349ebdc":"E"},"Tristana":{"40484ee5":"Q","5e484ee5":"W"},"Braum":{"433f168c":"Q","581f1e88":"R"},"Naafiri":{"645a94c3":"W","4b5394c3":"E","905a94c3":"R"},"Azir":{"6480a022":"Q","5eb5badc":"W","1e0aa022":"E","c0b5badc":"R"},"Caitlyn":{"7f7b1322":"E","647b1322":"R"},"Nami":{"a3e397dc":"Q"},"Kled":{"ad6c0ddc":"E","586c0ddc":"R"},"Udyr":{"40a3b2dc":"Q","5ea3b2dc":"W","96a3b2dc":"E","c0a3b2dc":"R"},"Varus":{"367ea21a":"W","e67ea21a":"E","a27ea21a":"R"},"FiddleSticks":{"6e44593c":"W","1e44593c":"R"}}   # champion -> {ability id: slot}; unknown ids are mapped per game from Riot's cast counts
+SPELLS23 = {"Garen":{"253f1630":"Q","6c3f1630":"W","973f1630":"R"},"Talon":{"25385a95":"Q","03385a95":"E","97385a95":"R","6c385a95":"W"},"Seraphine":{"43f9ad8a":"Q","90f9ad8a":"W","64f9ad8a":"R"},"Lux":{"36e313f4":"Q","4be44b14":"W"},"Nautilus":{"45b2ad78":"Q","e6d2ba83":"W","a0bddb39":"E","7b0a4922":"R"},"Camille":{"97eb10d7":"R"},"Sylas":{"b525af95":"Q","3625af95":"W"},"Xerath":{"58495b62":"E"},"Ezreal":{"03f9169b":"E","97f9169b":"R"},"Janna":{"e694f2cf":"Q","abfce17a":"E","2626352d":"R"},"KSante":{"c9a4fc51":"E","584b0076":"R"},"Ahri":{"a3b453dc":"Q","6eb453dc":"W","7be853dc":"E","1eb453dc":"R"},"Xayah":{"e8b228f4":"Q","17b228f4":"W","a0b228f4":"E","b4b228f4":"R"},"Pantheon":{"970bf5de":"R"},"MonkeyKing":{"716d25f4":"Q","574a3f98":"W","2090f708":"E","611db478":"R"},"Corki":{"5810c60f":"Q","a2428b30":"W","ad066111":"R"},"Thresh":{"6ea6c987":"E","6bc0a011":"R","a3a6c987":"Q"},"Renekton":{"ad13ff2b":"Q","4b8bf29a":"W","1f1db422":"R"},"Malphite":{"dba3b4a9":"W","adffdf56":"E","eb25ebf6":"R"},"Ekko":{"00798bdc":"Q","45798bdc":"W","7f798bdc":"E","16798bdc":"R"},"Jinx":{"e8c879dc":"Q","17c879dc":"W","a0c879dc":"E","b4c879dc":"R"},"Blitzcrank":{"97654b98":"Q","96498bf1":"W","79b92837":"E","060bcc9e":"R"},"Fiora":{"6e254330":"W","7b774330":"E"},"Kindred":{"40ccec2a":"Q","5eccec2a":"W","1e0a6402":"E","c0ccec2a":"R"},"Riven":{"7f57f5c2":"Q","646b3d62":"W","dd001374":"E"},"Swain":{"25101d95":"Q","6c101d95":"W"},"Alistar":{"5926359f":"W","0a045bb1":"R"},"TwistedFate":{"1ccb368d":"Q"},"Kaisa":{"a3a64488":"Q","6ea64488":"W","1ea64488":"R"},"Velkoz":{"7b9c49a8":"E"},"Syndra":{"b4e8c0be":"R"},"Zeri":{"1ec05b81":"R","a3c05b81":"Q","6ec05b81":"W","7b405b81":"E"},"Ashe":{"43aea2dc":"Q","82ecfcd6":"E","4733d28f":"R"},"Kayle":{"43961f88":"Q","90961f88":"W","4b961f88":"E","64961f88":"R"},"Briar":{"40e8c98c":"Q"},"Yone":{"9057a381":"W","6457a381":"R"},"Morgana":{"646e1d8c":"R","906e1d8c":"Q","436e1d8c":"W","4b3d1d8c":"E"},"Hecarim":{"bd587788":"Q","36e61629":"W","af694ea9":"E","bab7d2c5":"R"},"Vex":{"e8cccd5b":"Q","17cccd5b":"W","a0cccd5b":"E"},"Draven":{"6c3bacbf":"Q","cc0d6da8":"W","5916ffe0":"E"},"Viktor":{"030ba7fa":"R"},"Jhin":{"0344b7dc":"W","6c44b7dc":"W","2544b7dc":"Q","9744b7dc":"R","dd9d452a":"R"},"Senna":{"a30be8d8":"Q","7b4ee8d8":"E","1e0be8d8":"R"},"Ornn":{"03d246dc":"E"},"Khazix":{"e6b5ba55":"E","1eb5ba55":"R"},"Vayne":{"a097a2a8":"Q","61001d01":"E","04691fd9":"R"},"Lulu":{"436ee4dc":"Q","646ee4dc":"R"},"Sion":{"0349ebdc":"E","6c49ebdc":"W","7bd2770f":"W","2549ebdc":"Q","9749ebdc":"R"},"Tristana":{"40484ee5":"Q","5e484ee5":"W","a0194ee5":"E","c0484ee5":"R"},"Braum":{"433f168c":"Q","581f1e88":"R"},"Naafiri":{"645a94c3":"W","4b5394c3":"E","905a94c3":"R"},"Azir":{"6480a022":"Q","5eb5badc":"W","1e0aa022":"E","c0b5badc":"R"},"Caitlyn":{"7f7b1322":"E","647b1322":"R"},"Nami":{"a3e397dc":"Q","1ee397dc":"R"},"Kled":{"ad6c0ddc":"E","586c0ddc":"R"},"Udyr":{"40a3b2dc":"Q","5ea3b2dc":"W","96a3b2dc":"E","c0a3b2dc":"R"},"Varus":{"367ea21a":"W","e67ea21a":"E","a27ea21a":"R","033a2381":"E","b57ea21a":"Q"},"FiddleSticks":{"6e44593c":"W","1e44593c":"R"},"Viego":{"000a481a":"Q","7f0a481a":"E","160a481a":"R"}}   # champion -> {ability id: slot}; unknown ids are mapped per game from Riot's cast counts
 
 
 def is23(version):
@@ -346,6 +351,13 @@ def _decode23(version, stats, chunks, until, path=None):
             if t > until:
                 break
             if prm not in CHAMPS23:
+                if nid == 530:                            # damage on a monster/minion: Smite shows up only here
+                    b = bytes(pl)
+                    for o in range(7, min(14, len(b) - 8)):
+                        if b[o + 4] == 0x25 and b[o + 3] in ATK23:
+                            if b[o + 5:o + 9] in SMITE23:
+                                summs.append((t, ATK23.index(b[o + 3]), "Smite"))
+                            break
                 continue
             k = CHAMPS23.index(prm)
             if nid == 530:                                # damage landed on champion k: [..][amount 4..7][..][TGT][2][ATK][25]
@@ -356,6 +368,8 @@ def _decode23(version, stats, chunks, until, path=None):
                         atk = ATK23.index(b[o + 3]) if b[o + 3] in ATK23 else None
                         break
                 hits.append((t, k, atk, _amount23(b)))
+                if atk is not None and b[o + 5:o + 9] in SMITE23:
+                    summs.append((t, atk, "Smite"))
             elif nid == 564:                              # ability cast
                 b = bytes(pl)
                 sid = _cast_id23(b)
