@@ -11,7 +11,8 @@ def get(host, path):
         try:
             with urllib.request.urlopen(req, timeout=30) as r: return json.loads(r.read())
         except urllib.error.HTTPError as e:
-            if e.code == 404: return None
+            print("  HTTP", e.code, path, "retry-after", e.headers.get("Retry-After"), flush=True)
+            if e.code in (401, 403, 404): return None
             time.sleep(int(e.headers.get("Retry-After") or 5) if e.code == 429 else 3)
     return None
 ap = argparse.ArgumentParser(); ap.add_argument("--out", required=True); ap.add_argument("ids", nargs="+")
@@ -22,4 +23,4 @@ for mid in a.ids:
     m, tl = get(host, f"/lol/match/v5/matches/{mid}"), get(host, f"/lol/match/v5/matches/{mid}/timeline")
     if m and tl:
         json.dump({"match": m, "timeline": tl}, gzip.open(f"{a.out}/{mid}.json.gz", "wt"))
-    print(mid, "ok" if m and tl else "missing")
+    print(mid, "ok" if m and tl else "missing", flush=True)
