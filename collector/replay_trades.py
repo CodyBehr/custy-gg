@@ -66,7 +66,17 @@ EXP23 = {0x3D: -1, 0x71: 0, 0x70: 1, 0xDF: 2, 0x51: 3, 0xD6: 4}   # amount byte 
 M23 = bytes.fromhex('6b4e60cabac4329b447dff3d43b1ef0620c0cc116283cd5bd5febe715186d352aafd0bfb5d01fca6109d8fb314c6fa4b6ff96159f85eb02f277ec92e7647a0ab3a15cf9436b29abbbd6a6ead960d3868562966982a35f75c64a34c3cc56712f6e1b5414a3ea853f5af8725f4f36db48a265ad40c93d7f255199c340f03c38970ebe0f11aa2e8bf1307f08258c1a104658c288b85d905e554791fee30461d784902ae7f578821ed814fb684237295696cec33971c7b1b08ead8cee9da1775b77ae78050318e9009e6bc3b1eb84dcbc85f92e43fdfd691224224b9e399168dc239d0d29e00a718407cd177a42c48acc737a92bdb74dc2d45dd73de9f630a0ea5e2')   # amount byte 6 -> top mantissa byte
 T1012 = bytes.fromhex('ece49c948c84bcb4aca45b534b437b736b631b130b033b332b23dbd3cbc3fbf3ebe39b938b83bbb3aba35a524a427a726a621a120a023a322a22dad2cac2faf2eee69e968e86beb6aea65d554d457d756d651d150d053d352d25ddd5cdc5fdf5ede59d958d85bdb5ada55c544c447c746c641c140c043c342c24dcd4ccc4fcf4e8e098908880b8b0a8a05f574f477f776f671f170f073f372f27dfd7cfc7fff7efe79f978f87bfb7afa75e564e467e766e661e160e063e362e26ded6cec6fef6eae29a928a82bab2aaa259514941797169611911090139312921d9d1c9c1f9f1e9e199918981b9b1a9a158504840787068601810080038302820d8d0c8c0f8f0')   # keyframe health record 1012, cipher -> plain
 T944 = bytes.fromhex('8552106b1b5f4bd835231a9ca3adba886563f4bd6013d9435431623e478001e9a9b78705fbb40fe6d303c0e0bbee96f97fcdbe69f8d0aa90095ae2eaaf8ae1f6bf297cdc0a4851c82a79ce385564c3a82b9715fd994c8c206f047dc1160da41f944ea0c6f0ffab11a522868b767208b1d26134002d7e6ad52ce41893e73002c58198ca4933739b66b5d7a7567aebe58f77dbfe68ef07b84ad45d3250f59dd112700cae5c0b4fdff18919c24014426e5382582eac417b4d8e25ec6c741c0ed68d443c92b95b2fc9f31dcba6f7b028461724f2363a9e453ba12671b23978dd753d916d9acf831ebca2e8b3579506b667dae3ccc437fc59849f27c7ed3f5efa21de')   # keyframe position record 944, cipher -> plain
-HDR23 = bytes.fromhex('54bce4b924')   # ability record 564: the 4-byte ability id follows this
+HDR23 = bytes.fromhex('54bce4b924')   # ability record 564: the 4-byte ability id follows this (self-cast layout only)
+
+
+def _cast_id23(b):
+    """Ability id in a 16.23 cast record (564). Layout: 14-byte header, the caster's id block (4 or 8 bytes), 2 bytes,
+    an optional byte, a 0x85 marker, a 12-byte aim block (fixed for self-casts: ...54bce4b924), then the 4-byte id."""
+    i = b.find(b"\x85", 15)
+    if 0 < i < 40 and len(b) >= i + 17:
+        return b[i + 13:i + 17].hex()
+    q = b.find(HDR23)
+    return b[q + 5:q + 9].hex() if q >= 0 else ""
 SUMM23 = {'ba04ed63': 'Ignite', '4e42ad3c': 'Flash', '1e0948a8': 'Barrier', '84cac067': 'Heal', '1facbc2a': 'Teleport', '1f7ba2a9': 'Exhaust'}
 SPELLS23 = {"Garen":{"253f1630":"Q","6c3f1630":"W","973f1630":"R"},"Talon":{"25385a95":"Q","03385a95":"W","97385a95":"R"},"Seraphine":{"43f9ad8a":"Q","90f9ad8a":"W","64f9ad8a":"R"},"Lux":{"36e313f4":"Q","4be44b14":"W"},"Nautilus":{"45b2ad78":"Q","e6d2ba83":"W","a0bddb39":"E","7b0a4922":"R"},"Camille":{"97eb10d7":"R"},"Sylas":{"b525af95":"Q","3625af95":"W"},"Xerath":{"58495b62":"E"},"Ezreal":{"03f9169b":"E","97f9169b":"R"},"Janna":{"e694f2cf":"Q","abfce17a":"E","2626352d":"R"},"KSante":{"c9a4fc51":"E","584b0076":"R"},"Ahri":{"a3b453dc":"Q","6eb453dc":"W","7be853dc":"E","1eb453dc":"R"},"Xayah":{"e8b228f4":"Q","17b228f4":"W","a0b228f4":"E","b4b228f4":"R"},"Pantheon":{"970bf5de":"R"},"MonkeyKing":{"716d25f4":"Q","574a3f98":"W","2090f708":"E","611db478":"R"},"Corki":{"5810c60f":"Q","a2428b30":"W","ad066111":"R"},"Thresh":{"6ea6c987":"E","6bc0a011":"R","a3a6c987":"Q"},"Renekton":{"ad13ff2b":"Q","4b8bf29a":"W","1f1db422":"R"},"Malphite":{"dba3b4a9":"W","adffdf56":"E","eb25ebf6":"R"},"Ekko":{"00798bdc":"Q","45798bdc":"W","7f798bdc":"E","16798bdc":"R"},"Jinx":{"e8c879dc":"Q","17c879dc":"W","a0c879dc":"E","b4c879dc":"R"},"Blitzcrank":{"97654b98":"Q","96498bf1":"W","79b92837":"E","060bcc9e":"R"},"Fiora":{"6e254330":"W","7b774330":"E"},"Kindred":{"40ccec2a":"Q","5eccec2a":"W","1e0a6402":"E","c0ccec2a":"R"},"Riven":{"7f57f5c2":"Q","646b3d62":"W","dd001374":"E"},"Swain":{"25101d95":"Q","6c101d95":"W"},"Alistar":{"5926359f":"W","0a045bb1":"R"},"TwistedFate":{"1ccb368d":"Q"},"Kaisa":{"a3a64488":"Q","6ea64488":"W","1ea64488":"R"},"Velkoz":{"7b9c49a8":"E"},"Syndra":{"b4e8c0be":"R"},"Zeri":{"1ec05b81":"R"},"Ashe":{"43aea2dc":"Q","82ecfcd6":"E","4733d28f":"R"},"Kayle":{"43961f88":"Q","90961f88":"W","4b961f88":"E","64961f88":"R"},"Briar":{"40e8c98c":"Q"},"Yone":{"9057a381":"W","6457a381":"R"},"Morgana":{"646e1d8c":"R"},"Hecarim":{"bd587788":"Q","36e61629":"W","af694ea9":"E","bab7d2c5":"R"},"Vex":{"e8cccd5b":"Q","17cccd5b":"W","a0cccd5b":"E"},"Draven":{"6c3bacbf":"Q","cc0d6da8":"W","5916ffe0":"E"},"Viktor":{"030ba7fa":"R"},"Jhin":{"0344b7dc":"W"},"Senna":{"a30be8d8":"Q","7b4ee8d8":"E","1e0be8d8":"R"},"Ornn":{"03d246dc":"E"},"Khazix":{"e6b5ba55":"E","1eb5ba55":"R"},"Vayne":{"a097a2a8":"Q","61001d01":"E","04691fd9":"R"},"Lulu":{"436ee4dc":"Q","646ee4dc":"R"},"Sion":{"0349ebdc":"E"},"Tristana":{"40484ee5":"Q","5e484ee5":"W"},"Braum":{"433f168c":"Q","581f1e88":"R"},"Naafiri":{"645a94c3":"W","4b5394c3":"E","905a94c3":"R"},"Azir":{"6480a022":"Q","5eb5badc":"W","1e0aa022":"E","c0b5badc":"R"},"Caitlyn":{"7f7b1322":"E","647b1322":"R"},"Nami":{"a3e397dc":"Q"},"Kled":{"ad6c0ddc":"E","586c0ddc":"R"},"Udyr":{"40a3b2dc":"Q","5ea3b2dc":"W","96a3b2dc":"E","c0a3b2dc":"R"},"Varus":{"367ea21a":"W","e67ea21a":"E","a27ea21a":"R"},"FiddleSticks":{"6e44593c":"W","1e44593c":"R"}}   # champion -> {ability id: slot}; unknown ids are mapped per game from Riot's cast counts
 
@@ -348,8 +358,7 @@ def _decode23(version, stats, chunks, until, path=None):
                 hits.append((t, k, atk, _amount23(b)))
             elif nid == 564:                              # ability cast
                 b = bytes(pl)
-                q = b.find(HDR23)
-                sid = b[q + 5:q + 9].hex() if q >= 0 else ""
+                sid = _cast_id23(b)
                 slot = SPELLS23.get(skins[k], {}).get(sid)
                 if slot:
                     casts.append((t, k, slot))
@@ -485,13 +494,15 @@ def _keyframe_pos23(path, until=1e9):
 
 
 def map_casts(d, riot_casts, first_skill):
-    """16.23+: give each unknown ability id a slot by matching per-game counts to Riot's spellNCasts.
+    """16.23+: give unknown ability ids a slot by matching per-game counts to Riot's spellNCasts.
+    One slot can own several ids (recasts and second parts, e.g. Lux E and its detonation).
     riot_casts {slot: [q, w, e, r]}, first_skill {slot: {1..4: first SKILL_LEVEL_UP seconds}}. Edits d["casts"]."""
     from collections import Counter
-    known = {(k, L) for _, k, L in d.get("casts", [])}
     owners = {}
     for _, kk, sid in d.get("cast_ids", []):
         owners.setdefault(sid, set()).add(kk)
+    have = Counter((k, L) for _, k, L in d.get("casts", []))
+    until = max([t for t, _, _ in d.get("cast_ids", [])] + [t for t, _, _ in d.get("casts", [])] + [1.0])
     for k in range(10):
         want = (riot_casts or {}).get(k)
         if not want:
@@ -501,24 +512,33 @@ def map_casts(d, riot_casts, first_skill):
             if kk == k and len(owners[sid]) == 1:   # ids several champions use are items, trinkets, recall
                 cnt[sid] += 1
                 first.setdefault(sid, t)
-        free = [n for n in range(4) if (k, "QWER"[n]) not in known and want[n]]
-        if not free or not cnt:
+        if not cnt:
             continue
-        # the replay may be read only partway (until=), Riot counts the whole game: compare shares
-        top = sorted(cnt.values(), reverse=True)[:len(free)]
-        scale = sum(top) / max(1, sum(want[n] for n in free))
-        pairs = []
-        for n in free:
-            for sid, c in cnt.items():
-                late = first[sid] < (first_skill.get(k, {}).get(n + 1, 0) - 2)
-                pairs.append((abs(c - scale * want[n]) / max(1.0, scale * want[n]) + (2 if late else 0), n, sid))
-        used_n, used_s, slot_of = set(), set(), {}
-        for cost, n, sid in sorted(pairs):
-            if cost < 0.35 and n not in used_n and sid not in used_s:
-                used_n.add(n); used_s.add(sid); slot_of[sid] = "QWER"[n]
-        for t, kk, sid in d.get("cast_ids", []):
-            if kk == k and sid in slot_of:
-                d["casts"].append((t, k, slot_of[sid]))
+        # the replay may be read only partway (until=), Riot counts the whole game
+        played = (d.get("stats") or [{}] * 10)[k].get("TIME_PLAYED") if d.get("stats") else None
+        frac = min(1.0, until / float(played)) if played else 1.0
+        need = {n: max(0.0, want[n] * frac - have[(k, "QWER"[n])]) for n in range(4)}
+        slots = [n for n in range(4) if need[n] >= max(2.0, 0.15 * want[n] * frac)]
+        got = {n: 0 for n in slots}
+        free = set(cnt)
+        while True:
+            best = None
+            for n in slots:
+                e0 = abs(got[n] - need[n])
+                for sid in free:
+                    if first[sid] < first_skill.get(k, {}).get(n + 1, 0) - 2:
+                        continue                     # cast before the ability was learned
+                    e = abs(got[n] + cnt[sid] - need[n])
+                    if e < e0 - max(1.0, 0.05 * need[n]) and (best is None or e0 - e > best[0]):
+                        best = (e0 - e, n, sid)
+            if not best:
+                break
+            _, n, sid = best
+            got[n] += cnt[sid]
+            free.discard(sid)
+            for t, kk, s2 in d.get("cast_ids", []):
+                if kk == k and s2 == sid:
+                    d["casts"].append((t, k, "QWER"[n]))
     d["casts"].sort()
     return d
 
