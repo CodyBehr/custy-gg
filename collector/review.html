@@ -595,6 +595,7 @@ html[data-theme=light] .h-m, html[data-theme=light] .g-hero { background:#a8394a
 .rp-row .t { font-variant-numeric:tabular-nums; color:var(--faint); width:38px; flex:none; }
 .rp-row .d { width:8px; height:8px; border-radius:50%; background:var(--faint); flex:none; } .rp-row .d.good { background:var(--green); } .rp-row .d.bad { background:var(--red); } .rp-row .d.meh { background:var(--gold); }
 .rp-row .x { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } .rp-row .g { margin-left:auto; font-size:11px; color:var(--faint); flex:none; }
+.rp-send { display:flex; align-items:center; gap:8px; justify-content:space-between; margin-top:8px; padding-top:8px; border-top:1px solid var(--line); font-size:12px; }
 .rp-more { margin-top:10px; } .rp-more summary { cursor:pointer; color:var(--mute); font-size:13px; } .rp.big video { max-height:80vh; }
 .rp-cd .ln { display:flex; align-items:center; gap:6px; }
 .rp-cd .pt { width:32px; height:32px; border-radius:50%; border:2px solid var(--red); } .rp-cd .pt.me { border-color:#6ea0ff; }
@@ -2766,7 +2767,7 @@ function recCooldowns(A, id, dur, box, gameT, v, off) {
   const snap = (t) => !st.cd || t > st.cd.until ? "" : ["Q", "W", "E", "R", ...Object.keys(st.cd.opp.summs || {}).filter(n => st.cd.opp.summs[n])].map(sl => fmtAb("opp", sl, t)).join("")
       + `<div class="sep"></div>` + ["Q", "W", "E", "R"].map(sl => fmtAb("me", sl, t)).join("");
   const VC = { good: "good", bad: "bad", missed: "bad", lost: "bad", won: "good", meh: "meh", check: "meh", even: "", close: "", context: "" };
-  const save = async (it, g, note) => { try { grades = await api(`/api/grades/${id}`, { method: "POST", body: JSON.stringify({ key: it.key, grade: g, note, text: it.text || "" }) }); } catch (e) { toast(e.message); } listRender(); };
+  const save = async (it, g, note) => { try { grades = await api(`/api/grades/${id}`, { method: "POST", body: JSON.stringify({ key: it.key, grade: g, note, text: it.text || "" }) }); } catch (e) { toast(e.message); } listRender(); side.sendN?.(); };
   function listRender() {
     const el = $("rpList"); if (!el) return;
     el.innerHTML = items.map((it, i) => `<div class="rp-row ${i === cur ? "cur" : ""}" data-i="${i}"><span class="t">${clock(it.t)}</span><span class="d ${VC[it.v] || ""}"></span><span class="x">${esc(it.label)}</span><span class="g">${{ right: "✓", wrong: "✗", meh: "meh" }[grades[it.key]?.grade] || ""}</span></div>`).join("");
@@ -2794,7 +2795,11 @@ function recCooldowns(A, id, dur, box, gameT, v, off) {
       return { t: tr.t0, end: tr.t1, tr, tv, read: rd, v: rd?.verdict || tv, key: "trade@" + tr.t0.toFixed(1), text: rd?.text || "", label: `Trade · ${tv}${rd ? " · coach: " + rd.verdict : ""}` }; });
     for (const rd of reads) if (!used.has(rd)) items.push({ t: rd.t, end: rd.t + 10, read: rd, v: rd.verdict, key: rd.kind + "@" + rd.t.toFixed(1), text: rd.text, label: `${rd.kind} · ${rd.verdict}` });
     items.sort((a, b) => a.t - b.t);
-    $("rpSide").innerHTML = `<div class="rp-card" id="rpCard"></div><div class="h-eye" style="margin:10px 0 4px">${items.length} trades and moments</div><div class="rp-list" id="rpList"></div>`;
+    $("rpSide").innerHTML = `<div class="rp-card" id="rpCard"></div><div class="h-eye" style="margin:10px 0 4px">${items.length} trades and moments</div><div class="rp-list" id="rpList"></div>
+      <div class="rp-send"><span class="h-mute" id="rpSendN"></span><button id="rpSend" title="Sends every grade and note you haven't sent yet, from all games, in one batch for review">Send my grades</button></div>`;
+    const sendN = async () => { try { const x = await api("/api/grades"); $("rpSendN").textContent = x.unsent ? `${x.unsent} not sent yet (${x.total} graded)` : x.total ? `All ${x.total} sent` : "Grade a read to start"; $("rpSend").disabled = !x.unsent; } catch (e) {} };
+    $("rpSend").onclick = async () => { $("rpSend").disabled = true; try { const x = await api("/api/grades/send", { method: "POST" }); toast(x.error || `Sent ${x.sent} grade${x.sent === 1 ? "" : "s"}.`); } catch (e) { toast(e.message); } sendN(); };
+    side.sendN = sendN; sendN();
     api(`/api/grades/${id}`).then(g => { grades = g || {}; listRender(); cur = -2; }).catch(() => {});
     listRender();
   }

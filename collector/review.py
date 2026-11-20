@@ -371,6 +371,77 @@ TRADES_DIR = os.path.join(CACHE_DIR, "trades")
 GRADES_DIR = os.path.join(CACHE_DIR, "grades")
 
 
+def send_grades(cfg):
+    """Sends every grade not sent yet, as one batch with what was graded (the coach's read, the moment's numbers),
+    to custy.gg's storage for review. Marks them sent. Returns {"sent": n} or {"error": ...}."""
+    batch, touched = [], {}
+    if not os.path.isdir(GRADES_DIR):
+        return {"sent": 0}
+    for name in sorted(os.listdir(GRADES_DIR)):
+        if not name.endswith(".json"):
+            continue
+        gid = name[:-5]
+        G = _grades(gid)
+        new = {k: v for k, v in G.items() if not v.get("sent")}
+        if not new:
+            continue
+        tr = {}
+        try:
+            with open(os.path.join(TRADES_DIR, name), "r", encoding="utf-8") as f:
+                tr = json.load(f)
+        except (OSError, ValueError):
+            pass
+        champs = [c[0] for c in tr.get("champs") or []]
+        me = champs[tr["mi"]] if champs and tr.get("mi") is not None else None
+        opp = champs[tr["oi"]] if champs and tr.get("oi") is not None else None
+        for k, v in new.items():
+            kind, _, at = k.partition("@")
+            t = float(at or 0)
+            item = {"game": gid, "me": me, "opp": opp, "role": tr.get("role"), "kind": kind, "t": t,
+                    "grade": v.get("grade"), "note": v.get("note"), "read": v.get("text")}
+            rd = next((c for c in tr.get("coach") or [] if abs(c.get("t", -99) - t) < 1.5), None)
+            if rd:
+                item["coach"] = {"verdict": rd.get("verdict"), "kind": rd.get("kind"), "text": rd.get("text")}
+            x = next((x for x in tr.get("trades") or [] if abs(x.get("t0", -99) - t) < 1.5), None)
+            if x:
+                item["trade"] = {k2: x.get(k2) for k2 in ("t0", "t1", "first", "lv", "hpMe", "hpOpp", "dealt", "took", "died", "seq", "solo")}
+            batch.append(item)
+        touched[gid] = (G, list(new))
+    if not batch:
+        return {"sent": 0}
+    base = cfg["site_url"].rstrip("/")
+    me_id = urllib.parse.quote(xpa_settings().get("me") or "")
+    try:
+        req = urllib.request.Request("%s/api/coach/grades?by=%s" % (base, me_id),
+                                     headers={"Authorization": "Bearer " + cfg.get("ingest_key", ""), "User-Agent": "custy-collector/" + core.VERSION})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            url = json.loads(r.read())["url"]
+        body = json.dumps({"by": xpa_settings().get("me"), "version": core.VERSION, "at": time.time(), "grades": batch}).encode()
+        put = urllib.request.Request(url, data=body, method="PUT", headers={"Content-Type": "application/json", "Content-Length": str(len(body))})
+        with urllib.request.urlopen(put, timeout=60) as r:
+            if not 200 <= r.status < 300:
+                return {"error": "Storage answered %s" % r.status}
+    except Exception as e:
+        return {"error": "Couldn't send: %s" % e}
+    for gid, (G, keys) in touched.items():
+        for k in keys:
+            G[k]["sent"] = time.time()
+        with open(os.path.join(GRADES_DIR, "%s.json" % gid), "w", encoding="utf-8") as f:
+            json.dump(G, f)
+    return {"sent": len(batch)}
+
+
+def grades_status():
+    n = unsent = 0
+    if os.path.isdir(GRADES_DIR):
+        for name in os.listdir(GRADES_DIR):
+            if name.endswith(".json"):
+                for v in _grades(name[:-5]).values():
+                    n += 1
+                    unsent += not v.get("sent")
+    return {"total": n, "unsent": unsent}
+
+
 def _grades(game_id):
     try:
         with open(os.path.join(GRADES_DIR, "%s.json" % int(game_id)), "r", encoding="utf-8") as f:
@@ -2643,6 +2714,8 @@ def make_handler(cfg, token):
                 except Exception as e:
                     core.log.exception("Deaths for %s failed", m.group(1))
                     return self._send(200, {"error": "Couldn't check deaths: %s" % e})
+            if url.path == "/api/grades":   # how many grades you have, and how many aren't sent yet
+                return self._send(200, grades_status())
             m = re.match(r"^/api/grades/(\d+)$", url.path)
             if m:   # your Right / Wrong / Meh on the coach's moments (the coach's test set)
                 return self._send(200, _grades(m.group(1)))
@@ -2723,6 +2796,8 @@ def make_handler(cfg, token):
                 _status("working", "Opening the replay...", game=m.group(1))
                 threading.Thread(target=_open_replay, args=(cfg, m.group(1), t), daemon=True).start()
                 return self._send(202, {"ok": True})
+            if url.path == "/api/grades/send":   # send the new grades as one batch for review
+                return self._send(200, send_grades(cfg))
             m = re.match(r"^/api/grades/(\d+)$", url.path)
             if m:   # {"key": "trade@193.3", "grade": "right|wrong|meh|null", "note": "...", "text": the coach's read}
                 body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
