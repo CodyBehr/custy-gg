@@ -2769,6 +2769,7 @@ async function openRecording(A, t) {
   $("rpSetClkGo").onclick = () => { const want = parse($("rpSetClk").value); if (isNaN(want)) { toast("Type the in-game clock like 0:41."); return; }
     v.pause(); shiftClock(Math.round((want - gameT()) * 10) / 10); };
   $("rpSetClk").onkeydown = (e) => { if (e.key === "Enter") $("rpSetClkGo").click(); };
+  $("rpSetClk").onfocus = () => v.pause();   // freeze the frame while typing, so the clock you read is the one we compare to
   $("rpSetA").onclick = () => { clip.a = Math.max(0, Math.round(gameT())); if (clip.b <= clip.a) clip.b = clip.a + 15; showClip(); };
   $("rpSetB").onclick = () => { clip.b = Math.round(gameT()); if (clip.b <= clip.a) clip.a = Math.max(0, clip.b - 15); showClip(); };
   $("rpA").onchange = () => { const x = parse($("rpA").value); if (!isNaN(x)) clip.a = x; showClip(); };
