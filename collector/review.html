@@ -572,7 +572,30 @@ html[data-theme=light] .h-m, html[data-theme=light] .g-hero { background:#a8394a
 .rp-vw:fullscreen { background:#000; display:flex; align-items:center; justify-content:center; }
 .rp-vw:fullscreen video { width:100%; height:100%; max-height:none; border-radius:0; object-fit:contain; }
 .rp-vw:fullscreen .rp-cd { zoom:1.35; } .rp-vw:fullscreen .rp-flash { border-radius:0; }
-.rp.big { width:98vw; } .rp.big video { max-height:80vh; }
+.rp.big { width:98vw; }
+.rp-inline { width:auto; background:var(--deck); border-radius:18px; padding:18px; margin-bottom:16px; }
+.rp-inline .cl-row { gap:6px; } .rp-inline .cl-row button { padding:5px 10px; font-size:13px; }
+.rp-inline video { max-height:70vh; }
+.rp-grid { display:grid; grid-template-columns:minmax(0,1fr) 330px; gap:16px; }
+@media (max-width: 1100px) { .rp-grid { grid-template-columns:1fr; } }
+.rp-side { background:var(--block); border-radius:14px; padding:12px; display:flex; flex-direction:column; min-height:0; max-height:82vh; }
+.rp-card { background:var(--deck); border-radius:12px; padding:12px; font-size:13px; }
+.rp-card h3 { margin:6px 0 4px; font-size:15px; } .rp-card p { margin:0 0 8px; color:var(--mute); }
+.rp-chip { display:inline-block; padding:2px 9px; border-radius:999px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; background:var(--deck-2); color:var(--mute); }
+.rp-chip.good { background:var(--green-wash); color:var(--green); } .rp-chip.bad { background:var(--red-wash); color:var(--red); } .rp-chip.meh { background:var(--gold-wash); color:var(--gold); }
+.rp-at { font-size:12.5px; color:var(--mute); border-top:1px solid var(--line); padding-top:8px; margin-top:6px; }
+.rp-at:empty { display:none; } .rp-at > div:not(.sep):not(.h-mute) { display:flex; justify-content:space-between; gap:8px; }
+.rp-at .sep { height:1px; background:var(--line); margin:5px 0; } .rp-at .dn { color:var(--red); } .rp-at .up { color:var(--green); } .rp-at .uk { color:var(--faint); }
+.rp-grade { display:flex; gap:6px; margin-top:8px; } .rp-grade button { flex:1; }
+.rp-grade button.on.r { background:var(--green); color:#10261b; } .rp-grade button.on.w { background:var(--red); color:#2b0f12; } .rp-grade button.on.m { background:var(--gold); color:#23262e; }
+.rp-card textarea { width:100%; margin-top:6px; background:var(--night); color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:6px; font:inherit; font-size:12.5px; resize:vertical; min-height:38px; box-sizing:border-box; }
+.rp-list { overflow:auto; flex:1; display:flex; flex-direction:column; gap:3px; min-height:120px; }
+.rp-row { display:flex; gap:8px; align-items:center; padding:6px 8px; border-radius:8px; cursor:pointer; font-size:13px; }
+.rp-row:hover { background:var(--deck); } .rp-row.cur { background:var(--deck-2); }
+.rp-row .t { font-variant-numeric:tabular-nums; color:var(--faint); width:38px; flex:none; }
+.rp-row .d { width:8px; height:8px; border-radius:50%; background:var(--faint); flex:none; } .rp-row .d.good { background:var(--green); } .rp-row .d.bad { background:var(--red); } .rp-row .d.meh { background:var(--gold); }
+.rp-row .x { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } .rp-row .g { margin-left:auto; font-size:11px; color:var(--faint); flex:none; }
+.rp-more { margin-top:10px; } .rp-more summary { cursor:pointer; color:var(--mute); font-size:13px; } .rp.big video { max-height:80vh; }
 .rp-cd .ln { display:flex; align-items:center; gap:6px; }
 .rp-cd .pt { width:32px; height:32px; border-radius:50%; border:2px solid var(--red); } .rp-cd .pt.me { border-color:#6ea0ff; }
 .rp-cd .ab { position:relative; width:32px; height:32px; border-radius:7px; overflow:hidden; background:#111; }
@@ -2078,7 +2101,15 @@ async function loadTrades(A, again) {
   }
   if (r.error) { el.innerHTML = `<div class="card"><div class="empty">${esc(r.error)}</div></div>`; return; }
   el.dataset.state = "ok";
-  await LT.show(el, r, A);
+  // Your recording on top (when the app recorded this game), the trade breakdown under it
+  if ($("rpInline")?.closeRec) $("rpInline").closeRec();
+  el.innerHTML = `<div id="rpInline"></div><div id="ltBody"></div>`;
+  await LT.show($("ltBody"), r, A);
+  const rec = await recInfo(A);
+  if (rec.exists && el.dataset.game === String(id)) {
+    const first = (r.trades || []).find(t => t.solo !== false);
+    openRecording(A, Math.max(0, (first ? first.t0 : 90) - 3), $("rpInline"));
+  }
 }
 
 // ---------------------------------------------------------------- Lane trades (decoded from the game's replay file)
@@ -2337,11 +2368,14 @@ async function recRows(){
   if(!GA||typeof recInfo!=="function") return; const r=await recInfo(GA); if(!r.exists||!ROOT) return;
   ROOT.querySelectorAll("tr.row").forEach(tr=>{const td=tr.querySelector("td:last-child"); if(!td||td.querySelector(".lt-rec")) return;
     const T=GAME.trades[+tr.dataset.i]; const b=document.createElement("button"); b.className="lt-rec"; b.textContent="▶ My recording"; b.style.cssText="margin-top:6px;padding:3px 9px;font-size:12px";
-    b.title="Watch this trade on your recording, with both of your cooldowns on the video"; b.onclick=e=>{e.stopPropagation();openRecording(GA,Math.max(0,T.t0-3))}; td.appendChild(b)});
+    b.title="Watch this trade on your recording, with both of your cooldowns on the video"; b.onclick=e=>{e.stopPropagation();watchRec(T.t0)}; td.appendChild(b)});
   ROOT.querySelectorAll(".coach li[data-ti]").forEach(li=>{if(li.querySelector(".lt-rec")) return; const t=(GAME.coach||[]).find(c=>clk(c.t)===li.querySelector(".t")?.textContent)?.t; if(t==null) return;
     const b=document.createElement("button"); b.className="lt-rec"; b.textContent="▶"; b.title="Watch on your recording"; b.style.cssText="margin-left:6px;padding:1px 8px;font-size:12px";
-    b.onclick=e=>{e.stopPropagation();openRecording(GA,Math.max(0,t-3))}; li.appendChild(b)});
+    b.onclick=e=>{e.stopPropagation();watchRec(t)}; li.appendChild(b)});
 }
+// the player at the top of this tab when there is one, else the pop-up
+function watchRec(t){const h=document.getElementById("rpInline");
+  if(h&&h.seekTo){h.seekTo(Math.max(0,t-3),true);h.scrollIntoView({behavior:"smooth",block:"start"});} else openRecording(GA,Math.max(0,t-3));}
 async function show(root, g, A){
   ROOT=root; sel=-1; filt="all"; GA=A||null;
   g.champs=g.champs.map(([n,t])=>[ddId(n),t]); g.me=g.champs[g.mi][0]; g.opp=g.champs[g.oi][0]; GAME=g;
@@ -2678,13 +2712,13 @@ function recCooldowns(A, id, dur, box, gameT, v, off) {
   };
   const keyWins = () => { const c = st.cd?.opp; return c?.key && !c.unknown.includes(c.key) ? c.cd[c.key] || [] : []; };
   const moments = () => [...recMarks(A).map(m => m.t + 2), ...st.trades.map(tr => tr.t0)];
-  const tick = (t) => {
+  let tick = (t) => {
     if (!st.cd) return;
     const on = $("rpCdOn")?.checked, el = $("rpCd"); if (!el) return;
     el.innerHTML = on && t <= st.cd.until && t >= 0 ? lane("opp", t) + ($("rpCdMine").checked ? lane("me", t) : "") : "";
     // the live line under the video: their key ability window + the coach's read of the moment you're in
     const c = st.cd.opp, w = c.key && !c.unknown.includes(c.key) ? down(c.cd[c.key], t) : null;
-    const read = st.coach.find(r => t >= r.t - 3 && t <= r.t + 12);
+    const read = $("rpSide") ? null : st.coach.find(r => t >= r.t - 3 && t <= r.t + 12);   // the side panel shows it inline
     const line = (w && t <= st.cd.until ? `<span class="win">Their ${c.key} (${esc(c.names[c.key] || "")}) is down for ${Math.ceil(w[1] - t)} more s: your window.</span> ` : "") + (read ? `<b>${clock(read.t)}</b> ${esc(read.text)}` : "");
     if ($("rpLine").innerHTML !== line) $("rpLine").innerHTML = line;
     // pause when their key ability goes down during a moment (each once)
@@ -2721,32 +2755,86 @@ function recCooldowns(A, id, dur, box, gameT, v, off) {
       return `<i class="${net > 0.05 ? "ok" : net < -0.05 ? "bad" : ""}" style="left:${X(t.t0)}%;width:${Math.max(.4, X(t.t1 - t.t0))}%" title="Trade ${clock(t.t0)}" data-t="${t.t0 + 3}"></i>`; }).join("")
       + keyWins().map(([a, b]) => `<u style="left:${X(a)}%;width:${X(b - a)}%"></u>`).join("")
       + ((r.cd.opp.summs || {}).Flash || []).map(([a, b]) => `<u class="f" style="left:${X(a)}%;width:${X(Math.min(b, dur) - a)}%"></u>`).join(""));
+    side(r);
     tick(gameT());
   })();
-  return { tick };
+  // ---- side panel (inline player in Lane trades): every trade and coach read, the one you're in, grading
+  let items = [], cur = -2, grades = {};
+  const fmtAb = (side, sl, t) => { const a = ab(side, sl, t), c = st.cd[side];
+    const v = a.unk ? '<span class="uk">can\'t read yet</span>' : a.lock ? '<span class="uk">not learned</span>' : a.on ? '<span class="up">active</span>' : a.left ? `<span class="dn">down ${a.approx ? "~" : ""}${Math.ceil(a.left)} s</span>` : '<span class="up">ready</span>';
+    return `<div><span>${side === "me" ? "Your" : "Their"} ${sl}${c.names[sl] ? " · " + esc(c.names[sl]) : ""}</span>${v}</div>`; };
+  const snap = (t) => !st.cd || t > st.cd.until ? "" : ["Q", "W", "E", "R", ...Object.keys(st.cd.opp.summs || {}).filter(n => st.cd.opp.summs[n])].map(sl => fmtAb("opp", sl, t)).join("")
+      + `<div class="sep"></div>` + ["Q", "W", "E", "R"].map(sl => fmtAb("me", sl, t)).join("");
+  const VC = { good: "good", bad: "bad", missed: "bad", lost: "bad", won: "good", meh: "meh", check: "meh", even: "", close: "", context: "" };
+  const save = async (it, g, note) => { try { grades = await api(`/api/grades/${id}`, { method: "POST", body: JSON.stringify({ key: it.key, grade: g, note, text: it.text || "" }) }); } catch (e) { toast(e.message); } listRender(); };
+  function listRender() {
+    const el = $("rpList"); if (!el) return;
+    el.innerHTML = items.map((it, i) => `<div class="rp-row ${i === cur ? "cur" : ""}" data-i="${i}"><span class="t">${clock(it.t)}</span><span class="d ${VC[it.v] || ""}"></span><span class="x">${esc(it.label)}</span><span class="g">${{ right: "✓", wrong: "✗", meh: "meh" }[grades[it.key]?.grade] || ""}</span></div>`).join("");
+    el.querySelectorAll(".rp-row").forEach(r => r.onclick = () => { const it = items[+r.dataset.i]; box.seekTo(it.t - 3, true); });
+  }
+  function cardRender(t) {
+    const el = $("rpCard"); if (!el) return; const it = items[cur];
+    if (!it) { el.innerHTML = `<div class="h-mute" style="font-size:13px">Between trades. Click one below or press N.</div><div class="rp-at" id="rpAt"></div>`; return; }
+    const g = grades[it.key] || {};
+    el.innerHTML = `<div>${it.tr ? `<span class="rp-chip ${VC[it.tv] || ""}">${esc(it.tv)}</span> ` : ""}${it.v && it.read ? `<span class="rp-chip ${VC[it.v] || ""}">coach: ${esc(it.v)}</span>` : ""}</div>
+      <h3>${clock(it.t)}${it.tr ? ` <span class="h-mute" style="font-weight:500;font-size:12px">${it.tr.first === "you" ? "you started" : "they started"} · you lost ${Math.round(it.tr.took / it.tr.hpMe[1] * 100)}%, they lost ${Math.round(it.tr.dealt / it.tr.hpOpp[1] * 100)}%</span>` : ""}</h3>
+      ${it.read ? `<p>${esc(it.read.text)}</p>` : ""}
+      <div class="rp-at" id="rpAt"></div>
+      <div class="rp-grade"><button data-g="right" class="${g.grade === "right" ? "on r" : ""}">Right</button><button data-g="wrong" class="${g.grade === "wrong" ? "on w" : ""}">Wrong</button><button data-g="meh" class="${g.grade === "meh" ? "on m" : ""}">Meh</button></div>
+      <textarea id="rpNote" placeholder="Why? (optional: goes into the coach's test set)">${esc(g.note || "")}</textarea>`;
+    el.querySelectorAll("[data-g]").forEach(b => b.onclick = () => save(it, (grades[it.key]?.grade === b.dataset.g) ? null : b.dataset.g, $("rpNote").value));
+    let tmo; $("rpNote").oninput = () => { clearTimeout(tmo); tmo = setTimeout(() => save(it, grades[it.key]?.grade || null, $("rpNote").value), 800); };
+  }
+  function side(r) {
+    if (!$("rpSide")) return;
+    const reads = (r.coach || []).filter(c => c.verdict !== "even");
+    const used = new Set();
+    items = st.trades.map(tr => { const rd = reads.find(c => Math.abs(c.t - tr.t0) < 1.5); if (rd) used.add(rd);
+      const net = tr.dealt / tr.hpOpp[1] - tr.took / tr.hpMe[1]; const tv = tr.died?.includes("you") ? "lost" : tr.died?.includes("them") ? "won" : net > 0.05 ? "won" : net < -0.05 ? "lost" : "even";
+      return { t: tr.t0, end: tr.t1, tr, tv, read: rd, v: rd?.verdict || tv, key: "trade@" + tr.t0.toFixed(1), text: rd?.text || "", label: `Trade · ${tv}${rd ? " · coach: " + rd.verdict : ""}` }; });
+    for (const rd of reads) if (!used.has(rd)) items.push({ t: rd.t, end: rd.t + 10, read: rd, v: rd.verdict, key: rd.kind + "@" + rd.t.toFixed(1), text: rd.text, label: `${rd.kind} · ${rd.verdict}` });
+    items.sort((a, b) => a.t - b.t);
+    $("rpSide").innerHTML = `<div class="rp-card" id="rpCard"></div><div class="h-eye" style="margin:10px 0 4px">${items.length} trades and moments</div><div class="rp-list" id="rpList"></div>`;
+    api(`/api/grades/${id}`).then(g => { grades = g || {}; listRender(); cur = -2; }).catch(() => {});
+    listRender();
+  }
+  const tick0 = tick;
+  tick = (t) => { tick0(t); if (!$("rpSide") || !items.length) return;
+    let c = -1; items.forEach((it, i) => { if (t >= it.t - 3 && t <= (it.end || it.t) + 8) c = i; });
+    if (c !== cur) { cur = c; listRender(); cardRender(t); $("rpList")?.querySelector(".cur")?.scrollIntoView({ block: "nearest" }); }
+    const at = $("rpAt"); if (at) { const h = snap(t) ? `<div class="h-mute" style="margin-bottom:2px">At ${clock(t)}</div>${snap(t)}` : ""; if (at.innerHTML !== h) at.innerHTML = h; } };
+  return { tick: (t) => tick(t) };
 }
-async function openRecording(A, t) {
+async function openRecording(A, t, host) {
+  const inline = !!host;   // inside the Lane trades tab (with a side panel) instead of a pop-up
   const r = await recInfo(A, true);
   if (!r.exists) { toast("There's no recording of this game."); return; }
   const id = A.g.gameId, dur = A.g.gameDuration || 1800, marks = recMarks(A);
   const opp = A.opp ? ` vs ${champName(A.opp.championId)}` : "";
-  let box = $("recDlg"); if (!box) { box = document.createElement("div"); box.id = "recDlg"; document.body.appendChild(box); }
+  if (!inline && $("rpInline")) $("rpInline").innerHTML = "";   // one player at a time (they share element ids)
+  if (inline && $("recDlg")) $("recDlg").innerHTML = "";
+  let box = host; if (!box) { box = $("recDlg"); if (!box) { box = document.createElement("div"); box.id = "recDlg"; document.body.appendChild(box); } }
   const clip = { a: Math.max(0, t - 5), b: t + 25 };
-  box.innerHTML = `<div class="cl-back"></div><div class="cl rp" role="dialog" aria-label="Your recording">
-    <div class="h-r"><div><div class="h-eye" style="color:var(--gold)">Your recording</div><div class="h-hd" style="font-size:22px;font-weight:700">${esc(champName(A.me.championId) + opp)} · <span class="rp-now" id="rpNow">${clock(t)}</span></div></div><button class="h-sp" id="rpX" aria-label="Close">✕</button></div>
-    <div class="rp-vw"><video id="rpV" controls controlslist="nofullscreen" disablepictureinpicture preload="auto" src="/rec/${id}.mp4?k=${encodeURIComponent(KEY)}"></video><div class="rp-cd" id="rpCd"></div><div class="rp-flash" id="rpFl"></div></div>
+  const head = `    <div class="h-r"><div><div class="h-eye" style="color:var(--gold)">Your recording</div><div class="h-hd" style="font-size:22px;font-weight:700">${esc(champName(A.me.championId) + opp)} · <span class="rp-now" id="rpNow">${clock(t)}</span></div></div><button class="h-sp" id="rpX" aria-label="Close">✕</button></div>
+`, headIn = `    <div class="h-r"><div><div class="h-eye" style="color:var(--gold)">Your recording</div><div class="h-hd" style="font-size:22px;font-weight:700">${esc(champName(A.me.championId) + opp)} · <span class="rp-now" id="rpNow">${clock(t)}</span></div></div><span class="h-mute" style="font-size:12px">Click a trade on the right, or press N for the next one</span></div>
+`;
+  const main = `    <div class="rp-vw"><video id="rpV" controls controlslist="nofullscreen" disablepictureinpicture preload="auto" src="/rec/${id}.mp4?k=${encodeURIComponent(KEY)}"></video><div class="rp-cd" id="rpCd"></div><div class="rp-flash" id="rpFl"></div></div>
     <div class="rp-strip" id="rpS" title="Click to jump. Coloured marks are this game's moments and deaths.">${marks.map(m => `<i class="${m.cls}" style="left:${m.t / dur * 100}%;width:${Math.max(.4, (m.end - m.t) / dur * 100)}%" title="${esc(clock(m.t) + " " + (m.title || ""))}" data-t="${m.t}"></i>`).join("")}<i class="clip" id="rpC"></i><b id="rpB"></b></div>
     <div class="cl-row" id="rpCtl"><button id="rpFs" title="Full screen with the overlay (F)">⛶ Full screen</button><button id="rpBig" title="Make the player fill the window">Bigger</button><button data-mv="prev" title="Previous moment (P)">◀ Moment</button><button data-sk="-10" title="Back 10 s (J)">−10s</button><button data-sk="-5" title="Back 5 s (←)">−5s</button><button data-fr="-1" title="Back one frame (,)">‹ Frame</button><button data-fr="1" title="Forward one frame (.)">Frame ›</button><button data-sk="5" title="Forward 5 s (→)">+5s</button><button data-sk="10" title="Forward 10 s (L)">+10s</button><button data-mv="next" title="Next moment (N)">Moment ▶</button>
       <span class="h-mute" style="margin-left:8px">Speed</span>${[0.25, 0.5, 1, 1.5, 2].map(x => `<button data-sp="${x}" title="${x}× (− / + to change)">${x}×</button>`).join("")}</div>
     <div class="rp-now-line" id="rpLine"></div>
     <div class="cl-row" id="rpCdOpts" hidden><label><input type="checkbox" id="rpCdOn"> Cooldowns on the video</label><label><input type="checkbox" id="rpCdMine"> Mine too</label><label><input type="checkbox" id="rpCdPause"> Pause when their key ability goes down in a moment</label><span class="h-mute" id="rpCdNote"></span></div>
     <div class="h-mute" style="font-size:12px;margin-top:4px">Keys: Space play/pause · ← → 5 s · J L 10 s · , . one frame · − + speed · N P next/previous moment · F full screen</div>
-    <div class="cl-row"><span class="rp-tag ${r.sync === "riot" ? "riot" : "est"}" id="rpSync"></span>
+`, extra = `    <div class="cl-row"><span class="rp-tag ${r.sync === "riot" ? "riot" : "est"}" id="rpSync"></span>
       <span class="h-mute">Clock off? Pause, then match our clock (in the title) to the in-game clock:</span><button data-nudge="-5" title="Our clock 5 s earlier; the video doesn't move">Clock −5</button><button data-nudge="-1" title="Our clock 1 s earlier; the video doesn't move">Clock −1</button><button data-nudge="1" title="Our clock 1 s later; the video doesn't move">Clock +1</button><button data-nudge="5" title="Our clock 5 s later; the video doesn't move">Clock +5</button>
       <label>or type it <input type="text" id="rpSetClk" size="5" placeholder="0:41"></label><button id="rpSetClkGo">Set</button></div>
     <div class="cl-row"><b>Clip</b><label>From <input type="text" id="rpA" size="5"></label><button id="rpSetA">Set to now</button><label>to <input type="text" id="rpB2" size="5"></label><button id="rpSetB">Set to now</button>
       <button class="h-gold" id="rpClip">Save clip</button></div>
-    <div class="h-r" style="margin-top:14px;gap:10px;flex-wrap:wrap"><div id="rpMsg" class="h-mute" style="flex:1"></div><button id="rpKeep"></button><button id="rpOpen">Open folder</button></div></div>`;
+    <div class="h-r" style="margin-top:14px;gap:10px;flex-wrap:wrap"><div id="rpMsg" class="h-mute" style="flex:1"></div><button id="rpKeep"></button><button id="rpOpen">Open folder</button></div>`;
+  box.innerHTML = inline
+    ? `<div class="rp rp-inline">${headIn}<div class="rp-grid"><div class="rp-col">${main}<details class="rp-more"><summary>Sync, clip and keep</summary>${extra}</details></div><div class="rp-side" id="rpSide"><div class="h-mute">Loading this game's trades...</div></div></div></div>`
+    : `<div class="cl-back"></div><div class="cl rp" role="dialog" aria-label="Your recording">
+${head}${main}${extra}</div>`;
   const v = $("rpV"), off = () => REC[id].offset ?? 0;
   const gameT = () => v.currentTime - off();
   const parse = (x) => { const m = String(x).trim().match(/^(\d+):(\d{1,2})$/); return m ? +m[1] * 60 + +m[2] : +x; };
@@ -2756,7 +2844,8 @@ async function openRecording(A, t) {
   const showClip = () => { $("rpA").value = clock(clip.a); $("rpB2").value = clock(clip.b); $("rpC").style.left = clip.a / dur * 100 + "%"; $("rpC").style.width = Math.max(.3, (clip.b - clip.a) / dur * 100) + "%"; };
   showSync(); showKeep(); showClip();
   const CDX = recCooldowns(A, id, dur, box, gameT, v, off);
-  v.addEventListener("loadedmetadata", () => { v.currentTime = Math.max(0, t + off()); v.play().catch(() => {}); }, { once: true });
+  v.addEventListener("loadedmetadata", () => { v.currentTime = Math.max(0, t + off()); if (!inline) v.play().catch(() => {}); }, { once: true });
+  box.seekTo = (g, play) => { v.currentTime = Math.max(0, g + off()); if (play) v.play().catch(() => {}); };
   v.ontimeupdate = () => { const g = gameT(); $("rpNow").textContent = clock(Math.max(0, g)); $("rpB").style.left = Math.max(0, Math.min(100, g / dur * 100)) + "%"; CDX.tick(g); };
   v.onerror = () => { $("rpMsg").textContent = "The video couldn't be played. It may still be saving, or it was moved."; };
   $("rpS").onclick = (ev) => { const mk = ev.target.closest("i[data-t]"); const rc = $("rpS").getBoundingClientRect();
@@ -2789,8 +2878,9 @@ async function openRecording(A, t) {
   $("rpKeep").onclick = async () => { try { REC[id] = await api(`/api/rec/${id}/${REC[id].kept ? "unkeep" : "keep"}`, { method: "POST" }); } catch (e) { toast(e.message); return; }
     const at = v.currentTime; v.src = `/rec/${id}.mp4?k=${encodeURIComponent(KEY)}&v=${Date.now()}`; v.addEventListener("loadedmetadata", () => { v.currentTime = at; }, { once: true }); showKeep(); };
   $("rpOpen").onclick = () => api("/api/rec/open", { method: "POST" });
-  let raf = 0; const loop = () => { if (!v.paused) CDX.tick(gameT()); raf = requestAnimationFrame(loop); }; raf = requestAnimationFrame(loop);
+  let raf = 0; const loop = () => { if (!v.paused) { CDX.tick(gameT()); if (inline && box.offsetParent === null) v.pause(); } raf = requestAnimationFrame(loop); }; raf = requestAnimationFrame(loop);   // pause when its tab is hidden
   const close = () => { cancelAnimationFrame(raf); v.pause(); v.removeAttribute("src"); v.load(); box.innerHTML = ""; document.removeEventListener("keydown", esc_); };
+  if (inline) box.closeRec = close;
   // Playback controls: skip, frame step, speed (remembered), jump between moments, keyboard shortcuts
   const SPEEDS = [0.25, 0.5, 1, 1.5, 2];
   const setSpeed = (x) => { v.playbackRate = x; try { localStorage.setItem("rpSpeed", x); } catch (e) {} box.querySelectorAll("[data-sp]").forEach(b => b.classList.toggle("h-gold", +b.dataset.sp === x)); };
@@ -2817,11 +2907,14 @@ async function openRecording(A, t) {
   const fs = () => document.fullscreenElement ? document.exitFullscreen() : box.querySelector(".rp-vw").requestFullscreen().catch(() => toast("Full screen isn't available here."));
   $("rpFs").onclick = fs; v.ondblclick = (e) => { e.preventDefault(); fs(); };
   const big = (x) => { box.querySelector(".rp").classList.toggle("big", x); $("rpBig").textContent = x ? "Smaller" : "Bigger"; try { localStorage.setItem("rpBig", x ? "1" : "0"); } catch (e) {} };
-  let big0 = false; try { big0 = localStorage.getItem("rpBig") === "1"; } catch (e) {} big(big0);
+  let big0 = false; try { big0 = localStorage.getItem("rpBig") === "1"; } catch (e) {} if (!inline) big(big0); else $("rpBig").hidden = true;
   $("rpBig").onclick = () => big(!box.querySelector(".rp").classList.contains("big"));
-  const esc_ = (e) => { if (e.key === "Escape") { if (!document.fullscreenElement) close(); } else keys(e); };
+  const esc_ = (e) => {
+    if (!box.isConnected) { cancelAnimationFrame(raf); document.removeEventListener("keydown", esc_); return; }   // left the page
+    if (inline && !box.matches(":hover") && !box.contains(document.activeElement) && !document.fullscreenElement) return;   // keys only while you're on the player
+    if (e.key === "Escape") { if (!document.fullscreenElement && !inline) close(); } else keys(e); };
   document.addEventListener("keydown", esc_);
-  $("rpX").onclick = close; box.querySelector(".cl-back").onclick = close;
+  if (!inline) { $("rpX").onclick = close; box.querySelector(".cl-back").onclick = close; }
 }
 // One-time notice that expert downloads run in the background (on by default for everyone).
 async function xaNotice() {

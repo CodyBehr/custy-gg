@@ -368,6 +368,15 @@ def fill_from_riot(data):
 # --------------------------------------------------------------------------
 
 TRADES_DIR = os.path.join(CACHE_DIR, "trades")
+GRADES_DIR = os.path.join(CACHE_DIR, "grades")
+
+
+def _grades(game_id):
+    try:
+        with open(os.path.join(GRADES_DIR, "%s.json" % int(game_id)), "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
 TRADES_VERSION = 21          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
@@ -2634,6 +2643,9 @@ def make_handler(cfg, token):
                 except Exception as e:
                     core.log.exception("Deaths for %s failed", m.group(1))
                     return self._send(200, {"error": "Couldn't check deaths: %s" % e})
+            m = re.match(r"^/api/grades/(\d+)$", url.path)
+            if m:   # your Right / Wrong / Meh on the coach's moments (the coach's test set)
+                return self._send(200, _grades(m.group(1)))
             m = re.match(r"^/api/trades/(\d+)$", url.path)
             if m:
                 try:
@@ -2711,6 +2723,19 @@ def make_handler(cfg, token):
                 _status("working", "Opening the replay...", game=m.group(1))
                 threading.Thread(target=_open_replay, args=(cfg, m.group(1), t), daemon=True).start()
                 return self._send(202, {"ok": True})
+            m = re.match(r"^/api/grades/(\d+)$", url.path)
+            if m:   # {"key": "trade@193.3", "grade": "right|wrong|meh|null", "note": "...", "text": the coach's read}
+                body = json.loads(self.rfile.read(int(self.headers.get("Content-Length") or 0)) or b"{}")
+                G = _grades(m.group(1))
+                k = str(body.get("key") or "")[:60]
+                if body.get("grade") or body.get("note"):
+                    G[k] = {"grade": body.get("grade"), "note": str(body.get("note") or "")[:2000], "text": str(body.get("text") or "")[:500], "at": time.time()}
+                else:
+                    G.pop(k, None)
+                os.makedirs(GRADES_DIR, exist_ok=True)
+                with open(os.path.join(GRADES_DIR, "%s.json" % m.group(1)), "w", encoding="utf-8") as f:
+                    json.dump(G, f)
+                return self._send(200, G)
             m = re.match(r"^/api/trades/(\d+)/download$", url.path)
             if m:
                 st = _trades_dl.get(m.group(1)) or {}
