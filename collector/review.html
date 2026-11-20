@@ -568,7 +568,11 @@ html[data-theme=light] .h-m, html[data-theme=light] .g-hero { background:#a8394a
 .rp-strip u.f { background:rgba(255,107,120,.65); bottom:auto; top:2px; height:4px; }
 .rp-vw { position:relative; margin-top:12px; } .rp-vw video { margin-top:0; }
 .rp-cd { position:absolute; left:12px; top:12px; display:flex; flex-direction:column; gap:6px; background:rgba(14,16,20,.72); backdrop-filter:blur(4px); border-radius:12px; padding:8px 10px; pointer-events:auto; }
-.rp-cd:empty { display:none; }
+.rp-cd:empty { display:none; } .rp-cd { cursor:move; touch-action:none; user-select:none; } .rp-cd.drag { outline:2px dashed var(--gold); }
+.rp-vw:fullscreen { background:#000; display:flex; align-items:center; justify-content:center; }
+.rp-vw:fullscreen video { width:100%; height:100%; max-height:none; border-radius:0; object-fit:contain; }
+.rp-vw:fullscreen .rp-cd { zoom:1.35; } .rp-vw:fullscreen .rp-flash { border-radius:0; }
+.rp.big { width:98vw; } .rp.big video { max-height:80vh; }
 .rp-cd .ln { display:flex; align-items:center; gap:6px; }
 .rp-cd .pt { width:32px; height:32px; border-radius:50%; border:2px solid var(--red); } .rp-cd .pt.me { border-color:#6ea0ff; }
 .rp-cd .ab { position:relative; width:32px; height:32px; border-radius:7px; overflow:hidden; background:#111; }
@@ -2696,6 +2700,16 @@ function recCooldowns(A, id, dur, box, gameT, v, off) {
     $("rpCdOn").checked = pref("on", true); $("rpCdMine").checked = pref("mine", true); $("rpCdPause").checked = pref("pause", false);
     $("rpCdOn").onchange = e => { setPref("on", e.target.checked); tick(gameT()); }; $("rpCdMine").onchange = e => { setPref("mine", e.target.checked); tick(gameT()); };
     $("rpCdPause").onchange = e => setPref("pause", e.target.checked);
+    // drag the overlay anywhere on the video; the spot is remembered (as a share of the video, so it holds in full screen)
+    const el = $("rpCd"), wrap = el.parentElement;
+    const place = (x, y) => { el.style.left = (x * 100) + "%"; el.style.top = (y * 100) + "%"; };
+    let pos = { x: 0.012, y: 0.02 }; try { pos = JSON.parse(localStorage.getItem("rpCd-pos")) || pos; } catch (e) {}
+    place(pos.x, pos.y);
+    el.onpointerdown = (e) => { e.preventDefault(); el.setPointerCapture(e.pointerId); el.classList.add("drag");
+      const W = wrap.getBoundingClientRect(), R = el.getBoundingClientRect(), dx = e.clientX - R.left, dy = e.clientY - R.top;
+      el.onpointermove = (m) => { const x = Math.max(0, Math.min(W.width - R.width, m.clientX - W.left - dx)) / W.width, y = Math.max(0, Math.min(W.height - R.height, m.clientY - W.top - dy)) / W.height; pos = { x, y }; place(x, y); };
+      el.onpointerup = () => { el.classList.remove("drag"); el.onpointermove = el.onpointerup = null; try { localStorage.setItem("rpCd-pos", JSON.stringify(pos)); } catch (e) {} }; };
+    el.title = "Drag to move";
     const kn = r.cd.opp.key ? `Gold outline and bands on the timeline: their ${r.cd.opp.key} (${r.cd.opp.names[r.cd.opp.key] || ""}).` : "";
     $("rpCdNote").textContent = `Covers 0:00–${clock(r.cd.until)}. Timers are estimates (items counted, runes and refunds not). ${kn}`;
     // timeline: trades as marks, their key ability's downtime and their Flash as bands
@@ -2717,9 +2731,9 @@ async function openRecording(A, t) {
   const clip = { a: Math.max(0, t - 5), b: t + 25 };
   box.innerHTML = `<div class="cl-back"></div><div class="cl rp" role="dialog" aria-label="Your recording">
     <div class="h-r"><div><div class="h-eye" style="color:var(--gold)">Your recording</div><div class="h-hd" style="font-size:22px;font-weight:700">${esc(champName(A.me.championId) + opp)} · <span class="rp-now" id="rpNow">${clock(t)}</span></div></div><button class="h-sp" id="rpX" aria-label="Close">✕</button></div>
-    <div class="rp-vw"><video id="rpV" controls preload="auto" src="/rec/${id}.mp4?k=${encodeURIComponent(KEY)}"></video><div class="rp-cd" id="rpCd"></div><div class="rp-flash" id="rpFl"></div></div>
+    <div class="rp-vw"><video id="rpV" controls controlslist="nofullscreen" disablepictureinpicture preload="auto" src="/rec/${id}.mp4?k=${encodeURIComponent(KEY)}"></video><div class="rp-cd" id="rpCd"></div><div class="rp-flash" id="rpFl"></div></div>
     <div class="rp-strip" id="rpS" title="Click to jump. Coloured marks are this game's moments and deaths.">${marks.map(m => `<i class="${m.cls}" style="left:${m.t / dur * 100}%;width:${Math.max(.4, (m.end - m.t) / dur * 100)}%" title="${esc(clock(m.t) + " " + (m.title || ""))}" data-t="${m.t}"></i>`).join("")}<i class="clip" id="rpC"></i><b id="rpB"></b></div>
-    <div class="cl-row" id="rpCtl"><button data-mv="prev" title="Previous moment (P)">◀ Moment</button><button data-sk="-10" title="Back 10 s (J)">−10s</button><button data-sk="-5" title="Back 5 s (←)">−5s</button><button data-fr="-1" title="Back one frame (,)">‹ Frame</button><button data-fr="1" title="Forward one frame (.)">Frame ›</button><button data-sk="5" title="Forward 5 s (→)">+5s</button><button data-sk="10" title="Forward 10 s (L)">+10s</button><button data-mv="next" title="Next moment (N)">Moment ▶</button>
+    <div class="cl-row" id="rpCtl"><button id="rpFs" title="Full screen with the overlay (F)">⛶ Full screen</button><button id="rpBig" title="Make the player fill the window">Bigger</button><button data-mv="prev" title="Previous moment (P)">◀ Moment</button><button data-sk="-10" title="Back 10 s (J)">−10s</button><button data-sk="-5" title="Back 5 s (←)">−5s</button><button data-fr="-1" title="Back one frame (,)">‹ Frame</button><button data-fr="1" title="Forward one frame (.)">Frame ›</button><button data-sk="5" title="Forward 5 s (→)">+5s</button><button data-sk="10" title="Forward 10 s (L)">+10s</button><button data-mv="next" title="Next moment (N)">Moment ▶</button>
       <span class="h-mute" style="margin-left:8px">Speed</span>${[0.25, 0.5, 1, 1.5, 2].map(x => `<button data-sp="${x}" title="${x}× (− / + to change)">${x}×</button>`).join("")}</div>
     <div class="rp-now-line" id="rpLine"></div>
     <div class="cl-row" id="rpCdOpts" hidden><label><input type="checkbox" id="rpCdOn"> Cooldowns on the video</label><label><input type="checkbox" id="rpCdMine"> Mine too</label><label><input type="checkbox" id="rpCdPause"> Pause when their key ability goes down in a moment</label><span class="h-mute" id="rpCdNote"></span></div>
@@ -2784,9 +2798,15 @@ async function openRecording(A, t) {
     const act = { " ": () => (v.paused ? v.play() : v.pause()), k: () => (v.paused ? v.play() : v.pause()), ArrowLeft: () => skip(-5), ArrowRight: () => skip(5),
       j: () => skip(-10), l: () => skip(10), ",": () => frame(-1), ".": () => frame(1), "-": () => setSpeed(SPEEDS[Math.max(0, i - 1)]), "_": () => setSpeed(SPEEDS[Math.max(0, i - 1)]),
       "+": () => setSpeed(SPEEDS[Math.min(SPEEDS.length - 1, i + 1)]), "=": () => setSpeed(SPEEDS[Math.min(SPEEDS.length - 1, i + 1)]),
-      n: () => moment(1), p: () => moment(-1), f: () => (document.fullscreenElement ? document.exitFullscreen() : v.requestFullscreen().catch(() => {})) }[k.length === 1 ? k.toLowerCase() : k];
+      n: () => moment(1), p: () => moment(-1), f: () => fs() }[k.length === 1 ? k.toLowerCase() : k];
     if (act) { e.preventDefault(); e.stopPropagation(); act(); } };
-  const esc_ = (e) => { if (e.key === "Escape") close(); else keys(e); };
+  // Full screen = the video and its overlay together (the video's own full-screen button would drop the overlay)
+  const fs = () => document.fullscreenElement ? document.exitFullscreen() : box.querySelector(".rp-vw").requestFullscreen().catch(() => toast("Full screen isn't available here."));
+  $("rpFs").onclick = fs; v.ondblclick = (e) => { e.preventDefault(); fs(); };
+  const big = (x) => { box.querySelector(".rp").classList.toggle("big", x); $("rpBig").textContent = x ? "Smaller" : "Bigger"; try { localStorage.setItem("rpBig", x ? "1" : "0"); } catch (e) {} };
+  let big0 = false; try { big0 = localStorage.getItem("rpBig") === "1"; } catch (e) {} big(big0);
+  $("rpBig").onclick = () => big(!box.querySelector(".rp").classList.contains("big"));
+  const esc_ = (e) => { if (e.key === "Escape") { if (!document.fullscreenElement) close(); } else keys(e); };
   document.addEventListener("keydown", esc_);
   $("rpX").onclick = close; box.querySelector(".cl-back").onclick = close;
 }
