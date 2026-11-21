@@ -697,7 +697,7 @@ body.rv-open { overflow:hidden; }
 .rv :focus-visible { outline:2px solid var(--teal); outline-offset:2px; }
 .rv-amb { position:absolute; inset:-60px; background-size:cover; background-position:center; filter:blur(60px) saturate(1.2); opacity:.22; }
 .rv-amb::after { content:""; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 30%, transparent 30%, var(--abyss) 80%); }
-.rv-app { position:relative; height:100vh; display:grid; grid-template-rows:56px minmax(0,1fr) auto; grid-template-columns:minmax(0,1fr); }
+.rv-app { position:relative; height:100vh; display:grid; grid-template-rows:56px minmax(0,1fr); grid-template-columns:minmax(0,1fr); }
 .rv-top { display:flex; align-items:center; gap:22px; padding:0 24px; }
 .rv-back { color:var(--mute2) !important; font-size:13px; display:flex; align-items:center; gap:4px; } .rv-back:hover { color:var(--ink2) !important; }
 .rv-back svg { width:18px; height:18px; fill:currentColor; }
@@ -708,8 +708,9 @@ body.rv-open { overflow:hidden; }
 .rv-tabs { display:flex; gap:22px; font-size:13.5px; }
 .rv-tabs button { color:var(--mute2) !important; padding:18px 0 !important; border-bottom:2px solid transparent !important; border-radius:0 !important; } .rv-tabs button:hover { color:var(--ink2) !important; }
 .rv-tabs button.on { color:var(--gold-hi) !important; border-color:var(--gold) !important; }
-.rv-stage { display:flex; justify-content:center; align-items:center; padding:6px 24px 0; min-height:0; min-width:0; }
-.rv-pl { position:relative; width:min(100%, calc((100vh - 56px - 140px) * 16 / 9)); aspect-ratio:16/9; background:#000; border-radius:14px; overflow:hidden; user-select:none; outline:none;
+.rv-main { display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:24px; padding:6px 24px 16px; min-height:0; min-width:0; }
+.rv-left { min-width:0; display:flex; flex-direction:column; }
+.rv-pl { position:relative; width:min(100%, calc((100vh - 56px - 96px) * 16 / 9)); aspect-ratio:16/9; background:#000; border-radius:12px; overflow:hidden; user-select:none; outline:none;
   box-shadow:0 0 0 1px var(--edge), 0 30px 80px -20px rgba(0,0,0,.8); }
 .rv-pl video { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; margin:0; max-height:none; border-radius:0; }
 .rv-pl.idle { cursor:none; } .rv-pl.idle .rv-ctl, .rv-pl.idle .rv-shade { opacity:0; }
@@ -744,7 +745,7 @@ body.rv-open { overflow:hidden; }
 .rv-panel input { height:30px; background:rgba(1,10,19,.5); border:1px solid var(--edge); border-radius:8px; color:var(--ink2); padding:0 9px; font:inherit; width:120px; }
 .rv-panel label { color:var(--mute2); display:flex; gap:6px; align-items:center; } .rv-panel label input { width:64px; }
 .rv-hud { position:absolute; left:16px; top:16px; display:flex; flex-direction:column; gap:6px; padding:8px; border-radius:12px; background:rgba(1,10,19,.55); backdrop-filter:blur(8px); border:1px solid rgba(200,170,110,.14); cursor:grab; touch-action:none; }
-.rv-pl:fullscreen .rv-hud, .rv-pl:fullscreen .rv-coach { zoom:1.25; }
+.rv-pl:fullscreen .rv-hud { zoom:1.25; }
 .rv-lane { display:flex; align-items:center; gap:5px; }
 .rv-lane .pt { width:30px; height:30px; border-radius:50%; border:2px solid var(--loss2); margin-right:2px; } .rv-lane .pt.me { border-color:var(--you2); }
 .rv-lane .ab { position:relative; width:30px; height:30px; border-radius:5px; overflow:hidden; background:#000; border:1px solid rgba(200,170,110,.35); }
@@ -755,9 +756,11 @@ body.rv-open { overflow:hidden; }
 .rv-lane .ab.on { border-color:var(--win2); } .rv-lane .ab.on .s { font-size:10px; color:var(--win2); }
 .rv-lane .ab.unk img, .rv-lane .ab.lock img { filter:grayscale(1) brightness(.35); }
 .rv-lane .ab.sm { width:22px; height:22px; border-radius:50%; margin-left:3px; } .rv-lane .ab.sm .s { font-size:11px; }
-.rv-coach { position:absolute; right:16px; top:16px; width:340px; background:var(--glass); backdrop-filter:blur(16px); border:1px solid var(--edge); border-radius:14px; padding:14px 16px;
-  transform:translateX(24px); opacity:0; pointer-events:none; transition:transform .35s cubic-bezier(.2,.8,.2,1), opacity .25s; }
-.rv-coach.in { transform:none; opacity:1; pointer-events:auto; }
+.rv-coach { background:var(--glass); border:1px solid var(--edge); border-radius:14px; padding:16px 18px; flex:none; }
+.rv-coach.in { animation:rvin .3s cubic-bezier(.2,.8,.2,1); }
+@keyframes rvin { from { opacity:.4; transform:translateY(6px); } to { opacity:1; transform:none; } }
+.rv-coach .next { color:var(--mute2); margin-top:4px; }
+.rv-go { margin-top:10px; height:30px; padding:0 14px !important; border-radius:15px !important; border:1px solid var(--edge) !important; color:var(--gold-hi) !important; }
 .rv-coach .when { color:var(--mute2); font-size:12.5px; }
 .rv-coach h2 { margin:2px 0 10px; font-size:24px; line-height:1.1; font-weight:700; font-stretch:84%; color:var(--gold-hi); }
 .rv-coach h2.w { color:var(--win2); } .rv-coach h2.l { color:var(--loss2); }
@@ -780,19 +783,21 @@ body.rv-open { overflow:hidden; }
 .rv-cen svg { width:34px; height:34px; fill:var(--gold-hi); } .rv-cen.go { animation:rvping .5s ease-out; }
 @keyframes rvping { 0% { opacity:1; transform:scale(.85); } 100% { opacity:0; transform:scale(1.25); } }
 .rv-flash { position:absolute; inset:0; pointer-events:none; box-shadow:inset 0 0 0 3px var(--teal); opacity:0; transition:opacity .25s; } .rv-flash.go { opacity:1; }
-.rv-reel { padding:14px 24px 16px; display:flex; align-items:center; gap:14px; min-width:0; }
-.rv-lbl { flex:none; font-size:12.5px; color:var(--mute2); width:120px; line-height:1.3; } .rv-lbl b { display:block; color:var(--ink2); font-size:16px; font-stretch:88%; }
-.rv-cards { min-width:0; flex:1; display:flex; gap:8px; overflow-x:auto; padding:2px 2px 6px; scrollbar-width:thin; scrollbar-color:rgba(200,170,110,.3) transparent; }
-.rv-card { flex:none; width:150px; padding:10px 12px !important; border-radius:12px !important; background:rgba(10,21,32,.6) !important; border:1px solid rgba(200,170,110,.12) !important; text-align:left; transition:border-color .15s, background .15s; }
+.rv-side { min-height:0; display:flex; flex-direction:column; gap:12px; }
+.rv-under { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; padding:14px 2px 0; max-width:min(100%, calc((100vh - 56px - 96px) * 16 / 9)); }
+.rv-under h2 { margin:0; font-size:20px; font-weight:700; font-stretch:88%; } .rv-under span { color:var(--mute2); font-size:13px; }
+
+.rv-cards { min-height:0; flex:1; display:flex; flex-direction:column; gap:6px; overflow-y:auto; padding:0 4px 6px 0; scrollbar-width:thin; scrollbar-color:rgba(200,170,110,.3) transparent; }
+.rv-card { flex:none; width:100%; display:grid !important; grid-template-columns:52px 1fr auto; grid-template-rows:auto auto; column-gap:12px; align-items:center; padding:10px 12px !important; border-radius:12px !important; background:rgba(10,21,32,.6) !important; border:1px solid rgba(200,170,110,.12) !important; text-align:left; transition:border-color .15s, background .15s; }
 .rv-card:hover { border-color:var(--edge) !important; background:rgba(10,21,32,.9) !important; }
 .rv-card.cur { border-color:var(--gold) !important; background:rgba(200,170,110,.1) !important; } .rv-card.x { opacity:.55; }
-.rv-card .t { font-size:12px; color:var(--mute2); font-variant-numeric:tabular-nums; display:flex; justify-content:space-between; } .rv-card .t .g { color:var(--gold); }
-.rv-card .res { font-size:17px; font-weight:700; font-stretch:84%; margin:2px 0 7px; color:var(--gold-hi); } .rv-card .res.w { color:var(--win2); } .rv-card .res.l { color:var(--loss2); }
-.rv-card .mini { display:flex; flex-direction:column; gap:3px; } .rv-card .mini i { display:block; height:3px; border-radius:2px; background:rgba(240,230,210,.1); overflow:hidden; }
+.rv-card .t { grid-row:1 / span 2; font-size:13px; color:var(--mute2); font-variant-numeric:tabular-nums; display:flex; flex-direction:column; gap:4px; } .rv-card .t .g { color:var(--gold); font-size:12px; }
+.rv-card .res { font-size:16px; font-weight:700; font-stretch:84%; color:var(--gold-hi); } .rv-card .res.w { color:var(--win2); } .rv-card .res.l { color:var(--loss2); }
+.rv-card .mini { grid-column:3; grid-row:1 / span 2; width:90px; display:flex; flex-direction:column; gap:4px; } .rv-card .mini i { display:block; height:3px; border-radius:2px; background:rgba(240,230,210,.1); overflow:hidden; }
 .rv-card .mini i b { display:block; height:100%; float:right; background:var(--loss2); } .rv-card .mini i.t b { background:var(--win2); }
-.rv-card .cv { font-size:11.5px; color:var(--mute2); margin-top:7px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.rv-card .cv { font-size:12px; color:var(--mute2); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .rv-none { color:var(--mute2); padding:20px; }
-.rv-send { flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:6px; font-size:12px; color:var(--mute2); width:160px; text-align:right; }
+.rv-send { flex:none; display:flex; align-items:center; gap:12px; font-size:12.5px; color:var(--mute2); }
 .rv-send button { height:32px; padding:0 14px !important; border-radius:16px !important; background:var(--gold) !important; color:#1b1508 !important; font-weight:600; } .rv-send button:disabled { opacity:.4; cursor:default; }
 .rv-sheet { position:absolute; inset:0; background:rgba(1,10,19,.6); backdrop-filter:blur(4px); display:grid; place-items:center; z-index:10; }
 .rv-sheet > div { background:var(--deep); border:1px solid var(--edge); border-radius:14px; padding:20px 24px; min-width:380px; }
@@ -800,7 +805,7 @@ body.rv-open { overflow:hidden; }
 .rv-sheet dl { display:grid; grid-template-columns:auto 1fr; gap:8px 20px; margin:0; font-size:13px; } .rv-sheet dt { color:var(--gold-hi); font-weight:600; } .rv-sheet dd { margin:0; color:var(--mute2); }
 .lt-review { display:flex; align-items:center; gap:16px; padding:16px 20px; margin-bottom:14px; border-radius:14px; background:linear-gradient(90deg, rgba(200,170,110,.14), rgba(200,170,110,.04)); border:1px solid rgba(200,170,110,.25); }
 .lt-review b { font-size:16px; } .lt-review span { color:var(--mute); font-size:13px; } .lt-review button { margin-left:auto; }
-@media (max-width:1000px) { .rv-tabs { display:none; } .rv-coach { width:280px; } }
+@media (max-width:1100px) { .rv-tabs { display:none; } .rv-main { grid-template-columns:1fr; overflow:auto; } .rv-pl { width:100%; } .rv-under { max-width:none; } }
 @media (prefers-reduced-motion:reduce) { .rv * { transition:none !important; animation:none !important; } }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
@@ -3205,10 +3210,9 @@ async function openReview(A, r, t0) {
     <div style="flex:1"></div>
     <nav class="rv-tabs"><button data-go="moments">Moments</button><button data-go="experts">Breakdown vs experts</button><button class="on" data-go="trades">Lane trades</button></nav>
    </div>
-   <div class="rv-stage"><div class="rv-pl" id="rvPl" tabindex="0">
+   <div class="rv-main"><div class="rv-left"><div class="rv-pl" id="rvPl" tabindex="0">
      <video id="rvV" preload="auto" disablepictureinpicture src="/rec/${id}.mp4?k=${encodeURIComponent(KEY)}"></video>
      <div class="rv-hud" id="rvHud" title="Drag to move"></div>
-     <div class="rv-coach" id="rvCoach" aria-live="polite"></div>
      <div class="rv-cen" id="rvCen"></div><div class="rv-flash" id="rvFl"></div>
      <div class="rv-shade"></div>
      <div class="rv-ctl">
@@ -3228,12 +3232,16 @@ async function openReview(A, r, t0) {
      </div>
      <div class="rv-menu" id="rvMenu" hidden></div>
      <div class="rv-panel" id="rvPanel" hidden></div>
-   </div></div>
-   <div class="rv-reel">
-    <div class="rv-lbl"><b>${solo.filter(i => CLS[i.res] === "w").length} won, ${solo.filter(i => CLS[i.res] === "l").length} lost</b>1v1 trades in lane</div>
-    <div class="rv-cards" id="rvCards"></div>
-    <div class="rv-send"><span id="rvSendN"></span><button id="rvSend">Send my grades</button></div>
    </div>
+    <div class="rv-under">
+     <div><h2>${solo.filter(i => CLS[i.res] === "w").length} won, ${solo.filter(i => CLS[i.res] === "l").length} lost</h2><span>1v1 trades with ${esc(oppName)} in lane</span></div>
+     <div class="rv-send"><span id="rvSendN"></span><button id="rvSend">Send my grades</button></div>
+    </div>
+   </div>
+   <aside class="rv-side">
+    <div class="rv-coach" id="rvCoach" aria-live="polite"></div>
+    <div class="rv-cards" id="rvCards"></div>
+   </aside></div>
   </div>
   <div class="rv-sheet" id="rvSheet" hidden><div><h3>Keyboard shortcuts</h3><dl>
    <dt>Space or K</dt><dd>Play or pause</dd><dt>J / L</dt><dd>Back or forward 10 seconds</dd><dt>← / →</dt><dd>Back or forward 5 seconds</dd><dt>, / .</dt><dd>One frame</dd>
@@ -3306,7 +3314,10 @@ async function openReview(A, r, t0) {
   // ---- the coach card on the video
   const coach = () => {
     const it = items[st.cur], box = $$("rvCoach");
-    if (!it) { box.classList.remove("in"); st.shown = -1; return; }
+    if (!it) { if (st.shown !== -2) { st.shown = -2; const g = gameT(), nx = items.find(x => x.t > g);
+        box.innerHTML = nx ? `<div class="when">Between trades</div><h2>Next: ${clock(nx.t)}</h2><p class="next">${WORD[nx.res]}${nx.res === "won" || nx.res === "lost" ? ` by ${Math.round(Math.abs(nx.net) * 100)}% health` : ""}${nx.rd ? ". Coach: " + esc((VW[nx.rd.verdict] || nx.rd.verdict).toLowerCase()) : ""}</p><button class="rv-go" id="rvGoNext">Jump to it (N)</button>`
+          : `<div class="when">Between trades</div><h2>No more trades</h2><p class="next">That's the last 1v1 trade in lane.</p>`;
+        box.classList.add("in"); if ($$("rvGoNext")) $$("rvGoNext").onclick = () => step(1); } return; }
     if (st.shown !== st.cur) { st.shown = st.cur; const g = st.grades[it.key] || {};
       box.innerHTML = `<div class="when">${clock(it.t)}, ${it.tr.first === "you" ? "you went in" : esc(oppName) + " went in"}${it.solo ? "" : ", others joined"}</div>
         <h2 class="${CLS[it.res]}">${WORD[it.res]}${it.res === "won" || it.res === "lost" ? ` by ${Math.round(Math.abs(it.net) * 100)}% health` : it.res === "even" ? " trade" : ""}</h2>
@@ -3403,7 +3414,7 @@ async function openReview(A, r, t0) {
     if (q !== lastQ) { lastQ = q; if ($$("rvTip") && !$$("rvTip").hidden) { $$("rvDone").style.width = X(g) + "%"; $$("rvKnob").style.left = X(g) + "%"; } else drawScrub(); }
     else { $$("rvDone").style.width = X(g) + "%"; $$("rvKnob").style.left = X(g) + "%"; }
     let c = -1; items.forEach((it, i) => { if (g >= it.t - 2 && g <= it.end + 7) c = i; });
-    if (c !== st.cur) { st.cur = c; drawCards(); $$("rvCards").querySelector(".cur")?.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" }); }
+    if (c !== st.cur) { st.cur = c; drawCards(); $$("rvCards").querySelector(".cur")?.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
     coach();
     // pause when their key ability goes down during a trade (each once)
     if (st.pause && !v.paused && st.last >= 0) for (const [a] of keyWins()) if (st.last < a && g >= a && !st.paused[a] && items.some(it => a >= it.t - 4 && a <= it.end + 4)) {
