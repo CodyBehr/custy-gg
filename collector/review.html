@@ -807,6 +807,108 @@ body.rv-open { overflow:hidden; }
 .lt-review b { font-size:16px; } .lt-review span { color:var(--mute); font-size:13px; } .lt-review button { margin-left:auto; }
 @media (max-width:1100px) { .rv-tabs { display:none; } .rv-main { grid-template-columns:1fr; overflow:auto; } .rv-pl { width:100%; } .rv-under { max-width:none; } }
 @media (prefers-reduced-motion:reduce) { .rv * { transition:none !important; animation:none !important; } }
+/* Overview, op.gg style (League client palette, like Review mode) */
+.op { --op-card:rgba(13,26,38,.82); --op-edge:rgba(200,170,110,.18); --op-gold:#c8aa6e; --op-gold-hi:#f0e6d2; --op-ink:#f0e6d2; --op-mute:#a09b8c; --op-faint:#7d7a70;
+  --op-win:#3ccf91; --op-loss:#e84057; --op-blue:#4a9fd8; position:relative; color:var(--op-ink); font-family:"Archivo",Inter,system-ui,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; padding-bottom:40px; }
+html[data-theme=light] .op { --op-card:#ffffff; --op-edge:rgba(120,95,40,.22); --op-gold:#9a7a35; --op-gold-hi:#3b2f14; --op-ink:#1b1d24; --op-mute:#5b5e68; --op-faint:#7a7d86; --op-blue:#2f6fb0; --op-loss:#c22c44; }
+.op-amb { position:absolute; inset:-30px -40px auto; height:440px; background:center 20%/cover; opacity:.16; z-index:0; pointer-events:none; -webkit-mask:radial-gradient(ellipse 75% 100% at 55% 0%,#000 35%,transparent 100%); mask:radial-gradient(ellipse 75% 100% at 55% 0%,#000 35%,transparent 100%); }
+html[data-theme=light] .op-amb { opacity:.08; }
+.op > :not(.op-amb) { position:relative; z-index:1; }
+.op .op-btn, .op .op-link, .op-tabs button, .op .op-chev { font:inherit; color:inherit; cursor:pointer; background:none; border:0; padding:0; border-radius:0; height:auto; box-shadow:none; }
+.op a { color:inherit; text-decoration:none; } .op a:hover { text-decoration:underline; }
+.op-mute { color:var(--op-mute); font-size:13px; }
+.op-head { display:flex; align-items:flex-end; gap:22px; padding:30px 0 20px; }
+.op-ava { position:relative; width:96px; height:96px; flex:none; } .op-ava img { width:100%; height:100%; border-radius:22px; border:2px solid var(--op-gold); object-fit:cover; }
+.op-ava b { position:absolute; left:50%; bottom:-9px; transform:translateX(-50%); background:#0a1520; color:#f0e6d2; border:1px solid var(--op-gold); border-radius:10px; padding:1px 8px; font-size:12px; }
+.op-who h1 { margin:0; font-size:38px; line-height:1; font-weight:800; font-stretch:80%; } .op-who h1 span { color:var(--op-mute); font-weight:500; font-size:22px; margin-left:6px; }
+.op-who .meta { color:var(--op-mute); font-size:13px; margin-top:8px; }
+.op-acts { margin-left:auto; display:flex; gap:10px; }
+.op .op-btn { border:1px solid var(--op-edge) !important; height:36px; padding:0 16px; border-radius:18px; border:1px solid var(--op-edge); color:var(--op-gold-hi); display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:13.5px; }
+.op .op-btn:hover { border-color:var(--op-gold); }
+.op .op-btn.live { background:rgba(60,207,145,.12); border-color:rgba(60,207,145,.5); color:#bff3dc; }
+html[data-theme=light] .op .op-btn.live { color:#13724d; }
+.op-pulse { width:8px; height:8px; border-radius:50%; background:var(--op-win); animation:oppulse 1.6s infinite; }
+@keyframes oppulse { 0% { box-shadow:0 0 0 0 rgba(60,207,145,.6); } 70%,100% { box-shadow:0 0 0 8px rgba(60,207,145,0); } }
+.op-tabs { display:flex; gap:26px; border-bottom:1px solid var(--op-edge); margin-bottom:20px; }
+.op-tabs button { padding:12px 0 !important; color:var(--op-mute); border-bottom:2px solid transparent !important; margin-bottom:-1px; font-size:14.5px; }
+.op-tabs button.on { color:var(--op-gold-hi); border-bottom-color:var(--op-gold) !important; }
+.op-tabs .n { display:inline-block; margin-left:6px; padding:0 7px; border-radius:9px; background:rgba(60,207,145,.18); color:var(--op-win); font-size:11.5px; font-weight:700; }
+.op-grid { display:grid; grid-template-columns:340px minmax(0,1fr); gap:20px; align-items:start; }
+.op-stack { display:flex; flex-direction:column; gap:16px; }
+.op-panel { background:var(--op-card); border:1px solid var(--op-edge); border-radius:16px; padding:18px; }
+.op-panel h2, .op-bar h2 { margin:0 0 12px; font-size:15px; font-weight:700; font-stretch:90%; font-family:inherit; letter-spacing:0; }
+.op-panel h2 small { color:var(--op-mute); font-weight:400; font-size:12.5px; margin-left:6px; }
+.op-rank { display:grid; grid-template-columns:88px 1fr; gap:14px; align-items:center; } .op-rank img { width:88px; }
+.op-rank .tier { font-size:22px; font-weight:800; font-stretch:84%; } .op-rank .lp { color:var(--op-mute); font-size:13px; }
+.op-rank .wl { margin-top:6px; font-size:13px; color:var(--op-mute); } .op-rank .wl b { color:var(--op-ink); }
+.op-lpg { margin-top:12px; } .op-lpg svg { display:block; width:100%; height:56px; }
+.op-flex { display:flex; align-items:center; gap:12px; color:var(--op-mute); font-size:13px; margin-top:14px; padding-top:12px; border-top:1px solid var(--op-edge); }
+.op-flex img { width:40px; } .op-flex b { color:var(--op-ink); }
+.op-row { display:grid; grid-template-columns:36px 1fr 70px 62px; gap:10px; align-items:center; padding:8px 0; border-top:1px solid var(--op-edge); }
+.op-row.wide { grid-template-columns:36px 1fr 100px 90px 90px; }
+.op-champs h2 + .op-row { border-top:0; }
+.op-row img { width:36px; height:36px; border-radius:50%; }
+.op-row .nm b { display:block; font-size:14px; } .op-row .nm span, .op-row .num span { display:block; font-size:11.5px; color:var(--op-mute); }
+.op-row .num { text-align:right; font-size:13.5px; } .op-row .num.wr b { font-weight:700; }
+.op-hdr { font-size:11.5px; color:var(--op-mute); padding-top:0; } .op-hdr span:nth-child(n+3) { text-align:right; }
+.op .hot b, .op .hot { color:#ff9f5a; } .op .good { color:var(--op-blue); } .op .bad b { color:var(--op-loss); }
+.op .op-link { color:var(--op-gold); font-size:13px; margin-top:10px; } .op .op-link:hover { text-decoration:underline; }
+.op-roles { display:flex; gap:8px; } .op-roles div { flex:1; text-align:center; font-size:12px; color:var(--op-mute); }
+.op-roles i { display:block; height:48px; border-radius:6px; background:rgba(128,128,128,.12); position:relative; overflow:hidden; margin-bottom:6px; }
+.op-roles i b { position:absolute; left:0; right:0; bottom:0; background:var(--op-gold); }
+.op-sum { display:grid; grid-template-columns:auto auto 1fr; gap:28px; align-items:center; }
+.op-donut { position:relative; width:92px; height:92px; } .op-donut b { position:absolute; inset:0; display:grid; place-items:center; font-size:20px; font-weight:800; font-stretch:84%; }
+.op-sum .big { font-size:26px; font-weight:800; font-stretch:84%; }
+.op-form { display:flex; gap:3px; margin-top:8px; } .op-form i { width:8px; height:24px; border-radius:2px; background:var(--op-loss); } .op-form i.w { background:var(--op-blue); }
+.op-most { display:flex; gap:18px; justify-content:flex-end; margin-top:10px; } .op-most div { display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--op-mute); }
+.op-most img { width:30px; height:30px; border-radius:50%; } .op-most b { color:var(--op-ink); }
+.op-read:empty { display:none; }
+.op-read { display:flex; align-items:center; gap:12px; margin-top:16px; padding-top:14px; border-top:1px solid var(--op-edge); font-size:14px; }
+.op-read .op-link { margin:0 0 0 auto; white-space:nowrap; }
+.op-coach { flex:none; font-size:11.5px; font-weight:700; padding:3px 9px; border-radius:10px; background:rgba(200,170,110,.16); color:var(--op-gold); }
+.op-bar { display:flex; align-items:center; gap:14px; margin:22px 0 10px; } .op-bar h2 { margin:0; } .op-bar .h-seg { margin-left:auto; }
+.op-games { display:flex; flex-direction:column; gap:8px; }
+.op-g { display:grid; grid-template-columns:6px 104px 206px 120px auto minmax(0,1fr) 24px; align-items:center; gap:14px; border-radius:12px; background:rgba(232,64,87,.08); border:1px solid rgba(232,64,87,.16); overflow:hidden; padding-right:10px; min-height:96px; cursor:pointer; }
+.op-g.w { background:rgba(74,159,216,.1); border-color:rgba(74,159,216,.22); }
+.op-g:hover { filter:brightness(1.12); }
+.op-stripe { align-self:stretch; background:var(--op-loss); } .op-g.w .op-stripe { background:var(--op-blue); }
+.op-q { font-size:12.5px; color:var(--op-mute); line-height:1.5; } .op-q b { display:block; font-size:14px; color:var(--op-loss); } .op-g.w .op-q b { color:var(--op-blue); }
+.op-lp { font-weight:700; color:var(--op-ink); } .op-lp small { font-weight:400; color:var(--op-mute); margin-left:4px; }
+.op-c { display:flex; align-items:center; gap:8px; }
+.op-ci { position:relative; flex:none; } .op-ci img { width:50px; height:50px; border-radius:12px; display:block; }
+.op-ci b { position:absolute; right:-4px; bottom:-4px; background:#0a1520; color:#f0e6d2; font-size:10.5px; border-radius:8px; padding:0 5px; border:1px solid var(--op-edge); }
+.op-sp { display:grid; grid-template-columns:22px 22px; gap:3px; } .op-sp img { width:22px; height:22px; border-radius:5px; }
+.op .sub { padding:3px; box-sizing:border-box; }
+.op-kda b { font-size:17px; font-stretch:88%; white-space:nowrap; } .op-kda b span { color:var(--op-loss); } .op-kda div { font-size:12px; }
+.op-st { font-size:12.5px; color:var(--op-mute); line-height:1.6; } .op-st .h-tags { margin-top:2px; }
+.op-items { display:flex; gap:3px; } .op-items img, .op-items i { width:24px; height:24px; border-radius:6px; background:rgba(128,128,128,.14); display:block; }
+.op-items > :last-child { border-radius:50%; margin-left:3px; }
+.op-teams { display:grid; grid-template-columns:1fr 1fr; gap:2px 10px; font-size:11.5px; color:var(--op-mute); min-width:0; }
+.op-teams span { display:flex; align-items:center; gap:4px; white-space:nowrap; overflow:hidden; min-width:0; } .op-teams span a, .op-teams span { text-overflow:ellipsis; }
+.op-teams img { width:16px; height:16px; border-radius:4px; flex:none; } .op-teams .me { color:var(--op-gold-hi); font-weight:600; }
+.op-chev { color:var(--op-mute); font-size:14px; align-self:stretch; }
+.op-det { margin:-4px 0 4px; grid-template-columns:1fr; border-radius:0 0 14px 14px; background:var(--op-card); border:1px solid var(--op-edge); border-top:0; }
+.op-det .h-find { display:flex; align-items:center; gap:16px; flex-wrap:wrap; } .op-det .h-find ul { flex:1; margin:0; } .op-det .h-find .h-gold { width:auto; padding:0 22px; }
+.op-det .h-team th:nth-child(2) { width:96px; } .op-det .h-team th:nth-child(3) { width:96px; } .op-det .h-team th:nth-child(4) { width:110px; }
+.op-lvtop { display:flex; align-items:center; gap:16px; margin-bottom:16px; } .op-lvtop h2 { margin:0; font-size:22px; font-weight:800; font-stretch:84%; font-family:inherit; }
+.op-lvtop .clock { font-size:28px; font-weight:800; font-stretch:80%; font-variant-numeric:tabular-nums; min-width:80px; text-align:right; } .op-lvtop .op-btn { margin-left:auto; }
+.op-team { border:1px solid var(--op-edge); border-radius:16px; overflow:hidden; margin-bottom:14px; background:var(--op-card); }
+.op-team h3 { margin:0; padding:12px 18px; font-size:14px; font-weight:700; display:flex; gap:12px; align-items:center; border-bottom:1px solid var(--op-edge); }
+.op-team.b h3 { color:#8cc4ef; } .op-team.r h3 { color:#f08a9a; } html[data-theme=light] .op-team.b h3 { color:#2f6fb0; } html[data-theme=light] .op-team.r h3 { color:#c22c44; }
+.op-team .bans { margin-left:auto; display:flex; gap:4px; align-items:center; color:var(--op-mute); font-weight:400; font-size:12px; } .op-team .bans img { width:22px; height:22px; border-radius:5px; filter:grayscale(1) brightness(.7); }
+.op-pl { display:grid; grid-template-columns:48px 22px 22px minmax(160px,240px) 190px 190px 1fr; gap:12px; align-items:center; padding:10px 18px; border-top:1px solid var(--op-edge); }
+.op-team h3 + .op-pl { border-top:0; } .op-pl.me { background:rgba(200,170,110,.1); }
+.op-pl .ci { width:48px; height:48px; border-radius:12px; }
+.op-pl .sp, .op-pl .rn { display:flex; flex-direction:column; gap:3px; } .op-pl .sp img, .op-pl .rn img { width:22px; height:22px; border-radius:5px; }
+.op-pl .nm b { display:block; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } .op-pl .nm span, .op-pl .rk span, .op-pl .cw span { display:block; color:var(--op-mute); font-size:12px; }
+.op-pl .rk { display:flex; align-items:center; gap:8px; } .op-pl .rk img { width:38px; } .op-pl .rk b, .op-pl .cw b { display:block; font-size:13.5px; }
+.op-wrbar { height:5px; border-radius:3px; background:rgba(232,64,87,.55); overflow:hidden; margin-top:5px; width:110px; } .op-wrbar i { display:block; height:100%; background:var(--op-blue); }
+.op-pl .tag { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+.op-chip { font-size:11.5px; padding:3px 9px; border-radius:10px; background:rgba(128,128,128,.14); color:var(--op-mute); }
+.op-chip.hot { background:rgba(255,159,90,.14); color:#ff9f5a; } .op-chip.warn { background:rgba(232,64,87,.12); color:var(--op-loss); } .op-chip.ok { background:rgba(74,159,216,.14); color:var(--op-blue); }
+@media (max-width:1180px) { .op-grid { grid-template-columns:1fr; } .op-g { grid-template-columns:6px 96px 1fr 110px 24px; } .op-items, .op-teams { display:none; }
+  .op-pl { grid-template-columns:48px 1fr 170px; } .op-pl .sp, .op-pl .rn, .op-pl .cw, .op-pl .tag { display:none; } }
+@media (prefers-reduced-motion:reduce) { .op-pulse { animation:none; } }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap">
 </head>
@@ -3815,7 +3917,7 @@ function navState() {
   const c = STATE.current, inGame = c != null && !["home", "experts", "matchups", "game", "recordings"].includes(c);
   document.querySelectorAll("#toptabs [data-nav]").forEach(b => b.classList.toggle("on", b.dataset.nav === c || (inGame && b.dataset.nav === "game")));
   drawPicker(inGame ? c : null);
-  $("rk").hidden = c === "matchups";
+  $("rk").hidden = c === "matchups" || c === "home";
 }
 document.querySelectorAll("#toptabs [data-nav]").forEach(b => b.onclick = () => b.dataset.nav === "home" ? openOverview(true) : b.dataset.nav === "experts" ? openHome(true) : b.dataset.nav === "game" ? openAnalyzer() : b.dataset.nav === "recordings" ? openRecordings() : openMatchups());
 // Game analyzer: jump straight to a game, picked from a list with champion icons
@@ -3951,21 +4053,27 @@ function hvLp(g) {
   const moved = l.from && l.to && rankName(l.from) !== rankName(l.to);
   return `${signed(l.delta)}<small>${moved ? (l.delta > 0 ? "▲ " : "▼ ") + esc(rankName(l.to)) : "LP"}</small>`;
 }
+// op.gg-style match rows: result, champion with spells and runes, KDA, CS / kill share / lane opponent, items, both teams.
 function hvRows() {
   const list = hvList();
   if (!list.length) return `<div class="h-note">No games in this queue yet.</div>`;
+  const it = (i) => i ? `<img src="${itemIcon(i)}" alt="" title="${esc(itemName(i))}">` : "<i></i>";
   return list.slice(0, HV.shown).map(g => { const open = HV.open == g.id, P = g.players || [], me = P.find(p => p.pid === g.pid), mins = Math.max(1, g.duration / 60);
-    const order = me ? [...P.filter(p => p.team === me.team), ...P.filter(p => p.team !== me.team)] : P;
-    return `<div class="h-m${g.win ? " w" : ""}${open ? " open" : ""}" data-row="${g.id}"><div class="h-res" role="img" aria-label="${g.win ? "Victory" : "Defeat"}">${g.win ? "W" : "L"}</div>
-      <div class="h-r"><img class="h-champ" src="${champIcon(g.champion)}" alt=""><div><b style="font-size:16px">${esc(champName(g.champion))}${g.opponent ? ` <span class="h-mute" style="font-weight:400">vs ${esc(champName(g.opponent))}</span>` : ""}</b>
-        <div class="h-mute h-sm">${esc(shortQueue(g.queue))} · ${hAgo(g.created + g.duration * 1000)} · ${Math.round(mins)}m</div>${(g.tags || []).length ? `<div class="h-tags">${g.tags.map(t => `<span class="h-tag h-t-${HV_TAG[t] || "common"}">${esc(t)}</span>`).join("")}</div>` : ""}</div></div>
-      <div><b style="font-size:16px">${g.kills} / ${g.deaths} / ${g.assists}</b><div>${hkr(g.kills, g.deaths, g.assists)}</div></div>
-      <div><b>${g.cs} CS</b><div class="h-mute h-sm">${(g.cs / mins).toFixed(1)} / min</div></div>
-      <div class="h-teams" role="img" aria-label="Both teams">${order.map(p => `<img src="${champIcon(p.champ)}" alt="" title="${esc(champName(p.champ))}">`).join("")}</div>
-      <div class="h-lp">${hvLp(g)}</div>
-      <button class="h-chev" aria-expanded="${open}" aria-label="${open ? "Hide" : "Show"} match details">${open ? "▴" : "▾"}</button></div>
-      ${open ? `<div class="h-det">${hvScore(g) || `<div class="h-mute">The scoreboard isn't available for this game.</div>`}<div class="h-find"><div class="h-eye" style="color:#f3c34b">What the coach found</div><ul id="hvFind${g.id}"><li>Reading the game...</li></ul><button class="h-gold" data-analyze="${g.id}">Analyze game</button></div></div>` : ""}`; }).join("")
-    + (list.length > HV.shown ? `<div style="text-align:center;margin:20px 0 0"><button class="h-pill" id="hvMore">Show more games</button></div>` : "");
+    const mine = me ? P.filter(p => p.team === me.team) : [], theirs = me ? P.filter(p => p.team !== me.team) : [];
+    const tk = mine.reduce((a, p) => a + (p.k || 0), 0), kp = tk ? Math.round(100 * (g.kills + g.assists) / tk) : null;
+    const pl = (p) => p ? `<span class="${p === me ? "me" : ""}"><img src="${champIcon(p.champ)}" alt="">${p.name && p.tag && p !== me ? `<a href="#" data-lookup="${esc(p.name + "#" + p.tag)}" title="Open ${esc(p.name)}'s overview">${esc(p.name)}</a>` : esc(p.name || champName(p.champ))}</span>` : "<span></span>";
+    const items = g.items ? [...g.items.slice(0, 6), g.items[6]] : null;
+    return `<div class="op-g${g.win ? " w" : ""}${open ? " open" : ""}" data-row="${g.id}"><div class="op-stripe"></div>
+      <div class="op-q"><b>${g.win ? "Victory" : "Defeat"}</b>${esc(shortQueue(g.queue))}<br>${hAgo(g.created + g.duration * 1000)}<br>${Math.floor(g.duration / 60)}m ${g.duration % 60}s${g.lp && hvLp(g) ? `<div class="op-lp">${hvLp(g)}</div>` : ""}</div>
+      <div class="op-c"><span class="op-ci"><img src="${champIcon(g.champion)}" alt="${esc(champName(g.champion))}">${g.level ? `<b>${g.level}</b>` : ""}</span>
+        ${g.spells ? `<div class="op-sp">${spellIcon(g.spells[0])}${runeIcon(g.runes?.[0])}${spellIcon(g.spells[1])}${g.runes?.[1] && DD.styles?.[g.runes[1]] ? `<img class="sub" src="https://ddragon.leagueoflegends.com/cdn/img/${DD.styles[g.runes[1]].icon}" alt="" title="${esc(DD.styles[g.runes[1]].name)}">` : ""}</div>` : ""}
+        <div class="op-kda"><b>${g.kills} / <span>${g.deaths}</span> / ${g.assists}</b><div>${hkr(g.kills, g.deaths, g.assists)}</div></div></div>
+      <div class="op-st">${g.cs} CS (${(g.cs / mins).toFixed(1)})<br>${kp != null ? kp + "% kill share" : ""}<br>${g.opponent ? "vs " + esc(champName(g.opponent)) : ""}${(g.tags || []).length ? `<div class="h-tags">${g.tags.slice(0, 2).map(t => `<span class="h-tag h-t-${HV_TAG[t] || "common"}">${esc(t)}</span>`).join("")}</div>` : ""}</div>
+      <div class="op-items">${items ? items.map(it).join("") : ""}</div>
+      <div class="op-teams">${me ? [0, 1, 2, 3, 4].map(i => pl(mine[i]) + pl(theirs[i])).join("") : ""}</div>
+      <button class="op-chev" aria-expanded="${open}" aria-label="${open ? "Hide" : "Show"} match details">${open ? "▴" : "▾"}</button></div>
+      ${open ? `<div class="h-det op-det">${hvScore(g) || `<div class="h-mute">The scoreboard isn't available for this game.</div>`}<div class="h-find"><div class="h-eye" style="color:var(--op-gold)">What the coach found</div><ul id="hvFind${g.id}"><li>Reading the game...</li></ul><button class="h-gold" data-analyze="${g.id}">Analyze game</button></div></div>` : ""}`; }).join("")
+    + (list.length > HV.shown ? `<div style="text-align:center;margin:16px 0 0"><button class="op-btn" id="hvMore" style="margin:auto">Show more games</button></div>` : "");
 }
 async function hvFindings(id) {
   const g = STATE.games.find(x => x.id == id), el = $("hvFind" + id); if (!g || !el) return;
@@ -3980,41 +4088,181 @@ async function hvFindings(id) {
   const now = $("hvFind" + id); if (now) now.innerHTML = L.length ? L.map(x => `<li>${x}</li>`).join("") : `<li>${g.hasTimeline ? "Open the game for the full review." : "League gave no timeline for this game, so there's nothing to review."}</li>`;
 }
 function hvDrawRows() { const el = $("hvRows"); if (!el) return; el.innerHTML = hvRows(); if (HV.open != null) hvFindings(HV.open); }
+// ---------------------------------------------------------------- Overview, op.gg style: profile, season, match list, live game
+const SEASON_START = Date.UTC(2026, 0, 8);
+const OV = { tab: "ov", live: null, liveAt: 0, liveFor: "", poll: null, t0: 0 };
+const profileIcon = (id) => id != null && DD.v ? `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/profileicon/${id}.png` : "";
+const LADDER = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND"];
+const ladderVal = (x) => { if (!x || !x.tier) return null; const t = String(x.tier).toUpperCase(); if (["MASTER", "GRANDMASTER", "CHALLENGER"].includes(t)) return 2800 + (x.lp || 0);
+  const i = LADDER.indexOf(t); return i < 0 ? null : i * 400 + ({ IV: 0, III: 1, II: 2, I: 3 }[String(x.division || "").toUpperCase()] || 0) * 100 + (x.lp || 0); };
+const kdaN = (k, d, a) => d ? (k + a) / d : Infinity;
+function seasonChamps(queue) {
+  const by = {};
+  for (const g of STATE.games) {
+    if (g.created < SEASON_START || (queue && g.queue !== queue)) continue;
+    const x = by[g.champion] ||= { id: g.champion, n: 0, w: 0, k: 0, d: 0, a: 0, cs: 0, mins: 0, roles: {} };
+    x.n++; x.w += g.win ? 1 : 0; x.k += g.kills; x.d += g.deaths; x.a += g.assists; x.cs += g.cs; x.mins += g.duration / 60;
+    if (g.role) x.roles[g.role] = (x.roles[g.role] || 0) + 1;
+  }
+  return Object.values(by).sort((a, b) => b.n - a.n || b.w / b.n - a.w / a.n);
+}
+function opChampRow(x, wide) {
+  const kda = kdaN(x.k, x.d, x.a), wr = x.w / x.n;
+  return `<div class="op-row${wide ? " wide" : ""}"><img src="${champIcon(x.id)}" alt=""><div class="nm"><b>${esc(champName(x.id))}</b><span>${wide ? `${x.n} game${x.n === 1 ? "" : "s"}` : `${(x.cs / x.mins).toFixed(1)} CS/min`}</span></div>
+    <div class="num"><b class="${kda >= 4 ? "good" : ""}">${kda === Infinity ? "Perfect" : kda.toFixed(2)}</b><span>${(x.k / x.n).toFixed(1)}/${(x.d / x.n).toFixed(1)}/${(x.a / x.n).toFixed(1)}</span></div>
+    ${wide ? `<div class="num"><b>${(x.cs / x.mins).toFixed(1)}</b><span>CS / min</span></div>` : ""}
+    <div class="num wr ${wr >= .6 && x.n >= 5 ? "hot" : wr < .45 ? "bad" : ""}"><b>${Math.round(wr * 100)}%</b><span>${wide ? `${x.w}W ${x.n - x.w}L` : `${x.n} game${x.n === 1 ? "" : "s"}`}</span></div></div>`;
+}
+function opRankCard() {
+  const R = STATE.rank || {}, solo = R["Ranked Solo/Duo"], flex = R["Ranked Flex"];
+  const n = solo ? (solo.wins || 0) + (solo.losses || 0) : 0;
+  const tracked = STATE.as ? [] : STATE.games.filter(g => g.queue === "Ranked Solo/Duo" && g.lp?.to?.tier).slice(0, 20).reverse();
+  const pts = tracked.map(g => ladderVal(g.lp.to)).filter(v => v != null);
+  let graph = "";
+  if (pts.length >= 2) {
+    const lo = Math.min(...pts) - 5, hi = Math.max(...pts) + 5, X = i => i / (pts.length - 1) * 300, Y = v => 52 - (v - lo) / Math.max(1, hi - lo) * 46;
+    graph = `<div class="op-lpg" title="Your LP over your last ${pts.length} tracked solo games"><svg viewBox="0 0 300 56" preserveAspectRatio="none" role="img" aria-label="LP trend"><polyline fill="none" stroke="var(--op-gold)" stroke-width="2" vector-effect="non-scaling-stroke" points="${pts.map((v, i) => X(i).toFixed(1) + "," + Y(v).toFixed(1)).join(" ")}"/></svg></div>`;
+  }
+  const fn = flex ? (flex.wins || 0) + (flex.losses || 0) : 0;
+  return `<div class="op-panel"><h2>Ranked solo/duo</h2>
+    ${solo?.tier ? `<div class="op-rank">${rankImg(solo, "")}<div><div class="tier">${esc(rankName(solo))}</div><div class="lp">${solo.lp} LP</div>
+      <div class="wl"><b>${solo.wins}</b> wins, <b>${solo.losses}</b> losses · <b>${n ? Math.round(100 * solo.wins / n) : 0}%</b></div></div></div>${graph}`
+      : `<div class="op-mute">Unranked this season${n ? ` · ${solo.wins}W ${solo.losses}L in placements` : ""}.</div>`}
+    ${flex ? `<div class="op-flex">${rankImg(flex, "")}<div>Ranked flex<br><b>${esc(rankName(flex))}</b>${flex.tier ? ` · ${flex.lp} LP` : ""} · ${flex.wins}W ${flex.losses}L${fn ? "" : ""}</div></div>` : ""}</div>`;
+}
+function opOverview() {
+  const season = seasonChamps("Ranked Solo/Duo"), all = seasonChamps(null);
+  const list = hvList(), form = list.slice(0, 20), w = form.filter(g => g.win).length;
+  const K = form.reduce((s, g) => s + g.kills, 0), De = form.reduce((s, g) => s + g.deaths, 0), As = form.reduce((s, g) => s + g.assists, 0);
+  const byC = {}; form.forEach(g => { const x = byC[g.champion] ||= { n: 0, w: 0 }; x.n++; x.w += g.win ? 1 : 0; });
+  const roleN = {}; let rn = 0; for (const g of STATE.games) if (g.created >= SEASON_START && ROLE_NAME[g.role] && g.queue !== "Custom") { roleN[g.role] = (roleN[g.role] || 0) + 1; rn++; }
+  const c = 2 * Math.PI * 38, wr = form.length ? w / form.length : 0, show = season.length ? season : all;
+  return `<div class="op-grid"><div class="op-stack">${opRankCard()}
+    <div class="op-panel op-champs"><h2>Season 2026<small>${season.length ? "ranked solo" : "all queues"}</small></h2>
+      ${show.length ? show.slice(0, 7).map(x => opChampRow(x)).join("") + `<button class="op-link" data-optab="ch">All champions</button>` : `<div class="op-mute">No games this season yet.</div>`}</div>
+    ${rn ? `<div class="op-panel"><h2>Roles this season</h2><div class="op-roles">${Object.keys(ROLE_NAME).map(r => `<div title="${roleN[r] || 0} games"><i><b style="height:${Math.round(100 * (roleN[r] || 0) / rn)}%"></b></i>${ROLE_NAME[r]}</div>`).join("")}</div></div>` : ""}
+  </div><div>
+    ${form.length ? `<div class="op-panel"><div class="op-sum"><div class="op-donut"><svg viewBox="0 0 92 92" width="92" height="92" role="img" aria-label="${Math.round(wr * 100)}% win rate"><circle cx="46" cy="46" r="38" fill="none" stroke="rgba(232,64,87,.7)" stroke-width="9"/><circle cx="46" cy="46" r="38" fill="none" stroke="var(--op-blue)" stroke-width="9" stroke-dasharray="${c * wr} ${c}" transform="rotate(-90 46 46)"/></svg><b>${Math.round(wr * 100)}%</b></div>
+      <div><div class="big">${w}W ${form.length - w}L</div><div class="op-mute">Last ${form.length} games${STATE.queue !== "all" ? " · " + esc(QUEUE_FILTERS.find(q => q[0] === STATE.queue)?.[1] || "") : ""}</div><div class="op-form">${form.map(g => `<i class="${g.win ? "w" : ""}" title="${esc(champName(g.champion))}, ${g.win ? "win" : "loss"}"></i>`).join("")}</div></div>
+      <div style="text-align:right"><div class="big">${kdaN(K, De, As) === Infinity ? "Perfect" : kdaN(K, De, As).toFixed(2)} KDA</div><div class="op-mute">${(K / form.length).toFixed(1)} / ${(De / form.length).toFixed(1)} / ${(As / form.length).toFixed(1)}</div>
+        <div class="op-most">${Object.entries(byC).sort((a, b) => b[1].n - a[1].n).slice(0, 3).map(([id, x]) => `<div><img src="${champIcon(id)}" alt="${esc(champName(id))}"><span><b>${Math.round(100 * x.w / x.n)}%</b> ${x.w}W ${x.n - x.w}L</span></div>`).join("")}</div></div></div>
+      <div id="hvRead" class="op-read"></div></div>` : ""}
+    <div class="op-bar"><h2>Match history</h2><div class="h-seg" role="group" aria-label="Queue">${QUEUE_FILTERS.map(([k, label]) => `<button data-hq="${k}" class="${STATE.queue === k ? "on" : ""}">${label}</button>`).join("")}</div></div>
+    <div class="op-games" id="hvRows"></div>
+  </div></div>`;
+}
+function opChampions() {
+  const all = seasonChamps(null), solo = seasonChamps("Ranked Solo/Duo");
+  const block = (rows, title, sub) => rows.length ? `<div class="op-panel op-champs" style="margin-bottom:16px"><h2>${title}<small>${sub}</small></h2>
+    <div class="op-row wide op-hdr"><span></span><span>Champion</span><span>KDA</span><span>CS / min</span><span>Win rate</span></div>${rows.map(x => opChampRow(x, true)).join("")}</div>` : "";
+  return `<div style="max-width:860px">${block(solo, "Season 2026", "ranked solo · every champion") || ""}${block(all, solo.length ? "All queues" : "Season 2026", "ranked, normals and customs this season")}
+    ${all.length ? "" : `<div class="op-mute">No games this season yet.</div>`}<div class="op-mute" style="font-size:12px">From the ${STATE.games.length} games custy coach has saved from your match history.</div></div>`;
+}
+// Live game: Riot's spectator data through the site (the key stays there), with everyone's rank.
+function opLive() {
+  const L = OV.live, me = STATE.me || {};
+  if (!L) return `<div class="op-panel op-mute">Checking whether ${STATE.as ? esc(me.gameName || "this player") + " is" : "you're"} in a game...</div>`;
+  if (L.error) return `<div class="op-panel"><b>Couldn't check the live game.</b><div class="op-mute" style="margin-top:4px">${esc(L.error)}</div><button class="op-btn" data-live="1" style="margin-top:12px">Try again</button></div>`;
+  const G = L.game;
+  if (!G) return `<div class="op-panel"><b>${STATE.as ? esc(me.gameName || "This player") + " isn't" : "You're not"} in a game right now.</b><div class="op-mute" style="margin-top:4px">${STATE.as ? "" : "This tab fills in by itself once your game loads (about a minute after the loading screen, when Riot starts showing it). "}Customs and practice tool don't show up here.</div><button class="op-btn" data-live="1" style="margin-top:12px">Check again</button></div>`;
+  const champsOf = {}; for (const x of seasonChamps(null)) champsOf[x.id] = x;
+  const row = (p) => {
+    const isMe = p.puuid && p.puuid === (STATE.as || me.puuid), r = p.solo, n = r ? r.wins + r.losses : 0, mc = isMe ? champsOf[p.champ] : null;
+    const chips = [];
+    if (r?.hot) chips.push(["hot", "On a win streak"]);
+    if (n && n < 20) chips.push(["", "Few ranked games"]);
+    if (n >= 20 && r.wins / n >= .6) chips.push(["ok", `${Math.round(100 * r.wins / n)}% win rate`]);
+    if (n >= 20 && r.wins / n < .45) chips.push(["warn", `${Math.round(100 * r.wins / n)}% win rate`]);
+    return `<div class="op-pl${isMe ? " me" : ""}"><img class="ci" src="${champIcon(p.champ)}" alt="${esc(champName(p.champ))}"><div class="sp">${spellIcon(p.spells[0])}${spellIcon(p.spells[1])}</div>
+      <div class="rn">${runeIcon(p.keystone)}${p.sub && DD.styles?.[p.sub] ? `<img class="sub" src="https://ddragon.leagueoflegends.com/cdn/img/${DD.styles[p.sub].icon}" alt="" title="${esc(DD.styles[p.sub].name)}">` : ""}</div>
+      <div class="nm"><b>${p.name && p.tag && !isMe ? `<a href="#" data-lookup="${esc(p.name + "#" + p.tag)}">${esc(p.name)}</a>` : esc(p.name || (p.bot ? "Bot" : "Hidden"))}</b><span>${esc(champName(p.champ))}${isMe ? " · you" : ""}</span></div>
+      <div class="rk">${r?.tier ? rankImg(r, "") : ""}<div><b>${r?.tier ? esc(rankName(r)) : "Unranked"}</b><span>${r?.tier ? `${r.lp} LP · ` : ""}${n ? `${r.wins}W ${r.losses}L` : "no solo games"}</span></div></div>
+      <div class="cw">${n ? `<b>${Math.round(100 * r.wins / n)}% this season</b><span>${n} solo games</span><div class="op-wrbar"><i style="width:${100 * r.wins / n}%"></i></div>` : mc ? "" : `<span class="op-mute">—</span>`}${mc ? `<b>${Math.round(100 * mc.w / mc.n)}% on ${esc(champName(p.champ))}</b><span>${mc.n} games this season</span>` : ""}</div>
+      <div class="tag">${chips.map(([c, t]) => `<span class="op-chip ${c}">${t}</span>`).join("")}</div></div>`;
+  };
+  const team = (id, cls, label) => { const ps = G.players.filter(p => p.team === id), bans = G.bans.filter(b => b.team === id && b.champ > 0);
+    return `<div class="op-team ${cls}"><h3>${label}${bans.length ? `<span class="bans">Bans ${bans.map(b => `<img src="${champIcon(b.champ)}" alt="${esc(champName(b.champ))}" title="${esc(champName(b.champ))}">`).join("")}</span>` : ""}</h3>${ps.map(row).join("")}</div>`; };
+  const QN = { 420: "Ranked solo/duo", 440: "Ranked flex", 400: "Normal draft", 430: "Normal blind", 490: "Quickplay", 480: "Swiftplay", 700: "Clash", 450: "ARAM" };
+  return `<div class="op-lvtop"><div><h2>${QN[G.queue] || esc(G.mode || "Game")}${G.map === 11 ? " · Summoner's Rift" : ""}</h2><div class="op-mute">From Riot's live game data, checked ${hAgo(OV.liveAt)}. Ranks are solo/duo.</div></div>
+    <button class="op-btn" data-live="1">Refresh</button><div class="clock" id="opClock"></div></div>${team(100, "b", "Blue team")}${team(200, "r", "Red team")}`;
+}
+async function opLoadLive(force) {
+  const pu = STATE.as || STATE.me?.puuid || "";
+  if (OV.busy) return; OV.busy = true;
+  try {
+    const r = await api(`/api/live?${new URLSearchParams(Object.assign({}, STATE.as ? { puuid: STATE.as } : {}, force ? { force: 1 } : {}))}`);
+    if (pu !== (STATE.as || STATE.me?.puuid || "")) return;
+    OV.phase = r.phase; OV.live = r.error ? { error: r.error } : { game: r.game }; OV.liveAt = Date.now(); OV.liveFor = pu;
+  } catch (e) { OV.live = { error: e.message }; OV.liveAt = Date.now(); }
+  finally { OV.busy = false; }
+  if (STATE.current !== "home" || !$("opRoot")) return;
+  opDrawHead(); if (OV.tab === "live") opDrawTab();
+}
+function opClock() {
+  const el = $("opClock"), G = OV.live?.game; if (!el || !G) return;
+  const s = G.start ? (Date.now() - G.start) / 1000 : G.length + (Date.now() - OV.liveAt) / 1000;
+  el.textContent = s > 0 ? clock(s) : "Loading";
+}
+function opDrawHead() {
+  const me = STATE.me || {}, el = $("opHead"); if (!el) return;
+  const season = STATE.games.filter(g => g.created >= SEASON_START && g.queue !== "Custom"), top = seasonChamps(null)[0];
+  const roles = {}; season.forEach(g => { if (g.role) roles[g.role] = (roles[g.role] || 0) + 1; });
+  const role = Object.entries(roles).sort((a, b) => b[1] - a[1])[0]?.[0];
+  const inGame = !!OV.live?.game;
+  const icon = profileIcon(me.icon);
+  el.innerHTML = `<div class="op-ava">${icon ? `<img src="${icon}" alt="">` : top ? `<img src="${champIcon(top.id)}" alt="">` : ""}${me.level ? `<b>${me.level}</b>` : ""}</div>
+    <div class="op-who"><h1>${esc(me.gameName || "You")}<span>#${esc(me.tagLine || "")}</span></h1>
+      <div class="meta">${[role ? ROLE_NAME[role] + " lane" + (role === "JUNGLE" || role === "SUPPORT" ? "" : "") : "", top ? "mostly " + esc(champName(top.id)) : "", season.length ? `${season.length} games this season` : ""].filter(Boolean).join(", ").replace(/^./, c => c.toUpperCase()).replace("Jungle lane", "Jungle").replace("Support lane", "Support")}${STATE.as ? " · from Riot" : " · from your League client"}</div></div>
+    <div class="op-acts">${inGame ? `<button class="op-btn live" data-optab="live"><span class="op-pulse"></span>In a game now: see the live game</button>` : ""}</div>`;
+  const t = document.querySelector('#opTabs [data-optab="live"]'); if (t) t.innerHTML = `Live game${inGame ? `<span class="n">LIVE</span>` : ""}`;
+}
+function opDrawTab() {
+  document.querySelectorAll("#opTabs [data-optab]").forEach(b => b.classList.toggle("on", b.dataset.optab === OV.tab));
+  const el = $("opBody"); if (!el) return;
+  if (OV.tab === "ch") el.innerHTML = opChampions();
+  else if (OV.tab === "live") { el.innerHTML = opLive(); opClock(); }
+  else { el.innerHTML = opOverview(); hvDrawRows(); opCoachRead(); }
+}
+async function opCoachRead() {
+  const key = HV.key, rows = await homeRows();
+  if (STATE.current !== "home" || HV.key !== key || OV.tab !== "ov" || !$("hvRead")) return;
+  const stats = dashStats(rows);
+  if (!stats.length) { $("hvRead").innerHTML = ""; return; }
+  const worst = stats.slice().sort((a, b) => a.z - b.z)[0], best = stats.slice().sort((a, b) => b.z - a.z)[0];
+  const bad = worst && worst.z < -0.25 ? worst : null, good = best && best.z > 0.25 && best !== bad ? best : null;
+  const head = good && bad ? `${HEAD_GOOD[good.m.k]}. ${HEAD_BAD[bad.m.k]}.` : bad ? `${HEAD_BAD[bad.m.k]}.` : good ? `${HEAD_GOOD[good.m.k]}. Nothing is clearly behind experts.` : "You're on pace with experts across the board.";
+  $("hvRead").innerHTML = `<span class="op-coach">Coach</span><span>${esc(head)}${bad ? ` <span class="op-mute">${esc(bad.m.label)}: you ${bad.m.fmt(bad.you)}, experts ${bad.m.fmt(bad.exp)}.</span>` : ""}</span><button class="op-link" data-nav2="experts">You vs experts</button>`;
+}
 async function openOverview(force) {
   const list = hvList(), key = (STATE.as || "") + ":" + STATE.queue + ":" + list.map(g => g.id + (g.lp ? "l" : "")).join(",");
   STATE.current = "home"; navState(); $("view").classList.remove("wide");
-  if (!force && key === HV.key && $("hvRoot")) return;
+  if (!force && key === HV.key && $("opRoot")) return;
   if (key !== HV.key) { HV.shown = 8; HV.open = null; }
   HV.key = key;
-  const all = STATE.games, form = all.slice(0, 20), wins = form.filter(g => g.win).length;
-  const top = champRows().rows.sort((a, b) => b.n - a.n || b.wr - a.wr).slice(0, 5), pick = all[0] ? [all[0].champion, ...new Set(all.filter(g => g.champion === all[0].champion && g.opponent).map(g => g.opponent))].slice(0, 4) : [];
-  $("view").innerHTML = `<div class="hv" id="hvRoot">
-    <div id="hvRead"><div class="h-note" style="margin-top:32px">Going through your recent games...</div></div>
-    <div class="h-cta"><div><div class="h-eye" style="color:#f3c34b">Matchup guide</div><div class="h-hd" style="font-size:22px;font-weight:700;line-height:1.2;margin-top:4px">How experts play your lane, before you queue</div></div>
-      ${pick.length > 1 ? `<div class="h-r" style="gap:8px"><img src="${champIcon(pick[0])}" alt="${esc(champName(pick[0]))}"><span class="h-sm" style="color:#c9cdd8">vs</span>${pick.slice(1).map(c => `<img src="${champIcon(c)}" alt="${esc(champName(c))}">`).join("")}</div>` : ""}
-      <button class="h-gold" data-guide="1" style="margin-left:auto">Open matchup guide</button></div>
-    ${top.length ? `<div class="h-sec"><h2>Champions</h2><a class="h-sp h-sm" href="#" data-nav2="experts" style="color:var(--ink);font-weight:700">See all</a></div>
-    <div class="h-tiles">${top.map(r => { const c = 2 * Math.PI * 22, p = Math.round(r.wr * 100); return `<div class="h-tile" data-og="${r.newest}" title="Open your newest ${esc(r.name)} game"><div class="h-r"><img src="${champIcon(r.id)}" alt=""><div><b style="font-size:15px">${esc(r.name)}</b><div class="h-mute h-sm">${r.n} game${r.n === 1 ? "" : "s"}</div></div></div>
-      <div class="h-r" style="margin-top:14px"><svg viewBox="0 0 56 56" width="56" height="56" role="img" aria-label="${p}% win rate" style="flex:none"><circle cx="28" cy="28" r="22" fill="none" stroke-width="6" style="stroke:var(--htrack)"/><circle cx="28" cy="28" r="22" fill="none" stroke-width="6" stroke-linecap="round" stroke-dasharray="${c * r.wr} ${c}" transform="rotate(-90 28 28)" style="stroke:var(${p >= 50 ? "--blue-ink" : "--red-ink"})"/><text x="28" y="33" text-anchor="middle" font-size="13" font-weight="700" style="fill:var(--ink)">${p}%</text></svg>
-        <div class="h-sp"><div class="h-hd h-kr h-k${r.kda >= 5 ? 4 : r.kda >= 4 ? 3 : r.kda >= 3 ? 2 : r.kda >= 2 ? 1 : 0}" style="font-size:22px">${r.kda === Infinity ? "Perfect" : r.kda.toFixed(2)}</div><div class="h-mute h-sm">KDA</div></div></div></div>`; }).join("")}</div>` : ""}
-    <div class="h-sec"><h2>Match history</h2>${form.length ? `<div class="h-r" style="gap:10px;padding-bottom:4px"><div style="display:flex;gap:2px" role="img" aria-label="Last ${form.length} results, newest first: ${wins} wins, ${form.length - wins} losses">${form.map(g => `<i style="width:7px;height:22px;border-radius:2px;display:block;background:${g.win ? "#3d63c4" : "#b8414f"}"></i>`).join("")}</div><span class="h-sm" style="font-weight:600">${wins}–${form.length - wins} · ${Math.round(100 * wins / form.length)}%</span></div>` : ""}
-      <div class="h-seg" role="group" aria-label="Queue">${QUEUE_FILTERS.map(([k, label]) => `<button data-hq="${k}" class="${STATE.queue === k ? "on" : ""}">${label}</button>`).join("")}</div></div>
-    <div id="hvRows"></div></div>`;
-  hvDrawRows();
-  $("hvRoot").onclick = (ev) => {
-    const t = ev.target.closest("[data-lookup],[data-analyze],[data-hq],[data-row],[data-nav2],[data-guide],[data-og],#hvMore"); if (!t) return;
+  if (!DD.runes) { try { await loadCsData(); } catch (e) {} }
+  const pu = STATE.as || STATE.me?.puuid || "";
+  if (OV.liveFor !== pu) { OV.live = null; OV.liveFor = pu; if (OV.tab === "live" && STATE.as == null) OV.tab = "ov"; }
+  const top = seasonChamps(null)[0], splash = top && DD.champ[top.id] ? `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${DD.champ[top.id].id}_0.jpg` : "";
+  $("view").innerHTML = `<div class="op" id="opRoot">${splash ? `<div class="op-amb" style="background-image:url('${splash}')"></div>` : ""}
+    <div class="op-head" id="opHead"></div>
+    <div class="op-tabs" id="opTabs" role="tablist"><button data-optab="ov">Overview</button><button data-optab="ch">Champions</button><button data-optab="live">Live game</button></div>
+    <div id="opBody"></div></div>`;
+  opDrawHead(); opDrawTab();
+  $("opRoot").onclick = (ev) => {
+    const t = ev.target.closest("[data-lookup],[data-analyze],[data-hq],[data-row],[data-nav2],[data-optab],[data-live],#hvMore"); if (!t) return;
     if (t.dataset.lookup) { ev.preventDefault(); ev.stopPropagation(); return lookupPlayer(t.dataset.lookup); }
+    if (t.dataset.optab) { OV.tab = t.dataset.optab; if (OV.tab === "live" && (!OV.live || Date.now() - OV.liveAt > 120000)) { OV.live = null; opLoadLive(true); } return opDrawTab(); }
+    if (t.dataset.live) { OV.live = null; opDrawTab(); return opLoadLive(true); }
     if (t.dataset.analyze) { STATE.tab = "moments"; return openGame(t.dataset.analyze); }
     if (t.dataset.nav2) { ev.preventDefault(); return openHome(true); }
-    if (t.dataset.guide) return openMatchups();
-    if (t.dataset.og) { STATE.tab = "moments"; return openGame(t.dataset.og); }
     if (t.dataset.hq) { STATE.queue = t.dataset.hq; try { localStorage.setItem("custy-review-queue", STATE.queue); } catch (e) {} return openOverview(true); }
     if (t.id === "hvMore") { HV.shown += 10; return hvDrawRows(); }
     if (t.dataset.row) { HV.open = HV.open == t.dataset.row ? null : t.dataset.row; hvDrawRows(); }
   };
-  const rows = await homeRows();
-  if (STATE.current !== "home" || HV.key !== key || !$("hvRead")) return;
-  $("hvRead").innerHTML = hvRead(rows);
+  if (!STATE.as && (!OV.live || Date.now() - OV.liveAt > 90000)) opLoadLive(false);
+  else if (STATE.as && OV.tab === "live") opLoadLive(true);
+  clearInterval(OV.poll);
+  OV.poll = setInterval(() => { if (STATE.current !== "home" || !$("opRoot")) return clearInterval(OV.poll); opClock(); if (!STATE.as && Date.now() - OV.liveAt > 90000) opLoadLive(false); }, 1000);
 }
 
 let homeKey = "";

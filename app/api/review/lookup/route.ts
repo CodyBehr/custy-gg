@@ -3,6 +3,7 @@
 //   GET /api/review/lookup?riotId=Name%23TAG&platform=NA1   -> { puuid, gameName, tagLine, ids }
 //   GET /api/review/lookup?match=NA1_5676694528             -> { match, timeline } (raw match-v5)
 //   GET /api/review/lookup?puuid=...&platform=NA1&type=ranked&start=0&count=100 -> { ids } (your history, paged)
+//   GET /api/review/lookup?live=<puuid>&platform=NA1 -> { game: null } or { game: {...spectator-v5, players with solo/flex ranks} }
 // (Authorization: Bearer <ingest key>)
 
 import { NextResponse } from "next/server";
@@ -44,6 +45,34 @@ export async function GET(req: Request) {
         riot(route, `/lol/match/v5/matches/${match.toUpperCase()}/timeline`, key),
       ]);
       return NextResponse.json({ match: mt, timeline: tl }, { headers: { "Cache-Control": "private, max-age=86400" } });
+    }
+    // The game a player is in right now (spectator-v5) with everyone's rank: 1 + 10 requests.
+    const live = (url.searchParams.get("live") || "").trim();
+    if (live) {
+      const platform = (url.searchParams.get("platform") || "NA1").toUpperCase();
+      if (!ROUTES[platform] || !/^[\w-]{40,90}$/.test(live)) return NextResponse.json({ error: "Bad puuid or platform" }, { status: 400 });
+      let g: any;
+      try { g = await riot(platform.toLowerCase(), `/lol/spectator/v5/active-games/by-summoner/${live}`, key); }
+      catch (e: any) { if (e?.status === 404) return NextResponse.json({ game: null }); throw e; }
+      const players = await Promise.all((g.participants || []).map(async (p: any) => {
+        const ranks: Record<string, unknown> = {};
+        if (p.puuid) {
+          try {
+            const entries: any[] = await riot(platform.toLowerCase(), `/lol/league/v4/entries/by-puuid/${p.puuid}`, key);
+            for (const e of entries || []) {
+              const q = e.queueType === "RANKED_SOLO_5x5" ? "solo" : e.queueType === "RANKED_FLEX_SR" ? "flex" : null;
+              if (q) ranks[q] = { tier: e.tier, division: e.rank, lp: e.leaguePoints, wins: e.wins, losses: e.losses, hot: !!e.hotStreak };
+            }
+          } catch {}
+        }
+        const [name, tag] = String(p.riotId || "").split("#");
+        return { puuid: p.puuid || null, name: name || "", tag: tag || "", team: p.teamId, champ: p.championId,
+          spells: [p.spell1Id, p.spell2Id], keystone: p.perks?.perkIds?.[0] ?? null, sub: p.perks?.perkSubStyle ?? null,
+          bot: !!p.bot, ...ranks };
+      }));
+      return NextResponse.json({ game: { id: g.gameId, queue: g.gameQueueConfigId, mode: g.gameMode, map: g.mapId,
+        start: g.gameStartTime, length: g.gameLength, players,
+        bans: (g.bannedChampions || []).map((b: any) => ({ champ: b.championId, team: b.teamId })) } });
     }
     // A page of your own match ids for the app's history backfill (no account lookup, no ranks: 1 request)
     const puuid = (url.searchParams.get("puuid") || "").trim();

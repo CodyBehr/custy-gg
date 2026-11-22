@@ -152,6 +152,7 @@ def _write_cache(game_id, data):
     os.replace(tmp, _cache_path(game_id))
 
 
+_live_cache = {}   # puuid -> (when, live game or None)
 _index = {}   # file name -> (mtime, the small facts list_games and refresh need)
 
 
@@ -221,10 +222,13 @@ def _summarize(game, me_puuid):
         "win": bool(st.get("win")), "kills": st.get("kills"), "deaths": st.get("deaths"), "assists": st.get("assists"),
         "cs": _num(st.get("totalMinionsKilled")) + _num(st.get("neutralMinionsKilled")),
         "players": players, "tags": tags, "pid": me.get("participantId"), "v": SUMMARY_V,
+        # for the op.gg-style match rows: spells, keystone + secondary tree, the 7 item slots, champion level
+        "spells": [me.get("spell1Id"), me.get("spell2Id")], "runes": [st.get("perk0"), st.get("perkSubStyle")],
+        "items": [_num(st.get("item%d" % i)) for i in range(7)], "level": st.get("champLevel"),
     }
 
 
-SUMMARY_V = 3   # bump when the summary gains fields, so cached games are summarised again
+SUMMARY_V = 4   # bump when the summary gains fields, so cached games are summarised again
 
 
 def _scoreboard(game, idents, me_pid):
@@ -2677,6 +2681,32 @@ def make_handler(cfg, token):
                     return self._send(400, {"error": str(e)})
                 return self._send(200, {"me": who, "games": games, "viewing": True, "patch": _client_patch(cfg), "replayApi": False,
                                         "rank": _who_ranks(who.get("puuid"))})
+            if url.path == "/api/live":   # the game you (or ?puuid=) are in right now, from Riot's spectator API via the site
+                q = parse_qs(url.query)
+                me = me_cache["me"] or {}
+                pu = (q.get("puuid") or [me.get("puuid") or ""])[0]
+                phase = None
+                if pu == me.get("puuid"):
+                    lcu = _lcu(cfg)
+                    try:
+                        phase = lcu.get("/lol-gameflow/v1/gameflow-phase") if lcu else None
+                    except Exception:
+                        phase = None
+                    # only ask Riot when the client says you're in a game, unless the page asks anyway
+                    if phase not in ("InProgress", "Reconnect", "GameStart") and not q.get("force"):
+                        return self._send(200, {"phase": phase, "game": None})
+                if not pu:
+                    return self._send(200, {"phase": phase, "game": None})
+                hit = _live_cache.get(pu)   # one lookup is 11 Riot requests: reuse it for 2 minutes (30 s when asked)
+                if hit and time.time() - hit[0] < (30 if q.get("force") else 120):
+                    return self._send(200, {"phase": phase, "game": hit[1]})
+                try:
+                    got = _site_get("/api/review/lookup?" + urllib.parse.urlencode(
+                        {"live": pu, "platform": (q.get("platform") or ["NA1"])[0]}), timeout=20)
+                except Exception as e:
+                    return self._send(200, {"phase": phase, "game": None, "error": str(e)})
+                _live_cache[pu] = (time.time(), got.get("game"))
+                return self._send(200, {"phase": phase, "game": got.get("game")})
             if url.path == "/api/games" and parse_qs(url.query).get("as"):
                 pu = parse_qs(url.query)["as"][0]
                 return self._send(200, {"me": who_other(pu), "games": list_others(pu), "viewing": True,
