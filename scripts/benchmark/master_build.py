@@ -54,6 +54,21 @@ for name in sorted(files):
         json.dump(b, f, separators=(",", ":"))
     index.append([name, b["games"], "master"])
     built += 1
+if not files:
+    # No rows at all (e.g. the Riot key expired and every pull failed): leave the published files and index alone.
+    sys.exit("No match rows to build from: not touching %s" % a.out)
+# Keep files this run didn't rebuild (too thin this time, or champions not pulled) in the index: they're still served,
+# and the matchup guide only lists champions that are in the index.
+listed = {r[0] for r in index}
+for p in sorted(glob.glob(os.path.join(a.out, "*.json"))):
+    name = os.path.basename(p)[:-5]
+    if name == "index" or name in listed:
+        continue
+    try:
+        b = json.load(open(p, encoding="utf-8"))
+        index.append([name, b["games"], "onetricks" if "onetricks" in b.get("source", "") else "master"])
+    except (ValueError, KeyError):
+        pass
 with open(os.path.join(a.out, "index.json"), "w") as f:
     json.dump(sorted(index), f, separators=(",", ":"))
 print("built %d, kept %d onetricks files, %d too thin (< %d games)" % (built, kept, len(thin), a.min))
