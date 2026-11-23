@@ -1,0 +1,33 @@
+{
+ "champions": [
+  "Garen",
+  "Darius"
+ ],
+ "role": "TOP",
+ "patch": "16.23",
+ "tiers": [
+  "SILVER",
+  "GOLD",
+  "PLATINUM"
+ ],
+ "built": 1795443750,
+ "games": [
+  {
+   "gameId": 5684638607,
+   "opp": "Darius",
+   "player": "Buckley#NA0",
+   "platform": "NA1",
+   "gameVersion": "16.23.840.6595",
+   "queueId": 420,
+   "gameEnd": 1795370113495,
+   "rank": "Master I",
+   "lp": 237,
+   "win": false,
+   "kda": "10/10/7",
+   "oppKda": "14/11/14",
+   "gold14": 1511,
+   "cs14": 41,
+   "lv14": 1
+  }
+ ]
+}
