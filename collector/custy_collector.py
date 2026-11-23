@@ -34,7 +34,7 @@ import time
 import urllib.error
 import urllib.request
 
-VERSION = "1.16.61"
+VERSION = "1.16.62"
 try:
     from edition import EDITION   # "custy" (custom game tracker) or "coach" (game review); see edition.py
 except ImportError:

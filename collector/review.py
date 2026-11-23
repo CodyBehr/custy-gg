@@ -452,7 +452,7 @@ def _grades(game_id):
             return json.load(f)
     except (OSError, ValueError):
         return {}
-TRADES_VERSION = 21          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 22          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 

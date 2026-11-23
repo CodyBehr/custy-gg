@@ -8,6 +8,10 @@ import bisect
 import math
 
 import replay_trades as RT
+try:
+    import champ_cd
+except Exception:   # older builds
+    champ_cd = None
 import replay_waves as W
 
 SUMM = {"363fad": "Flash", "78ed5b": "Teleport", "22568a": "Ignite", "cbb9e2": "Heal", "96b4e4": "Barrier",
@@ -108,6 +112,41 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
     def lane_kills(victim, killer, before):
         return sum(1 for z in kills if z["victim"] == victim and z["killer"] == killer and z["t"] < before)
 
+    # Riot's minute health (championStats) is exact at each frame. Work back from the next frame to a moment: health
+    # then = health at the frame + the damage the replay shows them taking in between. Unlike counting forward from the
+    # start of a fight, this includes their healing during it (passives, lifesteal, potions). None when they recalled
+    # or died in between (user grade: "about 3 more hits" when Aatrox, who heals, was really on ~300-400).
+    deaths_of = {}
+    for z in kills:
+        deaths_of.setdefault(z["victim"], []).append(z["t"])
+    backs_of = {}
+    for k_, t_, _x, _z in W.recalls(d, deaths_of, until + 90):
+        backs_of.setdefault(k_, []).append(t_)
+    slot_pid = {me: pme, opp: popp}
+
+    def frame_hp(slot, i):
+        if i >= len(frames):
+            return None
+        pf = (frames[i].get("participantFrames") or {}).get(str(slot_pid[slot])) or {}
+        st = pf.get("st")   # the site's slim timeline: [health, max health]
+        if st and len(st) >= 2 and st[1]:
+            return st[0], st[1]
+        cs = pf.get("championStats") or {}
+        return (cs.get("health"), cs.get("healthMax")) if cs.get("healthMax") else None
+
+    def hp_back(slot, t):
+        i = int(t // 60) + 1
+        f = frame_hp(slot, i)
+        if not f or f[0] is None:
+            return None
+        tf = (frames[i].get("timestamp") or i * 60000) / 1000
+        if any(t < x <= tf for x in deaths_of.get(slot, []) + backs_of.get(slot, [])):
+            return None
+        return min(f[1], f[0] + sum(v for ht, tg, a, v in hits if tg == slot and t < ht <= tf)), f[1]
+
+    def my_last_hits(t0, t1):
+        return sum(1 for mm in mins.values() if mm.get("killer") == me and mm["died"] is not None and t0 - 0.5 <= mm["died"] <= t1 + 1)
+
     R = []
     trades = []
     # --- trades
@@ -126,7 +165,15 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
         enemies = [o for o in others if o in skins and (skins.index(o) < 5) != (me < 5)]
         allies = [o for o in others if o not in enemies]
         mdmg = {k: round(sum(v for ht, tg, a, v in hits if tg == s and a is None and t0 <= ht <= t1 + 1)) for k, s in (("me", me), ("opp", opp))}
-        left_opp = max(0, round(x["hpOpp"][0] - x["dealt"] - mdmg["opp"]))
+        left_fwd = max(0, round(x["hpOpp"][0] - x["dealt"] - mdmg["opp"]))
+        my_death = min([z["t"] for z in kills if z["victim"] == me and t0 - 1 <= z["t"] <= t1 + 20], default=None)
+        hb = hp_back(opp, my_death) if my_death is not None else None
+        # Two estimates of what they had left when you died: counting forward from the start of the fight misses their
+        # healing during it (too low); counting back from Riot's next minute mark adds any healing after it (too high).
+        # The truth is in between: only call it close when even the high one is low.
+        left_opp = round(hb[0]) if hb else left_fwd
+        left_lo = min(left_fwd, left_opp)
+        left_known = hb is not None
         my_hits = [v for ht, tg, a, v in hits if a == me and tg == opp and t0 <= ht <= t1]
         avg_hit = sum(my_hits) / len(my_hits) if my_hits else None
         first_cast = min([t for t, k, L in casts if k == me and t0 - 1 <= t <= t1], default=None)
@@ -139,13 +186,25 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
         a3 = RT._at(d["tracks"][me], t0 - 3)
         still = bool(a3 and math.hypot(a3[0] - pm[0], a3[1] - pm[1]) < 120 and math.hypot(pm[0] - po[0], pm[1] - po[1]) < 750)
         spikes = [("me" if pp == pme else "opp", level(pp, lt), lt - t0) for pp in (pme, popp) for lt in lvl[pp][1:] if 0 <= lt - t0 <= 8]
-        free_poke = x["took"] >= 40 and x["dealt"] < 10
+        # Poke: one side's damage, the other side's next to nothing (user grades: "this should be labelled as poke").
+        free_poke = x["took"] >= 40 and x["dealt"] <= max(10, 0.2 * x["took"])
+        poke_landed = x["dealt"] >= 40 and x["took"] <= max(10, 0.2 * x["dealt"])
+        lh = my_last_hits(t0, t1)
+        # Did the damage you took heal back by the next minute without a recall (regen passives, potions)?
+        after = hp_back(me, t1 + 1)
+        healed_back = bool(after and x["took"] >= 40 and after[0] >= x["hpMe"][0] - x["took"] - mdmg["me"] + 0.7 * x["took"])
+        potion = any(e.get("type") == "ITEM_DESTROYED" and e.get("participantId") == pme and e.get("itemId") in (2003, 2031, 2033)
+                     and t0 - 2 <= (e.get("timestamp") or 0) / 1000 <= t1 + 60 for f in frames for e in f.get("events") or [])
+        # Their poke spent a long-cooldown ability (12 s+ at rank 1): that's a window for you.
+        opp_name = skins[opp] if 0 <= opp < len(skins) else None
+        cdt = ((champ_cd.CD.get(opp_name) or {}).get("cd") or {}) if champ_cd else {}
+        spent = [L for t, k, L in casts if k == opp and t0 - 1 <= t <= t1 and L in ("Q", "W", "E") and (cdt.get(L) or [0])[0] >= 12]
         wave_then_engaged = x["first"] == "them" and any(
             k == me and t0 - 8 <= t < t0 - 0.3 and L in ("Q", "W", "E") and not any(a == me and tg == opp and t <= ht <= t + 3 for ht, tg, a, v in hits)
             for t, k, L in casts)
         used = {n for tt, kk, n in sc if kk == me and t0 - 1 <= tt <= t1}
         died = x.get("died") or []
-        trades.append({"t": t0, "netPct": net, "died": died, "solo": x.get("solo", True),
+        trades.append({"t": t0, "netPct": net, "died": died, "solo": x.get("solo", True), "bigger": bigger,
                        "both": min(x["dealt"], x["took"]) >= 40})   # both sides hit: a real fight, not another poke
 
         behind = deaths_gap >= 2 or (lv_gap <= -1 and gold_gap <= -700)
@@ -156,8 +215,6 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
             verdict = "skip"; notes.append("You were standing still in their range when they engaged. Looks idle; not a lesson.")
         elif behind and "you" not in died:
             verdict = "meh"; notes.append("You're behind here (%+d lane deaths, %+d levels, %+d item gold): what matters now is farming and staying alive, not this trade." % (deaths_gap, lv_gap, gold_gap))
-        elif bone_up and dur < 6 and abs(net) <= 8 and not died:
-            verdict = "good"; notes.append("Short trade that popped their Bone Plating: the next fight in the following ~55 s is without it.")
         elif allies and not enemies and (died or any(o.get("dmg", 0) > 0 for o in x.get("others") or [])):
             # your teammates joined: a gank, not a lane trade (user grade, round 3)
             verdict = "good" if died == ["them"] else "check"
@@ -174,12 +231,14 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
             else:
                 notes.append("You got the kill, then died: after a kill, back off toward your side instead of staying in their wave.")
         elif "you" in died:
-            close = left_opp <= 0.15 * mx[1]
+            close = left_known and left_opp <= 0.15 * mx[1]
             verdict = "close" if close else "lost"
             if close and avg_hit:
                 notes.append("They were left on ~%d HP: about %d more of your hits would have flipped it." % (left_opp, max(1, math.ceil(left_opp / avg_hit))))
-            else:
-                notes.append("They were left on ~%d HP." % left_opp)
+            elif left_known and left_opp - left_lo > 0.12 * mx[1]:
+                pass   # the two estimates disagree too much to name a number (healing in or after the fight)
+            elif left_known:
+                notes.append("They were left on ~%d HP (%d%%)." % (left_opp, round(100 * left_opp / mx[1])))
             if allies:
                 notes.append("(Your %s was nearby.)" % ", ".join(allies))
             if opened_auto:
@@ -198,12 +257,33 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
                 verdict = "meh"; notes.append("Their window (a level up, bigger wave): giving up a little here is fine.")
             elif lv_gap >= 1 and bigger == "mine" and net < 0:
                 verdict = "missed"; notes.append("You were a level up with the bigger wave: your window to trade hard.")
+            elif free_poke and lh >= 1:
+                verdict = "meh"; notes.append("Poke taken (%d%% of your max HP) while you last-hit %d minion%s: trading some health for CS is often fine." % (round(100 * x["took"] / mx[0]), lh, "" if lh == 1 else "s"))
             elif free_poke:
                 verdict = "meh" if ahead else "bad"
                 notes.append("Free poke taken." + (" Little weight with your lead." if ahead else ""))
+            elif poke_landed:
+                pp = round(100 * x["dealt"] / mx[1])
+                verdict = "good" if pp >= 10 else "even"
+                notes.append("Poke landed: %d%% of their max HP for nothing back." % pp)
             else:
                 verdict = "good" if net >= 10 else "bad" if net <= -10 else "even"
                 notes.insert(0, "%s %d%% of max HP more than %s." % ("You dealt" if net >= 0 else "They dealt", abs(net), "they did" if net >= 0 else "you did"))
+                if verdict == "bad" and lh >= 2:
+                    notes.append("You did last-hit %d minions during it, so you got some CS for that health." % lh)
+        if verdict == "bad" and healed_back and not potion:
+            # Healed back for free (regen passives, lifesteal) by the next minute: it cost little (user grades: Garen's
+            # passive, Aatrox). A potion is a real cost, so those stay as they were.
+            verdict = "meh"; notes.append("You had healed it back by the next minute without a potion or a recall, so it cost little.")
+        hp_after = ((x["hpMe"][0] - x["took"] - mdmg["me"]) / mx[0], (x["hpOpp"][0] - x["dealt"] - mdmg["opp"]) / mx[1])
+        if verdict == "bad" and not died and dur < 3 and hp_after[0] - hp_after[1] >= 0.1:
+            # User grade (Garen v Fiora 3:28): their poke, but you still had the health lead: just a poke.
+            verdict = "meh"; free_poke = True
+            notes.append("You still had the health lead after it (%d%% vs %d%%), so it's just a poke." % (round(100 * hp_after[0]), round(100 * hp_after[1])))
+        if (free_poke or verdict == "bad") and not behind and spent and not died:
+            notes.append("They spent %s on it: that's down for a while, your window to go in." % " and ".join(sorted(set(spent))))
+        if bone_up and dur < 6 and not died and verdict in ("even", "good", "meh"):
+            notes.append("It also popped their Bone Plating for the next fight.")
         for who, to, secs in spikes:
             starter = "me" if x["first"] == "you" else "opp"
             if who == starter:
@@ -215,7 +295,7 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
         if mdmg["me"] + mdmg["opp"] >= 60:
             notes.append("Minions and towers: %d to you, %d to them." % (mdmg["me"], mdmg["opp"]))
         R.append({"t": round(t0, 1), "kind": "trade", "verdict": verdict, "text": " ".join(notes) or "Net %+d%% of max HP." % net,
-                  "free_poke": free_poke and verdict == "bad", "poke_pct": round(100 * x["took"] / mx[0]),
+                  "free_poke": free_poke and verdict == "bad" and not lh, "poke_pct": round(100 * x["took"] / mx[0]),
                   "lv": level(pme, t0)})
 
     # A free poke matters when it's a real chunk of health for that stage of the game (early levels: a Q + auto is a big
@@ -254,7 +334,14 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
     # --- reset windows (reviewer, round 3): your wave crashed into their tower, you had gold for a real purchase, the
     # opponent couldn't punish a back, and you stayed (or roamed) instead of backing. Crash, back while their tower
     # takes the wave, and you lose nothing; the wave bounces to you as you return. Ambiguous by nature: "check".
-    R.extend(_reset_windows(d, mins, frames, kills, me, opp, pme, my_team, p_opp, until))
+    for r in _reset_windows(d, mins, frames, kills, me, opp, pme, my_team, p_opp, until):
+        # User grade (Garen v Fiora 7:14): with them on half health and you full, staying to keep pressure is right too.
+        i = int(r["t"] // 60)
+        a, b = frame_hp(me, i), frame_hp(opp, i)
+        if a and b and a[0] and b[0] is not None and a[0] / a[1] - b[0] / b[1] >= 0.3:
+            r["text"] += " You were well ahead on health (%d%% vs %d%%), so staying to keep the pressure on is also a good choice." % (round(100 * a[0] / a[1]), round(100 * b[0] / b[1]))
+            r["verdict"] = "meh"
+        R.append(r)
 
     # --- level races (2 and 3)
     for L in (2, 3):
@@ -262,8 +349,17 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
         b = lvl[popp][L - 1] if len(lvl[popp]) >= L else None
         if a and b and b < a and a - b >= 10:
             lost = [y for y in trades if y["t"] < b and y["netPct"] <= -8 and y["solo"]]   # before THEY levelled
-            R.append({"t": round(b, 1), "kind": "level race", "verdict": "context" if lost else "check",
-                      "text": "Level %d: they were %.0fs earlier.%s" % (L, a - b, (" Likely caused by the lost trade at %s: you gave up the push and they controlled the wave." % clock(lost[-1]["t"])) if lost else "")})
+            # If they already had the bigger wave when that trade started, the wave got them the XP, not the trade
+            # (user grade, Garen v Fiora 2:02: "wasn't the trade, she had the minion advantage / push").
+            if lost and lost[-1].get("bigger") == "theirs":
+                why = " They had the bigger wave (the push) from before the trade at %s, so they got the XP first: normal unless you could contest the wave." % clock(lost[-1]["t"])
+                verdict = "context"
+            elif lost:
+                why = " Likely caused by the lost trade at %s: you gave up the push and they controlled the wave." % clock(lost[-1]["t"])
+                verdict = "context"
+            else:
+                why, verdict = "", "check"
+            R.append({"t": round(b, 1), "kind": "level race", "verdict": verdict, "text": "Level %d: they were %.0fs earlier.%s" % (L, a - b, why)})
 
     # --- your deaths: risky plays with a lead
     for z in kills:
