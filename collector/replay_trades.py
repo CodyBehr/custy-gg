@@ -652,18 +652,22 @@ def lane_trades(path, me_slot, opp_slot, frames, kills, hpa=None, deaths_all=Non
         # Was anyone else there? A trade is only the two laners: any other champion within ~1,400 units of either
         # of them from just before to a few seconds after, or any damage from another champion, makes it a 2v1/gank.
         near = {}
+        # Stop looking once one of the two dies: someone who shows up after that (an ally cleaning up, as in a
+        # Garen v Darius tower dive where the jungler arrived 12 s later) wasn't part of the fight.
+        first_death = min([x for k in (i, j) for x in deaths[k] if t0 - 0.5 <= x <= t1 + 8], default=None)
+        end = min(t1 + 4, first_death) if first_death is not None else t1 + 4
         for k in range(10):
             if k in (i, j) or k in lane_mates:
                 continue
             best, tt = 9e9, t0 - 3
-            while tt <= t1 + 4 and k in d["tracks"]:   # no positions (16.23 for now): only damage from others counts
+            while tt <= end and k in d["tracks"]:   # no positions (16.23 for now): only damage from others counts
                 a = _at(d["tracks"][k], tt)
                 for m in (i, j):
                     b = _at(d["tracks"].get(m), tt)
                     if a and b:
                         best = min(best, math.hypot(a[0] - b[0], a[1] - b[1]))
                 tt += 0.25
-            helped = sum(v for t, tg, a, v in H if t0 - 2 <= t <= t1 + 4 and a == k and tg in (i, j))
+            helped = sum(v for t, tg, a, v in H if t0 - 2 <= t <= end and a == k and tg in (i, j))
             if best < 1400 or helped > 0:
                 near[k] = {"k": k, "champ": d["stats"][k].get("SKIN"), "side": "ally" if (k < 5) == (i < 5) else "enemy",
                            "dist": round(best), "dmg": round(helped)}

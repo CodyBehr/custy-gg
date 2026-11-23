@@ -1847,11 +1847,14 @@ async function loadList() {
 }
 function bindBack() { const b = $("backMine"); if (b) b.onclick = () => { STATE.as = null; STATE.current = null; $("lookupId").value = ""; loadList().catch(e => toast(e.message)); }; }
 async function lookupPlayer(id) {
+  // "Name#TAG" or "Name#TAG NA1_1234567890" (also loads that one game, even if it isn't among their recent ones)
+  const gm = id.match(/\s+(?:[A-Za-z]+\d*_)?(\d{8,})\s*$/), game = gm ? gm[1] : "";
+  if (gm) id = id.slice(0, gm.index).trim();
   if (!/^.+#.+$/.test(id)) return toast("Type a Riot ID like Name#TAG");
   const b = $("lookup").querySelector("button"); b.disabled = true; b.textContent = "Loading…";
   toast(`Loading ${id.split("#")[0]}'s recent games from Riot. This takes about 20 seconds the first time.`);
   try {
-    const r = await api("/api/lookup?riotId=" + encodeURIComponent(id));
+    const r = await api("/api/lookup?riotId=" + encodeURIComponent(id) + (game ? "&game=" + game : ""));
     STATE.as = r.me.puuid; STATE.current = "home"; HV.key = ""; HV.rowsKey = "";
     $("lookupId").value = id;
     await loadList(); window.scrollTo({ top: 0 });
@@ -2045,7 +2048,7 @@ function render(A, B, moments, s, label, well = []) {
         ${lp0 && lp0.delta != null && !lp0.over ? `<div><b>${signed(lp0.delta)}</b><span class="h-mute h-sm">LP</span></div>` : ""}
         <a class="btn yt" target="_blank" href="https://www.youtube.com/results?search_query=${encodeURIComponent("Domisumreplay " + champName(A.me.championId) + (opp ? " vs " + opp : ""))}">▶ High-elo ${esc(champName(A.me.championId))}${opp ? " vs " + esc(opp) : ""} on YouTube</a></div></div>
     ${banner}
-    <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">Breakdown vs experts</button>${STATE.as ? "" : `<button data-tab="trades">Lane trades</button>`}</div>
+    <div class="tabs"><button data-tab="moments" class="on">Moments</button><button data-tab="experts">Breakdown vs experts</button><button data-tab="trades">Lane trades</button></div>
     <div id="v-experts" hidden><div class="empty">Loading expert data...</div></div>
     <div id="v-trades" hidden></div>
     <div id="v-moments">
@@ -2107,7 +2110,7 @@ function render(A, B, moments, s, label, well = []) {
     if ($("v-trades")) { $("v-trades").hidden = t !== "trades"; if (t === "trades") loadTrades(A); }
   };
   tabs.forEach(b => b.onclick = () => show(b.dataset.tab));
-  show(STATE.tab === "trades" && STATE.as ? "moments" : (STATE.tab || "moments"));
+  show(STATE.tab || "moments");
   if (!STATE.as) loadGanks(A);
   loadExperts(A);
 }
@@ -2362,7 +2365,7 @@ async function loadTrades(A, again) {
   el.dataset.game = String(id); el.dataset.state = "loading"; GA_TRADES = null;
   if (!again) el.innerHTML = `<div class="card"><div class="empty">Reading your replay file...</div></div>`;
   let r;
-  try { r = await api("/api/trades/" + id); } catch (e) { el.innerHTML = `<div class="card"><div class="empty">${esc(e.message)}</div></div>`; return; }
+  try { r = await api("/api/trades/" + id + (STATE.as ? "?as=" + encodeURIComponent(STATE.as) : "")); } catch (e) { el.innerHTML = `<div class="card"><div class="empty">${esc(e.message)}</div></div>`; return; }
   if (el.dataset.game !== String(id)) return;
   if (r.missing) {
     const cur = r.patch && currentPatch() && r.patch !== currentPatch();
@@ -3008,7 +3011,7 @@ function recCooldowns(A, id, dur, box, gameT, v, off) {
     st.last = t;
   };
   (async () => {
-    let r; try { r = await api("/api/trades/" + id); } catch (e) { return; }
+    let r; try { r = await api("/api/trades/" + id + (STATE.as ? "?as=" + encodeURIComponent(STATE.as) : "")); } catch (e) { return; }
     if (!r || !r.cd || !$("rpCd")) { if ($("rpCdOpts")) { $("rpCdOpts").hidden = false; $("rpCdOn").disabled = true; $("rpCdNote").textContent = r?.missing ? "Cooldowns need this game's replay (Lane trades tab can download it)." : r?.error ? "Cooldowns: " + r.error : ""; } return; }
     st.cd = r.cd; st.trades = (r.trades || []).filter(t => t.solo !== false); st.coach = r.coach || [];
     await LT.loadSpells([LT.ddId(r.cd.me.champ), LT.ddId(r.cd.opp.champ)]);

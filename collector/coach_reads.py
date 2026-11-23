@@ -335,8 +335,7 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
                 notes.append("%s started it %.0fs before %s level %d: %s." % ("You" if starter == "me" else "They", secs, "their" if who == "opp" else "your", to, "risky" if starter == "me" else "their mistake"))
         if wave_then_engaged:
             notes.append("Ability on the wave, then they engaged: commit to crashing and recalling, or to fighting, not in between.")
-        if mdmg["me"] + mdmg["opp"] >= 60:
-            notes.append("Minions and towers: %d to you, %d to them." % (mdmg["me"], mdmg["opp"]))
+        # (minion and tower damage is still counted in the reads above; the line itself was more noise than help)
         od = expert_odds(t0, x.get("first") == "you") if x.get("solo", True) else None
         if od:
             pf, pc = round(100 * od["fight"]), round(100 * od["calm"])

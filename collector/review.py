@@ -452,7 +452,7 @@ def _grades(game_id):
             return json.load(f)
     except (OSError, ValueError):
         return {}
-TRADES_VERSION = 23          # bump when the trade data changes shape, so old results are rebuilt
+TRADES_VERSION = 24          # bump when the trade data changes shape, so old results are rebuilt
 _replay_dir_cache = {}
 _trades_dl = {}             # game id -> {"state", "message", "at"}
 
@@ -622,15 +622,17 @@ def _cooldowns(data, game, me, opp, out, pslot):
                      "summs": sm, "guess": guess}
     return res
 
-def trades_for(cfg, game_id):
-    """The lane trades for one of your games, decoded from its replay (cached). Returns a dict for the page."""
+def trades_for(cfg, game_id, as_puuid=None):
+    """The lane trades for one of your games (or, with as_puuid, a looked-up player's game, from their side), decoded
+    from its replay (cached). Returns a dict for the page."""
     import replay_trades as RT
-    data = _read_cache(game_id)
+    data = read_other(as_puuid, game_id) if as_puuid else _read_cache(game_id)
     if not data or not data.get("timeline"):
         return {"error": "This game isn't saved yet."}
     game = data["game"]
     os.makedirs(TRADES_DIR, exist_ok=True)
-    cpath = os.path.join(TRADES_DIR, "%s.json" % int(game_id))
+    cpath = os.path.join(TRADES_DIR, ("%s.json" % int(game_id)) if not as_puuid else
+                         "%s-%s.json" % (int(game_id), re.sub(r"[^A-Za-z0-9]", "", as_puuid)[:12]))
     try:
         with open(cpath, "r", encoding="utf-8") as f:
             hit = json.load(f)
@@ -1705,8 +1707,9 @@ def _others_dir(puuid):
     return d
 
 
-def lookup_player(riot_id, platform="NA1", limit=12):
-    """Finds a player by Riot ID and loads their recent Summoner's Rift games. Returns (who, games)."""
+def lookup_player(riot_id, platform="NA1", limit=12, game=None):
+    """Finds a player by Riot ID and loads their recent Summoner's Rift games (plus one game by id, if given, even
+    when it's older than the recent ones). Returns (who, games)."""
     q = urllib.parse.urlencode({"riotId": riot_id, "platform": platform})
     who = _site_get("/api/review/lookup?" + q)
     d = _others_dir(who["puuid"])
@@ -1719,7 +1722,12 @@ def lookup_player(riot_id, platform="NA1", limit=12):
     except (OSError, ValueError):
         skip = set()
     got = 0
-    for mid in who.get("ids") or []:
+    ids = list(who.get("ids") or [])
+    if game:
+        gid = "%s_%s" % (platform.upper(), re.sub(r"\D", "", str(game)))
+        ids = [gid] + [x for x in ids if x != gid]
+        limit += 1
+    for mid in ids:
         if got >= limit:
             break
         path = os.path.join(d, "%s.json" % mid.split("_")[-1])
@@ -2681,7 +2689,7 @@ def make_handler(cfg, token):
             if url.path == "/api/lookup":           # view another player's recent games
                 q = parse_qs(url.query)
                 try:
-                    who, games = lookup_player((q.get("riotId") or [""])[0], (q.get("platform") or ["NA1"])[0])
+                    who, games = lookup_player((q.get("riotId") or [""])[0], (q.get("platform") or ["NA1"])[0], game=(q.get("game") or [None])[0])
                 except Exception as e:
                     return self._send(400, {"error": str(e)})
                 return self._send(200, {"me": who, "games": games, "viewing": True, "patch": _client_patch(cfg), "replayApi": False,
@@ -2757,7 +2765,7 @@ def make_handler(cfg, token):
             m = re.match(r"^/api/trades/(\d+)$", url.path)
             if m:
                 try:
-                    return self._send(200, trades_for(cfg, m.group(1)))
+                    return self._send(200, trades_for(cfg, m.group(1), (parse_qs(url.query).get("as") or [None])[0]))
                 except Exception as e:
                     core.log.exception("Trades for %s failed", m.group(1))
                     return self._send(200, {"error": "Couldn't build trades: %s" % e})
