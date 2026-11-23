@@ -475,14 +475,15 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
         theirs_back = FX and any(t - 90 <= x <= t for x in FX.backs.get(opp, []))
         if a and b and a[1] and b[1] and a[0] is not None and b[0] is not None:
             pa, pb = a[0] / a[1], b[0] / b[1]
+            # The coach shows the window and what bears on it; the player decides (user, 2026-11-23: "it's more if
+            # it's a good window or not and they have to decide"). Always a "check", never "reset now" or "stay".
             if theirs_back and pa < 0.8:
-                r["text"] += " They've already been back to base (full health, new item) and you haven't: reset now, before they use that edge."
+                r["text"] += " They had already been back (full health, new item) and you hadn't: a point for backing."
             elif pb - pa >= 0.15:
-                r["text"] += " You're on %d%% health to their %d%%: reset now rather than play the next wave low." % (round(100 * pa), round(100 * pb))
+                r["text"] += " You were on %d%% health to their %d%%: a point for backing." % (round(100 * pa), round(100 * pb))
             elif pa - pb >= 0.3 and not theirs_back:
-                # User grade (Garen v Fiora 7:14): with them on half health and you full, staying to keep pressure is right too.
-                r["text"] += " You're well ahead on health (%d%% vs %d%%), so staying to keep the pressure on is also a good choice." % (round(100 * pa), round(100 * pb))
-                r["verdict"] = "meh"
+                r["text"] += " You were well ahead on health (%d%% vs %d%%): a point for staying to keep the pressure on." % (round(100 * pa), round(100 * pb))
+        r["verdict"] = "check"
         R.append(r)
 
     # --- level races (2 and 3)
@@ -578,12 +579,12 @@ def _reset_windows(d, mins, frames, kills, me, opp, pme, my_team, p_opp, until, 
             t += 2; continue
         later = RT._at(track, t + 20)
         roamed = later is not None and W.lane_of(*later) != lane and math.hypot(later[0] - here[0], later[1] - here[1]) > 2500
-        txt = ("Potential reset window: your wave crashed into their tower and you had ~%d gold. A back here costs you nothing (their "
-               "tower takes the wave, it bounces back to you as you return) and you come back with the item." % round(gold, -1))
+        txt = ("Reset window: your wave crashed into their tower and you had ~%d gold. Backing here would cost little (their "
+               "tower takes the wave and it bounces back to you as you return)." % round(gold, -1))
         if not opp_tp:
-            txt += " They have no Teleport, so they can't match your back cheaply."
+            txt += " They have no Teleport, so they can't match a back cheaply."
         if roamed:
-            txt += " You left the lane instead: worth it only if the roam got something."
+            txt += " You left the lane instead."
         out.append({"t": round(t, 1), "kind": "reset", "verdict": "check", "text": txt})
         last = t
         t += 2
