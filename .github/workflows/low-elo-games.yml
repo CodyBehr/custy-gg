@@ -11,6 +11,8 @@ on:
       tiers: { description: "Tiers", default: "SILVER,GOLD,PLATINUM" }
       want: { description: "Games wanted", default: "6" }
       minutes: { description: "Minutes to search", default: "60" }
+      players: { description: "Players to read instead of sampling (name#tag;name#tag)", default: "" }
+      anytier: { description: "Keep any rank (yes/no)", default: "no" }
 
 permissions:
   contents: write
@@ -27,7 +29,8 @@ jobs:
         run: |
           V=$(curl -s https://ddragon.leagueoflegends.com/api/versions.json | python3 -c "import json,sys;print('.'.join(json.load(sys.stdin)[0].split('.')[:2]))")
           python3 scripts/research/low_elo_games.py --a "${{ inputs.a }}" --b "${{ inputs.b }}" --role "${{ inputs.role }}" \
-            --patch "$V" --tiers "${{ inputs.tiers }}" --want "${{ inputs.want }}" --minutes "${{ inputs.minutes }}"
+            --patch "$V" --tiers "${{ inputs.tiers }}" --want "${{ inputs.want }}" --minutes "${{ inputs.minutes }}" \
+            --players "${{ inputs.players }}" $([ "${{ inputs.anytier }}" = "yes" ] && echo --any-tier)
       - name: Commit
         run: |
           git config user.name "custy-bot"; git config user.email "actions@users.noreply.github.com"

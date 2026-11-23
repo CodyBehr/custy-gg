@@ -15,6 +15,7 @@ import os
 import random
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 ap = argparse.ArgumentParser()
@@ -28,6 +29,8 @@ ap.add_argument("--minutes", type=float, default=60)
 ap.add_argument("--days", type=int, default=10)
 ap.add_argument("--mastery", type=int, default=30000)
 ap.add_argument("--out", default="public/experts")
+ap.add_argument("--players", default="")   # "name#tag;name#tag": read these players' games instead of sampling the ladder
+ap.add_argument("--any-tier", action="store_true")   # keep games whatever the player's rank (for your own games)
 a = ap.parse_args()
 KEY = os.environ["RIOT_API_KEY"].strip()
 T0 = time.time()
@@ -62,15 +65,30 @@ dd = json.loads(urllib.request.urlopen("https://ddragon.leagueoflegends.com/cdn/
 cid = {v["id"]: int(v["key"]) for v in dd.values()}
 A = cid[a.a]
 B = [x.strip() for x in a.b.split(",")]
-watch = [cid[a.a]] + [cid[x] for x in B]   # players of A, or of any B, may have played the matchup
+watch = [cid[a.a]] + [cid[x] for x in B if x in cid]   # players of A, or of any B, may have played the matchup
 since = int(time.time()) - a.days * 86400
 found, seen_games, seen_players = [], set(), set()
 tiers = a.tiers.split(",")
 random.seed(int(time.time()))
-while time.time() - T0 < a.minutes * 60 and len(found) < a.want:
-    tier, div, page = random.choice(tiers), random.choice(["I", "II", "III", "IV"]), random.randint(1, 30)
-    entries = get("na1", "/lol/league/v4/entries/RANKED_SOLO_5x5/%s/%s?page=%d" % (tier, div, page)) or []
-    random.shuffle(entries)
+named = []
+for rid in [x.strip() for x in a.players.split(";") if x.strip()]:
+    name, tag = rid.rsplit("#", 1)
+    acc = get("americas", "/riot/account/v1/accounts/by-riot-id/%s/%s" % (urllib.parse.quote(name), urllib.parse.quote(tag)))
+    if not acc:
+        print("not found: %s" % rid); continue
+    r = next((x for x in get("na1", "/lol/league/v4/entries/by-puuid/%s" % acc["puuid"]) or [] if x.get("queueType") == "RANKED_SOLO_5x5"), None)
+    print("%s: %s" % (rid, ("%s %s %d LP" % (r["tier"], r["rank"], r["leaguePoints"])) if r else "unranked"), flush=True)
+    if r and (a.any_tier or r["tier"] in tiers):
+        named.append(dict(r, puuid=acc["puuid"], who=rid))
+rounds = 0
+while time.time() - T0 < a.minutes * 60 and len(found) < a.want and (not a.players or rounds == 0):
+    rounds += 1
+    if a.players:
+        entries = named
+    else:
+        tier, div, page = random.choice(tiers), random.choice(["I", "II", "III", "IV"]), random.randint(1, 30)
+        entries = get("na1", "/lol/league/v4/entries/RANKED_SOLO_5x5/%s/%s?page=%d" % (tier, div, page)) or []
+        random.shuffle(entries)
     for e in entries[:40]:
         if time.time() - T0 > a.minutes * 60 or len(found) >= a.want:
             break
@@ -78,10 +96,11 @@ while time.time() - T0 < a.minutes * 60 and len(found) < a.want:
         if not pu or pu in seen_players:
             continue
         seen_players.add(pu)
-        top = get("na1", "/lol/champion-mastery/v4/champion-masteries/by-puuid/%s/top?count=5" % pu) or []
-        if not any(m.get("championId") in watch and m.get("championPoints", 0) >= a.mastery for m in top):
-            continue
-        ids = get("americas", "/lol/match/v5/matches/by-puuid/%s/ids?queue=420&startTime=%d&count=20" % (pu, since)) or []
+        if not a.players:
+            top = get("na1", "/lol/champion-mastery/v4/champion-masteries/by-puuid/%s/top?count=5" % pu) or []
+            if not any(m.get("championId") in watch and m.get("championPoints", 0) >= a.mastery for m in top):
+                continue
+        ids = get("americas", "/lol/match/v5/matches/by-puuid/%s/ids?queue=420&startTime=%d&count=%d" % (pu, since, 40 if a.players else 20)) or []
         for mid in ids:
             if mid in seen_games:
                 continue
@@ -96,10 +115,12 @@ while time.time() - T0 < a.minutes * 60 and len(found) < a.want:
                 continue
             P = info["participants"]
             pa = next((p for p in P if p["championName"] == a.a and p["teamPosition"] == a.role), None)
-            pb = next((p for p in P if pa and p["championName"] in B and p["teamPosition"] == a.role and p["teamId"] != pa["teamId"]), None)
+            pb = next((p for p in P if pa and (p["championName"] in B or "any" in B) and p["teamPosition"] == a.role and p["teamId"] != pa["teamId"]), None)
             if not pa or not pb:
                 continue
-            if pa["puuid"] != pu:   # found through the B player: look up A's player's rank
+            if a.players and pa["puuid"] != pu:
+                continue   # named players: only their own games on A
+            if pa["puuid"] != pu and not a.players:   # found through the B player: look up A's player's rank
                 ra = get("na1", "/lol/league/v4/entries/by-puuid/%s" % pa["puuid"]) or []
                 ra = next((x for x in ra if x.get("queueType") == "RANKED_SOLO_5x5"), None)
                 if not ra or ra["tier"] not in tiers:
@@ -109,7 +130,7 @@ while time.time() - T0 < a.minutes * 60 and len(found) < a.want:
             fr = (tl or {}).get("info", {}).get("frames") or []
             f14 = fr[min(14, len(fr) - 1)]["participantFrames"] if fr else {}
             x, y = f14.get(str(pa["participantId"]), {}), f14.get(str(pb["participantId"]), {})
-            row = {"gameId": int(mid.split("_")[1]), "opp": pb["championName"], "platform": "NA1", "gameVersion": info["gameVersion"], "queueId": 420,
+            row = {"gameId": int(mid.split("_")[1]), "opp": pb["championName"], "player": e.get("who"), "platform": "NA1", "gameVersion": info["gameVersion"], "queueId": 420,
                    "gameEnd": info.get("gameEndTimestamp"), "rank": "%s %s" % (e["tier"].title(), e["rank"]), "lp": e.get("leaguePoints"),
                    "win": pa["win"], "kda": "%d/%d/%d" % (pa["kills"], pa["deaths"], pa["assists"]),
                    "oppKda": "%d/%d/%d" % (pb["kills"], pb["deaths"], pb["assists"]),
