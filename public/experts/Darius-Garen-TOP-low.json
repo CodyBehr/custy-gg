@@ -1,0 +1,34 @@
+{
+ "champions": [
+  "Darius",
+  "Garen"
+ ],
+ "role": "TOP",
+ "patch": "16.23",
+ "tiers": [
+  "SILVER",
+  "GOLD",
+  "PLATINUM",
+  "EMERALD"
+ ],
+ "built": 1795443625,
+ "games": [
+  {
+   "gameId": 5684787013,
+   "opp": "Garen",
+   "player": "A1 Azzet Whipper#Dee",
+   "platform": "NA1",
+   "gameVersion": "16.23.840.6595",
+   "queueId": 420,
+   "gameEnd": 1795387508422,
+   "rank": "Emerald I",
+   "lp": 50,
+   "win": true,
+   "kda": "14/2/5",
+   "oppKda": "2/11/1",
+   "gold14": 1765,
+   "cs14": 13,
+   "lv14": 2
+  }
+ ]
+}
