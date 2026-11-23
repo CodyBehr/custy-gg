@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       a: { description: "Champion A (the player we look at)", default: "Garen" }
-      b: { description: "Champion B", default: "Camille" }
+      b: { description: "Champion B (or several, comma-separated)", default: "Camille" }
       role: { description: "Role", default: "TOP" }
       tiers: { description: "Tiers", default: "SILVER,GOLD,PLATINUM" }
       want: { description: "Games wanted", default: "6" }
