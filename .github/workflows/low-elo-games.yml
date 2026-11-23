@@ -1,0 +1,37 @@
+# Finds Silver–Platinum ranked games of one lane matchup on the current patch (public/experts/<A>-<B>-<ROLE>-low.json),
+# to test the coach on lower-ranked games. Run by hand from the Actions tab. Needs the repository secret RIOT_API_KEY.
+name: Low-elo games (find)
+
+on:
+  workflow_dispatch:
+    inputs:
+      a: { description: "Champion A (the player we look at)", default: "Garen" }
+      b: { description: "Champion B", default: "Camille" }
+      role: { description: "Role", default: "TOP" }
+      tiers: { description: "Tiers", default: "SILVER,GOLD,PLATINUM" }
+      want: { description: "Games wanted", default: "6" }
+      minutes: { description: "Minutes to search", default: "60" }
+
+permissions:
+  contents: write
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find games
+        env:
+          RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+        run: |
+          V=$(curl -s https://ddragon.leagueoflegends.com/api/versions.json | python3 -c "import json,sys;print('.'.join(json.load(sys.stdin)[0].split('.')[:2]))")
+          python3 scripts/research/low_elo_games.py --a "${{ inputs.a }}" --b "${{ inputs.b }}" --role "${{ inputs.role }}" \
+            --patch "$V" --tiers "${{ inputs.tiers }}" --want "${{ inputs.want }}" --minutes "${{ inputs.minutes }}"
+      - name: Commit
+        run: |
+          git config user.name "custy-bot"; git config user.email "actions@users.noreply.github.com"
+          git add public/experts
+          git diff --cached --quiet && exit 0
+          git commit -m "Low-elo games: ${{ inputs.a }} vs ${{ inputs.b }} ${{ inputs.role }}"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done
