@@ -336,6 +336,36 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
         if wave_then_engaged:
             notes.append("Ability on the wave, then they engaged: commit to crashing and recalling, or to fighting, not in between.")
         # (minion and tower damage is still counted in the reads above; the line itself was more noise than help)
+        # Missed kill: they got away on less health than your Ignite does, and it was up (user notes, Emerald Garen v
+        # Darius 1:56: Darius escaped on ~93 HP with Flash; Ignite would have killed)
+        if "Ignite" in my_sums and not died and x["dealt"] > 0:
+            my_lv = sum(1 for tt, kk in d["levels"] if kk == me and tt <= t1) or 1
+            ign = 70 + 20 * my_lv
+            low = left_fwd if not left_known else min(left_fwd, left_opp)
+            used = any(k == me and n == "Ignite" and t0 - 1 <= t <= t1 + 2 for t, k, n in sc)
+            fl = any(k == opp and n == "Flash" and t0 <= t <= t1 + 6 for t, k, n in sc)
+            hb2 = hp_back(opp, t1)   # Riot's exact health at the next minute mark, worked back (None after a recall)
+            backed = FX is not None and any(t1 <= x <= t1 + 60 for x in FX.backs.get(opp, []))
+            # proof they really got away low: they had to Flash or recall right away, or the next minute mark says so
+            proof = fl or (backed and hb2 is None) or (hb2 is not None and hb2[0] <= ign * 1.2)
+            if not used and low <= ign and proof and dict(sums_up(me, my_sums, t0)).get("Ignite"):
+                notes.append("Missed kill: they got away on ~%d HP%s, and your Ignite (~%d true damage) was up. Ignite them there." % (
+                    low, " by Flashing" if fl else "", ign))
+                verdict = "missed" if verdict in ("even", "good", "meh") else verdict
+        # Flash: burned to get out of this fight, or already down when this one killed you (user notes, Emerald Garen v
+        # Darius: forced Flash at 3:08, then no way out of the dive at 3:39)
+        my_fl = [t for t, k, n in sc if k == me and n == "Flash"]
+
+        def fled(tf):   # a Flash away from them (escape), not toward them (to get a kill)
+            a0, a1 = RT._at(d["tracks"].get(me), tf - 0.3), RT._at(d["tracks"].get(me), tf + 0.5)
+            o0 = RT._at(d["tracks"].get(opp), tf)
+            return bool(a0 and a1 and o0) and math.hypot(a1[0] - o0[0], a1[1] - o0[1]) > math.hypot(a0[0] - o0[0], a0[1] - o0[1]) + 150
+        if "them" not in died and "you" not in died and any(t0 - 1 <= t <= t1 + 3 and fled(t) for t in my_fl):
+            notes.append("You had to Flash to get out of it: no Flash for the next 5 minutes, so play the lane safer until it's back.")
+        if "you" in died:
+            prev = [t for t in my_fl if t1 - 300 <= t < t0 - 10]   # a Flash in this same fight doesn't count as "down"
+            if prev:
+                notes.append("Your Flash was down (used at %s), so you had no way out." % clock(prev[-1]))
         od = expert_odds(t0, x.get("first") == "you") if x.get("solo", True) else None
         if od:
             pf, pc = round(100 * od["fight"]), round(100 * od["calm"])
@@ -436,12 +466,23 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
     # opponent couldn't punish a back, and you stayed (or roamed) instead of backing. Crash, back while their tower
     # takes the wave, and you lose nothing; the wave bounces to you as you return. Ambiguous by nature: "check".
     for r in _reset_windows(d, mins, frames, kills, me, opp, pme, my_team, p_opp, until):
-        # User grade (Garen v Fiora 7:14): with them on half health and you full, staying to keep pressure is right too.
-        i = int(r["t"] // 60)
-        a, b = frame_hp(me, i), frame_hp(opp, i)
-        if a and b and a[0] and b[0] is not None and a[0] / a[1] - b[0] / b[1] >= 0.3:
-            r["text"] += " You were well ahead on health (%d%% vs %d%%), so staying to keep the pressure on is also a good choice." % (round(100 * a[0] / a[1]), round(100 * b[0] / b[1]))
-            r["verdict"] = "meh"
+        # Health right now (the replay's minute health plus every hit since), not the last minute mark: a stale
+        # number once said "you're well ahead, stay" when the opponent had already backed and come back full
+        # (user notes, Emerald Garen v Darius 2:44).
+        t = r["t"]
+        a = FX.hp_at(me, t) if FX else frame_hp(me, int(t // 60))
+        b = FX.hp_at(opp, t) if FX else frame_hp(opp, int(t // 60))
+        theirs_back = FX and any(t - 90 <= x <= t for x in FX.backs.get(opp, []))
+        if a and b and a[1] and b[1] and a[0] is not None and b[0] is not None:
+            pa, pb = a[0] / a[1], b[0] / b[1]
+            if theirs_back and pa < 0.8:
+                r["text"] += " They've already been back to base (full health, new item) and you haven't: reset now, before they use that edge."
+            elif pb - pa >= 0.15:
+                r["text"] += " You're on %d%% health to their %d%%: reset now rather than play the next wave low." % (round(100 * pa), round(100 * pb))
+            elif pa - pb >= 0.3 and not theirs_back:
+                # User grade (Garen v Fiora 7:14): with them on half health and you full, staying to keep pressure is right too.
+                r["text"] += " You're well ahead on health (%d%% vs %d%%), so staying to keep the pressure on is also a good choice." % (round(100 * pa), round(100 * pb))
+                r["verdict"] = "meh"
         R.append(r)
 
     # --- level races (2 and 3)
