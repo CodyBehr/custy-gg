@@ -9,6 +9,7 @@
 // NA only, since League only downloads replays from your own region and patch.
 
 import { NextResponse } from "next/server";
+import PRIORITY from "@/lib/priority-games.json";
 import { checkIngestKey } from "@/lib/ingest-key";
 import { store } from "@/lib/store";
 
@@ -145,9 +146,14 @@ export async function GET(req: Request) {
       note = e?.status === 429 ? "Riot's rate limit: more next time." : e?.status === 401 || e?.status === 403 ? "Riot rejected the site's key." : String(e?.message ?? e);
     }
 
-    // Games found through Challenger players first, then Grandmaster, then Master; newest first within each.
-    const pick = st.queue.filter((q) => !served.has(q.gameId) && !skip.has(q.gameId))
-      .sort((x, y) => x.tier - y.tier || y.gameId - x.gameId).slice(0, count);
+    // Hand-picked games first (lib/priority-games.json: e.g. lower-ranked games to test the coach on; their data is
+    // kept out of the expert sets by id), then games found through Challenger, Grandmaster, Master; newest first.
+    const pri: QItem[] = (PRIORITY as any[]).filter((q) => String(q.gameVersion).startsWith(patch + ".") &&
+      String(q.platform).toLowerCase() === platform && !served.has(q.gameId) && !skip.has(q.gameId))
+      .map((q) => ({ gameId: q.gameId, platform: q.platform, gameVersion: q.gameVersion, gameType: "MATCHED_GAME", queueId: q.queueId ?? 420,
+        gameEnd: q.gameEnd, tier: -1, matchup: q.set }));
+    const pick = [...pri, ...st.queue.filter((q) => !served.has(q.gameId) && !skip.has(q.gameId))
+      .sort((x, y) => x.tier - y.tier || y.gameId - x.gameId)].slice(0, count);
     for (const q of pick) st.served.push(q.gameId);
     st.served = st.served.slice(-20000);
     st.seen = st.seen.slice(-40000);

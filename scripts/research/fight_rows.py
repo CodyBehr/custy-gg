@@ -178,6 +178,10 @@ def rows_for(args):
 if __name__ == "__main__":
     out_path, tdir, dirs = sys.argv[1], sys.argv[2], sys.argv[3:]
     files = sorted(p for dd in dirs for p in glob.glob(os.path.join(dd, "*.json.gz")))
+    # hand-picked lower-ranked games (lib/priority-games.json) aren't expert games: leave them out
+    pri = os.path.join(os.path.dirname(__file__), "..", "..", "lib", "priority-games.json")
+    skip = {str(g["gameId"]) for g in json.load(open(pri))} if os.path.exists(pri) else set()
+    files = [p for p in files if os.path.basename(p).split(".")[0] not in skip]
     n = games = 0
     with open(out_path, "w", newline="") as fh, Pool(max(1, os.cpu_count() - 1)) as pool:
         w = csv.DictWriter(fh, fieldnames=FIELDS)
