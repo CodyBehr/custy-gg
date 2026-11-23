@@ -351,7 +351,7 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
                 notes.append("A bad spot to take it: experts come out ahead only %d%% of the time fighting here (%d%% if they don't)." % (pf, pc))
             elif won_it and pf <= 30:
                 notes.append("You won one experts usually lose here (%d%%)." % pf)
-            elif od["value"] <= -0.15:
+            elif od["value"] <= -0.15 and verdict not in ("missed", "check"):   # "their mistake to punish" stands on its own
                 notes.append("Fighting here usually costs: experts come out ahead %d%% of the time fighting, %d%% not fighting." % (pf, pc))
         R.append({"t": round(t0, 1), "kind": "trade", "verdict": verdict, "text": " ".join(notes) or "Net %+d%% of max HP." % net,
                   "odds": {"fight": round(od["fight"], 3), "calm": round(od["calm"], 3)} if od else None,
