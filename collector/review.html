@@ -2648,7 +2648,17 @@ function render(){
 let GA=null;
 // "▶ My recording" on every trade and coach read, when the app recorded this game
 async function recRows(){
-  if(!GA||typeof recInfo!=="function") return; const r=await recInfo(GA); if(!r.exists||!ROOT) return;
+  if(!GA||typeof recInfo!=="function") return; const r=await recInfo(GA); if(!ROOT) return;
+  if(!r.exists){
+    // No recording (e.g. someone else's game): open League's replay at the fight instead
+    ROOT.querySelectorAll("tr.row").forEach(tr=>{const td=tr.querySelector("td:last-child"); if(!td||td.querySelector(".lt-rep")) return;
+      const T=GAME.trades[+tr.dataset.i]; const b=document.createElement("button"); b.className="lt-rep"; b.textContent="▶ Watch in replay"; b.style.cssText="margin-top:6px;padding:3px 9px;font-size:12px";
+      b.title="Opens League's replay of this game a few seconds before this trade"; b.onclick=e=>{e.stopPropagation();watch(GA.g.gameId,Math.max(0,Math.round(T.t0-5)),b)}; td.appendChild(b)});
+    ROOT.querySelectorAll(".coach li[data-ti]").forEach(li=>{if(li.querySelector(".lt-rep")) return; const t=(GAME.coach||[]).find(c=>clk(c.t)===li.querySelector(".t")?.textContent)?.t; if(t==null) return;
+      const b=document.createElement("button"); b.className="lt-rep"; b.textContent="▶"; b.title="Watch in League's replay"; b.style.cssText="margin-left:6px;padding:1px 8px;font-size:12px";
+      b.onclick=e=>{e.stopPropagation();watch(GA.g.gameId,Math.max(0,Math.round(t-5)),b)}; li.appendChild(b)});
+    return;
+  }
   ROOT.querySelectorAll("tr.row").forEach(tr=>{const td=tr.querySelector("td:last-child"); if(!td||td.querySelector(".lt-rec")) return;
     const T=GAME.trades[+tr.dataset.i]; const b=document.createElement("button"); b.className="lt-rec"; b.textContent="▶ My recording"; b.style.cssText="margin-top:6px;padding:3px 9px;font-size:12px";
     b.title="Watch this trade on your recording, with both of your cooldowns on the video"; b.onclick=e=>{e.stopPropagation();watchRec(T.t0)}; td.appendChild(b)});
