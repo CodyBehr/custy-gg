@@ -2,7 +2,10 @@
 against Riot's own per-minute positions/HP). Used by .github/workflows/match-pull.yml.
   RIOT_API_KEY=... python pull_matches.py --out DIR NA1_123 NA1_456 ..."""
 import argparse, gzip, json, os, time, urllib.error, urllib.request
-KEY = os.environ["RIOT_API_KEY"]
+KEY = os.environ["RIOT_API_KEY"].strip().strip('"').strip("'")
+# Shape only, never the key: Riot keys look like RGAPI- plus a 36-character id (42 characters).
+print("key shape: starts RGAPI-: %s, length %d, had spaces/quotes around it: %s" % (
+    KEY.startswith("RGAPI-"), len(KEY), KEY != os.environ["RIOT_API_KEY"]), flush=True)
 ROUTE = {"NA1": "americas", "BR1": "americas", "LA1": "americas", "LA2": "americas", "EUW1": "europe", "EUN1": "europe",
          "TR1": "europe", "KR": "asia", "JP1": "asia", "OC1": "sea"}
 def get(host, path):
