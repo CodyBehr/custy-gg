@@ -12,6 +12,11 @@ try:
     import champ_cd
 except Exception:   # older builds
     champ_cd = None
+try:
+    import fight_feats
+    import fight_eval
+except Exception:   # older builds
+    fight_feats = fight_eval = None
 import replay_waves as W
 
 SUMM = {"363fad": "Flash", "78ed5b": "Teleport", "22568a": "Ignite", "cbb9e2": "Heal", "96b4e4": "Barrier",
@@ -149,6 +154,44 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
 
     R = []
     trades = []
+    # --- the fight model (Master+ 1v1 top/mid fights): experts' odds of coming out ahead in this spot, fighting or not
+    lane = (d["stats"][me].get("TEAM_POSITION") or d["stats"][me].get("INDIVIDUAL_POSITION") or "").upper()
+    FX = None
+    if fight_eval and fight_eval.available() and lane in ("TOP", "MIDDLE") and not d.get("hp"):
+        try:
+            d["hp"] = RT.keyframe_health(path)   # the replay's own minute health (matches Riot's within 1 HP)
+        except Exception:
+            pass
+    if fight_eval and fight_eval.available() and lane in ("TOP", "MIDDLE") and d.get("hp"):
+        kd = {}
+        for z in kills:
+            if z["victim"] is not None:
+                kd.setdefault(z["victim"], []).append(z["t"])
+        rk = {}
+        for f in frames:
+            for e in f.get("events") or []:
+                if e.get("type") == "SKILL_LEVEL_UP" and e.get("participantId") in (pme, popp) and e.get("levelUpType") != "EVOLVE" and e.get("skillSlot") in (1, 2, 3, 4):
+                    rk.setdefault(me if e["participantId"] == pme else opp, []).append(((e.get("timestamp") or 0) / 1000, "QWER"[e["skillSlot"] - 1]))
+        try:
+            FX = fight_feats.Ctx(d, kd, rk, lambda k, t: gold_at(pme if k == me else popp, t) if k in (me, opp) else None, until)
+        except Exception:
+            FX = None
+
+    def expert_odds(t0, first=None):
+        if not FX:
+            return None
+        try:
+            st = FX.state(me, opp, t0, lane, first)
+            if not st:
+                return None
+            st.pop("_hp", None)
+            o = fight_eval.odds(st, skins[me], skins[opp])
+            if o:
+                o["state"] = st
+            return o
+        except Exception:
+            return None
+
     # --- trades
     for x in trades_out.get("trades") or []:
         t0, t1 = x["t0"], x["t1"]
@@ -294,9 +337,68 @@ def analyze(path, me, opp, p_me, p_opp, slot_of_pid, timeline, trades_out, until
             notes.append("Ability on the wave, then they engaged: commit to crashing and recalling, or to fighting, not in between.")
         if mdmg["me"] + mdmg["opp"] >= 60:
             notes.append("Minions and towers: %d to you, %d to them." % (mdmg["me"], mdmg["opp"]))
+        od = expert_odds(t0, x.get("first") == "you") if x.get("solo", True) else None
+        if od:
+            pf, pc = round(100 * od["fight"]), round(100 * od["calm"])
+            i_died = "you" in died
+            lost_it = (verdict in ("bad", "lost", "close") or i_died) and "them" not in died
+            won_it = verdict == "good" or ("them" in died and not i_died)
+            # Only say something when the odds add to what happened: a good call that didn't land, a bad spot, a win
+            # against the odds, or a spot where fighting clearly costs or pays compared with not fighting.
+            if lost_it and pf >= 60:
+                notes.append("The call was fine: experts in this spot come out ahead %d%% of the time, so look at how it played out, not the decision." % pf)
+            elif lost_it and (pf <= 35 or od["value"] <= -0.10):
+                notes.append("A bad spot to take it: experts come out ahead only %d%% of the time fighting here (%d%% if they don't)." % (pf, pc))
+            elif won_it and pf <= 30:
+                notes.append("You won one experts usually lose here (%d%%)." % pf)
+            elif od["value"] <= -0.15:
+                notes.append("Fighting here usually costs: experts come out ahead %d%% of the time fighting, %d%% not fighting." % (pf, pc))
         R.append({"t": round(t0, 1), "kind": "trade", "verdict": verdict, "text": " ".join(notes) or "Net %+d%% of max HP." % net,
+                  "odds": {"fight": round(od["fight"], 3), "calm": round(od["calm"], 3)} if od else None,
                   "free_poke": free_poke and verdict == "bad" and not lh, "poke_pct": round(100 * x["took"] / mx[0]),
                   "lv": level(pme, t0)})
+
+    # --- windows you didn't take: near each other, no fight, and experts in that spot come out clearly better fighting
+    if FX:
+        duel_t = sorted(t for t, tg, a, v in hits if {a, tg} == {me, opp})
+        cand = []
+        tt = 90.0
+        while tt <= min(until, 840):
+            a_, b_ = RT._at(d["tracks"].get(me), tt), RT._at(d["tracks"].get(opp), tt)
+            busy = any(tt - 8 <= x <= tt + 20 for x in duel_t)
+            dead = any(tt - 20 <= z["t"] <= tt + 2 and z["victim"] in (me, opp) for z in kills)
+            others = any(k not in (me, opp) and RT._at(d["tracks"].get(k), tt) and a_ and
+                         math.hypot(RT._at(d["tracks"][k], tt)[0] - a_[0], RT._at(d["tracks"][k], tt)[1] - a_[1]) < 1400 for k in range(10))
+            # recalls are logged when they land in base: skip the 25 s before (walking off + the 8 s channel)
+            backing = any(x - 25 <= tt <= x + 5 for x in FX.backs.get(opp, []) + FX.backs.get(me, []))
+            their_tower = min(math.hypot(b_[0] - tx, b_[1] - tz) for tx, tz in TOWERS[300 - my_team]) < 1000 if b_ else True
+            if a_ and b_ and not busy and not dead and not others and not backing and not their_tower and math.hypot(a_[0] - b_[0], a_[1] - b_[1]) < 1500:
+                od = expert_odds(tt)
+                if od and od["fight"] >= 0.62 and od["value"] >= 0.12:
+                    cand.append((od["value"], tt, od))
+            tt += 10
+        picked = []
+        for v, tt, od in sorted(cand, reverse=True):
+            if len(picked) < 3 and all(abs(tt - p_[0]) >= 60 for p_ in picked):
+                picked.append((tt, od))
+        for tt, od in sorted(picked):
+            st = od["state"]
+            why = []
+            if st["lvMe"] > st["lvOpp"]:
+                why.append("you were a level up")
+            if st["hpMe"] - st["hpOpp"] >= 15:
+                why.append("you had %d%% health to their %d%%" % (st["hpMe"], st["hpOpp"]))
+            key = ((champ_cd.CD.get(skins[opp]) or {}).get("key")) if champ_cd else None
+            if key and st.get("keyOpp") not in ("", None) and st["keyOpp"] < 1:
+                why.append("their %s was on cooldown" % key)
+            if st["minMine"] - st["minTheirs"] >= 3:
+                why.append("your wave was bigger")
+            if st["flashOpp"] == 0 and st["flashMe"] == 1:
+                why.append("their Flash was down")
+            R.append({"t": round(tt, 1), "kind": "window", "verdict": "check",
+                      "odds": {"fight": round(od["fight"], 3), "calm": round(od["calm"], 3)},
+                      "text": "A window you didn't take: experts in this spot come out ahead %d%% of the time when they fight, %d%% when they don't%s." % (
+                          round(100 * od["fight"]), round(100 * od["calm"]), (" (" + ", ".join(why) + ")") if why else "")})
 
     # A free poke matters when it's a real chunk of health for that stage of the game (early levels: a Q + auto is a big
     # share of your health; by level 9 the same poke regens away) AND something follows within a minute where that health

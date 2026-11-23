@@ -25,10 +25,8 @@ from multiprocessing import Pool
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "collector"))
 import replay_trades as RT  # noqa: E402
 import replay_waves as W  # noqa: E402
-import champ_cd  # noqa: E402
+import fight_feats as FF  # noqa: E402
 
-TOWERS = {("TOP", 100): (981, 10441), ("TOP", 200): (4318, 13875), ("MIDDLE", 100): (5846, 6396), ("MIDDLE", 200): (8955, 8510)}
-FOUNTAIN = {100: (400, 400), 200: (14400, 14400)}
 FIELDS = ["game", "kind", "patch", "t", "lane", "me", "opp", "lvMe", "lvOpp", "hpMe", "hpOpp", "first",
           "sinceQme", "sinceWme", "sinceEme", "sinceRme", "sinceQopp", "sinceWopp", "sinceEopp", "sinceRopp",
           "readyQme", "readyWme", "readyEme", "readyRme", "readyQopp", "readyWopp", "readyEopp", "readyRopp",
@@ -71,7 +69,6 @@ def rows_for(args):
     tracks = {int(k): L for k, L in d["tracks"].items()}
     hits, casts, levels = d["hits"], d["casts"], d["levels"]
     summs = d.get("summs") or []
-    hpa = _hp_anchors(d)
 
     # Riot: kills and item gold per minute, matched to replay slots by champion and team
     m, fr = tl["match"]["info"], tl["timeline"]["info"]["frames"]
@@ -93,45 +90,14 @@ def rows_for(args):
             if e.get("type") == "SKILL_LEVEL_UP" and e.get("participantId") in inv and e.get("levelUpType") != "EVOLVE":
                 ranks.setdefault(inv[e["participantId"]], []).append((e["timestamp"] / 1000, "QWER"[e["skillSlot"] - 1]))
 
-    def rank(k, sl, t):
-        return sum(1 for tt, x in ranks.get(k, []) if x == sl and tt <= t)
-
-    backs = {}
-    for k, t, _x, _z in W.recalls(d, kills, 900):
-        backs.setdefault(k, []).append(t)
-
     def item_gold(k, t):
         if k not in pid:
             return None
         f = fr[min(len(fr) - 1, int(t // 60))]["participantFrames"].get(str(pid[k])) or {}
         return (f.get("totalGold") or 0) - (f.get("currentGold") or 0)
 
-    def hp_at(k, t):
-        A = hpa.get(k) or []
-        if len(A) < 2:
-            return None
-        i = max(0, min(len(A) - 2, max(x for x in range(len(A)) if A[x][0] <= t) if A[0][0] <= t else 0))
-        (t0, h0, m0), (t1, h1, m1) = A[i], A[i + 1]
-        if any(t0 < x <= t1 for x in kills.get(k, []) + backs.get(k, [])):
-            # a death or recall in this minute: count down from the earlier mark only
-            dmg = sum(v for ht, tg, a, v in hits if tg == k and t0 < ht <= t)
-            return max(0.0, min(m0, h0 - dmg)), m0
-        dmg = lambda a, b: sum(v for ht, tg, aa, v in hits if tg == k and a < ht <= b)
-        heal = max(0.0, h1 - h0 + dmg(t0, t1))
-        f = (t - t0) / max(1e-6, t1 - t0)
-        return max(0.0, min(m0 + (m1 - m0) * f, h0 - dmg(t0, t) + heal * f)), m0 + (m1 - m0) * f
-
-    def next_mark(k, t):
-        """The first minute mark after t with no death or recall of k in between: (time, hp, max) or None."""
-        for (tt, h, mm) in hpa.get(k) or []:
-            if tt > t + 2:
-                if any(t < x <= tt for x in kills.get(k, []) + backs.get(k, [])):
-                    return None
-                return tt, h, mm
-        return None
-
-    def level(k, t):
-        return sum(1 for tt, kk in levels if kk == k and tt <= t)
+    C = FF.Ctx(d, kills, ranks, item_gold)
+    next_mark = C.next_mark
 
     out = []
     for lane in ("TOP", "MIDDLE"):
@@ -181,47 +147,12 @@ def rows_for(args):
                             tt += 1.0
                 if not solo:
                     continue
-                pm = RT._at(tracks.get(i), t0) if i in tracks else None
-                po = RT._at(tracks.get(j), t0) if j in tracks else None
-                if not pm or not po:
+                st = C.state(i, j, t0, lane, (w[0][1] == i) if kind == "fight" else None)
+                if not st:
                     continue
-                hm, ho = hp_at(i, t0), hp_at(j, t0)
-                if not hm or not ho or not hm[1] or not ho[1]:
-                    continue
-                cx, cz = (pm[0] + po[0]) / 2, (pm[1] + po[1]) / 2
-                mine = theirs = 0
-                for key, L in tracks.items():
-                    if key < 10 or len(L) < 2 or t0 - L[-1][0] > 4:
-                        continue
-                    q = RT._at(L, t0)
-                    if not q or math.hypot(q[0] - cx, q[1] - cz) > 1100:
-                        continue
-                    tm = 100 if math.hypot(L[0][1] - 1500, L[0][2] - 1500) < math.hypot(L[0][1] - 13300, L[0][2] - 13300) else 200
-                    if tm == team[i]:
-                        mine += 1
-                    else:
-                        theirs += 1
-                row = {"game": gid, "patch": d["version"][:5], "t": round(t0, 1), "lane": lane, "me": skins[i], "opp": skins[j],
-                       "lvMe": level(i, t0), "lvOpp": level(j, t0),
-                       "hpMe": round(100 * hm[0] / hm[1]), "hpOpp": round(100 * ho[0] / ho[1]),
-                       "first": (1 if w[0][1] == i else 0) if kind == "fight" else "", "kind": kind}
-                for who, k in (("me", i), ("opp", j)):
-                    cd = (champ_cd.CD.get(skins[k]) or {}).get("cd") or {}
-                    for sl in "QWER":
-                        last = max([t for t, kk, s in casts if kk == k and s == sl and t < t0 - 0.3], default=None)
-                        since = t0 - last if last is not None else 999.0
-                        row["since%s%s" % (sl, who)] = round(min(since, 999.0), 1)
-                        rk = rank(k, sl, t0)
-                        cds = cd.get(sl) or []
-                        c1 = cds[min(len(cds), max(1, rk)) - 1] if cds else None
-                        # 0 = not learned yet; otherwise time since the last cast as a share of the cooldown at their rank
-                        row["ready%s%s" % (sl, who)] = (0.0 if rk == 0 else round(min(3.0, since / c1), 2)) if c1 else ""
-                    key = (champ_cd.CD.get(skins[k]) or {}).get("key")
-                    row["key" + who.capitalize()] = row.get("ready%s%s" % (key, who), "") if key else ""
-                    fl = max([t for t, kk, n in summs if kk == k and n == "Flash" and t < t0], default=None)
-                    row["flash" + who.capitalize()] = 1 if fl is None or t0 - fl >= 300 else 0
-                mt, ot = TOWERS[(lane, team[i])], TOWERS[(lane, team[j])]
-                gi, gj = item_gold(i, t0), item_gold(j, t0)
+                hm, ho = st.pop("_hp")
+                row = {"game": gid, "patch": d["version"][:5], "lane": lane, "me": skins[i], "opp": skins[j], "kind": kind}
+                row.update(st)
                 died = lambda k: int(any(t0 <= x <= t0 + 20 for x in kills.get(k, [])))
                 lead_now = hm[0] / hm[1] - ho[0] / ho[1]
                 ni, nj = next_mark(i, t1), next_mark(j, t1)
@@ -237,10 +168,7 @@ def rows_for(args):
                 won = 1 if (b and not a) else 0 if (a and not b) else ""
                 if won == "" and row["leadNext"] != "" and not (a and b):
                     won = 1 if row["leadNext"] > 5 else 0 if row["leadNext"] < -5 else ""
-                row.update(minMine=mine, minTheirs=theirs,
-                           toMyTower=round(math.hypot(cx - mt[0], cz - mt[1])), toTheirTower=round(math.hypot(cx - ot[0], cz - ot[1])),
-                           goldGap=(gi - gj) if gi is not None and gj is not None else "",
-                           dur=round(t1 - t0, 1), dealtPct=round(100 * dealt / ho[1], 1), tookPct=round(100 * took / hm[1], 1),
+                row.update(dur=round(t1 - t0, 1), dealtPct=round(100 * dealt / ho[1], 1), tookPct=round(100 * took / hm[1], 1),
                            netPct=round(100 * (dealt / ho[1] - took / hm[1]), 1), iDied=a, theyDied=b,
                            leadNow=round(100 * lead_now, 1), won=won)
                 out.append(row)

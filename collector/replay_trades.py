@@ -690,10 +690,15 @@ _TIMES = {}
 def _at(L, t):
     if not L:
         return None
+    # Cached by the list itself: keying on id() alone let a later game's list, reusing a freed list's address,
+    # pick up the old game's times (wrong positions). Keep the list in the entry and check it's the same object.
     key = (id(L), len(L))
-    T = _TIMES.get(key)
-    if T is None:
-        T = _TIMES[key] = [p[0] for p in L]
+    e = _TIMES.get(key)
+    if e is None or e[0] is not L:
+        if len(_TIMES) > 20000:
+            _TIMES.clear()
+        e = _TIMES[key] = (L, [p[0] for p in L])
+    T = e[1]
     i = bisect.bisect_right(T, t)
     if i <= 0:
         return (L[0][1], L[0][2]) if L[0][0] - t < 3 else None
