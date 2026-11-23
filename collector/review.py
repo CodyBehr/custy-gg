@@ -1055,6 +1055,11 @@ def _xpa_extract(cfg, gid, g):
         data["hp"] = RT.keyframe_health(f, units=True)   # every unit's health about once a minute
     except Exception:
         pass
+    try:   # minion and monster deaths with the last champion to hit them (last hits, waves): the coach's reads need them
+        import replay_waves as W
+        data["udeaths"] = W.unit_deaths(f, 1800)
+    except Exception:
+        pass
     data["game"] = g
     with gzip.open(os.path.join(XPA_DATA, "%s.json.gz" % gid), "wt") as out:
         json.dump(data, out, default=str)
