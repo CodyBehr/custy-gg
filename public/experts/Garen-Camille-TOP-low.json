@@ -1,0 +1,15 @@
+{
+ "champions": [
+  "Garen",
+  "Camille"
+ ],
+ "role": "TOP",
+ "patch": "16.23",
+ "tiers": [
+  "SILVER",
+  "GOLD",
+  "PLATINUM"
+ ],
+ "built": 1795442205,
+ "games": []
+}
