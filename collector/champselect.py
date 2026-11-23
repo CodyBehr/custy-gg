@@ -175,7 +175,7 @@ def watch(cfg, stop, open_page):
     already open: an open page polls /api/champselect and follows the client on its own."""
     while not stop.is_set():
         stop.wait(3)
-        if not cfg.get("champ_select_helper", True):
+        if not cfg.get("champ_select_helper", False):   # off by default for now (user, 2026-11-23)
             continue
         try:
             lcu = _lcu(cfg)

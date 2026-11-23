@@ -2809,7 +2809,7 @@ def make_handler(cfg, token):
                 return self._send(200, champselect.role_index(cfg))
             if url.path == "/api/champselect":
                 import champselect
-                return self._send(200, champselect.state(cfg))
+                return self._send(200, dict(champselect.state(cfg), auto=bool(cfg.get("champ_select_helper", False))))
             return self._send(404, {"error": "not found"})
 
         def do_POST(self):

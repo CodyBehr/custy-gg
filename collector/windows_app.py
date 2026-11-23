@@ -438,8 +438,9 @@ def run_with_tray(cfg, start_collector):
         webbrowser.open(site)
 
     review_url = {"url": None}
-    if "champ_select_helper" in _read_json(SETTINGS, {}):
-        cfg["champ_select_helper"] = bool(_read_json(SETTINGS, {})["champ_select_helper"])
+    # Saved under a new name (1.16.69): opening the matchup guide in champ select is off for everyone for now,
+    # whatever the old "champ_select_helper" setting said; the tray item turns it back on.
+    cfg["champ_select_helper"] = bool(_read_json(SETTINGS, {}).get("champ_select_open", False))
     try:
         if not COACH:
             raise RuntimeError("game review lives in custy coach")
@@ -475,8 +476,8 @@ def run_with_tray(cfg, start_collector):
 
     def toggle_champ_select(icon, item):
         st = _read_json(SETTINGS, {})
-        st["champ_select_helper"] = not cfg.get("champ_select_helper", True)
-        cfg["champ_select_helper"] = st["champ_select_helper"]
+        st["champ_select_open"] = not cfg.get("champ_select_helper", False)
+        cfg["champ_select_helper"] = st["champ_select_open"]
         _write_json(SETTINGS, st)
         icon.update_menu()
 
@@ -499,7 +500,7 @@ def run_with_tray(cfg, start_collector):
     if COACH:
         menu = pystray.Menu(
             pystray.MenuItem("Open custy coach", open_review_window, default=True),
-            pystray.MenuItem("Open matchup guide in champ select", toggle_champ_select, checked=lambda item: cfg.get("champ_select_helper", True)),
+            pystray.MenuItem("Open matchup guide in champ select", toggle_champ_select, checked=lambda item: cfg.get("champ_select_helper", False)),
             pystray.Menu.SEPARATOR,
             pystray.MenuItem("Start with Windows", toggle_autostart, checked=lambda item: autostart_enabled()),
             pystray.MenuItem("Update automatically", toggle_updates, checked=lambda item: auto_update_on()),

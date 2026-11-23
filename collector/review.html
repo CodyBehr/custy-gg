@@ -4987,7 +4987,7 @@ async function csPoll() {
     if (MU.opp === CSL.opp) MU.opp = st.opponent;
     CSL.opp = st.opponent;
   }
-  if (first && STATE.current !== "matchups") return openMatchups();
+  if (first && st.auto && STATE.current !== "matchups") return openMatchups();   // only with "Open matchup guide in champ select" on
   if (STATE.current === "matchups" && (reload || JSON.stringify(prev) !== JSON.stringify(st))) drawMatchups(reload);
 }
 loadDD().then(loadCsData).then(loadList).then(() => { csPoll(); setInterval(csPoll, 2500); })
