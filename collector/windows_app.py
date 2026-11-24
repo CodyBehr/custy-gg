@@ -347,7 +347,9 @@ def check_for_update(cfg):
     try:
         with urllib.request.urlopen(urllib.request.Request(
                 site + ("/api/coach/version" if COACH else "/api/collector/version"), headers={"User-Agent": "custy-collector/" + core.VERSION}), timeout=20) as r:
-            latest = json.loads(r.read() or b"{}").get("version", "")
+            info = json.loads(r.read() or b"{}")
+        latest = info.get("version", "")
+        github = info.get("download") or ""
     except Exception as e:
         core.log.info("Update check failed: %s", e)
         return False
@@ -356,10 +358,17 @@ def check_for_update(cfg):
     core.log.info("Downloading version %s (this is %s)", latest, core.VERSION)
     tmp = UPDATE_EXE + ".part"
     try:
+        # Updates come from GitHub (free) when the site says where; the site's own download is the fallback.
+        # The site's copy has its settings attached; a GitHub copy gets this app's own settings attached here.
+        from_github = github.startswith("https://raw.githubusercontent.com/")
+        url = github if from_github else site + ("/api/coach/windows" if COACH else "/api/collector/windows")
         with urllib.request.urlopen(urllib.request.Request(
-                site + ("/api/coach/windows" if COACH else "/api/collector/windows"), headers={"User-Agent": "custy-collector/" + core.VERSION}), timeout=180) as r, \
+                url, headers={"User-Agent": "custy-collector/" + core.VERSION}), timeout=180) as r, \
                 open(tmp, "wb") as f:
             shutil.copyfileobj(r, f)
+            if from_github:
+                own = {k: cfg[k] for k in ("site_url", "ingest_key", "min_players") if k in cfg}
+                f.write(core.TRAILER_START + json.dumps(own).encode("utf-8") + core.TRAILER_END)
         with open(tmp, "rb") as f:
             if f.read(2) != b"MZ":
                 raise ValueError("download isn't a Windows app")

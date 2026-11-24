@@ -28,13 +28,28 @@ function productVersion(buf: Buffer): string {
   return /^\d+(\.\d+)*$/.test(out) ? out : "";
 }
 
+/**
+ * Where installed apps fetch updates: the same .exe on GitHub, pinned to the commit this site was deployed
+ * from, so it always matches the version above. Serving updates from here used up Vercel's free
+ * Fast Origin Transfer (10 GB a month) and paused the site; GitHub serves them for free.
+ * The app attaches its own settings to the download. null when not deployed from Git (local dev).
+ */
+function githubDownload(app: AppName): string | null {
+  const { VERCEL_GIT_REPO_OWNER: owner, VERCEL_GIT_REPO_SLUG: repo, VERCEL_GIT_COMMIT_SHA: sha } = process.env;
+  if (!owner || !repo || !sha) return null;
+  return `https://raw.githubusercontent.com/${owner}/${repo}/${sha}/collector-dist/${app}.exe`;
+}
+
 /** GET handler body: { version } read from the built .exe, so apps only update once the new build is live. */
 export async function versionResponse(app: AppName) {
   try {
     const stat = await fs.stat(exePath(app));
     const hit = cache.get(app);
     if (!hit || hit.mtime !== stat.mtimeMs) cache.set(app, { mtime: stat.mtimeMs, version: productVersion(await fs.readFile(exePath(app))) });
-    return NextResponse.json({ version: cache.get(app)!.version }, { headers: { "Cache-Control": "no-store" } });
+    return NextResponse.json(
+      { version: cache.get(app)!.version, download: githubDownload(app) },
+      { headers: { "Cache-Control": "no-store" } },
+    );
   } catch {
     return NextResponse.json({ version: "" }, { headers: { "Cache-Control": "no-store" } });
   }
