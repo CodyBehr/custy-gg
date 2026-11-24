@@ -449,6 +449,7 @@ def run_with_tray(cfg, start_collector):
         threading.Thread(target=review.keep_cache_fresh, args=(cfg, stop), name="review-cache", daemon=True).start()
         import recorder
         threading.Thread(target=recorder.watch, args=(cfg, stop, review._lcu), name="recorder", daemon=True).start()
+        threading.Thread(target=recorder.hotkey, args=(stop,), name="recorder-hotkey", daemon=True).start()
         threading.Thread(target=review.expert_auto, args=(cfg, stop), name="expert-downloads", daemon=True).start()
         threading.Thread(target=review.rotation_thread, args=(cfg, stop), name="account-rotation", daemon=True).start()
         import champselect
@@ -473,6 +474,20 @@ def run_with_tray(cfg, start_collector):
         status["paused"] = not status["paused"]
         status["state"] = "Paused" if status["paused"] else "Resuming"
         icon.update_menu()
+
+    def _rec_on():
+        try:
+            import recorder
+            return recorder.is_recording()
+        except Exception:
+            return False
+
+    def _stop_rec():
+        try:
+            import recorder
+            recorder.stop_now("tray menu")
+        except Exception:
+            pass
 
     def toggle_champ_select(icon, item):
         st = _read_json(SETTINGS, {})
@@ -500,6 +515,7 @@ def run_with_tray(cfg, start_collector):
     if COACH:
         menu = pystray.Menu(
             pystray.MenuItem("Open custy coach", open_review_window, default=True),
+            pystray.MenuItem("Stop recording this game (Ctrl+Shift+End)", lambda icon, item: _stop_rec()),
             pystray.MenuItem("Open matchup guide in champ select", toggle_champ_select, checked=lambda item: cfg.get("champ_select_helper", False)),
             pystray.Menu.SEPARATOR,
             pystray.MenuItem("Start with Windows", toggle_autostart, checked=lambda item: autostart_enabled()),

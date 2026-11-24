@@ -314,6 +314,7 @@ def _start(game_id, info):
     rec = {"game": str(game_id), "base": base, "start": t0 + START_LAG, "encoder": enc, "monitor": mon, "window": bool(hwnd),
            "championId": info.get("championId"), "queue": info.get("queue"), "platform": info.get("platform")}
     sp = _start_sound(base, rec)
+    threading.Timer(3, lambda: (_hide(base + ".mkv"), _hide(base + ".wav"))).start()
     with _lock:
         _state["recording"], _state["proc"], _state["sound"] = rec, p, sp
     _write_meta(base, rec)
@@ -371,7 +372,28 @@ def _stop(game_length=None):
     threading.Thread(target=_sync_from_riot, args=(rec["base"],), daemon=True).start()
 
 
+def _hide(path):
+    """Windows: mark a helper file hidden, so the recordings folder shows just the videos."""
+    if os.name == "nt":
+        try:
+            import ctypes
+            ctypes.windll.kernel32.SetFileAttributesW(str(path), 0x2)   # FILE_ATTRIBUTE_HIDDEN
+        except Exception:
+            pass
+
+
 def _write_meta(base, rec):
+    if os.name == "nt" and os.path.exists(base + ".json"):
+        try:   # a hidden file can't be opened for writing on Windows: unhide first
+            import ctypes
+            ctypes.windll.kernel32.SetFileAttributesW(base + ".json", 0x80)
+        except Exception:
+            pass
+    _write_meta_raw(base, rec)
+    _hide(base + ".json")
+
+
+def _write_meta_raw(base, rec):
     with open(base + ".json", "w") as f:
         json.dump(rec, f)
 
@@ -553,6 +575,8 @@ def cleanup():
                 except OSError:
                     pass
             core.log.info("Recording: removed %s (older than %d days)", os.path.basename(rec["base"]), days)
+        else:
+            _hide(rec["base"] + ".json")   # info files from before 1.16.70 were left visible
 
 
 def listing():
@@ -600,10 +624,58 @@ def _session(lcu):
         return None, {}
 
 
+def stop_now(reason="you stopped it"):
+    """Stop the current recording (tray menu or the Ctrl+Shift+End hotkey) and don't start it again for this game.
+    What was recorded so far is kept."""
+    with _lock:
+        rec = _state["recording"]
+    if not rec:
+        return False
+    _state["user_stopped"] = rec["game"]
+    core.log.info("Recording: stopped game %s (%s)", rec["game"], reason)
+    threading.Thread(target=_stop, daemon=True).start()
+    if os.name == "nt":
+        try:
+            import winsound
+            winsound.MessageBeep(0x40)
+        except Exception:
+            pass
+    return True
+
+
+def is_recording():
+    return _state["recording"] is not None
+
+
+def hotkey(stop):
+    """Ctrl+Shift+End stops the recording from inside the game (Windows global hotkey, no focus needed)."""
+    if os.name != "nt":
+        return
+    import ctypes
+    from ctypes import wintypes
+    user32 = ctypes.windll.user32
+    MOD_CONTROL, MOD_SHIFT, MOD_NOREPEAT, VK_END, WM_HOTKEY = 0x2, 0x4, 0x4000, 0x23, 0x0312
+    if not user32.RegisterHotKey(None, 0xC57, MOD_CONTROL | MOD_SHIFT | MOD_NOREPEAT, VK_END):
+        core.log.info("Recording: couldn't register Ctrl+Shift+End (another app has it)")
+        return
+    msg = wintypes.MSG()
+    try:
+        while not stop.is_set():
+            # PeekMessage so the thread can notice the app quitting
+            if user32.PeekMessageW(ctypes.byref(msg), None, WM_HOTKEY, WM_HOTKEY, 1):
+                if msg.message == WM_HOTKEY:
+                    stop_now("Ctrl+Shift+End")
+            else:
+                stop.wait(0.1)
+    finally:
+        user32.UnregisterHotKey(None, 0xC57)
+
+
 def watch(cfg, stop, lcu_for):
     """Runs with the app: starts recording when a game starts (if turned on), stops when it ends."""
     last_clean = 0
     pending_len = None
+    gone = 0
     while not stop.is_set():
         try:
             if time.time() - last_clean > 3600:
@@ -625,6 +697,8 @@ def watch(cfg, stop, lcu_for):
                         why = "no game id from the client"
                     elif _game_monitor() is None:
                         why = "the game window (%r) isn't open yet" % GAME_WINDOW
+                    elif str(game_id) == _state.get("user_stopped"):
+                        why = "you stopped recording game %s" % game_id
                     elif find(game_id):
                         why = "game %s is already recorded" % game_id
                     else:
@@ -632,7 +706,21 @@ def watch(cfg, stop, lcu_for):
                 if why and why != _state.get("why_not"):
                     core.log.info("Recording: in a game (%s) but not recording: %s", phase, why)
                 _state["why_not"] = why
-            elif rec is not None and phase not in IN_GAME and (phase is not None or _game_monitor() is None):
+            elif rec is not None and (phase in IN_GAME or (phase is None and _game_monitor() is not None)):
+                gone = 0   # still in the game
+                pr = _state.get("proc")
+                if pr is not None and pr.poll() is not None and not _state.get("died_logged"):
+                    _state["died_logged"] = True
+                    core.log.warning("Recording: ffmpeg stopped by itself during game %s (exit %s): %s", rec["game"], pr.returncode,
+                                     ((pr.stderr.read() if pr.stderr else b"") or b"").decode(errors="replace").strip()[-300:])
+            elif rec is not None and gone < 3:
+                # A blip (the client not answering, the window briefly not found) used to end the recording, and the
+                # next check started a second one minutes later: wait for 3 checks in a row (~6 s) before stopping.
+                gone += 1
+                if gone == 1:
+                    core.log.info("Recording: game %s looks over? (phase %s, game window %s)", rec["game"], phase,
+                                  "open" if _game_monitor() is not None else "not found")
+            elif rec is not None:
                 if phase in ("PreEndOfGame", "EndOfGame", "WaitingForStats"):
                     try:   # the game's length, from the end-of-game screen
                         eog = lcu.get("/lol-end-of-game/v1/eog-stats-block") or {}
@@ -640,8 +728,11 @@ def watch(cfg, stop, lcu_for):
                             pending_len = eog.get("gameLength")
                     except Exception:
                         pass
+                core.log.info("Recording: stopping game %s (phase %s)", rec["game"], phase)
                 _stop(pending_len)
                 pending_len = None
+                gone = 0
+                _state["died_logged"] = False
         except Exception as e:
             core.log.info("Recording: %s", e)
         stop.wait(2)
