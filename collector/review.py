@@ -1538,7 +1538,7 @@ def refresh(cfg):
 # Your full history, like op.gg: the client only keeps recent games, so older ranked and normal games come from
 # Riot's match API through the site. Paced well under the site key's limit (100 requests / 2 min, shared with
 # lookups), two requests per game (match + timeline). Games are kept for good, so this only fetches new ones.
-BACKFILL_GAMES = 200
+BACKFILL_GAMES = 40        # newest games loaded in full (with timeline); the rest of the season comes in light (below)
 BACKFILL_RATE = 50         # requests per 2 minutes, at most
 _bf = {"state": "idle"}
 
@@ -1605,11 +1605,106 @@ def backfill_history(cfg, puuid, platform):
             with open(_cache_path(gid), "w", encoding="utf-8") as f:
                 json.dump(data, f)
             _bf["loaded"] += 1
-        _bf.update(state="done", finished=time.time())
         core.log.info("History: %d older games loaded from Riot", _bf["loaded"])
+        season_backfill(puuid, platform, pace, skip, skip_path)
+        _bf.update(state="done", finished=time.time())
     except Exception as e:
         core.log.info("History backfill stopped: %s", e)
         _bf.update(state="error", message=str(e))
+
+
+# --------------------------------------------------------------------------
+# Whole seasons, like op.gg: every ranked and normal game since the start of last season, as light match rows
+# (one ~3 KB request per game, no timeline). Kept in review-season.json for good, never pruned with the cache.
+# Opening one of these games loads it in full then (match + timeline).
+# --------------------------------------------------------------------------
+
+SEASONS = [(2026, 1767830400), (2025, 1736380800)]   # (season, start in epoch seconds): Jan 8 2026, Jan 9 2025
+SEASON_PATH = os.path.join(core.HERE, "review-season.json")
+_season = {"rows": None}
+_season_lock = threading.Lock()
+
+
+def _season_rows():
+    if _season["rows"] is None:
+        try:
+            _season["rows"] = json.load(open(SEASON_PATH, encoding="utf-8"))
+        except (OSError, ValueError):
+            _season["rows"] = {}
+    return _season["rows"]
+
+
+def _season_save():
+    tmp = SEASON_PATH + ".tmp"
+    with _season_lock:
+        snap = dict(_season["rows"])
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(snap, f)
+    os.replace(tmp, SEASON_PATH)
+
+
+def season_backfill(puuid, platform, pace, skip, skip_path):
+    rows, since = _season_rows(), SEASONS[-1][1]
+    ids = []
+    for typ in ("ranked", "normal"):
+        start = 0
+        while True:
+            pace(1)
+            page = _site_get("/api/review/lookup?" + urllib.parse.urlencode(
+                {"puuid": puuid, "platform": platform, "type": typ, "start": start, "count": 100, "startTime": since})).get("ids") or []
+            ids += page
+            start += 100
+            if len(page) < 100 or start >= 3000:
+                break
+    ids = sorted(set(ids), key=lambda m: -int(m.split("_")[-1]))   # newest first: this season fills in first
+    todo = [m for m in ids if m not in skip and m not in rows and not os.path.exists(_cache_path(int(m.split("_")[-1])))]
+    _bf.update(season_total=len(ids), season_todo=len(todo), season_loaded=0)
+    for n, mid in enumerate(todo):
+        pace(1)
+        try:
+            raw = _site_get("/api/review/lookup?" + urllib.parse.urlencode({"match": mid, "lite": 1}))
+        except Exception as e:
+            if "request limit" in str(e):
+                time.sleep(120)
+                continue
+            core.log.info("Season: couldn't load %s: %s", mid, e)
+            continue
+        info = raw["match"]["info"]
+        if info.get("queueId") not in _VIEW_QUEUES or info.get("gameDuration", 0) < 600:
+            skip.add(mid)
+        else:
+            summ = riot_to_client(raw["match"], None, puuid)["summary"]
+            if summ:
+                with _season_lock:
+                    rows[mid] = dict(summ, me=puuid, mid=mid)
+                _bf["season_loaded"] += 1
+        if n % 25 == 24 or n == len(todo) - 1:
+            _season_save()
+            json.dump(sorted(skip), open(skip_path, "w"))
+    core.log.info("Season: %d of %d games loaded as match rows", _bf["season_loaded"], len(todo))
+
+
+def _season_mid(game_id):
+    """The Riot match id (NA1_...) of a season row, for loading it in full."""
+    with _season_lock:
+        items = list(_season_rows().items())
+    for mid, r in items:
+        if str(r.get("id")) == str(game_id):
+            return mid
+    return None
+
+
+def load_season_game(game_id, puuid):
+    """A season game opened from the list: load it in full (match + timeline) and keep it like any other game."""
+    mid = _season_mid(game_id)
+    if not mid:
+        return None
+    raw = _site_get("/api/review/lookup?match=" + mid)
+    data = riot_to_client(raw["match"], raw["timeline"], puuid)
+    data.pop("viewing", None)
+    data["source"] = "riot"
+    _write_cache(game_id, data)
+    return data
 
 
 def list_games(me_puuid=None):
@@ -1617,7 +1712,7 @@ def list_games(me_puuid=None):
     try:
         names = os.listdir(CACHE_DIR)
     except OSError:
-        return out
+        names = []
     for n in names:
         if not n.endswith(".json"):
             continue
@@ -1627,6 +1722,12 @@ def list_games(me_puuid=None):
         if me_puuid and info["me"] != me_puuid:
             continue
         out.append(dict(info["summary"], hasTimeline=info["hasTimeline"]))
+    have = {str(g.get("id")) for g in out}
+    with _season_lock:
+        season = list(_season_rows().values())
+    for r in season:
+        if str(r.get("id")) not in have and (not me_puuid or r.get("me") == me_puuid):
+            out.append(dict(r, hasTimeline=False, light=True))
     out.sort(key=lambda s: s.get("created") or 0, reverse=True)
     return out
 
@@ -1644,12 +1745,12 @@ _VIEW_QUEUES = (400, 420, 430, 440, 490)   # Summoner's Rift normals and ranked
 def riot_to_client(match, timeline, puuid):
     """A Riot API match + timeline in the League client's shape (what the review page reads), with the extras
     the site normally fills in (items, skills, armor, trading stats, casts, pings) already in place."""
-    m, tl = match["info"], timeline["info"]
+    m, tl = match["info"], (timeline or {}).get("info") or {"frames": []}
     parts, idents = [], []
     for p in m["participants"]:
         lane, role = _LANE.get(p.get("teamPosition"), ("NONE", "NONE"))
         st = {k: p.get(k) for k in ("win", "kills", "deaths", "assists", "totalMinionsKilled", "neutralMinionsKilled", "goldEarned",
-                                    "totalDamageDealtToChampions", "visionScore", "largestMultiKill", "firstBloodKill")}
+                                    "totalDamageDealtToChampions", "visionScore", "largestMultiKill", "firstBloodKill", "champLevel")}
         st.update({"item%d" % i: p.get("item%d" % i) for i in range(7)})
         sty = (p.get("perks") or {}).get("styles") or []
         if len(sty) >= 2:
@@ -1680,7 +1781,7 @@ def riot_to_client(match, timeline, puuid):
     casts = {str(i): [p.get(k, 0) for k in ("spell1Casts", "spell2Casts", "spell3Casts", "spell4Casts", "summoner1Casts", "summoner2Casts")]
              for i, p in by_pid.items()}
     pings = {str(i): {k: v for k, v in p.items() if k.endswith("Pings") and isinstance(v, int)} for i, p in by_pid.items()}
-    data = {"game": game, "timeline": {"frames": frames}, "me": puuid, "casts": casts, "pings": pings,
+    data = {"game": game, "timeline": {"frames": frames} if frames else None, "me": puuid, "casts": casts, "pings": pings,
             "viewing": True, "fillTried3": time.time()}
     data["summary"] = _summarize(game, puuid)
     return data
@@ -1689,10 +1790,14 @@ def riot_to_client(match, timeline, puuid):
 def _site_get(path, timeout=30):
     url = _cfg["site_url"].rstrip("/") + path
     req = urllib.request.Request(url, headers={"Authorization": "Bearer " + _cfg.get("ingest_key", ""),
-                                               "User-Agent": "custy-collector/" + core.VERSION})
+                                               "User-Agent": "custy-collector/" + core.VERSION, "Accept-Encoding": "gzip"})
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read())
+            body = r.read()
+            if r.headers.get("Content-Encoding") == "gzip":
+                import gzip
+                body = gzip.decompress(body)
+            return json.loads(body)
     except urllib.error.HTTPError as e:
         try:
             msg = json.loads(e.read()).get("error")
@@ -2735,6 +2840,7 @@ def make_handler(cfg, token):
                     if str(g.get("id")) in lp["games"]:
                         g["lp"] = lp["games"][str(g["id"])]
                 return self._send(200, {"me": me, "note": err, "games": games, "patch": _client_patch(cfg),
+                                        "history": {k: _bf.get(k) for k in ("state", "season_total", "season_todo", "season_loaded")},
                                         "replayApi": replay_api_enabled(cfg), "rank": lp.get("now") or lp["last"]})
             m = re.match(r"^/api/game/(\d+)$", url.path)
             if m and parse_qs(url.query).get("as"):
@@ -2745,6 +2851,11 @@ def make_handler(cfg, token):
             if m:
                 me = me_cache["me"] or {}
                 data = _read_cache(m.group(1)) or fetch_game(_lcu(cfg), m.group(1), me.get("puuid"))
+                if not data and me.get("puuid"):
+                    try:   # an older season game: only its match row was loaded so far
+                        data = load_season_game(m.group(1), me["puuid"])
+                    except Exception as e:
+                        return self._send(502, {"error": "Couldn't load this game from Riot: %s" % e})
                 if not data:
                     return self._send(404, {"error": "game not found"})
                 if fill_from_riot(data):

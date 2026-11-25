@@ -447,9 +447,9 @@ def run_with_tray(cfg, start_collector):
         webbrowser.open(site)
 
     review_url = {"url": None}
-    # Saved under a new name (1.16.69): opening the matchup guide in champ select is off for everyone for now,
-    # whatever the old "champ_select_helper" setting said; the tray item turns it back on.
-    cfg["champ_select_helper"] = bool(_read_json(SETTINGS, {}).get("champ_select_open", False))
+    # Matchup guide in champ select: on unless turned off in the tray. It pops up by itself at most once per app
+    # start (champselect.watch); after that an open guide window follows each champ select on its own.
+    cfg["champ_select_helper"] = bool(_read_json(SETTINGS, {}).get("champ_select_open", True))
     try:
         if not COACH:
             raise RuntimeError("game review lives in custy coach")

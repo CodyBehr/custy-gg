@@ -838,6 +838,7 @@ html[data-theme=light] .op .op-btn.live { color:#13724d; }
 .op-panel { background:var(--op-card); border:1px solid var(--op-edge); border-radius:16px; padding:18px; }
 .op-panel h2, .op-bar h2 { margin:0 0 12px; font-size:15px; font-weight:700; font-stretch:90%; font-family:inherit; letter-spacing:0; }
 .op-panel h2 small { color:var(--op-mute); font-weight:400; font-size:12.5px; margin-left:6px; }
+.op-season { float:right; } .op-season button { padding:2px 9px; font-size:12px; }
 .op-rank { display:grid; grid-template-columns:88px 1fr; gap:14px; align-items:center; } .op-rank img { width:88px; }
 .op-rank .tier { font-size:22px; font-weight:800; font-stretch:84%; } .op-rank .lp { color:var(--op-mute); font-size:13px; }
 .op-rank .wl { margin-top:6px; font-size:13px; color:var(--op-mute); } .op-rank .wl b { color:var(--op-ink); }
@@ -1828,7 +1829,7 @@ async function loadList() {
   try { r = await api("/api/games" + asQ()); } finally { btn.disabled = false; btn.textContent = "↻ Refresh"; }
   const before = new Set(r.viewing ? [] : STATE.games.map(g => g.id));
   const fresh = STATE.games.length ? r.games.filter(g => !before.has(g.id)) : [];
-  STATE = { ...STATE, games: r.games, me: r.me, replayApi: r.replayApi, patch: r.patch || STATE.patch, rank: r.rank || null };
+  STATE = { ...STATE, games: r.games, me: r.me, replayApi: r.replayApi, patch: r.patch || STATE.patch, rank: r.rank || null, history: r.history || null };
   document.body.classList.toggle("viewing", !!STATE.as);
   if (r.viewing) { STATE.current = STATE.current && r.games.some(g => g.id == STATE.current) ? STATE.current : null; }
   try { STATE.queue = localStorage.getItem("custy-review-queue") || "all"; } catch (e) {}
@@ -3007,7 +3008,7 @@ function recCooldowns(A, id, dur, box, gameT, v, off) {
   let tick = (t) => {
     if (!st.cd) return;
     const on = $("rpCdOn")?.checked, el = $("rpCd"); if (!el) return;
-    el.innerHTML = on && t <= st.cd.until && t >= 0 ? lane("opp", t) + ($("rpCdMine").checked ? lane("me", t) : "") : "";
+    if (el.innerHTML) el.innerHTML = "";   // the floating cooldown icons on the video were removed
     // the live line under the video: their key ability window + the coach's read of the moment you're in
     const c = st.cd.opp, w = c.key && !c.unknown.includes(c.key) ? down(c.cd[c.key], t) : null;
     const read = $("rpSide") ? null : st.coach.find(r => t >= r.t - 3 && t <= r.t + 12);   // the side panel shows it inline
@@ -3131,7 +3132,6 @@ async function openRecording(A, t, host) {
           <span class="yt-vol"><button class="yt-ib" id="rpMute" title="Mute (M)"></button><input type="range" id="rpVol" min="0" max="1" step="0.05" value="1"></span>
           <span class="yt-time"><b class="rp-now" id="rpNow">${clock(t)}</b><span> / ${clock(dur)}</span></span>
           <span class="yt-chap" id="rpChap" title="Jump to it"></span><span style="flex:1"></span>
-          <button class="yt-pill" id="rpCdBtn" title="Cooldowns on the video (C)">Cooldowns</button>
           <button class="yt-pill" id="rpSpd" title="Playback speed">1×</button>
           <button class="yt-ib" id="rpGear" title="Settings">${SVG.gear}</button>
           <button class="yt-ib" id="rpBig" title="Theatre mode (T)"></button>
@@ -3174,7 +3174,7 @@ async function openRecording(A, t, host) {
     if (v.buffered.length) $("rpBuf").style.width = X(v.buffered.end(v.buffered.length - 1) - off()) + "%";
     $("rpPlay").innerHTML = v.paused ? SVG.play : SVG.pause; $("rpMute").innerHTML = v.muted || v.volume === 0 ? SVG.mute : SVG.vol;
     $("rpFs").innerHTML = document.fullscreenElement ? SVG.fsx : SVG.fs; $("rpBig").innerHTML = box.querySelector(".rp").classList.contains("theatre") ? SVG.thx : SVG.th;
-    $("rpSpd").textContent = v.playbackRate + "×"; $("rpCdBtn").classList.toggle("on", $("rpCdOn").checked);
+    $("rpSpd").textContent = v.playbackRate + "×";
     const ch = chapters(), cur = [...ch].reverse().find(c => g >= c.t - 3 && g <= c.t + 12), nx = ch.find(c => c.t > g);
     const txt = cur ? "• " + cur.label : nx ? `Next: ${clock(nx.t)} ${nx.label}` : ""; if ($("rpChap").textContent !== txt) { $("rpChap").textContent = txt; $("rpChap").dataset.t = (cur || nx)?.t ?? ""; }
     CDX.tick(g);
@@ -3241,16 +3241,13 @@ async function openRecording(A, t, host) {
   $("rpPlay").onclick = toggle;
   $("rpMute").onclick = () => { v.muted = !v.muted; };
   $("rpVol").oninput = (e) => { v.volume = +e.target.value; v.muted = v.volume === 0; };
-  const cdToggle = () => { const c = $("rpCdOn"); if (c.disabled) return; c.checked = !c.checked; c.dispatchEvent(new Event("change")); paint(); };
-  $("rpCdBtn").onclick = cdToggle;
   const menu = (kind) => { const m = $("rpMenu"); if (!m.hidden && m.dataset.k === kind) { m.hidden = true; return; } m.dataset.k = kind; m.hidden = false;
     if (kind === "speed") {
       m.innerHTML = `<div class="h">Playback speed</div>` + SPEEDS.map(s => `<div class="mi ${s === v.playbackRate ? "sel" : ""}" data-s="${s}"><span>${s === 1 ? "Normal" : s + "×"}</span><span>${s === v.playbackRate ? "✓" : ""}</span></div>`).join("");
       m.querySelectorAll("[data-s]").forEach(x => x.onclick = () => { setSpeed(+x.dataset.s); m.hidden = true; });
     } else {
       const on = (cid) => $(cid).checked ? "On" : "Off";
-      m.innerHTML = `<div class="mi" data-a="rpCdMine"><span>My cooldowns too</span><span>${on("rpCdMine")}</span></div>
-        <div class="mi" data-a="rpCdPause"><span>Pause when their key ability goes down in a moment</span><span>${on("rpCdPause")}</span></div>
+      m.innerHTML = `<div class="mi" data-a="rpCdPause"><span>Pause when their key ability goes down in a moment</span><span>${on("rpCdPause")}</span></div>
         <div class="mi" data-a="speed"><span>Playback speed</span><span>${v.playbackRate === 1 ? "Normal" : v.playbackRate + "×"} ›</span></div>
         <div class="mi" data-a="sync"><span>Clock sync</span><span>Fix ›</span></div>`;
       m.querySelectorAll("[data-a]").forEach(x => x.onclick = () => { const a = x.dataset.a;
@@ -3277,7 +3274,7 @@ async function openRecording(A, t, host) {
     const act = { " ": toggle, k: toggle, ArrowLeft: () => skip(-5), ArrowRight: () => skip(5), j: () => skip(-10), l: () => skip(10),
       ",": () => frame(-1), ".": () => frame(1), "-": () => setSpeed(SPEEDS[Math.max(0, i - 1)]), "_": () => setSpeed(SPEEDS[Math.max(0, i - 1)]),
       "+": () => setSpeed(SPEEDS[Math.min(SPEEDS.length - 1, i + 1)]), "=": () => setSpeed(SPEEDS[Math.min(SPEEDS.length - 1, i + 1)]),
-      n: () => moment(1), p: () => moment(-1), f: fs, m: () => { v.muted = !v.muted; }, c: cdToggle,
+      n: () => moment(1), p: () => moment(-1), f: fs, m: () => { v.muted = !v.muted; },
       t: () => theatre(!box.querySelector(".rp").classList.contains("theatre")) }[k.length === 1 ? k.toLowerCase() : k];
     if (act) { e.preventDefault(); e.stopPropagation(); act(); wake(); } };
   const esc_ = (e) => {
@@ -3327,7 +3324,7 @@ async function openReview(A, r, t0) {
    </div>
    <div class="rv-main"><div class="rv-left"><div class="rv-pl" id="rvPl" tabindex="0">
      <video id="rvV" preload="auto" disablepictureinpicture src="/rec/${id}.mp4?k=${encodeURIComponent(KEY)}"></video>
-     <div class="rv-hud" id="rvHud" title="Drag to move"></div>
+     <div class="rv-hud" id="rvHud" hidden></div>
      <div class="rv-cen" id="rvCen"></div><div class="rv-flash" id="rvFl"></div>
      <div class="rv-shade"></div>
      <div class="rv-ctl">
@@ -3339,7 +3336,6 @@ async function openReview(A, r, t0) {
        <button class="rv-ib" id="rvVol" aria-label="Mute (M)"></button>
        <div class="rv-time"><span id="rvT">0:00</span><span> / ${clock(dur)}</span></div>
        <div style="flex:1"></div>
-       <button class="rv-chip" id="rvCd" title="Cooldowns on the video (C)"><span class="dot"></span>Cooldowns</button>
        <button class="rv-chip" id="rvSpd">1×</button>
        <button class="rv-ib" id="rvGear" aria-label="Settings"><svg viewBox="0 0 24 24"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7 7 0 0 0-1.7-1L15 3h-4l-.4 2.9a7 7 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7 7 0 0 0 1.7 1L11 21h4l.4-2.9a7 7 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5A3.5 3.5 0 1 1 13 8.5a3.5 3.5 0 0 1 0 7z"/></svg></button>
        <button class="rv-ib" id="rvFs" aria-label="Full screen (F)"></button>
@@ -3360,7 +3356,7 @@ async function openReview(A, r, t0) {
   </div>
   <div class="rv-sheet" id="rvSheet" hidden><div><h3>Keyboard shortcuts</h3><dl>
    <dt>Space or K</dt><dd>Play or pause</dd><dt>J / L</dt><dd>Back or forward 10 seconds</dd><dt>← / →</dt><dd>Back or forward 5 seconds</dd><dt>, / .</dt><dd>One frame</dd>
-   <dt>N / P</dt><dd>Next or previous trade</dd><dt>1 / 2 / 3</dt><dd>The coach is right, wrong, or meh</dd><dt>C</dt><dd>Cooldowns on or off</dd><dt>F</dt><dd>Full screen</dd><dt>M</dt><dd>Mute</dd><dt>Esc</dt><dd>Back to the trade table</dd><dt>?</dt><dd>This list</dd></dl></div></div>`;
+   <dt>N / P</dt><dd>Next or previous trade</dd><dt>1 / 2 / 3</dt><dd>The coach is right, wrong, or meh</dd><dt>F</dt><dd>Full screen</dd><dt>M</dt><dd>Mute</dd><dt>Esc</dt><dd>Back to the trade table</dd><dt>?</dt><dd>This list</dd></dl></div></div>`;
   const $$ = (x) => el.querySelector("#" + x), v = $$("rvV"), pl = $$("rvPl");
   const gameT = () => v.currentTime - off();
   const seekG = (g) => { v.currentTime = Math.max(0, g + off()); paint(); };
@@ -3460,7 +3456,6 @@ async function openReview(A, r, t0) {
   pl.ondblclick = (e) => { if (e.target.closest(".rv-ctl,.rv-menu,.rv-hud,.rv-coach,.rv-panel")) return; clearTimeout(ct); fs(); };
   $$("rvPlay").onclick = toggle; $$("rvPrev").onclick = () => step(-1); $$("rvNext").onclick = () => step(1); $$("rvFs").onclick = fs;
   $$("rvVol").onclick = () => { v.muted = !v.muted; };
-  const cdToggle = () => { st.cd = !st.cd; setPref("cd", st.cd); paint(); }; $$("rvCd").onclick = cdToggle;
   const SPEEDS = [0.25, 0.5, 1, 1.5, 2];
   let sp0 = 1; try { sp0 = +localStorage.getItem("rpSpeed") || 1; } catch (e) {}
   v.addEventListener("loadedmetadata", () => { v.playbackRate = SPEEDS.includes(sp0) ? sp0 : 1; }, { once: true });
@@ -3468,8 +3463,7 @@ async function openReview(A, r, t0) {
   $$("rvSpd").onclick = (e) => { e.stopPropagation(); menu(SPEEDS.map(s => `<div data-s="${s}" class="${s === v.playbackRate ? "sel" : ""}"><span>${s === 1 ? "Normal speed" : s + "×"}</span><span>${s === v.playbackRate ? "✓" : ""}</span></div>`).join(""), "spd");
     $$("rvMenu").querySelectorAll("[data-s]").forEach(x => x.onclick = () => { v.playbackRate = +x.dataset.s; try { localStorage.setItem("rpSpeed", x.dataset.s); } catch (e) {} $$("rvMenu").hidden = true; }); };
   const gear = () => { const x = REC[id] || {};
-    menu(`<div data-a="mine"><span>Show my cooldowns too</span><span>${st.mine ? "On" : "Off"}</span></div>
-      <div data-a="pause"><span>Pause when ${esc(oppName)}'s ${esc(opp?.key || "key ability")} goes down in a trade</span><span>${st.pause ? "On" : "Off"}</span></div>
+    menu(`<div data-a="pause"><span>Pause when ${esc(oppName)}'s ${esc(opp?.key || "key ability")} goes down in a trade</span><span>${st.pause ? "On" : "Off"}</span></div>
       <div data-a="sync"><span>Fix clock sync</span><span>${x.sync === "riot" ? "Riot timeline" : x.sync === "manual" ? "by hand" : "estimated"} ›</span></div>
       <div data-a="clip"><span>Save a clip</span><span>›</span></div>
       <div data-a="keep"><span>${x.kept ? "Kept: undo" : "Keep this recording"}</span><span>${x.kept ? "" : x.expires ? "else deleted " + new Date(x.expires * 1000).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : ""}</span></div>
@@ -3521,10 +3515,9 @@ async function openReview(A, r, t0) {
     const g = gameT();
     $$("rvPlay").innerHTML = v.paused ? SV.play : SV.pause; pl.classList.toggle("playing", !v.paused);
     $$("rvVol").innerHTML = v.muted ? SV.mute : SV.vol; $$("rvFs").innerHTML = document.fullscreenElement ? SV.fsx : SV.fs;
-    $$("rvSpd").textContent = v.playbackRate + "×"; $$("rvCd").classList.toggle("on", st.cd);
+    $$("rvSpd").textContent = v.playbackRate + "×";
     $$("rvT").textContent = clock(Math.max(0, g));
-    const hud = $$("rvHud"); hud.hidden = !st.cd || !cd || g > (cd.until || 900) || g < 0;
-    if (!hud.hidden) hud.innerHTML = lane(opp, ddOpp, false, g) + (st.mine ? lane(me, ddMe, true, g) : "");
+    $$("rvHud").hidden = true;   // cooldown icons on the video: removed
     const q = Math.floor(g * 2);
     if (q !== lastQ) { lastQ = q; if ($$("rvTip") && !$$("rvTip").hidden) { $$("rvDone").style.width = X(g) + "%"; $$("rvKnob").style.left = X(g) + "%"; } else drawScrub(); }
     else { $$("rvDone").style.width = X(g) + "%"; $$("rvKnob").style.left = X(g) + "%"; }
@@ -3553,7 +3546,7 @@ async function openReview(A, r, t0) {
     const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
     const sk = (d) => { v.currentTime = Math.max(0, v.currentTime + d); };
     const a = { " ": toggle, k: toggle, j: () => sk(-10), l: () => sk(10), ArrowLeft: () => sk(-5), ArrowRight: () => sk(5), ",": () => { v.pause(); sk(-1 / 30); }, ".": () => { v.pause(); sk(1 / 30); },
-      n: () => step(1), p: () => step(-1), f: fs, m: () => { v.muted = !v.muted; }, c: cdToggle, "1": () => grade("right"), "2": () => grade("wrong"), "3": () => grade("meh"), "?": () => { $$("rvSheet").hidden = !$$("rvSheet").hidden; },
+      n: () => step(1), p: () => step(-1), f: fs, m: () => { v.muted = !v.muted; }, "1": () => grade("right"), "2": () => grade("wrong"), "3": () => grade("meh"), "?": () => { $$("rvSheet").hidden = !$$("rvSheet").hidden; },
       Escape: () => { if (!$$("rvSheet").hidden) $$("rvSheet").hidden = true; else if (!$$("rvMenu").hidden) $$("rvMenu").hidden = true; else if (!$$("rvPanel").hidden) $$("rvPanel").hidden = true; else if (!document.fullscreenElement) close(); } }[k];
     if (a) { e.preventDefault(); e.stopPropagation(); a(); wake(); } };
   document.addEventListener("keydown", keys, true);
@@ -4102,17 +4095,26 @@ async function hvFindings(id) {
 }
 function hvDrawRows() { const el = $("hvRows"); if (!el) return; el.innerHTML = hvRows(); if (HV.open != null) hvFindings(HV.open); }
 // ---------------------------------------------------------------- Overview, op.gg style: profile, season, match list, live game
-const SEASON_START = Date.UTC(2026, 0, 8);
-const OV = { tab: "ov", live: null, liveAt: 0, liveFor: "", poll: null, t0: 0 };
+// Seasons the app loads from Riot (review.py SEASONS): every ranked and normal game since the 2025 season started.
+const SEASONS = { 2026: [Date.UTC(2026, 0, 8), Infinity], 2025: [Date.UTC(2025, 0, 9), Date.UTC(2026, 0, 8)] };
+const inSeason = (g, s = OV.season) => g.created >= SEASONS[s][0] && g.created < SEASONS[s][1];
+const seasonPick = () => `<span class="h-seg op-season" role="group" aria-label="Season">${Object.keys(SEASONS).sort().reverse().map(s => `<button data-season="${s}" class="${+s === OV.season ? "on" : ""}">${s}</button>`).join("")}</span>`;
+function seasonNote() {
+  const h = STATE.history || {};
+  if (STATE.as) return "";
+  if (h.state === "working" && h.season_todo) return `Loading your match history from Riot: ${h.season_loaded || 0} of ${h.season_todo} games so far. This runs in the background and fills in over the next hour or so.`;
+  return "";
+}
+const OV = { tab: "ov", live: null, liveAt: 0, liveFor: "", poll: null, t0: 0, season: 2026 };
 const profileIcon = (id) => id != null && DD.v ? `https://ddragon.leagueoflegends.com/cdn/${DD.v}/img/profileicon/${id}.png` : "";
 const LADDER = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND"];
 const ladderVal = (x) => { if (!x || !x.tier) return null; const t = String(x.tier).toUpperCase(); if (["MASTER", "GRANDMASTER", "CHALLENGER"].includes(t)) return 2800 + (x.lp || 0);
   const i = LADDER.indexOf(t); return i < 0 ? null : i * 400 + ({ IV: 0, III: 1, II: 2, I: 3 }[String(x.division || "").toUpperCase()] || 0) * 100 + (x.lp || 0); };
 const kdaN = (k, d, a) => d ? (k + a) / d : Infinity;
-function seasonChamps(queue) {
+function seasonChamps(queue, season = OV.season) {
   const by = {};
   for (const g of STATE.games) {
-    if (g.created < SEASON_START || (queue && g.queue !== queue)) continue;
+    if (!inSeason(g, season) || (queue && g.queue !== queue)) continue;
     const x = by[g.champion] ||= { id: g.champion, n: 0, w: 0, k: 0, d: 0, a: 0, cs: 0, mins: 0, roles: {} };
     x.n++; x.w += g.win ? 1 : 0; x.k += g.kills; x.d += g.deaths; x.a += g.assists; x.cs += g.cs; x.mins += g.duration / 60;
     if (g.role) x.roles[g.role] = (x.roles[g.role] || 0) + 1;
@@ -4148,12 +4150,12 @@ function opOverview() {
   const list = hvList(), form = list.slice(0, 20), w = form.filter(g => g.win).length;
   const K = form.reduce((s, g) => s + g.kills, 0), De = form.reduce((s, g) => s + g.deaths, 0), As = form.reduce((s, g) => s + g.assists, 0);
   const byC = {}; form.forEach(g => { const x = byC[g.champion] ||= { n: 0, w: 0 }; x.n++; x.w += g.win ? 1 : 0; });
-  const roleN = {}; let rn = 0; for (const g of STATE.games) if (g.created >= SEASON_START && ROLE_NAME[g.role] && g.queue !== "Custom") { roleN[g.role] = (roleN[g.role] || 0) + 1; rn++; }
+  const roleN = {}; let rn = 0; for (const g of STATE.games) if (inSeason(g) && ROLE_NAME[g.role] && g.queue !== "Custom") { roleN[g.role] = (roleN[g.role] || 0) + 1; rn++; }
   const c = 2 * Math.PI * 38, wr = form.length ? w / form.length : 0, show = season.length ? season : all;
   return `<div class="op-grid"><div class="op-stack">${opRankCard()}
-    <div class="op-panel op-champs"><h2>Season 2026<small>${season.length ? "ranked solo" : "all queues"}</small></h2>
-      ${show.length ? show.slice(0, 7).map(x => opChampRow(x)).join("") + `<button class="op-link" data-optab="ch">All champions</button>` : `<div class="op-mute">No games this season yet.</div>`}</div>
-    ${rn ? `<div class="op-panel"><h2>Roles this season</h2><div class="op-roles">${Object.keys(ROLE_NAME).map(r => `<div title="${roleN[r] || 0} games"><i><b style="height:${Math.round(100 * (roleN[r] || 0) / rn)}%"></b></i>${ROLE_NAME[r]}</div>`).join("")}</div></div>` : ""}
+    <div class="op-panel op-champs"><h2>Season ${OV.season}<small>${season.length ? "ranked solo" : "all queues"}</small>${seasonPick()}</h2>${seasonNote() ? `<div class="op-mute" style="font-size:12px;margin-bottom:8px">${seasonNote()}</div>` : ""}
+      ${show.length ? show.slice(0, 7).map(x => opChampRow(x)).join("") + `<button class="op-link" data-optab="ch">All champions</button>` : `<div class="op-mute">No games in season ${OV.season}.</div>`}</div>
+    ${rn ? `<div class="op-panel"><h2>Roles in ${OV.season}</h2><div class="op-roles">${Object.keys(ROLE_NAME).map(r => `<div title="${roleN[r] || 0} games"><i><b style="height:${Math.round(100 * (roleN[r] || 0) / rn)}%"></b></i>${ROLE_NAME[r]}</div>`).join("")}</div></div>` : ""}
   </div><div>
     ${form.length ? `<div class="op-panel"><div class="op-sum"><div class="op-donut"><svg viewBox="0 0 92 92" width="92" height="92" role="img" aria-label="${Math.round(wr * 100)}% win rate"><circle cx="46" cy="46" r="38" fill="none" stroke="rgba(232,64,87,.7)" stroke-width="9"/><circle cx="46" cy="46" r="38" fill="none" stroke="var(--op-blue)" stroke-width="9" stroke-dasharray="${c * wr} ${c}" transform="rotate(-90 46 46)"/></svg><b>${Math.round(wr * 100)}%</b></div>
       <div><div class="big">${w}W ${form.length - w}L</div><div class="op-mute">Last ${form.length} games${STATE.queue !== "all" ? " · " + esc(QUEUE_FILTERS.find(q => q[0] === STATE.queue)?.[1] || "") : ""}</div><div class="op-form">${form.map(g => `<i class="${g.win ? "w" : ""}" title="${esc(champName(g.champion))}, ${g.win ? "win" : "loss"}"></i>`).join("")}</div></div>
@@ -4168,8 +4170,9 @@ function opChampions() {
   const all = seasonChamps(null), solo = seasonChamps("Ranked Solo/Duo");
   const block = (rows, title, sub) => rows.length ? `<div class="op-panel op-champs" style="margin-bottom:16px"><h2>${title}<small>${sub}</small></h2>
     <div class="op-row wide op-hdr"><span></span><span>Champion</span><span>KDA</span><span>CS / min</span><span>Win rate</span></div>${rows.map(x => opChampRow(x, true)).join("")}</div>` : "";
-  return `<div style="max-width:860px">${block(solo, "Season 2026", "ranked solo · every champion") || ""}${block(all, solo.length ? "All queues" : "Season 2026", "ranked, normals and customs this season")}
-    ${all.length ? "" : `<div class="op-mute">No games this season yet.</div>`}<div class="op-mute" style="font-size:12px">From the ${STATE.games.length} games custy coach has saved from your match history.</div></div>`;
+  const n = STATE.games.filter(g => inSeason(g)).length;
+  return `<div style="max-width:860px"><div style="margin-bottom:12px">${seasonPick()}</div>${block(solo, "Season " + OV.season, "ranked solo · every champion") || ""}${block(all, solo.length ? "All queues" : "Season " + OV.season, "ranked, normals and customs")}
+    ${all.length ? "" : `<div class="op-mute">No games in season ${OV.season}.</div>`}<div class="op-mute" style="font-size:12px">${seasonNote() || `${n} games in season ${OV.season}${STATE.as ? " from this player's recent match history" : ": every ranked and normal game Riot has on your account, plus customs custy coach saved"}.`}</div></div>`;
 }
 // Live game: Riot's spectator data through the site (the key stays there), with everyone's rank.
 function opLive() {
@@ -4218,7 +4221,7 @@ function opClock() {
 }
 function opDrawHead() {
   const me = STATE.me || {}, el = $("opHead"); if (!el) return;
-  const season = STATE.games.filter(g => g.created >= SEASON_START && g.queue !== "Custom"), top = seasonChamps(null)[0];
+  const season = STATE.games.filter(g => inSeason(g, 2026) && g.queue !== "Custom"), top = seasonChamps(null, 2026)[0];
   const roles = {}; season.forEach(g => { if (g.role) roles[g.role] = (roles[g.role] || 0) + 1; });
   const role = Object.entries(roles).sort((a, b) => b[1] - a[1])[0]?.[0];
   const inGame = !!OV.live?.game;
@@ -4268,6 +4271,7 @@ async function openOverview(force) {
     if (t.dataset.live) { OV.live = null; opDrawTab(); return opLoadLive(true); }
     if (t.dataset.analyze) { STATE.tab = "moments"; return openGame(t.dataset.analyze); }
     if (t.dataset.nav2) { ev.preventDefault(); return openHome(true); }
+    if (t.dataset.season) { OV.season = +t.dataset.season; return opDrawTab(); }
     if (t.dataset.hq) { STATE.queue = t.dataset.hq; try { localStorage.setItem("custy-review-queue", STATE.queue); } catch (e) {} return openOverview(true); }
     if (t.id === "hvMore") { HV.shown += 10; return hvDrawRows(); }
     if (t.dataset.row) { HV.open = HV.open == t.dataset.row ? null : t.dataset.row; hvDrawRows(); }

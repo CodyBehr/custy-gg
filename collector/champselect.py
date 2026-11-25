@@ -171,23 +171,21 @@ def set_item_set(cfg, body):
 
 
 def watch(cfg, stop, open_page):
-    """Opens the review window (it switches to the matchup guide by itself) once per champ select, unless one is
-    already open: an open page polls /api/champselect and follows the client on its own."""
+    """Pops the matchup guide up in champ select, but only once per app start: someone who plays 10 games without
+    closing it shouldn't get 10 windows. A guide window that's still open follows every champ select by itself
+    (it polls /api/champselect); the Matchup guide tab in the app opens it any time."""
     while not stop.is_set():
         stop.wait(3)
-        if not cfg.get("champ_select_helper", False):   # off by default for now (user, 2026-11-23)
+        if _state.get("popped") or not cfg.get("champ_select_helper", False):
             continue
         try:
             lcu = _lcu(cfg)
             phase = lcu.get("/lol-gameflow/v1/gameflow-phase") if lcu else None
             if phase != "ChampSelect":
-                _state["opened_for"] = None if phase not in ("ChampSelect", "InProgress", "GameStart") else _state["opened_for"]
                 continue
-            s = lcu.get("/lol-champ-select/v1/session") or {}
-            key = s.get("gameId") or "cs-%d" % (int(time.time()) // 600)
-            if _state["opened_for"] != key:
-                _state["opened_for"] = key
-                if time.time() - _state.get("polled", 0) > 8:   # one is already open from last game: it updates itself
-                    open_page()
+            _state["popped"] = True
+            if time.time() - _state.get("polled", 0) > 8:   # a window that's already open updates itself
+                open_page()
+                core.log.info("Champ select: opened the matchup guide (once per app start)")
         except Exception as e:
             core.log.info("Champ select watch: %s", e)

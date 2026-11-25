@@ -2,7 +2,8 @@
 // The Riot key stays on the server.
 //   GET /api/review/lookup?riotId=Name%23TAG&platform=NA1   -> { puuid, gameName, tagLine, ids }
 //   GET /api/review/lookup?match=NA1_5676694528             -> { match, timeline } (raw match-v5)
-//   GET /api/review/lookup?puuid=...&platform=NA1&type=ranked&start=0&count=100 -> { ids } (your history, paged)
+//   GET /api/review/lookup?match=NA1_5676694528&lite=1      -> { match } trimmed to what a match row needs (season history)
+//   GET /api/review/lookup?puuid=...&platform=NA1&type=ranked&start=0&count=100[&startTime=<epoch s>] -> { ids } (your history, paged)
 //   GET /api/review/lookup?live=<puuid>&platform=NA1 -> { game: null } or { game: {...spectator-v5, players with solo/flex ranks} }
 // (Authorization: Bearer <ingest key>)
 
@@ -40,6 +41,18 @@ export async function GET(req: Request) {
       const m = /^([A-Z0-9]+)_(\d+)$/.exec(match.toUpperCase());
       const route = m && ROUTES[m[1]];
       if (!route) return NextResponse.json({ error: "Bad match id" }, { status: 400 });
+      // Season history: just the match, trimmed to ~3 KB (no timeline), so a whole season costs little to send.
+      if (url.searchParams.get("lite")) {
+        const mt = await riot(route, `/lol/match/v5/matches/${match.toUpperCase()}`, key), i = mt.info || {};
+        const keep = ["participantId", "teamId", "championId", "summoner1Id", "summoner2Id", "teamPosition", "puuid", "riotIdGameName",
+          "riotIdTagline", "perks", "win", "kills", "deaths", "assists", "totalMinionsKilled", "neutralMinionsKilled", "goldEarned",
+          "totalDamageDealtToChampions", "visionScore", "largestMultiKill", "firstBloodKill", "champLevel",
+          "item0", "item1", "item2", "item3", "item4", "item5", "item6"];
+        const participants = (i.participants || []).map((p: any) => Object.fromEntries(keep.filter(k => k in p).map(k => [k, p[k]])));
+        const slim = { metadata: { matchId: mt.metadata?.matchId }, info: { gameId: i.gameId, platformId: i.platformId, gameCreation: i.gameCreation,
+          gameDuration: i.gameDuration, queueId: i.queueId, mapId: i.mapId, gameMode: i.gameMode, gameVersion: i.gameVersion, participants } };
+        return NextResponse.json({ match: slim }, { headers: { "Cache-Control": "private, max-age=86400" } });
+      }
       const [mt, tl] = await Promise.all([
         riot(route, `/lol/match/v5/matches/${match.toUpperCase()}`, key),
         riot(route, `/lol/match/v5/matches/${match.toUpperCase()}/timeline`, key),
@@ -81,7 +94,8 @@ export async function GET(req: Request) {
       if (!route || !/^[\w-]{40,90}$/.test(puuid)) return NextResponse.json({ error: "Bad puuid or platform" }, { status: 400 });
       const start = Math.max(0, Number(url.searchParams.get("start")) || 0), count = Math.min(100, Math.max(1, Number(url.searchParams.get("count")) || 20));
       const type = url.searchParams.get("type");
-      const q = `start=${start}&count=${count}` + (type === "ranked" || type === "normal" ? `&type=${type}` : "");
+      const since = Math.floor(Number(url.searchParams.get("startTime")) || 0);
+      const q = `start=${start}&count=${count}` + (type === "ranked" || type === "normal" ? `&type=${type}` : "") + (since > 0 ? `&startTime=${since}` : "");
       const ids: string[] = await riot(route, `/lol/match/v5/matches/by-puuid/${puuid}/ids?${q}`, key);
       return NextResponse.json({ ids });
     }
