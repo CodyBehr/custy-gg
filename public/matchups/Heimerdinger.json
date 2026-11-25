@@ -79,6 +79,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet. Like Xerath but shorter ranged: dodge his skillshots and avoid the stun since he can one-shot you by midgame. Do not stand near your turrets on low health, as his ult can bounce off them into you."
+]
+]
+}
+],
 "Fizz": [
 {
 "fields": [
@@ -257,6 +271,20 @@
 [
 "",
 "Arcane Comet. Her long poke and zone control make it tough; spread out turrets. When she walks up for her E, stun her first and follow with Q and W. Respect her W damage, and use early boots and your passive to dodge."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Arcane Comet. Harass him and deny CS, and keep turrets behind the wave so his Q cannot stack off them; spread them against his W. If he cages you for a gank, drop all turrets and your ult turret for safety. Barrier and later Banshee's Veil are good."
 ]
 ]
 }

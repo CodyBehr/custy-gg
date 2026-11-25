@@ -416,6 +416,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Play behind minions to block her binding; her other poke is minor and you scale freely."
+]
+]
+}
+],
 "Nami": [
 {
 "fields": [
@@ -538,6 +552,20 @@
 [
 "",
 "Dodge her Q and she poses no threat; buy an early Executioner's Calling to cut her healing."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Watch his tongue slow; otherwise he cannot do much to you."
 ]
 ]
 }

@@ -65,6 +65,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He is a combo mage who is useless until his next rotation if he misses. Dodge his W, stay behind minions to block his Q, and watch for E into Q from the brushes. He is immobile, so hold the wave near your tower and call for ganks after baiting his W and E. In fights, spread out and try to pick him off beforehand."
+]
+]
+}
+],
 "Braum": [
 {
 "fields": [
@@ -149,6 +163,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Wait for her Black Shield to be used, since it blocks CC and has a long cooldown. If her Q misses she has almost no pressure, so go aggressive. Stay behind minions to avoid the root, and kill her in fights before Zhonya's is available."
+]
+]
+}
+],
 "Pyke": [
 {
 "fields": [
@@ -229,6 +257,20 @@
 [
 "",
 "Dodge her Q, which both damages you and heals her. Her E silence is her only reliable CC and has a long cooldown, so all-in if she spends it on poke. Keep poking her down until an all-in is lethal."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He is very vulnerable to poke, especially at level 1 before his grey health helps. Save CC for after he uses W to save his ADC. Do not get greedy on tower plates, since his ultimate can bring his jungler in for a 3v2."
 ]
 ]
 }

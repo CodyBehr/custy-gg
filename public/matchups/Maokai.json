@@ -80,6 +80,20 @@
 ]
 }
 ],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Plays much like Samira, though she is rarer and weaker in teamfights. How hard she is depends on the overall 2v2 pairing."
+]
+]
+}
+],
 "Rakan": [
 {
 "fields": [
@@ -146,6 +160,20 @@
 [
 "",
 "Favours Maokai overall since you scale better and can outplay his combo from level 2. The danger is his vision denial with an Umbral Glaive rush and his roams, so keep track of where he goes."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Tahm currently has very high base damage and strong tank items, but his kit does not do much specifically against Maokai. Treat him as a fair matchup."
 ]
 ]
 }
@@ -300,6 +328,20 @@
 [
 "",
 "Strong at level 1 and annoying with the right ADC, but she is squishy and immobile, so you are comfortable once past the first level."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her Q root lasts very long and her spell shield blocks your CC, but she must time both perfectly to stop you. Her lane harass is weaker than other mages."
 ]
 ]
 }

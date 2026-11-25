@@ -7,8 +7,68 @@
 "rank": "Masters/GM NA",
 "updated": "old"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
+"Amumu": [
+{
+"fields": [
+[
+"Diffculty",
+"3"
+],
+[
+"Playstyles",
+"Bear Bruiser\nAp Tank"
+],
+[
+"Quick Tips",
+"- Look to invade early, Amumu has poor escapes (Q Max)\n- He favors AoE camps, force him to farm blue side whenever possible as Gromp is slow.\n- Punish his early game lvl 1-5"
+],
+[
+"Detailed Tips & How to Play",
+"Look to invade with either a buff > Buff > Invade or a 3-4 camp clear into their other side. Amumu's ability to get out of Udyr's invades is subpar. If he has no camp to Q to he has to flash over the wall. Keep Amumu from free farming to level 6 and his ability to gank early will be weak, force objectives due to Amumu being unable to solo objectives easily."
+],
+[
+"Avoid",
+"High Health builds with no magic resist will get shredded by Amumu's W & Passive. Don't play passively and let the game scale without doing objectives as Amumu's teamfighting even with Teamfighting builds is very potent."
+],
+[
+"What to do when Behind",
+"Peel by standing away from your carries, avoid Amumu Q to engage on to your team as he can use flash from his Q to ult your carries. Avoid Auto base builds and instead focus on items like Locket of the Iron Solari to counter AOE damage burst."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Diffculty",
+"2"
+],
+[
+"Playstyles",
+"Aftershock > Percision"
+],
+[
+"Quick Tips",
+"- Brand has high CD's, punish with invades and wait for him to cast.\n- He can easily clear objectives with passive, force objectives and keep them warded.\n- High MR builds and rush Wits Ends are best to beat him."
+],
+[
+"Detailed Tips & How to Play",
+"Brand's clear has high cooldowns, catching him doing a camp will leave him little to peel you off. Look to flash over his stun if necessary as till Ryali's this is his only CC on you. Brand can easily duo any objective easily so avoid leaving Dragon & Herald up due to his damage. If the game runs late avoid high health and secure items like adaptive helm and wits end to stack MR without overstacking in HP."
+],
+[
+"Avoid",
+"High health builds with no MR will be burned by Brand passive, going Steraks directly after cinderhulk will leave you vulnerable to his combo damage. If your team comp is subpar to teamfight consider spilt push builds."
+],
+[
+"What to do when Behind",
+"Build support items that have high MR, locket with adaptive helm are great items to secure. If you start coming back add a wits end if you want some threat of your own."
+]
+]
+}
+],
 "Camille": [
 {
 "fields": [
@@ -157,6 +217,37 @@
 "Elise will fall behind eventually so buy control wards in avenues near jungle entrences on her side if possible and in the river if you can't wonder to far from your own camps. You have faster clears and if possible look to solo an objective if she's elsewhere. Concede if you need to as once the game hits mid-game her ability to kill targets falls off."
 ]
 ]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Aftershock (Unflinching)"
+],
+[
+"Quick Tips",
+"- Unflinching allows you to run down Evelyn all early game.\n- Counter her at scuttle, invade when possible.\n- During mid-late control ward flanks to avoid her picking your carries."
+],
+[
+"Detailed Tips & How to Play",
+"Evelyn is one of the easiest matchups for Unflinching to overpower. With the slow resistance her non-charm CC is eaisly pushed thorugh and if you get charmed you ignore the duration. You need to punish Evelyn's weak early and prevent her from getting any scaling if possible as she'll easily fall apart before six. Once her level 6 comes online you can still zone her with proper control wards to spot her rotating to lanes. Her ganks without tenacity can be rather strong so avoid trying to fight her as her burst is pretty strong. Look to get an objective snowball going and build up your bulk as you'll be able to eat her engagements and if she can't slip past you to your carries you'll have an e…"
+],
+[
+"Avoid",
+"Don't force critical objectives if Evelyn is on the map and has her ultimate, her ability to flash in and ult + smite can easily outsmite you no matter what you do. Evelyn if left alone can easily powerfarm to 6 and her ganks pre-6 can give her an early start if you're not applying pressure early. Don't go for squishy builds as Evelyn will simply pick you off or ignore you to go for a real threat in the mid-late game."
+],
+[
+"What to do when Behind",
+"Any bulky build will provide you plentiful amounts of bulk to survive Evelyn's kill window in her charm. Remember her ult only amps damage when you're low and is not an execution ult like Pyke's. Build bulkier resistance items and high health so you can peel for carries and grab controls to watch your flank."
+]
+],
+"as": "Evelyn"
 }
 ],
 "Fiddlesticks": [
@@ -639,6 +730,26 @@
 ]
 }
 ],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Diffculty",
+"X"
+]
+]
+}
+],
 "DrMundo": [
 {
 "fields": [
@@ -810,6 +921,36 @@
 ]
 }
 ],
+"Rammus": [
+{
+"fields": [
+[
+"Diffculty",
+"4"
+],
+[
+"Playstyles",
+"Press the Attack or Conqueror"
+],
+[
+"Quick Tips",
+"- Rammus's clear is extremely weak and his base stats are lower then the average tank out of defenssive curl. Punish this.\n- Rammus slows himself in W which can allow you to reposition so he can't attempt to escape with Q. CD's don't start till he's out of W, punish this.\n- Rammus's Q is a channel, CC that stops channels stops Powerball (Think Soraka E)"
+],
+[
+"Detailed Tips & How to Play",
+"A tank jungler who you can absolutely abuse to heaven and back and who requires you to play aggressively into. Rammus's early clears are subpar with him having to use his E and W at the start of each camp and Q between them to keep up tempo. By abusing these cooldowns you can set Rammus heavily back from getting reasonable amount of tankiness from his abilities. Lead in with a turtle shield into a stun when you can and try to be taunted in Tiger stance so you can cleave through his defenses. If you catch him with his W already active and it runs off he's surprisingly squishy and will easily melt to you. Try to deny him Scuttle if you lane prio as well and force him to farm blue side over his…"
+],
+[
+"Avoid",
+"Do not let Rammus play safely in his jungle as once he hits six he can easily start looking for good trades. Avoid him finding you in the jungle especially if an ally of his is mia as they can easily lock you down long enough to run you down during the taunt duration. Do not invade if you have bad lane prio such as Kassadin or Vlad as Rammus can stall you out long enough with his cooldowns for an ally to rotate on you and take you out. Falling behind in Rammus will result in very poor mid game teamfights."
+],
+[
+"What to do when Behind",
+"You'll still want black clever to shred this armor stacking monster as much as possible, especially if your teammates are all AD which is often the case when he's being picked. From there grab an MR item such as spirit visage or adaptive helm then itemize support items to aid your allies in the frontline. If your team is entirely AD you can also go phoenix builds to throw him off early game."
+]
+]
+}
+],
 "RekSai": [
 {
 "fields": [
@@ -866,6 +1007,36 @@
 [
 "What to do when Behind",
 "Build defensive items and use control wards to watch your flank for his ultimate. Since his ultimate marks whoever is closest try to figure out where he is by watching who is marked and look to be standing in his way and stunning him mid-leap. If he's forced to clense your stun he'll have less damage to go for a one shot."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Conqueror"
+],
+[
+"Quick Tips",
+"- Sejuani's passive requires 4 AA's from melee or 2 and her Full W. Dodge the W.\n- Sejuani gains most of her armor off her Q charge, dodge this and damage her will weaken her aftershock due to losing out on passive.\n- Sejuani has a short window to hit you after using her E on you, stunning her as she stuns you or using the Fog of war can cause the stun to expire."
+],
+[
+"Detailed Tips & How to Play",
+"Sejuani has an early weak but surprisingly has a lot of damage and CC to control Udyr if you're not careful of her potential. Sejuani is strongest with allied melee champions such as top lane often finds so be careful when attempting to countergank her there. Sejuani's W stops her from auto attacking so try to stun her and run sideways or even through her to avoid the second lash of her W where the damage and slow is held. If you can dodge both parts of her W she'll have to auto you for her E, allowing you plenty of time to turn the damage around on her. Her frost armor makes her powerful till she's recieved damage, so feel free to proc it off a bear stun and focusing on avoiding her W befor…"
+],
+[
+"Avoid",
+"Sejuani wins in brawls especially if she's with a melee top or support due to the % damage she can dish out and the lock down on Udyr. If she's accompanied by an ally with high early burst such as Qiyana, Leblance or Ekko be careful in picking nearby fights. Sejuani requires some time to take down so pay attention to your lane prior. Avoid overextending in ganks for a kill if you're unsure of where Sejauni is espeically post six where she can Q & R to lock you down. WIth a melee ally she can stun you, proc her passive then use her ultimate again to stun you once more."
+],
+[
+"What to do when Behind",
+"Get black cleaver if you fall behind first to offer armor shred for your allies, wits end is a selfish buy but is fine if you're only slightly behind but avoid BOTRK if your allies have the damage to take her out. Focus on buying MR items to nullify her % damage so you're not melted by her passive and her mid laner if they're AP. Itemize defensive items for the enemy team and focus on eating her ultimate for your allies as it only stuns the first target it hits."
 ]
 ]
 }
@@ -1096,6 +1267,36 @@
 [
 "Diffculty",
 "X"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Diffculty",
+"5"
+],
+[
+"Playstyles",
+"Conqueror or Aftershock"
+],
+[
+"Quick Tips",
+"- If he has PTA, you win extended trades so try to fight those.\n- He'll try to solo objectives ward it up and burn his flash early so when he blast cones over the wall you can trap him with teammates.\n- He's still Udyr, likely he'll go squishy so bulk up and teamfight with your allies."
+],
+[
+"Detailed Tips & How to Play",
+"Most Udyr's you'll meet will often go for squisher builds and play for hyper aggression. Taking the slow and tactical approach will give you time to powerfarm early with wards covering you during your clear. Many Udyr's fail to use their passive well and will take unnecessary damage early, with proper stance dancing you'll take little damage and be able to push through regardless. In the Udyr vs. Udyr matchup all you have to do to win is simply scale up with a bulkier build then assist your team into the snowball. Warrior > Triforce Udyr's will only control the map as long as they're the highest leveled player in the game and even then up till 20 minutes. Once you can teamfight deathball jus…"
+],
+[
+"Avoid",
+"Respect the style of build the Udyr is going, a quick history search can reveal if he's aggressive. If you're building bulky you'll have a weaker early and if you build damage avoid fights if he has team prio. THis matchup is entirely team dependent."
+],
+[
+"What to do when Behind",
+"Build support Udyr and just hope you have the better coinflip. This matchup can only happen in Blind Que so just have fun."
 ]
 ]
 }

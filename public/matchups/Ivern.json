@@ -149,6 +149,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her Black Shield is the main problem, blocking your CC."
+]
+]
+}
+],
 "Kayn": [
 {
 "fields": [
@@ -187,6 +201,20 @@
 [
 "",
 "You out-tempo him early with root, shields and Daisy, but after two or three AP items his burst and mobility are dangerous. His E and ult can dodge your engage, though you can still punish misplays with slows and roots."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her mobility, attack speed and resets make her hard to lock down. Use root, slows and Daisy to contest early skirmishes and interrupt her resets; if she snowballs she dives through your peel."
 ]
 ]
 }
@@ -443,6 +471,20 @@
 ]
 }
 ],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Very easy; her W frenzy makes your root easy to land, after which you dash in and lock her down with Daisy."
+]
+]
+}
+],
 "Zac": [
 {
 "fields": [
@@ -453,6 +495,34 @@
 [
 "",
 "His engages are very telegraphed, so root him and chain Daisy before he reaches carries. His damage is limited."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Ward her camps, where she cannot stealth, and place Control Wards around objectives. Good vision lets you react to her engages even after level 6."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Squishy and predictable. Daisy can block his Q; land your root and chain slows to punish his positioning."
 ]
 ]
 }
@@ -495,6 +565,20 @@
 [
 "",
 "She can trade early but is vulnerable to your root and Daisy when out of position. Track her with vision and punish overextensions."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"He cannot escape Daisy, slows and root once caught and is easy to kite."
 ]
 ]
 }

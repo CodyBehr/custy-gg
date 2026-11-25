@@ -7,7 +7,7 @@
 "rank": "GM NA",
 "updated": "2022-08"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Ahri": [
 {
@@ -161,6 +161,32 @@
 [
 "MATCHUP NOTES:",
 "Play aggro, you can bully him hard in lane level 5-9. As you Azir ult him make sure you get an empowered AA off."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"5"
+],
+[
+"Ult Tier",
+"C"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"His ult is weak, dont take unless you have liandries. stay away from caster minions so that his E spread cant hit you. early merc treads"
 ]
 ]
 }
@@ -711,6 +737,32 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"5"
+],
+[
+"Ult Tier",
+"S"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Boring lane, Her ult is very strong. Early Merc Treads > Zhonya is best with her ult."
+]
+]
+}
+],
 "Nunu": [
 {
 "fields": [
@@ -1041,6 +1093,32 @@
 [
 "MATCHUP NOTES:",
 "Easy matchup. He cant kill you in 1v1. Just max Q, play aggro whenever post level 6. Take his ult before he uses his so you can folllow his ult."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty (1-10)",
+"4"
+],
+[
+"Ult Tier",
+"A"
+],
+[
+"Start (Only go Dring as of 12.14)",
+"Doran Ring"
+],
+[
+"MAX (my pref)",
+"Q"
+],
+[
+"MATCHUP NOTES:",
+"Early Merc treads. Veigar level 1 Q actually hurts so care. His ult is S tier in 1v1, you can definitely 1 shot him level 6."
 ]
 ]
 }

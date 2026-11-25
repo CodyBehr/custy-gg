@@ -107,6 +107,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You outrange him. Sidestep his W and stay away from a wave he has set ablaze, since his E can spread to you. His ult bouncing back to stun you makes all-ins risky, so poke him low before committing."
+]
+]
+}
+],
 "Camille": [
 {
 "fields": [
@@ -359,6 +373,20 @@
 ]
 }
 ],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Easy as long as you dodge her tentacles and especially her E, which can force you out of lane or kill you. Getting hit by Qs lets her heal off your poke. After level 6 she is unstoppable during her ult and can ult through yours, but she has no way to reach Azir, so keep using your range."
+]
+]
+}
+],
 "Irelia": [
 {
 "fields": [
@@ -607,6 +635,20 @@
 [
 "",
 "Easy: outrange and harass him with Q-auto. He has little kill threat before level 6 and needs help even after. Sidestep his silence, which also interrupts your E-Q, and remember his E resets if hit by Q or R. Your autos one-shot his voidlings; once he is poked, all-in with E-Q-R."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Dodge his E and Q and he has no kill pressure; bait his E by faking a last hit. His early cooldowns are long, so poke hard with your range. After level 6 he only kills you with Flash-ult, and even then you can ult him away and E-Q to outlast it; soldiers and your wall do not follow into the Death Realm."
 ]
 ]
 }
@@ -919,6 +961,20 @@
 ]
 }
 ],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Rare but very annoying; dodge his tongue or the slow sets up his knockup. Your E cooldown is shorter than his W, so react quickly to E out of his dive. First Strike works well. After level 6, ult him away whenever he dives you."
+]
+]
+}
+],
 "Taliyah": [
 {
 "fields": [
@@ -1027,6 +1083,20 @@
 [
 "",
 "Do not trade autos with her early, as she out-damages you; freeze near your turret and farm until Lost Chapter, after which your range wins. Back off when she has a tumble-empowered auto ready, ult or dash away from her ult chase, and stay away from walls, remembering she can Flash after a buffered Condemn."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Harass with Q-auto and Comet to deny free stacks, and dodge his Q and W. Freeze near your tower since he is gankable without E. All-in with ult once he is around half health, but only after he uses his cage or while he is mid-cast. If he runs Predator, warn your team and walk away when he uses it, as Predator plus Everfrost is his main way to reach you."
 ]
 ]
 }

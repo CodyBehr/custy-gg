@@ -7,7 +7,7 @@
 "rank": "high elo (claimed in index)",
 "updated": "2020-06"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Alistar": [
 {
@@ -73,6 +73,24 @@
 [
 "Comments",
 "Try to flay if he grabs you so you can aftershock tank the incoming damage, blitz always 3head invades so your team can sit in your jungle bush and wait for them to come level 1. If he hooks your adc place lantern just BEHIND so he can't stand on on it but adc can reach it at the same time. Blitz hook has a large cd so consider all inning if he fucks it up"
+],
+[
+"Level 2 all in?",
+"Yes"
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"You need to not get poked down too much or lane is hell, his w is very telegraphed so get a feel for it.If you all in make sure you can chain cc enough to burst him down before he replies with his abilities."
 ],
 [
 "Level 2 all in?",
@@ -203,6 +221,24 @@
 [
 "Level 2 all in?",
 "Yes"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Comments",
+"Try to rush level 2 and all in before she levels E, if she skills W first this will be impossible. Playing around vision is very important, it's hard for her to reactively black shield with a hook from fog of war or if you keep her guessing the target to black shield. Also try to keep her guessing which target to black shield. If she is good, there isn't much you can do 2v2, if you trade hook for spellshield, there is a small window to re-hook when it's cooldown comes back (8.5s if you hit the hook).It will be a boring lane and you're dead if you make one mistake, dont be afraid to follow a hook that has been black shielded if you are being ganked for, you can lantern your jungle and the tar…"
+],
+[
+"Level 2 all in?",
+"Yes if you ding first"
 ]
 ]
 }
@@ -365,6 +401,24 @@
 [
 "Level 2 all in?",
 "Yes"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Comments",
+"He exists to neutralise you, it used to be a hard matchup before season 9 but with his W nerfs you can easily play around his cds when he eats an ally. It's very hard for him to play aggressive if you poke him down correctly."
+],
+[
+"Level 2 all in?",
+"No"
 ]
 ]
 }

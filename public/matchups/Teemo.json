@@ -7,7 +7,7 @@
 "rank": "Masters NA",
 "updated": "2024"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Aatrox": [
 {
@@ -153,6 +153,44 @@
 [
 "Experiences",
 "LVL 1 All In"
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, PlatedSC, Nash, Lian, Malig, Void, Dcap, Morel, or ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Over, Blood, Last / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, PlatedSC, Bork, Rage, Krak, Jak, Mort, Wits"
+],
+[
+"Experiences",
+"Kite!"
 ]
 ]
 }
@@ -779,6 +817,44 @@
 ]
 }
 ],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot or Boots4, Swiftys, Obliv, Nash, Lian, Malig, Void, Dcap, Morel or HG"
+],
+[
+"On-Hit Runes",
+"PTA, Abs, Alac, CutD / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring or Boots4, Swifty, ExeC, Bork, Rageb, Kraks, Jak, MortalR"
+],
+[
+"Experiences",
+"Avoid her E."
+]
+]
+}
+],
 "Irelia": [
 {
 "fields": [
@@ -1387,6 +1463,82 @@
 ]
 }
 ],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10 Okay"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"ignite?, F"
+],
+[
+"AP Items (In Order)",
+"Boots4pot?, Swifty, Nash, Lian, Malig, Void, Dcap, Bansh or ShadF"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ignite, F"
+],
+[
+"On-Hit Items (In Order)",
+"Boots4pot, Swifty, Bork, Krak, Rageb, Term, Jak"
+],
+[
+"Experiences",
+"Play aggressive pre 6"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA, AbsL, Alac, CutD / BP, OG or ToB, UltH/ As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Wits or Nash, Lian, Malig, CryptB, Dcap, Bansh or QSS."
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / 2ndW, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, Bork, Rageb, MercS, Term, Jak"
+],
+[
+"Experiences",
+"Play aggressive."
+]
+]
+}
+],
 "Nasus": [
 {
 "fields": [
@@ -1721,6 +1873,44 @@
 [
 "On-Hit Items (In Order)",
 "Dring, PlatedSC, Bork, Rage, Krak, Jak, Term, Randuin or Wits"
+],
+[
+"Experiences",
+"Care for Ganks."
+]
+]
+}
+],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10 Easy"
+],
+[
+"AP Runes",
+"PTA or FF, AbsL, Alac, CutD / BP, OG or ToB, UltH / As, Dmg, Shp"
+],
+[
+"AP SS",
+"Ignite, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, MercT, Nash, Lian, Maligance, Void, Dcap, QSS"
+],
+[
+"On-Hit Runes",
+"PTA, Trium, Alac, LastS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, MercT, Bork, Rageb, Krak, Term, Jak, MercS"
 ],
 [
 "Experiences",
@@ -2283,6 +2473,44 @@
 ]
 }
 ],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"3/10 Easy"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG / AS, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Swifty, Nash, Lian, Dcap, Void, Malig, ShadF"
+],
+[
+"On-Hit Runes",
+"PR, Nimbus, Cele, GS / Cond, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Bork, Rage, Krak, LordD, Jak, Wits"
+],
+[
+"Experiences",
+"Kite!"
+]
+]
+}
+],
 "Talon": [
 {
 "fields": [
@@ -2491,6 +2719,44 @@
 [
 "Experiences",
 "Play Aggressive Entire Lanephase."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"4/10 Okay"
+],
+[
+"AP Runes",
+"PR, Nimb, Cele, GS / BP, OG / AS, Dmg, Shp"
+],
+[
+"AP SS",
+"Ghost, F"
+],
+[
+"AP Items (In Order)",
+"Dring2pot, Nash, Lian, Void, Dcap, Malig, Morel"
+],
+[
+"On-Hit Runes",
+"PR, Nimb, Cele, GS / BP, OG / As, Dmg, Shp"
+],
+[
+"On-Hit SS",
+"Ghost, F"
+],
+[
+"On-Hit Items (In Order)",
+"Dring, Swifty, Bork, Rage, Krak, Term, Jak, Wits"
+],
+[
+"Experiences",
+"Kite!"
 ]
 ]
 }

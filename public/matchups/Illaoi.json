@@ -6,7 +6,7 @@
 "author": "DirtyMobs",
 "rank": "Challenger NA (rank 42 at writing)"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Aatrox": [
 {
@@ -574,6 +574,47 @@
 "as": "1v1 Kill Maokai"
 }
 ],
+"Mordekaiser": [
+{
+"fields": [
+[
+"CHAMPION",
+"Mordekaiser"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq or Grasp"
+],
+[
+"DirtyMobs' Strategy",
+"BUY QSS BUY QSS BUY QSS BUY QSS BUY QSS BUY QSS BUY QSS BUY Q"
+]
+],
+"as": "Full Mordekaiser Game"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Can block his ult with your ult if needed, do not ult him before he ults you or you auto lose"
+]
+],
+"as": "Baiting Morde E and doging it"
+},
+{
+"fields": [
+[
+"DirtyMobs' Strategy",
+"Throw your E after you dodge his E, he'll crumble. Walk back to dodge his Q"
+]
+],
+"as": "HOW TO USE YOUR ULT TO DODGE MORDE ULT"
+}
+],
 "Nasus": [
 {
 "fields": [
@@ -670,55 +711,11 @@
 {
 "fields": [
 [
-"CHAMPION",
-"Pantheon"
-],
-[
-"Manamune Candidate?",
-"DEPENDS ON TEAM COMP"
-],
-[
-"Runes",
-"Conq or Grasp"
-],
-[
-"DirtyMobs' Strategy",
-"VERY EASY if you do not let him poke you levels 1-2. Also if he doesn't have teleport do not die to him before first back"
-]
-],
-"as": "Illaoi vs Pantheon full gameplay"
-},
-{
-"fields": [
-[
 "DirtyMobs' Strategy",
 "IF HE ULTS YOU, time your E when he lands, then ult for free kill"
 ]
 ],
 "as": "BONUS CLIP: Great 1v2 vs Pantheon"
-}
-],
-"Poppy": [
-{
-"fields": [
-[
-"CHAMPION",
-"Poppy"
-],
-[
-"Manamune Candidate?",
-"YES"
-],
-[
-"Runes",
-"Conq or Grasp"
-],
-[
-"DirtyMobs' Strategy",
-"The hardest tank matchup, Poppy Q's do a lot of damage, bait them by running near poppy then turning before you get in range of the Q"
-]
-],
-"as": "Illaoi vs Poppy Game"
 }
 ],
 "Quinn": [
@@ -1024,6 +1021,29 @@
 "as": "Full Sylas Game (TSM Broken Blade)"
 }
 ],
+"TahmKench": [
+{
+"fields": [
+[
+"CHAMPION",
+"Tahm Kench"
+],
+[
+"Manamune Candidate?",
+"YES"
+],
+[
+"Runes",
+"Conq"
+],
+[
+"DirtyMobs' Strategy",
+"If you lose control of wave, he can easily lick you to death. BE CAREFUL and look for an opportunity to shove the lane in and fix it without dying"
+]
+],
+"as": "Full Tahm Kench Game"
+}
+],
 "Teemo": [
 {
 "fields": [
@@ -1169,29 +1189,6 @@
 ]
 ],
 "as": "Full Wukong Game"
-}
-],
-"Yasuo": [
-{
-"fields": [
-[
-"CHAMPION",
-"Yasuo"
-],
-[
-"Manamune Candidate?",
-"NO"
-],
-[
-"Runes",
-"Conq or Grasp"
-],
-[
-"DirtyMobs' Strategy",
-"Learn to dodge his Q's by sidestepping to the left and right every few seconds"
-]
-],
-"as": "Illaoi vs Yasuo playlist"
 }
 ],
 "Yorick": [

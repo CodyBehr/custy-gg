@@ -80,6 +80,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He is fragile but deals heavy damage, and diving into melee range clumps you up for a big Brand ult. Engaging on him can easily backfire."
+]
+]
+}
+],
 "Braum": [
 {
 "fields": [
@@ -300,6 +314,20 @@
 [
 "",
 "Engage with both Q charges up to stay on target. Not much trouble."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"This lane can get difficult, especially since your Q can fly into her binding and her Black Shield blocks your crowd control. In teamfights she can only shield one ally, so that is when you get value."
 ]
 ]
 }

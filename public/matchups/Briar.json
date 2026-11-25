@@ -23,6 +23,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"A hard counter: her bindings, Black Shield against your E, and constant CC shut down your engages. She is a slow full-clear jungler, so invade early and deny her first gank, which is her main path to tempo. Sidestep her Q with W, never dump your combo into Black Shield, and avoid diving her when she has ult and Zhonya's; pick off stragglers instead of grouped fights."
+]
+]
+}
+],
 "Jax": [
 {
 "fields": [
@@ -191,6 +205,34 @@
 ]
 }
 ],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She deals real damage early, has heavy CC and tanks your burst, so never engage first. Buffer E into her Q or ult to cancel it, and full-commit with W-Q when she whiffs. Blade of the Ruined King helps once she is isolated; avoid fighting her near her team."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Either build of Udyr outscales you if the game drags. Force early skirmishes since you win first clears, and do not let him farm freely. Buffer E against his Tiger Q burst and turn with W-Q after he burns cooldowns; later you need your team to kill him."
+]
+]
+}
+],
 "Skarner": [
 {
 "fields": [
@@ -201,6 +243,20 @@
 [
 "",
 "He avoids duels and plays for picks and objectives, becoming too tanky after two items. Buffer E when he ults to knock him into a wall, punish deep engages with W-Q, and build Blade of the Ruined King plus Titanic. Focus on map pressure rather than chasing."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Bait his bandage before you W forward or you get chain-CC'd. You clear faster, so invade early. Dodge his Q with W, buffer E when he ults to avoid the stun, and keep pressure on if his early gank fails."
 ]
 ]
 }
@@ -243,6 +299,20 @@
 [
 "",
 "A stat check where the first mistake loses. Do not waste E early since his fear can go through it; W out as his fear ends, then all-in with W-auto-Q once his damage reduction is used. You can buffer your ult into his to go unstoppable."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She out-duels you before level 3 and can invade early, so ward your raptors and red and respect her. Punish failed plays since she falls behind easily, and fight with teammates because her auto-based kit struggles against CC. If she gets early Void form, slow the game and play teamfights."
 ]
 ]
 }
@@ -415,6 +485,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"A full-clear mage who crumbles if you reach him. Catch him in jungle or river, E him into walls, and dodge his stun with W or Flash. In fights wait for his first rotation before re-engaging, and buffer E during his burn to survive."
+]
+]
+}
+],
 "Taliyah": [
 {
 "fields": [
@@ -499,6 +583,20 @@
 ]
 }
 ],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"E him into a wall when he Qs in or after taunt, and dive his teammates rather than the tank. Ult when he ults or bounces in. He becomes annoying only very late with full armor; avoid overcommitting early 2v2s."
+]
+]
+}
+],
 "Pantheon": [
 {
 "fields": [
@@ -537,6 +635,20 @@
 [
 "",
 "One of your easiest matchups; you out-skirmish her from level 3, so invade early. Sidestep her Q with W, as missing it removes her pressure. Blade of the Ruined King breaks her. Respect a multi-person ult in grouped fights."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Ask your laners to buy Control Wards. She cannot fight you before level 6, so invade and camp her jungle entrances. Respect charm setups, buffer E when charmed, and ult behind her to catch her landing spot."
 ]
 ]
 }
@@ -691,6 +803,20 @@
 [
 "",
 "Tanky but harmless to you; Blade of the Ruined King, then Titanic and Black Cleaver, melt him. Clear his saplings before objectives, and E into a wall to break his root or W-Q afterward."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You out-clear and out-duel him before level 6, so invade. Inside his ult, focus on surviving: E to reposition and sidestep his Q with W. Once it ends, punish with W-Q, Titanic and an E into a wall."
 ]
 ]
 }

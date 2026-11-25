@@ -4,7 +4,7 @@
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1oOdoxOECGxrH5glVCORRSvGnfdehMhhnSfJBcpXX0rk/edit"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Aatrox": [
 {
@@ -100,6 +100,20 @@
 [
 "Tips",
 "Just play safe until level 3-4. Having potion/HP advantage on him once you both get close to level 6 is essential since he will be low on mana by then as well. The fast combo works well against Azir in all ins so he doesn't ult you away before your damage lands."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Pretty easy matchup, just don't get hit by too much spells and outsustain him. If he wastes Q for any reason, immediately all in."
 ]
 ]
 }
@@ -356,6 +370,34 @@
 ]
 }
 ],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Skill matchup"
+],
+[
+"Tips",
+"Don't take too much damage, poke him down, and look for an all in."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Take cleanse and she can't stop you from killing her with your full combo until she has stopwatch/zhonyas."
+]
+]
+}
+],
 "Neeko": [
 {
 "fields": [
@@ -548,6 +590,20 @@
 [
 "Tips",
 "People think the TF matchup is easy but if the TF is good this lane is actually pretty hard. You need to look for early kills on him so you have a lead. Ping your sidelanes constantly and always be ready to move."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Easy"
+],
+[
+"Tips",
+"Easy matchup, without his cage he's free kills for Zed"
 ]
 ]
 }

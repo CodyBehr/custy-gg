@@ -79,6 +79,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His burn is hard to heal through, but trades are even if you step up after he misses or uses his stun. Bully him and shut him down early so he never scales past your healing."
+]
+]
+}
+],
 "Caitlyn": [
 {
 "fields": [
@@ -177,6 +191,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her bind is frustrating, but you win poke trades and long fights while she relies on all-ins. She rarely maxes her shield early, so you can break it with Q plus E and then silence her."
+]
+]
+}
+],
 "Nautilus": [
 {
 "fields": [
@@ -229,6 +257,20 @@
 [
 "",
 "She scales better if you over-trade. Avoid her double auto or auto-into-Q patterns, take Second Wind, and later your healing matches her damage. Boots of Swiftness, Ardent Censer or Redemption are good options."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You counter him: silence him when he tries to dive you in vision, and he is useless until it comes back."
 ]
 ]
 }

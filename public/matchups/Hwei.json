@@ -556,6 +556,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Surprisingly strong in lane, but you can poke him out and he struggles with your waveclear. After 6 you can push and harass him under tower if you are not behind."
+]
+]
+}
+],
 "Velkoz": [
 {
 "fields": [
@@ -636,6 +650,20 @@
 [
 "",
 "One of the weakest early laners; kill his voidlings immediately to handle his waveclear. After 6 be careful stepping up without knowing the jungler's location. QSS is usually unnecessary given your range."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Force trades whenever his Q is spent on farming, and target his low waveclear. Watch the enemy jungler since his gank setup is the main threat."
 ]
 ]
 }
@@ -780,6 +808,20 @@
 ]
 }
 ],
+"Mel": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Fairly strong in lane, but avoid casting R or EQ into her reflect. Push and poke with Q spam while she holds W."
+]
+]
+}
+],
 "Quinn": [
 {
 "fields": [
@@ -790,6 +832,20 @@
 [
 "",
 "Your waveclear handles her push and holding EQ stops her engages."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"You match her waveclear and can disengage from her ult; you outrange her in fights. The main danger is early ganks."
 ]
 ]
 }

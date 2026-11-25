@@ -107,6 +107,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"6/10"
+],
+[
+"",
+"Not easy: long-range poke, good mana and easy stuns. Take Ignite and play around your jungler to snowball, since he has no mobility. Luden's with early Dark Seal vs squishy teams."
+]
+]
+}
+],
 "Camille": [
 {
 "fields": [
@@ -499,6 +513,34 @@
 ]
 }
 ],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"2/10"
+],
+[
+"",
+"Q him as he last hits, sidestep his Q pull, and save R until after he ults you. Liandry's into Rylai's helps kite inside his realm; Conqueror out-heals him."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Stay in the wave to avoid her bind. Only ult when her shield is down. Cleanse and Demonic Embrace instead of Rylai's, since her shield negates the slow."
+]
+]
+}
+],
 "Neeko": [
 {
 "fields": [
@@ -761,6 +803,20 @@
 [
 "",
 "Favorable despite his range: he faces you when charging Q or casting R, giving easy ults, and his immobility makes him gankable. Tear, Ignite or Teleport."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"5/10"
+],
+[
+"",
+"Mostly a farming lane; if he steps up or drops his cage, a gank is likely. Save mana for extended trades in his cage; early Null-Magic Mantle may be needed for his level 6 burst."
 ]
 ]
 }

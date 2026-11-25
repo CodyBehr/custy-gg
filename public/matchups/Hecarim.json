@@ -10,6 +10,62 @@
 },
 "fetched": "2026-11-12",
 "rows": {
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Among the easiest matchups; just watch his bandage toss. Play for counter-ganks and out-tempo him. Conqueror is preferred unless the enemy comp says otherwise."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"One of the hardest: watch for an early raptor invade and her strong level 3 invade. If she does not get ahead and has to full clear, you can usually space and duel her depending on build. Conqueror or Phase Rush based on enemy comp."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"A good Brand clears as fast as you, but early vision lets you punish and run him down with Ghost. Stay out of point-blank Q range and you win every duel; good Brands often take Ghost, so respect their spacing."
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Easy after her nerfs. A bruiser Briar is annoying against a lethality build, while a lethality Briar just loses. Watch raptor cheese or late invades, and kite her with E and Ghost. Conqueror preferred."
+]
+]
+}
+],
 "Diana": [
 {
 "fields": [
@@ -48,6 +104,20 @@
 [
 "",
 "Medium to hard unless you handle her early pressure. Be present for her early ganks and dives and you can make her game miserable. She likes to invade like Graves or Nidalee, but her cocoon is easy to avoid, and you can stack Q on her spiderlings."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"You are much stronger early and can snowball, but a good Eve usually gets fed off your team and becomes very hard to deal with. Your ult can avoid her charm. Phase Rush is usually best."
 ]
 ]
 }
@@ -262,6 +332,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Dodge her Q and run her down; avoid ulting through her Black Shield."
+]
+]
+}
+],
 "Nidalee": [
 {
 "fields": [
@@ -318,6 +402,20 @@
 ]
 }
 ],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Similar to Nunu; you easily out-farm and out-tempo him. A full lethality build may struggle to duel him, so take Black Cleaver over Shojin."
+]
+]
+}
+],
 "RekSai": [
 {
 "fields": [
@@ -342,6 +440,20 @@
 [
 "",
 "Easy in low elo but hard higher up, since he can punish you any time early. You lose to his level 3 cross-map invade, but if you farm and force him to match your tempo it is manageable. Conqueror favored."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"No real invade windows and you win duels. She can gank well in high elo, but you should snowball through her. Conqueror preferred."
 ]
 ]
 }
@@ -426,6 +538,20 @@
 [
 "",
 "You cannot duel him, especially early, unless ahead. Phase Rush is easier since it negates his pillar slow. Get ahead through farming, since he cannot keep up with your clear."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Like Trundle with a better clear; he matches your pace and plays for objectives and Ghost ganks. Take Conqueror to duel or Phase Rush to kite his empowered R. Do not fall behind."
 ]
 ]
 }

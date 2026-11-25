@@ -6,7 +6,7 @@
 "author": "SavagePrideStalkers",
 "rank": "Master"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Aatrox": [
 {
@@ -522,6 +522,44 @@
 ]
 }
 ],
+"Illaoi": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Hard"
+],
+[
+"TLDR",
+"Hard matchup, especially once she gets some levels. You need to punish her in the early game (I prefer Ignite). Her pre6 is fairly weak and she can't outdamage your full combo, even if she drags your soul. Try to bait out her E by jumping on minions when she throws it onto you. Level 6 becomes very hard, her R is very strong in a 1v1. You need to bait it out and disengage fast. Some lifesteal is really strong in this lane, you'll be getting damaged a lot. Playing under your turret is also very bad, since she can E you out of range and keep damaging you. 2v1 with your jungler also bad, since she can beat you 1v2.\nMid-late game don't try to 1v1 her, teamfights are also very hard. Best decision…"
+],
+[
+"Summoner spells",
+"Ignite + Flash\nIgnite + Teleport\nAnother lane where you need to be agressive in the early game, so you take ignite for the extra power AND Illaoi has built in healing, so the Grievous wounds helps you counter that."
+],
+[
+"RUNES",
+"Rune setup 2\nAdapative, adaptive and armor\nYou need as much early power and prolonged fights to kill Illaoi on lane pre6, thus Conqueror and Sudden impact\nMaybe you could consider using Rune setup 3, but I feel like you can't jump in every 5 seconds, so Grasp damage would be smaller than Conqueror"
+],
+[
+"ITEMS",
+"Dblade+1pot - if you are confident, you can start Long Sword+3pots\nGrievous wounds very strong into her\nNo build can 1v1 late\nI personally would choose Goredrinker"
+],
+[
+"HOW TO PLAY LANE",
+"Level 1 stack Q on minions, once you get to full ferocity just engage and force a long fight. Levels 2-5 you want to proc her boneplate (if she has it), then get to 4 ferocity and do a full hard engage - if she pulls your spirit, Ignite her (if she's close to being dead) and keep hitting her. It's very important to win this lane before she hits level 6. At level 6 be very careful, if she ults you, immidiately disengage. DON'T let her get under your turret - she will keep the wave there and will constantly E you out of turret range for free poke. Be careful with jungle ganks, she can turn on you easily 1v2 - bait out her R before you fight with jungler."
+],
+[
+"HOW TO PLAY AFTER LANE",
+"Mid-late game 1v1 is a big NO. She beats you extremely hard. You splitpush better than she does. If you bait out her R, teamfights are very easy against her. If she has her R for a fight, it gets very hard."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"Hard lane in the early game, but with levels it gets much easier. Be mindful of his early power, he can easily kill you pre6 with Ignite, all you have to do is get safely past these levels. Once you start picking up some HP and unlock your ultimate, you can easily stomp him. If you can, play under his turret and constantly poke him with your Q and E. If he can't get to bushes, there is nothing he can do to you."
+]
+]
+}
+],
 "Irelia": [
 {
 "fields": [
@@ -868,6 +906,44 @@
 [
 "HOW TO PLAY AGAINST RENGAR",
 "Pretty hard early game, make sure you keep your saplings in bushes, so he gets damage when he tries to play with them. Rushing Bramble into Sunfire will give you quite a lot of damage, paired with your passive healing you can maybe 1v1 him around levels 7-10, if you aren't too behind. Also play with your jungle, you have a very good gank setup."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Easy-Medium"
+],
+[
+"TLDR",
+"Easy lane, level 1 trade with full ferocity, levels 2-5 you can trade however you want to. You should be hard winning the lane in the first 15 minutes, because once Mordekaiser gets items, he can beat you 1v1. Use your W for his Q+AA, try to dodge his E. Try forcing fights when your Conqueror is still up, but wait out his passive. You can always empW his R.\nMid-late game you should be winning 1v1 until he gets around 3+ items OR you are going full assassin and can't reliably oneshot him. Your splitpush is better, so is your teamfight most of the time."
+],
+[
+"Summoner spells",
+"Teleport + Flash\nYou can run Ignite, but it's fairly useless, if you play the lane correctly, you stomp the lane even without it."
+],
+[
+"RUNES",
+"Rune setup 2\nAdaptive/AS, adaptive and MR\nYou don't need Grasp, your laning is much much stronger than his, it's overkill. You also don't need Second wind, so Domination 2nd is the best option\nI always use this setup, I think other setups are inferior"
+],
+[
+"ITEMS",
+"Dblade+1pot - if you are confident, you can start Long Sword+3pots\nGrievous wounds important if he heals too much\n1v1 mid-late game depends on gold difference, not mythics\nI personally would choose Goredrinker"
+],
+[
+"HOW TO PLAY LANE",
+"Level 1 fight only with full ferocity, Mordekaiser beats you without it. Levels 2-5 you can easily engage on him, your trades are much much better than his. His main source of damage is his Q, so try to W that. Your full tripleQ rotation is extremely strong and he can't match it, so abuse it early. Level 6 force his R and instantly empW out of it and wait out his bonus stats. You should be hard winning until Mordekaiser gets 3 items or is even with you (don't roam too much at bad times, if he catches up to you, it's hard to win)."
+],
+[
+"HOW TO PLAY AFTER LANE",
+"Mid-late game you should be winning 1v1 until he gets around 3+ items OR you are going full assassin and can't reliably oneshot him. Your splitpush is better, so is your teamfight most of the time."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"Extremely hard lane for you, the only point where you can fight is level 1 when Rengar has 1-2 stacks. After that you only have to be on defensive. Get as much CS as you can, but don't die for it. Rushing seeker's is extremely important. Second item"
 ]
 ]
 }
@@ -2003,6 +2079,36 @@
 ]
 }
 ],
+"Amumu": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Easy"
+],
+[
+"TLDR",
+"Low damage compared to your full combos, so if you go in with full ferocity, you definitely outdamage him. However he has a good setup with his Q and R, so be mindful of his jungler.\nMid-late game you can just splitpush, he can't match you and he is pretty good in teamfights."
+],
+[
+"Summoner spells",
+"Teleport + Flash\nYou don't need Ignite at all, extremely easy lane."
+],
+[
+"RUNES",
+"Rune setup 2\nAdaptive/AS, adaptive and MR"
+],
+[
+"ITEMS",
+"Dblade+1pot or Long Sword+3pots\nAll offensive mythics are good, pick depending on enemy team comp."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"Just don't. It's a hard lane that you can't win."
+]
+]
+}
+],
 "Anivia": [
 {
 "fields": [
@@ -2243,6 +2349,36 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Easy"
+],
+[
+"TLDR",
+"Has high damage, but is very squishy. Be careful with jumps on him level 2-3, because he can W the ground under himself and Q you after you land into E. You are stunned, take all the spells damage and his passive damage without any chance to react. Jump him once you bait out his W or Q.\nMid-late game you can oneshot him or other people from his team, your split push is also pretty good."
+],
+[
+"Summoner spells",
+"Teleport + Flash\nYou don't need Ignite at all, extremely easy lane."
+],
+[
+"RUNES",
+"Rune setup 1\nAdaptive/AS, adaptive and MR"
+],
+[
+"ITEMS",
+"Dshield+1pot or Dblade+3pots - if you're confident, you can start Long Sword+3pots\nAll offensive mythics are good, pick depending on enemy team comp."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"Just don't. It's a hard lane that you can't win."
+]
+]
+}
+],
 "Braum": [
 {
 "fields": [
@@ -2467,6 +2603,36 @@
 [
 "TLDR",
 "A pretty easy lane if you play it correctly. I wouldn't recommend fighting her without ferocity, she has 5 different combat spells, you have a bit less. Level 1 you most likely win even without ferocity. Try to kill her spiders in her spider form. You can try to bait out her human EQW with a jump without using 4fero and then double W all of it away and continue fighting, but a good Elise will probably see through that. Just play it slow and chunk her down. At level 6 nothing changes, you both get nothing extra.\nAfter lane you can do basically anything. Your splitpush is better, your 1v1 is better, your teamfight is better."
+],
+[
+"Summoner spells",
+"Teleport + Flash\nYou don't need Ignite at all, extremely easy lane."
+],
+[
+"RUNES",
+"Rune setup 2\nAdaptive/AS, adaptive and MR"
+],
+[
+"ITEMS",
+"Dblade+1pot or Long Sword+3pots\nAll offensive mythics are good, pick depending on enemy team comp."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"Just don't. It's a hard lane that you can't win."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Easy"
+],
+[
+"TLDR",
+"Absolutely worthless in the early game. You can jump on her whenever you please and she can do nothing to you. Keep fighting her, you should get a few solokills before level 6. At level 6 it can be dangerous if you are low health, but you still shouldn't lose. Some early MR goes a long way.\nIn mid-late parts of the game she will want to roam and catch out your teammates. You can either sidelane and force enemy to come to you or force a fight. At this point you are much stronger than she is, so everything you do is better than whatever she decides to do."
 ],
 [
 "Summoner spells",
@@ -3433,6 +3599,36 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Easy"
+],
+[
+"TLDR",
+"Fairly useless in the early game, just trade constantly, you always outdamage her. If she hits Q on you, you can empW it. You can also empW her R.\nMid-late game you are better 1v1, better in splitpushing and in teamfights as well (you should be too ahead)."
+],
+[
+"Summoner spells",
+"Teleport + Flash\nYou don't need Ignite at all, extremely easy lane."
+],
+[
+"RUNES",
+"Rune setup 1\nAdaptive/AS, adaptive and armor/MR (depends on enemy team comp)"
+],
+[
+"ITEMS",
+"Dshield+1pot or Dblade+3pots - if you're confident, you can start Long Sword+3pots\nAll offensive mythics are good, pick depending on enemy team comp."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"Just don't. It's a hard lane that you can't win."
+]
+]
+}
+],
 "Nami": [
 {
 "fields": [
@@ -3787,6 +3983,36 @@
 ]
 }
 ],
+"Rammus": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Easy"
+],
+[
+"TLDR",
+"Low early game damage, not even that tanky until he gets levels and items. You definitely win first 6 levels. Your emp W can cancel his taunt, your emp E can cancel his Q. Be careful under his turret, he can taunt you, make you attack him and turret will deal a lot of damage to you.\nMid-late game you have better splitpush and teamfight, however you probably lose 1v1, because of his armor and tankiness."
+],
+[
+"Summoner spells",
+"Teleport + Flash\nYou don't need Ignite at all, extremely easy lane."
+],
+[
+"RUNES",
+"Rune setup 2\nAdaptive/AS, adaptive and armor/MR (depends on enemy team comp)"
+],
+[
+"ITEMS",
+"Dblade+1pot\nAll offensive mythics are good, pick depending on enemy team comp."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"You can't really do anything in this lane until you get 2 big armor items. Bramble vest is a must have. Remember that his emp W cancels your Taunt and his emp E cancels your Q."
+]
+]
+}
+],
 "RekSai": [
 {
 "fields": [
@@ -3899,6 +4125,36 @@
 [
 "ITEMS",
 "Dblade+1pot or Long Sword+3pots\nAll offensive mythics are good, pick depending on enemy team comp."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"Just don't. It's a hard lane that you can't win."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Easy"
+],
+[
+"TLDR",
+"A tank toplane with no big damage source. Just keep fighting her, your double empowered spell rotation is much stronger than anything she can do to you. Try to dodge the second part of her W. You can cleanse her E and R. Be careful with her setups for jungler.\nMid-late game 1v1s are pointless, she is very tanky. Keep splitpushing or force a fight on the enemy team, you are better at both things."
+],
+[
+"Summoner spells",
+"Teleport + Flash\nYou don't need Ignite at all, extremely easy lane."
+],
+[
+"RUNES",
+"Rune setup 2\nAdaptive/AS, adaptive and armor/MR (depends on enemy team comp)"
+],
+[
+"ITEMS",
+"Dblade+1pot\nAll offensive mythics are good, pick depending on enemy team comp."
 ],
 [
 "HOW TO PLAY AGAINST RENGAR",
@@ -4219,6 +4475,44 @@
 ]
 }
 ],
+"TahmKench": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Medium"
+],
+[
+"TLDR",
+"If he takes Grasp, it's kind of a hard lane. He has strong poke and big range. Level 1 is pretty dangerous, because he has his Q that deals quite a bit of damage. Your emp W can cancel his Q stun or W. If you fight him, make sure to fight him until he pops his shield, once his shield is up, disengage and wait for it to disappear. You should win early game prolonged fights with Conqueror.\nIn mid-late game it's pointless to 1v1 him, rather try to split or catch his teammates out. In teamfights you are also very strong, but care, he can W the champion you choose to oneshot."
+],
+[
+"Summoner spells",
+"Teleport + Flash\nYou could consider running Ignite in this lane, Tahm Kench could be a hard opponent to beat, but it's not needed, since he has no built in combat healing."
+],
+[
+"RUNES",
+"Rune setup 2 or 3\nAdaptive/AS, adaptive and MR\nRune setup 2 is good for long trades and mid-late game\nRune setup 3 is good for quick trades\nI would go Rune setup 2 if enemy has weak jungle, if their jungle is gank heavy, I would take Rune setup 3"
+],
+[
+"ITEMS",
+"Dblade+1pot\nGoredrinker and Shieldbow builds very good, assassin can be bad if he doesn't oneshot him. Tank can have problems in 1v1 as well."
+],
+[
+"HOW TO PLAY LANE",
+"Level 1 be careful around fights, if you have no ferocity he can easily beat you. Levels 2-5 are much easier for you, he doesn't have that much damage and you can emp W heal either his Q or his W. Play the lane slow and try to force him to shield in a fight. Once he uses his shield, just disengage and try again with next full ferocity rotation. Try to get your jungler top as well, Tahm is very slow and has no escape."
+],
+[
+"HOW TO PLAY AFTER LANE",
+"In mid-late game you don't want to 1v1 him, he's very tanky and has quite a bit of cc. You can just splitpush or force teamfights, you are better in both. However if you splitpush, be careful not to get caught by his R with a teammate."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"A hard lane, especially since Tahm top got butchered. Take Grasp, try to proc it as often as you can, be careful about his all in. His emp W can cancel both your Q and your W."
+]
+]
+}
+],
 "Taliyah": [
 {
 "fields": [
@@ -4445,6 +4739,44 @@
 ]
 }
 ],
+"Udyr": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Medium"
+],
+[
+"TLDR",
+"Tiger is very hard on lane, don't even fight him and scale towards late game fights.\nPhoenix is easier, take Grasp and fight him slowly, utilize your double W and keep chunking him.\nEither way he goes, you will be more useful in the late game fights, because he can't get too fed (he's top, not jungle).\nDon't try 1v1 against him later, he can either beat you or run away. Just force fights."
+],
+[
+"Summoner spells",
+"Teleport + Flash\nIgnite + Flash\nYou can take Ignite to have an edge in early game fights, but if you fully commit and ignite him, he can just.E you and run away, thus making your Ignite useless."
+],
+[
+"RUNES",
+"Rune setup 2 or 3\nAdaptive/AS, adaptive and armor/MR (depends on enemy team comp)\nUdyr is a bit tricky, because he can go either Tiger or Phoenix\nRune setup 2 is better into Phoenix Udyr, you will outdamage him and out trade him either way\nRune setup 3 is better into Tiger udyr, because Tiger udyr will destroy Conqueror Rengar\nI would probably go Rune setup 2, Tiger Udyr is very out of meta right now, so it's better"
+],
+[
+"ITEMS",
+"Dblade+1pot\nGoredrinker and Shieldbow can 1v1, assassin will most likely die 1v1, tank as well."
+],
+[
+"HOW TO PLAY LANE",
+"If he goes Tiger, you can't even look at him level 1. He will melt you. Level 2 is easier, you get your W. If the Udyr is tiger, I don't recommend even fighting him, just farm and scale, you are much better in fights than he will be.\nIf he goes Phoenix, you can try to fight him level 1 with full ferocity. Levels 3+ you can fight with Grasp, but utilize your double W well. Quick trades are better for you (you have higher cooldowns than he does). Getting your junglers help is also very good, Udyr has no real escape (except E)."
+],
+[
+"HOW TO PLAY AFTER LANE",
+"After lane it becomes hard to go toe to toe with Udyr. He can outdamage you if he is Tiger, he wil just escape when he is Phoenix. You should rather try to splitpush and then rotate with your ultimate to force a fight, catch out his teammates or force a fight anyway. Your teamfight is better than his, if you are not too behind."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"Phoenix Udyr will have some trouble with Rengar, he can trade with you toe to toe, you don't outdamage or out sustain him. If you go Phoenix, make sure to get yourself a bramble vest.\nTiger Udyr is much stronger into Rengar, your level 1 Q will hurt him a lot and outdamage him. If you push your strong early game enough, you will get ahead and then he can't do anything. If ahead, build Executioners, if behind, build Bramble"
+]
+]
+}
+],
 "Varus": [
 {
 "fields": [
@@ -4467,6 +4799,36 @@
 [
 "ITEMS",
 "Dshield+1pot or Dblade+3pots - if you're confident, you can start Long Sword+3pots\nAll offensive mythics are good, pick depending on enemy team comp."
+],
+[
+"HOW TO PLAY AGAINST RENGAR",
+"Just don't. It's a hard lane that you can't win."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"DIFFICULTY",
+"Easy"
+],
+[
+"TLDR",
+"Not hard to play, his early game has nothing on you. Level 1 just keep jumping him, you beat him even without ferocity. Level 3 you can attempt to oneshot with triple Q. If he puts you into a cage and you have 4 ferocity, you can just walk into the edge, get stunned, instantly cleanse it and run him down."
+],
+[
+"Summoner spells",
+"Teleport + Flash\nYou don't need Ignite at all, extremely easy lane."
+],
+[
+"RUNES",
+"Rune setup 2\nAdaptive/AS, adaptive and MR"
+],
+[
+"ITEMS",
+"Dblade+1pot or Long Sword+3pots\nAll offensive mythics are good, pick depending on enemy team comp."
 ],
 [
 "HOW TO PLAY AGAINST RENGAR",

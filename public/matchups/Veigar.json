@@ -4,7 +4,7 @@
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1Gw7ghDG6FtX0QJiUgFUe1QdCeUQmZFZbo6sGjZq0Y8s/edit"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Taric": [
 {
@@ -124,6 +124,20 @@
 [
 "",
 "He's just as weak as you early game, but can still poke you down and deal damage to you. Nonetheless, if you're standing behind casters, his Q can't reach you unless he walks past the melees (and even then so, you can Q and W him back as a trade). Be careful for him ulting you into your tower if you shove the lane in before he does - I advise standing a bit back and not hitting him or the tower with autos if your minions are crashing into your towers, but also staying in a close enough range to still use your abilities. He can't escape your E with his E and he'll also be stopped, so you can negate a lot of his teamfight and laning kill pressure with a well-timed cage."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"For some stupid reason, his W can hit you even if you're standing behind casters and he's at his casters. Make sure you're always moving so it's harder for him to hit his combo. If he misses his W, stay away from any minions that are Ablaze as he can Q them to chain Ablaze onto you. He's really immobile, so it's easy to setup kills for yourself or for your jungler. Post 6 and before your GLP, he'll have a lot more kill pressure than you, so be careful and just wait it out until you can purchase GLP and start killing him. I advise Cleanse or Barrier."
 ]
 ]
 }
@@ -474,6 +488,34 @@
 [
 "",
 "Neither of you have good kill potential on each other, but he has better lockdown on you because he can ult you for his jungler whereas his shield negates your cage. Nonetheless, most Malzahars shove the lane in, which lets you free farm under tower. If your autoattacks can one shot his minions, then so can your Q, so you can pick up some free AP that way. Using GLP to get rid of his shield and then caging him catches him off-guard and ends up stunning him and nets you a free kill. He's just as short range as you are, so if he ults someone in a teamfight, you'll be in range to auto him and then full combo him."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"The main thing you need to watch out for in his kit is his E - if he hits it, he'll deal a lot of damage to you really quickly and you don't really have means of getting him off of you. When his E is down, you can punish him with your range advantage. If he ults you and you're not in a position where your full combo kills him immediately, slow him with GLP first, and after the slow finishes, put your cage around yourself so you maximize the time where he can't reach you (but if you have GLP at this point, you can probably kill him). Also, don't be afraid to fight back in his ult - of course, you can't auto-for-auto kill him, but remember he's not invincible - he just has a few extra stats - …"
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"",
+"Medium"
+],
+[
+"",
+"The only reason why she's medium is because her E is a giant cockblock for you as she can just walk through your cage without being stunned. I recommend Qing her before she does this to deal enough damage that the Q destroys the shield just as she walks out. Otherwise, she sucks in lane because you can just stand away and behind casters to dodge both her W and Q. Take cleanse to stop yourself from being locked down."
 ]
 ]
 }

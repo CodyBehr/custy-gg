@@ -177,6 +177,20 @@
 ]
 }
 ],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Everything revolves around her E: if it lands, back off immediately and stay out of her tentacles; if it misses, punish hard. Fight when tentacles are not set up, keep trades short and manage the wave."
+]
+]
+}
+],
 "Gnar": [
 {
 "fields": [
@@ -313,6 +327,20 @@
 [
 "",
 "Her true damage partially ignores your resistances and she pokes safely, melting tanks with items. Take short trades, respect her ult, build armor earlier than usual and avoid free autos in sidelanes."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His ult isolates you from your team and removes your teamfight value. Avoid fighting when his ult is up unless much stronger; track its cooldown and trade normally when it is down."
 ]
 ]
 }

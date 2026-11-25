@@ -23,6 +23,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"The author bans him every game. If you face him, rush boots, focus on not dying, and only all-in if he is alone and not fed."
+]
+]
+}
+],
 "Ashe": [
 {
 "fields": [
@@ -373,6 +387,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You counter her completely and can dive her ADC. The catch: save your Q to break her Black Shield; if you waste it, she becomes very dangerous."
+]
+]
+}
+],
 "Nami": [
 {
 "fields": [
@@ -649,6 +677,20 @@
 [
 "",
 "Immobile and weak against you unless you are already low. Do not engage his support first without Plated Steelcaps and a Kindlegem, or he will kill you."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Think ahead about his plays. Do not W out of his cage; stay inside, dodge what you can, then W in or away."
 ]
 ]
 }

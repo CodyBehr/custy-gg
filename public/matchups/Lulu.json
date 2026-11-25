@@ -136,6 +136,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Like most mage supports he wants to poke or all-in you out. Use minions to block his Q; otherwise your E-Q poke range is roughly even with his."
+]
+]
+}
+],
 "Bard": [
 {
 "fields": [
@@ -304,6 +318,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Dodge her Q, her only real threat besides shoving with W. Hard to all-in, but an even lane lets you outscale her."
+]
+]
+}
+],
 "Alistar": [
 {
 "fields": [
@@ -370,6 +398,20 @@
 [
 "",
 "Dodge his E with your mobility and disengage his ult with slows or speed. Poke with E-Q but avoid long trades since he answers with Q."
+]
+]
+}
+],
+"Mel": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Her base damage is low, her spells easy to dodge, and her W rarely reflects anything important in lane."
 ]
 ]
 }

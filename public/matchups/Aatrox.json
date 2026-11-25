@@ -6,7 +6,7 @@
 "author": "Falconator9000",
 "updated": "2025"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Aatrox": [
 {
@@ -332,6 +332,24 @@
 ]
 }
 ],
+"Illaoi": [
+{
+"fields": [
+[
+"Runes",
+"2/3"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"any build works, try to outsustain her and dodge e or oneshot her when e is down"
+]
+]
+}
+],
 "Irelia": [
 {
 "fields": [
@@ -472,6 +490,24 @@
 [
 "Key Notes",
 "Dont bait yourself into fighting him, Just farm he cant do anything if you do nothing"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Runes",
+"2 / 3"
+],
+[
+"Build",
+"Any"
+],
+[
+"Key Notes",
+"Space him properly, dodge q with e and care for rylais spike"
 ]
 ]
 }
@@ -728,6 +764,24 @@
 ]
 }
 ],
+"TahmKench": [
+{
+"fields": [
+[
+"Runes",
+"2"
+],
+[
+"Build",
+"1 / 2 / 3"
+],
+[
+"Key Notes",
+"Dont get hit by q, that simple"
+]
+]
+}
+],
 "Teemo": [
 {
 "fields": [
@@ -778,6 +832,24 @@
 [
 "Key Notes",
 "Cyclo helps but proper q spacing and this creature shouldnt touch you ever"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Runes",
+"Rumble But worse"
+],
+[
+"Build",
+"Rumble But worse"
+],
+[
+"Key Notes",
+"Rumble But worse"
 ]
 ]
 }

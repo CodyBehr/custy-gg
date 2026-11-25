@@ -10,6 +10,34 @@
 },
 "fetched": "2026-11-12",
 "rows": {
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Like you, he farms early and rarely invades. Mirror his pathing so you can counter-gank."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her Q dashes dodge your CC and her E negates burst, but her early game is weak and 2v2 or 3v3 skirmishes favour you."
+]
+]
+}
+],
 "Diana": [
 {
 "fields": [
@@ -48,6 +76,20 @@
 [
 "",
 "Her threat is her early game; cover dives from level 3 by tracking each lane's wave state. If you dodge her cocoon, you should never be in kill range."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"She has little early pressure, so you control the tempo: power farm, gank or counter-gank. Watch her early habits and adapt."
 ]
 ]
 }
@@ -244,6 +286,20 @@
 [
 "",
 "Dangerous 1v1, but you rarely seek 1v1s. Q him to interrupt his meditate, and if his Alpha Strike is up, throw Q at a minion and auto him instead. If losing, jump toward your team; if he follows, he likely dies."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He farms efficiently and will likely ult you mid-jump to remove you from teamfights. Sidestep his Q and avoid 1v1s."
 ]
 ]
 }

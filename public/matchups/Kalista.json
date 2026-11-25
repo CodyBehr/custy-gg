@@ -9,6 +9,20 @@
 },
 "fetched": "2026-11-12",
 "rows": {
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her Black Shield can nullify your support's engage and much of your ult's value, and her binding heavily punishes you if you get caught while hopping forward aggressively."
+]
+]
+}
+],
 "Janna": [
 {
 "fields": [
@@ -47,6 +61,20 @@
 [
 "",
 "Her poke, sustain and CC make long trades uncomfortable, and her bubble is especially dangerous because you rely on constant movement in fights."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"His area damage punishes your predictable hopping, and one stun can stop your momentum and let his team burst you."
 ]
 ]
 }

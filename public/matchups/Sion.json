@@ -345,6 +345,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Neither of you can kill the other. Doran's Shield is a must; push and roam."
+]
+]
+}
+],
 "Naafiri": [
 {
 "fields": [
@@ -509,6 +523,20 @@
 [
 "",
 "Survive the first two levels, trade from 3, and all-in at 6 to burn Flash. You cannot answer his roams without Teleport, so cancel him with Flash-ultimate or push and take plates."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"He stacks on you, but you have better wave clear and early trades. Avoid being caged while charging Q, and learn the spacing where the cage only traps you. Your ultimate passes through the cage for all-ins."
 ]
 ]
 }

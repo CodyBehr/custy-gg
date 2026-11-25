@@ -262,6 +262,20 @@
 ]
 }
 ],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His cage stuns you out of your flight, and after 6 his ultimate can execute you from half health. Dodge his W, stay outside cage range, and farm with W from afar; treat the cage zone as a no-fly zone."
+]
+]
+}
+],
 "Ezreal": [
 {
 "fields": [
@@ -356,6 +370,20 @@
 [
 "",
 "Do not ignore her feathers while stacking, since her E can root you, including pulling you down mid-flight. Her ultimate dodges your big abilities. Poke with your longer W and commit only once her ultimate is on cooldown."
+]
+]
+}
+],
+"Mel": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Her CC can cancel your flight and set up her rotation, and her defensive tools make chip damage hard. Position diagonally to dodge her line skillshots and farm with W; your burn at 225 stacks gets through her shields later."
 ]
 ]
 }

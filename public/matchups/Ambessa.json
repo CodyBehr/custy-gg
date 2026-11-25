@@ -135,6 +135,20 @@
 ]
 }
 ],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"As long as you avoid her E, the lane is fine for you."
+]
+]
+}
+],
 "Tryndamere": [
 {
 "fields": [
@@ -285,6 +299,20 @@
 [
 "",
 "Depends on how good the Jayce is. After level 6 he is vulnerable to your all-in, and you can use your R to run him down."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"All he can do is try to out-stat you in a straight fight. Your ultimate cancels his."
 ]
 ]
 }

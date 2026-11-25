@@ -37,6 +37,20 @@
 ]
 }
 ],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"His ult is a huge teamfight tool, but its long cooldown gives you many windows to force fights with your own ult while his is down."
+]
+]
+}
+],
 "Annie": [
 {
 "fields": [
@@ -75,6 +89,20 @@
 [
 "",
 "Dangerous if you or your ADC cannot dodge his hook; he punishes your roams and zones your ADC well. With confident movement the lane is manageable."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Learn his skillshot habits and avoid eating everything and the lane is easy. Your ult gives free picks or forces Flashes whenever it is up."
 ]
 ]
 }
@@ -215,6 +243,20 @@
 [
 "",
 "Like Ashe support, a favorable draft for you."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her Black Shield counters your whole kit, blocking both your stun and ult, especially if she maxes it first. If your Q breaks the shield, the stun still lands. Worth banning."
 ]
 ]
 }
@@ -397,6 +439,20 @@
 [
 "",
 "A mage support you handle well, but his E snare hitbox can be deceptive, so give it room."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Still a strong laner, but since his devour became his ult he is much worse at stopping your picks. You can bully him fairly hard early."
 ]
 ]
 }

@@ -80,6 +80,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"His poke and area damage make lane tough. Focus on not getting tagged by his spells over and over."
+]
+]
+}
+],
 "Neeko": [
 {
 "fields": [
@@ -290,6 +304,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Her Black Shield blocks your Q and her root punishes bad positioning. From level 6, your ultimate can fully negate her Q and R engage."
+]
+]
+}
+],
 "Alistar": [
 {
 "fields": [
@@ -454,6 +482,20 @@
 [
 "",
 "He pressures through roaming, but you can protect your ADC comfortably. Keep track of where he goes."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Hard to kill but has little reliable access to you. Play around his W and keep Q for his engage."
 ]
 ]
 }

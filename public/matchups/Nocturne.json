@@ -10,6 +10,16 @@
 },
 "fetched": "2026-11-12",
 "rows": {
+"Amumu": [
+{
+"fields": [
+[
+"",
+"Moderate 1v1 threat with CC and sustained W damage but little burst. Invade early to deny him farm, dodge his Q, counter-gank his engages, and fight when his ult is on cooldown."
+]
+]
+}
+],
 "Ekko": [
 {
 "fields": [
@@ -26,6 +36,16 @@
 [
 "",
 "Strong early duelist with burst and Cocoon. Juke her cocoon, ward her entrances and counter-gank since her early game depends on ganks; take extended fights, especially after she misses Cocoon."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"",
+"Relies on stealth ambushes and burst. Ward to track her, don't face-check, build MR and collapse on her in teamfights where she is squishy and lacks CC."
 ]
 ]
 }
@@ -190,6 +210,16 @@
 ]
 }
 ],
+"Rammus": [
+{
+"fields": [
+[
+"",
+"Hard to burst with his armor and taunt engages. Invade his slow early clear, stay grouped vs his catches, build tenacity and %HP or armor pen to get through his defenses."
+]
+]
+}
+],
 "RekSai": [
 {
 "fields": [
@@ -256,6 +286,16 @@
 [
 "",
 "Significant challenge in extended fights since his ult steals stats. Avoid long duels while R is active, look for quick burst trades, spell-shield his pillar, and build %HP damage."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"",
+"Strong early duelist; respect his early power. Spell-shield his bear stun, kite him with Q and fear since he lacks gap closers, and build health-shredding items."
 ]
 ]
 }

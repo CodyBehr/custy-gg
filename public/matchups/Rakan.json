@@ -23,6 +23,20 @@
 ]
 }
 ],
+"Mel": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her long-cooldown E root can fully stop your engage, and her long-range Q punishes squishy ADCs. Her W reflects your Q, which barely matters, but it does not block CC, so wait for her to waste the root and then engage."
+]
+]
+}
+],
 "Pantheon": [
 {
 "fields": [
@@ -177,6 +191,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"A good Brand holds his spells for your engage and either bursts you or stops it. Play around his cooldowns and look to exploit his mistakes for a lead."
+]
+]
+}
+],
 "Thresh": [
 {
 "fields": [
@@ -187,6 +215,20 @@
 [
 "",
 "Tankier with more playmaking before 6. He will hook your ADC since you can E away from his hooks; you can use one E to take the hook for your ADC and the second to escape. Punish missed hooks, but his flay can cancel your W. Go even early and take more risks after 6."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"If she wastes spells you can pressure hard; if she holds them, you may be reduced to Q poke, so consider extra Q points. Her slow Q is easy to dodge with E or W and is blocked by minions. Her Black Shield negates your knock-up and charm and has a long cooldown, so wait it out."
 ]
 ]
 }
@@ -271,6 +313,20 @@
 [
 "",
 "Her heals, speed and stun make killing her ADC hard. Punish her when she misses her ultimate or is low on mana."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"You usually have the edge since his W engage is easy to dodge. If he dives your ADC, W him and let your ADC back off. Never focus him unless he is the last one alive; avoid his tongue and pressure his ADC."
 ]
 ]
 }

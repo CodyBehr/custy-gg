@@ -7,7 +7,7 @@
 "rank": "High GM-low Challenger, Rank 1 Kayle OTP",
 "updated": "2026-09"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Aatrox": [
 {
@@ -189,6 +189,36 @@
 [
 "Tips Against the Matchup",
 "Hard matchup, she wins if she's on top of you with abilities up. Try to bait her abilities by standing on top of wave, all are AOE ensuring that you don't get frozen on. If she ever uses her dashes to try to catch up to you, you can look to punish and trade back heavily or even kill. Becomes insanely hard after she gets Eclipse so be wary of trades and play from distance. Heavily outscale her."
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"3"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"He's very resilient to auto attacks because of his W passive, because of this prioritize AP or AD instead of Attack Speed when building your first item (ie. blasting wand instead of recurved bow for AP) even with E max. He can stun lock you with Q + ult + Q so be VERY careful if about ganks. Have very good vision on the map and just turtle up; he can't deal with you post level 11."
 ]
 ]
 }
@@ -425,6 +455,36 @@
 ]
 }
 ],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"You can bait her W stun into the wave in order to make it push into you. Play under tower and wait till level 6. She doesn't have an ultimate unless she kills someone. Lvl 6 is when you start taking over the lane and you also outscale her."
+]
+]
+}
+],
 "Blitzcrank": [
 {
 "fields": [
@@ -451,6 +511,36 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Resolve: w/Second Wind & Overgrowth."
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Against brand rush T2 boots, it'll make it harder for him to hit his spells. There's not much to say about this matchup, just avoid his spells and bait them into the minion wave in order for him to push the wave. His waveclear is great but his roams really aren't so all you have to do is survive the lane. You can rush Wit's End into this matchup and it'll do great."
+]
+]
+}
+],
 "Braum": [
 {
 "fields": [
@@ -461,6 +551,32 @@
 [
 "Summoner Spell",
 "Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Exhaust"
 ],
 [
 "Rune Setup",
@@ -779,6 +895,32 @@
 [
 "Starting Items",
 "- Doran's Blade."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
 ]
 ]
 }
@@ -1175,6 +1317,36 @@
 [
 "Starting Items",
 "Doran's Shield Start"
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+],
+[
+"Tips Against the Matchup",
+"Your ultimate counters her ultimate insanely hard, especially for lategame teamfights. Always ult the champion she's ulting (unless he's useless). In the early game try and sustain as best as you can and dodge abilities by faking going into her range. Buy early boots against her. When you're level 6 try and bait her E, if she misses her you can win trades and all ins."
 ]
 ]
 }
@@ -2083,6 +2255,32 @@
 ]
 }
 ],
+"Mel": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"8"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield"
+]
+]
+}
+],
 "Milio": [
 {
 "fields": [
@@ -2127,6 +2325,62 @@
 [
 "Secondary",
 "Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"4"
+],
+[
+"Summoner Spell",
+"Flash + Ignite"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"- Doran's Blade."
+],
+[
+"Tips Against the Matchup",
+"You win this matchup by baiting his E and his Q; walk into their range and bait them, don't get hit by them. Try and sidestep them always when you go into his ability Range. His E cooldown is about twice as long as his Q cooldown. Bait his Q into the minion wave so it pushes permanently into you. Once you're level 6, you can force long trades and all ins when he misses his E; he can't do anything. When under his ult, use our ult against one of his Qs."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"6"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
 ],
 [
 "Starting Items",
@@ -2243,6 +2497,36 @@
 [
 "Starting Items",
 "- Doran's Blade."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"2"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+],
+[
+"Tips Against the Matchup",
+"Nilah is not very good on Solo Lanes because she losses her benefit EXP Share to an ally and her ability to buff and share heals and shields. She doesn't have a ton of damage but her all-in is amazing with two dashes and a pseudo-diana ult. Be very careful because of this to not be far away from your tower and care if she freezes because her gank setups are so good. Bait her Q into you when next to minions in order to make her push into you and also when she has her Q buff and you're getting poked, make sure you're next to minions because she does AoE Damage with her Autos (like tiamat) and will help you push the wave into you."
 ]
 ]
 }
@@ -2601,6 +2885,32 @@
 ]
 }
 ],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Cleanse"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Blade Start"
+]
+]
+}
+],
 "RekSai": [
 {
 "fields": [
@@ -2848,6 +3158,32 @@
 [
 "Starting Items",
 "- Doran's Blade."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade Start"
 ]
 ]
 }
@@ -3272,6 +3608,32 @@
 ]
 }
 ],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"9"
+],
+[
+"Summoner Spell",
+"Flash + Ghost"
+],
+[
+"Rune Setup",
+"Lethal Tempo."
+],
+[
+"Secondary",
+"Sorcery w/Celerity & GS"
+],
+[
+"Starting Items",
+"Doran's Shield Start"
+]
+]
+}
+],
 "Taliyah": [
 {
 "fields": [
@@ -3544,6 +3906,36 @@
 ]
 }
 ],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"7"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Sorcery: w/Celerity & GS"
+],
+[
+"Starting Items",
+"Cull Start."
+],
+[
+"Tips Against the Matchup",
+"Careful if he has ghost as you don't and he'll run you down when close to your tower. Do NOT trade with him, just farm with cull and wait for lane to be over. Trading is futile as he has insane sustain and you can't ever all-in him because of his movespeed."
+]
+]
+}
+],
 "Urgot": [
 {
 "fields": [
@@ -3622,6 +4014,32 @@
 [
 "Starting Items",
 "Doran's Shield Start"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty (easy=1, insane=10)",
+"5"
+],
+[
+"Summoner Spell",
+"Flash + Teleport"
+],
+[
+"Rune Setup",
+"Press the Attack."
+],
+[
+"Secondary",
+"Inspiration: w/ Jack & Triple Tonic."
+],
+[
+"Starting Items",
+"Doran's Blade."
 ]
 ]
 }

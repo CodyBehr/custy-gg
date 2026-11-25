@@ -4,7 +4,7 @@
 "quality": "sheet",
 "url": "https://docs.google.com/spreadsheets/d/1pF2wbqRxHz00vQolCQ_z896kH5TDuLYFPryPDDSCKxg/edit"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Aatrox": [
 {
@@ -506,6 +506,48 @@
 ]
 }
 ],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nShield Bash\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nArmor"
+],
+[
+"Build Notes",
+"Split Pushing path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nThornmail\nBlack Cleaver"
+],
+[
+"Boots",
+"Plated Steelcaps"
+],
+[
+"Matchup Notes",
+"This matchup is entirely reliant on dodging Tentacles. They're pretty much Illaoi's ONLY source of damage, which will also heal her when they hit. You NEED to stay behind minions or else Illaoi can use her Spirit Grab(E) to stack up Conqueror, zoning you from wave and spawning more of her tentacles. Kill Tentacles whenever Illaoi is distracted. If she tries to E you and there's no nearby tentacles and she has no ult, you can also just try to fight her. Back off when she ults, she pumps out insane damage. If you have your W and R, you need to activate your R first to get out of all the tentacles and then use your W, which is a guaranteed hit if she's jumping at you with her W. You win Level 1…"
+]
+]
+}
+],
 "Irelia": [
 {
 "fields": [
@@ -872,6 +914,48 @@
 [
 "Matchup Notes",
 "The biggest problem in this matchup is you have extremely limited Kill Agency of Maokai, since his passive grants him periodic heals which are pretty crazy. He's also quite tanky, making it difficult to make plays, and his Q (smash) is a disengage which will prevent you from getting great trades. Maokai's goal is to make it past early game so he can group, and he will try to do this by using the two methods above; sustain and disengage. What's wrose is that his wave clear isn't that bad and he responds so well to when his jungler ganks (he actually will attract them since he sets up such good ganks). Main goal in lane is to harass Maokai when he walks up to CS, and avoid using your W until h…"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nShield Bash\nRevitalize\nStats:\nAttack Speed\nMagic Resist\nMagic Resist"
+],
+[
+"Build Notes",
+"If you struggle in this lane, run Lethal Tempo.\nTeamfight Path available."
+],
+[
+"Abilities",
+"Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nPhage\nFINAL BUILD\nHullbreaker\nGoredrinker\nWit's End\nTitanic Hydra\nBlack Cleaver\nOR Chempnk Chainsword"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Mordekaiser is almost completely reliant on landing his Q in order to win trades with you. His Q is his main source of damage, and will deal extra damage while isolated. You need to do everything to dodge his Q's and if you do, play extremely aggressively. Pay attention to his passive, which can end up eating your health if you try trading with him too dangerously in it. It activates when he lands 3 autos or attacks on a champion. Level 1, you want to force a short trade so you can make him back off so you get Level 2 advantage. You can cheater recall (slow push waves 1-2, hard push wave 3 and reset) to get a lead if you don't think you play well into Morde. If he walks up to Auto the wave, …"
 ]
 ]
 }
@@ -1486,6 +1570,44 @@
 [
 "Matchup Notes",
 "Sylas is an AP bruiser who is really mobile. His Q lashes out chains in an X and then deals a burst of damage where they intersect, his W is a short range dash to an enemy that bursts and heals, scaling on missing health. His E is a dash, which can then be recast to pull himself to an enemy and stunning them. His passive makes his next basic attack deal AOE damage and his ult steals a copy of an enemy's ultimate. Since Sylas is AP (ability reliant), you will heavy win this matchup Level 1. Similar to Nasus, you should completely zone him from the wave for the first few levels, and try to crash the wave at Level 3 (Cheater recall). This is because at Level 3 he is most strong, since he unlock…"
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Difficult"
+],
+[
+"Spells",
+"Flash\nIgnite"
+],
+[
+"Keystone",
+"Conqueror"
+],
+[
+"Runes",
+"Primary:\nTriumph\nLegend: Tenacity\nLast Stand\nSecondary:\nConditioning\nRevitalize\nStats:\nAttack Speed\nAdaptive Force\nMagic Resist"
+],
+[
+"Abilities",
+"behind: W-Q-E\nelse: Q-W-E"
+],
+[
+"Items",
+"STARTING ITEMS\nDorans Blade + Pot\nFIRST BACK\nCaulfield's Warhammer\nFINAL BUILD\nGoredrinker\nSterak's Gage\nTitanic Hydra\nBlack Cleaver\nANY Defensive Item"
+],
+[
+"Boots",
+"Merc Treads"
+],
+[
+"Matchup Notes",
+"Tahm Kench is a really difficult matchup because he's SO tanky and hard to deal with. His autos deal a lot of damage and stack his passive. When the fish symbol reaches max stacks, he can stun you. His Q is a slow that heals him if he hits you, his W is a blink that knocks up champions, his E is a shield equal to the amount of gray health he has, and his ult allows him to eat an ally. At max fish stacks, he can stun you with his Q and eat you with his ult. His damage output Level 1 is similar to yours, so no point in trying to make a play. Stay behind minions and get a minion advantage to get the level 2 advantage, then force a trade. You'll win this. Do your best to avoid Tahm's Q since it …"
 ]
 ]
 }

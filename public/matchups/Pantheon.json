@@ -7,7 +7,7 @@
 "rank": "Master EUW",
 "updated": "2024-06"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Aatrox": [
 {
@@ -425,6 +425,32 @@
 ]
 }
 ],
+"Illaoi": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Cleaver"
+],
+[
+"Tips",
+"Dodge her E and go in if she misses it. Disengage if she uses R post 6. Can rush Steelcaps*"
+]
+]
+}
+],
 "Irelia": [
 {
 "fields": [
@@ -759,6 +785,32 @@
 [
 "Tips",
 "Abuse early before he gets tanky. Don't get baited under his tower"
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Maw"
+],
+[
+"Tips",
+"Don't get isolated Qed. If you engage, dodge E or back off. Can rush Mercs* or Hexdrinker vs double AP topside"
 ]
 ]
 }
@@ -1231,6 +1283,32 @@
 ]
 }
 ],
+"TahmKench": [
+{
+"fields": [
+[
+"Keystone",
+"Conq"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade / DShield"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
+],
+[
+"Tips",
+"Poke him from behind your minions. Consider Mercs rush and Serpent's*"
+]
+]
+}
+],
 "Teemo": [
 {
 "fields": [
@@ -1305,6 +1383,28 @@
 [
 "Tips",
 "Try not to leash so you don't get ran down lvl1. Beware his fury and try to get a lead pre 6. Can rush Steelcaps*"
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Keystone",
+"Conq / PTA"
+],
+[
+"Secondary",
+"Sorcery / Resolve (SW)"
+],
+[
+"Starting item",
+"DBlade"
+],
+[
+"Rush item",
+"Eclipse or Cleaver"
 ]
 ]
 }

@@ -100,6 +100,16 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"",
+"Expect heavy damage and shield as much as you can; watch for him walking up to throw his pillar. Engage after he uses major spells, especially a missed stun. Move away from your ADC during his ult and time R to cut its damage."
+]
+]
+}
+],
 "Karma": [
 {
 "fields": [
@@ -116,6 +126,16 @@
 [
 "",
 "His voidlings shred a melee support; don't all-in at medium or low HP. His spell shield blocks your stun, so let a long-range ADC pop it first; once it's down you can stun him to interrupt his ult."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"",
+"Rough lane: her black shield negates your stun. Don't engage while it's up. Take her binding for your ADC with a shield, heal off her pool, and ult during her R's delay."
 ]
 ]
 }
@@ -186,6 +206,16 @@
 [
 "",
 "Kill her first; she enables her whole team. Engage when your ADC is strong, call for early ganks since she's immobile, and keep distance from her Q."
+]
+]
+}
+],
+"TahmKench": [
+{
+"fields": [
+[
+"",
+"Hard to kill and can swallow allies to safety. Avoid melee range when he can stack his passive on you; after 6 play defensively vs his ambushes."
 ]
 ]
 }

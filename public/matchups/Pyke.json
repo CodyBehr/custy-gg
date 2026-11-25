@@ -79,6 +79,20 @@
 ]
 }
 ],
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Rarely a threat unless his items are overtuned. His Q is telegraphed, so space with Q and W to dodge both casts and use E as needed. Avoid clumping for his ultimate, and consider Mercury's Treads or Edge of Night if he is a problem."
+]
+]
+}
+],
 "Anivia": [
 {
 "fields": [
@@ -191,6 +205,20 @@
 ]
 }
 ],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"She is tanky, mobile and thrives in early skirmishes, killing you if she knocks you up; she can gank, invade and counter-gank you freely. Predict her dashes, shut her down early as a team, and avoid fights when you do not know where she is."
+]
+]
+}
+],
 "Blitzcrank": [
 {
 "fields": [
@@ -205,6 +233,20 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Immobile and harmless if you dodge his stun. Bait his W and Q before fighting, respect his ultimate once Q is down, and do not stand near the wave where his E spreads."
+]
+]
+}
+],
 "Braum": [
 {
 "fields": [
@@ -215,6 +257,20 @@
 [
 "",
 "A natural counter: he blocks your access to his ADC, absorbs follow-up damage and stuns you with no escape. Consider dodging if his ADC procs his passive easily; playing safe wastes Pyke's early impact."
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy with no burst and telegraphed spells; you can react to her Q, W and ultimate with E to stun her, and dodge her E with E or W. Watch the healing during her E channel and listen for her ultimate cue."
 ]
 ]
 }
@@ -369,6 +425,20 @@
 [
 "",
 "She struggles to dive you since you dodge cocoon and E out of range, but you also struggle to kill her because her rappel dodges your skills."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"You can escape her first engage, but her ultimate can close gaps. Keep E to dodge her spells and open with W when she charms you. Buy plenty of Control Wards, possibly Vigilant Wardstone, ward her jungle camps, and watch for her stealing objectives over walls."
 ]
 ]
 }
@@ -565,6 +635,20 @@
 [
 "",
 "Stay behind minions from his poke and hook him when he is out of position. Roam if lane is hard, use Oracle Lens to set up picks, and look for flanks and ultimate executes later."
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"Avoid extended fights and her tentacle zones; use hit-and-run trades. If her E grabs your spirit, back off until it ends. Roam to pressure elsewhere while she split pushes, and focus on picking off squishy targets."
 ]
 ]
 }
@@ -1073,6 +1157,34 @@
 ]
 }
 ],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He wins long trades, so hit and run, and back off if his pull lands. Keep E or Flash to escape his Death Realm."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Her root and Black Shield shut down your engage. Avoid her W poke and bait out the root and shield before committing."
+]
+]
+}
+],
 "Naafiri": [
 {
 "fields": [
@@ -1153,6 +1265,20 @@
 [
 "",
 "Dodge her spears and punish her when she misplaces herself, since she is squishy. Track her and clear vision to deny picks."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"She is strong in extended trades and her ultimate can snowball fights. Bait out her dash before committing and look to catch her out."
 ]
 ]
 }
@@ -1297,6 +1423,20 @@
 ]
 }
 ],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Avoid his rolling engage and taunt. He is tanky but low on damage, so kite him and focus squishy targets."
+]
+]
+}
+],
 "RekSai": [
 {
 "fields": [
@@ -1419,6 +1559,20 @@
 [
 "",
 "Squishy but mobile. Bait her wind wall before committing and avoid her ultimate in teamfights."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Tanky but slow; avoid her engage and stun. Kite her CC and flank around her ultimate."
 ]
 ]
 }
@@ -1647,6 +1801,20 @@
 ]
 }
 ],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Tanky but slow. Avoid his poke and engage, bait his shield before committing, and kite him."
+]
+]
+}
+],
 "Taliyah": [
 {
 "fields": [
@@ -1787,6 +1955,20 @@
 ]
 }
 ],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Strong early with a stun and burst; avoid extended fights. He is tanky, so kite him."
+]
+]
+}
+],
 "Urgot": [
 {
 "fields": [
@@ -1825,6 +2007,20 @@
 [
 "",
 "Squishy but scales well; avoid her knockback. Use Oracle Lens against her stealth and look for catches."
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"Squishy but scales; dodge his poke and cage. Bait the cage before engaging and avoid his ultimate burst."
 ]
 ]
 }

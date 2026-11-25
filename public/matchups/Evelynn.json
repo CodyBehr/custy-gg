@@ -9,6 +9,62 @@
 },
 "fetched": "2026-11-12",
 "rows": {
+"Amumu": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He clears slowly, cannot invade you and has no kill pressure before or after level 6. Respect his ult and CC chain and you can control the map freely."
+]
+]
+}
+],
+"Belveth": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"She will invade you repeatedly and dominates the early jungle. Start on wolves or raptors and then clear the opposite side; if she invades at level 1, abandon the camp and move away. Expect to reach level 6 behind against her."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"He needs vision to land his combo, so he cannot hurt you while you are stealthed charging W. Once charm is ready, he is squishy and usually dies to one combo."
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"Difficulty",
+"Extreme"
+],
+[
+"",
+"Very hard to win. Ward the opposite buff for cheese and start raptors or wolves so she cannot clear one camp and invade. Her damage reduction and CC chain make her hard to one-shot, though she invades less than Bel'Veth."
+]
+]
+}
+],
 "Diana": [
 {
 "fields": [
@@ -331,6 +387,20 @@
 ]
 }
 ],
+"Rammus": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"A low-threat tank who struggles against AP, cannot kill you and takes objectives slowly."
+]
+]
+}
+],
 "RekSai": [
 {
 "fields": [
@@ -355,6 +425,20 @@
 [
 "",
 "Historically your worst matchup: he punishes you in his ult, invades, and his W negates your damage. It is still winnable but you have less control; ward your opposite buff."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"Difficulty",
+"Minor"
+],
+[
+"",
+"A low-damage, slow-clearing tank who cannot stop you from snowballing."
 ]
 ]
 }
@@ -425,6 +509,20 @@
 [
 "",
 "Whoever is fed wins. You can complete your combo before he finishes his and hops a wall. Ward your opposite buff for level 3 invades."
+]
+]
+}
+],
+"Udyr": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"He beats you one-on-one at every stage, and after Kaenic Rookern you cannot one-shot him. Play away from him and get fed through lanes; he rarely invades, so you can farm to 6."
 ]
 ]
 }

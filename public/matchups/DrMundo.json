@@ -7,7 +7,7 @@
 "rank": "Challenger",
 "updated": "2026-11"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Aatrox": [
 {
@@ -161,6 +161,32 @@
 [
 "General tips and tricks vs the champion",
 "She will completely murder you. She has a lot of % health damage in her kit that is basically undodgable due to how immobile you are. She also has a very heavy slow that can ensure she can chase you down hard. Your best bet in this lane is to just Q minion from afar and take any cs you can. Her ultimate won't supress you in the air if your passive is on, but she will still blink next to you, so be mindful of that. When you hit level 16 you can actually try to fight her due to your rank 3 ultimate, but considering how much damage she will also do by that point, odds are you're still going to hyper hard lose. Make sure you don't die and just survive out the laning phase. You can try to outvalu…"
+]
+]
+}
+],
+"Amumu": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Heartsteel > Spirit Visage > Plated Steelcaps > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+],
+[
+"General tips and tricks vs the champion",
+"His % hp dmg can actually do a lot vs you, but for the most part you can scale very easily for free."
 ]
 ]
 }
@@ -373,6 +399,32 @@
 ]
 }
 ],
+"Belveth": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Bramble Vest > Heartsteel > Plated Steelcaps > Thornmail > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+],
+[
+"General tips and tricks vs the champion",
+"Respect her early game, not much else to it. Try not to get cheesed by her 4 Q procs. Play it slow until Bramble Vest, after which you can look to fight. If she hits you with her entire E she will deal a lot of damage, and her ult hits will just ramp up true damage quickly so always keep that in mind."
+]
+]
+}
+],
 "Blitzcrank": [
 {
 "fields": [
@@ -399,6 +451,32 @@
 ]
 }
 ],
+"Brand": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Inspiration: Unsealed Spellbook, Magical Footwear, Biscuit Delivery, Approach Velocity\nResolve: Second Wind, Overgrowth\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Heartsteel > Spirit Visage > Plated Steelcaps > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Easy matchup"
+],
+[
+"General tips and tricks vs the champion",
+"Strong burn damage and if he rushes Rylai's you want to go Boots of Swiftness next instead of Spirit Visage. He can't really kill you with his burst combo, but he can chunk you out decently, watch out for that."
+]
+]
+}
+],
 "Braum": [
 {
 "fields": [
@@ -421,6 +499,32 @@
 [
 "General tips and tricks vs the champion",
 "Free scaling lane, not much else to it."
+]
+]
+}
+],
+"Briar": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Bramble Vest > Heartsteel > Plated Steelcaps > Thornmail > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+],
+[
+"General tips and tricks vs the champion",
+"Sadly there's actually not a lot to outplay here. The best thing you can do vs her is save your Q for when she jumps on you to guarantee the hit. It's a pretty straight forward matchup. Either she stat checks you or you stat check her. You can look to just sit back and farm up. If she takes Blade of the Ruined King she will delete your health. You can't really fight her ever, not even late game, unless it's at some very specific item spikes. If she hits her ult on you she will basically always win the fight unless you are super ahead of her. The one good thing is that she can't exactly dive her, but it's not like you can exactly play to outsustain her, which is why I don't think going Warmog…"
 ]
 ]
 }
@@ -711,6 +815,32 @@
 [
 "General tips and tricks vs the champion",
 "She actually has % current and missing hp danmage, but it's not too big of an issue. You can just get an early Null-Magic Mantle and you're good to go."
+]
+]
+}
+],
+"Evelynn": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Heartsteel > Spirit Visage > Plated Steelcaps > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+],
+[
+"General tips and tricks vs the champion",
+"Her Q will actually deal a lot of damage if she spams it on you constantly, but other than that she doesn't have the damage to threaten you. You can always W her big burst after the charm."
 ]
 ]
 }
@@ -1083,6 +1213,36 @@
 [
 "General tips and tricks vs the champion",
 "Extremely boring matchup. There's nothing exactly hard about it, it's just insanely boring because Hwei can just permanently clear out minion waves. He can't even kill you unless he giga mega pokes you, and then he can if he tags you with his ult, but most of the time it's not exactly hard to play into, just hyper boring. Farm as well as you can until 3 items and then you can take turrets easily because of Hullbreaker."
+]
+]
+}
+],
+"Illaoi": [
+{
+"fields": [
+[
+"level up order",
+"4 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Inspiration: Unsealed Spellbook, Magical Footwear, Biscuit Delivery, Cosmic Insight\nResolve: Second Wind, Overgrowth\nSmall shards: ability haste, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Dead Man's Plate > Warmog's Armor > Bramble Vest > Boots of Swiftness > Heartsteel > Sterak's Gage"
+],
+[
+"Matchup difficulty",
+"Extremely hard matchup"
+],
+[
+"General tips and tricks vs the champion",
+"She can melt your health bar 3 times over even as early as level 6. She can straight up 100-0 you under turret if she tags you with her E. I'm not kidding. You want to get to Warmog's as fast as possible so that you can sustain. If you walk up for a single minion you lose half your health if she hits E, and if she also ults you die if your ult isn't up almost always. W timing is extremely important in this matchup, because you need to time it to stop the big tentacle slams, especially the ones from her ult where there are more tentacles. That is basically the only way to survive a dive vs her if she hits E on you. Proper W timing will allow you to eat a lot more damage and tough it out. Your…"
+],
+[
+"Tips (summarized from Federals1's guide)",
+"A hard counter that annihilates you in lane; the goal becomes simply surviving rather than playing to scale."
 ]
 ]
 }
@@ -1954,6 +2114,32 @@
 ]
 }
 ],
+"Mel": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Heartsteel > Spirit Visage > Boots of Swiftness"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+],
+[
+"General tips and tricks vs the champion",
+"There's not a whole lot you can do here. He will slowly chip away at your health and you just need to tough it out and survive. You get to scale quite well into her, but you must not let her passive stack up a lot on you. Even if you might not take a lot of damage from her late on, if you have a ton of passive stacks she can ult you and straight up kill you from half health instantly. You can actually use your W to reduce almost her entire ultimate damage,but this won't work if she just flat out executes you, so if you think that will happen, it is best you use your ultimate first to gain a bit of extra health which should get you out of the execute range. Her W can reflect back your Q so be…"
+]
+]
+}
+],
 "Milio": [
 {
 "fields": [
@@ -2002,6 +2188,58 @@
 [
 "General tips and tricks vs the champion",
 "Her slow is annoying but nothing massive. If she somehow goes Blade of the Ruined King get Bramble Vest before Heartsteel and then Plated Steelcaps and you're good to go."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"level up order",
+"4 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, tenacity and slow resist\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Heartsteel > Boots of Swiftness > Spirit Visage > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Skill Matchup"
+],
+[
+"General tips and tricks vs the champion",
+"The issue with this lane is that if he ever hits E he can kill you. You need your passive up for you to survive this lane, because if he procs it down he can ult you, and that's how you die. If he can't ult you then you are going to win it, but you need to dodge that E, and it becomes even harder to do so once he gets Rylai's. Not much else to say about the matchup, time your W for his isolated Q, try not to fight him when his W is full and remember to do everything you can to dodge that E because if you don't he will ult you and you will probably die, or you both trade ults which isn't super horrible."
+]
+]
+}
+],
+"Morgana": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Heartsteel > Spirit Visage > Plated Steelcaps > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+],
+[
+"General tips and tricks vs the champion",
+"Late game she can't ever cc you as long as you can keep picking up the canister. She can't really deny you from scaling either."
 ]
 ]
 }
@@ -2158,6 +2396,32 @@
 [
 "General tips and tricks vs the champion",
 "It's just a poke lane where you can't exactly fight her. It's pretty boring and you just kinda have to accept the fact that she will auto attack you a lot. She shouldn't ever hit a Q on you if you sit in between minions, and whenever she jumps on you just press W and eat most of the combo damage. It's mostly annoying until the first Giant's Belt, sometimes then second, after which you're mostly fine. She can still bully you with autos and slowly chipping you down so do not just try to go for all ins a lot, especially since it's really hard to catch her."
+]
+]
+}
+],
+"Nilah": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Bramble Vest > Heartsteel > Randuin's Omen > Plated Steelcaps > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+],
+[
+"General tips and tricks vs the champion",
+"She can do a lot of damage to you through her autos, and her W not only blocks your autos but it reduces magic damage, and that includes your Q. That begin said, she's not super strong in the early game and can't hyper abuse you. She scales really hard though, so try to abuse her a lot early on if you can, especially on your first item."
 ]
 ]
 }
@@ -2452,6 +2716,32 @@
 ]
 }
 ],
+"Rammus": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Heartsteel > Spirit Visage > Plated Steelcaps > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+],
+[
+"General tips and tricks vs the champion",
+"Your Q deals magic damage so if he buys a lot of armor you will still do very solid damage to him, plus you free scale into him."
+]
+]
+}
+],
 "RekSai": [
 {
 "fields": [
@@ -2683,6 +2973,32 @@
 [
 "General tips and tricks vs the champion",
 "You can't stop her ult damage which sucks so she can blow you up really hard. On top of that she has a much stronger early game than you, so you need to respect her all in power. Not a whole lot you can do vs her, just sit back and farm up with Q until 2 items. She can really do a ton of damage to you and kill you a lot if you aren't careful."
+]
+]
+}
+],
+"Sejuani": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Heartsteel > Spirit Visage > Plated Steelcaps > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+],
+[
+"General tips and tricks vs the champion",
+"She can't stop your scaling so it's pretty free. When your passive is down be careful of her W and ult damage after she attacks you, as that can do quite a bit."
 ]
 ]
 }
@@ -3107,6 +3423,32 @@
 ]
 }
 ],
+"TahmKench": [
+{
+"fields": [
+[
+"level up order",
+"4 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Heartsteel > Spirit Visage > Boots of Swiftness > Executioner's Calling"
+],
+[
+"Matchup difficulty",
+"Skill matchup"
+],
+[
+"General tips and tricks vs the champion",
+"Tahm is a pretty big lane bully, but honestly, Mundo can deal with him pretty decently due to the fact that you just need to sit behind minions and not interact with him, which Mundo loves to do because he also outscales him. If Tahm tried to walk up to fight Mundo he needs to use his W forward and walk up really hard, which lets Mundo set up his Q easily. You just need to remember that you cannot fight him in melee range because he actually has a lot of stick power if he actually gets on top of you. He also cannot ult you if your passive is on. He can use it, but it won't actually take you. Just don't overforce fights with him as he can still beat you quite easily, and if you are ever out o…"
+]
+]
+}
+],
 "Taliyah": [
 {
 "fields": [
@@ -3371,6 +3713,32 @@
 ]
 }
 ],
+"Udyr": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Bramble Vest vs AD/ Heartsteel > Spirit Visage vs AP/ Thronmail vs AD > Plated Steelcaps vs AD/ Boots of Swiftness vs AP > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Hard matchup"
+],
+[
+"General tips and tricks vs the champion",
+"Both AD and AP Udyr give Mundo big problems because both of them have % health damage in theirs kits. For both AD and AP you want to block Q with your W. For AD it's because he maxes it and the 2 autos do a lot of damage, but for AP it is the best single target spell Udyr has, even on AP. He has an AP ratio on his lightning on the empower, and if they all hit 1 target it will get nuked, so using W to block most of the damage is very important here. AP Udyr has a lot of lane presence and can push you out really hard. Generally he will go for Liandry and make your life a living her. You can go for Warmog's, but honestly with how much sustained damage he has he can just keep up with you wheneve…"
+]
+]
+}
+],
 "Urgot": [
 {
 "fields": [
@@ -3445,6 +3813,32 @@
 [
 "General tips and tricks vs the champion",
 "Horrible lane for Mundo. There's not a lot to say here because there's not a lot to do vs her. You just want to farm with Q, and possibly look to Q her if she dashes in your face. If her Q is up it's probably not worth it to try to throw it at her as she can dodge out of the way, and you missing a Q early will hurt more than her using mana, plus she can dash sideways and get in range to auto attack you as well. The best thing you can do vs Vayne is make sure she doesn't get extra gold from kills. You wanna do nothing but sit back and farm up with your Q. You cannot fight her, like ever. Even once you get Warmog's it will still be incredibly hard. The only advantage you might have is that she…"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"level up order",
+"3 points Q > E > Q > W"
+],
+[
+"Runes+ Summoner spells",
+"Resolve: Grasp of the Undying, Demolish, Second Wind, Overgrowth\nInspiration: Magical Footwear, Approach Velocity\nSmall shards: attack speed, scaling health, scaling health\nSummoner spells: Flash + Teleport"
+],
+[
+"General build path to 2/3 items and components",
+"Doran's Shield > Heartsteel > Spirit Visage > Titanic Hydra"
+],
+[
+"Matchup difficulty",
+"Easy Matchup"
+],
+[
+"General tips and tricks vs the champion",
+"You can walk through his cage and completely destroy him. You murder him on side lane and teamfights."
 ]
 ]
 }

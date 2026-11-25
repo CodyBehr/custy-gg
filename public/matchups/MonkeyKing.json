@@ -7,7 +7,7 @@
 "rank": "Masters NA",
 "updated": "2021-01"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Aatrox": [
 {
@@ -205,6 +205,20 @@
 ]
 }
 ],
+"Illaoi": [
+{
+"fields": [
+[
+"Difficulty",
+"Medium 5/10"
+],
+[
+"Tips",
+"This matchup is completely skill based. You just have to dodge skillshots which in my experience is not very hard. Early levels you win trades very hard. Just keep in mind to try your best to dodge her E, you can do it with your W. An E auto W on the illaoi generally is easy to bait out her E onto your clone. But even if you get hit by the E, you still win trades as long as you dodge some tentacles. Post six dodging her E becomes even more important. The only way you lose post six is if you all in her when she hits you with both E and ult. If you bait out either E or ult, then you will win the all in. Early executioners will also help. You must play careful all game however, as even if you d…"
+]
+]
+}
+],
 "Irelia": [
 {
 "fields": [
@@ -369,6 +383,20 @@
 [
 "Tips",
 "Maokai actually trades decently into you, with his Q being able to cancel your E, and his sustain with his passive. Early levels it is best to relax and avoid trading unless you have a big minion wave. Post six you have all in advantage, but it is hard to 100-0 him, so it is best to wittle him down before going for an all in. If you still can't kill him then, if you make it to sunderer without falling behind, you will have an easy time sustaining and matching him sidelane."
+]
+]
+}
+],
+"Mordekaiser": [
+{
+"fields": [
+[
+"Difficulty",
+"Hard 9/10"
+],
+[
+"Tips",
+"Probably the second worst matchup in the game for you. He is killable very early levels 1-3, but after that he will win every trade against you. Post six you must avoid E at all costs, which actually isn't too hard to dodge you can literally just side step out of it (or W if you really are scared). If the lane goes even, you will never be able to win 1v1 against him. However Mordekaiser is a stat check champion, so if he does end up dying to you in the early levels or dying from a gank, you can actually 1v1 him if you have more gold/xp. If you do want a chance to beat him it is very crucial to set up a play with your jungler pre six, as post six if your jungler attempts to gank, he can just …"
 ]
 ]
 }

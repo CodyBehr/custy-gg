@@ -38,6 +38,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Difficulty",
+"Major"
+],
+[
+"",
+"Her Black Shield blocks your hook and undermines your whole game plan."
+]
+]
+}
+],
 "Bard": [
 {
 "fields": [
@@ -206,6 +220,20 @@
 ]
 }
 ],
+"TahmKench": [
+{
+"fields": [
+[
+"Difficulty",
+"Tiny"
+],
+[
+"",
+"Rarely played, and the author sees him as no real concern."
+]
+]
+}
+],
 "Sett": [
 {
 "fields": [
@@ -244,6 +272,20 @@
 [
 "",
 "Catching her while detached usually wins the lane, but she becomes a major late-game threat if left alone."
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Difficulty",
+"Even"
+],
+[
+"",
+"If your team cannot burst him right after the hook, he will land his full combo on you."
 ]
 ]
 }

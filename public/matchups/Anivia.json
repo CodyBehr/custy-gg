@@ -6,7 +6,7 @@
 "rank": "Gold (per community index)",
 "updated": "2020"
 },
-"fetched": "2026-11-18",
+"fetched": "2026-11-25",
 "rows": {
 "Ahri": [
 {
@@ -64,6 +64,20 @@
 [
 "Important ability cooldowns",
 "E: 19 R: 120"
+]
+]
+}
+],
+"Brand": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Don't stand in the wave, never stop moving"
+],
+[
+"Important ability cooldowns",
+"Q: 8 R: 105"
 ]
 ]
 }
@@ -306,6 +320,20 @@
 ]
 }
 ],
+"Morgana": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Don't stand on the wave. Break her shield before using Q. You can all in post 6, but dodging her q and tethering is key."
+],
+[
+"Important ability cooldowns",
+"Q: 10 E: 26 R: 120"
+]
+]
+}
+],
 "Neeko": [
 {
 "fields": [
@@ -466,6 +494,20 @@
 [
 "Important ability cooldowns",
 "W: 8 R: 180"
+]
+]
+}
+],
+"Veigar": [
+{
+"fields": [
+[
+"Short matchup goals",
+"Again, care for his jungler. Besides that, this is a pretty chill matchup, where you can kinda bully him early on. Post 6, with good movement, you can all in."
+],
+[
+"Important ability cooldowns",
+"E: 18 R: 120"
 ]
 ]
 }
