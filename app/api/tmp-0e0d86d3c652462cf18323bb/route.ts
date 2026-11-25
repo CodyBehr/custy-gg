@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
-const ME = "68906810-e02e-5129-9bb4-9a03e9ab9f7c";
 const A = "https://americas.api.riotgames.com";
 const N = "https://na1.api.riotgames.com";
 const H = () => ({ "X-Riot-Token": process.env.RIOT_API_KEY ?? "", "User-Agent": "custy.gg" });
@@ -20,10 +19,12 @@ export async function GET(req: Request) {
   const puuid = q.get("puuid") ?? "";
   if (!/^\d+$/.test(game)) return NextResponse.json({ error: "game" }, { status: 400 });
   try {
+    const acct = await get(`${A}/riot/account/v1/accounts/by-riot-id/Buckley/NA0`);
+    const ME: string = acct.puuid;
     const match = await get(`${A}/lol/match/v5/matches/NA1_${game}`);
-    const ps: { puuid: string; championId: number; teamPosition: string; teamId: number }[] = match.info.participants;
+    const ps: { puuid: string; participantId: number; championId: number; teamPosition: string; teamId: number }[] = match.info.participants;
     if (!ps.some((p) => p.puuid === ME)) return NextResponse.json({ error: "not Buckley's game" }, { status: 400 });
-    if (!puuid) return NextResponse.json({ participants: ps.map((p) => ({ puuid: p.puuid, championId: p.championId, teamPosition: p.teamPosition, teamId: p.teamId })) });
+    if (!puuid) return NextResponse.json({ participants: ps.map((p) => ({ puuid: p.puuid, participantId: p.participantId, championId: p.championId, teamPosition: p.teamPosition, teamId: p.teamId })) });
     const me = ps.find((p) => p.puuid === puuid);
     if (!me) return NextResponse.json({ error: "not in that game" }, { status: 400 });
     const league = await get(`${N}/lol/league/v4/entries/by-puuid/${puuid}`);
